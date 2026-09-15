@@ -1,31 +1,29 @@
-python
 import json
+import os
 import time
 import urllib.error
 import urllib.request
-import urllib.parse
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
 HOST = "0.0.0.0"
-PORT = int(__import__("os").environ.get("PORT", "10000"))
+PORT = int(os.environ.get("PORT", "10000"))
 
-# Cloudflare Worker経由で買取APIへ接続
+# RenderからCloudflare Workerへ接続する
 UPSTREAM = "https://iphone-kaitori-api.thank-you-8p.workers.dev/api/search"
 
 ROOT = Path(__file__).resolve().parent
-
 CACHE = {}
 CACHE_SECONDS = 300
 VERSION = "worker-proxy-2026-09-16"
 
 
-def upstream_request(jan):
-    request_body = json.dumps({"jan": jan}).encode("utf-8")
+def request_worker(jan):
+    body = json.dumps({"jan": jan}).encode("utf-8")
 
     request = urllib.request.Request(
         UPSTREAM,
-        data=request_body,
+        data=body,
         headers={
             "Content-Type": "application/json",
             "Accept": "application/json",
@@ -41,7 +39,7 @@ def upstream_request(jan):
                 payload = json.loads(raw)
             except json.JSONDecodeError:
                 payload = {
-                    "error": "WorkerからJSONではない応答が返りました",
+                    "error": "Workerから正しいJSONが返りませんでした",
                     "raw": raw[:1000],
                 }
 
@@ -133,9 +131,7 @@ class Handler(BaseHTTPRequestHandler):
         self.end_headers()
 
     def do_GET(self):
-        parsed = urllib.parse.urlparse(self.path)
-        path = parsed.path
-        params = urllib.parse.parse_qs(parsed.query)
+        path = self.path.split("?", 1)[0]
 
         if path == "/health":
             return self.send_json(
@@ -148,10 +144,17 @@ class Handler(BaseHTTPRequestHandler):
             )
 
         if path == "/diagnostic":
-            jan = "".join(
-                c for c in params.get("jan", [""])[0]
-                if c.isdigit()
-            )
+            query = self.path.split("?", 1)
+            jan = ""
+
+            if len(query) == 2:
+                for item in query[1].split("&"):
+                    key, _, value = item.partition("=")
+                    if key == "jan":
+                        jan = "".join(
+                            c for c in value
+                            if c.isdigit()
+                        )
 
             result = {
                 "version": VERSION,
@@ -160,28 +163,19 @@ class Handler(BaseHTTPRequestHandler):
             }
 
             if not jan:
-                result["message"] = (
-                    "JANを指定するとWorker経由の接続結果を確認できます"
-                )
+                result["message"] = "JANを指定してください"
                 return self.send_json(200, result)
 
             if not 7 <= len(jan) <= 14:
                 result["message"] = "JANは7〜14桁で指定してください"
                 return self.send_json(400, result)
 
-            try:
-                status, payload = upstream_request(jan)
+            status, payload = request_worker(jan)
 
-                result["upstream_status"] = status
-                result["upstream_response"] = payload
+            result["upstream_status"] = status
+            result["upstream_response"] = payload
 
-                return self.send_json(200, result)
-
-            except Exception as error:
-                result["upstream_error"] = (
-                    f"{type(error).__name__}: {error}"
-                )
-                return self.send_json(500, result)
+            return self.send_json(200, result)
 
         if path in ("/", "/index.html"):
             return self.send_html()
@@ -201,12 +195,13 @@ class Handler(BaseHTTPRequestHandler):
             )
 
         try:
-            content_length = int(
+            length = int(
                 self.headers.get("Content-Length", "0")
             )
 
-            raw_body = self.rfile.read(content_length)
-            body = json.loads(raw_body)
+            body = json.loads(
+                self.rfile.read(length)
+            )
 
             jan = "".join(
                 c for c in str(body.get("jan", ""))
@@ -223,27 +218,18 @@ class Handler(BaseHTTPRequestHandler):
             cached = CACHE.get(jan)
 
             if cached and now - cached["time"] < CACHE_SECONDS:
-                print(
-                    f"Cache hit: JAN={jan}",
-                    flush=True
-                )
                 return self.send_json(
                     200,
                     cached["payload"]
                 )
 
-            status, payload = upstream_request(jan)
+            status, payload = request_worker(jan)
 
             if status == 200:
                 CACHE[jan] = {
                     "time": now,
                     "payload": payload,
                 }
-
-            print(
-                f"Worker response: JAN={jan}, status={status}",
-                flush=True
-            )
 
             return self.send_json(status, payload)
 
@@ -284,4 +270,3 @@ if __name__ == "__main__":
     )
 
     server.serve_forever()
-
