@@ -353,9 +353,13 @@ async function checkPrices(){
     const max=stores.reduce((m,x)=>Math.max(m,Number(x.price)||0),0);
     $("apiStatus").textContent=`✅ 取得完了：${stores.length}店舗／最高 ${yen(max)}（JAN ${jan}）`;
     $("updated").textContent=new Date().toLocaleString("ja-JP");
-  }catch(err){
-    $("apiStatus").textContent=`❌ 取得できませんでした：${err.message}。KEY・JAN・通信制限を確認してください。`;
-  }finally{btn.disabled=false}
+}catch(err){
+  if(err.message.includes("HTTP 403")){
+    $("apiStatus").innerHTML=`⚠️ 自動取得が現在利用できません。API側でアクセスが制限されています。<br><a href="https://lite.kaitori.app/" target="_blank" rel="noopener">👉 買取ナビ LiteでこのJANを確認する</a><br><small>JAN：${jan}</small>`;
+  }else{
+    $("apiStatus").textContent=`❌ 取得できませんでした：${err.message}。`;
+  }
+}finally{btn.disabled=false}
 }
 $("model").addEventListener("change",updateCaps);
 $("capacity").addEventListener("change",updateColors);
