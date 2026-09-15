@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: iphone-kaitori-checker
+    runtime: python
+    buildCommand: ""
+    startCommand: "python server.py"
+    envVars:
+      - key: LITE_API_KEY
+        sync: false
