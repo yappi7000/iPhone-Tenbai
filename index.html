@@ -348,7 +348,7 @@ async function checkPrices(){
       const price=Number(item.price);
       if(item.store && Number.isFinite(price) && price>0){ d.prices[item.store]=price; if(item.url) d.links[item.store]=item.url; if(item.last_update) d.updatedAt[item.store]=item.last_update; }
     }
-    localStorage.setItem("liteApiKey",key);
+    
     render();
     const max=stores.reduce((m,x)=>Math.max(m,Number(x.price)||0),0);
     $("apiStatus").textContent=`✅ 取得完了：${stores.length}店舗／最高 ${yen(max)}（JAN ${jan}）`;
