@@ -1,4 +1,4 @@
-```python
+python
 import json
 import time
 import urllib.error
@@ -284,4 +284,4 @@ if __name__ == "__main__":
     )
 
     server.serve_forever()
-```
+
