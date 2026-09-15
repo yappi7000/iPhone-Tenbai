@@ -18,19 +18,25 @@ VERSION = "diagnostic-2026-09-15"
 
 
 def upstream_request(jan):
-    url = UPSTREAM + "?" + urllib.parse.urlencode({"jan": jan})
+    data = json.dumps({"jan": jan}).encode("utf-8")
+
     request = urllib.request.Request(
-        url,
+        UPSTREAM,
+        data=data,
         headers={
-            "Lite-API-Key": API_KEY,
+            "Content-Type": "application/json",
             "Accept": "application/json",
-            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/131.0.0.0 Safari/537.36",
-            "Origin": "https://lite.kaitori.app",
-            "Referer": "https://lite.kaitori.app/",
         },
-        method="GET",
+        method="POST",
     )
+
     with urllib.request.urlopen(request, timeout=30) as response:
+        raw = response.read().decode("utf-8", "replace")
+        try:
+            payload = json.loads(raw)
+        except json.JSONDecodeError:
+            payload = {"raw": raw[:1000]}
+        return response.status, payload
         raw = response.read().decode("utf-8", "replace")
         try:
             payload = json.loads(raw)
