@@ -10,7 +10,7 @@ HOST = "0.0.0.0"
 PORT = int(os.environ.get("PORT", "10000"))
 
 # RenderからCloudflare Workerへ接続する
-UPSTREAM = "https://iphone-kaitori-api.thank-you-8p.workers.dev/api/search"
+UPSTREAM = "https://iphone-kaitori-api.thank-you-8p.workers.dev/test"
 
 ROOT = Path(__file__).resolve().parent
 CACHE = {}
