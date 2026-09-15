@@ -2,6 +2,7 @@ import json
 import os
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -9,27 +10,36 @@ from pathlib import Path
 HOST = "0.0.0.0"
 PORT = int(os.environ.get("PORT", "10000"))
 
-# RenderからCloudflare Workerへ接続する
-UPSTREAM = "https://iphone-kaitori-api.thank-you-8p.workers.dev/test"
+# Cloudflare Workerの、ブラウザで成功確認済みの/testを使用
+WORKER_TEST_URL = (
+    "https://iphone-kaitori-api.thank-you-8p.workers.dev/test"
+)
 
 ROOT = Path(__file__).resolve().parent
 CACHE = {}
 CACHE_SECONDS = 300
-VERSION = "worker-proxy-2026-09-16"
+VERSION = "worker-test-proxy-2026-09-16"
 
 
 def request_worker(jan):
-    body = json.dumps({"jan": jan}).encode("utf-8")
+    # WorkerがJANをURLの?jan=から受け取る形式
+    request_url = (
+        WORKER_TEST_URL
+        + "?jan="
+        + urllib.parse.quote(str(jan), safe="")
+    )
 
     request = urllib.request.Request(
-        UPSTREAM,
-        data=body,
+        request_url,
         headers={
-            "Content-Type": "application/json",
             "Accept": "application/json",
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/131.0.0.0 Safari/537.36",
+            "User-Agent": (
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                "AppleWebKit/537.36 "
+                "Chrome/131.0.0.0 Safari/537.36"
+            ),
         },
-        method="POST",
+        method="GET",
     )
 
     try:
@@ -37,14 +47,35 @@ def request_worker(jan):
             raw = response.read().decode("utf-8", "replace")
 
             try:
-                payload = json.loads(raw)
+                wrapper = json.loads(raw)
             except json.JSONDecodeError:
-                payload = {
+                return response.status, {
                     "error": "Workerから正しいJSONが返りませんでした",
                     "raw": raw[:1000],
                 }
 
-            return response.status, payload
+            # Worker /testの返答から、実際のAPI結果を取り出す
+            upstream_status = wrapper.get(
+                "upstream_status",
+                response.status
+            )
+
+            upstream_response = wrapper.get("upstream_response")
+
+            if isinstance(upstream_response, str):
+                try:
+                    payload = json.loads(upstream_response)
+                except json.JSONDecodeError:
+                    payload = {
+                        "error": "APIの返答をJSONとして読み込めませんでした",
+                        "raw": upstream_response[:1000],
+                    }
+            elif isinstance(upstream_response, dict):
+                payload = upstream_response
+            else:
+                payload = wrapper
+
+            return upstream_status, payload
 
     except urllib.error.HTTPError as error:
         raw = error.read().decode("utf-8", "replace")
@@ -57,6 +88,16 @@ def request_worker(jan):
             }
 
         return error.code, payload
+
+    except Exception as error:
+        print(
+            f"Worker connection error: {type(error).__name__}: {error}",
+            flush=True
+        )
+
+        return 500, {
+            "error": "Workerへの接続中にエラーが発生しました"
+        }
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -72,7 +113,10 @@ class Handler(BaseHTTPRequestHandler):
             "Content-Type",
             "application/json; charset=utf-8"
         )
-        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header(
+            "Access-Control-Allow-Origin",
+            "*"
+        )
         self.send_header(
             "Access-Control-Allow-Headers",
             "Content-Type"
@@ -81,7 +125,10 @@ class Handler(BaseHTTPRequestHandler):
             "Access-Control-Allow-Methods",
             "GET, POST, OPTIONS, HEAD"
         )
-        self.send_header("Content-Length", str(len(data)))
+        self.send_header(
+            "Content-Length",
+            str(len(data))
+        )
         self.end_headers()
 
         if self.command != "HEAD":
@@ -103,7 +150,10 @@ class Handler(BaseHTTPRequestHandler):
             "Content-Type",
             "text/html; charset=utf-8"
         )
-        self.send_header("Content-Length", str(len(data)))
+        self.send_header(
+            "Content-Length",
+            str(len(data))
+        )
         self.end_headers()
 
         if self.command != "HEAD":
@@ -111,7 +161,10 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_OPTIONS(self):
         self.send_response(204)
-        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header(
+            "Access-Control-Allow-Origin",
+            "*"
+        )
         self.send_header(
             "Access-Control-Allow-Headers",
             "Content-Type"
@@ -151,6 +204,7 @@ class Handler(BaseHTTPRequestHandler):
             if len(query) == 2:
                 for item in query[1].split("&"):
                     key, _, value = item.partition("=")
+
                     if key == "jan":
                         jan = "".join(
                             c for c in value
@@ -159,7 +213,7 @@ class Handler(BaseHTTPRequestHandler):
 
             result = {
                 "version": VERSION,
-                "worker_url": UPSTREAM,
+                "worker_url": WORKER_TEST_URL,
                 "jan_received": jan,
             }
 
