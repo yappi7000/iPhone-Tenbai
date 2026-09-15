@@ -9,7 +9,7 @@ from pathlib import Path
 
 HOST = "0.0.0.0"
 PORT = int(os.environ.get("PORT", "10000"))
-UPSTREAM = "https://lite.kaitori.app/api/search"
+UPSTREAM = "https://iphone-kaitori-api.thank-you-8p.workers.dev/api/search"
 API_KEY = os.environ.get("LITE_API_KEY", "").strip()
 ROOT = Path(__file__).resolve().parent
 CACHE = {}
