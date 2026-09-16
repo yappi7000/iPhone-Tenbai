@@ -130,10 +130,10 @@ tr.best-row{background:#effbf7}
 <div class="api-panel">
   <div class="api-row">
     <div><label>JANコード（自動判定／手動修正可）</label><input id="jan" inputmode="numeric" placeholder="商品を選ぶと確認済みJANが自動表示されます"></div>
-    <div class="notice">☁️ スプレッドシートから最新買取価格を直接自動取得しています（APIキー不要）。</div>
+    <div class="notice">☁️ スプレッドシートから最新買取価格を直接取得中（APIキー不要・常時自動連携）。</div>
     <button id="checkBtn" class="api-btn">🔄 最新データを再読込</button>
   </div>
-  <div id="apiStatus" class="api-status">スプレッドシートからデータを取得準備中…</div>
+  <div id="apiStatus" class="api-status">スプレッドシートからデータを取得中…</div>
 </div>
 <div class="kpis">
 <div class="kpi best"><div class="kpi-label">🏆 現在の最高買取</div><div class="kpi-value best-text" id="bestPrice">—</div><div class="kpi-sub" id="bestShop">—</div></div>
@@ -188,8 +188,8 @@ tr.best-row{background:#effbf7}
 <footer class="footer">やっぴ〜Presents｜人生は、知識と戦略で変えられる。📲</footer>
 
 <script>
-// 発行されたGASのWebアプリURL
-const GAS_API_ENDPOINT = "https://script.google.com/macros/s/AKfycbz06vvF3NFNAKfJPwYXV0pSLdRNgYk6fxBucAkthu0SYilSh4XzSOHrWvV2dfaN1ejB/exec";
+// スプレッドシートの「ウェブに公開(CSV)」URL
+const CSV_ENDPOINT = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQm3Po8sxi7DY2g9_Qc0LawHV5upcYB3ZHdtrufh_2EDLEASdXbnZBaEZ2FCXyvgcSiIwWwbaaCyG_R/pub?gid=0&single=true&output=csv";
 
 let CACHED_API_DATA = {};
 let LAST_FETCHED_TIME = "未取得";
@@ -262,11 +262,13 @@ const yen=n=>Number.isFinite(n)?"¥"+n.toLocaleString("ja-JP"):"—";
 const selectionKey=()=>`${$("model").value}|${$("capacity").value}|${$("color").value}`;
 function data(){return DATA?.[$("model").value]?.[$("capacity").value]?.[$("color").value]||null}
 function opts(el,vals){el.innerHTML=vals.map(v=>`<option value="${v}">${v}</option>`).join("")}
+
 function setJanFromSelection(){
   const mapped=JAN_MAP[selectionKey()]||"";
   $("jan").value=mapped;
   applyPricesFromCache();
 }
+
 function init(){
   opts($("model"),Object.keys(DATA)); updateCaps();
   fetchAllPricesFromSheet();
@@ -315,13 +317,36 @@ function applyPricesFromCache(){
   render();
 }
 
+// CSVを解析する簡易パーサー
+function parseCSV(text){
+  const lines = text.split(/\r?\n/).filter(line => line.trim() !== "");
+  const result = {};
+  for(let i = 1; i < lines.length; i++){
+    // カンマ区切り（簡易対応）
+    const cols = lines[i].split(",").map(c => c.replace(/^["']|["']$/g, "").trim());
+    const jan = cols[0];
+    const store = cols[1];
+    const price = Number(cols[2]?.replace(/[^0-9.-]/g, ""));
+    const updatedAt = cols[3] || "";
+    const url = cols[4] || "";
+    if(!jan || !store || !Number.isFinite(price)) continue;
+    if(!result[jan]){
+      result[jan] = { stores: [], last_update: updatedAt };
+    }
+    result[jan].stores.push({ store, price, url, last_update: updatedAt });
+  }
+  return result;
+}
+
 async function fetchAllPricesFromSheet(){
   const btn=$("checkBtn"); btn.disabled=true;
-  $("apiStatus").textContent="⏳ スプレッドシートから全価格データを一括取得中…";
+  $("apiStatus").textContent="⏳ スプレッドシートから全価格データを直接取得中…";
   try{
-    const res=await fetch(GAS_API_ENDPOINT);
+    // キャッシュ回避のタイムスタンプ付与
+    const res=await fetch(CSV_ENDPOINT + "&_t=" + Date.now());
     if(!res.ok) throw new Error(`HTTP ${res.status}`);
-    CACHED_API_DATA=await res.json();
+    const csvText = await res.text();
+    CACHED_API_DATA = parseCSV(csvText);
     LAST_FETCHED_TIME = new Date().toLocaleString("ja-JP");
     $("apiStatus").textContent="✅ 取得成功：スプレッドシートの最新データを反映しました！";
     applyPricesFromCache();
