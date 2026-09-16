@@ -237,16 +237,6 @@ const JAN_MAP={
   "iPhone 17e|256GB|ブラック":"4549995677485",
   "iPhone 17e|256GB|ホワイト":"4549995677539",
   "iPhone 17e|256GB|ソフトピンク":"4549995677584",
-  // iPhone 17 Pro（容量・カラー別）
-  "iPhone 17 Pro|256GB|ディープブルー":"4549995649253",
-  "iPhone 17 Pro|256GB|コズミックオレンジ":"4549995649260",
-  "iPhone 17 Pro|256GB|シルバー":"4549995649277",
-  "iPhone 17 Pro|512GB|ディープブルー":"4549995649406",
-  "iPhone 17 Pro|512GB|コズミックオレンジ":"4549995649413",
-  "iPhone 17 Pro|512GB|シルバー":"4549995649420",
-  "iPhone 17 Pro|1TB|ディープブルー":"4549995649437",
-  "iPhone 17 Pro|1TB|コズミックオレンジ":"4549995649444",
-  "iPhone 17 Pro|1TB|シルバー":"4549995649451",
   "iPhone 17 Pro Max|256GB|シルバー":"4549995649284",
   "iPhone 17 Pro Max|256GB|コズミックオレンジ":"4549995649291",
   "iPhone 17 Pro Max|256GB|ディープブルー":"4549995649307",
@@ -271,27 +261,19 @@ const COLORS={
   "iPhone Duo":["未発表・確認待ち"]
 };
 function variants(model,caps){const o={}; for(const cap of caps){o[cap]={}; for(const c of COLORS[model])o[cap][c]={apple:null,stock:model==='iPhone Duo'?'pre':'check',prices:{}};} return o;}
-const pricedVariants=(model, prices, stock="check")=>{
-  const o={};
-  for(const [cap,price] of Object.entries(prices)){
-    o[cap]={};
-    for(const c of COLORS[model]) o[cap][c]={apple:price,stock,prices:{}};
-  }
-  return o;
-};
 const EXTRA_MODELS={
-  "iPhone 17":pricedVariants("iPhone 17",{"256GB":142800,"512GB":177800}),
-  "iPhone 17e":pricedVariants("iPhone 17e",{"256GB":107800,"512GB":142800}),
-  "iPhone 17 Pro":pricedVariants("iPhone 17 Pro",{"256GB":194800,"512GB":229800,"1TB":264800}),
+  "iPhone 17":variants("iPhone 17",["256GB","512GB"]),
+  "iPhone 17e":variants("iPhone 17e",["256GB","512GB"]),
+  "iPhone 17 Pro":variants("iPhone 17 Pro",["256GB","512GB","1TB"]),
   "iPhone Duo":variants("iPhone Duo",["256GB","512GB"])
 };
 const DATA={
   ...EXTRA_MODELS,
   "iPhone 17 Pro Max":{
-    "256GB":{"シルバー":{apple:214800,stock:"check",prices:{}},"コズミックオレンジ":{apple:214800,stock:"check",prices:{}},"ディープブルー":{apple:214800,stock:"check",prices:{}}},
-    "512GB":{"シルバー":{apple:249800,stock:"check",prices:{}},"コズミックオレンジ":{apple:249800,stock:"check",prices:{}},"ディープブルー":{apple:249800,stock:"check",prices:{}}},
-    "1TB":{"シルバー":{apple:284800,stock:"check",prices:{}},"コズミックオレンジ":{apple:284800,stock:"check",prices:{}},"ディープブルー":{apple:284800,stock:"check",prices:{}}},
-    "2TB":{"シルバー":{apple:354800,stock:"check",prices:{}},"コズミックオレンジ":{apple:354800,stock:"check",prices:{}},"ディープブルー":{apple:354800,stock:"check",prices:{}}}
+    "256GB":{"シルバー":{apple:194800,stock:"check",prices:{}},"コズミックオレンジ":{apple:194800,stock:"check",prices:{}},"ディープブルー":{apple:194800,stock:"check",prices:{}}},
+    "512GB":{"シルバー":{apple:229800,stock:"check",prices:{}},"コズミックオレンジ":{apple:229800,stock:"check",prices:{}},"ディープブルー":{apple:229800,stock:"check",prices:{}}},
+    "1TB":{"シルバー":{apple:264800,stock:"check",prices:{}},"コズミックオレンジ":{apple:264800,stock:"check",prices:{}},"ディープブルー":{apple:264800,stock:"check",prices:{}}},
+    "2TB":{"シルバー":{apple:299800,stock:"check",prices:{}},"コズミックオレンジ":{apple:299800,stock:"check",prices:{}},"ディープブルー":{apple:299800,stock:"check",prices:{}}}
   },
   "iPhone 18 Pro Max":{
     "256GB":{"ブラック":{apple:249800,stock:"pre",prices:{}},"シルバー":{apple:249800,stock:"pre",prices:{}},"バーガンディ":{apple:249800,stock:"pre",prices:{}},"グレイシャー":{apple:249800,stock:"pre",prices:{}}},
@@ -332,10 +314,10 @@ function render(){
   const d=data(),rs=rows(),best=rs[0]?.price??null;
   $("bestPrice").textContent=yen(best); $("bestShop").textContent=rs[0]?.name||"一括チェック待ち";
   $("applePrice").textContent=yen(d?.apple); $("appleState").textContent=d?.stock==="pre"?"発売前・公式で再確認":"在庫情報を確認";
-  $("grossProfit").textContent=best!=null&&d?.apple!=null?yen(best-d.apple):"—";
+  $("grossProfit").textContent=best!=null?yen(best-d.apple):"—";
   $("buy").textContent=yen(d?.apple); $("sell").textContent=yen(best);
   const cost=Number($("cost").value)||0,point=Number($("point").value)||0;
-  $("net").textContent=best!=null&&d?.apple!=null?yen(best+point-d.apple-cost):"—";
+  $("net").textContent=best!=null?yen(best+point-d.apple-cost):"—";
   $("selection").textContent=`${$("model").value} / ${$("capacity").value} / ${$("color").value}`;
   $("stock").textContent=d?.stock==="pre"?"🟦 発売前":"🟢 公式で確認";
   $("stock").className="stock "+(d?.stock==="pre"?"pre":"in");
