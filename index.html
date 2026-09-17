@@ -1,3 +1,69 @@
+Skip to content
+yappi7000
+iPhone-Tenbai
+Repository navigation
+Code
+Issues
+Pull requests
+Agents
+Actions
+Projects
+Wiki
+iPhone-Tenbai
+/
+index.html
+in
+main
+
+Edit
+
+Preview
+Indent mode
+
+Spaces
+Indent size
+
+2
+Line wrap mode
+
+No wrap
+Editing index.html file contents
+  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
 <!doctype html>
 <html lang="ja">
 <head>
@@ -34,335 +100,5 @@ select,input{width:100%;padding:12px 13px;border:1px solid #ced8e4;border-radius
 .segment button{border:1px solid #ccd6e2;background:#fff;padding:10px 14px;border-radius:999px;font-weight:800;cursor:pointer}
 .segment button.active{background:var(--blue);color:#fff;border-color:var(--blue)}
 .kpis{display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:12px;margin-top:15px}
-.kpi{padding:17px;border:1px solid var(--line);border-radius:16px;background:#f8fbfe}
-.kpi.best{background:#ecfaf5;border-color:#b9e9d9}
-.kpi.profit{background:#fff8e8;border-color:#f0d990}
-.kpi-label{font-size:12px;color:var(--muted);font-weight:800}
-.kpi-value{font-size:27px;font-weight:950;margin-top:5px}
-.best-text{color:var(--green)}
-.profit-text{color:var(--gold)}
-.kpi-sub{font-size:12px;color:var(--muted);margin-top:3px}
-.toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap}
-.status-pill{display:inline-flex;align-items:center;gap:6px;padding:7px 10px;border-radius:999px;background:#eef7ff;color:var(--blue);font-size:12px;font-weight:900}
-.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:14px}
-table{width:100%;border-collapse:collapse;min-width:920px}
-th,td{padding:13px 11px;border-bottom:1px solid var(--line);font-size:13px;text-align:left;white-space:nowrap}
-th{background:#f7fafc;color:#64748b;font-size:11px}
-tr.best-row{background:#effbf7}
-.price{font-size:18px;font-weight:950}
-.diff{color:#64748b}
-.rank{font-weight:950}
-.visit{display:inline-block;background:#172033;color:#fff;text-decoration:none;border-radius:9px;padding:8px 11px;font-size:11px;font-weight:900}
-.visit:hover{background:var(--blue)}
-.no-data{color:#9aa4b2}
-.apple-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.apple-box{border:1px solid var(--line);border-radius:16px;padding:17px;background:#f8fbfe}
-.stock{font-size:24px;font-weight:950;margin:6px 0}
-.in{color:var(--green)} .pre{color:var(--blue)} .out{color:#c92a2a}
-.btn{display:inline-block;padding:10px 13px;background:var(--blue);color:#fff;border-radius:10px;text-decoration:none;font-weight:900;font-size:12px}
-.profit-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.line{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px dashed var(--line)}
-.final-profit{font-size:34px;font-weight:950;color:var(--green)}
-.footer{text-align:center;color:#728096;padding:28px 18px;font-size:12px}
-.small{font-size:11px;color:#748095;line-height:1.7}
-@media(max-width:760px){
-.hero-inner{grid-template-columns:1fr;text-align:center;padding-top:25px}
-.hero p{margin:auto}
-.hero-badges{justify-content:center}
-.character{width:220px;height:220px}
-.controls,.kpis,.apple-grid,.profit-grid{grid-template-columns:1fr}
-.container{padding:14px 12px 35px}
-.card{padding:15px;border-radius:16px}
-}
-
-.api-panel{margin-top:18px;padding:14px;border:1px solid var(--line);border-radius:14px;background:#f8fbfe}
-.api-row{display:flex;gap:10px;align-items:end;flex-wrap:wrap}
-.api-row>div{flex:1;min-width:220px}
-.api-row input{width:100%;box-sizing:border-box;padding:11px;border:1px solid #cbd5e1;border-radius:9px;font-size:14px}
-.api-btn{border:0;cursor:pointer;padding:12px 18px;border-radius:10px;background:var(--blue);color:#fff;font-weight:900}
-.api-btn:disabled{opacity:.55;cursor:wait}
-.api-status{margin-top:9px;font-size:12px;color:#53657a;min-height:18px}
-</style>
-</head>
-<body>
-<div class="topbar"><div class="topbar-inner">
-  <span>📱 やっぴ〜Presents</span>
-  <a href="https://lin.ee/AsTWK4D" target="_blank" rel="noopener">LINE公式はこちら →</a>
-</div></div>
-
-<header class="hero">
-<div class="hero-inner">
-  <div>
-    <div class="brand">やっぴ〜Presents</div>
-    <h1>iPhone買取価格<br>＆在庫チェッカー</h1>
-    <p>「どこで買う？」だけじゃない。<br><b>「どこに売れば、いくら残る？」</b>まで一気に確認。</p>
-    <div class="hero-badges">
-      <span class="badge">🏆 最高買取を自動判定</span>
-      <span class="badge">🍎 Apple在庫</span>
-      <span class="badge">💰 実質利益</span>
-      <span class="badge">🏪 複数社自動比較</span>
-    </div>
-  </div>
-  <div class="character-wrap">
-    <img class="character" src="https://raw.githubusercontent.com/yappi7000/iPhone-Tenbai/main/yappi.jpg" alt="やっぴ〜キャラクター" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'285\' height=\'285\'><rect width=\'285\' height=\'285\' fill=\'%23ff1f91\'/></svg>'">
-    <div class="spark">✦</div>
-  </div>
-</div>
-</header>
-
-<main class="container">
-<div class="notice">⚠️ <b>実戦版について</b><br>
-買取価格は変動します。現在公開価格を確認できない店舗は「—」表示にし、推測値でランキングを作らない設計です。価格を取得できた店舗だけで最高値を判定します。実際の取引前には必ず各社公式ページをご確認ください。
-</div>
-
-<section class="card">
-<h2>🔎 まずiPhoneを選ぶ</h2>
-<div class="controls">
-<div><label>モデル</label><select id="model"></select></div>
-<div><label>容量</label><select id="capacity"></select></div>
-<div><label>カラー</label><select id="color"></select></div>
-</div>
-<div class="segment">
-<button class="condition active" data-condition="sealed">新品・未開封</button>
-<button class="condition" data-condition="opened">開封済み</button>
-</div>
-<div id="conditionNote" class="notice" style="margin-top:12px">新品・未開封と開封済みは買取条件が異なります。開封済みでは店舗規定により減額される場合があります。</div>
-<div class="api-panel">
-  <div class="api-row">
-    <div><label>JANコード（自動判定／手動修正可）</label><input id="jan" inputmode="numeric" placeholder="商品を選ぶと確認済みJANが自動表示されます"></div>
-    <div class="notice">☁️ スプレッドシートから最新買取価格を直接取得中（APIキー不要・常時自動連携）。</div>
-    <button id="checkBtn" class="api-btn">🔄 最新データを再読込</button>
-  </div>
-  <div id="apiStatus" class="api-status">スプレッドシートからデータを取得中…</div>
-</div>
-<div class="kpis">
-<div class="kpi best"><div class="kpi-label">🏆 現在の最高買取</div><div class="kpi-value best-text" id="bestPrice">—</div><div class="kpi-sub" id="bestShop">—</div></div>
-<div class="kpi"><div class="kpi-label">🍎 Apple Store価格</div><div class="kpi-value" id="applePrice">—</div><div class="kpi-sub" id="appleState">—</div></div>
-<div class="kpi profit"><div class="kpi-label">💰 単純差額</div><div class="kpi-value profit-text" id="grossProfit">—</div><div class="kpi-sub">最高買取 − Apple価格</div></div>
-</div>
-</section>
-
-<section class="card">
-<div class="toolbar"><h2>🏆 買取価格ランキング</h2><span class="status-pill">データ最終取得日：<span id="updated">—</span></span></div>
-<div class="table-wrap"><table>
-<thead><tr><th>順位</th><th>買取店</th><th>価格</th><th>最高値との差</th><th>データ状態</th><th>公式サイト</th></tr></thead>
-<tbody id="rows"></tbody>
-</table></div>
-<p class="small">※スプレッドシート「価格データ」に登録されている最新データを元にランキングを自動生成しています。</p>
-</section>
-
-<section class="card">
-<h2>🍎 Apple Store 在庫</h2>
-<div class="apple-grid">
-<div class="apple-box">
-<div class="small">選択中</div>
-<strong id="selection">—</strong>
-<div id="stock" class="stock pre">—</div>
-<div class="small" id="stockDetail">—</div>
-</div>
-<div class="apple-box">
-<div class="small">Apple公式</div>
-<p>受取可能店舗・配送予定日はApple Storeで最終確認。</p>
-<a class="btn" href="https://www.apple.com/jp/shop/buy-iphone/" target="_blank" rel="noopener">Apple Storeを見る →</a>
-</div>
-</div>
-</section>
-
-<section class="card">
-<h2>💰 実質利益シミュレーション</h2>
-<div class="profit-grid">
-<div>
-<div class="line"><span>Apple購入価格</span><b id="buy">—</b></div>
-<div class="line"><span>最高買取価格</span><b id="sell">—</b></div>
-<div class="line"><span>その他コスト</span><input id="cost" type="number" min="0" value="0" style="width:150px;text-align:right"></div>
-<div class="line"><span>ポイント等</span><input id="point" type="number" min="0" value="0" style="width:150px;text-align:right"></div>
-</div>
-<div class="kpi profit">
-<div class="kpi-label">想定実質利益</div>
-<div class="final-profit" id="net">—</div>
-<div class="small">最高買取 ＋ ポイント等 − Apple購入価格 − その他コスト</div>
-</div>
-</div>
-</section>
-</main>
-<footer class="footer">やっぴ〜Presents｜人生は、知識と戦略で変えられる。📲</footer>
-
-<script>
-// スプレッドシートの「ウェブに公開(CSV)」URL
-const CSV_ENDPOINT = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQm3Po8sxi7DY2g9_Qc0LawHV5upcYB3ZHdtrufh_2EDLEASdXbnZBaEZ2FCXyvgcSiIwWwbaaCyG_R/pub?gid=0&single=true&output=csv";
-
-let CACHED_API_DATA = {};
-let LAST_FETCHED_TIME = "未取得";
-
-const JAN_MAP={
-  "iPhone 17|256GB|ブラック":"4549995649154",
-  "iPhone 17|256GB|ホワイト":"4549995649161",
-  "iPhone 17|256GB|ミストブルー":"4549995649178",
-  "iPhone 17|256GB|ラベンダー":"4549995649185",
-  "iPhone 17|256GB|セージ":"4549995649192",
-  "iPhone 17|512GB|ブラック":"4549995649208",
-  "iPhone 17|512GB|ホワイト":"4549995649215",
-  "iPhone 17|512GB|ミストブルー":"4549995649222",
-  "iPhone 17|512GB|ラベンダー":"4549995649239",
-  "iPhone 17|512GB|セージ":"4549995649246",
-  "iPhone 17e|256GB|ブラック":"4549995677485",
-  "iPhone 17e|256GB|ホワイト":"4549995677539",
-  "iPhone 17e|256GB|ソフトピンク":"4549995677584",
-  "iPhone 17 Pro Max|256GB|シルバー":"4549995649284",
-  "iPhone 17 Pro Max|256GB|コズミックオレンジ":"4549995649291",
-  "iPhone 17 Pro Max|256GB|ディープブルー":"4549995649307",
-  "iPhone 17 Pro Max|512GB|シルバー":"4549995649314",
-  "iPhone 17 Pro Max|512GB|コズミックオレンジ":"4549995649321",
-  "iPhone 17 Pro Max|512GB|ディープブルー":"4549995649338",
-  "iPhone 17 Pro Max|1TB|シルバー":"4549995649345",
-  "iPhone 17 Pro Max|1TB|コズミックオレンジ":"4549995649352",
-  "iPhone 17 Pro Max|1TB|ディープブルー":"4549995649369",
-  "iPhone 17 Pro Max|2TB|シルバー":"4549995649376",
-  "iPhone 17 Pro Max|2TB|コズミックオレンジ":"4549995649383",
-  "iPhone 17 Pro Max|2TB|ディープブルー":"4549995649390"
-};
-
-const COLORS={
-  "iPhone 17":["ブラック","ミストブルー","セージ","ホワイト","ラベンダー"],
-  "iPhone 17e":["ブラック","ホワイト","ソフトピンク"],
-  "iPhone 17 Pro":["ディープブルー","コズミックオレンジ","シルバー"],
-  "iPhone Duo":["未発表・確認待ち"]
-};
-function variants(model,caps){const o={}; for(const cap of caps){o[cap]={}; for(const c of COLORS[model])o[cap][c]={apple:null,stock:model==='iPhone Duo'?'pre':'check',prices:{}};} return o;}
-const EXTRA_MODELS={
-  "iPhone 17":variants("iPhone 17",["256GB","512GB"]),
-  "iPhone 17e":variants("iPhone 17e",["256GB","512GB"]),
-  "iPhone 17 Pro":variants("iPhone 17 Pro",["256GB","512GB","1TB"]),
-  "iPhone Duo":variants("iPhone Duo",["256GB","512GB"])
-};
-const DATA={
-  ...EXTRA_MODELS,
-  "iPhone 17 Pro Max":{
-    "256GB":{"シルバー":{apple:194800,stock:"check",prices:{}},"コズミックオレンジ":{apple:194800,stock:"check",prices:{}},"ディープブルー":{apple:194800,stock:"check",prices:{}}},
-    "512GB":{"シルバー":{apple:229800,stock:"check",prices:{}},"コズミックオレンジ":{apple:229800,stock:"check",prices:{}},"ディープブルー":{apple:229800,stock:"check",prices:{}}},
-    "1TB":{"シルバー":{apple:264800,stock:"check",prices:{}},"コズミックオレンジ":{apple:264800,stock:"check",prices:{}},"ディープブルー":{apple:264800,stock:"check",prices:{}}},
-    "2TB":{"シルバー":{apple:299800,stock:"check",prices:{}},"コズミックオレンジ":{apple:299800,stock:"check",prices:{}},"ディープブルー":{apple:299800,stock:"check",prices:{}}}
-  },
-  "iPhone 18 Pro Max":{
-    "256GB":{"ブラック":{apple:249800,stock:"pre",prices:{}},"シルバー":{apple:249800,stock:"pre",prices:{}},"バーガンディ":{apple:249800,stock:"pre",prices:{}},"グレイシャー":{apple:249800,stock:"pre",prices:{}}},
-    "512GB":{"ブラック":{apple:284800,stock:"pre",prices:{}},"シルバー":{apple:284800,stock:"pre",prices:{}},"バーガンディ":{apple:284800,stock:"pre",prices:{}},"グレイシャー":{apple:284800,stock:"pre",prices:{}}},
-    "1TB":{"ブラック":{apple:354800,stock:"pre",prices:{}},"シルバー":{apple:354800,stock:"pre",prices:{}},"バーガンディ":{apple:354800,stock:"pre",prices:{}},"グレイシャー":{apple:354800,stock:"pre",prices:{}}},
-    "2TB":{"ブラック":{apple:459800,stock:"pre",prices:{}},"シルバー":{apple:459800,stock:"pre",prices:{}},"バーガンディ":{apple:459800,stock:"pre",prices:{}},"グレイシャー":{apple:459800,stock:"pre",prices:{}}}
-  },
-  "iPhone 18 Pro":{
-    "256GB":{"ブラック":{apple:219800,stock:"pre",prices:{}},"シルバー":{apple:219800,stock:"pre",prices:{}},"バーガンディ":{apple:219800,stock:"pre",prices:{}},"グレイシャー":{apple:219800,stock:"pre",prices:{}}},
-    "512GB":{"ブラック":{apple:254800,stock:"pre",prices:{}},"シルバー":{apple:254800,stock:"pre",prices:{}},"バーガンディ":{apple:254800,stock:"pre",prices:{}},"グレイシャー":{apple:254800,stock:"pre",prices:{}}},
-    "1TB":{"ブラック":{apple:324800,stock:"pre",prices:{}},"シルバー":{apple:324800,stock:"pre",prices:{}},"バーガンディ":{apple:324800,stock:"pre",prices:{}},"グレイシャー":{apple:324800,stock:"pre",prices:{}}},
-    "2TB":{"ブラック":{apple:429800,stock:"pre",prices:{}},"シルバー":{apple:429800,stock:"pre",prices:{}},"バーガンディ":{apple:429800,stock:"pre",prices:{}},"グレイシャー":{apple:429800,stock:"pre",prices:{}}}
-  }
-};
-let condition="sealed";
-const $=id=>document.getElementById(id);
-const yen=n=>Number.isFinite(n)?"¥"+n.toLocaleString("ja-JP"):"—";
-const selectionKey=()=>`${$("model").value}|${$("capacity").value}|${$("color").value}`;
-function data(){return DATA?.[$("model").value]?.[$("capacity").value]?.[$("color").value]||null}
-function opts(el,vals){el.innerHTML=vals.map(v=>`<option value="${v}">${v}</option>`).join("")}
-
-function setJanFromSelection(){
-  const mapped=JAN_MAP[selectionKey()]||"";
-  $("jan").value=mapped;
-  applyPricesFromCache();
-}
-
-function init(){
-  opts($("model"),Object.keys(DATA)); updateCaps();
-  fetchAllPricesFromSheet();
-}
-function updateCaps(){const d=DATA[$("model").value]; opts($("capacity"),Object.keys(d)); updateColors()}
-function updateColors(){const d=DATA[$("model").value][$("capacity").value]; opts($("color"),Object.keys(d)); setJanFromSelection(); render()}
-
-function rows(){
-  const d=data(); if(!d)return[];
-  return Object.entries(d.prices||{}).map(([name,price])=>({name,price,url:d.links?.[name]||""}))
-    .filter(s=>Number.isFinite(s.price)).sort((a,b)=>b.price-a.price);
-}
-
-function render(){
-  const d=data(),rs=rows(),best=rs[0]?.price??null;
-  $("bestPrice").textContent=yen(best); $("bestShop").textContent=rs[0]?.name||"データ確認中";
-  $("applePrice").textContent=yen(d?.apple); $("appleState").textContent=d?.stock==="pre"?"発売前・公式で再確認":"在庫情報を確認";
-  $("grossProfit").textContent=best!=null?yen(best-d.apple):"—";
-  $("buy").textContent=yen(d?.apple); $("sell").textContent=yen(best);
-  const cost=Number($("cost").value)||0,point=Number($("point").value)||0;
-  $("net").textContent=best!=null?yen(best+point-d.apple-cost):"—";
-  $("selection").textContent=`${$("model").value} / ${$("capacity").value} / ${$("color").value}`;
-  $("stock").textContent=d?.stock==="pre"?"🟦 発売前":"🟢 公式で確認";
-  $("stock").className="stock "+(d?.stock==="pre"?"pre":"in");
-  $("stockDetail").textContent=d?.stock==="pre"?"発売前。受取可能状況は発売日に再確認してください。":"在庫状況はApple公式で最終確認してください。";
-  $("updated").textContent=LAST_FETCHED_TIME;
-  $("rows").innerHTML=rs.length?rs.map((r,i)=>`<tr class="${i===0?"best-row":""}"><td class="rank">${i===0?"🥇":i===1?"🥈":i===2?"🥉":i+1}</td><td><b>${r.name}</b></td><td class="price">${yen(r.price)}</td><td class="diff">${i===0?"—":"−"+yen(best-r.price)}</td><td>🟢 スプレッドシート連携済</td><td>${r.url?`<a class="visit" href="${r.url}" target="_blank" rel="noopener">商品ページ →</a>`:"—"}</td></tr>`).join(""):`<tr><td colspan="6" class="no-data">このJAN（${$("jan").value||"未入力"}）の価格データはスプレッドシートに未登録です。</td></tr>`;
-}
-
-function applyPricesFromCache(){
-  const jan=$("jan").value.trim();
-  const d=data();
-  if(!d) return;
-  d.prices={}; d.links={};
-  if(CACHED_API_DATA[jan] && Array.isArray(CACHED_API_DATA[jan].stores)){
-    for(const item of CACHED_API_DATA[jan].stores){
-      if(item.store && Number.isFinite(item.price)){
-        d.prices[item.store]=item.price;
-        if(item.url) d.links[item.store]=item.url;
-      }
-    }
-    if(CACHED_API_DATA[jan].last_update){
-      LAST_FETCHED_TIME = CACHED_API_DATA[jan].last_update;
-    }
-  }
-  render();
-}
-
-// CSVを解析する簡易パーサー
-function parseCSV(text){
-  const lines = text.split(/\r?\n/).filter(line => line.trim() !== "");
-  const result = {};
-  for(let i = 1; i < lines.length; i++){
-    // カンマ区切り（簡易対応）
-    const cols = lines[i].split(",").map(c => c.replace(/^["']|["']$/g, "").trim());
-    const jan = cols[0];
-    const store = cols[1];
-    const price = Number(cols[2]?.replace(/[^0-9.-]/g, ""));
-    const updatedAt = cols[3] || "";
-    const url = cols[4] || "";
-    if(!jan || !store || !Number.isFinite(price)) continue;
-    if(!result[jan]){
-      result[jan] = { stores: [], last_update: updatedAt };
-    }
-    result[jan].stores.push({ store, price, url, last_update: updatedAt });
-  }
-  return result;
-}
-
-async function fetchAllPricesFromSheet(){
-  const btn=$("checkBtn"); btn.disabled=true;
-  $("apiStatus").textContent="⏳ スプレッドシートから全価格データを直接取得中…";
-  try{
- // キャッシュ回避のタイムスタンプ付与して prices.json を取得
-    const res = await fetch("./data/prices.json?_t=" + Date.now());
-    if(!res.ok) throw new Error(`HTTP ${res.status}`);
-    CACHED_API_DATA = await res.json();
-    LAST_FETCHED_TIME = new Date().toLocaleString("ja-JP");
-    $("apiStatus").textContent = "✅ 取得成功：自動巡回の最新データを反映しました！";
-    applyPricesFromCache();
-  }catch(err){
-    $("apiStatus").textContent = `⚠️ データの取得に失敗しました：${err.message}`;
-  }finally{
-    btn.disabled = false;
-  }
-}
-$("model").addEventListener("change",updateCaps);
-$("capacity").addEventListener("change",updateColors);
-$("color").addEventListener("change",()=>{setJanFromSelection();render()});
-$("jan").addEventListener("input",applyPricesFromCache);
-$("checkBtn").addEventListener("click",fetchAllPricesFromSheet);
-$("cost").addEventListener("input",render); $("point").addEventListener("input",render);
-document.querySelectorAll(".condition").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".condition").forEach(x=>x.classList.remove("active"));b.classList.add("active");condition=b.dataset.condition;render()}));
-init();
-</script>
-</body>
-</html>
+Use Control + Shift + m to toggle the tab key moving focus. Alternatively, use esc then tab to move to the next interactive element on the page.
+ 
