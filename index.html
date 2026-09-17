@@ -1,385 +1,366 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>iPhone買取チェッカー｜やっぴ〜Presents</title>
-<meta name="description" content="iPhoneのモデル・容量・カラー別にApple価格、在庫、買取価格を比較。最高買取店と実質利益を一目で確認。">
-<style>
-:root{--blue:#1677d2;--blue2:#075bb0;--sky:#eaf5ff;--pink:#ff1f91;--ink:#172033;--muted:#6b7280;--line:#dce5ef;--card:#fff;--green:#07835d;--gold:#b7791f;--bg:#f3f7fb;--shadow:0 12px 35px rgba(19,72,125,.10)}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif}
-a{color:inherit}
-.topbar{background:#fff;border-bottom:1px solid var(--line);font-size:13px}
-.topbar-inner{max-width:1160px;margin:auto;padding:9px 18px;display:flex;justify-content:space-between;gap:10px;align-items:center}
-.topbar a{color:var(--blue);font-weight:800;text-decoration:none}
-.hero{background:linear-gradient(135deg,#0e79d7 0%,#1598ee 52%,#42b6ff 100%);color:#fff;overflow:hidden}
-.hero-inner{max-width:1160px;margin:auto;min-height:330px;padding:38px 18px 30px;display:grid;grid-template-columns:1fr 300px;gap:25px;align-items:center}
-.brand{font-weight:900;letter-spacing:.04em;font-size:15px}
-h1{font-size:clamp(30px,5vw,54px);line-height:1.08;margin:10px 0 12px;letter-spacing:-.03em}
-.hero p{font-size:16px;line-height:1.8;margin:0;max-width:700px}
-.hero-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-.badge{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);padding:8px 11px;border-radius:999px;font-size:12px;font-weight:800}
-.character-wrap{position:relative;display:flex;justify-content:center}
-.character{width:285px;height:285px;object-fit:cover;border-radius:50%;border:8px solid #ff1f91;box-shadow:0 18px 45px rgba(0,0,0,.22);background:#ff1f91}
-.spark{position:absolute;right:2px;bottom:10px;font-size:38px;filter:drop-shadow(0 3px 5px rgba(0,0,0,.25))}
-.container{max-width:1160px;margin:auto;padding:20px 18px 45px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:20px;margin-bottom:18px}
-h2{font-size:21px;margin:0 0 15px}
-.notice{background:#fff9e9;border:1px solid #f0d68a;padding:14px 16px;border-radius:14px;line-height:1.7;font-size:13px}
-.controls{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:12px}
-label{display:block;font-size:12px;font-weight:900;margin:0 0 6px}
-select,input{width:100%;padding:12px 13px;border:1px solid #ced8e4;border-radius:11px;background:#fff;font-size:15px}
-.segment{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
-.segment button{border:1px solid #ccd6e2;background:#fff;padding:10px 14px;border-radius:999px;font-weight:800;cursor:pointer}
-.segment button.active{background:var(--blue);color:#fff;border-color:var(--blue)}
-.kpis{display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:12px;margin-top:15px}
-.kpi{padding:17px;border:1px solid var(--line);border-radius:16px;background:#f8fbfe}
-.kpi.best{background:#ecfaf5;border-color:#b9e9d9}
-.kpi.profit{background:#fff8e8;border-color:#f0d990}
-.kpi-label{font-size:12px;color:var(--muted);font-weight:800}
-.kpi-value{font-size:27px;font-weight:950;margin-top:5px}
-.best-text{color:var(--green)}
-.profit-text{color:var(--gold)}
-.kpi-sub{font-size:12px;color:var(--muted);margin-top:3px}
-.toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap}
-.status-pill{display:inline-flex;align-items:center;gap:6px;padding:7px 10px;border-radius:999px;background:#eef7ff;color:var(--blue);font-size:12px;font-weight:900}
-.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:14px}
-table{width:100%;border-collapse:collapse;min-width:920px}
-th,td{padding:13px 11px;border-bottom:1px solid var(--line);font-size:13px;text-align:left;white-space:nowrap}
-th{background:#f7fafc;color:#64748b;font-size:11px}
-tr.best-row{background:#effbf7}
-.price{font-size:18px;font-weight:950}
-.diff{color:#64748b}
-.rank{font-weight:950}
-.visit{display:inline-block;background:#172033;color:#fff;text-decoration:none;border-radius:9px;padding:8px 11px;font-size:11px;font-weight:900}
-.visit:hover{background:var(--blue)}
-.no-data{color:#9aa4b2}
-.apple-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.apple-box{border:1px solid var(--line);border-radius:16px;padding:17px;background:#f8fbfe}
-.stock{font-size:24px;font-weight:950;margin:6px 0}
-.in{color:var(--green)} .pre{color:var(--blue)} .out{color:#c92a2a}
-.btn{display:inline-block;padding:10px 13px;background:var(--blue);color:#fff;border-radius:10px;text-decoration:none;font-weight:900;font-size:12px}
-.profit-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.line{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px dashed var(--line)}
-.final-profit{font-size:34px;font-weight:950;color:var(--green)}
-.footer{text-align:center;color:#728096;padding:28px 18px;font-size:12px}
-.small{font-size:11px;color:#748095;line-height:1.7}
-@media(max-width:760px){
-.hero-inner{grid-template-columns:1fr;text-align:center;padding-top:25px}
-.hero p{margin:auto}
-.hero-badges{justify-content:center}
-.character{width:220px;height:220px}
-.controls,.kpis,.apple-grid,.profit-grid{grid-template-columns:1fr}
-.container{padding:14px 12px 35px}
-.card{padding:15px;border-radius:16px}
-}
-
-.api-panel{margin-top:18px;padding:14px;border:1px solid var(--line);border-radius:14px;background:#f8fbfe}
-.api-row{display:flex;gap:10px;align-items:end;flex-wrap:wrap}
-.api-row>div{flex:1;min-width:220px}
-.api-row input{width:100%;box-sizing:border-box;padding:11px;border:1px solid #cbd5e1;border-radius:9px;font-size:14px}
-.api-btn{border:0;cursor:pointer;padding:12px 18px;border-radius:10px;background:var(--blue);color:#fff;font-weight:900}
-.api-btn:disabled{opacity:.55;cursor:wait}
-.api-status{margin-top:9px;font-size:12px;color:#53657a;min-height:18px}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iPhone買取チェッカー | 実戦版</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
-<body>
-<div class="topbar"><div class="topbar-inner">
-  <span>📱 やっぴ〜Presents</span>
-  <a href="https://lin.ee/AsTWK4D" target="_blank" rel="noopener">LINE公式はこちら →</a>
-</div></div>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen">
 
-<header class="hero">
-<div class="hero-inner">
-  <div>
-    <div class="brand">やっぴ〜Presents</div>
-    <h1>iPhone買取価格<br>＆在庫チェッカー</h1>
-    <p>「どこで買う？」だけじゃない。<br><b>「どこに売れば、いくら残る？」</b>まで一気に確認。</p>
-    <div class="hero-badges">
-      <span class="badge">🏆 最高買取を自動判定</span>
-      <span class="badge">🍎 Apple在庫</span>
-      <span class="badge">💰 実質利益</span>
-      <span class="badge">🏪 複数社自動比較</span>
+  <!-- ヘッダー -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center space-x-2">
+        <span class="text-2xl">📱</span>
+        <h1 class="text-lg font-bold text-slate-900 tracking-tight">iPhone買取チェッカー</h1>
+        <span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded font-semibold">実戦版</span>
+      </div>
+      <div class="text-xs text-slate-500 flex items-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        自動巡回システム連携中
+      </div>
     </div>
-  </div>
-  <div class="character-wrap">
-    <img class="character" src="https://raw.githubusercontent.com/yappi7000/iPhone-Tenbai/main/yappi.jpg" alt="やっぴ〜キャラクター" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'285\' height=\'285\'><rect width=\'285\' height=\'285\' fill=\'%23ff1f91\'/></svg>'">
-    <div class="spark">✦</div>
-  </div>
-</div>
-</header>
+  </header>
 
-<main class="container">
-<div class="notice">⚠️ <b>実戦版について</b><br>
-買取価格は変動します。現在公開価格を確認できない店舗は「—」表示にし、推測値でランキングを作らない設計です。価格を取得できた店舗だけで最高値を判定します。実際の取引前には必ず各社公式ページをご確認ください。
-</div>
+  <main class="max-w-5xl mx-auto px-4 py-6 space-y-6">
 
-<section class="card">
-<h2>🔎 まずiPhoneを選ぶ</h2>
-<div class="controls">
-<div><label>モデル</label><select id="model"></select></div>
-<div><label>容量</label><select id="capacity"></select></div>
-<div><label>カラー</label><select id="color"></select></div>
-</div>
-<div class="segment">
-<button class="condition active" data-condition="sealed">新品・未開封</button>
-<button class="condition" data-condition="opened">開封済み</button>
-</div>
-<div id="conditionNote" class="notice" style="margin-top:12px">新品・未開封と開封済みは買取条件が異なります。開封済みでは店舗規定により減額される場合があります。</div>
-<div class="api-panel">
-  <div class="api-row">
-    <div><label>JANコード（自動判定／手動修正可）</label><input id="jan" inputmode="numeric" placeholder="商品を選ぶと確認済みJANが自動表示されます"></div>
-    <div class="notice">🤖 GitHub Actions 自動巡回ボットが各社の最新価格を自動取得・反映中。</div>
-    <button id="checkBtn" class="api-btn">🔄 最新データを再読込</button>
-  </div>
-  <div id="apiStatus" class="api-status">最新データを取得中…</div>
-</div>
-<div class="kpis">
-<div class="kpi best"><div class="kpi-label">🏆 現在の最高買取</div><div class="kpi-value best-text" id="bestPrice">—</div><div class="kpi-sub" id="bestShop">—</div></div>
-<div class="kpi"><div class="kpi-label">🍎 Apple Store価格</div><div class="kpi-value" id="applePrice">—</div><div class="kpi-sub" id="appleState">—</div></div>
-<div class="kpi profit"><div class="kpi-label">💰 単純差額</div><div class="kpi-value profit-text" id="grossProfit">—</div><div class="kpi-sub">最高買取 − Apple価格</div></div>
-</div>
-</section>
+    <!-- 注意事項バナー -->
+    <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 flex items-start space-x-3 text-sm text-amber-900 shadow-sm">
+      <i class="fa-solid fa-triangle-exclamation mt-0.5 text-amber-500"></i>
+      <div>
+        <span class="font-bold">実戦版について</span>
+        <p class="mt-0.5 text-xs text-amber-800 leading-relaxed">
+          買取価格は日々変動します。本ツールは各社（モバステ・森森買取・買取商店）から自動巡回した最新価格を元に最高値を自動判定します。実際の取引前には必ず各社公式サイトをご確認ください。
+        </p>
+      </div>
+    </div>
 
-<section class="card">
-<div class="toolbar"><h2>🏆 買取価格ランキング</h2><span class="status-pill">データ最終取得日：<span id="updated">—</span></span></div>
-<div class="table-wrap"><table>
-<thead><tr><th>順位</th><th>買取店</th><th>価格</th><th>最高値との差</th><th>データ状態</th><th>公式サイト</th></tr></thead>
-<tbody id="rows"></tbody>
-</table></div>
-<p class="small">※GitHub Actionsによって毎日自動巡回・更新された価格データを元にランキングを自動生成しています。</p>
-</section>
+    <!-- 条件指定パネル -->
+    <section class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200/80">
+      <h2 class="text-sm font-bold text-slate-700 mb-4 flex items-center gap-2">
+        <i class="fa-solid fa-sliders text-indigo-500"></i> まずiPhoneを選ぶ
+      </h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-500 mb-1">モデル</label>
+          <select id="modelSelect" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            <option value="iPhone 17 Pro Max">iPhone 17 Pro Max</option>
+            <option value="iPhone 17 Pro">iPhone 17 Pro</option>
+            <option value="iPhone 17">iPhone 17</option>
+            <option value="iPhone 17e">iPhone 17e</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-500 mb-1">容量</label>
+          <select id="storageSelect" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-indigo-500"></select>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-500 mb-1">カラー</label>
+          <select id="colorSelect" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-indigo-500"></select>
+        </div>
+      </div>
 
-<section class="card">
-<h2>🍎 Apple Store 在庫</h2>
-<div class="apple-grid">
-<div class="apple-box">
-<div class="small">選択中</div>
-<strong id="selection">—</strong>
-<div id="stock" class="stock pre">—</div>
-<div class="small" id="stockDetail">—</div>
-</div>
-<div class="apple-box">
-<div class="small">Apple公式</div>
-<p>受取可能店舗・配送予定日はApple Storeで最終確認。</p>
-<a class="btn" href="https://www.apple.com/jp/shop/buy-iphone/" target="_blank" rel="noopener">Apple Storeを見る →</a>
-</div>
-</div>
-</section>
+      <!-- 状態選択 -->
+      <div class="mt-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
+        <div class="flex items-center space-x-2">
+          <button type="button" class="bg-indigo-600 text-white text-xs px-3 py-1.5 rounded-md font-semibold shadow-sm">新品・未開封</button>
+          <button type="button" class="bg-slate-100 text-slate-600 text-xs px-3 py-1.5 rounded-md font-semibold">開封済み</button>
+        </div>
+        <div class="text-xs text-slate-400">
+          新品・未開封と開封済みは買取条件が異なります。
+        </div>
+      </div>
 
-<section class="card">
-<h2>💰 実質利益シミュレーション</h2>
-<div class="profit-grid">
-<div>
-<div class="line"><span>Apple購入価格</span><b id="buy">—</b></div>
-<div class="line"><span>最高買取価格</span><b id="sell">—</b></div>
-<div class="line"><span>その他コスト</span><input id="cost" type="number" min="0" value="0" style="width:150px;text-align:right"></div>
-<div class="line"><span>ポイント等</span><input id="point" type="number" min="0" value="0" style="width:150px;text-align:right"></div>
-</div>
-<div class="kpi profit">
-<div class="kpi-label">想定実質利益</div>
-<div class="final-profit" id="net">—</div>
-<div class="small">最高買取 ＋ ポイント等 − Apple購入価格 − その他コスト</div>
-</div>
-</div>
-</section>
-</main>
-<footer class="footer">やっぴ〜Presents｜人生は、知識と戦略で変えられる。📲</footer>
+      <!-- JANコード表示 & 再読込ボタン -->
+      <div class="mt-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-semibold text-slate-400 block">JANコード (自動判定)</span>
+          <span id="currentJan" class="text-sm font-mono font-bold text-slate-700 tracking-wider">--</span>
+        </div>
+        <button id="reloadBtn" class="bg-blue-600 hover:bg-blue-700 text-white text-xs px-4 py-2 rounded-lg font-semibold flex items-center gap-2 shadow-sm transition">
+          <i class="fa-solid fa-arrows-rotate"></i> 最新データを再読込
+        </button>
+      </div>
 
-<script>
-let CACHED_API_DATA = {};
-let LAST_FETCHED_TIME = "未取得";
+      <div id="statusAlert" class="mt-3 text-xs hidden"></div>
+    </section>
 
-const JAN_MAP={
-  "iPhone 17|256GB|ブラック":"4549995649154",
-  "iPhone 17|256GB|ホワイト":"4549995649161",
-  "iPhone 17|256GB|ミストブルー":"4549995649178",
-  "iPhone 17|256GB|ラベンダー":"4549995649185",
-  "iPhone 17|256GB|セージ":"4549995649192",
-  "iPhone 17|512GB|ブラック":"4549995649208",
-  "iPhone 17|512GB|ホワイト":"4549995649215",
-  "iPhone 17|512GB|ミストブルー":"4549995649222",
-  "iPhone 17|512GB|ラベンダー":"4549995649239",
-  "iPhone 17|512GB|セージ":"4549995649246",
-  "iPhone 17e|256GB|ブラック":"4549995677485",
-  "iPhone 17e|256GB|ホワイト":"4549995677539",
-  "iPhone 17e|256GB|ソフトピンク":"4549995677584",
-  "iPhone 17 Pro|256GB|シルバー":"4549995649253",
-  "iPhone 17 Pro|256GB|コズミックオレンジ":"4549995649260",
-  "iPhone 17 Pro|256GB|ディープブルー":"4549995649277",
-  "iPhone 17 Pro|512GB|シルバー":"4549995649406",
-  "iPhone 17 Pro|512GB|コズミックオレンジ":"4549995649413",
-  "iPhone 17 Pro|512GB|ディープブルー":"4549995649420",
-  "iPhone 17 Pro|1TB|シルバー":"4549995649437",
-  "iPhone 17 Pro|1TB|コズミックオレンジ":"4549995649444",
-  "iPhone 17 Pro|1TB|ディープブルー":"4549995649451",
-  "iPhone 17 Pro Max|256GB|シルバー":"4549995649284",
-  "iPhone 17 Pro Max|256GB|コズミックオレンジ":"4549995649291",
-  "iPhone 17 Pro Max|256GB|ディープブルー":"4549995649307",
-  "iPhone 17 Pro Max|512GB|シルバー":"4549995649314",
-  "iPhone 17 Pro Max|512GB|コズミックオレンジ":"4549995649321",
-  "iPhone 17 Pro Max|512GB|ディープブルー":"4549995649338",
-  "iPhone 17 Pro Max|1TB|シルバー":"4549995649345",
-  "iPhone 17 Pro Max|1TB|コズミックオレンジ":"4549995649352",
-  "iPhone 17 Pro Max|1TB|ディープブルー":"4549995649369",
-  "iPhone 17 Pro Max|2TB|シルバー":"4549995649376",
-  "iPhone 17 Pro Max|2TB|コズミックオレンジ":"4549995649383",
-  "iPhone 17 Pro Max|2TB|ディープブルー":"4549995649390"
-};
+    <!-- サマリーカード（3つ並び） -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="bg-white rounded-xl p-4 border border-slate-200/80 shadow-sm">
+        <div class="text-xs font-semibold text-slate-400 flex items-center gap-1.5 mb-1">
+          <span>🏆</span> 現在の最高買取
+        </div>
+        <div id="maxPriceCard" class="text-2xl font-black text-emerald-600">データ確認中</div>
+        <div id="bestStoreName" class="text-xs text-slate-400 mt-1">--</div>
+      </div>
 
-const COLORS={
-  "iPhone 17":["ブラック","ミストブルー","セージ","ホワイト","ラベンダー"],
-  "iPhone 17e":["ブラック","ホワイト","ソフトピンク"],
-  "iPhone 17 Pro":["ディープブルー","コズミックオレンジ","シルバー"],
-  "iPhone 17 Pro Max":["ディープブルー","コズミックオレンジ","シルバー"],
-  "iPhone Duo":["未発表・確認待ち"]
-};
+      <div class="bg-white rounded-xl p-4 border border-slate-200/80 shadow-sm">
+        <div class="text-xs font-semibold text-slate-400 flex items-center gap-1.5 mb-1">
+          <span>🍎</span> Apple Store価格
+        </div>
+        <div id="applePriceCard" class="text-2xl font-black text-slate-900">--</div>
+        <div class="text-xs text-slate-400 mt-1">公式税込定価</div>
+      </div>
 
-function variants(model,caps){
-  const o={};
-  for(const cap of caps){
-    o[cap]={};
-    for(const c of (COLORS[model]||[])){
-      o[cap][c]={apple:null,stock:model==='iPhone Duo'?'pre':'check',prices:{}};
-    }
-  }
-  return o;
-}
+      <div class="bg-white rounded-xl p-4 border border-slate-200/80 shadow-sm">
+        <div class="text-xs font-semibold text-slate-400 flex items-center gap-1.5 mb-1">
+          <span>💰</span> 単純差額
+        </div>
+        <div id="diffPriceCard" class="text-2xl font-black text-slate-800">--</div>
+        <div class="text-xs text-slate-400 mt-1">最高買取 - Apple価格</div>
+      </div>
+    </div>
 
-const EXTRA_MODELS={
-  "iPhone 17":variants("iPhone 17",["256GB","512GB"]),
-  "iPhone 17e":variants("iPhone 17e",["256GB","512GB"]),
-  "iPhone 17 Pro":variants("iPhone 17 Pro",["256GB","512GB","1TB"]),
-  "iPhone Duo":variants("iPhone Duo",["256GB","512GB"])
-};
+    <!-- 買取価格ランキングテーブル -->
+    <section class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200/80">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-sm font-bold text-slate-800 flex items-center gap-2">
+          <span>🏆</span> 買取価格ランキング
+        </h2>
+        <div id="lastUpdateBadge" class="text-xs font-semibold text-blue-600 bg-blue-50 px-2 py-1 rounded">
+          データ最終取得日: 取得中...
+        </div>
+      </div>
 
-const DATA={
-  ...EXTRA_MODELS,
-  "iPhone 17 Pro Max":{
-    "256GB":{"シルバー":{apple:194800,stock:"check",prices:{}},"コズミックオレンジ":{apple:194800,stock:"check",prices:{}},"ディープブルー":{apple:194800,stock:"check",prices:{}}},
-    "512GB":{"シルバー":{apple:229800,stock:"check",prices:{}},"コズミックオレンジ":{apple:229800,stock:"check",prices:{}},"ディープブルー":{apple:229800,stock:"check",prices:{}}},
-    "1TB":{"シルバー":{apple:264800,stock:"check",prices:{}},"コズミックオレンジ":{apple:264800,stock:"check",prices:{}},"ディープブルー":{apple:264800,stock:"check",prices:{}}},
-    "2TB":{"シルバー":{apple:299800,stock:"check",prices:{}},"コズミックオレンジ":{apple:299800,stock:"check",prices:{}},"ディープブルー":{apple:299800,stock:"check",prices:{}}}
-  },
-  "iPhone 18 Pro Max":{
-    "256GB":{"ブラック":{apple:249800,stock:"pre",prices:{}},"シルバー":{apple:249800,stock:"pre",prices:{}},"バーガンディ":{apple:249800,stock:"pre",prices:{}},"グレイシャー":{apple:249800,stock:"pre",prices:{}}},
-    "512GB":{"ブラック":{apple:284800,stock:"pre",prices:{}},"シルバー":{apple:284800,stock:"pre",prices:{}},"バーガンディ":{apple:284800,stock:"pre",prices:{}},"グレイシャー":{apple:284800,stock:"pre",prices:{}}},
-    "1TB":{"ブラック":{apple:354800,stock:"pre",prices:{}},"シルバー":{apple:354800,stock:"pre",prices:{}},"バーガンディ":{apple:354800,stock:"pre",prices:{}},"グレイシャー":{apple:354800,stock:"pre",prices:{}}},
-    "2TB":{"ブラック":{apple:459800,stock:"pre",prices:{}},"シルバー":{apple:459800,stock:"pre",prices:{}},"バーガンディ":{apple:459800,stock:"pre",prices:{}},"グレイシャー":{apple:459800,stock:"pre",prices:{}}}
-  },
-  "iPhone 18 Pro":{
-    "256GB":{"ブラック":{apple:219800,stock:"pre",prices:{}},"シルバー":{apple:219800,stock:"pre",prices:{}},"バーガンディ":{apple:219800,stock:"pre",prices:{}},"グレイシャー":{apple:219800,stock:"pre",prices:{}}},
-    "512GB":{"ブラック":{apple:254800,stock:"pre",prices:{}},"シルバー":{apple:254800,stock:"pre",prices:{}},"バーガンディ":{apple:254800,stock:"pre",prices:{}},"グレイシャー":{apple:254800,stock:"pre",prices:{}}},
-    "1TB":{"ブラック":{apple:324800,stock:"pre",prices:{}},"シルバー":{apple:324800,stock:"pre",prices:{}},"バーガンディ":{apple:324800,stock:"pre",prices:{}},"グレイシャー":{apple:324800,stock:"pre",prices:{}}},
-    "2TB":{"ブラック":{apple:429800,stock:"pre",prices:{}},"シルバー":{apple:429800,stock:"pre",prices:{}},"バーガンディ":{apple:429800,stock:"pre",prices:{}},"グレイシャー":{apple:429800,stock:"pre",prices:{}}}
-  }
-};
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b border-slate-100 text-[11px] font-bold text-slate-400 uppercase">
+              <th class="py-2.5 px-3">順位</th>
+              <th class="py-2.5 px-3">買取店</th>
+              <th class="py-2.5 px-3">価格</th>
+              <th class="py-2.5 px-3">最高値との差</th>
+              <th class="py-2.5 px-3">データ状態</th>
+              <th class="py-2.5 px-3 text-right">公式サイト</th>
+            </tr>
+          </thead>
+          <tbody id="rankingTableBody" class="text-sm divide-y divide-slate-100 font-medium text-slate-700">
+            <tr>
+              <td colspan="6" class="py-6 text-center text-xs text-slate-400">データ読み込み中...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[11px] text-slate-400 mt-3 leading-relaxed">
+        ※GitHub Actionsによって定期自動巡回・更新された価格データを元にランキングを自動生成しています。
+      </p>
+    </section>
 
-let condition="sealed";
-const $=id=>document.getElementById(id);
-const yen=n=>Number.isFinite(n)?"¥"+n.toLocaleString("ja-JP"):"—";
-const selectionKey=()=>`${$("model").value}|${$("capacity").value}|${$("color").value}`;
-function data(){return DATA?.[$("model").value]?.[$("capacity").value]?.[$("color").value]||null}
-function opts(el,vals){el.innerHTML=vals.map(v=>`<option value="${v}">${v}</option>`).join("")}
+  </main>
 
-function setJanFromSelection(){
-  const mapped=JAN_MAP[selectionKey()]||"";
-  $("jan").value=mapped;
-  applyPricesFromCache();
-}
+  <script>
+    // 1. Apple Store 公式定価マップ（税込）
+    const APPLE_PRICES = {
+      // iPhone 17 Pro Max
+      "iPhone 17 Pro Max_256GB": 194800,
+      "iPhone 17 Pro Max_512GB": 224800,
+      "iPhone 17 Pro Max_1TB": 254800,
 
-function updateCaps(){
-  const d=DATA[$("model").value]||{};
-  opts($("capacity"),Object.keys(d));
-  updateColors();
-}
+      // iPhone 17 Pro
+      "iPhone 17 Pro_256GB": 174800,
+      "iPhone 17 Pro_512GB": 204800,
+      "iPhone 17 Pro_1TB": 234800,
 
-function updateColors(){
-  const d=DATA[$("model").value]?.[$("capacity").value]||{};
-  opts($("color"),Object.keys(d));
-  setJanFromSelection();
-}
+      // iPhone 17
+      "iPhone 17_256GB": 129800,
+      "iPhone 17_512GB": 159800,
 
-function rows(){
-  const d=data(); if(!d)return[];
-  return Object.entries(d.prices||{}).map(([name,price])=>({name,price,url:d.links?.[name]||""}))
-    .filter(s=>Number.isFinite(s.price)).sort((a,b)=>b.price-a.price);
-}
+      // iPhone 17e
+      "iPhone 17e_128GB": 99800,
+      "iPhone 17e_256GB": 114800
+    };
 
-function render(){
-  const d=data(),rs=rows(),best=rs[0]?.price??null;
-  $("bestPrice").textContent=yen(best); $("bestShop").textContent=rs[0]?.name||"データ確認中";
-  $("applePrice").textContent=yen(d?.apple); $("appleState").textContent=d?.stock==="pre"?"発売前・公式で再確認":"在庫情報を確認";
-  $("grossProfit").textContent=best!=null?yen(best-d.apple):"—";
-  $("buy").textContent=yen(d?.apple); $("sell").textContent=yen(best);
-  const cost=Number($("cost").value)||0,point=Number($("point").value)||0;
-  $("net").textContent=best!=null?yen(best+point-d.apple-cost):"—";
-  $("selection").textContent=`${$("model").value} / ${$("capacity").value} / ${$("color").value}`;
-  $("stock").textContent=d?.stock==="pre"?"🟦 発売前":"🟢 公式で確認";
-  $("stock").className="stock "+(d?.stock==="pre"?"pre":"in");
-  $("stockDetail").textContent=d?.stock==="pre"?"発売前。受取可能状況は発売日に再確認してください。":"在庫状況はApple公式で最終確認してください。";
-  $("updated").textContent=LAST_FETCHED_TIME;
-  $("rows").innerHTML=rs.length?rs.map((r,i)=>`<tr class="${i===0?"best-row":""}"><td class="rank">${i===0?"🥇":i===1?"🥈":i===2?"🥉":i+1}</td><td><b>${r.name}</b></td><td class="price">${yen(r.price)}</td><td class="diff">${i===0?"—":"−"+yen(best-r.price)}</td><td>🟢 自動巡回取得済</td><td>${r.url?`<a class="visit" href="${r.url}" target="_blank" rel="noopener">商品ページ →</a>`:"—"}</td></tr>`).join(""):`<tr><td colspan="6" class="no-data">このJAN（${$("jan").value||"未入力"}）の買取データは巡回データ内に未登録です。</td></tr>`;
-}
-
-function applyPricesFromCache(){
-  const jan=$("jan").value.trim();
-  const d=data();
-  if(!d) return;
-  d.prices={}; d.links={};
-  if(CACHED_API_DATA[jan] && Array.isArray(CACHED_API_DATA[jan].stores)){
-    for(const item of CACHED_API_DATA[jan].stores){
-      if(item.store && Number.isFinite(item.price)){
-        d.prices[item.store]=item.price;
-        if(item.url) d.links[item.store]=item.url;
+    // 2. 機種・容量・カラー 構成 & JANコードデータベース
+    const PRODUCT_CONFIG = {
+      "iPhone 17 Pro Max": {
+        storages: ["256GB", "512GB", "1TB"],
+        colors: ["シルバー", "コズミックオレンジ", "ディープブルー"]
+      },
+      "iPhone 17 Pro": {
+        storages: ["256GB", "512GB", "1TB"],
+        colors: ["シルバー", "コズミックオレンジ", "ディープブルー"]
+      },
+      "iPhone 17": {
+        storages: ["256GB", "512GB"],
+        colors: ["ブラック", "ホワイト", "ブルー"]
+      },
+      "iPhone 17e": {
+        storages: ["128GB", "256GB"],
+        colors: ["ブラック", "ホワイト"]
       }
+    };
+
+    const JAN_DATABASE = {
+      // iPhone 17 Pro Max
+      "iPhone 17 Pro Max_256GB_シルバー": "4549995649284",
+      "iPhone 17 Pro Max_256GB_コズミックオレンジ": "4549995649291",
+      "iPhone 17 Pro Max_256GB_ディープブルー": "4549995649307",
+      "iPhone 17 Pro Max_512GB_シルバー": "4549995649314",
+      "iPhone 17 Pro Max_512GB_コズミックオレンジ": "4549995649321",
+      "iPhone 17 Pro Max_512GB_ディープブルー": "4549995649338",
+      "iPhone 17 Pro Max_1TB_シルバー": "4549995649345",
+      "iPhone 17 Pro Max_1TB_コズミックオレンジ": "4549995649352",
+      "iPhone 17 Pro Max_1TB_ディープブルー": "4549995649369",
+
+      // iPhone 17 Pro
+      "iPhone 17 Pro_256GB_シルバー": "4549995649253",
+      "iPhone 17 Pro_256GB_コズミックオレンジ": "4549995649260",
+      "iPhone 17 Pro_256GB_ディープブルー": "4549995649277",
+      "iPhone 17 Pro_512GB_シルバー": "4549995649406",
+      "iPhone 17 Pro_512GB_コズミックオレンジ": "4549995649413",
+      "iPhone 17 Pro_512GB_ディープブルー": "4549995649420",
+      "iPhone 17 Pro_1TB_シルバー": "4549995649437",
+      "iPhone 17 Pro_1TB_コズミックオレンジ": "4549995649444",
+      "iPhone 17 Pro_1TB_ディープブルー": "4549995649451",
+
+      // iPhone 17
+      "iPhone 17_256GB_ブラック": "4549995649154",
+      "iPhone 17_256GB_ホワイト": "4549995649161",
+      "iPhone 17_256GB_ブルー": "4549995649178",
+      "iPhone 17_512GB_ブラック": "4549995649185",
+      "iPhone 17_512GB_ホワイト": "4549995649192",
+
+      // iPhone 17e
+      "iPhone 17e_128GB_ブラック": "4549995677508",
+      "iPhone 17e_128GB_ホワイト": "4549995677515",
+      "iPhone 17e_256GB_ブラック": "4549995677485",
+      "iPhone 17e_256GB_ホワイト": "4549995677492"
+    };
+
+    let crawlData = {};
+
+    // 画面初期化
+    function initUI() {
+      const modelSel = document.getElementById("modelSelect");
+      const storageSel = document.getElementById("storageSelect");
+      const colorSel = document.getElementById("colorSelect");
+
+      function updateStorages() {
+        const model = modelSel.value;
+        const storages = PRODUCT_CONFIG[model].storages;
+        storageSel.innerHTML = storages.map(s => `<option value="${s}">${s}</option>`).join("");
+        updateColors();
+      }
+
+      function updateColors() {
+        const model = modelSel.value;
+        const colors = PRODUCT_CONFIG[model].colors;
+        colorSel.innerHTML = colors.map(c => `<option value="${c}">${c}</option>`).join("");
+        render();
+      }
+
+      modelSel.addEventListener("change", updateStorages);
+      storageSel.addEventListener("change", render);
+      colorSel.addEventListener("change", render);
+
+      updateStorages();
     }
-    if(CACHED_API_DATA[jan].last_update){
-      LAST_FETCHED_TIME = CACHED_API_DATA[jan].last_update;
+
+    // JSONデータの取得
+    async function loadCrawlData() {
+      const statusAlert = document.getElementById("statusAlert");
+      try {
+        const res = await fetch(`data/prices.json?t=${Date.now()}`);
+        if (!res.ok) throw new Error("Fetch error");
+        crawlData = await res.json();
+
+        statusAlert.className = "mt-3 text-xs text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1.5 rounded-lg";
+        statusAlert.innerHTML = '<i class="fa-solid fa-check"></i> 取得成功：自動巡回の最新データを反映しました！';
+        statusAlert.classList.remove("hidden");
+      } catch (e) {
+        statusAlert.className = "mt-3 text-xs text-rose-700 bg-rose-50 border border-rose-200 px-3 py-1.5 rounded-lg";
+        statusAlert.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> データの読み込みに失敗しました。';
+        statusAlert.classList.remove("hidden");
+      }
+      render();
     }
-  }
-  render();
-}
 
-async function fetchAllPrices(){
-  const btn=$("checkBtn"); btn.disabled=true;
-  $("apiStatus").textContent="⏳ 自動巡回データ（prices.json）を取得中…";
-  try{
-    const res = await fetch("./data/prices.json?_t=" + Date.now());
-    if(!res.ok) throw new Error(`HTTP ${res.status}`);
-    CACHED_API_DATA = await res.json();
-    LAST_FETCHED_TIME = new Date().toLocaleString("ja-JP");
-    $("apiStatus").textContent = "✅ 取得成功：自動巡回の最新データを反映しました！";
-    applyPricesFromCache();
-  }catch(err){
-    $("apiStatus").textContent = `⚠️ データの取得に失敗しました：${err.message}`;
-  }finally{
-    btn.disabled = false;
-  }
-}
+    // 表示更新
+    function render() {
+      const model = document.getElementById("modelSelect").value;
+      const storage = document.getElementById("storageSelect").value;
+      const color = document.getElementById("colorSelect").value;
 
-function init(){
-  opts($("model"),Object.keys(DATA));
-  updateCaps();
-  fetchAllPrices();
-}
+      // 1. JAN判定
+      const key = `${model}_${storage}_${color}`;
+      const jan = JAN_DATABASE[key] || "--";
+      document.getElementById("currentJan").textContent = jan;
 
-$("model").addEventListener("change",updateCaps);
-$("capacity").addEventListener("change",updateColors);
-$("color").addEventListener("change",()=>{setJanFromSelection();});
-$("jan").addEventListener("input",applyPricesFromCache);
-$("checkBtn").addEventListener("click",fetchAllPrices);
-$("cost").addEventListener("input",render);
-$("point").addEventListener("input",render);
-document.querySelectorAll(".condition").forEach(b=>b.addEventListener("click",()=>{
-  document.querySelectorAll(".condition").forEach(x=>x.classList.remove("active"));
-  b.classList.add("active");
-  condition=b.dataset.condition;
-  render();
-}));
+      // 2. Apple定価取得
+      const appleKey = `${model}_${storage}`;
+      const applePrice = APPLE_PRICES[appleKey] || 0;
+      document.getElementById("applePriceCard").textContent = applePrice ? `¥${applePrice.toLocaleString()}` : "--";
 
-init();
-</script>
+      // 3. 買取データ反映
+      const itemData = crawlData[jan];
+      const tableBody = document.getElementById("rankingTableBody");
+      const maxPriceCard = document.getElementById("maxPriceCard");
+      const bestStoreName = document.getElementById("bestStoreName");
+      const diffPriceCard = document.getElementById("diffPriceCard");
+      const lastUpdateBadge = document.getElementById("lastUpdateBadge");
+
+      if (itemData && itemData.last_update) {
+        lastUpdateBadge.textContent = `データ最終取得日: ${itemData.last_update}`;
+      } else {
+        lastUpdateBadge.textContent = "データ最終取得日: --";
+      }
+
+      if (!itemData || !itemData.stores || itemData.stores.length === 0) {
+        maxPriceCard.textContent = "データ確認中";
+        maxPriceCard.className = "text-2xl font-black text-slate-400";
+        bestStoreName.textContent = "--";
+        diffPriceCard.textContent = "--";
+        diffPriceCard.className = "text-2xl font-black text-slate-400";
+        tableBody.innerHTML = `<tr><td colspan="6" class="py-6 text-center text-xs text-slate-400">このJAN (${jan}) の買取データは巡回データ内に未登録です。</td></tr>`;
+        return;
+      }
+
+      // 価格降順ソート
+      const sortedStores = [...itemData.stores].sort((a, b) => b.price - a.price);
+      const best = sortedStores[0];
+
+      // カード反映
+      maxPriceCard.textContent = `¥${best.price.toLocaleString()}`;
+      maxPriceCard.className = "text-2xl font-black text-emerald-600";
+      bestStoreName.textContent = best.store;
+
+      if (applePrice > 0) {
+        const diff = best.price - applePrice;
+        const sign = diff > 0 ? "+" : "";
+        diffPriceCard.textContent = `${sign}¥${diff.toLocaleString()}`;
+        diffPriceCard.className = diff >= 0 ? "text-2xl font-black text-amber-600" : "text-2xl font-black text-rose-600";
+      } else {
+        diffPriceCard.textContent = "--";
+      }
+
+      // テーブル反映
+      tableBody.innerHTML = sortedStores.map((s, idx) => {
+        const diff = s.price - best.price;
+        const diffStr = diff === 0 ? "ー" : `-¥${Math.abs(diff).toLocaleString()}`;
+        return `
+          <tr class="hover:bg-slate-50 transition">
+            <td class="py-3 px-3 font-bold ${idx === 0 ? 'text-amber-500' : 'text-slate-400'}">${idx + 1}位</td>
+            <td class="py-3 px-3 font-bold text-slate-800">${s.store}</td>
+            <td class="py-3 px-3 font-black text-slate-900">¥${s.price.toLocaleString()}</td>
+            <td class="py-3 px-3 text-xs ${diff === 0 ? 'text-slate-400' : 'text-rose-500 font-semibold'}">${diffStr}</td>
+            <td class="py-3 px-3"><span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-100 text-emerald-700">自動巡回取得済</span></td>
+            <td class="py-3 px-3 text-right">
+              <a href="${s.url}" target="_blank" rel="noopener noreferrer" class="inline-block text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-1 rounded font-semibold transition">公式確認</a>
+            </td>
+          </tr>
+        `;
+      }).join("");
+    }
+
+    document.getElementById("reloadBtn").addEventListener("click", loadCrawlData);
+
+    // 起動
+    initUI();
+    loadCrawlData();
+  </script>
 </body>
 </html>
