@@ -10,6 +10,9 @@ const TARGET_JANS = [
   { jan: "4549995649314", name: "iPhone 17 Pro Max 512GB シルバー", defaultPrice: 228000 },
   { jan: "4549995649321", name: "iPhone 17 Pro Max 512GB コズミックオレンジ", defaultPrice: 231000 },
   { jan: "4549995649338", name: "iPhone 17 Pro Max 512GB ディープブルー", defaultPrice: 229000 },
+  { jan: "4549995649345", name: "iPhone 17 Pro Max 1TB シルバー", defaultPrice: 255000 },
+  { jan: "4549995649352", name: "iPhone 17 Pro Max 1TB コズミックオレンジ", defaultPrice: 258000 },
+  { jan: "4549995649369", name: "iPhone 17 Pro Max 1TB ディープブルー", defaultPrice: 256000 },
 
   // iPhone 17 Pro
   { jan: "4549995649253", name: "iPhone 17 Pro 256GB シルバー", defaultPrice: 182000 },
@@ -18,9 +21,22 @@ const TARGET_JANS = [
   { jan: "4549995649406", name: "iPhone 17 Pro 512GB シルバー", defaultPrice: 204000 },
   { jan: "4549995649413", name: "iPhone 17 Pro 512GB コズミックオレンジ", defaultPrice: 207000 },
   { jan: "4549995649420", name: "iPhone 17 Pro 512GB ディープブルー", defaultPrice: 205000 },
+  { jan: "4549995649437", name: "iPhone 17 Pro 1TB シルバー", defaultPrice: 232000 },
+  { jan: "4549995649444", name: "iPhone 17 Pro 1TB コズミックオレンジ", defaultPrice: 235000 },
+  { jan: "4549995649451", name: "iPhone 17 Pro 1TB ディープブルー", defaultPrice: 233000 },
 
   // iPhone 17
-  { jan: "4549995649154", name: "iPhone 17 256GB ブラック", defaultPrice: 138000 }
+  { jan: "4549995649154", name: "iPhone 17 256GB ブラック", defaultPrice: 139000 },
+  { jan: "4549995649161", name: "iPhone 17 256GB ホワイト", defaultPrice: 139000 },
+  { jan: "4549995649178", name: "iPhone 17 256GB ブルー", defaultPrice: 139000 },
+  { jan: "4549995649185", name: "iPhone 17 512GB ブラック", defaultPrice: 162000 },
+  { jan: "4549995649192", name: "iPhone 17 512GB ホワイト", defaultPrice: 162000 },
+
+  // iPhone 17e
+  { jan: "4549995677485", name: "iPhone 17e 256GB ブラック", defaultPrice: 98000 },
+  { jan: "4549995677492", name: "iPhone 17e 256GB ホワイト", defaultPrice: 98000 },
+  { jan: "4549995677508", name: "iPhone 17e 128GB ブラック", defaultPrice: 85000 },
+  { jan: "4549995677515", name: "iPhone 17e 128GB ホワイト", defaultPrice: 85000 }
 ];
 
 async function run() {
@@ -43,8 +59,8 @@ async function run() {
     try {
       const page = await context.newPage();
       const url = `https://pastec.net/search?keyword=${item.jan}`;
-      await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 7000 });
-      await page.waitForTimeout(1000);
+      await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 5000 });
+      await page.waitForTimeout(800);
       const text = await page.innerText('body');
       await page.close();
 
@@ -52,7 +68,7 @@ async function run() {
       let maxP = 0;
       for (const m of matches) {
         const val = Number(m[1].replace(/,/g, ''));
-        if (val >= 50000 && val <= 600000 && val > maxP) maxP = val;
+        if (val >= 40000 && val <= 600000 && val > maxP) maxP = val;
       }
       if (maxP > 0) {
         results[item.jan].stores.push({ store: "モバステ", price: maxP, url });
@@ -65,8 +81,8 @@ async function run() {
     try {
       const page = await context.newPage();
       const url = `https://www.morimori-kaitori.jp/search?keyword=${item.jan}`;
-      await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 7000 });
-      await page.waitForTimeout(1000);
+      await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 5000 });
+      await page.waitForTimeout(800);
       const text = await page.innerText('body');
       await page.close();
 
@@ -74,7 +90,7 @@ async function run() {
       let maxP = 0;
       for (const m of matches) {
         const val = Number(m[1].replace(/,/g, ''));
-        if (val >= 50000 && val <= 600000 && val > maxP) maxP = val;
+        if (val >= 40000 && val <= 600000 && val > maxP) maxP = val;
       }
       if (maxP > 0) {
         results[item.jan].stores.push({ store: "森森買取", price: maxP, url });
@@ -83,7 +99,7 @@ async function run() {
       console.log(`  森森買取: ${e.message}`);
     }
 
-    // スクレイピングで拾えなかった場合のベースデータ補完（空表示を防止）
+    // スクレイピングで未取得時のベースデータ補完
     if (results[item.jan].stores.length === 0) {
       results[item.jan].stores = [
         { store: "モバステ", price: item.defaultPrice, url: `https://pastec.net/search?keyword=${item.jan}` },
