@@ -25,11 +25,14 @@ const TARGET_JANS = [
 ];
 
 async function run() {
-  const browser = await chromium.launch({ headless: true });
-  const context = await browser.newContext({
-    userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36'
+  const browser = await chromium.launch({ 
+    headless: true,
+    args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage']
   });
-  const page = await context.newPage();
+  const context = await browser.newContext({
+    userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
+    viewport: { width: 1280, height: 800 }
+  });
 
   const results = {};
   const now = new Date().toLocaleString("ja-JP", { timeZone: "Asia/Tokyo" });
@@ -43,19 +46,18 @@ async function run() {
 
     // 1. 買取商店
     try {
+      const page = await context.newPage();
       const url = `https://kaitorishouten.jp/item/search?q=${item.jan}`;
-      await page.goto(url, { waitUntil: 'networkidle', timeout: 20000 });
-      await page.waitForTimeout(1500); // 動的描画の完了待ち
+      await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 15000 });
+      await page.waitForTimeout(2000);
       const bodyText = await page.innerText('body');
-      
-      // 数字,数字 + 円 または ¥数字 を抽出
+      await page.close();
+
       const matches = [...bodyText.matchAll(/(?:¥|￥)?\s*([1-9]\d{1,2}(?:,\d{3})+)\s*円?/g)];
       let maxP = 0;
       for (const m of matches) {
         const val = Number(m[1].replace(/,/g, ''));
-        if (val > 50000 && val < 600000 && val > maxP) {
-          maxP = val;
-        }
+        if (val > 50000 && val < 600000 && val > maxP) maxP = val;
       }
       if (maxP > 0) {
         results[item.jan].stores.push({ store: "買取商店", price: maxP, url });
@@ -67,18 +69,18 @@ async function run() {
 
     // 2. モバステ
     try {
+      const page = await context.newPage();
       const url = `https://pastec.net/search?keyword=${item.jan}`;
-      await page.goto(url, { waitUntil: 'networkidle', timeout: 20000 });
-      await page.waitForTimeout(1500);
+      await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 15000 });
+      await page.waitForTimeout(2000);
       const bodyText = await page.innerText('body');
-      
+      await page.close();
+
       const matches = [...bodyText.matchAll(/(?:¥|￥)?\s*([1-9]\d{1,2}(?:,\d{3})+)\s*円?/g)];
       let maxP = 0;
       for (const m of matches) {
         const val = Number(m[1].replace(/,/g, ''));
-        if (val > 50000 && val < 600000 && val > maxP) {
-          maxP = val;
-        }
+        if (val > 50000 && val < 600000 && val > maxP) maxP = val;
       }
       if (maxP > 0) {
         results[item.jan].stores.push({ store: "モバステ", price: maxP, url });
@@ -90,18 +92,18 @@ async function run() {
 
     // 3. 森森買取
     try {
+      const page = await context.newPage();
       const url = `https://www.morimori-kaitori.jp/search?keyword=${item.jan}`;
-      await page.goto(url, { waitUntil: 'networkidle', timeout: 20000 });
-      await page.waitForTimeout(1500);
+      await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 15000 });
+      await page.waitForTimeout(2000);
       const bodyText = await page.innerText('body');
-      
+      await page.close();
+
       const matches = [...bodyText.matchAll(/(?:¥|￥)?\s*([1-9]\d{1,2}(?:,\d{3})+)\s*円?/g)];
       let maxP = 0;
       for (const m of matches) {
         const val = Number(m[1].replace(/,/g, ''));
-        if (val > 50000 && val < 600000 && val > maxP) {
-          maxP = val;
-        }
+        if (val > 50000 && val < 600000 && val > maxP) maxP = val;
       }
       if (maxP > 0) {
         results[item.jan].stores.push({ store: "森森買取", price: maxP, url });
@@ -111,7 +113,7 @@ async function run() {
       console.log(`  森森買取 Error: ${e.message}`);
     }
 
-    await page.waitForTimeout(1000);
+    await new Promise(r => setTimeout(r, 500));
   }
 
   await browser.close();
