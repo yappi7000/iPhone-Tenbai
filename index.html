@@ -232,15 +232,28 @@ const COLORS={
   "iPhone 17":["ブラック","ミストブルー","セージ","ホワイト","ラベンダー"],
   "iPhone 17e":["ブラック","ホワイト","ソフトピンク"],
   "iPhone 17 Pro":["ディープブルー","コズミックオレンジ","シルバー"],
+  "iPhone 17 Pro Max":["ディープブルー","コズミックオレンジ","シルバー"],
   "iPhone Duo":["未発表・確認待ち"]
 };
-function variants(model,caps){const o={}; for(const cap of caps){o[cap]={}; for(const c of COLORS[model])o[cap][c]={apple:null,stock:model==='iPhone Duo'?'pre':'check',prices:{}};} return o;}
+
+function variants(model,caps){
+  const o={};
+  for(const cap of caps){
+    o[cap]={};
+    for(const c of (COLORS[model]||[])){
+      o[cap][c]={apple:null,stock:model==='iPhone Duo'?'pre':'check',prices:{}};
+    }
+  }
+  return o;
+}
+
 const EXTRA_MODELS={
   "iPhone 17":variants("iPhone 17",["256GB","512GB"]),
   "iPhone 17e":variants("iPhone 17e",["256GB","512GB"]),
   "iPhone 17 Pro":variants("iPhone 17 Pro",["256GB","512GB","1TB"]),
   "iPhone Duo":variants("iPhone Duo",["256GB","512GB"])
 };
+
 const DATA={
   ...EXTRA_MODELS,
   "iPhone 17 Pro Max":{
@@ -262,6 +275,7 @@ const DATA={
     "2TB":{"ブラック":{apple:429800,stock:"pre",prices:{}},"シルバー":{apple:429800,stock:"pre",prices:{}},"バーガンディ":{apple:429800,stock:"pre",prices:{}},"グレイシャー":{apple:429800,stock:"pre",prices:{}}}
   }
 };
+
 let condition="sealed";
 const $=id=>document.getElementById(id);
 const yen=n=>Number.isFinite(n)?"¥"+n.toLocaleString("ja-JP"):"—";
@@ -275,16 +289,17 @@ function setJanFromSelection(){
   applyPricesFromCache();
 }
 
-function init(){
-  opts($("model"),Object.keys(DATA));
-  updateCaps();
+function updateCaps(){
+  const d=DATA[$("model").value]||{};
+  opts($("capacity"),Object.keys(d));
   updateColors();
+}
+
+function updateColors(){
+  const d=DATA[$("model").value]?.[$("capacity").value]||{};
+  opts($("color"),Object.keys(d));
   setJanFromSelection();
-  fetchAllPrices();
 }
-}
-function updateCaps(){const d=DATA[$("model").value]; opts($("capacity"),Object.keys(d)); updateColors()}
-function updateColors(){const d=DATA[$("model").value][$("capacity").value]; opts($("color"),Object.keys(d)); setJanFromSelection(); render()}
 
 function rows(){
   const d=data(); if(!d)return[];
@@ -344,13 +359,26 @@ async function fetchAllPrices(){
   }
 }
 
+function init(){
+  opts($("model"),Object.keys(DATA));
+  updateCaps();
+  fetchAllPrices();
+}
+
 $("model").addEventListener("change",updateCaps);
 $("capacity").addEventListener("change",updateColors);
-$("color").addEventListener("change",()=>{setJanFromSelection();render()});
+$("color").addEventListener("change",()=>{setJanFromSelection();});
 $("jan").addEventListener("input",applyPricesFromCache);
 $("checkBtn").addEventListener("click",fetchAllPrices);
-$("cost").addEventListener("input",render); $("point").addEventListener("input",render);
-document.querySelectorAll(".condition").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".condition").forEach(x=>x.classList.remove("active"));b.classList.add("active");condition=b.dataset.condition;render()}));
+$("cost").addEventListener("input",render);
+$("point").addEventListener("input",render);
+document.querySelectorAll(".condition").forEach(b=>b.addEventListener("click",()=>{
+  document.querySelectorAll(".condition").forEach(x=>x.classList.remove("active"));
+  b.classList.add("active");
+  condition=b.dataset.condition;
+  render();
+}));
+
 init();
 </script>
 </body>
