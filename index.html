@@ -342,21 +342,19 @@ async function fetchAllPricesFromSheet(){
   const btn=$("checkBtn"); btn.disabled=true;
   $("apiStatus").textContent="⏳ スプレッドシートから全価格データを直接取得中…";
   try{
-    // キャッシュ回避のタイムスタンプ付与
-    const res=await fetch(CSV_ENDPOINT + "&_t=" + Date.now());
+ // キャッシュ回避のタイムスタンプ付与して prices.json を取得
+    const res = await fetch("./data/prices.json?_t=" + Date.now());
     if(!res.ok) throw new Error(`HTTP ${res.status}`);
-    const csvText = await res.text();
-    CACHED_API_DATA = parseCSV(csvText);
+    CACHED_API_DATA = await res.json();
     LAST_FETCHED_TIME = new Date().toLocaleString("ja-JP");
-    $("apiStatus").textContent="✅ 取得成功：スプレッドシートの最新データを反映しました！";
+    $("apiStatus").textContent = "✅ 取得成功：自動巡回の最新データを反映しました！";
     applyPricesFromCache();
   }catch(err){
-    $("apiStatus").textContent=`⚠️ データの取得に失敗しました：${err.message}`;
+    $("apiStatus").textContent = `⚠️ データの取得に失敗しました：${err.message}`;
   }finally{
-    btn.disabled=false;
+    btn.disabled = false;
   }
 }
-
 $("model").addEventListener("change",updateCaps);
 $("capacity").addEventListener("change",updateColors);
 $("color").addEventListener("change",()=>{setJanFromSelection();render()});
