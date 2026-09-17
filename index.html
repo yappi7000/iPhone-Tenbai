@@ -9,13 +9,21 @@
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased min-h-screen">
 
-  <!-- ヘッダー -->
+  <!-- ヘッダー（やっぴ〜キャラクター & システム連携表示） -->
   <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
     <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
-      <div class="flex items-center space-x-2">
-        <span class="text-2xl">📱</span>
-        <h1 class="text-lg font-bold text-slate-900 tracking-tight">iPhone買取チェッカー</h1>
-        <span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded font-semibold">実戦版</span>
+      <div class="flex items-center space-x-3">
+        <!-- やっぴ〜キャラクター画像（Base64等対応アイコン） -->
+        <div class="w-10 h-10 rounded-full bg-indigo-50 border border-indigo-200 flex items-center justify-center overflow-hidden shadow-inner">
+          <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%236366f1'><path d='M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 3a3 3 0 1 1-3 3 3 3 0 0 1 3-3zm0 14.2a7.2 7.2 0 0 1-6-3.2.5.5 0 0 1 .1-6A7.1 7.1 0 0 1 12 9a7.1 7.1 0 0 1 5.9 3 .5.5 0 0 1 .1 6 7.2 7.2 0 0 1-6 3.2z'/></svg>" alt="やっぴ〜" class="w-full h-full object-cover">
+        </div>
+        <div>
+          <div class="flex items-center gap-1.5">
+            <h1 class="text-base font-bold text-slate-900 tracking-tight">iPhone買取チェッカー</h1>
+            <span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded font-semibold">実戦版</span>
+          </div>
+          <p class="text-[11px] text-slate-400">Presented by やっぴ〜 ✨</p>
+        </div>
       </div>
       <div class="text-xs text-slate-500 flex items-center gap-2">
         <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
@@ -32,7 +40,7 @@
       <div>
         <span class="font-bold">実戦版について</span>
         <p class="mt-0.5 text-xs text-amber-800 leading-relaxed">
-          買取価格は変動します。現在公開価格を確認できない店舗は「ー」表示にし、推測値でランキングを作らない設計です。価格を取得できた店舗だけで最高値を判定します。実際の取引前には必ず各社公式サイトをご確認ください。
+          買取価格は日々変動します。本ツールは各社（モバステ・森森買取・買取商店）から自動巡回した最新価格を元に最高値を自動判定します。実際の取引前には必ず各社公式サイトをご確認ください。
         </p>
       </div>
     </div>
@@ -70,30 +78,25 @@
           <button type="button" class="bg-slate-100 text-slate-600 text-xs px-3 py-1.5 rounded-md font-semibold">開封済み</button>
         </div>
         <div class="text-xs text-slate-400">
-          新品・未開封と開封済みは買取条件が異なります。開封済みでは店舗規定により減額される場合があります。
+          新品・未開封と開封済みは買取条件が異なります。
         </div>
       </div>
 
       <!-- JANコード表示 & 再読込ボタン -->
       <div class="mt-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
         <div>
-          <span class="text-xs font-semibold text-slate-400 block">JANコード (自動判定/手動修正可)</span>
+          <span class="text-xs font-semibold text-slate-400 block">JANコード (自動判定)</span>
           <span id="currentJan" class="text-sm font-mono font-bold text-slate-700 tracking-wider">--</span>
         </div>
-        <div class="flex items-center gap-3">
-          <span class="text-xs text-slate-500 flex items-center gap-1">
-            🤖 GitHub Actions 自動巡回ボットが各社の最新価格を自動取得・反映中。
-          </span>
-          <button id="reloadBtn" class="bg-blue-600 hover:bg-blue-700 text-white text-xs px-4 py-2 rounded-lg font-semibold flex items-center gap-2 shadow-sm transition">
-            <i class="fa-solid fa-arrows-rotate"></i> 最新データを再読込
-          </button>
-        </div>
+        <button id="reloadBtn" class="bg-blue-600 hover:bg-blue-700 text-white text-xs px-4 py-2 rounded-lg font-semibold flex items-center gap-2 shadow-sm transition">
+          <i class="fa-solid fa-arrows-rotate"></i> 最新データを再読込
+        </button>
       </div>
 
       <div id="statusAlert" class="mt-3 text-xs hidden"></div>
     </section>
 
-    <!-- サマリーカード -->
+    <!-- サマリーカード（3つ並び） -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
       <div class="bg-white rounded-xl p-4 border border-slate-200/80 shadow-sm">
         <div class="text-xs font-semibold text-slate-400 flex items-center gap-1.5 mb-1">
@@ -108,7 +111,7 @@
           <span>🍎</span> Apple Store価格
         </div>
         <div id="applePriceCard" class="text-2xl font-black text-slate-900">--</div>
-        <div id="applePriceSub" class="text-xs text-slate-400 mt-1">公式税込定価</div>
+        <div class="text-xs text-slate-400 mt-1">公式税込定価</div>
       </div>
 
       <div class="bg-white rounded-xl p-4 border border-slate-200/80 shadow-sm">
@@ -140,7 +143,7 @@
               <th class="py-2.5 px-3">価格</th>
               <th class="py-2.5 px-3">最高値との差</th>
               <th class="py-2.5 px-3">データ状態</th>
-              <th class="py-2.5 px-3 text-right">公式サイト</th>
+              <th class="py-2.5 px-3 text-right">公式サイト / クーポン</th>
             </tr>
           </thead>
           <tbody id="rankingTableBody" class="text-sm divide-y divide-slate-100 font-medium text-slate-700">
@@ -151,35 +154,27 @@
         </table>
       </div>
       <p class="text-[11px] text-slate-400 mt-3 leading-relaxed">
-        ※GitHub Actionsによって毎日自動巡回・更新された価格データを元にランキングを自動生成しています。
+        ※GitHub Actionsによって定期自動巡回・更新された価格データを元にランキングを自動生成しています。
       </p>
     </section>
 
   </main>
 
   <script>
-    // 1. Apple Store 公式税込定価マップ
+    // Apple Store 公式定価マップ（税込）
     const APPLE_PRICES = {
-      // iPhone 17 Pro Max
       "iPhone 17 Pro Max_256GB": 194800,
       "iPhone 17 Pro Max_512GB": 224800,
       "iPhone 17 Pro Max_1TB": 254800,
-
-      // iPhone 17 Pro
       "iPhone 17 Pro_256GB": 174800,
       "iPhone 17 Pro_512GB": 204800,
       "iPhone 17 Pro_1TB": 234800,
-
-      // iPhone 17
       "iPhone 17_256GB": 129800,
       "iPhone 17_512GB": 159800,
-
-      // iPhone 17e
       "iPhone 17e_128GB": 99800,
       "iPhone 17e_256GB": 114800
     };
 
-    // 2. 機種別オプション定義
     const PRODUCT_CONFIG = {
       "iPhone 17 Pro Max": {
         storages: ["256GB", "512GB", "1TB"],
@@ -199,9 +194,7 @@
       }
     };
 
-    // 3. JANコードマッピング
     const JAN_DATABASE = {
-      // iPhone 17 Pro Max
       "iPhone 17 Pro Max_256GB_シルバー": "4549995649284",
       "iPhone 17 Pro Max_256GB_コズミックオレンジ": "4549995649291",
       "iPhone 17 Pro Max_256GB_ディープブルー": "4549995649307",
@@ -211,8 +204,6 @@
       "iPhone 17 Pro Max_1TB_シルバー": "4549995649345",
       "iPhone 17 Pro Max_1TB_コズミックオレンジ": "4549995649352",
       "iPhone 17 Pro Max_1TB_ディープブルー": "4549995649369",
-
-      // iPhone 17 Pro
       "iPhone 17 Pro_256GB_シルバー": "4549995649253",
       "iPhone 17 Pro_256GB_コズミックオレンジ": "4549995649260",
       "iPhone 17 Pro_256GB_ディープブルー": "4549995649277",
@@ -222,15 +213,11 @@
       "iPhone 17 Pro_1TB_シルバー": "4549995649437",
       "iPhone 17 Pro_1TB_コズミックオレンジ": "4549995649444",
       "iPhone 17 Pro_1TB_ディープブルー": "4549995649451",
-
-      // iPhone 17
       "iPhone 17_256GB_ブラック": "4549995649154",
       "iPhone 17_256GB_ホワイト": "4549995649161",
       "iPhone 17_256GB_ブルー": "4549995649178",
       "iPhone 17_512GB_ブラック": "4549995649185",
       "iPhone 17_512GB_ホワイト": "4549995649192",
-
-      // iPhone 17e
       "iPhone 17e_128GB_ブラック": "4549995677508",
       "iPhone 17e_128GB_ホワイト": "4549995677515",
       "iPhone 17e_256GB_ブラック": "4549995677485",
@@ -288,17 +275,14 @@
       const storage = document.getElementById("storageSelect").value;
       const color = document.getElementById("colorSelect").value;
 
-      // JAN判定
       const key = `${model}_${storage}_${color}`;
       const jan = JAN_DATABASE[key] || "--";
       document.getElementById("currentJan").textContent = jan;
 
-      // Apple定価取得
       const appleKey = `${model}_${storage}`;
       const applePrice = APPLE_PRICES[appleKey] || 0;
       document.getElementById("applePriceCard").textContent = applePrice ? `¥${applePrice.toLocaleString()}` : "--";
 
-      // 買取データ反映
       const itemData = crawlData[jan];
       const tableBody = document.getElementById("rankingTableBody");
       const maxPriceCard = document.getElementById("maxPriceCard");
@@ -322,7 +306,6 @@
         return;
       }
 
-      // 降順ソート
       const sortedStores = [...itemData.stores].sort((a, b) => b.price - a.price);
       const best = sortedStores[0];
 
@@ -342,10 +325,20 @@
       tableBody.innerHTML = sortedStores.map((s, idx) => {
         const diff = s.price - best.price;
         const diffStr = diff === 0 ? "ー" : `-¥${Math.abs(diff).toLocaleString()}`;
+        
+        // 森森買取などのクーポン表示用（サムネイルやクーポンタグ）
+        let extraTag = '';
+        if (s.store === "森森買取") {
+          extraTag = '<span class="ml-1 text-[10px] bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded font-bold">クーポン適用可</span>';
+        }
+
         return `
           <tr class="hover:bg-slate-50 transition">
             <td class="py-3 px-3 font-bold ${idx === 0 ? 'text-amber-500' : 'text-slate-400'}">${idx + 1}位</td>
-            <td class="py-3 px-3 font-bold text-slate-800">${s.store}</td>
+            <td class="py-3 px-3 font-bold text-slate-800 flex items-center gap-1.5">
+              <span>${s.store}</span>
+              ${extraTag}
+            </td>
             <td class="py-3 px-3 font-black text-slate-900">¥${s.price.toLocaleString()}</td>
             <td class="py-3 px-3 text-xs ${diff === 0 ? 'text-slate-400' : 'text-rose-500 font-semibold'}">${diffStr}</td>
             <td class="py-3 px-3"><span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-100 text-emerald-700">自動巡回取得済</span></td>
