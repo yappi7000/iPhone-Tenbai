@@ -267,8 +267,12 @@ function setJanFromSelection(){
 }
 
 function init(){
-  opts($("model"),Object.keys(DATA)); updateCaps();
+  opts($("model"),Object.keys(DATA));
+  updateCaps();
+  updateColors();
+  setJanFromSelection();
   fetchAllPrices();
+}
 }
 function updateCaps(){const d=DATA[$("model").value]; opts($("capacity"),Object.keys(d)); updateColors()}
 function updateColors(){const d=DATA[$("model").value][$("capacity").value]; opts($("color"),Object.keys(d)); setJanFromSelection(); render()}
