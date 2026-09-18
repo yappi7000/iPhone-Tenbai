@@ -356,7 +356,7 @@ th{background:#f7fafc;color:#64748b;font-size:11px}
       const diffStr = diff === 0 ? "ー" : `-¥${Math.abs(diff).toLocaleString()}`;
       
       let extraTag = '';
-      if (s.store === "森森買取") {
+      if (s.store.includes("森森買取")) {
         extraTag = '<span style="margin-left:6px; background:#fef3c7; color:#92400e; font-size:10px; font-weight:800; padding:2px 6px; border-radius:4px;">紹介コードあり</span>';
       }
 
