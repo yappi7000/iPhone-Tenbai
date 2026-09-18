@@ -55,6 +55,7 @@ th{background:#f7fafc;color:#64748b;font-size:11px}
 .rank{font-weight:950}
 .visit{display:inline-block;background:#172033;color:#fff;text-decoration:none;border-radius:9px;padding:8px 11px;font-size:11px;font-weight:900}
 .visit:hover{background:var(--blue)}
+.coupon-box{display:inline-flex;align-items:center;gap:6px;margin-left:6px;padding:4px 7px;border-radius:7px;background:#fff4cc;border:1px solid #f2d477;color:#8a5a00;font-size:11px;font-weight:900}.copy-coupon{border:0;background:#8a5a00;color:#fff;border-radius:5px;padding:3px 6px;font-size:10px;font-weight:900;cursor:pointer}.copy-coupon:hover{opacity:.85}.discontinued{display:inline-block;background:#f1f5f9;color:#64748b;border:1px solid #cbd5e1;padding:4px 8px;border-radius:6px;font-size:11px;font-weight:900}
 .footer{text-align:center;color:#728096;padding:28px 18px;font-size:12px}
 @media(max-width:1024px){
 .kpis{grid-template-columns:1fr 1fr}
@@ -144,6 +145,7 @@ th{background:#f7fafc;color:#64748b;font-size:11px}
     <div id="statusAlert" style="margin-top:10px; font-size:12px;"></div>
   </div>
 
+  <!-- KPIカード（4つ並び） -->
   <div class="kpis">
     <div class="kpi best">
       <div class="kpi-label">🏆 現在の最高買取</div>
@@ -199,104 +201,43 @@ th{background:#f7fafc;color:#64748b;font-size:11px}
 </footer>
 
 <script>
-  // Apple Store公式定価マップ（最新正確な定価設定）
   const APPLE_PRICES = {
-    "iPhone 18 Pro Max_256GB": 194800,
-    "iPhone 18 Pro Max_512GB": 224800,
-    "iPhone 18 Pro Max_1TB": 254800,
-    "iPhone 18 Pro_256GB": 174800,
-    "iPhone 18 Pro_512GB": 204800,
-    "iPhone 18 Pro_1TB": 234800,
-    "iPhone 17 Pro Max_256GB": 194800,
-    "iPhone 17 Pro Max_512GB": 224800,
-    "iPhone 17 Pro Max_1TB": 254800,
-    "iPhone 17 Pro_256GB": 174800,
-    "iPhone 17 Pro_512GB": 204800,
-    "iPhone 17 Pro_1TB": 234800,
-    "iPhone 17_256GB": 129800,
-    "iPhone 17_512GB": 159800,
-    "iPhone 17e_128GB": 99800,
-    "iPhone 17e_256GB": 114800
+    "iPhone 18 Pro Max_256GB": 239800, "iPhone 18 Pro Max_512GB": 274800,
+    "iPhone 18 Pro Max_1TB": 344800, "iPhone 18 Pro Max_2TB": 449800,
+    "iPhone 18 Pro_256GB": 219800, "iPhone 18 Pro_512GB": 254800,
+    "iPhone 18 Pro_1TB": 324800, "iPhone 18 Pro_2TB": 429800,
+    "iPhone 17_256GB": 159800, "iPhone 17_512GB": 194800,
+    "iPhone 17e_256GB": 124800, "iPhone 17e_512GB": 159800
+  };
+  const APPLE_STORE_STATUS = {
+    "iPhone 17 Pro Max": "Apple Store販売終了（2026/9/9）",
+    "iPhone 17 Pro": "Apple Store販売終了（2026/9/9）"
   };
 
   const PRODUCT_CONFIG = {
-    "iPhone 18 Pro Max": {
-      storages: ["256GB", "512GB", "1TB"],
-      colors: ["スペースブラック", "シルバー", "ロイヤルゴールド"]
-    },
-    "iPhone 18 Pro": {
-      storages: ["256GB", "512GB", "1TB"],
-      colors: ["スペースブラック", "シルバー", "ロイヤルゴールド"]
-    },
-    "iPhone 17 Pro Max": {
-      storages: ["256GB", "512GB", "1TB"],
-      colors: ["シルバー", "コズミックオレンジ", "ディープブルー"]
-    },
-    "iPhone 17 Pro": {
-      storages: ["256GB", "512GB", "1TB"],
-      colors: ["シルバー", "コズミックオレンジ", "ディープブルー"]
-    },
-    "iPhone 17": {
-      storages: ["256GB", "512GB"],
-      colors: ["ブラック", "ホワイト", "ブルー"]
-    },
-    "iPhone 17e": {
-      storages: ["128GB", "256GB"],
-      colors: ["ブラック", "ホワイト"]
-    }
+    "iPhone 18 Pro Max": { storages:["256GB","512GB","1TB","2TB"], colors:["ブラック","シルバー","バーガンディー","グレイシャー"] },
+    "iPhone 18 Pro": { storages:["256GB","512GB","1TB","2TB"], colors:["ブラック","シルバー","バーガンディー","グレイシャー"] },
+    "iPhone 17 Pro Max": { storages:["256GB","512GB","1TB"], colors:["シルバー","コズミックオレンジ","ディープブルー"] },
+    "iPhone 17 Pro": { storages:["256GB","512GB","1TB"], colors:["シルバー","コズミックオレンジ","ディープブルー"] },
+    "iPhone 17": { storages:["256GB","512GB"], colors:["ブラック","ホワイト","ミストブルー","ラベンダー","セージ"] },
+    "iPhone 17e": { storages:["256GB","512GB"], colors:["ブラック","ホワイト","ソフトピンク"] }
   };
 
   const JAN_DATABASE = {
-    "iPhone 18 Pro Max_256GB_スペースブラック": "4549995700011",
-    "iPhone 18 Pro Max_256GB_シルバー": "4549995700028",
-    "iPhone 18 Pro Max_256GB_ロイヤルゴールド": "4549995700035",
-    "iPhone 18 Pro Max_512GB_スペースブラック": "4549995700042",
-    "iPhone 18 Pro Max_512GB_シルバー": "4549995700059",
-    "iPhone 18 Pro Max_512GB_ロイヤルゴールド": "4549995700066",
-    "iPhone 18 Pro Max_1TB_スペースブラック": "4549995700073",
-    "iPhone 18 Pro Max_1TB_シルバー": "4549995700080",
-    "iPhone 18 Pro Max_1TB_ロイヤルゴールド": "4549995700097",
-
-    "iPhone 18 Pro_256GB_スペースブラック": "4549995700103",
-    "iPhone 18 Pro_256GB_シルバー": "4549995700110",
-    "iPhone 18 Pro_256GB_ロイヤルゴールド": "4549995700127",
-    "iPhone 18 Pro_512GB_スペースブラック": "4549995700134",
-    "iPhone 18 Pro_512GB_シルバー": "4549995700141",
-    "iPhone 18 Pro_512GB_ロイヤルゴールド": "4549995700158",
-    "iPhone 18 Pro_1TB_スペースブラック": "4549995700165",
-    "iPhone 18 Pro_1TB_シルバー": "4549995700172",
-    "iPhone 18 Pro_1TB_ロイヤルゴールド": "4549995700189",
-
-    "iPhone 17 Pro Max_256GB_シルバー": "4549995649284",
-    "iPhone 17 Pro Max_256GB_コズミックオレンジ": "4549995649291",
-    "iPhone 17 Pro Max_256GB_ディープブルー": "4549995649307",
-    "iPhone 17 Pro Max_512GB_シルバー": "4549995649314",
-    "iPhone 17 Pro Max_512GB_コズミックオレンジ": "4549995649321",
-    "iPhone 17 Pro Max_512GB_ディープブルー": "4549995649338",
-    "iPhone 17 Pro Max_1TB_シルバー": "4549995649345",
-    "iPhone 17 Pro Max_1TB_コズミックオレンジ": "4549995649352",
-    "iPhone 17 Pro Max_1TB_ディープブルー": "4549995649369",
-
-    "iPhone 17 Pro_256GB_シルバー": "4549995649253",
-    "iPhone 17 Pro_256GB_コズミックオレンジ": "4549995649260",
-    "iPhone 17 Pro_256GB_ディープブルー": "4549995649277",
-    "iPhone 17 Pro_512GB_シルバー": "4549995649406",
-    "iPhone 17 Pro_512GB_コズミックオレンジ": "4549995649413",
-    "iPhone 17 Pro_512GB_ディープブルー": "4549995649420",
-    "iPhone 17 Pro_1TB_シルバー": "4549995649437",
-    "iPhone 17 Pro_1TB_コズミックオレンジ": "4549995649444",
-    "iPhone 17 Pro_1TB_ディープブルー": "4549995649451",
-
-    "iPhone 17_256GB_ブラック": "4549995649154",
-    "iPhone 17_256GB_ホワイト": "4549995649161",
-    "iPhone 17_256GB_ブルー": "4549995649178",
-    "iPhone 17_512GB_ブラック": "4549995649185",
-    "iPhone 17_512GB_ホワイト": "4549995649192",
-
-    "iPhone 17e_128GB_ブラック": "4549995677508",
-    "iPhone 17e_128GB_ホワイト": "4549995677515",
-    "iPhone 17e_256GB_ブラック": "4549995677485",
-    "iPhone 17e_256GB_ホワイト": "4549995677492"
+    "iPhone 18 Pro Max_256GB_ブラック":"4549995734546","iPhone 18 Pro Max_256GB_シルバー":"4549995734591","iPhone 18 Pro Max_256GB_バーガンディー":"4549995734645","iPhone 18 Pro Max_256GB_グレイシャー":"4549995734690",
+    "iPhone 18 Pro Max_512GB_ブラック":"4549995734744","iPhone 18 Pro Max_512GB_シルバー":"4549995734799","iPhone 18 Pro Max_512GB_バーガンディー":"4549995734843","iPhone 18 Pro Max_512GB_グレイシャー":"4549995734898",
+    "iPhone 18 Pro Max_1TB_ブラック":"4549995734942","iPhone 18 Pro Max_1TB_シルバー":"4549995734997","iPhone 18 Pro Max_1TB_バーガンディー":"4549995735048","iPhone 18 Pro Max_1TB_グレイシャー":"4549995735093",
+    "iPhone 18 Pro Max_2TB_ブラック":"4549995735147","iPhone 18 Pro Max_2TB_シルバー":"4549995735192","iPhone 18 Pro Max_2TB_バーガンディー":"4549995735246","iPhone 18 Pro Max_2TB_グレイシャー":"4549995735291",
+    "iPhone 18 Pro_256GB_ブラック":"4549995734140","iPhone 18 Pro_256GB_シルバー":"4549995734157","iPhone 18 Pro_256GB_バーガンディー":"4549995734164","iPhone 18 Pro_256GB_グレイシャー":"4549995734171",
+    "iPhone 18 Pro_512GB_ブラック":"4549995734188","iPhone 18 Pro_512GB_シルバー":"4549995734195","iPhone 18 Pro_512GB_バーガンディー":"4549995734201","iPhone 18 Pro_512GB_グレイシャー":"4549995734218",
+    "iPhone 18 Pro_1TB_ブラック":"4549995734225","iPhone 18 Pro_1TB_シルバー":"4549995734232","iPhone 18 Pro_1TB_バーガンディー":"4549995734249","iPhone 18 Pro_1TB_グレイシャー":"4549995734256",
+    "iPhone 18 Pro_2TB_ブラック":"4549995734263","iPhone 18 Pro_2TB_シルバー":"4549995734270","iPhone 18 Pro_2TB_バーガンディー":"4549995734287","iPhone 18 Pro_2TB_グレイシャー":"4549995734294",
+    "iPhone 17 Pro Max_256GB_シルバー":"4549995649284","iPhone 17 Pro Max_256GB_コズミックオレンジ":"4549995649291","iPhone 17 Pro Max_256GB_ディープブルー":"4549995649307","iPhone 17 Pro Max_512GB_シルバー":"4549995649314","iPhone 17 Pro Max_512GB_コズミックオレンジ":"4549995649321","iPhone 17 Pro Max_512GB_ディープブルー":"4549995649338","iPhone 17 Pro Max_1TB_シルバー":"4549995649345","iPhone 17 Pro Max_1TB_コズミックオレンジ":"4549995649352","iPhone 17 Pro Max_1TB_ディープブルー":"4549995649369",
+    "iPhone 17 Pro_256GB_シルバー":"4549995649253","iPhone 17 Pro_256GB_コズミックオレンジ":"4549995649260","iPhone 17 Pro_256GB_ディープブルー":"4549995649277","iPhone 17 Pro_512GB_シルバー":"4549995649406","iPhone 17 Pro_512GB_コズミックオレンジ":"4549995649413","iPhone 17 Pro_512GB_ディープブルー":"4549995649420","iPhone 17 Pro_1TB_シルバー":"4549995649437","iPhone 17 Pro_1TB_コズミックオレンジ":"4549995649444","iPhone 17 Pro_1TB_ディープブルー":"4549995649451",
+    "iPhone 17_256GB_ブラック":"4549995649154","iPhone 17_256GB_ホワイト":"4549995649161","iPhone 17_256GB_ミストブルー":"4549995649178","iPhone 17_256GB_ラベンダー":"4549995649185","iPhone 17_256GB_セージ":"4549995649192",
+    "iPhone 17_512GB_ブラック":"4549995649208","iPhone 17_512GB_ホワイト":"4549995649215","iPhone 17_512GB_ミストブルー":"4549995649222","iPhone 17_512GB_ラベンダー":"4549995649239","iPhone 17_512GB_セージ":"4549995649246",
+    "iPhone 17e_256GB_ブラック":"4549995677485","iPhone 17e_256GB_ホワイト":"4549995677539","iPhone 17e_256GB_ソフトピンク":"4549995677584",
+    "iPhone 17e_512GB_ブラック":"4549995677638","iPhone 17e_512GB_ホワイト":"4549995677683","iPhone 17e_512GB_ソフトピンク":"4549995677737"
   };
 
   let crawlData = {};
@@ -369,6 +310,12 @@ th{background:#f7fafc;color:#64748b;font-size:11px}
       lastUpdateBadge.textContent = `データ最終取得日: ${new Date().toLocaleDateString()}`;
     }
 
+    const appleStatus = APPLE_STORE_STATUS[model] || "";
+    if (appleStatus) {
+      document.getElementById("applePriceCard").innerHTML =
+        `<span class="discontinued">${appleStatus}</span>`;
+    }
+
     if (!itemData || !itemData.stores || itemData.stores.length === 0) {
       const baseP = applePrice ? applePrice + 15000 : 210000;
       itemData = {
@@ -409,8 +356,8 @@ th{background:#f7fafc;color:#64748b;font-size:11px}
       const diffStr = diff === 0 ? "ー" : `-¥${Math.abs(diff).toLocaleString()}`;
       
       let extraTag = '';
-      if (s.store.includes("森森買取")) {
-        extraTag = '<span style="margin-left:6px; background:#fef3c7; color:#92400e; font-size:10px; font-weight:800; padding:2px 6px; border-radius:4px;">クーポン適用可</span>';
+      if (s.store === "森森買取") {
+        extraTag = '<span style="margin-left:6px; background:#fef3c7; color:#92400e; font-size:10px; font-weight:800; padding:2px 6px; border-radius:4px;">紹介コードあり</span>';
       }
 
       return `
@@ -422,6 +369,7 @@ th{background:#f7fafc;color:#64748b;font-size:11px}
           <td><span style="background:#d1fae5; color:#065f46; padding:3px 8px; border-radius:4px; font-size:11px; font-weight:800;">自動巡回取得済</span></td>
           <td style="text-align:right;">
             <a href="${s.url}" target="_blank" rel="noopener noreferrer" class="visit">公式確認</a>
+            ${s.store === "森森買取" ? `<span class="coupon-box">紹介コード：InfA00172 <button type="button" class="copy-coupon" data-code="InfA00172">コピー</button></span>` : ""}
           </td>
         </tr>
       `;
@@ -429,6 +377,15 @@ th{background:#f7fafc;color:#64748b;font-size:11px}
   }
 
   document.getElementById("reloadBtn").addEventListener("click", loadCrawlData);
+  document.addEventListener("click", async (e) => {
+    const btn = e.target.closest(".copy-coupon");
+    if (!btn) return;
+    try {
+      await navigator.clipboard.writeText(btn.dataset.code);
+      const old = btn.textContent; btn.textContent = "コピー済";
+      setTimeout(() => btn.textContent = old, 1200);
+    } catch { alert(`クーポンコード：${btn.dataset.code}`); }
+  });
 
   initUI();
   loadCrawlData();
