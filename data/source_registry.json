@@ -1,0 +1,74 @@
+{
+  "sources": [
+    {
+      "id": "morimori",
+      "store": "森森買取",
+      "url": "https://www.morimori-kaitori.jp/",
+      "mode": "generic",
+      "enabled": true
+    },
+    {
+      "id": "mobile_shoten",
+      "store": "モバイル商店",
+      "url": "https://mobile-shoten.com/purchase_iphone/",
+      "mode": "generic",
+      "enabled": true
+    },
+    {
+      "id": "amemoba",
+      "store": "アメモバ",
+      "url": "https://amemoba.com/smartphone/iphone/simfree/",
+      "mode": "generic",
+      "enabled": true
+    },
+    {
+      "id": "iosys",
+      "store": "イオシス",
+      "url": "https://k-tai-iosys.com/pricelist/smartphone/iphone/",
+      "mode": "generic",
+      "enabled": true
+    },
+    {
+      "id": "janpara",
+      "store": "じゃんぱら",
+      "url": "https://buy.janpara.co.jp/buy/search?outClsCode=78",
+      "mode": "generic",
+      "enabled": true
+    },
+    {
+      "id": "kaitoriwiki",
+      "store": "買取wiki",
+      "url": "https://iphonekaitori.tokyo/series/all/market-price",
+      "mode": "generic",
+      "enabled": true
+    },
+    {
+      "id": "rudeya",
+      "store": "買取ルデヤ",
+      "url": "https://kaitori-rudeya.com/category/detail/253/focused7397",
+      "mode": "generic",
+      "enabled": true
+    },
+    {
+      "id": "kaitorishouten",
+      "store": "買取商店",
+      "url": "https://www.kaitorishouten-co.jp/products/detail/27097",
+      "mode": "generic",
+      "enabled": true
+    },
+    {
+      "id": "keitai_kaitori",
+      "store": "携帯買取jp",
+      "url": "https://keitai-kaitori.jp/iphone/",
+      "mode": "generic",
+      "enabled": true
+    },
+    {
+      "id": "geo",
+      "store": "ゲオ",
+      "url": "https://buymobile.geo-online.co.jp/mitsumori/?model_name=iPhone18ProMax",
+      "mode": "follow_iphone18",
+      "enabled": true
+    }
+  ]
+}
