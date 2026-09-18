@@ -344,7 +344,7 @@ body{background:#eef3f9}
       colors: ["ブラック", "シルバー", "グレイシャー", "バーガンディ"]
     },
     "iPhone 17 Pro Max": {
-      storages: ["256GB", "512GB", "1TB", "2TB"],
+      storages: ["256GB", "512GB", "1TB"],
       colors: ["シルバー", "コズミックオレンジ", "ディープブルー"]
     },
     "iPhone 17 Pro": {
@@ -371,7 +371,6 @@ body{background:#eef3f9}
     "iPhone 18 Pro_1TB_ブラック":"4549995734225","iPhone 18 Pro_1TB_シルバー":"4549995734232","iPhone 18 Pro_1TB_バーガンディ":"4549995734249","iPhone 18 Pro_1TB_グレイシャー":"4549995734256",
     "iPhone 18 Pro_2TB_ブラック":"4549995734263","iPhone 18 Pro_2TB_シルバー":"4549995734270","iPhone 18 Pro_2TB_バーガンディ":"4549995734287","iPhone 18 Pro_2TB_グレイシャー":"4549995734294",
     "iPhone 17 Pro Max_256GB_シルバー":"4549995649284","iPhone 17 Pro Max_256GB_コズミックオレンジ":"4549995649291","iPhone 17 Pro Max_256GB_ディープブルー":"4549995649307","iPhone 17 Pro Max_512GB_シルバー":"4549995649314","iPhone 17 Pro Max_512GB_コズミックオレンジ":"4549995649321","iPhone 17 Pro Max_512GB_ディープブルー":"4549995649338","iPhone 17 Pro Max_1TB_シルバー":"4549995649345","iPhone 17 Pro Max_1TB_コズミックオレンジ":"4549995649352","iPhone 17 Pro Max_1TB_ディープブルー":"4549995649369",
-    "iPhone 17 Pro Max_2TB_シルバー":"4549995649376","iPhone 17 Pro Max_2TB_コズミックオレンジ":"4549995649383","iPhone 17 Pro Max_2TB_ディープブルー":"4549995649390",
     "iPhone 17 Pro_256GB_シルバー":"4549995648294","iPhone 17 Pro_256GB_コズミックオレンジ":"4549995648300","iPhone 17 Pro_256GB_ディープブルー":"4549995648317","iPhone 17 Pro_512GB_シルバー":"4549995648324","iPhone 17 Pro_512GB_コズミックオレンジ":"4549995648331","iPhone 17 Pro_512GB_ディープブルー":"4549995648348","iPhone 17 Pro_1TB_シルバー":"4549995648355","iPhone 17 Pro_1TB_コズミックオレンジ":"4549995648362","iPhone 17 Pro_1TB_ディープブルー":"4549995648379",
     "iPhone 17_256GB_ブラック":"4549995649154","iPhone 17_256GB_ホワイト":"4549995649161","iPhone 17_256GB_ミストブルー":"4549995649178","iPhone 17_256GB_ラベンダー":"4549995649185","iPhone 17_256GB_セージ":"4549995649192",
     "iPhone 17_512GB_ブラック":"4549995649208","iPhone 17_512GB_ホワイト":"4549995649215","iPhone 17_512GB_ミストブルー":"4549995649222","iPhone 17_512GB_ラベンダー":"4549995649239","iPhone 17_512GB_セージ":"4549995649246",
@@ -440,7 +439,7 @@ body{background:#eef3f9}
       if (!res.ok) throw new Error("Fetch error");
       crawlData = await res.json();
       statusAlert.style.color = "var(--green)";
-      statusAlert.innerHTML = '<i class="fa-solid fa-check"></i> 取得成功：保存されている買取データを読み込みました。';
+      statusAlert.innerHTML = '<i class="fa-solid fa-check"></i> 価格データを読み込みました。最新取得時刻は各商品に表示します。';
     } catch (e) {
       statusAlert.style.color = "#c92a2a";
       statusAlert.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> データの読み込みに失敗しました。';
