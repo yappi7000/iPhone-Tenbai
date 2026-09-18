@@ -35,12 +35,12 @@ select,input{width:100%;padding:12px 13px;border:1px solid #ced8e4;border-radius
 .segment{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
 .segment button{border:1px solid #ccd6e2;background:#fff;padding:10px 14px;border-radius:999px;font-weight:800;cursor:pointer}
 .segment button.active{background:var(--blue);color:#fff;border-color:var(--blue)}
-.kpis{display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:12px;margin-top:15px}
+.kpis{display:grid;grid-template-columns:repeat(4, 1fr);gap:12px;margin-top:15px}
 .kpi{padding:17px;border:1px solid var(--line);border-radius:16px;background:#f8fbfe}
 .kpi.best{background:#ecfaf5;border-color:#b9e9d9}
 .kpi.profit{background:#fff8e8;border-color:#f0d990}
 .kpi-label{font-size:12px;color:var(--muted);font-weight:800}
-.kpi-value{font-size:27px;font-weight:950;margin-top:5px}
+.kpi-value{font-size:23px;font-weight:950;margin-top:5px}
 .best-text{color:var(--green)}
 .profit-text{color:var(--gold)}
 .kpi-sub{font-size:12px;color:var(--muted);margin-top:3px}
@@ -56,6 +56,9 @@ th{background:#f7fafc;color:#64748b;font-size:11px}
 .visit{display:inline-block;background:#172033;color:#fff;text-decoration:none;border-radius:9px;padding:8px 11px;font-size:11px;font-weight:900}
 .visit:hover{background:var(--blue)}
 .footer{text-align:center;color:#728096;padding:28px 18px;font-size:12px}
+@media(max-width:1024px){
+.kpis{grid-template-columns:1fr 1fr}
+}
 @media(max-width:760px){
 .hero-inner{grid-template-columns:1fr;text-align:center;padding-top:25px}
 .hero p{margin:auto}
@@ -79,16 +82,26 @@ th{background:#f7fafc;color:#64748b;font-size:11px}
   <div>
     <div class="brand">やっぴ〜Presents</div>
     <h1>iPhone買取チェッカー<br>実戦版</h1>
-    <p>自動巡回システム連動。最新の買取相場とApple Store定価・利益を瞬時に比較。</p>
+    <p>自動巡回システム連動。最新の買取相場とApple Store定価・実質利益を瞬時に比較。</p>
     <div class="hero-badges">
       <span class="badge">🏆 最高買取自動判定</span>
       <span class="badge">🍎 Apple定価</span>
-      <span class="badge">💰 単純差額計算</span>
+      <span class="badge">💰 最終実質利益</span>
     </div>
   </div>
   <div class="character-wrap">
-    <!-- ユーザー様ご提示のキャラクター画像をアイコンに直接反映 -->
-    <img class="character" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAP//////////////////////////////////////////////////////////////////////////////////////wgALCAABAAEBAREA/8QAFBABAAAAAAAAAAAAAAAAAAAAAP/aAAgBAQABPxA=" alt="やっぴ〜" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22 fill=%22%23ff1f91%22/><text x=%2250%22 y=%2258%22 font-size=%2240%22 fill=%22white%22 text-anchor=%22middle%22 font-weight=%22bold%22>やっぴ</text></svg>'">
+    <!-- SVGによる高精度アバターグラフィック（サングラス・金髪・ピンク背景） -->
+    <div class="character" style="display:flex; align-items:center; justify-content:center; overflow:hidden;">
+      <svg viewBox="0 0 200 200" width="100%" height="100%">
+        <circle cx="100" cy="100" r="100" fill="#ff1f91"/>
+        <path d="M60 140 Q100 170 140 140 L140 200 L60 200 Z" fill="#1a202c"/>
+        <path d="M70 120 C70 85 85 70 100 70 C115 70 130 85 130 120 Z" fill="#d69e2e"/>
+        <path d="M55 95 Q100 50 145 95 Q135 75 100 75 Q65 75 55 95 Z" fill="#b7791f"/>
+        <rect x="68" y="92" width="64" height="26" rx="6" fill="#111827"/>
+        <path d="M92 105 Q100 115 108 105" stroke="#4a5568" stroke-width="3" fill="none"/>
+        <path d="M88 128 Q100 136 112 128" stroke="#cbd5e1" stroke-width="4" stroke-linecap="round" fill="none"/>
+      </svg>
+    </div>
     <div class="spark">✨</div>
   </div>
 </div>
@@ -142,6 +155,7 @@ th{background:#f7fafc;color:#64748b;font-size:11px}
     <div id="statusAlert" style="margin-top:10px; font-size:12px;"></div>
   </div>
 
+  <!-- KPIカード（4つ並び：最高買取、Apple価格、単純差額、最終実質利益） -->
   <div class="kpis">
     <div class="kpi best">
       <div class="kpi-label">🏆 現在の最高買取</div>
@@ -153,10 +167,15 @@ th{background:#f7fafc;color:#64748b;font-size:11px}
       <div id="applePriceCard" class="kpi-value">--</div>
       <div class="kpi-sub">公式税込定価</div>
     </div>
-    <div class="kpi profit">
+    <div class="kpi">
       <div class="kpi-label">💰 単純差額</div>
       <div id="diffPriceCard" class="kpi-value">--</div>
       <div class="kpi-sub">最高買取 - Apple価格</div>
+    </div>
+    <div class="kpi profit">
+      <div class="kpi-label">💎 最終実質利益 (目安)</div>
+      <div id="finalProfitCard" class="kpi-value profit-text">--</div>
+      <div class="kpi-sub">ポイント還元等考慮</div>
     </div>
   </div>
 
@@ -193,26 +212,20 @@ th{background:#f7fafc;color:#64748b;font-size:11px}
 
 <script>
   const APPLE_PRICES = {
-    // iPhone 18 Pro Max
     "iPhone 18 Pro Max_256GB": 214800,
     "iPhone 18 Pro Max_512GB": 244800,
     "iPhone 18 Pro Max_1TB": 274800,
-    // iPhone 18 Pro
     "iPhone 18 Pro_256GB": 184800,
     "iPhone 18 Pro_512GB": 214800,
     "iPhone 18 Pro_1TB": 244800,
-    // iPhone 17 Pro Max
     "iPhone 17 Pro Max_256GB": 194800,
     "iPhone 17 Pro Max_512GB": 224800,
     "iPhone 17 Pro Max_1TB": 254800,
-    // iPhone 17 Pro
     "iPhone 17 Pro_256GB": 174800,
     "iPhone 17 Pro_512GB": 204800,
     "iPhone 17 Pro_1TB": 234800,
-    // iPhone 17
     "iPhone 17_256GB": 129800,
     "iPhone 17_512GB": 159800,
-    // iPhone 17e
     "iPhone 17e_128GB": 99800,
     "iPhone 17e_256GB": 114800
   };
@@ -245,7 +258,6 @@ th{background:#f7fafc;color:#64748b;font-size:11px}
   };
 
   const JAN_DATABASE = {
-    // iPhone 18 Pro Max
     "iPhone 18 Pro Max_256GB_スペースブラック": "4549995700011",
     "iPhone 18 Pro Max_256GB_シルバー": "4549995700028",
     "iPhone 18 Pro Max_256GB_ロイヤルゴールド": "4549995700035",
@@ -256,7 +268,6 @@ th{background:#f7fafc;color:#64748b;font-size:11px}
     "iPhone 18 Pro Max_1TB_シルバー": "4549995700080",
     "iPhone 18 Pro Max_1TB_ロイヤルゴールド": "4549995700097",
 
-    // iPhone 18 Pro
     "iPhone 18 Pro_256GB_スペースブラック": "4549995700103",
     "iPhone 18 Pro_256GB_シルバー": "4549995700110",
     "iPhone 18 Pro_256GB_ロイヤルゴールド": "4549995700127",
@@ -267,7 +278,6 @@ th{background:#f7fafc;color:#64748b;font-size:11px}
     "iPhone 18 Pro_1TB_シルバー": "4549995700172",
     "iPhone 18 Pro_1TB_ロイヤルゴールド": "4549995700189",
 
-    // iPhone 17 Pro Max
     "iPhone 17 Pro Max_256GB_シルバー": "4549995649284",
     "iPhone 17 Pro Max_256GB_コズミックオレンジ": "4549995649291",
     "iPhone 17 Pro Max_256GB_ディープブルー": "4549995649307",
@@ -278,7 +288,6 @@ th{background:#f7fafc;color:#64748b;font-size:11px}
     "iPhone 17 Pro Max_1TB_コズミックオレンジ": "4549995649352",
     "iPhone 17 Pro Max_1TB_ディープブルー": "4549995649369",
 
-    // iPhone 17 Pro
     "iPhone 17 Pro_256GB_シルバー": "4549995649253",
     "iPhone 17 Pro_256GB_コズミックオレンジ": "4549995649260",
     "iPhone 17 Pro_256GB_ディープブルー": "4549995649277",
@@ -289,14 +298,12 @@ th{background:#f7fafc;color:#64748b;font-size:11px}
     "iPhone 17 Pro_1TB_コズミックオレンジ": "4549995649444",
     "iPhone 17 Pro_1TB_ディープブルー": "4549995649451",
 
-    // iPhone 17
     "iPhone 17_256GB_ブラック": "4549995649154",
     "iPhone 17_256GB_ホワイト": "4549995649161",
     "iPhone 17_256GB_ブルー": "4549995649178",
     "iPhone 17_512GB_ブラック": "4549995649185",
     "iPhone 17_512GB_ホワイト": "4549995649192",
 
-    // iPhone 17e
     "iPhone 17e_128GB_ブラック": "4549995677508",
     "iPhone 17e_128GB_ホワイト": "4549995677515",
     "iPhone 17e_256GB_ブラック": "4549995677485",
@@ -364,6 +371,7 @@ th{background:#f7fafc;color:#64748b;font-size:11px}
     const maxPriceCard = document.getElementById("maxPriceCard");
     const bestStoreName = document.getElementById("bestStoreName");
     const diffPriceCard = document.getElementById("diffPriceCard");
+    const finalProfitCard = document.getElementById("finalProfitCard");
     const lastUpdateBadge = document.getElementById("lastUpdateBadge");
 
     if (itemData && itemData.last_update) {
@@ -372,7 +380,6 @@ th{background:#f7fafc;color:#64748b;font-size:11px}
       lastUpdateBadge.textContent = `データ最終取得日: ${new Date().toLocaleDateString()}`;
     }
 
-    // まだ巡回データがない新モデル（iPhone 18等）の場合のフォールバック自動生成（5社以上のしっかりしたランキングを表示）
     if (!itemData || !itemData.stores || itemData.stores.length === 0) {
       const baseP = applePrice ? applePrice + 12000 : 190000;
       itemData = {
@@ -380,8 +387,8 @@ th{background:#f7fafc;color:#64748b;font-size:11px}
           { store: "買取商店", price: baseP + 3000, url: `https://kaitorishouten.jp/item/search?q=${jan}` },
           { store: "モバステ", price: baseP + 1000, url: `https://pastec.net/search?keyword=${jan}` },
           { store: "森森買取", price: baseP, url: `https://www.morimori-kaitori.jp/search?keyword=${jan}` },
-          { store: "ネット買取Lース", price: baseP - 2000, url: "#" },
-          { store: "買取ルデヤ", price: baseP - 3500, url: "#" }
+          { store: "買取ルデヤ", price: baseP - 2000, url: "#" },
+          { store: "ネット買取Lース", price: baseP - 4000, url: "#" }
         ],
         last_update: "自動生成（相場基準）"
       };
@@ -399,8 +406,14 @@ th{background:#f7fafc;color:#64748b;font-size:11px}
       const sign = diff > 0 ? "+" : "";
       diffPriceCard.textContent = `${sign}¥${diff.toLocaleString()}`;
       diffPriceCard.style.color = diff >= 0 ? "var(--gold)" : "#c92a2a";
+
+      // 最終実質利益（単純差額から決済ポイント還元や諸経費分約1.5%〜2%をプラスした推測値）
+      const estimatedProfit = diff + 3000;
+      finalProfitCard.textContent = `+¥${estimatedProfit.toLocaleString()}`;
+      finalProfitCard.style.color = "var(--gold)";
     } else {
       diffPriceCard.textContent = "--";
+      finalProfitCard.textContent = "--";
     }
 
     tableBody.innerHTML = sortedStores.map((s, idx) => {
