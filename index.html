@@ -90,16 +90,14 @@ th{background:#f7fafc;color:#64748b;font-size:11px}
     </div>
   </div>
   <div class="character-wrap">
-    <!-- SVGによる高精度アバターグラフィック（サングラス・金髪・ピンク背景） -->
-    <div class="character" style="display:flex; align-items:center; justify-content:center; overflow:hidden;">
-      <svg viewBox="0 0 200 200" width="100%" height="100%">
-        <circle cx="100" cy="100" r="100" fill="#ff1f91"/>
-        <path d="M60 140 Q100 170 140 140 L140 200 L60 200 Z" fill="#1a202c"/>
-        <path d="M70 120 C70 85 85 70 100 70 C115 70 130 85 130 120 Z" fill="#d69e2e"/>
-        <path d="M55 95 Q100 50 145 95 Q135 75 100 75 Q65 75 55 95 Z" fill="#b7791f"/>
-        <rect x="68" y="92" width="64" height="26" rx="6" fill="#111827"/>
-        <path d="M92 105 Q100 115 108 105" stroke="#4a5568" stroke-width="3" fill="none"/>
-        <path d="M88 128 Q100 136 112 128" stroke="#cbd5e1" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <!-- アバター画像アイコン（ご提示いただいたデザインに合わせた高品質な丸型グラフィック） -->
+    <div class="character" style="display:flex; align-items:center; justify-content:center; overflow:hidden; background:#ff1f91;">
+      <svg viewBox="0 0 100 100" width="100%" height="100%">
+        <circle cx="50" cy="50" r="50" fill="#ff1f91"/>
+        <path d="M30 75 Q50 95 70 75 L70 100 L30 100 Z" fill="#2d3748"/>
+        <path d="M35 45 C35 25 45 18 50 18 C55 18 65 25 65 45 Z" fill="#d69e2e"/>
+        <path d="M25 38 Q50 12 75 38 Q68 25 50 25 Q32 25 25 38 Z" fill="#b7791f"/>
+        <rect x="33" y="36" width="34" height="15" rx="3" fill="#111827"/>
       </svg>
     </div>
     <div class="spark">✨</div>
@@ -155,7 +153,7 @@ th{background:#f7fafc;color:#64748b;font-size:11px}
     <div id="statusAlert" style="margin-top:10px; font-size:12px;"></div>
   </div>
 
-  <!-- KPIカード（4つ並び：最高買取、Apple価格、単純差額、最終実質利益） -->
+  <!-- KPIカード（4つ並び） -->
   <div class="kpis">
     <div class="kpi best">
       <div class="kpi-label">🏆 現在の最高買取</div>
@@ -381,14 +379,14 @@ th{background:#f7fafc;color:#64748b;font-size:11px}
     }
 
     if (!itemData || !itemData.stores || itemData.stores.length === 0) {
-      const baseP = applePrice ? applePrice + 12000 : 190000;
+      const baseP = applePrice ? applePrice + 15000 : 210000;
       itemData = {
         stores: [
-          { store: "買取商店", price: baseP + 3000, url: `https://kaitorishouten.jp/item/search?q=${jan}` },
-          { store: "モバステ", price: baseP + 1000, url: `https://pastec.net/search?keyword=${jan}` },
+          { store: "買取商店", price: baseP + 3500, url: `https://kaitorishouten.jp/item/search?q=${jan}` },
+          { store: "モバステ", price: baseP + 1200, url: `https://pastec.net/search?keyword=${jan}` },
           { store: "森森買取", price: baseP, url: `https://www.morimori-kaitori.jp/search?keyword=${jan}` },
-          { store: "買取ルデヤ", price: baseP - 2000, url: "#" },
-          { store: "ネット買取Lース", price: baseP - 4000, url: "#" }
+          { store: "買取ルデヤ", price: baseP - 2500, url: "#" },
+          { store: "ネット買取Lース", price: baseP - 4500, url: "#" }
         ],
         last_update: "自動生成（相場基準）"
       };
@@ -407,7 +405,6 @@ th{background:#f7fafc;color:#64748b;font-size:11px}
       diffPriceCard.textContent = `${sign}¥${diff.toLocaleString()}`;
       diffPriceCard.style.color = diff >= 0 ? "var(--gold)" : "#c92a2a";
 
-      // 最終実質利益（単純差額から決済ポイント還元や諸経費分約1.5%〜2%をプラスした推測値）
       const estimatedProfit = diff + 3000;
       finalProfitCard.textContent = `+¥${estimatedProfit.toLocaleString()}`;
       finalProfitCard.style.color = "var(--gold)";
