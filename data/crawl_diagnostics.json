@@ -1,0 +1,1623 @@
+{
+  "version": "safe-diagnostic-2.0",
+  "started_at": "2026/9/20 8:19:56",
+  "finished_at": "2026/9/20 8:20:53",
+  "safety": {
+    "prices_json_modified": false,
+    "default_price_used": false,
+    "fallback_price_used": false,
+    "guessed_price_used": false,
+    "guessed_jan_used": false
+  },
+  "iphone_18_spec": [
+    {
+      "model": "iPhone 18 Pro",
+      "storage": [
+        "256GB",
+        "512GB",
+        "1TB",
+        "2TB"
+      ],
+      "colors": [
+        "ブラック",
+        "シルバー",
+        "グレイシャー",
+        "バーガンディ"
+      ]
+    },
+    {
+      "model": "iPhone 18 Pro Max",
+      "storage": [
+        "256GB",
+        "512GB",
+        "1TB",
+        "2TB"
+      ],
+      "colors": [
+        "ブラック",
+        "シルバー",
+        "グレイシャー",
+        "バーガンディ"
+      ]
+    }
+  ],
+  "target_count": 27,
+  "targets": [
+    {
+      "jan": "4549995649284",
+      "name": "iPhone 17 Pro Max 256GB シルバー"
+    },
+    {
+      "jan": "4549995649291",
+      "name": "iPhone 17 Pro Max 256GB コズミックオレンジ"
+    },
+    {
+      "jan": "4549995649307",
+      "name": "iPhone 17 Pro Max 256GB ディープブルー"
+    },
+    {
+      "jan": "4549995649314",
+      "name": "iPhone 17 Pro Max 512GB シルバー"
+    },
+    {
+      "jan": "4549995649321",
+      "name": "iPhone 17 Pro Max 512GB コズミックオレンジ"
+    },
+    {
+      "jan": "4549995649338",
+      "name": "iPhone 17 Pro Max 512GB ディープブルー"
+    },
+    {
+      "jan": "4549995649345",
+      "name": "iPhone 17 Pro Max 1TB シルバー"
+    },
+    {
+      "jan": "4549995649352",
+      "name": "iPhone 17 Pro Max 1TB コズミックオレンジ"
+    },
+    {
+      "jan": "4549995649369",
+      "name": "iPhone 17 Pro Max 1TB ディープブルー"
+    },
+    {
+      "jan": "4549995649253",
+      "name": "iPhone 17 Pro 256GB シルバー"
+    },
+    {
+      "jan": "4549995649260",
+      "name": "iPhone 17 Pro 256GB コズミックオレンジ"
+    },
+    {
+      "jan": "4549995649277",
+      "name": "iPhone 17 Pro 256GB ディープブルー"
+    },
+    {
+      "jan": "4549995649406",
+      "name": "iPhone 17 Pro 512GB シルバー"
+    },
+    {
+      "jan": "4549995649413",
+      "name": "iPhone 17 Pro 512GB コズミックオレンジ"
+    },
+    {
+      "jan": "4549995649420",
+      "name": "iPhone 17 Pro 512GB ディープブルー"
+    },
+    {
+      "jan": "4549995649437",
+      "name": "iPhone 17 Pro 1TB シルバー"
+    },
+    {
+      "jan": "4549995649444",
+      "name": "iPhone 17 Pro 1TB コズミックオレンジ"
+    },
+    {
+      "jan": "4549995649451",
+      "name": "iPhone 17 Pro 1TB ディープブルー"
+    },
+    {
+      "jan": "4549995649154",
+      "name": "iPhone 17 256GB ブラック"
+    },
+    {
+      "jan": "4549995649161",
+      "name": "iPhone 17 256GB ホワイト"
+    },
+    {
+      "jan": "4549995649178",
+      "name": "iPhone 17 256GB ブルー"
+    },
+    {
+      "jan": "4549995649185",
+      "name": "iPhone 17 512GB ブラック"
+    },
+    {
+      "jan": "4549995649192",
+      "name": "iPhone 17 512GB ホワイト"
+    },
+    {
+      "jan": "4549995677485",
+      "name": "iPhone 17e 256GB ブラック"
+    },
+    {
+      "jan": "4549995677492",
+      "name": "iPhone 17e 256GB ホワイト"
+    },
+    {
+      "jan": "4549995677508",
+      "name": "iPhone 17e 128GB ブラック"
+    },
+    {
+      "jan": "4549995677515",
+      "name": "iPhone 17e 128GB ホワイト"
+    }
+  ],
+  "store_count": 2,
+  "stores": [
+    {
+      "store_id": "mobasute",
+      "store": "モバステ",
+      "jan": "4549995649284",
+      "product_name": "iPhone 17 Pro Max 256GB シルバー",
+      "url": "https://pastec.net/search?keyword=4549995649284",
+      "checked_at": "2026/9/20 8:19:56",
+      "status": "ERROR",
+      "http": {
+        "status": 403,
+        "ok": false,
+        "final_url": "https://pastec.net/search?keyword=4549995649284"
+      },
+      "page": {
+        "title": "403 Forbidden",
+        "body_length": 13,
+        "body_available": true
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
+    },
+    {
+      "store_id": "morimori",
+      "store": "森森買取",
+      "jan": "4549995649284",
+      "product_name": "iPhone 17 Pro Max 256GB シルバー",
+      "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649284",
+      "checked_at": "2026/9/20 8:19:58",
+      "status": "ERROR",
+      "http": {
+        "status": null,
+        "ok": false,
+        "final_url": null
+      },
+      "page": {
+        "title": null,
+        "body_length": 0,
+        "body_available": false
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649284\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649284\", waiting until \"domcontentloaded\"\n"
+      ]
+    },
+    {
+      "store_id": "mobasute",
+      "store": "モバステ",
+      "jan": "4549995649291",
+      "product_name": "iPhone 17 Pro Max 256GB コズミックオレンジ",
+      "url": "https://pastec.net/search?keyword=4549995649291",
+      "checked_at": "2026/9/20 8:19:59",
+      "status": "ERROR",
+      "http": {
+        "status": 403,
+        "ok": false,
+        "final_url": "https://pastec.net/search?keyword=4549995649291"
+      },
+      "page": {
+        "title": "403 Forbidden",
+        "body_length": 13,
+        "body_available": true
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
+    },
+    {
+      "store_id": "morimori",
+      "store": "森森買取",
+      "jan": "4549995649291",
+      "product_name": "iPhone 17 Pro Max 256GB コズミックオレンジ",
+      "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649291",
+      "checked_at": "2026/9/20 8:20:01",
+      "status": "ERROR",
+      "http": {
+        "status": null,
+        "ok": false,
+        "final_url": null
+      },
+      "page": {
+        "title": null,
+        "body_length": 0,
+        "body_available": false
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649291\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649291\", waiting until \"domcontentloaded\"\n"
+      ]
+    },
+    {
+      "store_id": "mobasute",
+      "store": "モバステ",
+      "jan": "4549995649307",
+      "product_name": "iPhone 17 Pro Max 256GB ディープブルー",
+      "url": "https://pastec.net/search?keyword=4549995649307",
+      "checked_at": "2026/9/20 8:20:01",
+      "status": "ERROR",
+      "http": {
+        "status": 403,
+        "ok": false,
+        "final_url": "https://pastec.net/search?keyword=4549995649307"
+      },
+      "page": {
+        "title": "403 Forbidden",
+        "body_length": 13,
+        "body_available": true
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
+    },
+    {
+      "store_id": "morimori",
+      "store": "森森買取",
+      "jan": "4549995649307",
+      "product_name": "iPhone 17 Pro Max 256GB ディープブルー",
+      "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649307",
+      "checked_at": "2026/9/20 8:20:03",
+      "status": "ERROR",
+      "http": {
+        "status": null,
+        "ok": false,
+        "final_url": null
+      },
+      "page": {
+        "title": null,
+        "body_length": 0,
+        "body_available": false
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649307\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649307\", waiting until \"domcontentloaded\"\n"
+      ]
+    },
+    {
+      "store_id": "mobasute",
+      "store": "モバステ",
+      "jan": "4549995649314",
+      "product_name": "iPhone 17 Pro Max 512GB シルバー",
+      "url": "https://pastec.net/search?keyword=4549995649314",
+      "checked_at": "2026/9/20 8:20:03",
+      "status": "ERROR",
+      "http": {
+        "status": 403,
+        "ok": false,
+        "final_url": "https://pastec.net/search?keyword=4549995649314"
+      },
+      "page": {
+        "title": "403 Forbidden",
+        "body_length": 13,
+        "body_available": true
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
+    },
+    {
+      "store_id": "morimori",
+      "store": "森森買取",
+      "jan": "4549995649314",
+      "product_name": "iPhone 17 Pro Max 512GB シルバー",
+      "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649314",
+      "checked_at": "2026/9/20 8:20:05",
+      "status": "ERROR",
+      "http": {
+        "status": null,
+        "ok": false,
+        "final_url": null
+      },
+      "page": {
+        "title": null,
+        "body_length": 0,
+        "body_available": false
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649314\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649314\", waiting until \"domcontentloaded\"\n"
+      ]
+    },
+    {
+      "store_id": "mobasute",
+      "store": "モバステ",
+      "jan": "4549995649321",
+      "product_name": "iPhone 17 Pro Max 512GB コズミックオレンジ",
+      "url": "https://pastec.net/search?keyword=4549995649321",
+      "checked_at": "2026/9/20 8:20:05",
+      "status": "ERROR",
+      "http": {
+        "status": 403,
+        "ok": false,
+        "final_url": "https://pastec.net/search?keyword=4549995649321"
+      },
+      "page": {
+        "title": "403 Forbidden",
+        "body_length": 13,
+        "body_available": true
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
+    },
+    {
+      "store_id": "morimori",
+      "store": "森森買取",
+      "jan": "4549995649321",
+      "product_name": "iPhone 17 Pro Max 512GB コズミックオレンジ",
+      "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649321",
+      "checked_at": "2026/9/20 8:20:07",
+      "status": "ERROR",
+      "http": {
+        "status": null,
+        "ok": false,
+        "final_url": null
+      },
+      "page": {
+        "title": null,
+        "body_length": 0,
+        "body_available": false
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649321\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649321\", waiting until \"domcontentloaded\"\n"
+      ]
+    },
+    {
+      "store_id": "mobasute",
+      "store": "モバステ",
+      "jan": "4549995649338",
+      "product_name": "iPhone 17 Pro Max 512GB ディープブルー",
+      "url": "https://pastec.net/search?keyword=4549995649338",
+      "checked_at": "2026/9/20 8:20:08",
+      "status": "ERROR",
+      "http": {
+        "status": 403,
+        "ok": false,
+        "final_url": "https://pastec.net/search?keyword=4549995649338"
+      },
+      "page": {
+        "title": "403 Forbidden",
+        "body_length": 13,
+        "body_available": true
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
+    },
+    {
+      "store_id": "morimori",
+      "store": "森森買取",
+      "jan": "4549995649338",
+      "product_name": "iPhone 17 Pro Max 512GB ディープブルー",
+      "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649338",
+      "checked_at": "2026/9/20 8:20:09",
+      "status": "ERROR",
+      "http": {
+        "status": null,
+        "ok": false,
+        "final_url": null
+      },
+      "page": {
+        "title": null,
+        "body_length": 0,
+        "body_available": false
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649338\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649338\", waiting until \"domcontentloaded\"\n"
+      ]
+    },
+    {
+      "store_id": "mobasute",
+      "store": "モバステ",
+      "jan": "4549995649345",
+      "product_name": "iPhone 17 Pro Max 1TB シルバー",
+      "url": "https://pastec.net/search?keyword=4549995649345",
+      "checked_at": "2026/9/20 8:20:10",
+      "status": "ERROR",
+      "http": {
+        "status": 403,
+        "ok": false,
+        "final_url": "https://pastec.net/search?keyword=4549995649345"
+      },
+      "page": {
+        "title": "403 Forbidden",
+        "body_length": 13,
+        "body_available": true
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
+    },
+    {
+      "store_id": "morimori",
+      "store": "森森買取",
+      "jan": "4549995649345",
+      "product_name": "iPhone 17 Pro Max 1TB シルバー",
+      "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649345",
+      "checked_at": "2026/9/20 8:20:11",
+      "status": "ERROR",
+      "http": {
+        "status": null,
+        "ok": false,
+        "final_url": null
+      },
+      "page": {
+        "title": null,
+        "body_length": 0,
+        "body_available": false
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649345\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649345\", waiting until \"domcontentloaded\"\n"
+      ]
+    },
+    {
+      "store_id": "mobasute",
+      "store": "モバステ",
+      "jan": "4549995649352",
+      "product_name": "iPhone 17 Pro Max 1TB コズミックオレンジ",
+      "url": "https://pastec.net/search?keyword=4549995649352",
+      "checked_at": "2026/9/20 8:20:12",
+      "status": "ERROR",
+      "http": {
+        "status": 403,
+        "ok": false,
+        "final_url": "https://pastec.net/search?keyword=4549995649352"
+      },
+      "page": {
+        "title": "403 Forbidden",
+        "body_length": 13,
+        "body_available": true
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
+    },
+    {
+      "store_id": "morimori",
+      "store": "森森買取",
+      "jan": "4549995649352",
+      "product_name": "iPhone 17 Pro Max 1TB コズミックオレンジ",
+      "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649352",
+      "checked_at": "2026/9/20 8:20:13",
+      "status": "ERROR",
+      "http": {
+        "status": null,
+        "ok": false,
+        "final_url": null
+      },
+      "page": {
+        "title": null,
+        "body_length": 0,
+        "body_available": false
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649352\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649352\", waiting until \"domcontentloaded\"\n"
+      ]
+    },
+    {
+      "store_id": "mobasute",
+      "store": "モバステ",
+      "jan": "4549995649369",
+      "product_name": "iPhone 17 Pro Max 1TB ディープブルー",
+      "url": "https://pastec.net/search?keyword=4549995649369",
+      "checked_at": "2026/9/20 8:20:14",
+      "status": "ERROR",
+      "http": {
+        "status": 403,
+        "ok": false,
+        "final_url": "https://pastec.net/search?keyword=4549995649369"
+      },
+      "page": {
+        "title": "403 Forbidden",
+        "body_length": 13,
+        "body_available": true
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
+    },
+    {
+      "store_id": "morimori",
+      "store": "森森買取",
+      "jan": "4549995649369",
+      "product_name": "iPhone 17 Pro Max 1TB ディープブルー",
+      "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649369",
+      "checked_at": "2026/9/20 8:20:15",
+      "status": "ERROR",
+      "http": {
+        "status": null,
+        "ok": false,
+        "final_url": null
+      },
+      "page": {
+        "title": null,
+        "body_length": 0,
+        "body_available": false
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649369\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649369\", waiting until \"domcontentloaded\"\n"
+      ]
+    },
+    {
+      "store_id": "mobasute",
+      "store": "モバステ",
+      "jan": "4549995649253",
+      "product_name": "iPhone 17 Pro 256GB シルバー",
+      "url": "https://pastec.net/search?keyword=4549995649253",
+      "checked_at": "2026/9/20 8:20:16",
+      "status": "ERROR",
+      "http": {
+        "status": 403,
+        "ok": false,
+        "final_url": "https://pastec.net/search?keyword=4549995649253"
+      },
+      "page": {
+        "title": "403 Forbidden",
+        "body_length": 13,
+        "body_available": true
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
+    },
+    {
+      "store_id": "morimori",
+      "store": "森森買取",
+      "jan": "4549995649253",
+      "product_name": "iPhone 17 Pro 256GB シルバー",
+      "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649253",
+      "checked_at": "2026/9/20 8:20:17",
+      "status": "ERROR",
+      "http": {
+        "status": null,
+        "ok": false,
+        "final_url": null
+      },
+      "page": {
+        "title": null,
+        "body_length": 0,
+        "body_available": false
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649253\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649253\", waiting until \"domcontentloaded\"\n"
+      ]
+    },
+    {
+      "store_id": "mobasute",
+      "store": "モバステ",
+      "jan": "4549995649260",
+      "product_name": "iPhone 17 Pro 256GB コズミックオレンジ",
+      "url": "https://pastec.net/search?keyword=4549995649260",
+      "checked_at": "2026/9/20 8:20:18",
+      "status": "ERROR",
+      "http": {
+        "status": 403,
+        "ok": false,
+        "final_url": "https://pastec.net/search?keyword=4549995649260"
+      },
+      "page": {
+        "title": "403 Forbidden",
+        "body_length": 13,
+        "body_available": true
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
+    },
+    {
+      "store_id": "morimori",
+      "store": "森森買取",
+      "jan": "4549995649260",
+      "product_name": "iPhone 17 Pro 256GB コズミックオレンジ",
+      "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649260",
+      "checked_at": "2026/9/20 8:20:20",
+      "status": "ERROR",
+      "http": {
+        "status": null,
+        "ok": false,
+        "final_url": null
+      },
+      "page": {
+        "title": null,
+        "body_length": 0,
+        "body_available": false
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649260\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649260\", waiting until \"domcontentloaded\"\n"
+      ]
+    },
+    {
+      "store_id": "mobasute",
+      "store": "モバステ",
+      "jan": "4549995649277",
+      "product_name": "iPhone 17 Pro 256GB ディープブルー",
+      "url": "https://pastec.net/search?keyword=4549995649277",
+      "checked_at": "2026/9/20 8:20:20",
+      "status": "ERROR",
+      "http": {
+        "status": 403,
+        "ok": false,
+        "final_url": "https://pastec.net/search?keyword=4549995649277"
+      },
+      "page": {
+        "title": "403 Forbidden",
+        "body_length": 13,
+        "body_available": true
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
+    },
+    {
+      "store_id": "morimori",
+      "store": "森森買取",
+      "jan": "4549995649277",
+      "product_name": "iPhone 17 Pro 256GB ディープブルー",
+      "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649277",
+      "checked_at": "2026/9/20 8:20:22",
+      "status": "ERROR",
+      "http": {
+        "status": null,
+        "ok": false,
+        "final_url": null
+      },
+      "page": {
+        "title": null,
+        "body_length": 0,
+        "body_available": false
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649277\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649277\", waiting until \"domcontentloaded\"\n"
+      ]
+    },
+    {
+      "store_id": "mobasute",
+      "store": "モバステ",
+      "jan": "4549995649406",
+      "product_name": "iPhone 17 Pro 512GB シルバー",
+      "url": "https://pastec.net/search?keyword=4549995649406",
+      "checked_at": "2026/9/20 8:20:22",
+      "status": "ERROR",
+      "http": {
+        "status": 403,
+        "ok": false,
+        "final_url": "https://pastec.net/search?keyword=4549995649406"
+      },
+      "page": {
+        "title": "403 Forbidden",
+        "body_length": 13,
+        "body_available": true
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
+    },
+    {
+      "store_id": "morimori",
+      "store": "森森買取",
+      "jan": "4549995649406",
+      "product_name": "iPhone 17 Pro 512GB シルバー",
+      "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649406",
+      "checked_at": "2026/9/20 8:20:24",
+      "status": "ERROR",
+      "http": {
+        "status": null,
+        "ok": false,
+        "final_url": null
+      },
+      "page": {
+        "title": null,
+        "body_length": 0,
+        "body_available": false
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649406\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649406\", waiting until \"domcontentloaded\"\n"
+      ]
+    },
+    {
+      "store_id": "mobasute",
+      "store": "モバステ",
+      "jan": "4549995649413",
+      "product_name": "iPhone 17 Pro 512GB コズミックオレンジ",
+      "url": "https://pastec.net/search?keyword=4549995649413",
+      "checked_at": "2026/9/20 8:20:24",
+      "status": "ERROR",
+      "http": {
+        "status": 403,
+        "ok": false,
+        "final_url": "https://pastec.net/search?keyword=4549995649413"
+      },
+      "page": {
+        "title": "403 Forbidden",
+        "body_length": 13,
+        "body_available": true
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
+    },
+    {
+      "store_id": "morimori",
+      "store": "森森買取",
+      "jan": "4549995649413",
+      "product_name": "iPhone 17 Pro 512GB コズミックオレンジ",
+      "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649413",
+      "checked_at": "2026/9/20 8:20:26",
+      "status": "ERROR",
+      "http": {
+        "status": null,
+        "ok": false,
+        "final_url": null
+      },
+      "page": {
+        "title": null,
+        "body_length": 0,
+        "body_available": false
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649413\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649413\", waiting until \"domcontentloaded\"\n"
+      ]
+    },
+    {
+      "store_id": "mobasute",
+      "store": "モバステ",
+      "jan": "4549995649420",
+      "product_name": "iPhone 17 Pro 512GB ディープブルー",
+      "url": "https://pastec.net/search?keyword=4549995649420",
+      "checked_at": "2026/9/20 8:20:26",
+      "status": "ERROR",
+      "http": {
+        "status": 403,
+        "ok": false,
+        "final_url": "https://pastec.net/search?keyword=4549995649420"
+      },
+      "page": {
+        "title": "403 Forbidden",
+        "body_length": 13,
+        "body_available": true
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
+    },
+    {
+      "store_id": "morimori",
+      "store": "森森買取",
+      "jan": "4549995649420",
+      "product_name": "iPhone 17 Pro 512GB ディープブルー",
+      "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649420",
+      "checked_at": "2026/9/20 8:20:28",
+      "status": "ERROR",
+      "http": {
+        "status": null,
+        "ok": false,
+        "final_url": null
+      },
+      "page": {
+        "title": null,
+        "body_length": 0,
+        "body_available": false
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649420\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649420\", waiting until \"domcontentloaded\"\n"
+      ]
+    },
+    {
+      "store_id": "mobasute",
+      "store": "モバステ",
+      "jan": "4549995649437",
+      "product_name": "iPhone 17 Pro 1TB シルバー",
+      "url": "https://pastec.net/search?keyword=4549995649437",
+      "checked_at": "2026/9/20 8:20:29",
+      "status": "ERROR",
+      "http": {
+        "status": 403,
+        "ok": false,
+        "final_url": "https://pastec.net/search?keyword=4549995649437"
+      },
+      "page": {
+        "title": "403 Forbidden",
+        "body_length": 13,
+        "body_available": true
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
+    },
+    {
+      "store_id": "morimori",
+      "store": "森森買取",
+      "jan": "4549995649437",
+      "product_name": "iPhone 17 Pro 1TB シルバー",
+      "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649437",
+      "checked_at": "2026/9/20 8:20:30",
+      "status": "ERROR",
+      "http": {
+        "status": null,
+        "ok": false,
+        "final_url": null
+      },
+      "page": {
+        "title": null,
+        "body_length": 0,
+        "body_available": false
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649437\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649437\", waiting until \"domcontentloaded\"\n"
+      ]
+    },
+    {
+      "store_id": "mobasute",
+      "store": "モバステ",
+      "jan": "4549995649444",
+      "product_name": "iPhone 17 Pro 1TB コズミックオレンジ",
+      "url": "https://pastec.net/search?keyword=4549995649444",
+      "checked_at": "2026/9/20 8:20:31",
+      "status": "ERROR",
+      "http": {
+        "status": 403,
+        "ok": false,
+        "final_url": "https://pastec.net/search?keyword=4549995649444"
+      },
+      "page": {
+        "title": "403 Forbidden",
+        "body_length": 13,
+        "body_available": true
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
+    },
+    {
+      "store_id": "morimori",
+      "store": "森森買取",
+      "jan": "4549995649444",
+      "product_name": "iPhone 17 Pro 1TB コズミックオレンジ",
+      "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649444",
+      "checked_at": "2026/9/20 8:20:32",
+      "status": "ERROR",
+      "http": {
+        "status": null,
+        "ok": false,
+        "final_url": null
+      },
+      "page": {
+        "title": null,
+        "body_length": 0,
+        "body_available": false
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649444\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649444\", waiting until \"domcontentloaded\"\n"
+      ]
+    },
+    {
+      "store_id": "mobasute",
+      "store": "モバステ",
+      "jan": "4549995649451",
+      "product_name": "iPhone 17 Pro 1TB ディープブルー",
+      "url": "https://pastec.net/search?keyword=4549995649451",
+      "checked_at": "2026/9/20 8:20:33",
+      "status": "ERROR",
+      "http": {
+        "status": 403,
+        "ok": false,
+        "final_url": "https://pastec.net/search?keyword=4549995649451"
+      },
+      "page": {
+        "title": "403 Forbidden",
+        "body_length": 13,
+        "body_available": true
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
+    },
+    {
+      "store_id": "morimori",
+      "store": "森森買取",
+      "jan": "4549995649451",
+      "product_name": "iPhone 17 Pro 1TB ディープブルー",
+      "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649451",
+      "checked_at": "2026/9/20 8:20:35",
+      "status": "ERROR",
+      "http": {
+        "status": null,
+        "ok": false,
+        "final_url": null
+      },
+      "page": {
+        "title": null,
+        "body_length": 0,
+        "body_available": false
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649451\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649451\", waiting until \"domcontentloaded\"\n"
+      ]
+    },
+    {
+      "store_id": "mobasute",
+      "store": "モバステ",
+      "jan": "4549995649154",
+      "product_name": "iPhone 17 256GB ブラック",
+      "url": "https://pastec.net/search?keyword=4549995649154",
+      "checked_at": "2026/9/20 8:20:35",
+      "status": "ERROR",
+      "http": {
+        "status": 403,
+        "ok": false,
+        "final_url": "https://pastec.net/search?keyword=4549995649154"
+      },
+      "page": {
+        "title": "403 Forbidden",
+        "body_length": 13,
+        "body_available": true
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
+    },
+    {
+      "store_id": "morimori",
+      "store": "森森買取",
+      "jan": "4549995649154",
+      "product_name": "iPhone 17 256GB ブラック",
+      "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649154",
+      "checked_at": "2026/9/20 8:20:37",
+      "status": "ERROR",
+      "http": {
+        "status": null,
+        "ok": false,
+        "final_url": null
+      },
+      "page": {
+        "title": null,
+        "body_length": 0,
+        "body_available": false
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649154\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649154\", waiting until \"domcontentloaded\"\n"
+      ]
+    },
+    {
+      "store_id": "mobasute",
+      "store": "モバステ",
+      "jan": "4549995649161",
+      "product_name": "iPhone 17 256GB ホワイト",
+      "url": "https://pastec.net/search?keyword=4549995649161",
+      "checked_at": "2026/9/20 8:20:37",
+      "status": "ERROR",
+      "http": {
+        "status": 403,
+        "ok": false,
+        "final_url": "https://pastec.net/search?keyword=4549995649161"
+      },
+      "page": {
+        "title": "403 Forbidden",
+        "body_length": 13,
+        "body_available": true
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
+    },
+    {
+      "store_id": "morimori",
+      "store": "森森買取",
+      "jan": "4549995649161",
+      "product_name": "iPhone 17 256GB ホワイト",
+      "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649161",
+      "checked_at": "2026/9/20 8:20:39",
+      "status": "ERROR",
+      "http": {
+        "status": null,
+        "ok": false,
+        "final_url": null
+      },
+      "page": {
+        "title": null,
+        "body_length": 0,
+        "body_available": false
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649161\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649161\", waiting until \"domcontentloaded\"\n"
+      ]
+    },
+    {
+      "store_id": "mobasute",
+      "store": "モバステ",
+      "jan": "4549995649178",
+      "product_name": "iPhone 17 256GB ブルー",
+      "url": "https://pastec.net/search?keyword=4549995649178",
+      "checked_at": "2026/9/20 8:20:39",
+      "status": "ERROR",
+      "http": {
+        "status": 403,
+        "ok": false,
+        "final_url": "https://pastec.net/search?keyword=4549995649178"
+      },
+      "page": {
+        "title": "403 Forbidden",
+        "body_length": 13,
+        "body_available": true
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
+    },
+    {
+      "store_id": "morimori",
+      "store": "森森買取",
+      "jan": "4549995649178",
+      "product_name": "iPhone 17 256GB ブルー",
+      "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649178",
+      "checked_at": "2026/9/20 8:20:41",
+      "status": "ERROR",
+      "http": {
+        "status": null,
+        "ok": false,
+        "final_url": null
+      },
+      "page": {
+        "title": null,
+        "body_length": 0,
+        "body_available": false
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649178\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649178\", waiting until \"domcontentloaded\"\n"
+      ]
+    },
+    {
+      "store_id": "mobasute",
+      "store": "モバステ",
+      "jan": "4549995649185",
+      "product_name": "iPhone 17 512GB ブラック",
+      "url": "https://pastec.net/search?keyword=4549995649185",
+      "checked_at": "2026/9/20 8:20:41",
+      "status": "ERROR",
+      "http": {
+        "status": 403,
+        "ok": false,
+        "final_url": "https://pastec.net/search?keyword=4549995649185"
+      },
+      "page": {
+        "title": "403 Forbidden",
+        "body_length": 13,
+        "body_available": true
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
+    },
+    {
+      "store_id": "morimori",
+      "store": "森森買取",
+      "jan": "4549995649185",
+      "product_name": "iPhone 17 512GB ブラック",
+      "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649185",
+      "checked_at": "2026/9/20 8:20:43",
+      "status": "ERROR",
+      "http": {
+        "status": null,
+        "ok": false,
+        "final_url": null
+      },
+      "page": {
+        "title": null,
+        "body_length": 0,
+        "body_available": false
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649185\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649185\", waiting until \"domcontentloaded\"\n"
+      ]
+    },
+    {
+      "store_id": "mobasute",
+      "store": "モバステ",
+      "jan": "4549995649192",
+      "product_name": "iPhone 17 512GB ホワイト",
+      "url": "https://pastec.net/search?keyword=4549995649192",
+      "checked_at": "2026/9/20 8:20:43",
+      "status": "ERROR",
+      "http": {
+        "status": 403,
+        "ok": false,
+        "final_url": "https://pastec.net/search?keyword=4549995649192"
+      },
+      "page": {
+        "title": "403 Forbidden",
+        "body_length": 13,
+        "body_available": true
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
+    },
+    {
+      "store_id": "morimori",
+      "store": "森森買取",
+      "jan": "4549995649192",
+      "product_name": "iPhone 17 512GB ホワイト",
+      "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649192",
+      "checked_at": "2026/9/20 8:20:45",
+      "status": "ERROR",
+      "http": {
+        "status": null,
+        "ok": false,
+        "final_url": null
+      },
+      "page": {
+        "title": null,
+        "body_length": 0,
+        "body_available": false
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649192\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649192\", waiting until \"domcontentloaded\"\n"
+      ]
+    },
+    {
+      "store_id": "mobasute",
+      "store": "モバステ",
+      "jan": "4549995677485",
+      "product_name": "iPhone 17e 256GB ブラック",
+      "url": "https://pastec.net/search?keyword=4549995677485",
+      "checked_at": "2026/9/20 8:20:45",
+      "status": "ERROR",
+      "http": {
+        "status": 403,
+        "ok": false,
+        "final_url": "https://pastec.net/search?keyword=4549995677485"
+      },
+      "page": {
+        "title": "403 Forbidden",
+        "body_length": 13,
+        "body_available": true
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
+    },
+    {
+      "store_id": "morimori",
+      "store": "森森買取",
+      "jan": "4549995677485",
+      "product_name": "iPhone 17e 256GB ブラック",
+      "url": "https://www.morimori-kaitori.jp/search?keyword=4549995677485",
+      "checked_at": "2026/9/20 8:20:47",
+      "status": "ERROR",
+      "http": {
+        "status": null,
+        "ok": false,
+        "final_url": null
+      },
+      "page": {
+        "title": null,
+        "body_length": 0,
+        "body_available": false
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995677485\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995677485\", waiting until \"domcontentloaded\"\n"
+      ]
+    },
+    {
+      "store_id": "mobasute",
+      "store": "モバステ",
+      "jan": "4549995677492",
+      "product_name": "iPhone 17e 256GB ホワイト",
+      "url": "https://pastec.net/search?keyword=4549995677492",
+      "checked_at": "2026/9/20 8:20:47",
+      "status": "ERROR",
+      "http": {
+        "status": 403,
+        "ok": false,
+        "final_url": "https://pastec.net/search?keyword=4549995677492"
+      },
+      "page": {
+        "title": "403 Forbidden",
+        "body_length": 13,
+        "body_available": true
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
+    },
+    {
+      "store_id": "morimori",
+      "store": "森森買取",
+      "jan": "4549995677492",
+      "product_name": "iPhone 17e 256GB ホワイト",
+      "url": "https://www.morimori-kaitori.jp/search?keyword=4549995677492",
+      "checked_at": "2026/9/20 8:20:49",
+      "status": "ERROR",
+      "http": {
+        "status": null,
+        "ok": false,
+        "final_url": null
+      },
+      "page": {
+        "title": null,
+        "body_length": 0,
+        "body_available": false
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995677492\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995677492\", waiting until \"domcontentloaded\"\n"
+      ]
+    },
+    {
+      "store_id": "mobasute",
+      "store": "モバステ",
+      "jan": "4549995677508",
+      "product_name": "iPhone 17e 128GB ブラック",
+      "url": "https://pastec.net/search?keyword=4549995677508",
+      "checked_at": "2026/9/20 8:20:49",
+      "status": "ERROR",
+      "http": {
+        "status": 403,
+        "ok": false,
+        "final_url": "https://pastec.net/search?keyword=4549995677508"
+      },
+      "page": {
+        "title": "403 Forbidden",
+        "body_length": 13,
+        "body_available": true
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
+    },
+    {
+      "store_id": "morimori",
+      "store": "森森買取",
+      "jan": "4549995677508",
+      "product_name": "iPhone 17e 128GB ブラック",
+      "url": "https://www.morimori-kaitori.jp/search?keyword=4549995677508",
+      "checked_at": "2026/9/20 8:20:51",
+      "status": "ERROR",
+      "http": {
+        "status": null,
+        "ok": false,
+        "final_url": null
+      },
+      "page": {
+        "title": null,
+        "body_length": 0,
+        "body_available": false
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995677508\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995677508\", waiting until \"domcontentloaded\"\n"
+      ]
+    },
+    {
+      "store_id": "mobasute",
+      "store": "モバステ",
+      "jan": "4549995677515",
+      "product_name": "iPhone 17e 128GB ホワイト",
+      "url": "https://pastec.net/search?keyword=4549995677515",
+      "checked_at": "2026/9/20 8:20:51",
+      "status": "ERROR",
+      "http": {
+        "status": 403,
+        "ok": false,
+        "final_url": "https://pastec.net/search?keyword=4549995677515"
+      },
+      "page": {
+        "title": "403 Forbidden",
+        "body_length": 13,
+        "body_available": true
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
+    },
+    {
+      "store_id": "morimori",
+      "store": "森森買取",
+      "jan": "4549995677515",
+      "product_name": "iPhone 17e 128GB ホワイト",
+      "url": "https://www.morimori-kaitori.jp/search?keyword=4549995677515",
+      "checked_at": "2026/9/20 8:20:53",
+      "status": "ERROR",
+      "http": {
+        "status": null,
+        "ok": false,
+        "final_url": null
+      },
+      "page": {
+        "title": null,
+        "body_length": 0,
+        "body_available": false
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995677515\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995677515\", waiting until \"domcontentloaded\"\n"
+      ]
+    }
+  ],
+  "summary": {
+    "ok": 0,
+    "error": 54,
+    "jan_found": 0,
+    "product_name_found": 0,
+    "price_candidate_found": 0
+  }
+}
