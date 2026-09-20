@@ -429,14 +429,21 @@ async function inspectStore(browser, store, item) {
 
 
     /*
-     * ページアクセス
-     */
+ * ページアクセス
+ */
 
-  
+const response = await page.goto(
+  url,
+  {
+    waitUntil: "domcontentloaded",
+    timeout: CONFIG.pageTimeout
+  }
+);
 
-    /*
-     * HTTP情報
-     */
+
+/*
+ * HTTP情報
+ */
 
     diagnostic.http.status =
       response ? response.status() : null;
