@@ -227,8 +227,7 @@ const STORES = [
   {
     id: "mobasute",
     name: "モバステ",
-    searchUrl: jan =>
-      `https://pastec.net/search?keyword=${encodeURIComponent(jan)}`
+    priceTableUrl: "https://pastec.net/iphone"
   },
 
   {
@@ -378,7 +377,7 @@ function containsProductName(text, name) {
 
 async function inspectStore(browser, store, item) {
 
-  const url = store.searchUrl(item.jan);
+  const url = store.priceTableUrl || store.searchUrl(item.jan);
 
   const diagnostic = {
 
@@ -433,14 +432,7 @@ async function inspectStore(browser, store, item) {
      * ページアクセス
      */
 
-    const response = await page.goto(
-      url,
-      {
-        waitUntil: "domcontentloaded",
-        timeout: CONFIG.pageTimeout
-      }
-    );
-
+  
 
     /*
      * HTTP情報
