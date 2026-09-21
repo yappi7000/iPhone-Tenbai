@@ -1,7 +1,7 @@
 {
   "version": "safe-diagnostic-2.0",
-  "started_at": "2026/9/20 8:19:56",
-  "finished_at": "2026/9/20 8:20:53",
+  "started_at": "2026/9/21 9:58:47",
+  "finished_at": "2026/9/21 9:59:49",
   "safety": {
     "prices_json_modified": false,
     "default_price_used": false,
@@ -159,13 +159,13 @@
       "store": "モバステ",
       "jan": "4549995649284",
       "product_name": "iPhone 17 Pro Max 256GB シルバー",
-      "url": "https://pastec.net/search?keyword=4549995649284",
-      "checked_at": "2026/9/20 8:19:56",
+      "url": "https://pastec.net/iphone",
+      "checked_at": "2026/9/21 9:58:47",
       "status": "ERROR",
       "http": {
         "status": 403,
         "ok": false,
-        "final_url": "https://pastec.net/search?keyword=4549995649284"
+        "final_url": "https://pastec.net/iphone"
       },
       "page": {
         "title": "403 Forbidden",
@@ -187,7 +187,7 @@
       "jan": "4549995649284",
       "product_name": "iPhone 17 Pro Max 256GB シルバー",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649284",
-      "checked_at": "2026/9/20 8:19:58",
+      "checked_at": "2026/9/21 9:58:49",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -213,13 +213,13 @@
       "store": "モバステ",
       "jan": "4549995649291",
       "product_name": "iPhone 17 Pro Max 256GB コズミックオレンジ",
-      "url": "https://pastec.net/search?keyword=4549995649291",
-      "checked_at": "2026/9/20 8:19:59",
+      "url": "https://pastec.net/iphone",
+      "checked_at": "2026/9/21 9:58:50",
       "status": "ERROR",
       "http": {
         "status": 403,
         "ok": false,
-        "final_url": "https://pastec.net/search?keyword=4549995649291"
+        "final_url": "https://pastec.net/iphone"
       },
       "page": {
         "title": "403 Forbidden",
@@ -241,7 +241,7 @@
       "jan": "4549995649291",
       "product_name": "iPhone 17 Pro Max 256GB コズミックオレンジ",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649291",
-      "checked_at": "2026/9/20 8:20:01",
+      "checked_at": "2026/9/21 9:58:52",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -267,13 +267,13 @@
       "store": "モバステ",
       "jan": "4549995649307",
       "product_name": "iPhone 17 Pro Max 256GB ディープブルー",
-      "url": "https://pastec.net/search?keyword=4549995649307",
-      "checked_at": "2026/9/20 8:20:01",
+      "url": "https://pastec.net/iphone",
+      "checked_at": "2026/9/21 9:58:53",
       "status": "ERROR",
       "http": {
         "status": 403,
         "ok": false,
-        "final_url": "https://pastec.net/search?keyword=4549995649307"
+        "final_url": "https://pastec.net/iphone"
       },
       "page": {
         "title": "403 Forbidden",
@@ -295,7 +295,7 @@
       "jan": "4549995649307",
       "product_name": "iPhone 17 Pro Max 256GB ディープブルー",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649307",
-      "checked_at": "2026/9/20 8:20:03",
+      "checked_at": "2026/9/21 9:58:55",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -321,13 +321,13 @@
       "store": "モバステ",
       "jan": "4549995649314",
       "product_name": "iPhone 17 Pro Max 512GB シルバー",
-      "url": "https://pastec.net/search?keyword=4549995649314",
-      "checked_at": "2026/9/20 8:20:03",
+      "url": "https://pastec.net/iphone",
+      "checked_at": "2026/9/21 9:58:55",
       "status": "ERROR",
       "http": {
         "status": 403,
         "ok": false,
-        "final_url": "https://pastec.net/search?keyword=4549995649314"
+        "final_url": "https://pastec.net/iphone"
       },
       "page": {
         "title": "403 Forbidden",
@@ -349,7 +349,7 @@
       "jan": "4549995649314",
       "product_name": "iPhone 17 Pro Max 512GB シルバー",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649314",
-      "checked_at": "2026/9/20 8:20:05",
+      "checked_at": "2026/9/21 9:58:57",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -375,13 +375,13 @@
       "store": "モバステ",
       "jan": "4549995649321",
       "product_name": "iPhone 17 Pro Max 512GB コズミックオレンジ",
-      "url": "https://pastec.net/search?keyword=4549995649321",
-      "checked_at": "2026/9/20 8:20:05",
+      "url": "https://pastec.net/iphone",
+      "checked_at": "2026/9/21 9:58:57",
       "status": "ERROR",
       "http": {
         "status": 403,
         "ok": false,
-        "final_url": "https://pastec.net/search?keyword=4549995649321"
+        "final_url": "https://pastec.net/iphone"
       },
       "page": {
         "title": "403 Forbidden",
@@ -403,7 +403,7 @@
       "jan": "4549995649321",
       "product_name": "iPhone 17 Pro Max 512GB コズミックオレンジ",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649321",
-      "checked_at": "2026/9/20 8:20:07",
+      "checked_at": "2026/9/21 9:58:59",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -429,13 +429,13 @@
       "store": "モバステ",
       "jan": "4549995649338",
       "product_name": "iPhone 17 Pro Max 512GB ディープブルー",
-      "url": "https://pastec.net/search?keyword=4549995649338",
-      "checked_at": "2026/9/20 8:20:08",
+      "url": "https://pastec.net/iphone",
+      "checked_at": "2026/9/21 9:59:00",
       "status": "ERROR",
       "http": {
         "status": 403,
         "ok": false,
-        "final_url": "https://pastec.net/search?keyword=4549995649338"
+        "final_url": "https://pastec.net/iphone"
       },
       "page": {
         "title": "403 Forbidden",
@@ -457,7 +457,7 @@
       "jan": "4549995649338",
       "product_name": "iPhone 17 Pro Max 512GB ディープブルー",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649338",
-      "checked_at": "2026/9/20 8:20:09",
+      "checked_at": "2026/9/21 9:59:02",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -483,13 +483,13 @@
       "store": "モバステ",
       "jan": "4549995649345",
       "product_name": "iPhone 17 Pro Max 1TB シルバー",
-      "url": "https://pastec.net/search?keyword=4549995649345",
-      "checked_at": "2026/9/20 8:20:10",
+      "url": "https://pastec.net/iphone",
+      "checked_at": "2026/9/21 9:59:02",
       "status": "ERROR",
       "http": {
         "status": 403,
         "ok": false,
-        "final_url": "https://pastec.net/search?keyword=4549995649345"
+        "final_url": "https://pastec.net/iphone"
       },
       "page": {
         "title": "403 Forbidden",
@@ -511,7 +511,7 @@
       "jan": "4549995649345",
       "product_name": "iPhone 17 Pro Max 1TB シルバー",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649345",
-      "checked_at": "2026/9/20 8:20:11",
+      "checked_at": "2026/9/21 9:59:04",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -537,13 +537,13 @@
       "store": "モバステ",
       "jan": "4549995649352",
       "product_name": "iPhone 17 Pro Max 1TB コズミックオレンジ",
-      "url": "https://pastec.net/search?keyword=4549995649352",
-      "checked_at": "2026/9/20 8:20:12",
+      "url": "https://pastec.net/iphone",
+      "checked_at": "2026/9/21 9:59:05",
       "status": "ERROR",
       "http": {
         "status": 403,
         "ok": false,
-        "final_url": "https://pastec.net/search?keyword=4549995649352"
+        "final_url": "https://pastec.net/iphone"
       },
       "page": {
         "title": "403 Forbidden",
@@ -565,7 +565,7 @@
       "jan": "4549995649352",
       "product_name": "iPhone 17 Pro Max 1TB コズミックオレンジ",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649352",
-      "checked_at": "2026/9/20 8:20:13",
+      "checked_at": "2026/9/21 9:59:06",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -591,13 +591,13 @@
       "store": "モバステ",
       "jan": "4549995649369",
       "product_name": "iPhone 17 Pro Max 1TB ディープブルー",
-      "url": "https://pastec.net/search?keyword=4549995649369",
-      "checked_at": "2026/9/20 8:20:14",
+      "url": "https://pastec.net/iphone",
+      "checked_at": "2026/9/21 9:59:07",
       "status": "ERROR",
       "http": {
         "status": 403,
         "ok": false,
-        "final_url": "https://pastec.net/search?keyword=4549995649369"
+        "final_url": "https://pastec.net/iphone"
       },
       "page": {
         "title": "403 Forbidden",
@@ -619,7 +619,7 @@
       "jan": "4549995649369",
       "product_name": "iPhone 17 Pro Max 1TB ディープブルー",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649369",
-      "checked_at": "2026/9/20 8:20:15",
+      "checked_at": "2026/9/21 9:59:08",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -645,13 +645,13 @@
       "store": "モバステ",
       "jan": "4549995649253",
       "product_name": "iPhone 17 Pro 256GB シルバー",
-      "url": "https://pastec.net/search?keyword=4549995649253",
-      "checked_at": "2026/9/20 8:20:16",
+      "url": "https://pastec.net/iphone",
+      "checked_at": "2026/9/21 9:59:09",
       "status": "ERROR",
       "http": {
         "status": 403,
         "ok": false,
-        "final_url": "https://pastec.net/search?keyword=4549995649253"
+        "final_url": "https://pastec.net/iphone"
       },
       "page": {
         "title": "403 Forbidden",
@@ -673,7 +673,7 @@
       "jan": "4549995649253",
       "product_name": "iPhone 17 Pro 256GB シルバー",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649253",
-      "checked_at": "2026/9/20 8:20:17",
+      "checked_at": "2026/9/21 9:59:11",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -699,13 +699,13 @@
       "store": "モバステ",
       "jan": "4549995649260",
       "product_name": "iPhone 17 Pro 256GB コズミックオレンジ",
-      "url": "https://pastec.net/search?keyword=4549995649260",
-      "checked_at": "2026/9/20 8:20:18",
+      "url": "https://pastec.net/iphone",
+      "checked_at": "2026/9/21 9:59:11",
       "status": "ERROR",
       "http": {
         "status": 403,
         "ok": false,
-        "final_url": "https://pastec.net/search?keyword=4549995649260"
+        "final_url": "https://pastec.net/iphone"
       },
       "page": {
         "title": "403 Forbidden",
@@ -727,7 +727,7 @@
       "jan": "4549995649260",
       "product_name": "iPhone 17 Pro 256GB コズミックオレンジ",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649260",
-      "checked_at": "2026/9/20 8:20:20",
+      "checked_at": "2026/9/21 9:59:13",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -753,13 +753,13 @@
       "store": "モバステ",
       "jan": "4549995649277",
       "product_name": "iPhone 17 Pro 256GB ディープブルー",
-      "url": "https://pastec.net/search?keyword=4549995649277",
-      "checked_at": "2026/9/20 8:20:20",
+      "url": "https://pastec.net/iphone",
+      "checked_at": "2026/9/21 9:59:13",
       "status": "ERROR",
       "http": {
         "status": 403,
         "ok": false,
-        "final_url": "https://pastec.net/search?keyword=4549995649277"
+        "final_url": "https://pastec.net/iphone"
       },
       "page": {
         "title": "403 Forbidden",
@@ -781,7 +781,7 @@
       "jan": "4549995649277",
       "product_name": "iPhone 17 Pro 256GB ディープブルー",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649277",
-      "checked_at": "2026/9/20 8:20:22",
+      "checked_at": "2026/9/21 9:59:15",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -807,13 +807,13 @@
       "store": "モバステ",
       "jan": "4549995649406",
       "product_name": "iPhone 17 Pro 512GB シルバー",
-      "url": "https://pastec.net/search?keyword=4549995649406",
-      "checked_at": "2026/9/20 8:20:22",
+      "url": "https://pastec.net/iphone",
+      "checked_at": "2026/9/21 9:59:16",
       "status": "ERROR",
       "http": {
         "status": 403,
         "ok": false,
-        "final_url": "https://pastec.net/search?keyword=4549995649406"
+        "final_url": "https://pastec.net/iphone"
       },
       "page": {
         "title": "403 Forbidden",
@@ -835,7 +835,7 @@
       "jan": "4549995649406",
       "product_name": "iPhone 17 Pro 512GB シルバー",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649406",
-      "checked_at": "2026/9/20 8:20:24",
+      "checked_at": "2026/9/21 9:59:17",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -861,13 +861,13 @@
       "store": "モバステ",
       "jan": "4549995649413",
       "product_name": "iPhone 17 Pro 512GB コズミックオレンジ",
-      "url": "https://pastec.net/search?keyword=4549995649413",
-      "checked_at": "2026/9/20 8:20:24",
+      "url": "https://pastec.net/iphone",
+      "checked_at": "2026/9/21 9:59:18",
       "status": "ERROR",
       "http": {
         "status": 403,
         "ok": false,
-        "final_url": "https://pastec.net/search?keyword=4549995649413"
+        "final_url": "https://pastec.net/iphone"
       },
       "page": {
         "title": "403 Forbidden",
@@ -889,7 +889,7 @@
       "jan": "4549995649413",
       "product_name": "iPhone 17 Pro 512GB コズミックオレンジ",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649413",
-      "checked_at": "2026/9/20 8:20:26",
+      "checked_at": "2026/9/21 9:59:20",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -915,13 +915,13 @@
       "store": "モバステ",
       "jan": "4549995649420",
       "product_name": "iPhone 17 Pro 512GB ディープブルー",
-      "url": "https://pastec.net/search?keyword=4549995649420",
-      "checked_at": "2026/9/20 8:20:26",
+      "url": "https://pastec.net/iphone",
+      "checked_at": "2026/9/21 9:59:20",
       "status": "ERROR",
       "http": {
         "status": 403,
         "ok": false,
-        "final_url": "https://pastec.net/search?keyword=4549995649420"
+        "final_url": "https://pastec.net/iphone"
       },
       "page": {
         "title": "403 Forbidden",
@@ -943,7 +943,7 @@
       "jan": "4549995649420",
       "product_name": "iPhone 17 Pro 512GB ディープブルー",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649420",
-      "checked_at": "2026/9/20 8:20:28",
+      "checked_at": "2026/9/21 9:59:22",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -969,13 +969,13 @@
       "store": "モバステ",
       "jan": "4549995649437",
       "product_name": "iPhone 17 Pro 1TB シルバー",
-      "url": "https://pastec.net/search?keyword=4549995649437",
-      "checked_at": "2026/9/20 8:20:29",
+      "url": "https://pastec.net/iphone",
+      "checked_at": "2026/9/21 9:59:22",
       "status": "ERROR",
       "http": {
         "status": 403,
         "ok": false,
-        "final_url": "https://pastec.net/search?keyword=4549995649437"
+        "final_url": "https://pastec.net/iphone"
       },
       "page": {
         "title": "403 Forbidden",
@@ -997,7 +997,7 @@
       "jan": "4549995649437",
       "product_name": "iPhone 17 Pro 1TB シルバー",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649437",
-      "checked_at": "2026/9/20 8:20:30",
+      "checked_at": "2026/9/21 9:59:24",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -1023,13 +1023,13 @@
       "store": "モバステ",
       "jan": "4549995649444",
       "product_name": "iPhone 17 Pro 1TB コズミックオレンジ",
-      "url": "https://pastec.net/search?keyword=4549995649444",
-      "checked_at": "2026/9/20 8:20:31",
+      "url": "https://pastec.net/iphone",
+      "checked_at": "2026/9/21 9:59:25",
       "status": "ERROR",
       "http": {
         "status": 403,
         "ok": false,
-        "final_url": "https://pastec.net/search?keyword=4549995649444"
+        "final_url": "https://pastec.net/iphone"
       },
       "page": {
         "title": "403 Forbidden",
@@ -1051,7 +1051,7 @@
       "jan": "4549995649444",
       "product_name": "iPhone 17 Pro 1TB コズミックオレンジ",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649444",
-      "checked_at": "2026/9/20 8:20:32",
+      "checked_at": "2026/9/21 9:59:26",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -1077,13 +1077,13 @@
       "store": "モバステ",
       "jan": "4549995649451",
       "product_name": "iPhone 17 Pro 1TB ディープブルー",
-      "url": "https://pastec.net/search?keyword=4549995649451",
-      "checked_at": "2026/9/20 8:20:33",
+      "url": "https://pastec.net/iphone",
+      "checked_at": "2026/9/21 9:59:27",
       "status": "ERROR",
       "http": {
         "status": 403,
         "ok": false,
-        "final_url": "https://pastec.net/search?keyword=4549995649451"
+        "final_url": "https://pastec.net/iphone"
       },
       "page": {
         "title": "403 Forbidden",
@@ -1105,7 +1105,7 @@
       "jan": "4549995649451",
       "product_name": "iPhone 17 Pro 1TB ディープブルー",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649451",
-      "checked_at": "2026/9/20 8:20:35",
+      "checked_at": "2026/9/21 9:59:29",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -1131,13 +1131,13 @@
       "store": "モバステ",
       "jan": "4549995649154",
       "product_name": "iPhone 17 256GB ブラック",
-      "url": "https://pastec.net/search?keyword=4549995649154",
-      "checked_at": "2026/9/20 8:20:35",
+      "url": "https://pastec.net/iphone",
+      "checked_at": "2026/9/21 9:59:29",
       "status": "ERROR",
       "http": {
         "status": 403,
         "ok": false,
-        "final_url": "https://pastec.net/search?keyword=4549995649154"
+        "final_url": "https://pastec.net/iphone"
       },
       "page": {
         "title": "403 Forbidden",
@@ -1159,7 +1159,7 @@
       "jan": "4549995649154",
       "product_name": "iPhone 17 256GB ブラック",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649154",
-      "checked_at": "2026/9/20 8:20:37",
+      "checked_at": "2026/9/21 9:59:31",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -1185,13 +1185,13 @@
       "store": "モバステ",
       "jan": "4549995649161",
       "product_name": "iPhone 17 256GB ホワイト",
-      "url": "https://pastec.net/search?keyword=4549995649161",
-      "checked_at": "2026/9/20 8:20:37",
+      "url": "https://pastec.net/iphone",
+      "checked_at": "2026/9/21 9:59:31",
       "status": "ERROR",
       "http": {
         "status": 403,
         "ok": false,
-        "final_url": "https://pastec.net/search?keyword=4549995649161"
+        "final_url": "https://pastec.net/iphone"
       },
       "page": {
         "title": "403 Forbidden",
@@ -1213,7 +1213,7 @@
       "jan": "4549995649161",
       "product_name": "iPhone 17 256GB ホワイト",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649161",
-      "checked_at": "2026/9/20 8:20:39",
+      "checked_at": "2026/9/21 9:59:33",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -1239,13 +1239,13 @@
       "store": "モバステ",
       "jan": "4549995649178",
       "product_name": "iPhone 17 256GB ブルー",
-      "url": "https://pastec.net/search?keyword=4549995649178",
-      "checked_at": "2026/9/20 8:20:39",
+      "url": "https://pastec.net/iphone",
+      "checked_at": "2026/9/21 9:59:34",
       "status": "ERROR",
       "http": {
         "status": 403,
         "ok": false,
-        "final_url": "https://pastec.net/search?keyword=4549995649178"
+        "final_url": "https://pastec.net/iphone"
       },
       "page": {
         "title": "403 Forbidden",
@@ -1267,7 +1267,7 @@
       "jan": "4549995649178",
       "product_name": "iPhone 17 256GB ブルー",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649178",
-      "checked_at": "2026/9/20 8:20:41",
+      "checked_at": "2026/9/21 9:59:35",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -1293,13 +1293,13 @@
       "store": "モバステ",
       "jan": "4549995649185",
       "product_name": "iPhone 17 512GB ブラック",
-      "url": "https://pastec.net/search?keyword=4549995649185",
-      "checked_at": "2026/9/20 8:20:41",
+      "url": "https://pastec.net/iphone",
+      "checked_at": "2026/9/21 9:59:36",
       "status": "ERROR",
       "http": {
         "status": 403,
         "ok": false,
-        "final_url": "https://pastec.net/search?keyword=4549995649185"
+        "final_url": "https://pastec.net/iphone"
       },
       "page": {
         "title": "403 Forbidden",
@@ -1321,7 +1321,7 @@
       "jan": "4549995649185",
       "product_name": "iPhone 17 512GB ブラック",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649185",
-      "checked_at": "2026/9/20 8:20:43",
+      "checked_at": "2026/9/21 9:59:38",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -1347,13 +1347,13 @@
       "store": "モバステ",
       "jan": "4549995649192",
       "product_name": "iPhone 17 512GB ホワイト",
-      "url": "https://pastec.net/search?keyword=4549995649192",
-      "checked_at": "2026/9/20 8:20:43",
+      "url": "https://pastec.net/iphone",
+      "checked_at": "2026/9/21 9:59:38",
       "status": "ERROR",
       "http": {
         "status": 403,
         "ok": false,
-        "final_url": "https://pastec.net/search?keyword=4549995649192"
+        "final_url": "https://pastec.net/iphone"
       },
       "page": {
         "title": "403 Forbidden",
@@ -1375,7 +1375,7 @@
       "jan": "4549995649192",
       "product_name": "iPhone 17 512GB ホワイト",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649192",
-      "checked_at": "2026/9/20 8:20:45",
+      "checked_at": "2026/9/21 9:59:40",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -1401,13 +1401,13 @@
       "store": "モバステ",
       "jan": "4549995677485",
       "product_name": "iPhone 17e 256GB ブラック",
-      "url": "https://pastec.net/search?keyword=4549995677485",
-      "checked_at": "2026/9/20 8:20:45",
+      "url": "https://pastec.net/iphone",
+      "checked_at": "2026/9/21 9:59:40",
       "status": "ERROR",
       "http": {
         "status": 403,
         "ok": false,
-        "final_url": "https://pastec.net/search?keyword=4549995677485"
+        "final_url": "https://pastec.net/iphone"
       },
       "page": {
         "title": "403 Forbidden",
@@ -1429,7 +1429,7 @@
       "jan": "4549995677485",
       "product_name": "iPhone 17e 256GB ブラック",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995677485",
-      "checked_at": "2026/9/20 8:20:47",
+      "checked_at": "2026/9/21 9:59:42",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -1455,13 +1455,13 @@
       "store": "モバステ",
       "jan": "4549995677492",
       "product_name": "iPhone 17e 256GB ホワイト",
-      "url": "https://pastec.net/search?keyword=4549995677492",
-      "checked_at": "2026/9/20 8:20:47",
+      "url": "https://pastec.net/iphone",
+      "checked_at": "2026/9/21 9:59:42",
       "status": "ERROR",
       "http": {
         "status": 403,
         "ok": false,
-        "final_url": "https://pastec.net/search?keyword=4549995677492"
+        "final_url": "https://pastec.net/iphone"
       },
       "page": {
         "title": "403 Forbidden",
@@ -1483,7 +1483,7 @@
       "jan": "4549995677492",
       "product_name": "iPhone 17e 256GB ホワイト",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995677492",
-      "checked_at": "2026/9/20 8:20:49",
+      "checked_at": "2026/9/21 9:59:44",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -1509,13 +1509,13 @@
       "store": "モバステ",
       "jan": "4549995677508",
       "product_name": "iPhone 17e 128GB ブラック",
-      "url": "https://pastec.net/search?keyword=4549995677508",
-      "checked_at": "2026/9/20 8:20:49",
+      "url": "https://pastec.net/iphone",
+      "checked_at": "2026/9/21 9:59:45",
       "status": "ERROR",
       "http": {
         "status": 403,
         "ok": false,
-        "final_url": "https://pastec.net/search?keyword=4549995677508"
+        "final_url": "https://pastec.net/iphone"
       },
       "page": {
         "title": "403 Forbidden",
@@ -1537,7 +1537,7 @@
       "jan": "4549995677508",
       "product_name": "iPhone 17e 128GB ブラック",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995677508",
-      "checked_at": "2026/9/20 8:20:51",
+      "checked_at": "2026/9/21 9:59:47",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -1563,13 +1563,13 @@
       "store": "モバステ",
       "jan": "4549995677515",
       "product_name": "iPhone 17e 128GB ホワイト",
-      "url": "https://pastec.net/search?keyword=4549995677515",
-      "checked_at": "2026/9/20 8:20:51",
+      "url": "https://pastec.net/iphone",
+      "checked_at": "2026/9/21 9:59:47",
       "status": "ERROR",
       "http": {
         "status": 403,
         "ok": false,
-        "final_url": "https://pastec.net/search?keyword=4549995677515"
+        "final_url": "https://pastec.net/iphone"
       },
       "page": {
         "title": "403 Forbidden",
@@ -1591,7 +1591,7 @@
       "jan": "4549995677515",
       "product_name": "iPhone 17e 128GB ホワイト",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995677515",
-      "checked_at": "2026/9/20 8:20:53",
+      "checked_at": "2026/9/21 9:59:49",
       "status": "ERROR",
       "http": {
         "status": null,
