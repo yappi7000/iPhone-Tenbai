@@ -295,7 +295,8 @@ function normalizeText(text) {
  *
  * defaultPriceなどは一切使わない。
  */
-function extractPriceCandidates(text) {
+function 
+extractPriceCandidates(text) {
 
   const normalized = normalizeText(text);
 
@@ -375,8 +376,107 @@ function containsProductName(text, name) {
  * ============================================================
  */
 
-async function inspectStore(browser, store, item) {
+/*
+ * モバステの価格表から商品単位で未開封価格を取得。
+ *
+ * ページ全体の価格候補ではなく、
+ * 商品名に一致する .p-priceTable__name 内の
+ * .price--unopened を直接取得する。
+ *
+ * 推測価格・補完価格は一切作らない。
+ */
+async function extractMobasutePrice(page, productName) {
 
+  const target = normalizeText(productName);
+
+  const products = page.locator(".p-priceTable__name");
+
+  const count = await products.count();
+
+  for (let i = 0; i < count; i++) {
+
+    const product = products.nth(i);
+
+    const nameElement =
+      product.locator(":scope > span").first();
+
+    const name =
+      normalizeText(
+        await nameElement.innerText().catch(() => "")
+      );
+
+    if (name !== target) {
+      continue;
+    }
+
+    const unopenedElement =
+      product.locator(".price--unopened").first();
+
+    if (await unopenedElement.count() === 0) {
+      return {
+        found: true,
+        price: null,
+        caution: normalizeText(
+          await product
+            .locator(".p-priceTable__caution")
+            .innerText()
+            .catch(() => "")
+        ),
+        error: "未開封価格の要素が見つかりません"
+      };
+    }
+
+    const rawPrice =
+      normalizeText(
+        await unopenedElement.innerText().catch(() => "")
+      );
+
+    const match =
+      rawPrice.match(/([1-9]\d{1,2}(?:,\d{3})*)\s*円/);
+
+    if (!match) {
+      return {
+        found: true,
+        price: null,
+        caution: normalizeText(
+          await product
+            .locator(".p-priceTable__caution")
+            .innerText()
+            .catch(() => "")
+        ),
+        error: "未開封価格を数値として解析できません"
+      };
+    }
+
+    return {
+      found: true,
+      price: Number(match[1].replace(/,/g, "")),
+      raw_price: rawPrice,
+      caution: normalizeText(
+        await product
+          .locator(".p-priceTable__caution")
+          .innerText()
+          .catch(() => "")
+      ),
+      error: null
+    };
+  }
+
+  return {
+    found: false,
+    price: null,
+    caution: "",
+    error: "商品名に一致する商品ブロックが見つかりません"
+  };
+}
+
+
+/* ============================================================
+ * 1店舗を診断
+ * ============================================================
+ */
+
+async function inspectStore(browser, store, item) {
   const url = store.priceTableUrl || store.searchUrl(item.jan);
 
   const diagnostic = {
