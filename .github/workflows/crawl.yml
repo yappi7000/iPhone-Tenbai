@@ -2,16 +2,26 @@ name: Auto Crawl iPhone Prices
 
 on:
   schedule:
-    # 毎朝8時（JST = UTC 23:00）に定期実行
+    # 毎朝8:00 JST
+    # GitHub ActionsのcronはUTCなので前日23:00 UTC
     - cron: '0 23 * * *'
-  workflow_dispatch: # 手動実行ボタン
+
+  # GitHub画面から手動実行も可能
+  workflow_dispatch:
 
 permissions:
   contents: write
 
+concurrency:
+  group: iphone-price-crawler
+  cancel-in-progress: false
+
 jobs:
   crawl:
     runs-on: ubuntu-latest
+
+    timeout-minutes: 30
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -20,22 +30,99 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: npm
 
       - name: Install dependencies
-        run: |
-          npm init -y
-          npm install playwright
+        run: npm ci
 
-      - name: Install Playwright Browsers
+      - name: Install Playwright Chromium
         run: npx playwright install chromium --with-deps
 
-      - name: Run Crawler
+      - name: Run crawler
         run: node scripts/crawler.js
 
-      - name: Commit and Push if changes
+      - name: Verify generated prices
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          node - <<'NODE'
+          const fs = require('fs');
+
+          const data = JSON.parse(
+            fs.readFileSync(
+              'data/prices.json',
+              'utf8'
+            )
+          );
+
+          const jans = Object.keys(data);
+
+          let total = 0;
+          let bad = 0;
+
+          for (const jan of jans) {
+            const stores =
+              Array.isArray(data[jan].stores)
+                ? data[jan].stores
+                : [];
+
+            total += stores.length;
+
+            const unique =
+              new Set(
+                stores.map(x => x.store)
+              );
+
+            if (
+              stores.length !== 12 ||
+              unique.size !== 12
+            ) {
+              bad++;
+            }
+          }
+
+          console.log(
+            'SKU数:',
+            jans.length
+          );
+
+          console.log(
+            '価格総数:',
+            total
+          );
+
+          console.log(
+            '異常SKU:',
+            bad
+          );
+
+          if (
+            jans.length !== 32 ||
+            total !== 384 ||
+            bad !== 0
+          ) {
+            console.error(
+              'prices.json verification failed'
+            );
+
+            process.exit(1);
+          }
+
+          console.log(
+            'DIRECT CRAWLER COMPLETE'
+          );
+          NODE
+
+      - name: Commit and push updated prices
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add data/prices.json
           git add data/crawl_diagnostics.json
-          git commit -m "Update crawl diagnostics [skip ci]" || exit 0
+
+          if git diff --cached --quiet; then
+            echo "価格変更なし"
+            exit 0
+          fi
+
+          git commit -m "Update iPhone prices [skip ci]"
           git push

@@ -1,0 +1,21 @@
+
+.auth/
+
+.DS_Store
+node_modules/
+
+# ローカル認証情報
+.auth/
+
+# crawlerバックアップ
+scripts/crawler.js.backup-*
+scripts/crawler.js.before-*
+scripts/crawler.js.20*
+
+# dataバックアップ・ローカル照合結果
+data/prices.json.backup-*
+data/prices.json.before-*
+data/ringo_snapshot.json
+data/price_verification.json
+
+.github/workflows/*.backup
