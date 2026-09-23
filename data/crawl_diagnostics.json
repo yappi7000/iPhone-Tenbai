@@ -1,7 +1,7 @@
 {
   "version": "safe-diagnostic-2.0",
-  "started_at": "2026/9/20 19:59:20",
-  "finished_at": "2026/9/20 20:00:37",
+  "started_at": "2026/9/23 10:23:21",
+  "finished_at": "2026/9/23 10:24:28",
   "safety": {
     "prices_json_modified": false,
     "default_price_used": false,
@@ -160,161 +160,26 @@
       "jan": "4549995649284",
       "product_name": "iPhone 17 Pro Max 256GB シルバー",
       "url": "https://pastec.net/iphone",
-      "checked_at": "2026/9/20 19:59:20",
-      "status": "OK",
+      "checked_at": "2026/9/23 10:23:21",
+      "status": "ERROR",
       "http": {
-        "status": 200,
-        "ok": true,
+        "status": 403,
+        "ok": false,
         "final_url": "https://pastec.net/iphone"
       },
       "page": {
-        "title": "iPhoneの買取価格表一覧 | 簡単10秒査定 | iPhone買取 モバステ",
-        "body_length": 2862,
+        "title": "403 Forbidden",
+        "body_length": 13,
         "body_available": true
       },
       "product": {
         "jan_found": false,
         "name_found": false
       },
-      "price_candidates": [
-        {
-          "raw": " 214,000円",
-          "price": 214000
-        },
-        {
-          "raw": " 248,000円",
-          "price": 248000
-        },
-        {
-          "raw": " 308,000円",
-          "price": 308000
-        },
-        {
-          "raw": " 408,000円",
-          "price": 408000
-        },
-        {
-          "raw": " 255,000円",
-          "price": 255000
-        },
-        {
-          "raw": " 280,000円",
-          "price": 280000
-        },
-        {
-          "raw": " 348,000円",
-          "price": 348000
-        },
-        {
-          "raw": " 435,000円",
-          "price": 435000
-        },
-        {
-          "raw": " 170,000円",
-          "price": 170000
-        },
-        {
-          "raw": " 151,000円",
-          "price": 151000
-        },
-        {
-          "raw": "121,500円",
-          "price": 121500
-        },
-        {
-          "raw": " 198,000円",
-          "price": 198000
-        },
-        {
-          "raw": " 166,000円",
-          "price": 166000
-        },
-        {
-          "raw": "152,000円",
-          "price": 152000
-        },
-        {
-          "raw": " 217,000円",
-          "price": 217000
-        },
-        {
-          "raw": " 183,000円",
-          "price": 183000
-        },
-        {
-          "raw": " 187,000円",
-          "price": 187000
-        },
-        {
-          "raw": " 167,000円",
-          "price": 167000
-        },
-        {
-          "raw": "135,500円",
-          "price": 135500
-        },
-        {
-          "raw": " 215,000円",
-          "price": 215000
-        },
-        {
-          "raw": " 182,000円",
-          "price": 182000
-        },
-        {
-          "raw": "164,000円",
-          "price": 164000
-        },
-        {
-          "raw": " 239,000円",
-          "price": 239000
-        },
-        {
-          "raw": " 198,500円",
-          "price": 198500
-        },
-        {
-          "raw": "184,000円",
-          "price": 184000
-        },
-        {
-          "raw": " 277,000円",
-          "price": 277000
-        },
-        {
-          "raw": " 218,500円",
-          "price": 218500
-        },
-        {
-          "raw": "201,500円",
-          "price": 201500
-        },
-        {
-          "raw": " 139,500円",
-          "price": 139500
-        },
-        {
-          "raw": " 111,500円",
-          "price": 111500
-        },
-        {
-          "raw": "93,000円",
-          "price": 93000
-        },
-        {
-          "raw": " 161,000円",
-          "price": 161000
-        },
-        {
-          "raw": " 125,500円",
-          "price": 125500
-        },
-        {
-          "raw": "112,500円",
-          "price": 112500
-        }
-      ],
-      "errors": []
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
     },
     {
       "store_id": "morimori",
@@ -322,7 +187,7 @@
       "jan": "4549995649284",
       "product_name": "iPhone 17 Pro Max 256GB シルバー",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649284",
-      "checked_at": "2026/9/20 19:59:22",
+      "checked_at": "2026/9/23 10:23:26",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -340,7 +205,7 @@
       },
       "price_candidates": [],
       "errors": [
-        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649284\nCall log:\n\u001b[2m  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649284\", waiting until \"domcontentloaded\"\u001b[22m\n"
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649284\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649284\", waiting until \"domcontentloaded\"\n"
       ]
     },
     {
@@ -349,161 +214,26 @@
       "jan": "4549995649291",
       "product_name": "iPhone 17 Pro Max 256GB コズミックオレンジ",
       "url": "https://pastec.net/iphone",
-      "checked_at": "2026/9/20 19:59:23",
-      "status": "OK",
+      "checked_at": "2026/9/23 10:23:26",
+      "status": "ERROR",
       "http": {
-        "status": 200,
-        "ok": true,
+        "status": 403,
+        "ok": false,
         "final_url": "https://pastec.net/iphone"
       },
       "page": {
-        "title": "iPhoneの買取価格表一覧 | 簡単10秒査定 | iPhone買取 モバステ",
-        "body_length": 2862,
+        "title": "403 Forbidden",
+        "body_length": 13,
         "body_available": true
       },
       "product": {
         "jan_found": false,
         "name_found": false
       },
-      "price_candidates": [
-        {
-          "raw": " 214,000円",
-          "price": 214000
-        },
-        {
-          "raw": " 248,000円",
-          "price": 248000
-        },
-        {
-          "raw": " 308,000円",
-          "price": 308000
-        },
-        {
-          "raw": " 408,000円",
-          "price": 408000
-        },
-        {
-          "raw": " 255,000円",
-          "price": 255000
-        },
-        {
-          "raw": " 280,000円",
-          "price": 280000
-        },
-        {
-          "raw": " 348,000円",
-          "price": 348000
-        },
-        {
-          "raw": " 435,000円",
-          "price": 435000
-        },
-        {
-          "raw": " 170,000円",
-          "price": 170000
-        },
-        {
-          "raw": " 151,000円",
-          "price": 151000
-        },
-        {
-          "raw": "121,500円",
-          "price": 121500
-        },
-        {
-          "raw": " 198,000円",
-          "price": 198000
-        },
-        {
-          "raw": " 166,000円",
-          "price": 166000
-        },
-        {
-          "raw": "152,000円",
-          "price": 152000
-        },
-        {
-          "raw": " 217,000円",
-          "price": 217000
-        },
-        {
-          "raw": " 183,000円",
-          "price": 183000
-        },
-        {
-          "raw": " 187,000円",
-          "price": 187000
-        },
-        {
-          "raw": " 167,000円",
-          "price": 167000
-        },
-        {
-          "raw": "135,500円",
-          "price": 135500
-        },
-        {
-          "raw": " 215,000円",
-          "price": 215000
-        },
-        {
-          "raw": " 182,000円",
-          "price": 182000
-        },
-        {
-          "raw": "164,000円",
-          "price": 164000
-        },
-        {
-          "raw": " 239,000円",
-          "price": 239000
-        },
-        {
-          "raw": " 198,500円",
-          "price": 198500
-        },
-        {
-          "raw": "184,000円",
-          "price": 184000
-        },
-        {
-          "raw": " 277,000円",
-          "price": 277000
-        },
-        {
-          "raw": " 218,500円",
-          "price": 218500
-        },
-        {
-          "raw": "201,500円",
-          "price": 201500
-        },
-        {
-          "raw": " 139,500円",
-          "price": 139500
-        },
-        {
-          "raw": " 111,500円",
-          "price": 111500
-        },
-        {
-          "raw": "93,000円",
-          "price": 93000
-        },
-        {
-          "raw": " 161,000円",
-          "price": 161000
-        },
-        {
-          "raw": " 125,500円",
-          "price": 125500
-        },
-        {
-          "raw": "112,500円",
-          "price": 112500
-        }
-      ],
-      "errors": []
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
     },
     {
       "store_id": "morimori",
@@ -511,7 +241,7 @@
       "jan": "4549995649291",
       "product_name": "iPhone 17 Pro Max 256GB コズミックオレンジ",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649291",
-      "checked_at": "2026/9/20 19:59:25",
+      "checked_at": "2026/9/23 10:23:28",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -529,7 +259,7 @@
       },
       "price_candidates": [],
       "errors": [
-        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649291\nCall log:\n\u001b[2m  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649291\", waiting until \"domcontentloaded\"\u001b[22m\n"
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649291\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649291\", waiting until \"domcontentloaded\"\n"
       ]
     },
     {
@@ -538,161 +268,26 @@
       "jan": "4549995649307",
       "product_name": "iPhone 17 Pro Max 256GB ディープブルー",
       "url": "https://pastec.net/iphone",
-      "checked_at": "2026/9/20 19:59:25",
-      "status": "OK",
+      "checked_at": "2026/9/23 10:23:29",
+      "status": "ERROR",
       "http": {
-        "status": 200,
-        "ok": true,
+        "status": 403,
+        "ok": false,
         "final_url": "https://pastec.net/iphone"
       },
       "page": {
-        "title": "iPhoneの買取価格表一覧 | 簡単10秒査定 | iPhone買取 モバステ",
-        "body_length": 2862,
+        "title": "403 Forbidden",
+        "body_length": 13,
         "body_available": true
       },
       "product": {
         "jan_found": false,
         "name_found": false
       },
-      "price_candidates": [
-        {
-          "raw": " 214,000円",
-          "price": 214000
-        },
-        {
-          "raw": " 248,000円",
-          "price": 248000
-        },
-        {
-          "raw": " 308,000円",
-          "price": 308000
-        },
-        {
-          "raw": " 408,000円",
-          "price": 408000
-        },
-        {
-          "raw": " 255,000円",
-          "price": 255000
-        },
-        {
-          "raw": " 280,000円",
-          "price": 280000
-        },
-        {
-          "raw": " 348,000円",
-          "price": 348000
-        },
-        {
-          "raw": " 435,000円",
-          "price": 435000
-        },
-        {
-          "raw": " 170,000円",
-          "price": 170000
-        },
-        {
-          "raw": " 151,000円",
-          "price": 151000
-        },
-        {
-          "raw": "121,500円",
-          "price": 121500
-        },
-        {
-          "raw": " 198,000円",
-          "price": 198000
-        },
-        {
-          "raw": " 166,000円",
-          "price": 166000
-        },
-        {
-          "raw": "152,000円",
-          "price": 152000
-        },
-        {
-          "raw": " 217,000円",
-          "price": 217000
-        },
-        {
-          "raw": " 183,000円",
-          "price": 183000
-        },
-        {
-          "raw": " 187,000円",
-          "price": 187000
-        },
-        {
-          "raw": " 167,000円",
-          "price": 167000
-        },
-        {
-          "raw": "135,500円",
-          "price": 135500
-        },
-        {
-          "raw": " 215,000円",
-          "price": 215000
-        },
-        {
-          "raw": " 182,000円",
-          "price": 182000
-        },
-        {
-          "raw": "164,000円",
-          "price": 164000
-        },
-        {
-          "raw": " 239,000円",
-          "price": 239000
-        },
-        {
-          "raw": " 198,500円",
-          "price": 198500
-        },
-        {
-          "raw": "184,000円",
-          "price": 184000
-        },
-        {
-          "raw": " 277,000円",
-          "price": 277000
-        },
-        {
-          "raw": " 218,500円",
-          "price": 218500
-        },
-        {
-          "raw": "201,500円",
-          "price": 201500
-        },
-        {
-          "raw": " 139,500円",
-          "price": 139500
-        },
-        {
-          "raw": " 111,500円",
-          "price": 111500
-        },
-        {
-          "raw": "93,000円",
-          "price": 93000
-        },
-        {
-          "raw": " 161,000円",
-          "price": 161000
-        },
-        {
-          "raw": " 125,500円",
-          "price": 125500
-        },
-        {
-          "raw": "112,500円",
-          "price": 112500
-        }
-      ],
-      "errors": []
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
     },
     {
       "store_id": "morimori",
@@ -700,7 +295,7 @@
       "jan": "4549995649307",
       "product_name": "iPhone 17 Pro Max 256GB ディープブルー",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649307",
-      "checked_at": "2026/9/20 19:59:28",
+      "checked_at": "2026/9/23 10:23:31",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -718,7 +313,7 @@
       },
       "price_candidates": [],
       "errors": [
-        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649307\nCall log:\n\u001b[2m  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649307\", waiting until \"domcontentloaded\"\u001b[22m\n"
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649307\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649307\", waiting until \"domcontentloaded\"\n"
       ]
     },
     {
@@ -727,161 +322,26 @@
       "jan": "4549995649314",
       "product_name": "iPhone 17 Pro Max 512GB シルバー",
       "url": "https://pastec.net/iphone",
-      "checked_at": "2026/9/20 19:59:28",
-      "status": "OK",
+      "checked_at": "2026/9/23 10:23:31",
+      "status": "ERROR",
       "http": {
-        "status": 200,
-        "ok": true,
+        "status": 403,
+        "ok": false,
         "final_url": "https://pastec.net/iphone"
       },
       "page": {
-        "title": "iPhoneの買取価格表一覧 | 簡単10秒査定 | iPhone買取 モバステ",
-        "body_length": 2862,
+        "title": "403 Forbidden",
+        "body_length": 13,
         "body_available": true
       },
       "product": {
         "jan_found": false,
         "name_found": false
       },
-      "price_candidates": [
-        {
-          "raw": " 214,000円",
-          "price": 214000
-        },
-        {
-          "raw": " 248,000円",
-          "price": 248000
-        },
-        {
-          "raw": " 308,000円",
-          "price": 308000
-        },
-        {
-          "raw": " 408,000円",
-          "price": 408000
-        },
-        {
-          "raw": " 255,000円",
-          "price": 255000
-        },
-        {
-          "raw": " 280,000円",
-          "price": 280000
-        },
-        {
-          "raw": " 348,000円",
-          "price": 348000
-        },
-        {
-          "raw": " 435,000円",
-          "price": 435000
-        },
-        {
-          "raw": " 170,000円",
-          "price": 170000
-        },
-        {
-          "raw": " 151,000円",
-          "price": 151000
-        },
-        {
-          "raw": "121,500円",
-          "price": 121500
-        },
-        {
-          "raw": " 198,000円",
-          "price": 198000
-        },
-        {
-          "raw": " 166,000円",
-          "price": 166000
-        },
-        {
-          "raw": "152,000円",
-          "price": 152000
-        },
-        {
-          "raw": " 217,000円",
-          "price": 217000
-        },
-        {
-          "raw": " 183,000円",
-          "price": 183000
-        },
-        {
-          "raw": " 187,000円",
-          "price": 187000
-        },
-        {
-          "raw": " 167,000円",
-          "price": 167000
-        },
-        {
-          "raw": "135,500円",
-          "price": 135500
-        },
-        {
-          "raw": " 215,000円",
-          "price": 215000
-        },
-        {
-          "raw": " 182,000円",
-          "price": 182000
-        },
-        {
-          "raw": "164,000円",
-          "price": 164000
-        },
-        {
-          "raw": " 239,000円",
-          "price": 239000
-        },
-        {
-          "raw": " 198,500円",
-          "price": 198500
-        },
-        {
-          "raw": "184,000円",
-          "price": 184000
-        },
-        {
-          "raw": " 277,000円",
-          "price": 277000
-        },
-        {
-          "raw": " 218,500円",
-          "price": 218500
-        },
-        {
-          "raw": "201,500円",
-          "price": 201500
-        },
-        {
-          "raw": " 139,500円",
-          "price": 139500
-        },
-        {
-          "raw": " 111,500円",
-          "price": 111500
-        },
-        {
-          "raw": "93,000円",
-          "price": 93000
-        },
-        {
-          "raw": " 161,000円",
-          "price": 161000
-        },
-        {
-          "raw": " 125,500円",
-          "price": 125500
-        },
-        {
-          "raw": "112,500円",
-          "price": 112500
-        }
-      ],
-      "errors": []
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
     },
     {
       "store_id": "morimori",
@@ -889,7 +349,7 @@
       "jan": "4549995649314",
       "product_name": "iPhone 17 Pro Max 512GB シルバー",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649314",
-      "checked_at": "2026/9/20 19:59:31",
+      "checked_at": "2026/9/23 10:23:33",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -907,7 +367,7 @@
       },
       "price_candidates": [],
       "errors": [
-        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649314\nCall log:\n\u001b[2m  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649314\", waiting until \"domcontentloaded\"\u001b[22m\n"
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649314\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649314\", waiting until \"domcontentloaded\"\n"
       ]
     },
     {
@@ -916,161 +376,26 @@
       "jan": "4549995649321",
       "product_name": "iPhone 17 Pro Max 512GB コズミックオレンジ",
       "url": "https://pastec.net/iphone",
-      "checked_at": "2026/9/20 19:59:31",
-      "status": "OK",
+      "checked_at": "2026/9/23 10:23:34",
+      "status": "ERROR",
       "http": {
-        "status": 200,
-        "ok": true,
+        "status": 403,
+        "ok": false,
         "final_url": "https://pastec.net/iphone"
       },
       "page": {
-        "title": "iPhoneの買取価格表一覧 | 簡単10秒査定 | iPhone買取 モバステ",
-        "body_length": 2862,
+        "title": "403 Forbidden",
+        "body_length": 13,
         "body_available": true
       },
       "product": {
         "jan_found": false,
         "name_found": false
       },
-      "price_candidates": [
-        {
-          "raw": " 214,000円",
-          "price": 214000
-        },
-        {
-          "raw": " 248,000円",
-          "price": 248000
-        },
-        {
-          "raw": " 308,000円",
-          "price": 308000
-        },
-        {
-          "raw": " 408,000円",
-          "price": 408000
-        },
-        {
-          "raw": " 255,000円",
-          "price": 255000
-        },
-        {
-          "raw": " 280,000円",
-          "price": 280000
-        },
-        {
-          "raw": " 348,000円",
-          "price": 348000
-        },
-        {
-          "raw": " 435,000円",
-          "price": 435000
-        },
-        {
-          "raw": " 170,000円",
-          "price": 170000
-        },
-        {
-          "raw": " 151,000円",
-          "price": 151000
-        },
-        {
-          "raw": "121,500円",
-          "price": 121500
-        },
-        {
-          "raw": " 198,000円",
-          "price": 198000
-        },
-        {
-          "raw": " 166,000円",
-          "price": 166000
-        },
-        {
-          "raw": "152,000円",
-          "price": 152000
-        },
-        {
-          "raw": " 217,000円",
-          "price": 217000
-        },
-        {
-          "raw": " 183,000円",
-          "price": 183000
-        },
-        {
-          "raw": " 187,000円",
-          "price": 187000
-        },
-        {
-          "raw": " 167,000円",
-          "price": 167000
-        },
-        {
-          "raw": "135,500円",
-          "price": 135500
-        },
-        {
-          "raw": " 215,000円",
-          "price": 215000
-        },
-        {
-          "raw": " 182,000円",
-          "price": 182000
-        },
-        {
-          "raw": "164,000円",
-          "price": 164000
-        },
-        {
-          "raw": " 239,000円",
-          "price": 239000
-        },
-        {
-          "raw": " 198,500円",
-          "price": 198500
-        },
-        {
-          "raw": "184,000円",
-          "price": 184000
-        },
-        {
-          "raw": " 277,000円",
-          "price": 277000
-        },
-        {
-          "raw": " 218,500円",
-          "price": 218500
-        },
-        {
-          "raw": "201,500円",
-          "price": 201500
-        },
-        {
-          "raw": " 139,500円",
-          "price": 139500
-        },
-        {
-          "raw": " 111,500円",
-          "price": 111500
-        },
-        {
-          "raw": "93,000円",
-          "price": 93000
-        },
-        {
-          "raw": " 161,000円",
-          "price": 161000
-        },
-        {
-          "raw": " 125,500円",
-          "price": 125500
-        },
-        {
-          "raw": "112,500円",
-          "price": 112500
-        }
-      ],
-      "errors": []
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
     },
     {
       "store_id": "morimori",
@@ -1078,7 +403,7 @@
       "jan": "4549995649321",
       "product_name": "iPhone 17 Pro Max 512GB コズミックオレンジ",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649321",
-      "checked_at": "2026/9/20 19:59:35",
+      "checked_at": "2026/9/23 10:23:35",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -1096,7 +421,7 @@
       },
       "price_candidates": [],
       "errors": [
-        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649321\nCall log:\n\u001b[2m  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649321\", waiting until \"domcontentloaded\"\u001b[22m\n"
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649321\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649321\", waiting until \"domcontentloaded\"\n"
       ]
     },
     {
@@ -1105,161 +430,26 @@
       "jan": "4549995649338",
       "product_name": "iPhone 17 Pro Max 512GB ディープブルー",
       "url": "https://pastec.net/iphone",
-      "checked_at": "2026/9/20 19:59:35",
-      "status": "OK",
+      "checked_at": "2026/9/23 10:23:36",
+      "status": "ERROR",
       "http": {
-        "status": 200,
-        "ok": true,
+        "status": 403,
+        "ok": false,
         "final_url": "https://pastec.net/iphone"
       },
       "page": {
-        "title": "iPhoneの買取価格表一覧 | 簡単10秒査定 | iPhone買取 モバステ",
-        "body_length": 2862,
+        "title": "403 Forbidden",
+        "body_length": 13,
         "body_available": true
       },
       "product": {
         "jan_found": false,
         "name_found": false
       },
-      "price_candidates": [
-        {
-          "raw": " 214,000円",
-          "price": 214000
-        },
-        {
-          "raw": " 248,000円",
-          "price": 248000
-        },
-        {
-          "raw": " 308,000円",
-          "price": 308000
-        },
-        {
-          "raw": " 408,000円",
-          "price": 408000
-        },
-        {
-          "raw": " 255,000円",
-          "price": 255000
-        },
-        {
-          "raw": " 280,000円",
-          "price": 280000
-        },
-        {
-          "raw": " 348,000円",
-          "price": 348000
-        },
-        {
-          "raw": " 435,000円",
-          "price": 435000
-        },
-        {
-          "raw": " 170,000円",
-          "price": 170000
-        },
-        {
-          "raw": " 151,000円",
-          "price": 151000
-        },
-        {
-          "raw": "121,500円",
-          "price": 121500
-        },
-        {
-          "raw": " 198,000円",
-          "price": 198000
-        },
-        {
-          "raw": " 166,000円",
-          "price": 166000
-        },
-        {
-          "raw": "152,000円",
-          "price": 152000
-        },
-        {
-          "raw": " 217,000円",
-          "price": 217000
-        },
-        {
-          "raw": " 183,000円",
-          "price": 183000
-        },
-        {
-          "raw": " 187,000円",
-          "price": 187000
-        },
-        {
-          "raw": " 167,000円",
-          "price": 167000
-        },
-        {
-          "raw": "135,500円",
-          "price": 135500
-        },
-        {
-          "raw": " 215,000円",
-          "price": 215000
-        },
-        {
-          "raw": " 182,000円",
-          "price": 182000
-        },
-        {
-          "raw": "164,000円",
-          "price": 164000
-        },
-        {
-          "raw": " 239,000円",
-          "price": 239000
-        },
-        {
-          "raw": " 198,500円",
-          "price": 198500
-        },
-        {
-          "raw": "184,000円",
-          "price": 184000
-        },
-        {
-          "raw": " 277,000円",
-          "price": 277000
-        },
-        {
-          "raw": " 218,500円",
-          "price": 218500
-        },
-        {
-          "raw": "201,500円",
-          "price": 201500
-        },
-        {
-          "raw": " 139,500円",
-          "price": 139500
-        },
-        {
-          "raw": " 111,500円",
-          "price": 111500
-        },
-        {
-          "raw": "93,000円",
-          "price": 93000
-        },
-        {
-          "raw": " 161,000円",
-          "price": 161000
-        },
-        {
-          "raw": " 125,500円",
-          "price": 125500
-        },
-        {
-          "raw": "112,500円",
-          "price": 112500
-        }
-      ],
-      "errors": []
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
     },
     {
       "store_id": "morimori",
@@ -1267,7 +457,7 @@
       "jan": "4549995649338",
       "product_name": "iPhone 17 Pro Max 512GB ディープブルー",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649338",
-      "checked_at": "2026/9/20 19:59:37",
+      "checked_at": "2026/9/23 10:23:38",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -1285,7 +475,7 @@
       },
       "price_candidates": [],
       "errors": [
-        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649338\nCall log:\n\u001b[2m  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649338\", waiting until \"domcontentloaded\"\u001b[22m\n"
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649338\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649338\", waiting until \"domcontentloaded\"\n"
       ]
     },
     {
@@ -1294,161 +484,26 @@
       "jan": "4549995649345",
       "product_name": "iPhone 17 Pro Max 1TB シルバー",
       "url": "https://pastec.net/iphone",
-      "checked_at": "2026/9/20 19:59:38",
-      "status": "OK",
+      "checked_at": "2026/9/23 10:23:38",
+      "status": "ERROR",
       "http": {
-        "status": 200,
-        "ok": true,
+        "status": 403,
+        "ok": false,
         "final_url": "https://pastec.net/iphone"
       },
       "page": {
-        "title": "iPhoneの買取価格表一覧 | 簡単10秒査定 | iPhone買取 モバステ",
-        "body_length": 2862,
+        "title": "403 Forbidden",
+        "body_length": 13,
         "body_available": true
       },
       "product": {
         "jan_found": false,
         "name_found": false
       },
-      "price_candidates": [
-        {
-          "raw": " 214,000円",
-          "price": 214000
-        },
-        {
-          "raw": " 248,000円",
-          "price": 248000
-        },
-        {
-          "raw": " 308,000円",
-          "price": 308000
-        },
-        {
-          "raw": " 408,000円",
-          "price": 408000
-        },
-        {
-          "raw": " 255,000円",
-          "price": 255000
-        },
-        {
-          "raw": " 280,000円",
-          "price": 280000
-        },
-        {
-          "raw": " 348,000円",
-          "price": 348000
-        },
-        {
-          "raw": " 435,000円",
-          "price": 435000
-        },
-        {
-          "raw": " 170,000円",
-          "price": 170000
-        },
-        {
-          "raw": " 151,000円",
-          "price": 151000
-        },
-        {
-          "raw": "121,500円",
-          "price": 121500
-        },
-        {
-          "raw": " 198,000円",
-          "price": 198000
-        },
-        {
-          "raw": " 166,000円",
-          "price": 166000
-        },
-        {
-          "raw": "152,000円",
-          "price": 152000
-        },
-        {
-          "raw": " 217,000円",
-          "price": 217000
-        },
-        {
-          "raw": " 183,000円",
-          "price": 183000
-        },
-        {
-          "raw": " 187,000円",
-          "price": 187000
-        },
-        {
-          "raw": " 167,000円",
-          "price": 167000
-        },
-        {
-          "raw": "135,500円",
-          "price": 135500
-        },
-        {
-          "raw": " 215,000円",
-          "price": 215000
-        },
-        {
-          "raw": " 182,000円",
-          "price": 182000
-        },
-        {
-          "raw": "164,000円",
-          "price": 164000
-        },
-        {
-          "raw": " 239,000円",
-          "price": 239000
-        },
-        {
-          "raw": " 198,500円",
-          "price": 198500
-        },
-        {
-          "raw": "184,000円",
-          "price": 184000
-        },
-        {
-          "raw": " 277,000円",
-          "price": 277000
-        },
-        {
-          "raw": " 218,500円",
-          "price": 218500
-        },
-        {
-          "raw": "201,500円",
-          "price": 201500
-        },
-        {
-          "raw": " 139,500円",
-          "price": 139500
-        },
-        {
-          "raw": " 111,500円",
-          "price": 111500
-        },
-        {
-          "raw": "93,000円",
-          "price": 93000
-        },
-        {
-          "raw": " 161,000円",
-          "price": 161000
-        },
-        {
-          "raw": " 125,500円",
-          "price": 125500
-        },
-        {
-          "raw": "112,500円",
-          "price": 112500
-        }
-      ],
-      "errors": []
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
     },
     {
       "store_id": "morimori",
@@ -1456,7 +511,7 @@
       "jan": "4549995649345",
       "product_name": "iPhone 17 Pro Max 1TB シルバー",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649345",
-      "checked_at": "2026/9/20 19:59:40",
+      "checked_at": "2026/9/23 10:23:40",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -1474,7 +529,7 @@
       },
       "price_candidates": [],
       "errors": [
-        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649345\nCall log:\n\u001b[2m  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649345\", waiting until \"domcontentloaded\"\u001b[22m\n"
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649345\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649345\", waiting until \"domcontentloaded\"\n"
       ]
     },
     {
@@ -1483,161 +538,26 @@
       "jan": "4549995649352",
       "product_name": "iPhone 17 Pro Max 1TB コズミックオレンジ",
       "url": "https://pastec.net/iphone",
-      "checked_at": "2026/9/20 19:59:40",
-      "status": "OK",
+      "checked_at": "2026/9/23 10:23:41",
+      "status": "ERROR",
       "http": {
-        "status": 200,
-        "ok": true,
+        "status": 403,
+        "ok": false,
         "final_url": "https://pastec.net/iphone"
       },
       "page": {
-        "title": "iPhoneの買取価格表一覧 | 簡単10秒査定 | iPhone買取 モバステ",
-        "body_length": 2862,
+        "title": "403 Forbidden",
+        "body_length": 13,
         "body_available": true
       },
       "product": {
         "jan_found": false,
         "name_found": false
       },
-      "price_candidates": [
-        {
-          "raw": " 214,000円",
-          "price": 214000
-        },
-        {
-          "raw": " 248,000円",
-          "price": 248000
-        },
-        {
-          "raw": " 308,000円",
-          "price": 308000
-        },
-        {
-          "raw": " 408,000円",
-          "price": 408000
-        },
-        {
-          "raw": " 255,000円",
-          "price": 255000
-        },
-        {
-          "raw": " 280,000円",
-          "price": 280000
-        },
-        {
-          "raw": " 348,000円",
-          "price": 348000
-        },
-        {
-          "raw": " 435,000円",
-          "price": 435000
-        },
-        {
-          "raw": " 170,000円",
-          "price": 170000
-        },
-        {
-          "raw": " 151,000円",
-          "price": 151000
-        },
-        {
-          "raw": "121,500円",
-          "price": 121500
-        },
-        {
-          "raw": " 198,000円",
-          "price": 198000
-        },
-        {
-          "raw": " 166,000円",
-          "price": 166000
-        },
-        {
-          "raw": "152,000円",
-          "price": 152000
-        },
-        {
-          "raw": " 217,000円",
-          "price": 217000
-        },
-        {
-          "raw": " 183,000円",
-          "price": 183000
-        },
-        {
-          "raw": " 187,000円",
-          "price": 187000
-        },
-        {
-          "raw": " 167,000円",
-          "price": 167000
-        },
-        {
-          "raw": "135,500円",
-          "price": 135500
-        },
-        {
-          "raw": " 215,000円",
-          "price": 215000
-        },
-        {
-          "raw": " 182,000円",
-          "price": 182000
-        },
-        {
-          "raw": "164,000円",
-          "price": 164000
-        },
-        {
-          "raw": " 239,000円",
-          "price": 239000
-        },
-        {
-          "raw": " 198,500円",
-          "price": 198500
-        },
-        {
-          "raw": "184,000円",
-          "price": 184000
-        },
-        {
-          "raw": " 277,000円",
-          "price": 277000
-        },
-        {
-          "raw": " 218,500円",
-          "price": 218500
-        },
-        {
-          "raw": "201,500円",
-          "price": 201500
-        },
-        {
-          "raw": " 139,500円",
-          "price": 139500
-        },
-        {
-          "raw": " 111,500円",
-          "price": 111500
-        },
-        {
-          "raw": "93,000円",
-          "price": 93000
-        },
-        {
-          "raw": " 161,000円",
-          "price": 161000
-        },
-        {
-          "raw": " 125,500円",
-          "price": 125500
-        },
-        {
-          "raw": "112,500円",
-          "price": 112500
-        }
-      ],
-      "errors": []
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
     },
     {
       "store_id": "morimori",
@@ -1645,7 +565,7 @@
       "jan": "4549995649352",
       "product_name": "iPhone 17 Pro Max 1TB コズミックオレンジ",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649352",
-      "checked_at": "2026/9/20 19:59:43",
+      "checked_at": "2026/9/23 10:23:42",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -1663,7 +583,7 @@
       },
       "price_candidates": [],
       "errors": [
-        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649352\nCall log:\n\u001b[2m  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649352\", waiting until \"domcontentloaded\"\u001b[22m\n"
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649352\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649352\", waiting until \"domcontentloaded\"\n"
       ]
     },
     {
@@ -1672,161 +592,26 @@
       "jan": "4549995649369",
       "product_name": "iPhone 17 Pro Max 1TB ディープブルー",
       "url": "https://pastec.net/iphone",
-      "checked_at": "2026/9/20 19:59:43",
-      "status": "OK",
+      "checked_at": "2026/9/23 10:23:43",
+      "status": "ERROR",
       "http": {
-        "status": 200,
-        "ok": true,
+        "status": 403,
+        "ok": false,
         "final_url": "https://pastec.net/iphone"
       },
       "page": {
-        "title": "iPhoneの買取価格表一覧 | 簡単10秒査定 | iPhone買取 モバステ",
-        "body_length": 2862,
+        "title": "403 Forbidden",
+        "body_length": 13,
         "body_available": true
       },
       "product": {
         "jan_found": false,
         "name_found": false
       },
-      "price_candidates": [
-        {
-          "raw": " 214,000円",
-          "price": 214000
-        },
-        {
-          "raw": " 248,000円",
-          "price": 248000
-        },
-        {
-          "raw": " 308,000円",
-          "price": 308000
-        },
-        {
-          "raw": " 408,000円",
-          "price": 408000
-        },
-        {
-          "raw": " 255,000円",
-          "price": 255000
-        },
-        {
-          "raw": " 280,000円",
-          "price": 280000
-        },
-        {
-          "raw": " 348,000円",
-          "price": 348000
-        },
-        {
-          "raw": " 435,000円",
-          "price": 435000
-        },
-        {
-          "raw": " 170,000円",
-          "price": 170000
-        },
-        {
-          "raw": " 151,000円",
-          "price": 151000
-        },
-        {
-          "raw": "121,500円",
-          "price": 121500
-        },
-        {
-          "raw": " 198,000円",
-          "price": 198000
-        },
-        {
-          "raw": " 166,000円",
-          "price": 166000
-        },
-        {
-          "raw": "152,000円",
-          "price": 152000
-        },
-        {
-          "raw": " 217,000円",
-          "price": 217000
-        },
-        {
-          "raw": " 183,000円",
-          "price": 183000
-        },
-        {
-          "raw": " 187,000円",
-          "price": 187000
-        },
-        {
-          "raw": " 167,000円",
-          "price": 167000
-        },
-        {
-          "raw": "135,500円",
-          "price": 135500
-        },
-        {
-          "raw": " 215,000円",
-          "price": 215000
-        },
-        {
-          "raw": " 182,000円",
-          "price": 182000
-        },
-        {
-          "raw": "164,000円",
-          "price": 164000
-        },
-        {
-          "raw": " 239,000円",
-          "price": 239000
-        },
-        {
-          "raw": " 198,500円",
-          "price": 198500
-        },
-        {
-          "raw": "184,000円",
-          "price": 184000
-        },
-        {
-          "raw": " 277,000円",
-          "price": 277000
-        },
-        {
-          "raw": " 218,500円",
-          "price": 218500
-        },
-        {
-          "raw": "201,500円",
-          "price": 201500
-        },
-        {
-          "raw": " 139,500円",
-          "price": 139500
-        },
-        {
-          "raw": " 111,500円",
-          "price": 111500
-        },
-        {
-          "raw": "93,000円",
-          "price": 93000
-        },
-        {
-          "raw": " 161,000円",
-          "price": 161000
-        },
-        {
-          "raw": " 125,500円",
-          "price": 125500
-        },
-        {
-          "raw": "112,500円",
-          "price": 112500
-        }
-      ],
-      "errors": []
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
     },
     {
       "store_id": "morimori",
@@ -1834,7 +619,7 @@
       "jan": "4549995649369",
       "product_name": "iPhone 17 Pro Max 1TB ディープブルー",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649369",
-      "checked_at": "2026/9/20 19:59:46",
+      "checked_at": "2026/9/23 10:23:45",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -1852,7 +637,7 @@
       },
       "price_candidates": [],
       "errors": [
-        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649369\nCall log:\n\u001b[2m  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649369\", waiting until \"domcontentloaded\"\u001b[22m\n"
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649369\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649369\", waiting until \"domcontentloaded\"\n"
       ]
     },
     {
@@ -1861,161 +646,26 @@
       "jan": "4549995649253",
       "product_name": "iPhone 17 Pro 256GB シルバー",
       "url": "https://pastec.net/iphone",
-      "checked_at": "2026/9/20 19:59:46",
-      "status": "OK",
+      "checked_at": "2026/9/23 10:23:46",
+      "status": "ERROR",
       "http": {
-        "status": 200,
-        "ok": true,
+        "status": 403,
+        "ok": false,
         "final_url": "https://pastec.net/iphone"
       },
       "page": {
-        "title": "iPhoneの買取価格表一覧 | 簡単10秒査定 | iPhone買取 モバステ",
-        "body_length": 2862,
+        "title": "403 Forbidden",
+        "body_length": 13,
         "body_available": true
       },
       "product": {
         "jan_found": false,
         "name_found": false
       },
-      "price_candidates": [
-        {
-          "raw": " 214,000円",
-          "price": 214000
-        },
-        {
-          "raw": " 248,000円",
-          "price": 248000
-        },
-        {
-          "raw": " 308,000円",
-          "price": 308000
-        },
-        {
-          "raw": " 408,000円",
-          "price": 408000
-        },
-        {
-          "raw": " 255,000円",
-          "price": 255000
-        },
-        {
-          "raw": " 280,000円",
-          "price": 280000
-        },
-        {
-          "raw": " 348,000円",
-          "price": 348000
-        },
-        {
-          "raw": " 435,000円",
-          "price": 435000
-        },
-        {
-          "raw": " 170,000円",
-          "price": 170000
-        },
-        {
-          "raw": " 151,000円",
-          "price": 151000
-        },
-        {
-          "raw": "121,500円",
-          "price": 121500
-        },
-        {
-          "raw": " 198,000円",
-          "price": 198000
-        },
-        {
-          "raw": " 166,000円",
-          "price": 166000
-        },
-        {
-          "raw": "152,000円",
-          "price": 152000
-        },
-        {
-          "raw": " 217,000円",
-          "price": 217000
-        },
-        {
-          "raw": " 183,000円",
-          "price": 183000
-        },
-        {
-          "raw": " 187,000円",
-          "price": 187000
-        },
-        {
-          "raw": " 167,000円",
-          "price": 167000
-        },
-        {
-          "raw": "135,500円",
-          "price": 135500
-        },
-        {
-          "raw": " 215,000円",
-          "price": 215000
-        },
-        {
-          "raw": " 182,000円",
-          "price": 182000
-        },
-        {
-          "raw": "164,000円",
-          "price": 164000
-        },
-        {
-          "raw": " 239,000円",
-          "price": 239000
-        },
-        {
-          "raw": " 198,500円",
-          "price": 198500
-        },
-        {
-          "raw": "184,000円",
-          "price": 184000
-        },
-        {
-          "raw": " 277,000円",
-          "price": 277000
-        },
-        {
-          "raw": " 218,500円",
-          "price": 218500
-        },
-        {
-          "raw": "201,500円",
-          "price": 201500
-        },
-        {
-          "raw": " 139,500円",
-          "price": 139500
-        },
-        {
-          "raw": " 111,500円",
-          "price": 111500
-        },
-        {
-          "raw": "93,000円",
-          "price": 93000
-        },
-        {
-          "raw": " 161,000円",
-          "price": 161000
-        },
-        {
-          "raw": " 125,500円",
-          "price": 125500
-        },
-        {
-          "raw": "112,500円",
-          "price": 112500
-        }
-      ],
-      "errors": []
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
     },
     {
       "store_id": "morimori",
@@ -2023,7 +673,7 @@
       "jan": "4549995649253",
       "product_name": "iPhone 17 Pro 256GB シルバー",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649253",
-      "checked_at": "2026/9/20 19:59:49",
+      "checked_at": "2026/9/23 10:23:47",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -2041,7 +691,7 @@
       },
       "price_candidates": [],
       "errors": [
-        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649253\nCall log:\n\u001b[2m  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649253\", waiting until \"domcontentloaded\"\u001b[22m\n"
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649253\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649253\", waiting until \"domcontentloaded\"\n"
       ]
     },
     {
@@ -2050,161 +700,26 @@
       "jan": "4549995649260",
       "product_name": "iPhone 17 Pro 256GB コズミックオレンジ",
       "url": "https://pastec.net/iphone",
-      "checked_at": "2026/9/20 19:59:49",
-      "status": "OK",
+      "checked_at": "2026/9/23 10:23:48",
+      "status": "ERROR",
       "http": {
-        "status": 200,
-        "ok": true,
+        "status": 403,
+        "ok": false,
         "final_url": "https://pastec.net/iphone"
       },
       "page": {
-        "title": "iPhoneの買取価格表一覧 | 簡単10秒査定 | iPhone買取 モバステ",
-        "body_length": 2862,
+        "title": "403 Forbidden",
+        "body_length": 13,
         "body_available": true
       },
       "product": {
         "jan_found": false,
         "name_found": false
       },
-      "price_candidates": [
-        {
-          "raw": " 214,000円",
-          "price": 214000
-        },
-        {
-          "raw": " 248,000円",
-          "price": 248000
-        },
-        {
-          "raw": " 308,000円",
-          "price": 308000
-        },
-        {
-          "raw": " 408,000円",
-          "price": 408000
-        },
-        {
-          "raw": " 255,000円",
-          "price": 255000
-        },
-        {
-          "raw": " 280,000円",
-          "price": 280000
-        },
-        {
-          "raw": " 348,000円",
-          "price": 348000
-        },
-        {
-          "raw": " 435,000円",
-          "price": 435000
-        },
-        {
-          "raw": " 170,000円",
-          "price": 170000
-        },
-        {
-          "raw": " 151,000円",
-          "price": 151000
-        },
-        {
-          "raw": "121,500円",
-          "price": 121500
-        },
-        {
-          "raw": " 198,000円",
-          "price": 198000
-        },
-        {
-          "raw": " 166,000円",
-          "price": 166000
-        },
-        {
-          "raw": "152,000円",
-          "price": 152000
-        },
-        {
-          "raw": " 217,000円",
-          "price": 217000
-        },
-        {
-          "raw": " 183,000円",
-          "price": 183000
-        },
-        {
-          "raw": " 187,000円",
-          "price": 187000
-        },
-        {
-          "raw": " 167,000円",
-          "price": 167000
-        },
-        {
-          "raw": "135,500円",
-          "price": 135500
-        },
-        {
-          "raw": " 215,000円",
-          "price": 215000
-        },
-        {
-          "raw": " 182,000円",
-          "price": 182000
-        },
-        {
-          "raw": "164,000円",
-          "price": 164000
-        },
-        {
-          "raw": " 239,000円",
-          "price": 239000
-        },
-        {
-          "raw": " 198,500円",
-          "price": 198500
-        },
-        {
-          "raw": "184,000円",
-          "price": 184000
-        },
-        {
-          "raw": " 277,000円",
-          "price": 277000
-        },
-        {
-          "raw": " 218,500円",
-          "price": 218500
-        },
-        {
-          "raw": "201,500円",
-          "price": 201500
-        },
-        {
-          "raw": " 139,500円",
-          "price": 139500
-        },
-        {
-          "raw": " 111,500円",
-          "price": 111500
-        },
-        {
-          "raw": "93,000円",
-          "price": 93000
-        },
-        {
-          "raw": " 161,000円",
-          "price": 161000
-        },
-        {
-          "raw": " 125,500円",
-          "price": 125500
-        },
-        {
-          "raw": "112,500円",
-          "price": 112500
-        }
-      ],
-      "errors": []
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
     },
     {
       "store_id": "morimori",
@@ -2212,7 +727,7 @@
       "jan": "4549995649260",
       "product_name": "iPhone 17 Pro 256GB コズミックオレンジ",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649260",
-      "checked_at": "2026/9/20 19:59:51",
+      "checked_at": "2026/9/23 10:23:50",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -2230,7 +745,7 @@
       },
       "price_candidates": [],
       "errors": [
-        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649260\nCall log:\n\u001b[2m  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649260\", waiting until \"domcontentloaded\"\u001b[22m\n"
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649260\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649260\", waiting until \"domcontentloaded\"\n"
       ]
     },
     {
@@ -2239,161 +754,26 @@
       "jan": "4549995649277",
       "product_name": "iPhone 17 Pro 256GB ディープブルー",
       "url": "https://pastec.net/iphone",
-      "checked_at": "2026/9/20 19:59:52",
-      "status": "OK",
+      "checked_at": "2026/9/23 10:23:50",
+      "status": "ERROR",
       "http": {
-        "status": 200,
-        "ok": true,
+        "status": 403,
+        "ok": false,
         "final_url": "https://pastec.net/iphone"
       },
       "page": {
-        "title": "iPhoneの買取価格表一覧 | 簡単10秒査定 | iPhone買取 モバステ",
-        "body_length": 2862,
+        "title": "403 Forbidden",
+        "body_length": 13,
         "body_available": true
       },
       "product": {
         "jan_found": false,
         "name_found": false
       },
-      "price_candidates": [
-        {
-          "raw": " 214,000円",
-          "price": 214000
-        },
-        {
-          "raw": " 248,000円",
-          "price": 248000
-        },
-        {
-          "raw": " 308,000円",
-          "price": 308000
-        },
-        {
-          "raw": " 408,000円",
-          "price": 408000
-        },
-        {
-          "raw": " 255,000円",
-          "price": 255000
-        },
-        {
-          "raw": " 280,000円",
-          "price": 280000
-        },
-        {
-          "raw": " 348,000円",
-          "price": 348000
-        },
-        {
-          "raw": " 435,000円",
-          "price": 435000
-        },
-        {
-          "raw": " 170,000円",
-          "price": 170000
-        },
-        {
-          "raw": " 151,000円",
-          "price": 151000
-        },
-        {
-          "raw": "121,500円",
-          "price": 121500
-        },
-        {
-          "raw": " 198,000円",
-          "price": 198000
-        },
-        {
-          "raw": " 166,000円",
-          "price": 166000
-        },
-        {
-          "raw": "152,000円",
-          "price": 152000
-        },
-        {
-          "raw": " 217,000円",
-          "price": 217000
-        },
-        {
-          "raw": " 183,000円",
-          "price": 183000
-        },
-        {
-          "raw": " 187,000円",
-          "price": 187000
-        },
-        {
-          "raw": " 167,000円",
-          "price": 167000
-        },
-        {
-          "raw": "135,500円",
-          "price": 135500
-        },
-        {
-          "raw": " 215,000円",
-          "price": 215000
-        },
-        {
-          "raw": " 182,000円",
-          "price": 182000
-        },
-        {
-          "raw": "164,000円",
-          "price": 164000
-        },
-        {
-          "raw": " 239,000円",
-          "price": 239000
-        },
-        {
-          "raw": " 198,500円",
-          "price": 198500
-        },
-        {
-          "raw": "184,000円",
-          "price": 184000
-        },
-        {
-          "raw": " 277,000円",
-          "price": 277000
-        },
-        {
-          "raw": " 218,500円",
-          "price": 218500
-        },
-        {
-          "raw": "201,500円",
-          "price": 201500
-        },
-        {
-          "raw": " 139,500円",
-          "price": 139500
-        },
-        {
-          "raw": " 111,500円",
-          "price": 111500
-        },
-        {
-          "raw": "93,000円",
-          "price": 93000
-        },
-        {
-          "raw": " 161,000円",
-          "price": 161000
-        },
-        {
-          "raw": " 125,500円",
-          "price": 125500
-        },
-        {
-          "raw": "112,500円",
-          "price": 112500
-        }
-      ],
-      "errors": []
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
     },
     {
       "store_id": "morimori",
@@ -2401,7 +781,7 @@
       "jan": "4549995649277",
       "product_name": "iPhone 17 Pro 256GB ディープブルー",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649277",
-      "checked_at": "2026/9/20 19:59:54",
+      "checked_at": "2026/9/23 10:23:52",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -2419,7 +799,7 @@
       },
       "price_candidates": [],
       "errors": [
-        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649277\nCall log:\n\u001b[2m  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649277\", waiting until \"domcontentloaded\"\u001b[22m\n"
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649277\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649277\", waiting until \"domcontentloaded\"\n"
       ]
     },
     {
@@ -2428,161 +808,26 @@
       "jan": "4549995649406",
       "product_name": "iPhone 17 Pro 512GB シルバー",
       "url": "https://pastec.net/iphone",
-      "checked_at": "2026/9/20 19:59:54",
-      "status": "OK",
+      "checked_at": "2026/9/23 10:23:52",
+      "status": "ERROR",
       "http": {
-        "status": 200,
-        "ok": true,
+        "status": 403,
+        "ok": false,
         "final_url": "https://pastec.net/iphone"
       },
       "page": {
-        "title": "iPhoneの買取価格表一覧 | 簡単10秒査定 | iPhone買取 モバステ",
-        "body_length": 2862,
+        "title": "403 Forbidden",
+        "body_length": 13,
         "body_available": true
       },
       "product": {
         "jan_found": false,
         "name_found": false
       },
-      "price_candidates": [
-        {
-          "raw": " 214,000円",
-          "price": 214000
-        },
-        {
-          "raw": " 248,000円",
-          "price": 248000
-        },
-        {
-          "raw": " 308,000円",
-          "price": 308000
-        },
-        {
-          "raw": " 408,000円",
-          "price": 408000
-        },
-        {
-          "raw": " 255,000円",
-          "price": 255000
-        },
-        {
-          "raw": " 280,000円",
-          "price": 280000
-        },
-        {
-          "raw": " 348,000円",
-          "price": 348000
-        },
-        {
-          "raw": " 435,000円",
-          "price": 435000
-        },
-        {
-          "raw": " 170,000円",
-          "price": 170000
-        },
-        {
-          "raw": " 151,000円",
-          "price": 151000
-        },
-        {
-          "raw": "121,500円",
-          "price": 121500
-        },
-        {
-          "raw": " 198,000円",
-          "price": 198000
-        },
-        {
-          "raw": " 166,000円",
-          "price": 166000
-        },
-        {
-          "raw": "152,000円",
-          "price": 152000
-        },
-        {
-          "raw": " 217,000円",
-          "price": 217000
-        },
-        {
-          "raw": " 183,000円",
-          "price": 183000
-        },
-        {
-          "raw": " 187,000円",
-          "price": 187000
-        },
-        {
-          "raw": " 167,000円",
-          "price": 167000
-        },
-        {
-          "raw": "135,500円",
-          "price": 135500
-        },
-        {
-          "raw": " 215,000円",
-          "price": 215000
-        },
-        {
-          "raw": " 182,000円",
-          "price": 182000
-        },
-        {
-          "raw": "164,000円",
-          "price": 164000
-        },
-        {
-          "raw": " 239,000円",
-          "price": 239000
-        },
-        {
-          "raw": " 198,500円",
-          "price": 198500
-        },
-        {
-          "raw": "184,000円",
-          "price": 184000
-        },
-        {
-          "raw": " 277,000円",
-          "price": 277000
-        },
-        {
-          "raw": " 218,500円",
-          "price": 218500
-        },
-        {
-          "raw": "201,500円",
-          "price": 201500
-        },
-        {
-          "raw": " 139,500円",
-          "price": 139500
-        },
-        {
-          "raw": " 111,500円",
-          "price": 111500
-        },
-        {
-          "raw": "93,000円",
-          "price": 93000
-        },
-        {
-          "raw": " 161,000円",
-          "price": 161000
-        },
-        {
-          "raw": " 125,500円",
-          "price": 125500
-        },
-        {
-          "raw": "112,500円",
-          "price": 112500
-        }
-      ],
-      "errors": []
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
     },
     {
       "store_id": "morimori",
@@ -2590,7 +835,7 @@
       "jan": "4549995649406",
       "product_name": "iPhone 17 Pro 512GB シルバー",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649406",
-      "checked_at": "2026/9/20 19:59:57",
+      "checked_at": "2026/9/23 10:23:54",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -2608,7 +853,7 @@
       },
       "price_candidates": [],
       "errors": [
-        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649406\nCall log:\n\u001b[2m  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649406\", waiting until \"domcontentloaded\"\u001b[22m\n"
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649406\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649406\", waiting until \"domcontentloaded\"\n"
       ]
     },
     {
@@ -2617,161 +862,26 @@
       "jan": "4549995649413",
       "product_name": "iPhone 17 Pro 512GB コズミックオレンジ",
       "url": "https://pastec.net/iphone",
-      "checked_at": "2026/9/20 19:59:57",
-      "status": "OK",
+      "checked_at": "2026/9/23 10:23:55",
+      "status": "ERROR",
       "http": {
-        "status": 200,
-        "ok": true,
+        "status": 403,
+        "ok": false,
         "final_url": "https://pastec.net/iphone"
       },
       "page": {
-        "title": "iPhoneの買取価格表一覧 | 簡単10秒査定 | iPhone買取 モバステ",
-        "body_length": 2862,
+        "title": "403 Forbidden",
+        "body_length": 13,
         "body_available": true
       },
       "product": {
         "jan_found": false,
         "name_found": false
       },
-      "price_candidates": [
-        {
-          "raw": " 214,000円",
-          "price": 214000
-        },
-        {
-          "raw": " 248,000円",
-          "price": 248000
-        },
-        {
-          "raw": " 308,000円",
-          "price": 308000
-        },
-        {
-          "raw": " 408,000円",
-          "price": 408000
-        },
-        {
-          "raw": " 255,000円",
-          "price": 255000
-        },
-        {
-          "raw": " 280,000円",
-          "price": 280000
-        },
-        {
-          "raw": " 348,000円",
-          "price": 348000
-        },
-        {
-          "raw": " 435,000円",
-          "price": 435000
-        },
-        {
-          "raw": " 170,000円",
-          "price": 170000
-        },
-        {
-          "raw": " 151,000円",
-          "price": 151000
-        },
-        {
-          "raw": "121,500円",
-          "price": 121500
-        },
-        {
-          "raw": " 198,000円",
-          "price": 198000
-        },
-        {
-          "raw": " 166,000円",
-          "price": 166000
-        },
-        {
-          "raw": "152,000円",
-          "price": 152000
-        },
-        {
-          "raw": " 217,000円",
-          "price": 217000
-        },
-        {
-          "raw": " 183,000円",
-          "price": 183000
-        },
-        {
-          "raw": " 187,000円",
-          "price": 187000
-        },
-        {
-          "raw": " 167,000円",
-          "price": 167000
-        },
-        {
-          "raw": "135,500円",
-          "price": 135500
-        },
-        {
-          "raw": " 215,000円",
-          "price": 215000
-        },
-        {
-          "raw": " 182,000円",
-          "price": 182000
-        },
-        {
-          "raw": "164,000円",
-          "price": 164000
-        },
-        {
-          "raw": " 239,000円",
-          "price": 239000
-        },
-        {
-          "raw": " 198,500円",
-          "price": 198500
-        },
-        {
-          "raw": "184,000円",
-          "price": 184000
-        },
-        {
-          "raw": " 277,000円",
-          "price": 277000
-        },
-        {
-          "raw": " 218,500円",
-          "price": 218500
-        },
-        {
-          "raw": "201,500円",
-          "price": 201500
-        },
-        {
-          "raw": " 139,500円",
-          "price": 139500
-        },
-        {
-          "raw": " 111,500円",
-          "price": 111500
-        },
-        {
-          "raw": "93,000円",
-          "price": 93000
-        },
-        {
-          "raw": " 161,000円",
-          "price": 161000
-        },
-        {
-          "raw": " 125,500円",
-          "price": 125500
-        },
-        {
-          "raw": "112,500円",
-          "price": 112500
-        }
-      ],
-      "errors": []
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
     },
     {
       "store_id": "morimori",
@@ -2779,7 +889,7 @@
       "jan": "4549995649413",
       "product_name": "iPhone 17 Pro 512GB コズミックオレンジ",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649413",
-      "checked_at": "2026/9/20 20:00:00",
+      "checked_at": "2026/9/23 10:23:56",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -2797,7 +907,7 @@
       },
       "price_candidates": [],
       "errors": [
-        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649413\nCall log:\n\u001b[2m  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649413\", waiting until \"domcontentloaded\"\u001b[22m\n"
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649413\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649413\", waiting until \"domcontentloaded\"\n"
       ]
     },
     {
@@ -2806,161 +916,26 @@
       "jan": "4549995649420",
       "product_name": "iPhone 17 Pro 512GB ディープブルー",
       "url": "https://pastec.net/iphone",
-      "checked_at": "2026/9/20 20:00:00",
-      "status": "OK",
+      "checked_at": "2026/9/23 10:23:57",
+      "status": "ERROR",
       "http": {
-        "status": 200,
-        "ok": true,
+        "status": 403,
+        "ok": false,
         "final_url": "https://pastec.net/iphone"
       },
       "page": {
-        "title": "iPhoneの買取価格表一覧 | 簡単10秒査定 | iPhone買取 モバステ",
-        "body_length": 2862,
+        "title": "403 Forbidden",
+        "body_length": 13,
         "body_available": true
       },
       "product": {
         "jan_found": false,
         "name_found": false
       },
-      "price_candidates": [
-        {
-          "raw": " 214,000円",
-          "price": 214000
-        },
-        {
-          "raw": " 248,000円",
-          "price": 248000
-        },
-        {
-          "raw": " 308,000円",
-          "price": 308000
-        },
-        {
-          "raw": " 408,000円",
-          "price": 408000
-        },
-        {
-          "raw": " 255,000円",
-          "price": 255000
-        },
-        {
-          "raw": " 280,000円",
-          "price": 280000
-        },
-        {
-          "raw": " 348,000円",
-          "price": 348000
-        },
-        {
-          "raw": " 435,000円",
-          "price": 435000
-        },
-        {
-          "raw": " 170,000円",
-          "price": 170000
-        },
-        {
-          "raw": " 151,000円",
-          "price": 151000
-        },
-        {
-          "raw": "121,500円",
-          "price": 121500
-        },
-        {
-          "raw": " 198,000円",
-          "price": 198000
-        },
-        {
-          "raw": " 166,000円",
-          "price": 166000
-        },
-        {
-          "raw": "152,000円",
-          "price": 152000
-        },
-        {
-          "raw": " 217,000円",
-          "price": 217000
-        },
-        {
-          "raw": " 183,000円",
-          "price": 183000
-        },
-        {
-          "raw": " 187,000円",
-          "price": 187000
-        },
-        {
-          "raw": " 167,000円",
-          "price": 167000
-        },
-        {
-          "raw": "135,500円",
-          "price": 135500
-        },
-        {
-          "raw": " 215,000円",
-          "price": 215000
-        },
-        {
-          "raw": " 182,000円",
-          "price": 182000
-        },
-        {
-          "raw": "164,000円",
-          "price": 164000
-        },
-        {
-          "raw": " 239,000円",
-          "price": 239000
-        },
-        {
-          "raw": " 198,500円",
-          "price": 198500
-        },
-        {
-          "raw": "184,000円",
-          "price": 184000
-        },
-        {
-          "raw": " 277,000円",
-          "price": 277000
-        },
-        {
-          "raw": " 218,500円",
-          "price": 218500
-        },
-        {
-          "raw": "201,500円",
-          "price": 201500
-        },
-        {
-          "raw": " 139,500円",
-          "price": 139500
-        },
-        {
-          "raw": " 111,500円",
-          "price": 111500
-        },
-        {
-          "raw": "93,000円",
-          "price": 93000
-        },
-        {
-          "raw": " 161,000円",
-          "price": 161000
-        },
-        {
-          "raw": " 125,500円",
-          "price": 125500
-        },
-        {
-          "raw": "112,500円",
-          "price": 112500
-        }
-      ],
-      "errors": []
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
     },
     {
       "store_id": "morimori",
@@ -2968,7 +943,7 @@
       "jan": "4549995649420",
       "product_name": "iPhone 17 Pro 512GB ディープブルー",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649420",
-      "checked_at": "2026/9/20 20:00:02",
+      "checked_at": "2026/9/23 10:23:59",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -2986,7 +961,7 @@
       },
       "price_candidates": [],
       "errors": [
-        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649420\nCall log:\n\u001b[2m  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649420\", waiting until \"domcontentloaded\"\u001b[22m\n"
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649420\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649420\", waiting until \"domcontentloaded\"\n"
       ]
     },
     {
@@ -2995,161 +970,26 @@
       "jan": "4549995649437",
       "product_name": "iPhone 17 Pro 1TB シルバー",
       "url": "https://pastec.net/iphone",
-      "checked_at": "2026/9/20 20:00:03",
-      "status": "OK",
+      "checked_at": "2026/9/23 10:23:59",
+      "status": "ERROR",
       "http": {
-        "status": 200,
-        "ok": true,
+        "status": 403,
+        "ok": false,
         "final_url": "https://pastec.net/iphone"
       },
       "page": {
-        "title": "iPhoneの買取価格表一覧 | 簡単10秒査定 | iPhone買取 モバステ",
-        "body_length": 2862,
+        "title": "403 Forbidden",
+        "body_length": 13,
         "body_available": true
       },
       "product": {
         "jan_found": false,
         "name_found": false
       },
-      "price_candidates": [
-        {
-          "raw": " 214,000円",
-          "price": 214000
-        },
-        {
-          "raw": " 248,000円",
-          "price": 248000
-        },
-        {
-          "raw": " 308,000円",
-          "price": 308000
-        },
-        {
-          "raw": " 408,000円",
-          "price": 408000
-        },
-        {
-          "raw": " 255,000円",
-          "price": 255000
-        },
-        {
-          "raw": " 280,000円",
-          "price": 280000
-        },
-        {
-          "raw": " 348,000円",
-          "price": 348000
-        },
-        {
-          "raw": " 435,000円",
-          "price": 435000
-        },
-        {
-          "raw": " 170,000円",
-          "price": 170000
-        },
-        {
-          "raw": " 151,000円",
-          "price": 151000
-        },
-        {
-          "raw": "121,500円",
-          "price": 121500
-        },
-        {
-          "raw": " 198,000円",
-          "price": 198000
-        },
-        {
-          "raw": " 166,000円",
-          "price": 166000
-        },
-        {
-          "raw": "152,000円",
-          "price": 152000
-        },
-        {
-          "raw": " 217,000円",
-          "price": 217000
-        },
-        {
-          "raw": " 183,000円",
-          "price": 183000
-        },
-        {
-          "raw": " 187,000円",
-          "price": 187000
-        },
-        {
-          "raw": " 167,000円",
-          "price": 167000
-        },
-        {
-          "raw": "135,500円",
-          "price": 135500
-        },
-        {
-          "raw": " 215,000円",
-          "price": 215000
-        },
-        {
-          "raw": " 182,000円",
-          "price": 182000
-        },
-        {
-          "raw": "164,000円",
-          "price": 164000
-        },
-        {
-          "raw": " 239,000円",
-          "price": 239000
-        },
-        {
-          "raw": " 198,500円",
-          "price": 198500
-        },
-        {
-          "raw": "184,000円",
-          "price": 184000
-        },
-        {
-          "raw": " 277,000円",
-          "price": 277000
-        },
-        {
-          "raw": " 218,500円",
-          "price": 218500
-        },
-        {
-          "raw": "201,500円",
-          "price": 201500
-        },
-        {
-          "raw": " 139,500円",
-          "price": 139500
-        },
-        {
-          "raw": " 111,500円",
-          "price": 111500
-        },
-        {
-          "raw": "93,000円",
-          "price": 93000
-        },
-        {
-          "raw": " 161,000円",
-          "price": 161000
-        },
-        {
-          "raw": " 125,500円",
-          "price": 125500
-        },
-        {
-          "raw": "112,500円",
-          "price": 112500
-        }
-      ],
-      "errors": []
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
     },
     {
       "store_id": "morimori",
@@ -3157,7 +997,7 @@
       "jan": "4549995649437",
       "product_name": "iPhone 17 Pro 1TB シルバー",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649437",
-      "checked_at": "2026/9/20 20:00:05",
+      "checked_at": "2026/9/23 10:24:01",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -3175,7 +1015,7 @@
       },
       "price_candidates": [],
       "errors": [
-        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649437\nCall log:\n\u001b[2m  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649437\", waiting until \"domcontentloaded\"\u001b[22m\n"
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649437\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649437\", waiting until \"domcontentloaded\"\n"
       ]
     },
     {
@@ -3184,161 +1024,26 @@
       "jan": "4549995649444",
       "product_name": "iPhone 17 Pro 1TB コズミックオレンジ",
       "url": "https://pastec.net/iphone",
-      "checked_at": "2026/9/20 20:00:05",
-      "status": "OK",
+      "checked_at": "2026/9/23 10:24:02",
+      "status": "ERROR",
       "http": {
-        "status": 200,
-        "ok": true,
+        "status": 403,
+        "ok": false,
         "final_url": "https://pastec.net/iphone"
       },
       "page": {
-        "title": "iPhoneの買取価格表一覧 | 簡単10秒査定 | iPhone買取 モバステ",
-        "body_length": 2862,
+        "title": "403 Forbidden",
+        "body_length": 13,
         "body_available": true
       },
       "product": {
         "jan_found": false,
         "name_found": false
       },
-      "price_candidates": [
-        {
-          "raw": " 214,000円",
-          "price": 214000
-        },
-        {
-          "raw": " 248,000円",
-          "price": 248000
-        },
-        {
-          "raw": " 308,000円",
-          "price": 308000
-        },
-        {
-          "raw": " 408,000円",
-          "price": 408000
-        },
-        {
-          "raw": " 255,000円",
-          "price": 255000
-        },
-        {
-          "raw": " 280,000円",
-          "price": 280000
-        },
-        {
-          "raw": " 348,000円",
-          "price": 348000
-        },
-        {
-          "raw": " 435,000円",
-          "price": 435000
-        },
-        {
-          "raw": " 170,000円",
-          "price": 170000
-        },
-        {
-          "raw": " 151,000円",
-          "price": 151000
-        },
-        {
-          "raw": "121,500円",
-          "price": 121500
-        },
-        {
-          "raw": " 198,000円",
-          "price": 198000
-        },
-        {
-          "raw": " 166,000円",
-          "price": 166000
-        },
-        {
-          "raw": "152,000円",
-          "price": 152000
-        },
-        {
-          "raw": " 217,000円",
-          "price": 217000
-        },
-        {
-          "raw": " 183,000円",
-          "price": 183000
-        },
-        {
-          "raw": " 187,000円",
-          "price": 187000
-        },
-        {
-          "raw": " 167,000円",
-          "price": 167000
-        },
-        {
-          "raw": "135,500円",
-          "price": 135500
-        },
-        {
-          "raw": " 215,000円",
-          "price": 215000
-        },
-        {
-          "raw": " 182,000円",
-          "price": 182000
-        },
-        {
-          "raw": "164,000円",
-          "price": 164000
-        },
-        {
-          "raw": " 239,000円",
-          "price": 239000
-        },
-        {
-          "raw": " 198,500円",
-          "price": 198500
-        },
-        {
-          "raw": "184,000円",
-          "price": 184000
-        },
-        {
-          "raw": " 277,000円",
-          "price": 277000
-        },
-        {
-          "raw": " 218,500円",
-          "price": 218500
-        },
-        {
-          "raw": "201,500円",
-          "price": 201500
-        },
-        {
-          "raw": " 139,500円",
-          "price": 139500
-        },
-        {
-          "raw": " 111,500円",
-          "price": 111500
-        },
-        {
-          "raw": "93,000円",
-          "price": 93000
-        },
-        {
-          "raw": " 161,000円",
-          "price": 161000
-        },
-        {
-          "raw": " 125,500円",
-          "price": 125500
-        },
-        {
-          "raw": "112,500円",
-          "price": 112500
-        }
-      ],
-      "errors": []
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
     },
     {
       "store_id": "morimori",
@@ -3346,7 +1051,7 @@
       "jan": "4549995649444",
       "product_name": "iPhone 17 Pro 1TB コズミックオレンジ",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649444",
-      "checked_at": "2026/9/20 20:00:08",
+      "checked_at": "2026/9/23 10:24:04",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -3364,7 +1069,7 @@
       },
       "price_candidates": [],
       "errors": [
-        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649444\nCall log:\n\u001b[2m  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649444\", waiting until \"domcontentloaded\"\u001b[22m\n"
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649444\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649444\", waiting until \"domcontentloaded\"\n"
       ]
     },
     {
@@ -3373,161 +1078,26 @@
       "jan": "4549995649451",
       "product_name": "iPhone 17 Pro 1TB ディープブルー",
       "url": "https://pastec.net/iphone",
-      "checked_at": "2026/9/20 20:00:08",
-      "status": "OK",
+      "checked_at": "2026/9/23 10:24:04",
+      "status": "ERROR",
       "http": {
-        "status": 200,
-        "ok": true,
+        "status": 403,
+        "ok": false,
         "final_url": "https://pastec.net/iphone"
       },
       "page": {
-        "title": "iPhoneの買取価格表一覧 | 簡単10秒査定 | iPhone買取 モバステ",
-        "body_length": 2862,
+        "title": "403 Forbidden",
+        "body_length": 13,
         "body_available": true
       },
       "product": {
         "jan_found": false,
         "name_found": false
       },
-      "price_candidates": [
-        {
-          "raw": " 214,000円",
-          "price": 214000
-        },
-        {
-          "raw": " 248,000円",
-          "price": 248000
-        },
-        {
-          "raw": " 308,000円",
-          "price": 308000
-        },
-        {
-          "raw": " 408,000円",
-          "price": 408000
-        },
-        {
-          "raw": " 255,000円",
-          "price": 255000
-        },
-        {
-          "raw": " 280,000円",
-          "price": 280000
-        },
-        {
-          "raw": " 348,000円",
-          "price": 348000
-        },
-        {
-          "raw": " 435,000円",
-          "price": 435000
-        },
-        {
-          "raw": " 170,000円",
-          "price": 170000
-        },
-        {
-          "raw": " 151,000円",
-          "price": 151000
-        },
-        {
-          "raw": "121,500円",
-          "price": 121500
-        },
-        {
-          "raw": " 198,000円",
-          "price": 198000
-        },
-        {
-          "raw": " 166,000円",
-          "price": 166000
-        },
-        {
-          "raw": "152,000円",
-          "price": 152000
-        },
-        {
-          "raw": " 217,000円",
-          "price": 217000
-        },
-        {
-          "raw": " 183,000円",
-          "price": 183000
-        },
-        {
-          "raw": " 187,000円",
-          "price": 187000
-        },
-        {
-          "raw": " 167,000円",
-          "price": 167000
-        },
-        {
-          "raw": "135,500円",
-          "price": 135500
-        },
-        {
-          "raw": " 215,000円",
-          "price": 215000
-        },
-        {
-          "raw": " 182,000円",
-          "price": 182000
-        },
-        {
-          "raw": "164,000円",
-          "price": 164000
-        },
-        {
-          "raw": " 239,000円",
-          "price": 239000
-        },
-        {
-          "raw": " 198,500円",
-          "price": 198500
-        },
-        {
-          "raw": "184,000円",
-          "price": 184000
-        },
-        {
-          "raw": " 277,000円",
-          "price": 277000
-        },
-        {
-          "raw": " 218,500円",
-          "price": 218500
-        },
-        {
-          "raw": "201,500円",
-          "price": 201500
-        },
-        {
-          "raw": " 139,500円",
-          "price": 139500
-        },
-        {
-          "raw": " 111,500円",
-          "price": 111500
-        },
-        {
-          "raw": "93,000円",
-          "price": 93000
-        },
-        {
-          "raw": " 161,000円",
-          "price": 161000
-        },
-        {
-          "raw": " 125,500円",
-          "price": 125500
-        },
-        {
-          "raw": "112,500円",
-          "price": 112500
-        }
-      ],
-      "errors": []
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
     },
     {
       "store_id": "morimori",
@@ -3535,7 +1105,7 @@
       "jan": "4549995649451",
       "product_name": "iPhone 17 Pro 1TB ディープブルー",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649451",
-      "checked_at": "2026/9/20 20:00:11",
+      "checked_at": "2026/9/23 10:24:06",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -3553,7 +1123,7 @@
       },
       "price_candidates": [],
       "errors": [
-        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649451\nCall log:\n\u001b[2m  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649451\", waiting until \"domcontentloaded\"\u001b[22m\n"
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649451\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649451\", waiting until \"domcontentloaded\"\n"
       ]
     },
     {
@@ -3562,161 +1132,26 @@
       "jan": "4549995649154",
       "product_name": "iPhone 17 256GB ブラック",
       "url": "https://pastec.net/iphone",
-      "checked_at": "2026/9/20 20:00:11",
-      "status": "OK",
+      "checked_at": "2026/9/23 10:24:07",
+      "status": "ERROR",
       "http": {
-        "status": 200,
-        "ok": true,
+        "status": 403,
+        "ok": false,
         "final_url": "https://pastec.net/iphone"
       },
       "page": {
-        "title": "iPhoneの買取価格表一覧 | 簡単10秒査定 | iPhone買取 モバステ",
-        "body_length": 2862,
+        "title": "403 Forbidden",
+        "body_length": 13,
         "body_available": true
       },
       "product": {
         "jan_found": false,
         "name_found": false
       },
-      "price_candidates": [
-        {
-          "raw": " 214,000円",
-          "price": 214000
-        },
-        {
-          "raw": " 248,000円",
-          "price": 248000
-        },
-        {
-          "raw": " 308,000円",
-          "price": 308000
-        },
-        {
-          "raw": " 408,000円",
-          "price": 408000
-        },
-        {
-          "raw": " 255,000円",
-          "price": 255000
-        },
-        {
-          "raw": " 280,000円",
-          "price": 280000
-        },
-        {
-          "raw": " 348,000円",
-          "price": 348000
-        },
-        {
-          "raw": " 435,000円",
-          "price": 435000
-        },
-        {
-          "raw": " 170,000円",
-          "price": 170000
-        },
-        {
-          "raw": " 151,000円",
-          "price": 151000
-        },
-        {
-          "raw": "121,500円",
-          "price": 121500
-        },
-        {
-          "raw": " 198,000円",
-          "price": 198000
-        },
-        {
-          "raw": " 166,000円",
-          "price": 166000
-        },
-        {
-          "raw": "152,000円",
-          "price": 152000
-        },
-        {
-          "raw": " 217,000円",
-          "price": 217000
-        },
-        {
-          "raw": " 183,000円",
-          "price": 183000
-        },
-        {
-          "raw": " 187,000円",
-          "price": 187000
-        },
-        {
-          "raw": " 167,000円",
-          "price": 167000
-        },
-        {
-          "raw": "135,500円",
-          "price": 135500
-        },
-        {
-          "raw": " 215,000円",
-          "price": 215000
-        },
-        {
-          "raw": " 182,000円",
-          "price": 182000
-        },
-        {
-          "raw": "164,000円",
-          "price": 164000
-        },
-        {
-          "raw": " 239,000円",
-          "price": 239000
-        },
-        {
-          "raw": " 198,500円",
-          "price": 198500
-        },
-        {
-          "raw": "184,000円",
-          "price": 184000
-        },
-        {
-          "raw": " 277,000円",
-          "price": 277000
-        },
-        {
-          "raw": " 218,500円",
-          "price": 218500
-        },
-        {
-          "raw": "201,500円",
-          "price": 201500
-        },
-        {
-          "raw": " 139,500円",
-          "price": 139500
-        },
-        {
-          "raw": " 111,500円",
-          "price": 111500
-        },
-        {
-          "raw": "93,000円",
-          "price": 93000
-        },
-        {
-          "raw": " 161,000円",
-          "price": 161000
-        },
-        {
-          "raw": " 125,500円",
-          "price": 125500
-        },
-        {
-          "raw": "112,500円",
-          "price": 112500
-        }
-      ],
-      "errors": []
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
     },
     {
       "store_id": "morimori",
@@ -3724,7 +1159,7 @@
       "jan": "4549995649154",
       "product_name": "iPhone 17 256GB ブラック",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649154",
-      "checked_at": "2026/9/20 20:00:14",
+      "checked_at": "2026/9/23 10:24:08",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -3742,7 +1177,7 @@
       },
       "price_candidates": [],
       "errors": [
-        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649154\nCall log:\n\u001b[2m  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649154\", waiting until \"domcontentloaded\"\u001b[22m\n"
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649154\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649154\", waiting until \"domcontentloaded\"\n"
       ]
     },
     {
@@ -3751,161 +1186,26 @@
       "jan": "4549995649161",
       "product_name": "iPhone 17 256GB ホワイト",
       "url": "https://pastec.net/iphone",
-      "checked_at": "2026/9/20 20:00:14",
-      "status": "OK",
+      "checked_at": "2026/9/23 10:24:09",
+      "status": "ERROR",
       "http": {
-        "status": 200,
-        "ok": true,
+        "status": 403,
+        "ok": false,
         "final_url": "https://pastec.net/iphone"
       },
       "page": {
-        "title": "iPhoneの買取価格表一覧 | 簡単10秒査定 | iPhone買取 モバステ",
-        "body_length": 2862,
+        "title": "403 Forbidden",
+        "body_length": 13,
         "body_available": true
       },
       "product": {
         "jan_found": false,
         "name_found": false
       },
-      "price_candidates": [
-        {
-          "raw": " 214,000円",
-          "price": 214000
-        },
-        {
-          "raw": " 248,000円",
-          "price": 248000
-        },
-        {
-          "raw": " 308,000円",
-          "price": 308000
-        },
-        {
-          "raw": " 408,000円",
-          "price": 408000
-        },
-        {
-          "raw": " 255,000円",
-          "price": 255000
-        },
-        {
-          "raw": " 280,000円",
-          "price": 280000
-        },
-        {
-          "raw": " 348,000円",
-          "price": 348000
-        },
-        {
-          "raw": " 435,000円",
-          "price": 435000
-        },
-        {
-          "raw": " 170,000円",
-          "price": 170000
-        },
-        {
-          "raw": " 151,000円",
-          "price": 151000
-        },
-        {
-          "raw": "121,500円",
-          "price": 121500
-        },
-        {
-          "raw": " 198,000円",
-          "price": 198000
-        },
-        {
-          "raw": " 166,000円",
-          "price": 166000
-        },
-        {
-          "raw": "152,000円",
-          "price": 152000
-        },
-        {
-          "raw": " 217,000円",
-          "price": 217000
-        },
-        {
-          "raw": " 183,000円",
-          "price": 183000
-        },
-        {
-          "raw": " 187,000円",
-          "price": 187000
-        },
-        {
-          "raw": " 167,000円",
-          "price": 167000
-        },
-        {
-          "raw": "135,500円",
-          "price": 135500
-        },
-        {
-          "raw": " 215,000円",
-          "price": 215000
-        },
-        {
-          "raw": " 182,000円",
-          "price": 182000
-        },
-        {
-          "raw": "164,000円",
-          "price": 164000
-        },
-        {
-          "raw": " 239,000円",
-          "price": 239000
-        },
-        {
-          "raw": " 198,500円",
-          "price": 198500
-        },
-        {
-          "raw": "184,000円",
-          "price": 184000
-        },
-        {
-          "raw": " 277,000円",
-          "price": 277000
-        },
-        {
-          "raw": " 218,500円",
-          "price": 218500
-        },
-        {
-          "raw": "201,500円",
-          "price": 201500
-        },
-        {
-          "raw": " 139,500円",
-          "price": 139500
-        },
-        {
-          "raw": " 111,500円",
-          "price": 111500
-        },
-        {
-          "raw": "93,000円",
-          "price": 93000
-        },
-        {
-          "raw": " 161,000円",
-          "price": 161000
-        },
-        {
-          "raw": " 125,500円",
-          "price": 125500
-        },
-        {
-          "raw": "112,500円",
-          "price": 112500
-        }
-      ],
-      "errors": []
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
     },
     {
       "store_id": "morimori",
@@ -3913,7 +1213,7 @@
       "jan": "4549995649161",
       "product_name": "iPhone 17 256GB ホワイト",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649161",
-      "checked_at": "2026/9/20 20:00:16",
+      "checked_at": "2026/9/23 10:24:11",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -3931,7 +1231,7 @@
       },
       "price_candidates": [],
       "errors": [
-        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649161\nCall log:\n\u001b[2m  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649161\", waiting until \"domcontentloaded\"\u001b[22m\n"
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649161\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649161\", waiting until \"domcontentloaded\"\n"
       ]
     },
     {
@@ -3940,161 +1240,26 @@
       "jan": "4549995649178",
       "product_name": "iPhone 17 256GB ブルー",
       "url": "https://pastec.net/iphone",
-      "checked_at": "2026/9/20 20:00:16",
-      "status": "OK",
+      "checked_at": "2026/9/23 10:24:11",
+      "status": "ERROR",
       "http": {
-        "status": 200,
-        "ok": true,
+        "status": 403,
+        "ok": false,
         "final_url": "https://pastec.net/iphone"
       },
       "page": {
-        "title": "iPhoneの買取価格表一覧 | 簡単10秒査定 | iPhone買取 モバステ",
-        "body_length": 2862,
+        "title": "403 Forbidden",
+        "body_length": 13,
         "body_available": true
       },
       "product": {
         "jan_found": false,
         "name_found": false
       },
-      "price_candidates": [
-        {
-          "raw": " 214,000円",
-          "price": 214000
-        },
-        {
-          "raw": " 248,000円",
-          "price": 248000
-        },
-        {
-          "raw": " 308,000円",
-          "price": 308000
-        },
-        {
-          "raw": " 408,000円",
-          "price": 408000
-        },
-        {
-          "raw": " 255,000円",
-          "price": 255000
-        },
-        {
-          "raw": " 280,000円",
-          "price": 280000
-        },
-        {
-          "raw": " 348,000円",
-          "price": 348000
-        },
-        {
-          "raw": " 435,000円",
-          "price": 435000
-        },
-        {
-          "raw": " 170,000円",
-          "price": 170000
-        },
-        {
-          "raw": " 151,000円",
-          "price": 151000
-        },
-        {
-          "raw": "121,500円",
-          "price": 121500
-        },
-        {
-          "raw": " 198,000円",
-          "price": 198000
-        },
-        {
-          "raw": " 166,000円",
-          "price": 166000
-        },
-        {
-          "raw": "152,000円",
-          "price": 152000
-        },
-        {
-          "raw": " 217,000円",
-          "price": 217000
-        },
-        {
-          "raw": " 183,000円",
-          "price": 183000
-        },
-        {
-          "raw": " 187,000円",
-          "price": 187000
-        },
-        {
-          "raw": " 167,000円",
-          "price": 167000
-        },
-        {
-          "raw": "135,500円",
-          "price": 135500
-        },
-        {
-          "raw": " 215,000円",
-          "price": 215000
-        },
-        {
-          "raw": " 182,000円",
-          "price": 182000
-        },
-        {
-          "raw": "164,000円",
-          "price": 164000
-        },
-        {
-          "raw": " 239,000円",
-          "price": 239000
-        },
-        {
-          "raw": " 198,500円",
-          "price": 198500
-        },
-        {
-          "raw": "184,000円",
-          "price": 184000
-        },
-        {
-          "raw": " 277,000円",
-          "price": 277000
-        },
-        {
-          "raw": " 218,500円",
-          "price": 218500
-        },
-        {
-          "raw": "201,500円",
-          "price": 201500
-        },
-        {
-          "raw": " 139,500円",
-          "price": 139500
-        },
-        {
-          "raw": " 111,500円",
-          "price": 111500
-        },
-        {
-          "raw": "93,000円",
-          "price": 93000
-        },
-        {
-          "raw": " 161,000円",
-          "price": 161000
-        },
-        {
-          "raw": " 125,500円",
-          "price": 125500
-        },
-        {
-          "raw": "112,500円",
-          "price": 112500
-        }
-      ],
-      "errors": []
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
     },
     {
       "store_id": "morimori",
@@ -4102,7 +1267,7 @@
       "jan": "4549995649178",
       "product_name": "iPhone 17 256GB ブルー",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649178",
-      "checked_at": "2026/9/20 20:00:19",
+      "checked_at": "2026/9/23 10:24:13",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -4120,7 +1285,7 @@
       },
       "price_candidates": [],
       "errors": [
-        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649178\nCall log:\n\u001b[2m  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649178\", waiting until \"domcontentloaded\"\u001b[22m\n"
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649178\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649178\", waiting until \"domcontentloaded\"\n"
       ]
     },
     {
@@ -4129,161 +1294,26 @@
       "jan": "4549995649185",
       "product_name": "iPhone 17 512GB ブラック",
       "url": "https://pastec.net/iphone",
-      "checked_at": "2026/9/20 20:00:19",
-      "status": "OK",
+      "checked_at": "2026/9/23 10:24:13",
+      "status": "ERROR",
       "http": {
-        "status": 200,
-        "ok": true,
+        "status": 403,
+        "ok": false,
         "final_url": "https://pastec.net/iphone"
       },
       "page": {
-        "title": "iPhoneの買取価格表一覧 | 簡単10秒査定 | iPhone買取 モバステ",
-        "body_length": 2862,
+        "title": "403 Forbidden",
+        "body_length": 13,
         "body_available": true
       },
       "product": {
         "jan_found": false,
         "name_found": false
       },
-      "price_candidates": [
-        {
-          "raw": " 214,000円",
-          "price": 214000
-        },
-        {
-          "raw": " 248,000円",
-          "price": 248000
-        },
-        {
-          "raw": " 308,000円",
-          "price": 308000
-        },
-        {
-          "raw": " 408,000円",
-          "price": 408000
-        },
-        {
-          "raw": " 255,000円",
-          "price": 255000
-        },
-        {
-          "raw": " 280,000円",
-          "price": 280000
-        },
-        {
-          "raw": " 348,000円",
-          "price": 348000
-        },
-        {
-          "raw": " 435,000円",
-          "price": 435000
-        },
-        {
-          "raw": " 170,000円",
-          "price": 170000
-        },
-        {
-          "raw": " 151,000円",
-          "price": 151000
-        },
-        {
-          "raw": "121,500円",
-          "price": 121500
-        },
-        {
-          "raw": " 198,000円",
-          "price": 198000
-        },
-        {
-          "raw": " 166,000円",
-          "price": 166000
-        },
-        {
-          "raw": "152,000円",
-          "price": 152000
-        },
-        {
-          "raw": " 217,000円",
-          "price": 217000
-        },
-        {
-          "raw": " 183,000円",
-          "price": 183000
-        },
-        {
-          "raw": " 187,000円",
-          "price": 187000
-        },
-        {
-          "raw": " 167,000円",
-          "price": 167000
-        },
-        {
-          "raw": "135,500円",
-          "price": 135500
-        },
-        {
-          "raw": " 215,000円",
-          "price": 215000
-        },
-        {
-          "raw": " 182,000円",
-          "price": 182000
-        },
-        {
-          "raw": "164,000円",
-          "price": 164000
-        },
-        {
-          "raw": " 239,000円",
-          "price": 239000
-        },
-        {
-          "raw": " 198,500円",
-          "price": 198500
-        },
-        {
-          "raw": "184,000円",
-          "price": 184000
-        },
-        {
-          "raw": " 277,000円",
-          "price": 277000
-        },
-        {
-          "raw": " 218,500円",
-          "price": 218500
-        },
-        {
-          "raw": "201,500円",
-          "price": 201500
-        },
-        {
-          "raw": " 139,500円",
-          "price": 139500
-        },
-        {
-          "raw": " 111,500円",
-          "price": 111500
-        },
-        {
-          "raw": "93,000円",
-          "price": 93000
-        },
-        {
-          "raw": " 161,000円",
-          "price": 161000
-        },
-        {
-          "raw": " 125,500円",
-          "price": 125500
-        },
-        {
-          "raw": "112,500円",
-          "price": 112500
-        }
-      ],
-      "errors": []
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
     },
     {
       "store_id": "morimori",
@@ -4291,7 +1321,7 @@
       "jan": "4549995649185",
       "product_name": "iPhone 17 512GB ブラック",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649185",
-      "checked_at": "2026/9/20 20:00:23",
+      "checked_at": "2026/9/23 10:24:15",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -4309,7 +1339,7 @@
       },
       "price_candidates": [],
       "errors": [
-        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649185\nCall log:\n\u001b[2m  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649185\", waiting until \"domcontentloaded\"\u001b[22m\n"
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649185\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649185\", waiting until \"domcontentloaded\"\n"
       ]
     },
     {
@@ -4318,161 +1348,26 @@
       "jan": "4549995649192",
       "product_name": "iPhone 17 512GB ホワイト",
       "url": "https://pastec.net/iphone",
-      "checked_at": "2026/9/20 20:00:23",
-      "status": "OK",
+      "checked_at": "2026/9/23 10:24:16",
+      "status": "ERROR",
       "http": {
-        "status": 200,
-        "ok": true,
+        "status": 403,
+        "ok": false,
         "final_url": "https://pastec.net/iphone"
       },
       "page": {
-        "title": "iPhoneの買取価格表一覧 | 簡単10秒査定 | iPhone買取 モバステ",
-        "body_length": 2862,
+        "title": "403 Forbidden",
+        "body_length": 13,
         "body_available": true
       },
       "product": {
         "jan_found": false,
         "name_found": false
       },
-      "price_candidates": [
-        {
-          "raw": " 214,000円",
-          "price": 214000
-        },
-        {
-          "raw": " 248,000円",
-          "price": 248000
-        },
-        {
-          "raw": " 308,000円",
-          "price": 308000
-        },
-        {
-          "raw": " 408,000円",
-          "price": 408000
-        },
-        {
-          "raw": " 255,000円",
-          "price": 255000
-        },
-        {
-          "raw": " 280,000円",
-          "price": 280000
-        },
-        {
-          "raw": " 348,000円",
-          "price": 348000
-        },
-        {
-          "raw": " 435,000円",
-          "price": 435000
-        },
-        {
-          "raw": " 170,000円",
-          "price": 170000
-        },
-        {
-          "raw": " 151,000円",
-          "price": 151000
-        },
-        {
-          "raw": "121,500円",
-          "price": 121500
-        },
-        {
-          "raw": " 198,000円",
-          "price": 198000
-        },
-        {
-          "raw": " 166,000円",
-          "price": 166000
-        },
-        {
-          "raw": "152,000円",
-          "price": 152000
-        },
-        {
-          "raw": " 217,000円",
-          "price": 217000
-        },
-        {
-          "raw": " 183,000円",
-          "price": 183000
-        },
-        {
-          "raw": " 187,000円",
-          "price": 187000
-        },
-        {
-          "raw": " 167,000円",
-          "price": 167000
-        },
-        {
-          "raw": "135,500円",
-          "price": 135500
-        },
-        {
-          "raw": " 215,000円",
-          "price": 215000
-        },
-        {
-          "raw": " 182,000円",
-          "price": 182000
-        },
-        {
-          "raw": "164,000円",
-          "price": 164000
-        },
-        {
-          "raw": " 239,000円",
-          "price": 239000
-        },
-        {
-          "raw": " 198,500円",
-          "price": 198500
-        },
-        {
-          "raw": "184,000円",
-          "price": 184000
-        },
-        {
-          "raw": " 277,000円",
-          "price": 277000
-        },
-        {
-          "raw": " 218,500円",
-          "price": 218500
-        },
-        {
-          "raw": "201,500円",
-          "price": 201500
-        },
-        {
-          "raw": " 139,500円",
-          "price": 139500
-        },
-        {
-          "raw": " 111,500円",
-          "price": 111500
-        },
-        {
-          "raw": "93,000円",
-          "price": 93000
-        },
-        {
-          "raw": " 161,000円",
-          "price": 161000
-        },
-        {
-          "raw": " 125,500円",
-          "price": 125500
-        },
-        {
-          "raw": "112,500円",
-          "price": 112500
-        }
-      ],
-      "errors": []
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
     },
     {
       "store_id": "morimori",
@@ -4480,7 +1375,7 @@
       "jan": "4549995649192",
       "product_name": "iPhone 17 512GB ホワイト",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995649192",
-      "checked_at": "2026/9/20 20:00:26",
+      "checked_at": "2026/9/23 10:24:17",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -4498,7 +1393,7 @@
       },
       "price_candidates": [],
       "errors": [
-        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649192\nCall log:\n\u001b[2m  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649192\", waiting until \"domcontentloaded\"\u001b[22m\n"
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995649192\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995649192\", waiting until \"domcontentloaded\"\n"
       ]
     },
     {
@@ -4507,161 +1402,26 @@
       "jan": "4549995677485",
       "product_name": "iPhone 17e 256GB ブラック",
       "url": "https://pastec.net/iphone",
-      "checked_at": "2026/9/20 20:00:26",
-      "status": "OK",
+      "checked_at": "2026/9/23 10:24:18",
+      "status": "ERROR",
       "http": {
-        "status": 200,
-        "ok": true,
+        "status": 403,
+        "ok": false,
         "final_url": "https://pastec.net/iphone"
       },
       "page": {
-        "title": "iPhoneの買取価格表一覧 | 簡単10秒査定 | iPhone買取 モバステ",
-        "body_length": 2862,
+        "title": "403 Forbidden",
+        "body_length": 13,
         "body_available": true
       },
       "product": {
         "jan_found": false,
         "name_found": false
       },
-      "price_candidates": [
-        {
-          "raw": " 214,000円",
-          "price": 214000
-        },
-        {
-          "raw": " 248,000円",
-          "price": 248000
-        },
-        {
-          "raw": " 308,000円",
-          "price": 308000
-        },
-        {
-          "raw": " 408,000円",
-          "price": 408000
-        },
-        {
-          "raw": " 255,000円",
-          "price": 255000
-        },
-        {
-          "raw": " 280,000円",
-          "price": 280000
-        },
-        {
-          "raw": " 348,000円",
-          "price": 348000
-        },
-        {
-          "raw": " 435,000円",
-          "price": 435000
-        },
-        {
-          "raw": " 170,000円",
-          "price": 170000
-        },
-        {
-          "raw": " 151,000円",
-          "price": 151000
-        },
-        {
-          "raw": "121,500円",
-          "price": 121500
-        },
-        {
-          "raw": " 198,000円",
-          "price": 198000
-        },
-        {
-          "raw": " 166,000円",
-          "price": 166000
-        },
-        {
-          "raw": "152,000円",
-          "price": 152000
-        },
-        {
-          "raw": " 217,000円",
-          "price": 217000
-        },
-        {
-          "raw": " 183,000円",
-          "price": 183000
-        },
-        {
-          "raw": " 187,000円",
-          "price": 187000
-        },
-        {
-          "raw": " 167,000円",
-          "price": 167000
-        },
-        {
-          "raw": "135,500円",
-          "price": 135500
-        },
-        {
-          "raw": " 215,000円",
-          "price": 215000
-        },
-        {
-          "raw": " 182,000円",
-          "price": 182000
-        },
-        {
-          "raw": "164,000円",
-          "price": 164000
-        },
-        {
-          "raw": " 239,000円",
-          "price": 239000
-        },
-        {
-          "raw": " 198,500円",
-          "price": 198500
-        },
-        {
-          "raw": "184,000円",
-          "price": 184000
-        },
-        {
-          "raw": " 277,000円",
-          "price": 277000
-        },
-        {
-          "raw": " 218,500円",
-          "price": 218500
-        },
-        {
-          "raw": "201,500円",
-          "price": 201500
-        },
-        {
-          "raw": " 139,500円",
-          "price": 139500
-        },
-        {
-          "raw": " 111,500円",
-          "price": 111500
-        },
-        {
-          "raw": "93,000円",
-          "price": 93000
-        },
-        {
-          "raw": " 161,000円",
-          "price": 161000
-        },
-        {
-          "raw": " 125,500円",
-          "price": 125500
-        },
-        {
-          "raw": "112,500円",
-          "price": 112500
-        }
-      ],
-      "errors": []
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
     },
     {
       "store_id": "morimori",
@@ -4669,7 +1429,7 @@
       "jan": "4549995677485",
       "product_name": "iPhone 17e 256GB ブラック",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995677485",
-      "checked_at": "2026/9/20 20:00:29",
+      "checked_at": "2026/9/23 10:24:20",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -4687,7 +1447,7 @@
       },
       "price_candidates": [],
       "errors": [
-        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995677485\nCall log:\n\u001b[2m  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995677485\", waiting until \"domcontentloaded\"\u001b[22m\n"
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995677485\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995677485\", waiting until \"domcontentloaded\"\n"
       ]
     },
     {
@@ -4696,161 +1456,26 @@
       "jan": "4549995677492",
       "product_name": "iPhone 17e 256GB ホワイト",
       "url": "https://pastec.net/iphone",
-      "checked_at": "2026/9/20 20:00:29",
-      "status": "OK",
+      "checked_at": "2026/9/23 10:24:20",
+      "status": "ERROR",
       "http": {
-        "status": 200,
-        "ok": true,
+        "status": 403,
+        "ok": false,
         "final_url": "https://pastec.net/iphone"
       },
       "page": {
-        "title": "iPhoneの買取価格表一覧 | 簡単10秒査定 | iPhone買取 モバステ",
-        "body_length": 2862,
+        "title": "403 Forbidden",
+        "body_length": 13,
         "body_available": true
       },
       "product": {
         "jan_found": false,
         "name_found": false
       },
-      "price_candidates": [
-        {
-          "raw": " 214,000円",
-          "price": 214000
-        },
-        {
-          "raw": " 248,000円",
-          "price": 248000
-        },
-        {
-          "raw": " 308,000円",
-          "price": 308000
-        },
-        {
-          "raw": " 408,000円",
-          "price": 408000
-        },
-        {
-          "raw": " 255,000円",
-          "price": 255000
-        },
-        {
-          "raw": " 280,000円",
-          "price": 280000
-        },
-        {
-          "raw": " 348,000円",
-          "price": 348000
-        },
-        {
-          "raw": " 435,000円",
-          "price": 435000
-        },
-        {
-          "raw": " 170,000円",
-          "price": 170000
-        },
-        {
-          "raw": " 151,000円",
-          "price": 151000
-        },
-        {
-          "raw": "121,500円",
-          "price": 121500
-        },
-        {
-          "raw": " 198,000円",
-          "price": 198000
-        },
-        {
-          "raw": " 166,000円",
-          "price": 166000
-        },
-        {
-          "raw": "152,000円",
-          "price": 152000
-        },
-        {
-          "raw": " 217,000円",
-          "price": 217000
-        },
-        {
-          "raw": " 183,000円",
-          "price": 183000
-        },
-        {
-          "raw": " 187,000円",
-          "price": 187000
-        },
-        {
-          "raw": " 167,000円",
-          "price": 167000
-        },
-        {
-          "raw": "135,500円",
-          "price": 135500
-        },
-        {
-          "raw": " 215,000円",
-          "price": 215000
-        },
-        {
-          "raw": " 182,000円",
-          "price": 182000
-        },
-        {
-          "raw": "164,000円",
-          "price": 164000
-        },
-        {
-          "raw": " 239,000円",
-          "price": 239000
-        },
-        {
-          "raw": " 198,500円",
-          "price": 198500
-        },
-        {
-          "raw": "184,000円",
-          "price": 184000
-        },
-        {
-          "raw": " 277,000円",
-          "price": 277000
-        },
-        {
-          "raw": " 218,500円",
-          "price": 218500
-        },
-        {
-          "raw": "201,500円",
-          "price": 201500
-        },
-        {
-          "raw": " 139,500円",
-          "price": 139500
-        },
-        {
-          "raw": " 111,500円",
-          "price": 111500
-        },
-        {
-          "raw": "93,000円",
-          "price": 93000
-        },
-        {
-          "raw": " 161,000円",
-          "price": 161000
-        },
-        {
-          "raw": " 125,500円",
-          "price": 125500
-        },
-        {
-          "raw": "112,500円",
-          "price": 112500
-        }
-      ],
-      "errors": []
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
     },
     {
       "store_id": "morimori",
@@ -4858,7 +1483,7 @@
       "jan": "4549995677492",
       "product_name": "iPhone 17e 256GB ホワイト",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995677492",
-      "checked_at": "2026/9/20 20:00:32",
+      "checked_at": "2026/9/23 10:24:22",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -4876,7 +1501,7 @@
       },
       "price_candidates": [],
       "errors": [
-        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995677492\nCall log:\n\u001b[2m  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995677492\", waiting until \"domcontentloaded\"\u001b[22m\n"
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995677492\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995677492\", waiting until \"domcontentloaded\"\n"
       ]
     },
     {
@@ -4885,161 +1510,26 @@
       "jan": "4549995677508",
       "product_name": "iPhone 17e 128GB ブラック",
       "url": "https://pastec.net/iphone",
-      "checked_at": "2026/9/20 20:00:32",
-      "status": "OK",
+      "checked_at": "2026/9/23 10:24:22",
+      "status": "ERROR",
       "http": {
-        "status": 200,
-        "ok": true,
+        "status": 403,
+        "ok": false,
         "final_url": "https://pastec.net/iphone"
       },
       "page": {
-        "title": "iPhoneの買取価格表一覧 | 簡単10秒査定 | iPhone買取 モバステ",
-        "body_length": 2862,
+        "title": "403 Forbidden",
+        "body_length": 13,
         "body_available": true
       },
       "product": {
         "jan_found": false,
         "name_found": false
       },
-      "price_candidates": [
-        {
-          "raw": " 214,000円",
-          "price": 214000
-        },
-        {
-          "raw": " 248,000円",
-          "price": 248000
-        },
-        {
-          "raw": " 308,000円",
-          "price": 308000
-        },
-        {
-          "raw": " 408,000円",
-          "price": 408000
-        },
-        {
-          "raw": " 255,000円",
-          "price": 255000
-        },
-        {
-          "raw": " 280,000円",
-          "price": 280000
-        },
-        {
-          "raw": " 348,000円",
-          "price": 348000
-        },
-        {
-          "raw": " 435,000円",
-          "price": 435000
-        },
-        {
-          "raw": " 170,000円",
-          "price": 170000
-        },
-        {
-          "raw": " 151,000円",
-          "price": 151000
-        },
-        {
-          "raw": "121,500円",
-          "price": 121500
-        },
-        {
-          "raw": " 198,000円",
-          "price": 198000
-        },
-        {
-          "raw": " 166,000円",
-          "price": 166000
-        },
-        {
-          "raw": "152,000円",
-          "price": 152000
-        },
-        {
-          "raw": " 217,000円",
-          "price": 217000
-        },
-        {
-          "raw": " 183,000円",
-          "price": 183000
-        },
-        {
-          "raw": " 187,000円",
-          "price": 187000
-        },
-        {
-          "raw": " 167,000円",
-          "price": 167000
-        },
-        {
-          "raw": "135,500円",
-          "price": 135500
-        },
-        {
-          "raw": " 215,000円",
-          "price": 215000
-        },
-        {
-          "raw": " 182,000円",
-          "price": 182000
-        },
-        {
-          "raw": "164,000円",
-          "price": 164000
-        },
-        {
-          "raw": " 239,000円",
-          "price": 239000
-        },
-        {
-          "raw": " 198,500円",
-          "price": 198500
-        },
-        {
-          "raw": "184,000円",
-          "price": 184000
-        },
-        {
-          "raw": " 277,000円",
-          "price": 277000
-        },
-        {
-          "raw": " 218,500円",
-          "price": 218500
-        },
-        {
-          "raw": "201,500円",
-          "price": 201500
-        },
-        {
-          "raw": " 139,500円",
-          "price": 139500
-        },
-        {
-          "raw": " 111,500円",
-          "price": 111500
-        },
-        {
-          "raw": "93,000円",
-          "price": 93000
-        },
-        {
-          "raw": " 161,000円",
-          "price": 161000
-        },
-        {
-          "raw": " 125,500円",
-          "price": 125500
-        },
-        {
-          "raw": "112,500円",
-          "price": 112500
-        }
-      ],
-      "errors": []
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
     },
     {
       "store_id": "morimori",
@@ -5047,7 +1537,7 @@
       "jan": "4549995677508",
       "product_name": "iPhone 17e 128GB ブラック",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995677508",
-      "checked_at": "2026/9/20 20:00:34",
+      "checked_at": "2026/9/23 10:24:24",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -5065,7 +1555,7 @@
       },
       "price_candidates": [],
       "errors": [
-        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995677508\nCall log:\n\u001b[2m  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995677508\", waiting until \"domcontentloaded\"\u001b[22m\n"
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995677508\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995677508\", waiting until \"domcontentloaded\"\n"
       ]
     },
     {
@@ -5074,161 +1564,26 @@
       "jan": "4549995677515",
       "product_name": "iPhone 17e 128GB ホワイト",
       "url": "https://pastec.net/iphone",
-      "checked_at": "2026/9/20 20:00:35",
-      "status": "OK",
+      "checked_at": "2026/9/23 10:24:25",
+      "status": "ERROR",
       "http": {
-        "status": 200,
-        "ok": true,
+        "status": 403,
+        "ok": false,
         "final_url": "https://pastec.net/iphone"
       },
       "page": {
-        "title": "iPhoneの買取価格表一覧 | 簡単10秒査定 | iPhone買取 モバステ",
-        "body_length": 2862,
+        "title": "403 Forbidden",
+        "body_length": 13,
         "body_available": true
       },
       "product": {
         "jan_found": false,
         "name_found": false
       },
-      "price_candidates": [
-        {
-          "raw": " 214,000円",
-          "price": 214000
-        },
-        {
-          "raw": " 248,000円",
-          "price": 248000
-        },
-        {
-          "raw": " 308,000円",
-          "price": 308000
-        },
-        {
-          "raw": " 408,000円",
-          "price": 408000
-        },
-        {
-          "raw": " 255,000円",
-          "price": 255000
-        },
-        {
-          "raw": " 280,000円",
-          "price": 280000
-        },
-        {
-          "raw": " 348,000円",
-          "price": 348000
-        },
-        {
-          "raw": " 435,000円",
-          "price": 435000
-        },
-        {
-          "raw": " 170,000円",
-          "price": 170000
-        },
-        {
-          "raw": " 151,000円",
-          "price": 151000
-        },
-        {
-          "raw": "121,500円",
-          "price": 121500
-        },
-        {
-          "raw": " 198,000円",
-          "price": 198000
-        },
-        {
-          "raw": " 166,000円",
-          "price": 166000
-        },
-        {
-          "raw": "152,000円",
-          "price": 152000
-        },
-        {
-          "raw": " 217,000円",
-          "price": 217000
-        },
-        {
-          "raw": " 183,000円",
-          "price": 183000
-        },
-        {
-          "raw": " 187,000円",
-          "price": 187000
-        },
-        {
-          "raw": " 167,000円",
-          "price": 167000
-        },
-        {
-          "raw": "135,500円",
-          "price": 135500
-        },
-        {
-          "raw": " 215,000円",
-          "price": 215000
-        },
-        {
-          "raw": " 182,000円",
-          "price": 182000
-        },
-        {
-          "raw": "164,000円",
-          "price": 164000
-        },
-        {
-          "raw": " 239,000円",
-          "price": 239000
-        },
-        {
-          "raw": " 198,500円",
-          "price": 198500
-        },
-        {
-          "raw": "184,000円",
-          "price": 184000
-        },
-        {
-          "raw": " 277,000円",
-          "price": 277000
-        },
-        {
-          "raw": " 218,500円",
-          "price": 218500
-        },
-        {
-          "raw": "201,500円",
-          "price": 201500
-        },
-        {
-          "raw": " 139,500円",
-          "price": 139500
-        },
-        {
-          "raw": " 111,500円",
-          "price": 111500
-        },
-        {
-          "raw": "93,000円",
-          "price": 93000
-        },
-        {
-          "raw": " 161,000円",
-          "price": 161000
-        },
-        {
-          "raw": " 125,500円",
-          "price": 125500
-        },
-        {
-          "raw": "112,500円",
-          "price": 112500
-        }
-      ],
-      "errors": []
+      "price_candidates": [],
+      "errors": [
+        "HTTP status 403"
+      ]
     },
     {
       "store_id": "morimori",
@@ -5236,7 +1591,7 @@
       "jan": "4549995677515",
       "product_name": "iPhone 17e 128GB ホワイト",
       "url": "https://www.morimori-kaitori.jp/search?keyword=4549995677515",
-      "checked_at": "2026/9/20 20:00:37",
+      "checked_at": "2026/9/23 10:24:27",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -5254,15 +1609,15 @@
       },
       "price_candidates": [],
       "errors": [
-        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995677515\nCall log:\n\u001b[2m  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995677515\", waiting until \"domcontentloaded\"\u001b[22m\n"
+        "page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.morimori-kaitori.jp/search?keyword=4549995677515\nCall log:\n  - navigating to \"https://www.morimori-kaitori.jp/search?keyword=4549995677515\", waiting until \"domcontentloaded\"\n"
       ]
     }
   ],
   "summary": {
-    "ok": 27,
-    "error": 27,
+    "ok": 0,
+    "error": 54,
     "jan_found": 0,
     "product_name_found": 0,
-    "price_candidate_found": 27
+    "price_candidate_found": 0
   }
 }
