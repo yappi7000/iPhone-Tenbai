@@ -178,10 +178,6 @@ body{background:#eef3f9}
         <select id="modelSelect">
           <option value="iPhone 18 Pro Max">iPhone 18 Pro Max</option>
           <option value="iPhone 18 Pro">iPhone 18 Pro</option>
-          <option value="iPhone 17 Pro Max">iPhone 17 Pro Max</option>
-          <option value="iPhone 17 Pro">iPhone 17 Pro</option>
-          <option value="iPhone 17">iPhone 17</option>
-          <option value="iPhone 17e">iPhone 17e</option>
         </select>
       </div>
       <div>
@@ -316,23 +312,10 @@ body{background:#eef3f9}
     "iPhone 18 Pro_256GB": 219800,
     "iPhone 18 Pro_512GB": 254800,
     "iPhone 18 Pro_1TB": 324800,
-    "iPhone 18 Pro_2TB": 429800,
-    "iPhone 17_256GB": 159800,
-    "iPhone 17_512GB": 194800,
-    "iPhone 17e_256GB": 124800,
-    "iPhone 17e_512GB": 159800,
-    "iPhone 17 Pro Max_256GB": null,
-    "iPhone 17 Pro Max_512GB": null,
-    "iPhone 17 Pro Max_1TB": null,
-    "iPhone 17 Pro_256GB": null,
-    "iPhone 17 Pro_512GB": null,
-    "iPhone 17 Pro_1TB": null
+    "iPhone 18 Pro_2TB": 429800
   };
 
-  const APPLE_STATUS = {
-    "iPhone 17 Pro Max": "Apple Store販売終了",
-    "iPhone 17 Pro": "Apple Store販売終了"
-  };
+  const APPLE_STATUS = {};
 
   const PRODUCT_CONFIG = {
     "iPhone 18 Pro Max": {
@@ -342,40 +325,49 @@ body{background:#eef3f9}
     "iPhone 18 Pro": {
       storages: ["256GB", "512GB", "1TB", "2TB"],
       colors: ["ブラック", "シルバー", "グレイシャー", "バーガンディ"]
-    },
-    "iPhone 17 Pro Max": {
-      storages: ["256GB", "512GB", "1TB"],
-      colors: ["シルバー", "コズミックオレンジ", "ディープブルー"]
-    },
-    "iPhone 17 Pro": {
-      storages: ["256GB", "512GB", "1TB"],
-      colors: ["シルバー", "コズミックオレンジ", "ディープブルー"]
-    },
-    "iPhone 17": {
-      storages: ["256GB", "512GB"],
-      colors: ["ブラック", "ラベンダー", "ミストブルー", "セージ", "ホワイト"]
-    },
-    "iPhone 17e": {
-      storages: ["256GB", "512GB"],
-      colors: ["ブラック", "ホワイト", "ソフトピンク"]
     }
   };
 
   const JAN_DATABASE = {
-    "iPhone 18 Pro Max_256GB_ブラック":"4549995734546","iPhone 18 Pro Max_256GB_シルバー":"4549995734591","iPhone 18 Pro Max_256GB_バーガンディ":"4549995734645","iPhone 18 Pro Max_256GB_グレイシャー":"4549995734690",
-    "iPhone 18 Pro Max_512GB_ブラック":"4549995734744","iPhone 18 Pro Max_512GB_シルバー":"4549995734799","iPhone 18 Pro Max_512GB_バーガンディ":"4549995734843","iPhone 18 Pro Max_512GB_グレイシャー":"4549995734898",
-    "iPhone 18 Pro Max_1TB_ブラック":"4549995734942","iPhone 18 Pro Max_1TB_シルバー":"4549995734997","iPhone 18 Pro Max_1TB_バーガンディ":"4549995735048","iPhone 18 Pro Max_1TB_グレイシャー":"4549995735093",
-    "iPhone 18 Pro Max_2TB_ブラック":"4549995735147","iPhone 18 Pro Max_2TB_シルバー":"4549995735192","iPhone 18 Pro Max_2TB_バーガンディ":"4549995735246","iPhone 18 Pro Max_2TB_グレイシャー":"4549995735291",
-    "iPhone 18 Pro_256GB_ブラック":"4549995734140","iPhone 18 Pro_256GB_シルバー":"4549995734157","iPhone 18 Pro_256GB_バーガンディ":"4549995734164","iPhone 18 Pro_256GB_グレイシャー":"4549995734171",
-    "iPhone 18 Pro_512GB_ブラック":"4549995734188","iPhone 18 Pro_512GB_シルバー":"4549995734195","iPhone 18 Pro_512GB_バーガンディ":"4549995734201","iPhone 18 Pro_512GB_グレイシャー":"4549995734218",
-    "iPhone 18 Pro_1TB_ブラック":"4549995734225","iPhone 18 Pro_1TB_シルバー":"4549995734232","iPhone 18 Pro_1TB_バーガンディ":"4549995734249","iPhone 18 Pro_1TB_グレイシャー":"4549995734256",
-    "iPhone 18 Pro_2TB_ブラック":"4549995734263","iPhone 18 Pro_2TB_シルバー":"4549995734270","iPhone 18 Pro_2TB_バーガンディ":"4549995734287","iPhone 18 Pro_2TB_グレイシャー":"4549995734294",
-    "iPhone 17 Pro Max_256GB_シルバー":"4549995649284","iPhone 17 Pro Max_256GB_コズミックオレンジ":"4549995649291","iPhone 17 Pro Max_256GB_ディープブルー":"4549995649307","iPhone 17 Pro Max_512GB_シルバー":"4549995649314","iPhone 17 Pro Max_512GB_コズミックオレンジ":"4549995649321","iPhone 17 Pro Max_512GB_ディープブルー":"4549995649338","iPhone 17 Pro Max_1TB_シルバー":"4549995649345","iPhone 17 Pro Max_1TB_コズミックオレンジ":"4549995649352","iPhone 17 Pro Max_1TB_ディープブルー":"4549995649369",
-    "iPhone 17 Pro_256GB_シルバー":"4549995648294","iPhone 17 Pro_256GB_コズミックオレンジ":"4549995648300","iPhone 17 Pro_256GB_ディープブルー":"4549995648317","iPhone 17 Pro_512GB_シルバー":"4549995648324","iPhone 17 Pro_512GB_コズミックオレンジ":"4549995648331","iPhone 17 Pro_512GB_ディープブルー":"4549995648348","iPhone 17 Pro_1TB_シルバー":"4549995648355","iPhone 17 Pro_1TB_コズミックオレンジ":"4549995648362","iPhone 17 Pro_1TB_ディープブルー":"4549995648379",
-    "iPhone 17_256GB_ブラック":"4549995649154","iPhone 17_256GB_ホワイト":"4549995649161","iPhone 17_256GB_ミストブルー":"4549995649178","iPhone 17_256GB_ラベンダー":"4549995649185","iPhone 17_256GB_セージ":"4549995649192",
-    "iPhone 17_512GB_ブラック":"4549995649208","iPhone 17_512GB_ホワイト":"4549995649215","iPhone 17_512GB_ミストブルー":"4549995649222","iPhone 17_512GB_ラベンダー":"4549995649239","iPhone 17_512GB_セージ":"4549995649246",
-    "iPhone 17e_256GB_ブラック":"4549995677485","iPhone 17e_256GB_ホワイト":"4549995677539","iPhone 17e_256GB_ソフトピンク":"4549995677584",
-    "iPhone 17e_512GB_ブラック":"4549995677638","iPhone 17e_512GB_ホワイト":"4549995677683","iPhone 17e_512GB_ソフトピンク":"4549995677737"
+    "iPhone 18 Pro Max_256GB_ブラック":"4549995734546",
+    "iPhone 18 Pro Max_256GB_シルバー":"4549995734591",
+    "iPhone 18 Pro Max_256GB_バーガンディ":"4549995734645",
+    "iPhone 18 Pro Max_256GB_グレイシャー":"4549995734690",
+
+    "iPhone 18 Pro Max_512GB_ブラック":"4549995734744",
+    "iPhone 18 Pro Max_512GB_シルバー":"4549995734799",
+    "iPhone 18 Pro Max_512GB_バーガンディ":"4549995734843",
+    "iPhone 18 Pro Max_512GB_グレイシャー":"4549995734898",
+
+    "iPhone 18 Pro Max_1TB_ブラック":"4549995734942",
+    "iPhone 18 Pro Max_1TB_シルバー":"4549995734997",
+    "iPhone 18 Pro Max_1TB_バーガンディ":"4549995735048",
+    "iPhone 18 Pro Max_1TB_グレイシャー":"4549995735093",
+
+    "iPhone 18 Pro Max_2TB_ブラック":"4549995735147",
+    "iPhone 18 Pro Max_2TB_シルバー":"4549995735192",
+    "iPhone 18 Pro Max_2TB_バーガンディ":"4549995735246",
+    "iPhone 18 Pro Max_2TB_グレイシャー":"4549995735291",
+
+    "iPhone 18 Pro_256GB_ブラック":"4549995734140",
+    "iPhone 18 Pro_256GB_シルバー":"4549995734157",
+    "iPhone 18 Pro_256GB_バーガンディ":"4549995734164",
+    "iPhone 18 Pro_256GB_グレイシャー":"4549995734171",
+
+    "iPhone 18 Pro_512GB_ブラック":"4549995734188",
+    "iPhone 18 Pro_512GB_シルバー":"4549995734195",
+    "iPhone 18 Pro_512GB_バーガンディ":"4549995734201",
+    "iPhone 18 Pro_512GB_グレイシャー":"4549995734218",
+
+    "iPhone 18 Pro_1TB_ブラック":"4549995734225",
+    "iPhone 18 Pro_1TB_シルバー":"4549995734232",
+    "iPhone 18 Pro_1TB_バーガンディ":"4549995734249",
+    "iPhone 18 Pro_1TB_グレイシャー":"4549995734256",
+
+    "iPhone 18 Pro_2TB_ブラック":"4549995734263",
+    "iPhone 18 Pro_2TB_シルバー":"4549995734270",
+    "iPhone 18 Pro_2TB_バーガンディ":"4549995734287",
+    "iPhone 18 Pro_2TB_グレイシャー":"4549995734294"
   };
 
   let crawlData = {};
