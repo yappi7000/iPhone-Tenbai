@@ -805,7 +805,8 @@ function extractIchomePrice(
 ) {
   const text =
     String(bodyText || "")
-      .replace(/\r/g, "");
+      .replace(/\r/g, "")
+      .replace(/\u00a0/g, " ");
 
   const normalizedName =
     normalizeText(productName);
@@ -842,9 +843,6 @@ function extractIchomePrice(
     };
   }
 
-  /*
-   * 次の商品まで十分収まる範囲だけを見る。
-   */
   const block =
     text.slice(
       index,
@@ -853,7 +851,7 @@ function extractIchomePrice(
 
   const baseMatch =
     block.match(
-      /未開封\s*[¥￥]\s*([1-9]\d{1,2}(?:,\d{3})*)/
+      /未開封\s*[¥￥]\s*([0-9,]+)/
     );
 
   if (!baseMatch) {
@@ -886,90 +884,72 @@ function extractIchomePrice(
     };
   }
 
-  /*
-   * 未開封価格より前に書かれている
-   * 色別増減だけを読む。
-   */
   const beforeUnopened =
     block.split(/未開封/)[0];
 
   let adjustment = 0;
+  let rule = "色別増減なし";
 
   if (color) {
-    const colorPatterns = {
-      "ブラック":
-        /ブラック\s*([+-]\s*[0-9,]+)/i,
+    const colorRule =
+      /((?:ブラック|シルバー|グレイシャー?|バーガンディ)(?:\s*[,、\/]\s*(?:ブラック|シルバー|グレイシャー?|バーガンディ))*)\s*([+-]\s*[0-9,]+)/g;
 
-      "シルバー":
-        /シルバー\s*([+-]\s*[0-9,]+)/i,
+    for (
+      const m of beforeUnopened.matchAll(colorRule)
+    ) {
+      const colors =
+        m[1]
+          .split(/[,、\/]/)
+          .map(x => x.trim())
+          .map(x =>
+            x === "グレイシャ"
+              ? "グレイシャー"
+              : x
+          );
 
-      "グレイシャー":
-        /(?:グレイシャー|グレイシャ)\s*([+-]\s*[0-9,]+)/i,
+      if (!colors.includes(color)) {
+        continue;
+      }
 
-      "バーガンディ":
-        /バーガンディ\s*([+-]\s*[0-9,]+)/i
-    };
-
-    const pattern =
-      colorPatterns[color];
-
-    const adjustmentMatch =
-      pattern
-        ? beforeUnopened.match(pattern)
-        : null;
-
-    if (adjustmentMatch) {
-      adjustment =
+      const value =
         Number(
-          adjustmentMatch[1]
+          m[2]
             .replace(/\s/g, "")
             .replace(/,/g, "")
         );
 
-      if (!Number.isFinite(adjustment)) {
+      if (!Number.isFinite(value)) {
         return {
           found: true,
           price: null,
           raw_price: null,
-          caution: "",
+          caution: beforeUnopened.trim(),
           error:
             "色別増減額を数値化できません"
         };
       }
+
+      adjustment = value;
+      rule =
+        `${m[1]} ${value.toLocaleString("ja-JP")}円`;
+
+      break;
     }
   }
 
   const finalPrice =
     basePrice + adjustment;
 
-  if (
-    !Number.isFinite(finalPrice) ||
-    finalPrice <= 0
-  ) {
-    return {
-      found: true,
-      price: null,
-      raw_price: null,
-      caution: "",
-      error:
-        "色別最終価格を数値化できません"
-    };
-  }
-
   return {
     found: true,
     price: finalPrice,
-
     raw_price:
-      adjustment !== 0
-        ? `${finalPrice.toLocaleString("ja-JP")}円`
-        : `${basePrice.toLocaleString("ja-JP")}円`,
-
+      `${finalPrice.toLocaleString("ja-JP")}円`,
+    base_price:
+      basePrice,
+    adjustment,
     caution:
-      adjustment !== 0
-        ? `基準${basePrice.toLocaleString("ja-JP")}円 / ${color} ${adjustment.toLocaleString("ja-JP")}円を反映`
-        : "元店舗の未開封基準価格",
-
+      `基準${basePrice.toLocaleString("ja-JP")}円 / ${rule}`,
     error: null
   };
 }
@@ -1472,7 +1452,7 @@ function extractRakuenPrice(
 
   const baseMatch =
     block.match(
-      /新品:\s*[¥￥]\s*([1-9]\d{1,2}(?:,\d{3})*)/
+      /新品:\s*[¥￥]\s*([1-9][0-9,]*)/
     );
 
   if (!baseMatch) {
@@ -1564,13 +1544,13 @@ function extractRakuenPrice(
      */
     const explicitPatterns = {
       "ブラック":
-        /黒\s*([1-9]\d{1,2}(?:,\d{3})*)/,
+        /黒\s*([1-9][0-9,]*)/,
 
       "シルバー":
-        /青\/銀\s*([1-9]\d{1,2}(?:,\d{3})*)|銀\s*([1-9]\d{1,2}(?:,\d{3})*)/,
+        /青\/銀\s*([1-9][0-9,]*)|銀\s*([1-9][0-9,]*)/,
 
       "グレイシャー":
-        /青\/銀\s*([1-9]\d{1,2}(?:,\d{3})*)|青\s*([1-9]\d{1,2}(?:,\d{3})*)/
+        /青\/銀\s*([1-9][0-9,]*)|青\s*([1-9][0-9,]*)/
     };
 
     const pattern =
@@ -1647,16 +1627,23 @@ async function extractMobileMixPrice(
   page,
   productName
 ) {
-  const normalize = value =>
-    String(value || "")
+  const rawBody =
+    await page
+      .locator("body")
+      .innerText()
+      .catch(() => "");
+
+  const text =
+    String(rawBody || "")
+      .replace(/\r/g, "")
       .replace(/\u00a0/g, " ")
       .replace(/\s+/g, " ")
-      .trim()
-      .replace(/iPhone\s*18/gi, "iPhone 18")
-      .replace(/Pro\s*Max/gi, "Pro Max");
+      .trim();
 
   const normalizedName =
-    normalize(productName);
+    String(productName || "")
+      .replace(/\s+/g, " ")
+      .trim();
 
   const colorMatch =
     normalizedName.match(
@@ -1669,220 +1656,177 @@ async function extractMobileMixPrice(
       : null;
 
   const target =
-    normalize(
-      normalizedName.replace(
+    normalizedName
+      .replace(
         /\s(ブラック|シルバー|グレイシャー|バーガンディ)$/,
         ""
       )
+      .trim();
+
+  const escapedTarget =
+    target
+      .split(/\s+/)
+      .map(part =>
+        part.replace(
+          /[.*+?^${}()|[\]\\]/g,
+          "\\$&"
+        )
+      )
+      .join("\\s*");
+
+  const pattern =
+    new RegExp(
+      escapedTarget +
+      "\\s*" +
+      "([0-9,]+)円" +
+      "\\s*未開封\\s*" +
+      "([\\s\\S]{0,180}?)" +
+      "(?:買取申込|$)",
+      "i"
     );
 
-  const rows =
-    page.locator("div.option3");
+  const match =
+    text.match(pattern);
 
-  const count =
-    await rows.count();
+  if (!match) {
+    return {
+      found: false,
+      price: null,
+      raw_price: null,
+      caution: "",
+      error:
+        "Mobile MIX対象商品ブロックを取得できません"
+    };
+  }
 
-  for (
-    let i = 0;
-    i < count;
-    i++
+  const basePrice =
+    Number(
+      match[1].replace(/,/g, "")
+    );
+
+  const conditionText =
+    String(match[2] || "").trim();
+
+  if (
+    !Number.isFinite(basePrice) ||
+    basePrice <= 0
   ) {
-    const row =
-      rows.nth(i);
+    return {
+      found: true,
+      price: null,
+      raw_price: null,
+      caution: conditionText,
+      error:
+        "Mobile MIX基準価格を数値化できません"
+    };
+  }
 
-    const rawText =
-      await row
-        .innerText()
-        .catch(() => "");
+  let adjustment = 0;
+  let rule = "全色・基準価格";
 
-    const text =
-      normalize(rawText);
+  const allColorMatch =
+    conditionText.match(
+      /全色\s*(?:△\s*)?([+-]\s*[0-9,]+)/
+    );
 
-    if (
-      !text.includes(target)
-    ) {
-      continue;
-    }
-
-    /*
-     * まず input.model_price の値を優先。
-     */
-    let rawBase =
-      await row
-        .locator("input.model_price")
-        .first()
-        .getAttribute("value")
-        .catch(() => null);
-
-    let basePrice =
-      rawBase
-        ? Number(
-            String(rawBase)
-              .replace(/[^\d]/g, "")
-          )
-        : NaN;
-
-    /*
-     * inputから取れない場合は
-     * 商品ブロック本文の最初の価格を使う。
-     */
-    if (
-      !Number.isFinite(basePrice) ||
-      basePrice <= 0
-    ) {
-      const priceMatch =
-        rawText.match(
-          /([1-9]\d{1,2}(?:,\d{3})*)\s*円/
-        );
-
-      if (priceMatch) {
-        basePrice =
-          Number(
-            priceMatch[1]
-              .replace(/,/g, "")
-          );
-      }
-    }
-
-    if (
-      !Number.isFinite(basePrice) ||
-      basePrice <= 0
-    ) {
-      return {
-        found: true,
-        price: null,
-        raw_price: null,
-        caution: rawText,
-        error:
-          "Mobile MIX基準価格を取得できません"
-      };
-    }
-
-    let adjustment = 0;
-    let rule = "全色・基準価格";
-
-    /*
-     * 全色に共通する増減がある場合
-     * 例:
-     * 全色 △-6,000円
-     */
-    const allColorMatch =
-      rawText.match(
-        /全色\s*(?:△\s*)?([+-]\s*[0-9,]+)\s*円?/
+  if (allColorMatch) {
+    const value =
+      Number(
+        allColorMatch[1]
+          .replace(/\s/g, "")
+          .replace(/,/g, "")
       );
 
-    if (allColorMatch) {
+    if (Number.isFinite(value)) {
+      adjustment = value;
+      rule =
+        `全色 ${value.toLocaleString("ja-JP")}円`;
+    }
+  }
+
+  if (color) {
+    const colorRule =
+      /((?:ブラック|シルバー|グレイシャー?|バーガンディ)(?:\s*[,、､\/]\s*(?:ブラック|シルバー|グレイシャー?|バーガンディ))*)\s*(?:△\s*)?([+-]\s*[0-9,]+)/g;
+
+    for (
+      const m of conditionText.matchAll(colorRule)
+    ) {
+      const colors =
+        m[1]
+          .split(/[,、､\/]/)
+          .map(x => x.trim())
+          .map(x =>
+            x === "グレイシャ"
+              ? "グレイシャー"
+              : x
+          );
+
+      if (!colors.includes(color)) {
+        continue;
+      }
+
       const value =
         Number(
-          allColorMatch[1]
+          m[2]
             .replace(/\s/g, "")
             .replace(/,/g, "")
         );
 
-      if (Number.isFinite(value)) {
-        adjustment = value;
-        rule =
-          `全色 ${value.toLocaleString("ja-JP")}円`;
+      if (!Number.isFinite(value)) {
+        return {
+          found: true,
+          price: null,
+          raw_price: null,
+          caution: conditionText,
+          error:
+            "Mobile MIX色別増減額を数値化できません"
+        };
       }
+
+      adjustment = value;
+
+      rule =
+        `${m[1]} ${value.toLocaleString("ja-JP")}円`;
+
+      break;
     }
+  }
 
-    /*
-     * 色別指定を優先。
-     *
-     * 例:
-     * グレイシャー/シルバー-8,000円
-     * グレイシャー-1,000円
-     */
-    if (color) {
-      const colorRule =
-        /((?:ブラック|シルバー|グレイシャー|バーガンディ)(?:\/(?:ブラック|シルバー|グレイシャー|バーガンディ))*)\s*(?:△\s*)?([+-]\s*[0-9,]+)\s*円?/g;
+  const finalPrice =
+    basePrice + adjustment;
 
-      for (
-        const match of rawText.matchAll(colorRule)
-      ) {
-        const colors =
-          match[1].split("/");
-
-        if (
-          !colors.includes(color)
-        ) {
-          continue;
-        }
-
-        const value =
-          Number(
-            match[2]
-              .replace(/\s/g, "")
-              .replace(/,/g, "")
-          );
-
-        if (
-          !Number.isFinite(value)
-        ) {
-          return {
-            found: true,
-            price: null,
-            raw_price: null,
-            caution: rawText,
-            error:
-              "Mobile MIX色別増減額を数値化できません"
-          };
-        }
-
-        adjustment = value;
-
-        rule =
-          `${match[1]} ${value.toLocaleString("ja-JP")}円`;
-
-        break;
-      }
-    }
-
-    const finalPrice =
-      basePrice + adjustment;
-
-    if (
-      !Number.isFinite(finalPrice) ||
-      finalPrice <= 0
-    ) {
-      return {
-        found: true,
-        price: null,
-        raw_price: null,
-        caution: rawText,
-        error:
-          "Mobile MIX最終価格を数値化できません"
-      };
-    }
-
+  if (
+    !Number.isFinite(finalPrice) ||
+    finalPrice <= 0
+  ) {
     return {
       found: true,
-
-      price:
-        finalPrice,
-
-      raw_price:
-        `${finalPrice.toLocaleString("ja-JP")}円`,
-
-      base_price:
-        basePrice,
-
-      adjustment,
-
-      caution:
-        `基準${basePrice.toLocaleString("ja-JP")}円 / ${rule}`,
-
-      error: null
+      price: null,
+      raw_price: null,
+      caution: conditionText,
+      error:
+        "Mobile MIX最終価格を数値化できません"
     };
   }
 
   return {
-    found: false,
-    price: null,
-    raw_price: null,
-    caution: "",
-    error:
-      "Mobile MIX対象商品が見つかりません"
+    found: true,
+
+    price:
+      finalPrice,
+
+    raw_price:
+      `${finalPrice.toLocaleString("ja-JP")}円`,
+
+    base_price:
+      basePrice,
+
+    adjustment,
+
+    caution:
+      `基準${basePrice.toLocaleString("ja-JP")}円 / ${rule}`,
+
+    error: null
   };
 }
 
