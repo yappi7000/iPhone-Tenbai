@@ -228,7 +228,7 @@ body{background:#eef3f9}
     <div class="kpi profit">
       <div class="kpi-label">💎 最終実質利益 (目安)</div>
       <div id="finalProfitCard" class="kpi-value profit-text">--</div>
-      <div class="kpi-sub">ポイント還元等考慮</div>
+      <div class="kpi-sub">クレジットカードP還元考慮（1％）</div>
     </div>
   </div>
 
@@ -263,14 +263,14 @@ body{background:#eef3f9}
     <div class="sim-grid">
       <div class="sim-left">
         <div class="sim-row"><span>Apple購入価格</span><strong id="simApplePrice">--</strong></div>
-        <div class="sim-row"><span>最高買取価格</span><strong id="simBestPrice">--</strong></div>
+        <div class="sim-row"><span>最高買取価格</span><input id="simBestPrice" class="sim-input" type="number" min="0" step="100" placeholder="買取価格を入力"></div>
         <div class="sim-row"><span>その他コスト</span><input id="simCost" class="sim-input" type="number" min="0" step="100" value="0"></div>
-        <div class="sim-row"><span>ポイント等</span><input id="simPoint" class="sim-input" type="number" min="0" step="100" value="0"></div>
+        <div class="sim-row"><span>クレジットカードP還元（1％）</span><strong id="simCardPoint">--</strong></div>
       </div>
       <div class="sim-result">
         <div class="sim-result-label">想定実質利益</div>
         <div class="sim-result-value" id="simProfit">--</div>
-        <div class="sim-formula">最高買取 ＋ ポイント等 − Apple購入価格 − その他コスト</div>
+        <div class="sim-formula">入力した買取価格 ＋ クレジットカードP還元（Apple購入価格の1％） − Apple購入価格 − その他コスト</div>
       </div>
     </div>
   </section>
@@ -374,23 +374,44 @@ body{background:#eef3f9}
   let selectedCondition = "unopened";
 
 
+  let simulationProductKey = "";
+
   function updateSimulation() {
     const model = document.getElementById("modelSelect").value;
     const storage = document.getElementById("storageSelect").value;
+    const color = document.getElementById("colorSelect").value;
     const apple = APPLE_PRICES[`${model}_${storage}`];
-    const jan = JAN_DATABASE[`${model}_${storage}_${document.getElementById("colorSelect").value}`];
+    const jan = JAN_DATABASE[`${model}_${storage}_${color}`];
     const itemData = selectedCondition === "unopened" ? crawlData[jan] : null;
-    const best = itemData && itemData.stores && itemData.stores.length
+
+    const autoBest = itemData && itemData.stores && itemData.stores.length
       ? Math.max(...itemData.stores.map(x => Number(x.price) || 0))
       : 0;
+
+    const currentKey = `${model}_${storage}_${color}_${selectedCondition}`;
+    const bestInput = document.getElementById("simBestPrice");
+
+    if (simulationProductKey !== currentKey) {
+      bestInput.value = autoBest || "";
+      simulationProductKey = currentKey;
+    }
+
+    const best = Number(bestInput.value) || 0;
     const cost = Number(document.getElementById("simCost").value) || 0;
-    const point = Number(document.getElementById("simPoint").value) || 0;
-    document.getElementById("simApplePrice").textContent = apple ? `¥${apple.toLocaleString()}` : (APPLE_STATUS[model] || "価格未設定");
-    document.getElementById("simBestPrice").textContent = best ? `¥${best.toLocaleString()}` : "--";
+    const cardPoint = apple ? Math.round(apple * 0.01) : 0;
+
+    document.getElementById("simApplePrice").textContent =
+      apple ? `¥${apple.toLocaleString()}` : (APPLE_STATUS[model] || "価格未設定");
+
+    document.getElementById("simCardPoint").textContent =
+      apple ? `¥${cardPoint.toLocaleString()}` : "--";
+
     if (apple && best) {
-      const profit = best + point - apple - cost;
-      document.getElementById("simProfit").textContent = `${profit >= 0 ? "+" : ""}¥${profit.toLocaleString()}`;
-      document.getElementById("simProfit").style.color = profit >= 0 ? "#438b6c" : "#c92a2a";
+      const profit = best + cardPoint - apple - cost;
+      document.getElementById("simProfit").textContent =
+        `${profit >= 0 ? "+" : ""}¥${profit.toLocaleString()}`;
+      document.getElementById("simProfit").style.color =
+        profit >= 0 ? "#438b6c" : "#c92a2a";
     } else {
       document.getElementById("simProfit").textContent = "--";
     }
@@ -420,8 +441,8 @@ body{background:#eef3f9}
     colorSel.addEventListener("change", render);
 
     updateStorages();
-    document.getElementById("simCost").addEventListener("input", updateSimulation);
-    document.getElementById("simPoint").addEventListener("input", updateSimulation);
+    document.getElementById("simCost").addEventListener("input", () => updateSimulation());
+    document.getElementById("simBestPrice").addEventListener("input", () => updateSimulation());
   }
 
   async function loadCrawlData() {
@@ -497,7 +518,7 @@ body{background:#eef3f9}
       diffPriceCard.textContent = `${sign}¥${diff.toLocaleString()}`;
       diffPriceCard.style.color = diff >= 0 ? "var(--gold)" : "#c92a2a";
 
-      const estimatedProfit = diff + 3000;
+      const cardPoint = Math.round(applePrice * 0.01); const estimatedProfit = diff + cardPoint;
       finalProfitCard.textContent = `+¥${estimatedProfit.toLocaleString()}`;
       finalProfitCard.style.color = "var(--gold)";
     } else {
