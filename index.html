@@ -297,6 +297,67 @@ body{background:#eef3f9}
     </div>
   </section>
 
+
+  <section class="section-card" id="presentChecker">
+    <h2 class="section-title">
+      <span class="emoji">🎁</span>やっぴ〜Present｜iPhone買取相場かんたん検索
+    </h2>
+
+    <p style="margin:0 0 16px; color:var(--muted); line-height:1.8;">
+      JANコードまたは商品名から、現在登録されているiPhoneの買取相場を検索できます。
+      売却前の価格チェックにご利用ください。
+    </p>
+
+    <div class="present-search">
+      <input
+        id="presentSearchInput"
+        class="sim-input"
+        type="text"
+        placeholder="JANコード・商品名を入力"
+        autocomplete="off"
+      >
+      <button type="button" id="presentSearchBtn" class="primary-btn">
+        🔍 検索する
+      </button>
+    </div>
+
+    <div id="presentSearchMessage" style="margin-top:12px;"></div>
+
+    <div id="presentSearchResult" style="display:none; margin-top:18px;">
+      <div class="sim-grid">
+        <div class="sim-left">
+          <div class="sim-row">
+            <span>商品名</span>
+            <strong id="presentProductName">--</strong>
+          </div>
+          <div class="sim-row">
+            <span>JANコード</span>
+            <strong id="presentJan">--</strong>
+          </div>
+          <div class="sim-row">
+            <span>最高買取価格</span>
+            <strong id="presentBestPrice">--</strong>
+          </div>
+          <div class="sim-row">
+            <span>最高値店舗</span>
+            <strong id="presentBestStore">--</strong>
+          </div>
+        </div>
+      </div>
+
+      <div id="presentRanking" style="margin-top:18px;"></div>
+
+      <button
+        type="button"
+        id="presentUsePriceBtn"
+        class="primary-btn"
+        style="margin-top:16px;"
+      >
+        💰 この価格で実質利益を計算
+      </button>
+    </div>
+  </section>
+
 </div>
 
 <footer class="footer">
@@ -584,6 +645,148 @@ body{background:#eef3f9}
       const old = btn.textContent; btn.textContent = "コピー済";
       setTimeout(() => btn.textContent = old, 1200);
     } catch { alert(`クーポンコード：${btn.dataset.code}`); }
+  });
+
+
+  let presentSelectedProduct = null;
+
+  function normalizePresentSearch(value) {
+    return String(value || "")
+      .toLowerCase()
+      .replace(/[\s　_-]/g, "");
+  }
+
+  function searchPresentProduct() {
+    const input = document.getElementById("presentSearchInput");
+    const message = document.getElementById("presentSearchMessage");
+    const result = document.getElementById("presentSearchResult");
+    const ranking = document.getElementById("presentRanking");
+
+    const query = input.value.trim();
+
+    message.textContent = "";
+    result.style.display = "none";
+    ranking.innerHTML = "";
+    presentSelectedProduct = null;
+
+    if (!query) {
+      message.textContent = "JANコードまたは商品名を入力してください。";
+      return;
+    }
+
+    const normalizedQuery = normalizePresentSearch(query);
+    const products = Object.entries(JAN_DATABASE);
+
+    let matches = products.filter(([name, jan]) => jan === query);
+
+    if (matches.length === 0) {
+      matches = products.filter(([name]) =>
+        normalizePresentSearch(name).includes(normalizedQuery)
+      );
+    }
+
+    if (matches.length === 0) {
+      message.textContent = "該当する商品が見つかりませんでした。";
+      return;
+    }
+
+    if (matches.length > 1) {
+      message.innerHTML =
+        `候補が${matches.length}件あります。容量・カラーまで入力すると絞り込めます。<br>` +
+        matches.slice(0, 8).map(([name]) =>
+          `<span style="display:inline-block;margin:6px 6px 0 0;padding:5px 8px;background:#f3f4f6;border-radius:6px;font-size:12px;">${name.replaceAll("_", " ")}</span>`
+        ).join("");
+      return;
+    }
+
+    const [productKey, jan] = matches[0];
+    const itemData = crawlData[jan];
+
+    document.getElementById("presentProductName").textContent =
+      productKey.replaceAll("_", " ");
+    document.getElementById("presentJan").textContent = jan;
+
+    if (!itemData || !Array.isArray(itemData.stores) || itemData.stores.length === 0) {
+      document.getElementById("presentBestPrice").textContent = "--";
+      document.getElementById("presentBestStore").textContent = "買取データ未取得";
+
+      ranking.innerHTML = `
+        <div style="padding:16px;background:#f8fafc;border-radius:10px;color:var(--muted);">
+          この商品の買取価格データはまだ取得できていません。<br>
+          <span style="font-size:12px;">JAN: ${jan}</span>
+        </div>
+      `;
+
+      result.style.display = "block";
+      return;
+    }
+
+    const sortedStores = [...itemData.stores]
+      .filter(store => Number(store.price) > 0)
+      .sort((a, b) => Number(b.price) - Number(a.price));
+
+    if (sortedStores.length === 0) {
+      document.getElementById("presentBestPrice").textContent = "--";
+      document.getElementById("presentBestStore").textContent = "有効な価格データなし";
+      result.style.display = "block";
+      return;
+    }
+
+    const best = sortedStores[0];
+
+    document.getElementById("presentBestPrice").textContent =
+      `¥${Number(best.price).toLocaleString()}`;
+
+    document.getElementById("presentBestStore").textContent = best.store;
+
+    const updateText = itemData.last_update
+      ? `<div style="margin-bottom:10px;font-size:12px;color:var(--muted);">最終取得：${itemData.last_update}</div>`
+      : "";
+
+    ranking.innerHTML = `
+      ${updateText}
+      <div style="font-weight:900;margin-bottom:10px;">🏆 買取価格ランキング</div>
+      ${sortedStores.map((store, index) => `
+        <div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #e5e7eb;">
+          <span style="min-width:38px;font-weight:900;">${index + 1}位</span>
+          <span style="flex:1;font-weight:800;">${store.store}</span>
+          <span style="font-weight:900;">¥${Number(store.price).toLocaleString()}</span>
+          ${store.url ? `<a href="${store.url}" target="_blank" rel="noopener noreferrer" class="visit">公式確認</a>` : ""}
+        </div>
+      `).join("")}
+    `;
+
+    presentSelectedProduct = {
+      productKey,
+      jan,
+      bestPrice: Number(best.price)
+    };
+
+    result.style.display = "block";
+  }
+
+  document.getElementById("presentSearchBtn").addEventListener("click", searchPresentProduct);
+
+  document.getElementById("presentSearchInput").addEventListener("keydown", e => {
+    if (e.key === "Enter") searchPresentProduct();
+  });
+
+  document.getElementById("presentUsePriceBtn").addEventListener("click", () => {
+    if (!presentSelectedProduct) return;
+
+    document.getElementById("simBestPrice").value =
+      presentSelectedProduct.bestPrice;
+
+    updateSimulation();
+
+    const simulation = document.getElementById("profitSimulation");
+
+    if (simulation) {
+      simulation.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
   });
 
   initUI();
