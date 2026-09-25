@@ -318,6 +318,66 @@ body{background:#eef3f9}
   }
 }
 
+
+  /* Present 商品名はモデル・容量・カラーの3行表示 */
+  .present-product-row {
+    grid-template-columns: 120px minmax(0, 1fr) !important;
+  }
+
+  .present-product-row #presentProductName {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+  }
+
+  .present-product-row #presentProductName > span {
+    display: block;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 600px) {
+    .present-product-row {
+      grid-template-columns: 90px minmax(0, 1fr) !important;
+    }
+
+    .present-product-row #presentProductName {
+      font-size: 18px;
+    }
+  }
+
+
+  /* Present検索結果はカード全幅を使用 */
+  #presentSearchResult .present-result-grid {
+    display: block !important;
+    grid-template-columns: none !important;
+  }
+
+  #presentSearchResult .present-result-left {
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  #presentSearchResult .present-product-row {
+    display: grid !important;
+    grid-template-columns: 180px minmax(0, 1fr) !important;
+  }
+
+  #presentSearchResult #presentProductName {
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  #presentSearchResult #presentProductName > span {
+    display: block !important;
+    white-space: nowrap !important;
+  }
+
+  @media (max-width: 600px) {
+    #presentSearchResult .present-product-row {
+      grid-template-columns: 90px minmax(0, 1fr) !important;
+    }
+  }
+
 </style>
 </head>
 <body>
@@ -528,9 +588,9 @@ body{background:#eef3f9}
     <div id="presentSearchMessage" style="margin-top:12px;"></div>
 
     <div id="presentSearchResult" style="display:none; margin-top:18px;">
-      <div class="sim-grid">
-        <div class="sim-left">
-          <div class="sim-row">
+      <div class="sim-grid present-result-grid">
+        <div class="sim-left present-result-left">
+          <div class="sim-row present-product-row">
             <span>商品名</span>
             <strong id="presentProductName">--</strong>
           </div>
@@ -940,8 +1000,14 @@ body{background:#eef3f9}
     const [productKey, jan] = matches[0];
     const itemData = crawlData[jan];
 
-    document.getElementById("presentProductName").textContent =
-      productKey.replaceAll("_", " ");
+    const displayProductParts = productKey.split("_");
+
+    document.getElementById("presentProductName").innerHTML =
+      displayProductParts
+        .map(part =>
+          `<span style="display:block;white-space:nowrap;">${part}</span>`
+        )
+        .join("");
     document.getElementById("presentJan").textContent = jan;
 
     if (!itemData || !Array.isArray(itemData.stores) || itemData.stores.length === 0) {
@@ -1176,3 +1242,27 @@ body{background:#eef3f9}
 </script>
 </body>
 </html>
+
+<style>
+#presentSearchResult .sim-row.present-product-row {
+  grid-template-columns: 170px 1fr !important;
+}
+
+#presentSearchResult .sim-row.present-product-row #presentProductName {
+  width: auto !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  text-align: left !important;
+}
+
+#presentSearchResult .sim-row.present-product-row #presentProductName > span {
+  display: block !important;
+  white-space: nowrap !important;
+}
+
+@media(max-width:760px) {
+  #presentSearchResult .sim-row.present-product-row {
+    grid-template-columns: 130px 1fr !important;
+  }
+}
+</style>
