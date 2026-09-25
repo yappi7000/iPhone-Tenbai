@@ -692,9 +692,14 @@ body{background:#eef3f9}
 
     if (matches.length > 1) {
       message.innerHTML =
-        `候補が${matches.length}件あります。容量・カラーまで入力すると絞り込めます。<br>` +
-        matches.slice(0, 8).map(([name]) =>
-          `<span style="display:inline-block;margin:6px 6px 0 0;padding:5px 8px;background:#f3f4f6;border-radius:6px;font-size:12px;">${name.replaceAll("_", " ")}</span>`
+        `<div style="margin-bottom:8px;">候補が${matches.length}件あります。商品をタップしてください👇</div>` +
+        matches.map(([name, jan]) =>
+          `<button
+            type="button"
+            class="present-candidate"
+            data-jan="${jan}"
+            style="display:inline-block;margin:6px 6px 0 0;padding:8px 12px;background:#f3f4f6;border:1px solid #e5e7eb;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;"
+          >${name.replaceAll("_", " ")}</button>`
         ).join("");
       return;
     }
@@ -763,7 +768,27 @@ body{background:#eef3f9}
     };
 
     result.style.display = "block";
+
+    message.innerHTML = `
+      <div style="margin-top:10px;padding:10px 12px;background:#ecfdf5;color:#065f46;border-radius:8px;font-weight:800;">
+        ✅ ${productKey.replaceAll("_", " ")} を選択しました
+      </div>
+    `;
+
+    input.value = "";
+    input.placeholder = "JANコード・商品名を入力";
   }
+
+  document.getElementById("presentSearchMessage").addEventListener("click", e => {
+    const candidate = e.target.closest(".present-candidate");
+    if (!candidate) return;
+
+    const jan = candidate.dataset.jan;
+    if (!jan) return;
+
+    document.getElementById("presentSearchInput").value = jan;
+    searchPresentProduct();
+  });
 
   document.getElementById("presentSearchBtn").addEventListener("click", searchPresentProduct);
 
@@ -774,8 +799,33 @@ body{background:#eef3f9}
   document.getElementById("presentUsePriceBtn").addEventListener("click", () => {
     if (!presentSelectedProduct) return;
 
+    const parts = presentSelectedProduct.productKey.split("_");
+    const model = parts[0];
+    const storage = parts[1];
+    const color = parts[2];
+
+    const modelSelect = document.getElementById("modelSelect");
+    const storageSelect = document.getElementById("storageSelect");
+    const colorSelect = document.getElementById("colorSelect");
+
+    modelSelect.value = model;
+
+    storageSelect.innerHTML = PRODUCT_CONFIG[model].storages
+      .map(s => `<option value="${s}">${s}</option>`)
+      .join("");
+    storageSelect.value = storage;
+
+    colorSelect.innerHTML = PRODUCT_CONFIG[model].colors
+      .map(c => `<option value="${c}">${c}</option>`)
+      .join("");
+    colorSelect.value = color;
+
+    render();
+
     document.getElementById("simBestPrice").value =
       presentSelectedProduct.bestPrice;
+
+    simulationProductKey = `${model}_${storage}_${color}_${selectedCondition}`;
 
     updateSimulation();
 
