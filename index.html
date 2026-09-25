@@ -114,6 +114,210 @@ body{background:#eef3f9}
   .sim-result-value{font-size:36px}
   .section-card{padding:20px}
 }
+
+/* ===== やっぴ〜Present ===== */
+
+#presentChecker {
+  position: relative;
+  overflow: hidden;
+}
+
+#presentChecker::before {
+  content: "PRESENT";
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: var(--gold);
+  opacity: .75;
+}
+
+.present-search {
+  display: flex;
+  gap: 10px;
+  align-items: stretch;
+}
+
+.present-search .sim-input {
+  flex: 1;
+  min-width: 0;
+  font-size: 16px;
+}
+
+.present-search .primary-btn {
+  white-space: nowrap;
+  min-width: 120px;
+}
+
+.present-candidate {
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+
+.present-candidate:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,.08);
+}
+
+#presentSearchResult {
+  padding: 18px;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  background: #fff;
+}
+
+#presentBestPrice {
+  font-size: 24px;
+  color: var(--green);
+}
+
+#presentBestStore {
+  font-weight: 900;
+}
+
+#presentRanking > div {
+  transition: background .15s ease;
+}
+
+#presentRanking > div:hover {
+  background: #f8fafc;
+}
+
+#presentUsePriceBtn {
+  width: 100%;
+  margin-top: 18px;
+  padding: 14px 18px;
+  font-size: 15px;
+}
+
+@media (max-width: 640px) {
+  .present-search {
+    flex-direction: column;
+  }
+
+  .present-search .primary-btn {
+    width: 100%;
+    min-height: 46px;
+  }
+
+  .present-candidate {
+    width: 100%;
+    margin: 5px 0 !important;
+    text-align: left;
+    padding: 11px 12px !important;
+  }
+
+  #presentSearchResult {
+    padding: 14px;
+  }
+
+  #presentBestPrice {
+    font-size: 22px;
+  }
+
+  #presentChecker::before {
+    display: none;
+  }
+}
+
+
+/* ===== Present 利益サマリー ===== */
+
+.present-profit-summary {
+  margin: 18px 0 22px;
+  padding: 18px;
+  background: #fffaf0;
+  border: 1px solid #ead9a6;
+  border-radius: 14px;
+}
+
+.present-profit-item,
+.present-profit-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px dashed #e5e7eb;
+}
+
+.present-profit-item span,
+.present-profit-total span {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.present-profit-item strong {
+  font-size: 17px;
+  white-space: nowrap;
+}
+
+.present-profit-total {
+  margin-top: 6px;
+  padding: 15px 0 10px;
+  border-bottom: none;
+}
+
+.present-profit-total span {
+  color: #111827;
+  font-weight: 900;
+}
+
+.present-profit-total strong {
+  font-size: 26px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.profit-plus {
+  color: var(--green);
+}
+
+.profit-minus {
+  color: #c92a2a;
+}
+
+.present-profit-note {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+@media (max-width: 640px) {
+  .present-profit-summary {
+    padding: 14px;
+  }
+
+  .present-profit-item,
+  .present-profit-total {
+    gap: 10px;
+  }
+
+  .present-profit-item span {
+    font-size: 12px;
+  }
+
+  .present-profit-item strong {
+    font-size: 15px;
+  }
+
+  .present-profit-total {
+    display: block;
+  }
+
+  .present-profit-total span {
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .present-profit-total strong {
+    display: block;
+    font-size: 28px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -744,11 +948,64 @@ body{background:#eef3f9}
 
     document.getElementById("presentBestStore").textContent = best.store;
 
+    const productParts = productKey.split("_");
+    const presentModel = productParts[0];
+    const presentStorage = productParts[1];
+    const presentApplePrice =
+      APPLE_PRICES[`${presentModel}_${presentStorage}`] ?? 0;
+
+    const presentBestPrice = Number(best.price);
+    const presentCardPoint = presentApplePrice
+      ? Math.round(presentApplePrice * 0.01)
+      : 0;
+
+    const presentDiff = presentApplePrice
+      ? presentBestPrice - presentApplePrice
+      : null;
+
+    const presentProfit = presentApplePrice
+      ? presentBestPrice + presentCardPoint - presentApplePrice
+      : null;
+
+    const profitSummary = presentApplePrice ? `
+      <div class="present-profit-summary">
+        <div class="present-profit-item">
+          <span>🍎 Apple購入価格</span>
+          <strong>¥${presentApplePrice.toLocaleString()}</strong>
+        </div>
+
+        <div class="present-profit-item">
+          <span>📈 買取との差額</span>
+          <strong class="${presentDiff >= 0 ? "profit-plus" : "profit-minus"}">
+            ${presentDiff >= 0 ? "+" : "-"}¥${Math.abs(presentDiff).toLocaleString()}
+          </strong>
+        </div>
+
+        <div class="present-profit-item">
+          <span>💳 カードP還元 1％</span>
+          <strong>¥${presentCardPoint.toLocaleString()}</strong>
+        </div>
+
+        <div class="present-profit-total">
+          <span>💰 カード還元込み実質利益</span>
+          <strong class="${presentProfit >= 0 ? "profit-plus" : "profit-minus"}">
+            ${presentProfit >= 0 ? "+" : "-"}¥${Math.abs(presentProfit).toLocaleString()}
+          </strong>
+        </div>
+
+        <div class="present-profit-note">
+          Apple購入価格とクレジットカードP還元1％で計算した目安です。
+          送料・振込手数料・その他コスト等は含みません。
+        </div>
+      </div>
+    ` : "";
+
     const updateText = itemData.last_update
       ? `<div style="margin-bottom:10px;font-size:12px;color:var(--muted);">最終取得：${itemData.last_update}</div>`
       : "";
 
     ranking.innerHTML = `
+      ${profitSummary}
       ${updateText}
       <div style="font-weight:900;margin-bottom:10px;">🏆 買取価格ランキング</div>
       ${sortedStores.map((store, index) => `
