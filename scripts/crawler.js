@@ -3219,6 +3219,301 @@ function updatePricesJsonSafely(diagnostics) {
 }
 
 
+
+
+function mergeIPhone17PricesSafely(candidatePrices) {
+  const targets = loadIPhone17TargetsFromMaster();
+  const allowedJans =
+    new Set(targets.map(item => String(item.jan)));
+
+  if (
+    !candidatePrices ||
+    typeof candidatePrices !== "object" ||
+    Array.isArray(candidatePrices)
+  ) {
+    return {
+      updated: false,
+      reason: "17シリーズ候補価格データが不正"
+    };
+  }
+
+  const currentPrices = JSON.parse(
+    fs.readFileSync(PRICES_PATH, "utf8")
+  );
+
+  const mergedPrices = {
+    ...currentPrices
+  };
+
+  let updatedSkuCount = 0;
+  let priceCount = 0;
+
+  for (const [jan, item] of Object.entries(candidatePrices)) {
+    const normalizedJan = String(jan);
+
+    if (!allowedJans.has(normalizedJan)) {
+      return {
+        updated: false,
+        reason: `17シリーズ対象外JANを検出: ${normalizedJan}`
+      };
+    }
+
+    if (!item || !Array.isArray(item.stores)) {
+      continue;
+    }
+
+    const seenStores = new Set();
+
+    const validStores = item.stores
+      .filter(store => {
+        const price = Number(store.price);
+        const storeName = String(store.store || "").trim();
+
+        if (!storeName) return false;
+        if (!Number.isFinite(price)) return false;
+        if (price < 50000 || price > 400000) return false;
+        if (seenStores.has(storeName)) return false;
+
+        seenStores.add(storeName);
+        return true;
+      })
+      .map(store => ({
+        store: String(store.store),
+        price: Number(store.price),
+        url: String(store.url || ""),
+        condition: "unopened",
+        scope: "jan"
+      }))
+      .sort((a, b) => b.price - a.price);
+
+    // 価格を1店舗も確認できないSKUは、
+    // 既存価格を消さず今回は更新しない
+    if (validStores.length === 0) {
+      continue;
+    }
+
+    mergedPrices[normalizedJan] = {
+      stores: validStores,
+      last_update: item.last_update || nowJST()
+    };
+
+    updatedSkuCount++;
+    priceCount += validStores.length;
+  }
+
+  if (updatedSkuCount === 0) {
+    return {
+      updated: false,
+      reason: "17シリーズで更新可能な価格が0件"
+    };
+  }
+
+  const tmpPath = `${PRICES_PATH}.17.tmp`;
+
+  fs.writeFileSync(
+    tmpPath,
+    JSON.stringify(mergedPrices, null, 2) + "\n",
+    "utf8"
+  );
+
+  // 書き込んだJSONを再読込できることを確認してから置換
+  const verify = JSON.parse(
+    fs.readFileSync(tmpPath, "utf8")
+  );
+
+  if (Object.keys(verify).length < Object.keys(currentPrices).length) {
+    fs.unlinkSync(tmpPath);
+
+    return {
+      updated: false,
+      reason: "17シリーズマージ後に既存SKUが減少したため中止"
+    };
+  }
+
+  fs.renameSync(
+    tmpPath,
+    PRICES_PATH
+  );
+
+  return {
+    updated: true,
+    reason: null,
+    sku_count: updatedSkuCount,
+    price_count: priceCount,
+    total_sku_count: Object.keys(mergedPrices).length
+  };
+}
+
+
+function loadIPhone17TargetsFromMaster() {
+  const masterPath = path.join(
+    ROOT_DIR,
+    "data",
+    "product_master.json"
+  );
+
+  const master = JSON.parse(
+    fs.readFileSync(masterPath, "utf8")
+  );
+
+  const targets = [];
+
+  for (const [model, storages] of Object.entries(master)) {
+    if (!model.startsWith("iPhone 17")) {
+      continue;
+    }
+
+    for (const [storage, colors] of Object.entries(storages)) {
+      for (const [color, jan] of Object.entries(colors)) {
+        targets.push({
+          jan: String(jan),
+          name: `${model} ${storage} ${color}`,
+          model,
+          storage,
+          color
+        });
+      }
+    }
+  }
+
+  const uniqueJans =
+    new Set(targets.map(item => item.jan));
+
+  if (
+    targets.length === 0 ||
+    uniqueJans.size !== targets.length
+  ) {
+    throw new Error(
+      `iPhone 17 商品マスター異常: total=${targets.length}, unique=${uniqueJans.size}`
+    );
+  }
+
+  return targets;
+}
+
+
+
+async function crawlIPhone17Prices() {
+  const targets = loadIPhone17TargetsFromMaster();
+
+  const browser = await chromium.launch({
+    headless: true
+  });
+
+  const collectedPrices = {};
+
+  try {
+    for (const item of targets) {
+      const stores = [];
+
+      console.log("");
+      console.log("==========================================");
+      console.log(`商品: ${item.name}`);
+      console.log(`JAN: ${item.jan}`);
+      console.log("==========================================");
+
+      for (const store of STORES) {
+        if (store.deferred || store.iphone18Only) {
+          continue;
+        }
+
+        try {
+          const result =
+            await inspectStore(browser, store, item);
+
+          if (!result || !result.price) {
+            console.log(
+              `${store.name}: PRICE NOT FOUND / 取扱なし`
+            );
+            continue;
+          }
+
+          const price = Number(result.price);
+
+          if (
+            !Number.isFinite(price) ||
+            price < 50000 ||
+            price > 400000
+          ) {
+            console.log(
+              `${store.name}: 異常価格を除外 ${result.price}`
+            );
+            continue;
+          }
+
+          console.log(
+            `${store.name}: ¥${price.toLocaleString()}`
+          );
+
+          stores.push({
+            store: store.name,
+            price,
+            url: result.url || result.final_url || ""
+          });
+        } catch (error) {
+          console.log(
+            `${store.name}: ERROR - ${error.message}`
+          );
+        }
+      }
+
+      if (stores.length > 0) {
+        collectedPrices[item.jan] = {
+          name: item.name,
+          stores,
+          last_update: nowJST()
+        };
+      }
+    }
+  } finally {
+    await browser.close();
+  }
+
+  return {
+    targets,
+    collectedPrices
+  };
+}
+
+
+async function runIPhone17Smoke() {
+  console.log("");
+  console.log("==========================================");
+  console.log(" iPhone 17 SERIES DIAGNOSTIC");
+  console.log("==========================================");
+  console.log("prices.json は更新しません");
+  console.log("");
+
+  const {
+    targets,
+    collectedPrices
+  } = await crawlIPhone17Prices();
+
+  const outputPath = path.join(
+    ROOT_DIR,
+    "data",
+    "prices_17_candidate.json"
+  );
+
+  fs.writeFileSync(
+    outputPath,
+    JSON.stringify(collectedPrices, null, 2),
+    "utf8"
+  );
+
+  console.log("");
+  console.log(
+    `17候補価格保存: ${outputPath}`
+  );
+  console.log(
+    `価格取得SKU: ${Object.keys(collectedPrices).length}/${targets.length}`
+  );
+  console.log("");
+  console.log("17シリーズ診断完了");
+  console.log("prices.json は変更していません");
+}
+
+
 async function run() {
 
   /*
@@ -3863,6 +4158,63 @@ async function run() {
 
 
   /*
+   * iPhone 17シリーズ
+   *
+   * 18シリーズの安全更新処理とは分離する。
+   * 取得できた店舗の実価格だけを既存prices.jsonへマージし、
+   * 取得できなかったSKU・店舗の既存価格は削除しない。
+   */
+  let iphone17Update = {
+    updated: false,
+    reason: "18シリーズ更新失敗のため17シリーズ更新を実行せず"
+  };
+
+  if (pricesUpdate.updated) {
+    try {
+      console.log("");
+      console.log("==========================================");
+      console.log(" iPhone 17 SERIES UPDATE");
+      console.log("==========================================");
+
+      const {
+        targets: iphone17Targets,
+        collectedPrices: iphone17Prices
+      } = await crawlIPhone17Prices();
+
+      console.log(
+        `17シリーズ価格取得SKU: ${Object.keys(iphone17Prices).length}/${iphone17Targets.length}`
+      );
+
+      iphone17Update =
+        mergeIPhone17PricesSafely(
+          iphone17Prices
+        );
+
+      console.log(
+        iphone17Update.updated
+          ? `17シリーズ更新完了: ${iphone17Update.sku_count} SKU / ${iphone17Update.price_count}価格 / 合計${iphone17Update.total_sku_count} SKU`
+          : `17シリーズ更新中止: ${iphone17Update.reason}`
+      );
+    } catch (error) {
+      iphone17Update = {
+        updated: false,
+        reason:
+          error && error.message
+            ? error.message
+            : String(error)
+      };
+
+      console.error(
+        `17シリーズ更新エラー: ${iphone17Update.reason}`
+      );
+    }
+  }
+
+  diagnostics.iphone17_update =
+    iphone17Update;
+
+
+  /*
    * dataディレクトリ作成
    */
 
@@ -3989,7 +4341,12 @@ async function run() {
  * ============================================================
  */
 
-run().catch(error => {
+const mainRunner =
+  process.env.IPHONE17_SMOKE === "1"
+    ? runIPhone17Smoke
+    : run;
+
+mainRunner().catch(error => {
 
   console.error("");
   console.error(

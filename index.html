@@ -860,6 +860,35 @@ body{background:#eef3f9}
       .replace(/[\s　_-]/g, "");
   }
 
+  let presentProductDatabase = {};
+
+  async function loadPresentProductMaster() {
+    try {
+      const res = await fetch(`data/product_master.json?t=${Date.now()}`);
+      if (!res.ok) throw new Error("product_master fetch error");
+
+      const master = await res.json();
+      const database = {};
+
+      for (const [model, storages] of Object.entries(master)) {
+        for (const [storage, colors] of Object.entries(storages)) {
+          for (const [color, jan] of Object.entries(colors)) {
+            database[`${model}_${storage}_${color}`] = String(jan);
+          }
+        }
+      }
+
+      presentProductDatabase = database;
+
+      console.log(
+        `Present商品マスター読込: ${Object.keys(database).length} SKU`
+      );
+    } catch (error) {
+      console.error("Present商品マスター読込失敗:", error);
+      presentProductDatabase = { ...JAN_DATABASE };
+    }
+  }
+
   function searchPresentProduct() {
     const input = document.getElementById("presentSearchInput");
     const message = document.getElementById("presentSearchMessage");
@@ -879,7 +908,7 @@ body{background:#eef3f9}
     }
 
     const normalizedQuery = normalizePresentSearch(query);
-    const products = Object.entries(JAN_DATABASE);
+    const products = Object.entries(presentProductDatabase);
 
     let matches = products.filter(([name, jan]) => jan === query);
 
@@ -1018,11 +1047,34 @@ body{background:#eef3f9}
       `).join("")}
     `;
 
+    const canUseProfitSimulation =
+      Boolean(PRODUCT_CONFIG[presentModel]) &&
+      Boolean(APPLE_PRICES[`${presentModel}_${presentStorage}`]);
+
     presentSelectedProduct = {
       productKey,
       jan,
-      bestPrice: Number(best.price)
+      bestPrice: Number(best.price),
+      canUseProfitSimulation
     };
+
+    const usePriceBtn =
+      document.getElementById("presentUsePriceBtn");
+
+    if (usePriceBtn) {
+      usePriceBtn.disabled = !canUseProfitSimulation;
+
+      if (canUseProfitSimulation) {
+        usePriceBtn.textContent = "この価格で実質利益を計算";
+        usePriceBtn.style.opacity = "1";
+        usePriceBtn.style.cursor = "pointer";
+      } else {
+        usePriceBtn.textContent =
+          "Apple販売価格未設定のため利益計算対象外";
+        usePriceBtn.style.opacity = "0.55";
+        usePriceBtn.style.cursor = "not-allowed";
+      }
+    }
 
     result.style.display = "block";
 
@@ -1054,7 +1106,12 @@ body{background:#eef3f9}
   });
 
   document.getElementById("presentUsePriceBtn").addEventListener("click", () => {
-    if (!presentSelectedProduct) return;
+    if (
+      !presentSelectedProduct ||
+      !presentSelectedProduct.canUseProfitSimulation
+    ) {
+      return;
+    }
 
     const parts = presentSelectedProduct.productKey.split("_");
     const model = parts[0];
@@ -1097,7 +1154,25 @@ body{background:#eef3f9}
   });
 
   initUI();
-  loadCrawlData();
+
+
+
+  Promise.all([
+
+
+    loadPresentProductMaster(),
+
+
+    loadCrawlData()
+
+
+  ]).catch(error => {
+
+
+    console.error("初期データ読込エラー:", error);
+
+
+  });
 </script>
 </body>
 </html>
