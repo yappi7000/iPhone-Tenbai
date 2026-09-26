@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>iPhone買取チェッカー｜やっぴ〜Presents</title>
-<meta name="description" content="iPhoneのモデル・容量・カラー別にApple価格、在庫、買取価格を比較。最高買取店と実質利益を一目で確認。推測値は表示しません。">
+<title>総合買取チェッカー｜iPhone・ゲーム・トレカ・カメラ・家電｜やっぴ〜Presents</title>
+<meta name="description" content="iPhone・ゲーム機・トレカ・カメラ・家電の買取価格を比較。商品名・JAN検索、店舗別ランキングと手残り試算。取得できた価格だけを表示。">
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 <style>
@@ -379,6 +379,7 @@ body{background:#eef3f9}
   }
 
 </style>
+<link rel="stylesheet" href="assets/catalog.css">
 </head>
 <body>
 
@@ -391,8 +392,8 @@ body{background:#eef3f9}
 <div class="hero-inner">
   <div>
     <div class="brand">やっぴ〜Presents</div>
-    <h1>iPhone買取チェッカー<br>実戦版</h1>
-    <p>自動巡回システム連動。最新の買取相場とApple Store定価・実質利益を瞬時に比較。</p>
+    <h1>総合買取チェッカー<br>やっぴ〜実戦版</h1>
+    <p>iPhone・ゲーム機・トレカ・カメラ・家電。買取価格と、手元に残る金額を比較。</p>
     <div class="hero-badges">
       <span class="badge">🏆 最高買取自動判定</span>
       <span class="badge">🍎 Apple定価</span>
@@ -427,7 +428,36 @@ body{background:#eef3f9}
   </div>
 </section>
 
-<div class="container">
+<nav class="container catalog-nav" aria-label="商品ジャンル">
+  <button type="button" data-catalog-category="iphone" aria-pressed="true">📱 iPhone</button>
+  <button type="button" data-catalog-category="games" aria-pressed="false">🎮 ゲーム機</button>
+  <button type="button" data-catalog-category="cards" aria-pressed="false">🃏 トレカ</button>
+  <button type="button" data-catalog-category="cameras" aria-pressed="false">📷 カメラ</button>
+  <button type="button" data-catalog-category="appliances" aria-pressed="false">🏠 家電</button>
+  <button type="button" data-catalog-category="other" aria-pressed="false">📦 その他</button>
+</nav>
+<section class="container" id="catalogPanel" hidden aria-label="ジャンル別買取比較">
+ <div id="catalogList" class="card">
+  <p class="catalog-eyebrow">やっぴ〜Presents ／ 買取価格を比較</p>
+  <div class="catalog-heading"><h2 id="catalogTitle">ジャンル別 買取ランキング</h2><span class="catalog-tag">新品の買取相場</span></div>
+  <p class="catalog-muted" id="catalogCategoryNote"></p>
+  <div class="catalog-search"><div><label for="catalogQuery">商品名・型番・JANコード</label><input id="catalogQuery" type="search" placeholder="例：Switch 2、instax、JANコード" autocomplete="off"></div><div><label for="catalogSort">商品の並び順</label><select id="catalogSort"><option value="price">最高買取価格が高い順</option><option value="name">商品名順</option></select></div></div>
+  <p class="catalog-muted" id="catalogCount" role="status"></p>
+  <div class="catalog-grid" id="catalogProducts"><p>読み込み中…</p></div>
+  <p class="catalog-help">掲載は登録商品のみです。36時間を超えた価格・取得に失敗した店舗はランキングに含めません。価格取得は毎日更新予定。表示の取得日時と各店の最新条件をご確認ください。</p>
+ </div>
+ <div id="catalogDetail" class="card" hidden>
+  <button type="button" id="catalogBack" class="catalog-back">← 商品一覧に戻る</button>
+  <h2 id="catalogDetailTitle" class="catalog-detail-title" tabindex="-1"></h2>
+  <p id="catalogDetailMeta" class="catalog-muted"></p>
+  <div class="catalog-costs"><div><label for="catalog-cost">仕入れ価格（円）</label><input id="catalog-cost" type="number" min="0" max="100000000" step="1" inputmode="numeric" placeholder="未入力"></div><div><label for="catalog-shipping">送料（円）</label><input id="catalog-shipping" type="number" min="0" max="100000000" step="1" inputmode="numeric" value="0"></div><div><label for="catalog-fees">その他費用（円）</label><input id="catalog-fees" type="number" min="0" max="100000000" step="1" inputmode="numeric" value="0"></div></div>
+  <div class="catalog-result" role="status"><span>最高買取価格での手残り試算</span><strong id="catalogProfit"></strong><p id="catalogBest" class="catalog-muted"></p></div>
+  <p class="catalog-note">買取額 − 仕入れ価格 − 送料 − その他費用で計算。入力費用は全店舗共通の試算です。送料・振込手数料・減額条件は店舗ごとに異なるため、利用する店舗の条件に合わせて入力してください。税金・ポイント・特典は含みません。</p>
+  <h3>🏆 店舗別 買取価格ランキング</h3><div id="catalogRanking"></div>
+ </div>
+</section>
+
+<div class="container" id="iphonePanel">
   
   <div class="card notice">
     <b>実戦版について</b><br>
@@ -624,6 +654,8 @@ body{background:#eef3f9}
 
 </div>
 
+<script src="assets/catalog-core.js" defer></script>
+<script src="assets/catalog.js" defer></script>
 <footer class="footer">
   iPhone買取チェッカー 実戦版｜買取データ自動更新対応
 </footer>

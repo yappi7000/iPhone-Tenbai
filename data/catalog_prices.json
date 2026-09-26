@@ -1,0 +1,620 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-26T22:44:16.512147+00:00",
+  "products": {
+    "switch2-jp": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products/5148?q%5Bname_or_jan_code_cont%5D=4902370553024&search_query=4902370553024",
+        "checked_at": "2026-09-26T22:43:42.959257+00:00",
+        "observed_at": "2026-09-26T22:43:42.959257+00:00",
+        "price": 54000,
+        "status": "ok",
+        "matched_name": "Nintendo Switch 2 日本国内専用版",
+        "note": ""
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/5796",
+        "checked_at": "2026-09-26T22:43:42.959764+00:00",
+        "observed_at": "2026-09-26T22:43:42.959764+00:00",
+        "price": 51000,
+        "status": "ok",
+        "matched_name": "新品 Nintendo Switch 2 日本国内専用版 BEE-S-KB6CA",
+        "note": "印有減額無し"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/category/0104001/product/295062",
+        "checked_at": "2026-09-26T22:43:42.959892+00:00",
+        "observed_at": "2026-09-26T22:43:42.959892+00:00",
+        "price": 52700,
+        "status": "ok",
+        "matched_name": "任天堂\n                        Nintendo Switch2 日本語・国内専用",
+        "note": ""
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?pid=1781836016-621297&kw=4902370553024",
+        "checked_at": "2026-09-26T22:43:53.313514+00:00",
+        "observed_at": "2026-09-26T22:43:53.313514+00:00",
+        "price": 52300,
+        "status": "ok",
+        "matched_name": "Nintendo Switch 2 BEE-S-KB6CA JAN:4902370553024",
+        "note": "未使用"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://gamekaitori.jp/purchase/Nintendo-Switch-2--BEE-S-KB6CA-4902370553024",
+        "checked_at": "2026-09-26T22:43:53.441041+00:00",
+        "observed_at": "2026-09-26T22:43:53.441041+00:00",
+        "price": 53500,
+        "status": "ok",
+        "matched_name": "Nintendo Switch 2 日本語・国内専用 BEE-S-KB6CA 4902370553024",
+        "note": "新品基準。詳細条件は公式商品ページで確認"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/detail/23170",
+        "checked_at": "2026-09-26T22:43:54.539404+00:00",
+        "observed_at": "2026-09-26T22:43:54.539404+00:00",
+        "price": 53300,
+        "status": "ok",
+        "matched_name": "Nintendo Switch 2 日本語・国内専用",
+        "note": "通常の基準価格（来店加算を含まない） ／ 新品 ／ 印有減額なし *来店+200円"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/wineDetail/7048/7078",
+        "checked_at": "2026-09-26T22:44:07.021219+00:00",
+        "observed_at": "2026-09-26T22:44:07.021219+00:00",
+        "price": 53800,
+        "status": "ok",
+        "matched_name": "Nintendo Switch 2 日本語・国内専用",
+        "note": "新品未使用 ／ ※角つぶれ 傷 シール 減額 【郵送買取の場合は必ずエアークッションで梱包してください】 ／ 数量制限あり（公式ページで確認）"
+      }
+    ],
+    "switch2-mario": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products/5147?q%5Bname_or_jan_code_cont%5D=4902370553031&search_query=4902370553031",
+        "checked_at": "2026-09-26T22:43:44.386236+00:00",
+        "observed_at": "2026-09-26T22:43:44.386236+00:00",
+        "price": 58500,
+        "status": "ok",
+        "matched_name": "Nintendo Switch 2 日本国内専用版 マリオカート ワールド セット",
+        "note": ""
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/5798",
+        "checked_at": "2026-09-26T22:43:44.308068+00:00",
+        "observed_at": "2026-09-26T22:43:44.308068+00:00",
+        "price": 58500,
+        "status": "ok",
+        "matched_name": "新品 Nintendo Switch 2 日本国内専用版 マリオカート ワールド セット BEE-S-KB6PA",
+        "note": "印有減額無し"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/category/0104001/product/295063",
+        "checked_at": "2026-09-26T22:43:44.455783+00:00",
+        "observed_at": "2026-09-26T22:43:44.455783+00:00",
+        "price": 58500,
+        "status": "ok",
+        "matched_name": "任天堂\n                        Nintendo Switch2 マリオカート ワールドセット 日本語・国内専用",
+        "note": ""
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?pid=1781498447-865702&kw=4902370553031",
+        "checked_at": "2026-09-26T22:43:55.137290+00:00",
+        "observed_at": "2026-09-26T22:43:55.137290+00:00",
+        "price": 57300,
+        "status": "ok",
+        "matched_name": "Nintendo Switch 2 マリオカート ワールドセット BEE-S-KB6PA JAN:4902370553031",
+        "note": "未使用"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://gamekaitori.jp/purchase/Nintendo-Switch-2----BEE-S-KB6PA-4902370553031",
+        "checked_at": "2026-09-26T22:43:55.069661+00:00",
+        "observed_at": "2026-09-26T22:43:55.069661+00:00",
+        "price": 58500,
+        "status": "ok",
+        "matched_name": "Nintendo Switch 2 マリオカート ワールドセット 日本語・国内専用 BEE-S-KB6PA 4902370553031",
+        "note": "新品基準。詳細条件は公式商品ページで確認"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/detail/23169",
+        "checked_at": "2026-09-26T22:43:56.180275+00:00",
+        "observed_at": "2026-09-26T22:43:56.180275+00:00",
+        "price": 58300,
+        "status": "ok",
+        "matched_name": "Nintendo Switch 2 マリオカート ワールドセット 日本語・国内専用",
+        "note": "通常の基準価格（来店加算を含まない） ／ 新品 ／ 印有減額なし *来店+200円"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/wineDetail/7049/7079",
+        "checked_at": "2026-09-26T22:44:08.226302+00:00",
+        "observed_at": "2026-09-26T22:44:08.226302+00:00",
+        "price": 57000,
+        "status": "ok",
+        "matched_name": "Nintendo Switch 2 マリオカート ワールドセット 日本語・国内専用",
+        "note": "新品未使用 ／ ※角つぶれ 傷 シール 大幅減額 【郵送買取の場合は必ずエアークッションで梱包してください】 ／ 数量制限あり（公式ページで確認）"
+      }
+    ],
+    "pokemon-terastal": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products/3454?q%5Bname_or_jan_code_cont%5D=4521329362342&search_query=4521329362342",
+        "checked_at": "2026-09-26T22:43:45.654714+00:00",
+        "observed_at": "2026-09-26T22:43:45.654714+00:00",
+        "price": 15000,
+        "status": "ok",
+        "matched_name": "【BOX】テラスタルフェスex",
+        "note": ""
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/6318",
+        "checked_at": "2026-09-26T22:43:45.627281+00:00",
+        "observed_at": "2026-09-26T22:43:45.627281+00:00",
+        "price": 13000,
+        "status": "ok",
+        "matched_name": "新品 ポケモンカード S&V ハイクラスパック テラスタルフェスex BOX [SV8a]",
+        "note": "新品未開封/シュリンク付きのみの買取となります。  箱潰れや痛み具合によって減額又は着払いにて返送となります。  シュリンクが切れているものは買取不可 "
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/search?sk=4521329362342",
+        "checked_at": "2026-09-26T22:43:45.902745+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=4521329362342",
+        "checked_at": "2026-09-26T22:43:57.960561+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://kaitori.wiki/search?keyword=4521329362342",
+        "checked_at": "2026-09-26T22:43:56.680815+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/detail/25599",
+        "checked_at": "2026-09-26T22:43:57.716449+00:00",
+        "observed_at": "2026-09-26T22:43:57.716449+00:00",
+        "price": 11500,
+        "status": "ok",
+        "matched_name": "ポケモンカード S&V ハイクラスパック テラスタルフェスex BOX",
+        "note": "通常の基準価格（来店加算を含まない） ／ 新品 ／ ※シュリンク付き、新品未開封。3か月以内に正規代理店の購入証明原本(納品書、レシート等)の提出が必要となります。 ／ 数量制限あり（公式ページで確認）"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/wineDetail/6408/6408",
+        "checked_at": "2026-09-26T22:44:09.428603+00:00",
+        "observed_at": "2026-09-26T22:44:09.428603+00:00",
+        "price": 15000,
+        "status": "ok",
+        "matched_name": "【S＆V】テラスタルフェスex BOX",
+        "note": "シュリンク有 ／  ／ 数量制限あり（公式ページで確認）"
+      }
+    ],
+    "instax-evo-black": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=4547410520088",
+        "checked_at": "2026-09-26T22:43:46.972141+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/3587",
+        "checked_at": "2026-09-26T22:43:46.960334+00:00",
+        "observed_at": "2026-09-26T22:43:46.960334+00:00",
+        "price": 23500,
+        "status": "ok",
+        "matched_name": "新品 FUJIFILM (富士フィルム) instax mini Evo チェキ USB Type-C対応 [ブラック]",
+        "note": "店舗印あり減額なし"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/category/0505003/product/179273",
+        "checked_at": "2026-09-26T22:43:47.354223+00:00",
+        "observed_at": "2026-09-26T22:43:47.354223+00:00",
+        "price": 24500,
+        "status": "ok",
+        "matched_name": "富士フイルム\n                        instax mini Evo  [ブラック]",
+        "note": ""
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?pid=1782873972-501335&kw=4547410520088",
+        "checked_at": "2026-09-26T22:44:00.839868+00:00",
+        "observed_at": "2026-09-26T22:44:00.839868+00:00",
+        "price": 23500,
+        "status": "ok",
+        "matched_name": "instax mini Evo チェキ USB Type-C対応 ブラック JAN:4547410520088",
+        "note": "未使用品"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://camerakaitori.tokyo/purchase/instax-mini-Evo--USB-Type-C-[]-4547410520088",
+        "checked_at": "2026-09-26T22:43:58.499196+00:00",
+        "observed_at": "2026-09-26T22:43:58.499196+00:00",
+        "price": 24100,
+        "status": "ok",
+        "matched_name": "instax mini Evo チェキ USB Type-C対応 [ブラック] 4547410520088",
+        "note": "新品基準。詳細条件は公式商品ページで確認"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/detail/16867",
+        "checked_at": "2026-09-26T22:43:59.461264+00:00",
+        "observed_at": "2026-09-26T22:43:59.461264+00:00",
+        "price": 24000,
+        "status": "ok",
+        "matched_name": "instax mini Evo チェキ USB [ブラック]",
+        "note": "通常の基準価格（来店加算を含まない） ／ 新品 ／ ★印なしのみ"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/wineDetail/5193/5193",
+        "checked_at": "2026-09-26T22:44:10.608955+00:00",
+        "observed_at": "2026-09-26T22:44:10.608955+00:00",
+        "price": 24000,
+        "status": "ok",
+        "matched_name": "instax mini Evo チェキ USB [ブラック]",
+        "note": "新品 ／ 店舗印減額なし ／ 数量制限あり（公式ページで確認）"
+      }
+    ],
+    "instax-evo-brown": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=4547410520125",
+        "checked_at": "2026-09-26T22:43:48.234644+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/3585",
+        "checked_at": "2026-09-26T22:43:48.257961+00:00",
+        "observed_at": "2026-09-26T22:43:48.257961+00:00",
+        "price": 24500,
+        "status": "ok",
+        "matched_name": "新品 FUJIFILM (富士フィルム) instax mini Evo チェキ USB Type-C対応 [ブラウン]",
+        "note": "店舗印あり減額なし"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/category/0505003/product/179274",
+        "checked_at": "2026-09-26T22:43:48.803168+00:00",
+        "observed_at": "2026-09-26T22:43:48.803168+00:00",
+        "price": 25800,
+        "status": "ok",
+        "matched_name": "instax\n                        instax mini Evo  [ブラウン]",
+        "note": ""
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?pid=1782874030-640708&kw=4547410520125",
+        "checked_at": "2026-09-26T22:44:03.006189+00:00",
+        "observed_at": "2026-09-26T22:44:03.006189+00:00",
+        "price": 25000,
+        "status": "ok",
+        "matched_name": "instax mini Evo チェキ USB Type-C対応 ブラウン JAN:4547410520125",
+        "note": "未使用品"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://camerakaitori.tokyo/purchase/instax-mini-Evo--USB-Type-C-[]-4547410520125",
+        "checked_at": "2026-09-26T22:44:00.265529+00:00",
+        "observed_at": "2026-09-26T22:44:00.265529+00:00",
+        "price": 25500,
+        "status": "ok",
+        "matched_name": "instax mini Evo チェキ USB Type-C対応 [ブラウン] 4547410520125",
+        "note": "新品基準。詳細条件は公式商品ページで確認"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/detail/16868",
+        "checked_at": "2026-09-26T22:44:01.101890+00:00",
+        "observed_at": "2026-09-26T22:44:01.101890+00:00",
+        "price": 25500,
+        "status": "ok",
+        "matched_name": "instax mini Evo チェキ USB [ブラウン]",
+        "note": "通常の基準価格（来店加算を含まない） ／ 新品 ／ ★印なしのみ"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/wineDetail/5194/5194",
+        "checked_at": "2026-09-26T22:44:11.779419+00:00",
+        "observed_at": "2026-09-26T22:44:11.779419+00:00",
+        "price": 24500,
+        "status": "ok",
+        "matched_name": "instax mini Evo チェキ USB [ブラウン]",
+        "note": "新品 ／ 店舗印減額なし ／ 数量制限あり（公式ページで確認）"
+      }
+    ],
+    "instax-evo-pink": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=4547410555844",
+        "checked_at": "2026-09-26T22:43:49.499686+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/5528",
+        "checked_at": "2026-09-26T22:43:49.554339+00:00",
+        "observed_at": "2026-09-26T22:43:49.554339+00:00",
+        "price": 51000,
+        "status": "ok",
+        "matched_name": "新品 FUJIFILM (富士フィルム) instax mini Evo チェキ USB Type-C対応 [ピンク]",
+        "note": "店舗印あり減額なし"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/category/0505003/product/289563",
+        "checked_at": "2026-09-26T22:43:50.242607+00:00",
+        "observed_at": "2026-09-26T22:43:50.242607+00:00",
+        "price": 53500,
+        "status": "ok",
+        "matched_name": "instax mini Evo チェキ Limited Edition [PINK]",
+        "note": ""
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?pid=1782874083-069791&kw=4547410555844",
+        "checked_at": "2026-09-26T22:44:05.427001+00:00",
+        "observed_at": "2026-09-26T22:44:05.427001+00:00",
+        "price": 54000,
+        "status": "ok",
+        "matched_name": "instax mini Evo チェキ USB Type-C対応 ピンク JAN:4547410555844",
+        "note": "未使用品"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://camerakaitori.tokyo/purchase/instax-mini-Evo--USB-Type-C-[]-4547410555844",
+        "checked_at": "2026-09-26T22:44:01.793623+00:00",
+        "observed_at": "2026-09-26T22:44:01.793623+00:00",
+        "price": 51000,
+        "status": "ok",
+        "matched_name": "instax mini Evo チェキ USB Type-C対応 [ピンク] 4547410555844",
+        "note": "新品基準。詳細条件は公式商品ページで確認"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/detail/22227",
+        "checked_at": "2026-09-26T22:44:02.734527+00:00",
+        "observed_at": "2026-09-26T22:44:02.734527+00:00",
+        "price": 53500,
+        "status": "ok",
+        "matched_name": "instax mini Evo チェキ Limited Edition [PINK]",
+        "note": "通常の基準価格（来店加算を含まない） ／ 新品 ／ ★印なしのみ"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/wineDetail/6404/6404",
+        "checked_at": "2026-09-26T22:44:12.957435+00:00",
+        "observed_at": "2026-09-26T22:44:12.957435+00:00",
+        "price": 53000,
+        "status": "ok",
+        "matched_name": "instax mini Evo チェキ USB [ピンク]",
+        "note": "新品 ／ 店舗印減額なし"
+      }
+    ],
+    "nano-eh-na0j-w": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=4549980652954",
+        "checked_at": "2026-09-26T22:43:50.768763+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/1762",
+        "checked_at": "2026-09-26T22:43:50.831175+00:00",
+        "observed_at": "2026-09-26T22:43:50.831175+00:00",
+        "price": 27000,
+        "status": "ok",
+        "matched_name": "新品 Panasonic (パナソニック) ナノケア EH-NA0J-W [ウォームホワイト]",
+        "note": "未開封のみ\n保証書印有り買取不可"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/category/0610005/product/71922",
+        "checked_at": "2026-09-26T22:43:51.666583+00:00",
+        "observed_at": "2026-09-26T22:43:51.666583+00:00",
+        "price": 28500,
+        "status": "ok",
+        "matched_name": "パナソニック\n                        Panasonic ヘアードライヤー ナノケア ウォームホワイト EH-NA0J-W",
+        "note": ""
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=4549980652954",
+        "checked_at": "2026-09-26T22:44:07.796008+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://kadenkaitori.tokyo/purchase/Panasonic---EH-NA0J-W--4549980652954",
+        "checked_at": "2026-09-26T22:44:03.443572+00:00",
+        "observed_at": "2026-09-26T22:44:03.443572+00:00",
+        "price": 28200,
+        "status": "ok",
+        "matched_name": "Panasonic パナソニック ナノケア EH-NA0J-W  ウォームホワイト 4549980652954",
+        "note": "新品基準。詳細条件は公式商品ページで確認"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/detail/14755",
+        "checked_at": "2026-09-26T22:44:04.317175+00:00",
+        "observed_at": "2026-09-26T22:44:04.317175+00:00",
+        "price": 28500,
+        "status": "ok",
+        "matched_name": "Panasonic ナノケア EH-NA0J-W [ウォームホワイト]",
+        "note": "通常の基準価格（来店加算を含まない） ／ 新品 ／ ※外箱に凹みや傷がある場合は減額-2000"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/wineDetail/4306/4306",
+        "checked_at": "2026-09-26T22:44:14.131432+00:00",
+        "observed_at": "2026-09-26T22:44:14.131432+00:00",
+        "price": 27500,
+        "status": "ok",
+        "matched_name": "Panasonic ナノケア EH-NA0J-W [ウォームホワイト] ",
+        "note": "新品 ／  ／ 数量制限あり（公式ページで確認）"
+      }
+    ],
+    "nano-eh-na7m-h": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products/3979?q%5Bname_or_jan_code_cont%5D=4549980857779&search_query=4549980857779",
+        "checked_at": "2026-09-26T22:43:52.027253+00:00",
+        "observed_at": "2026-09-26T22:43:52.027253+00:00",
+        "price": 15100,
+        "status": "ok",
+        "matched_name": "ナノケア EH-NA7M-H [モイストグレー]",
+        "note": ""
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/4944",
+        "checked_at": "2026-09-26T22:43:52.151098+00:00",
+        "observed_at": "2026-09-26T22:43:52.151098+00:00",
+        "price": 13000,
+        "status": "ok",
+        "matched_name": "新品 Panasonic (パナソニック) ナノケア EH-NA7M-H [モイストグレー]",
+        "note": "未開封のみ\n保証書印有り買取不可"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/category/0610005/product/264748",
+        "checked_at": "2026-09-26T22:43:53.104170+00:00",
+        "observed_at": "2026-09-26T22:43:53.104170+00:00",
+        "price": 15200,
+        "status": "ok",
+        "matched_name": "ナノケア EH-NA7M-H [モイストグレー]",
+        "note": ""
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=4549980857779",
+        "checked_at": "2026-09-26T22:44:09.589825+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://kadenkaitori.tokyo/purchase/Panasonic----EH-NA7M-H-4549980857779",
+        "checked_at": "2026-09-26T22:44:04.943922+00:00",
+        "observed_at": "2026-09-26T22:44:04.943922+00:00",
+        "price": 14800,
+        "status": "ok",
+        "matched_name": "Panasonic ヘアードライヤー ナノケア モイストグレー EH-NA7M-H 4549980857779",
+        "note": "新品基準。詳細条件は公式商品ページで確認"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/detail/20488",
+        "checked_at": "2026-09-26T22:44:05.911488+00:00",
+        "observed_at": "2026-09-26T22:44:05.911488+00:00",
+        "price": 15100,
+        "status": "ok",
+        "matched_name": "Panasonic ナノケア EH-NA7M-H [モイストグレー]",
+        "note": "通常の基準価格（来店加算を含まない） ／ 新品"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/wineDetail/6017/6017",
+        "checked_at": "2026-09-26T22:44:15.316637+00:00",
+        "observed_at": "2026-09-26T22:44:15.316637+00:00",
+        "price": 15100,
+        "status": "ok",
+        "matched_name": "Panasonic ナノケア EH-NA7M-H [モイストグレー] ",
+        "note": "新品 ／  ／ 数量制限あり（公式ページで確認）"
+      }
+    ]
+  }
+}

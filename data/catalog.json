@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "products": [
+    {
+      "id": "switch2-jp",
+      "category": "games",
+      "name": "Nintendo Switch 2 日本語・国内専用",
+      "jan": "4902370553024",
+      "condition": "new",
+      "identity_source": "https://www.morimori-kaitori.jp/search?sk=4902370553024"
+    },
+    {
+      "id": "switch2-mario",
+      "category": "games",
+      "name": "Nintendo Switch 2 マリオカート ワールドセット 日本語・国内専用",
+      "jan": "4902370553031",
+      "condition": "new",
+      "identity_source": "https://www.morimori-kaitori.jp/search?sk=4902370553031"
+    },
+    {
+      "id": "pokemon-terastal",
+      "category": "cards",
+      "name": "ポケモンカード テラスタルフェスex BOX",
+      "jan": "4521329362342",
+      "condition": "sealed_box",
+      "identity_source": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=4521329362342",
+      "store_codes": {
+        "homura": "114521329362342"
+      }
+    },
+    {
+      "id": "instax-evo-black",
+      "category": "cameras",
+      "name": "FUJIFILM instax mini Evo ブラック",
+      "jan": "4547410520088",
+      "condition": "new",
+      "identity_source": "https://www.morimori-kaitori.jp/search?sk=4547410520088"
+    },
+    {
+      "id": "instax-evo-brown",
+      "category": "cameras",
+      "name": "FUJIFILM instax mini Evo ブラウン",
+      "jan": "4547410520125",
+      "condition": "new",
+      "identity_source": "https://www.morimori-kaitori.jp/search?sk=4547410520125"
+    },
+    {
+      "id": "instax-evo-pink",
+      "category": "cameras",
+      "name": "FUJIFILM instax mini Evo Limited Edition PINK",
+      "jan": "4547410555844",
+      "condition": "new",
+      "identity_source": "https://www.morimori-kaitori.jp/search?sk=4547410555844"
+    },
+    {
+      "id": "nano-eh-na0j-w",
+      "category": "appliances",
+      "name": "Panasonic ナノケア EH-NA0J-W ウォームホワイト",
+      "jan": "4549980652954",
+      "condition": "new",
+      "identity_source": "https://www.morimori-kaitori.jp/search?sk=4549980652954"
+    },
+    {
+      "id": "nano-eh-na7m-h",
+      "category": "appliances",
+      "name": "Panasonic ナノケア EH-NA7M-H モイストグレー",
+      "jan": "4549980857779",
+      "condition": "new",
+      "identity_source": "https://www.morimori-kaitori.jp/search?sk=4549980857779"
+    }
+  ]
+}
