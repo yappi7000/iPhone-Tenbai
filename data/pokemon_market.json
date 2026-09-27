@@ -1,0 +1,3598 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-27T20:53:18.966830+00:00",
+  "scope": "カードラッシュの公開買取一覧先頭100件と、もえたく！の登録5商品。版・状態別。市場全体の順位ではありません。",
+  "products": [
+    {
+      "id": "cardrush-7265",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ブラッキー☆ 026/PLAY 未開封",
+      "model": "026/PLAY",
+      "condition": "single_card",
+      "condition_label": "未鑑定・未開封",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "ぶらっきー☆",
+        "ぶらっきー",
+        "未開封",
+        "未開封",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%96%E3%83%A9%E3%83%83%E3%82%AD%E3%83%BC%E2%98%86",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 12000000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%96%E3%83%A9%E3%83%83%E3%82%AD%E3%83%BC%E2%98%86",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ブラッキー☆ 026/PLAY 未開封"
+        },
+        {
+          "store_id": "moetaku",
+          "store": "もえたく！",
+          "price": 13000000,
+          "url": "https://www.netoff.co.jp/moetaku/detail/92725",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:13.021025+00:00",
+          "observed_at": "2026-09-27T20:53:13.021025+00:00",
+          "note": "通常の公開買取価格。美品等の状態条件は公式で確認。まとめ売り・未開封加算・PSA加算は含みません。",
+          "matched_name": "ブラッキー☆(未開封) [プレイヤーズけいけんち70000EXP] 026/PLAY"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-20327",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "イーブイ 019/016 未開封/乱戦！ポケモンスクランブル",
+      "model": "019/016",
+      "condition": "single_card",
+      "condition_label": "未鑑定・未開封",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "いーぶい",
+        "いーぶい",
+        "未開封/乱戦！ぽけもんすくらんぶる",
+        "未開封乱戦ぽけもんすくらんぶる",
+        "",
+        ""
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%A4%E3%83%BC%E3%83%96%E3%82%A4",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 10000000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%A4%E3%83%BC%E3%83%96%E3%82%A4",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "イーブイ 019/016 未開封/乱戦！ポケモンスクランブル"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-7692",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ブラッキー☆ 026/PLAY",
+      "model": "026/PLAY",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "ぶらっきー☆",
+        "ぶらっきー",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%96%E3%83%A9%E3%83%83%E3%82%AD%E3%83%BC%E2%98%86",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 9000000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%96%E3%83%A9%E3%83%83%E3%82%AD%E3%83%BC%E2%98%86",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ブラッキー☆ 026/PLAY"
+        },
+        {
+          "store_id": "moetaku",
+          "store": "もえたく！",
+          "price": 6500000,
+          "url": "https://www.netoff.co.jp/moetaku/detail/92724",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:14.572696+00:00",
+          "observed_at": "2026-09-27T20:53:14.572696+00:00",
+          "note": "通常の公開買取価格。美品等の状態条件は公式で確認。まとめ売り・未開封加算・PSA加算は含みません。",
+          "matched_name": "ブラッキー☆ [プレイヤーズけいけんち70000EXP] 026/PLAY"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-5258",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "リザードン☆δ-デルタ種 ★ 052/068 1ED",
+      "model": "052/068",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "りざーどん☆δ-でるた種",
+        "りざーどんでるた種",
+        "1ed",
+        "1ed",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%AA%E3%82%B6%E3%83%BC%E3%83%89%E3%83%B3%E2%98%86%CE%B4-%E3%83%87%E3%83%AB%E3%82%BF%E7%A8%AE",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 8000000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%AA%E3%82%B6%E3%83%BC%E3%83%89%E3%83%B3%E2%98%86%CE%B4-%E3%83%87%E3%83%AB%E3%82%BF%E7%A8%AE",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "リザードン☆δ-デルタ種 ★ 052/068 1ED"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-5649",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ひかるリザードン 旧裏",
+      "model": "旧裏",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "ひかるりざーどん",
+        "ひかるりざーどん",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%81%B2%E3%81%8B%E3%82%8B%E3%83%AA%E3%82%B6%E3%83%BC%E3%83%89%E3%83%B3",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 7000000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%81%B2%E3%81%8B%E3%82%8B%E3%83%AA%E3%82%B6%E3%83%BC%E3%83%89%E3%83%B3",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ひかるリザードン 旧裏"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-5669",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "レックウザ☆ ☆ 067/082 1ED",
+      "model": "067/082",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "れっくうざ☆",
+        "れっくうざ",
+        "1ed",
+        "1ed",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%AC%E3%83%83%E3%82%AF%E3%82%A6%E3%82%B6%E2%98%86",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 7000000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%AC%E3%83%83%E3%82%AF%E3%82%A6%E3%82%B6%E2%98%86",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "レックウザ☆ ☆ 067/082 1ED"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-6158",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "リーリエ P 397/SM-P SR仕様",
+      "model": "397/SM-P",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "りーりえ",
+        "りーりえ",
+        "sr仕様",
+        "sr仕様",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%AA%E3%83%BC%E3%83%AA%E3%82%A8",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 6500000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%AA%E3%83%BC%E3%83%AA%E3%82%A8",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "リーリエ P 397/SM-P SR仕様"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-6165",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "リザードン ☆ 089/088 1ED/クリスタルタイプ",
+      "model": "089/088",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "りざーどん",
+        "りざーどん",
+        "1ed/くりすたるたいぷ",
+        "1edくりすたるたいぷ",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%AA%E3%82%B6%E3%83%BC%E3%83%89%E3%83%B3",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 6000000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%AA%E3%82%B6%E3%83%BC%E3%83%89%E3%83%B3",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "リザードン ☆ 089/088 1ED/クリスタルタイプ"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-7266",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "エーフィ☆ 025/PLAY 未開封",
+      "model": "025/PLAY",
+      "condition": "single_card",
+      "condition_label": "未鑑定・未開封",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "えーふぃ☆",
+        "えーふぃ",
+        "未開封",
+        "未開封",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%A8%E3%83%BC%E3%83%95%E3%82%A3%E2%98%86",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 6000000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%A8%E3%83%BC%E3%83%95%E3%82%A3%E2%98%86",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "エーフィ☆ 025/PLAY 未開封"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-7746",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "レックウザ☆ ☆ 067/082 アンリミ",
+      "model": "067/082",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "れっくうざ☆",
+        "れっくうざ",
+        "あんりみ",
+        "あんりみ",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%AC%E3%83%83%E3%82%AF%E3%82%A6%E3%82%B6%E2%98%86",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 6000000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%AC%E3%83%83%E3%82%AF%E3%82%A6%E3%82%B6%E2%98%86",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "レックウザ☆ ☆ 067/082 アンリミ"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-6164",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "リザードン☆δ-デルタ種 ★ 052/068 アンリミ",
+      "model": "052/068",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "りざーどん☆δ-でるた種",
+        "りざーどんでるた種",
+        "あんりみ",
+        "あんりみ",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%AA%E3%82%B6%E3%83%BC%E3%83%89%E3%83%B3%E2%98%86%CE%B4-%E3%83%87%E3%83%AB%E3%82%BF%E7%A8%AE",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 6000000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%AA%E3%82%B6%E3%83%BC%E3%83%89%E3%83%B3%E2%98%86%CE%B4-%E3%83%87%E3%83%AB%E3%82%BF%E7%A8%AE",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "リザードン☆δ-デルタ種 ★ 052/068 アンリミ"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-6191",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ミュウ☆δ-デルタ種 ★ 015/068 1ED",
+      "model": "015/068",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "みゅう☆δ-でるた種",
+        "みゅうでるた種",
+        "1ed",
+        "1ed",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%9F%E3%83%A5%E3%82%A6%E2%98%86%CE%B4-%E3%83%87%E3%83%AB%E3%82%BF%E7%A8%AE",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 6000000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%9F%E3%83%A5%E3%82%A6%E2%98%86%CE%B4-%E3%83%87%E3%83%AB%E3%82%BF%E7%A8%AE",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ミュウ☆δ-デルタ種 ★ 015/068 1ED"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-6539",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "レックウザEX+ギラティナEX P 145/BW-P 未開封",
+      "model": "145/BW-P",
+      "condition": "single_card",
+      "condition_label": "未鑑定・未開封",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "れっくうざex+ぎらてぃなex",
+        "れっくうざexぎらてぃなex",
+        "未開封",
+        "未開封",
+        "",
+        ""
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%AC%E3%83%83%E3%82%AF%E3%82%A6%E3%82%B6EX%2B%E3%82%AE%E3%83%A9%E3%83%86%E3%82%A3%E3%83%8AEX",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 5800000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%AC%E3%83%83%E3%82%AF%E3%82%A6%E3%82%B6EX%2B%E3%82%AE%E3%83%A9%E3%83%86%E3%82%A3%E3%83%8AEX",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "レックウザEX+ギラティナEX P 145/BW-P 未開封"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-5647",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ひかるコイキング 旧裏 ファンクラブ",
+      "model": "旧裏",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "ひかるこいきんぐ",
+        "ひかるこいきんぐ",
+        "ふぁんくらぶ",
+        "ふぁんくらぶ",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%81%B2%E3%81%8B%E3%82%8B%E3%82%B3%E3%82%A4%E3%82%AD%E3%83%B3%E3%82%B0",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 5500000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%81%B2%E3%81%8B%E3%82%8B%E3%82%B3%E3%82%A4%E3%82%AD%E3%83%B3%E3%82%B0",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ひかるコイキング 旧裏 ファンクラブ"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-6166",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "リザードン ☆ 089/088 アンリミ/クリスタルタイプ",
+      "model": "089/088",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "りざーどん",
+        "りざーどん",
+        "あんりみ/くりすたるたいぷ",
+        "あんりみくりすたるたいぷ",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%AA%E3%82%B6%E3%83%BC%E3%83%89%E3%83%B3",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 5500000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%AA%E3%82%B6%E3%83%BC%E3%83%89%E3%83%B3",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "リザードン ☆ 089/088 アンリミ/クリスタルタイプ"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-48308",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "イーブイ 019/016 乱戦！ポケモンスクランブル",
+      "model": "019/016",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "いーぶい",
+        "いーぶい",
+        "乱戦！ぽけもんすくらんぶる",
+        "乱戦ぽけもんすくらんぶる",
+        "",
+        "乱"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%A4%E3%83%BC%E3%83%96%E3%82%A4",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 5000000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%A4%E3%83%BC%E3%83%96%E3%82%A4",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "イーブイ 019/016 乱戦！ポケモンスクランブル"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-6181",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ルギア ☆ 090/087 1ED/クリスタルタイプ",
+      "model": "090/087",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "るぎあ",
+        "るぎあ",
+        "1ed/くりすたるたいぷ",
+        "1edくりすたるたいぷ",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%AB%E3%82%AE%E3%82%A2",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 5000000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%AB%E3%82%AE%E3%82%A2",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ルギア ☆ 090/087 1ED/クリスタルタイプ"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-14719",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "マリオピカチュウ P 294/XY-P 未開封",
+      "model": "294/XY-P",
+      "condition": "single_card",
+      "condition_label": "未鑑定・未開封",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "まりおぴかちゅう",
+        "まりおぴかちゅう",
+        "未開封",
+        "未開封",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%9E%E3%83%AA%E3%82%AA%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 4500000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%9E%E3%83%AA%E3%82%AA%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "マリオピカチュウ P 294/XY-P 未開封"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-6182",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ルギア ☆ 090/087 アンリミ/クリスタルタイプ",
+      "model": "090/087",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "るぎあ",
+        "るぎあ",
+        "あんりみ/くりすたるたいぷ",
+        "あんりみくりすたるたいぷ",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%AB%E3%82%AE%E3%82%A2",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 4500000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%AB%E3%82%AE%E3%82%A2",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ルギア ☆ 090/087 アンリミ/クリスタルタイプ"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-6284",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "アチャモ☆ ☆ 020/084 1ED",
+      "model": "020/084",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "あちゃも☆",
+        "あちゃも",
+        "1ed",
+        "1ed",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%A2%E3%83%81%E3%83%A3%E3%83%A2%E2%98%86",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 4500000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%A2%E3%83%81%E3%83%A3%E3%83%A2%E2%98%86",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "アチャモ☆ ☆ 020/084 1ED"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-7691",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "エーフィ☆ 025/PLAY",
+      "model": "025/PLAY",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "えーふぃ☆",
+        "えーふぃ",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%A8%E3%83%BC%E3%83%95%E3%82%A3%E2%98%86",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 4500000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%A8%E3%83%BC%E3%83%95%E3%82%A3%E2%98%86",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "エーフィ☆ 025/PLAY"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-1148",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ピカチュウ P 279/XY-P 20thアニバーサリー",
+      "model": "279/XY-P",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "ぴかちゅう",
+        "ぴかちゅう",
+        "20thあにばーさりー",
+        "20thあにばーさりー",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 4000000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ピカチュウ P 279/XY-P 20thアニバーサリー"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-4317",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ミュウ☆δ-デルタ種 ★ 015/068 アンリミ",
+      "model": "015/068",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "みゅう☆δ-でるた種",
+        "みゅうでるた種",
+        "あんりみ",
+        "あんりみ",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%9F%E3%83%A5%E3%82%A6%E2%98%86%CE%B4-%E3%83%87%E3%83%AB%E3%82%BF%E7%A8%AE",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 4000000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%9F%E3%83%A5%E3%82%A6%E2%98%86%CE%B4-%E3%83%87%E3%83%AB%E3%82%BF%E7%A8%AE",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ミュウ☆δ-デルタ種 ★ 015/068 アンリミ"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-21981",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "チャンピオンズリーグ P - 2007",
+      "model": "-",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "ちゃんぴおんずりーぐ",
+        "ちゃんぴおんずりーぐ",
+        "2007",
+        "2007",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%81%E3%83%A3%E3%83%B3%E3%83%94%E3%82%AA%E3%83%B3%E3%82%BA%E3%83%AA%E3%83%BC%E3%82%B0",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 4000000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%81%E3%83%A3%E3%83%B3%E3%83%94%E3%82%AA%E3%83%B3%E3%82%BA%E3%83%AA%E3%83%BC%E3%82%B0",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "チャンピオンズリーグ P - 2007"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-3721",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "レックウザEX P 145/BW-P",
+      "model": "145/BW-P",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "れっくうざex",
+        "れっくうざex",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%AC%E3%83%83%E3%82%AF%E3%82%A6%E3%82%B6EX",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 4000000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%AC%E3%83%83%E3%82%AF%E3%82%A6%E3%82%B6EX",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "レックウザEX P 145/BW-P"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-1685",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ロイヤルマスク P 085/SM-P SR仕様",
+      "model": "085/SM-P",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "ろいやるますく",
+        "ろいやるますく",
+        "sr仕様",
+        "sr仕様",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%AD%E3%82%A4%E3%83%A4%E3%83%AB%E3%83%9E%E3%82%B9%E3%82%AF",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 3800000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%AD%E3%82%A4%E3%83%A4%E3%83%AB%E3%83%9E%E3%82%B9%E3%82%AF",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ロイヤルマスク P 085/SM-P SR仕様"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-69722",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ゲンガー LV.40 ★ 旧裏 通信進化キャンペーン",
+      "model": "旧裏",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "げんがーlv.40",
+        "げんがーlv40",
+        "通信進化きゃんぺーん",
+        "通信進化きゃんぺーん",
+        "",
+        ""
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%B2%E3%83%B3%E3%82%AC%E3%83%BC%20LV.40",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 3500000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%B2%E3%83%B3%E3%82%AC%E3%83%BC%20LV.40",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ゲンガー LV.40 ★ 旧裏 通信進化キャンペーン"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-6283",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "アチャモ☆ ☆ 020/084 アンリミ",
+      "model": "020/084",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "あちゃも☆",
+        "あちゃも",
+        "あんりみ",
+        "あんりみ",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%A2%E3%83%81%E3%83%A3%E3%83%A2%E2%98%86",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 3500000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%A2%E3%83%81%E3%83%A3%E3%83%A2%E2%98%86",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "アチャモ☆ ☆ 020/084 アンリミ"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-6581",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ミズゴロウ☆ ☆ 033/084 1ED",
+      "model": "033/084",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "みずごろう☆",
+        "みずごろう",
+        "1ed",
+        "1ed",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%9F%E3%82%BA%E3%82%B4%E3%83%AD%E3%82%A6%E2%98%86",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 3500000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%9F%E3%82%BA%E3%82%B4%E3%83%AD%E3%82%A6%E2%98%86",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ミズゴロウ☆ ☆ 033/084 1ED"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-10",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "マリオピカチュウ P 294/XY-P",
+      "model": "294/XY-P",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "まりおぴかちゅう",
+        "まりおぴかちゅう",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%9E%E3%83%AA%E3%82%AA%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 3300000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%9E%E3%83%AA%E3%82%AA%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "マリオピカチュウ P 294/XY-P"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-5671",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ピカチュウ☆ P 001/002",
+      "model": "001/002",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "ぴかちゅう☆",
+        "ぴかちゅう",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6%E2%98%86",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 3200000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6%E2%98%86",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ピカチュウ☆ P 001/002"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-14713",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ギャラドスごっこピカチュウ P 151/XY-P 未開封",
+      "model": "151/XY-P",
+      "condition": "single_card",
+      "condition_label": "未鑑定・未開封",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "ぎゃらどすごっこぴかちゅう",
+        "ぎゃらどすごっこぴかちゅう",
+        "未開封",
+        "未開封",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%AE%E3%83%A3%E3%83%A9%E3%83%89%E3%82%B9%E3%81%94%E3%81%A3%E3%81%93%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 3100000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%AE%E3%83%A3%E3%83%A9%E3%83%89%E3%82%B9%E3%81%94%E3%81%A3%E3%81%93%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ギャラドスごっこピカチュウ P 151/XY-P 未開封"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-7649",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ミズゴロウ☆ ☆ 033/084 アンリミ",
+      "model": "033/084",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "みずごろう☆",
+        "みずごろう",
+        "あんりみ",
+        "あんりみ",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%9F%E3%82%BA%E3%82%B4%E3%83%AD%E3%82%A6%E2%98%86",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 3000000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%9F%E3%82%BA%E3%82%B4%E3%83%AD%E3%82%A6%E2%98%86",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ミズゴロウ☆ ☆ 033/084 アンリミ"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-14717",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ポンチョを着たピカチュウ P 230/XY-P 未開封",
+      "model": "230/XY-P",
+      "condition": "single_card",
+      "condition_label": "未鑑定・未開封",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "ぽんちょを着たぴかちゅう",
+        "ぽんちょを着たぴかちゅう",
+        "未開封",
+        "未開封",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%9D%E3%83%B3%E3%83%81%E3%83%A7%E3%82%92%E7%9D%80%E3%81%9F%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 2800000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%9D%E3%83%B3%E3%83%81%E3%83%A7%E3%82%92%E7%9D%80%E3%81%9F%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ポンチョを着たピカチュウ P 230/XY-P 未開封"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-14720",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ルイージピカチュウ P 296/XY-P 未開封",
+      "model": "296/XY-P",
+      "condition": "single_card",
+      "condition_label": "未鑑定・未開封",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "るいーじぴかちゅう",
+        "るいーじぴかちゅう",
+        "未開封",
+        "未開封",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%AB%E3%82%A4%E3%83%BC%E3%82%B8%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 2700000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%AB%E3%82%A4%E3%83%BC%E3%82%B8%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ルイージピカチュウ P 296/XY-P 未開封"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-47246",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "リザードン LV.76 ★ 旧裏 かえん/マークあり",
+      "model": "旧裏",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "りざーどんlv.76",
+        "りざーどんlv76",
+        "かえん/まーくあり",
+        "かえんまーくあり",
+        "",
+        ""
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%AA%E3%82%B6%E3%83%BC%E3%83%89%E3%83%B3%20LV.76",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 2500000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%AA%E3%82%B6%E3%83%BC%E3%83%89%E3%83%B3%20LV.76",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "リザードン LV.76 ★ 旧裏 かえん/マークあり"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-22589",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ピカチュウ 007/016 未開封/乱戦！ポケモンスクランブル",
+      "model": "007/016",
+      "condition": "single_card",
+      "condition_label": "未鑑定・未開封",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "ぴかちゅう",
+        "ぴかちゅう",
+        "未開封/乱戦！ぽけもんすくらんぶる",
+        "未開封乱戦ぽけもんすくらんぶる",
+        "",
+        ""
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 2500000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ピカチュウ 007/016 未開封/乱戦！ポケモンスクランブル"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-48306",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "パチリス 017/016 乱戦！ポケモンスクランブル",
+      "model": "017/016",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "ぱちりす",
+        "ぱちりす",
+        "乱戦！ぽけもんすくらんぶる",
+        "乱戦ぽけもんすくらんぶる",
+        "",
+        "乱"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%91%E3%83%81%E3%83%AA%E3%82%B9",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 2500000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%91%E3%83%81%E3%83%AA%E3%82%B9",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "パチリス 017/016 乱戦！ポケモンスクランブル"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-83470",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ゲンガー ★ 047/048 1ED/web",
+      "model": "047/048",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "げんがー",
+        "げんがー",
+        "1ed/web",
+        "1edweb",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%B2%E3%83%B3%E3%82%AC%E3%83%BC",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 2500000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%B2%E3%83%B3%E3%82%AC%E3%83%BC",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ゲンガー ★ 047/048 1ED/web"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-83471",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ゲンガー ★ 047/048 アンリミ/web",
+      "model": "047/048",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "げんがー",
+        "げんがー",
+        "あんりみ/web",
+        "あんりみweb",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%B2%E3%83%B3%E3%82%AC%E3%83%BC",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 2500000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%B2%E3%83%B3%E3%82%AC%E3%83%BC",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ゲンガー ★ 047/048 アンリミ/web"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-14715",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ポンチョを着たピカチュウ P 207/XY-P 未開封",
+      "model": "207/XY-P",
+      "condition": "single_card",
+      "condition_label": "未鑑定・未開封",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "ぽんちょを着たぴかちゅう",
+        "ぽんちょを着たぴかちゅう",
+        "未開封",
+        "未開封",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%9D%E3%83%B3%E3%83%81%E3%83%A7%E3%82%92%E7%9D%80%E3%81%9F%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 2500000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%9D%E3%83%B3%E3%83%81%E3%83%A7%E3%82%92%E7%9D%80%E3%81%9F%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ポンチョを着たピカチュウ P 207/XY-P 未開封"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-5646",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ひかるギャラドス 旧裏",
+      "model": "旧裏",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "ひかるぎゃらどす",
+        "ひかるぎゃらどす",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%81%B2%E3%81%8B%E3%82%8B%E3%82%AE%E3%83%A3%E3%83%A9%E3%83%89%E3%82%B9",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 2500000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%81%B2%E3%81%8B%E3%82%8B%E3%82%AE%E3%83%A3%E3%83%A9%E3%83%89%E3%82%B9",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ひかるギャラドス 旧裏"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-6550",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ブースター☆ 024/PLAY 未開封",
+      "model": "024/PLAY",
+      "condition": "single_card",
+      "condition_label": "未鑑定・未開封",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "ぶーすたー☆",
+        "ぶーすたー",
+        "未開封",
+        "未開封",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%96%E3%83%BC%E3%82%B9%E3%82%BF%E3%83%BC%E2%98%86",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 2500000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%96%E3%83%BC%E3%82%B9%E3%82%BF%E3%83%BC%E2%98%86",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ブースター☆ 024/PLAY 未開封"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-771",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ゼクロムGX P 240/SM-P HR仕様",
+      "model": "240/SM-P",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "ぜくろむgx",
+        "ぜくろむgx",
+        "hr仕様",
+        "hr仕様",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%BC%E3%82%AF%E3%83%AD%E3%83%A0GX",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 2500000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%BC%E3%82%AF%E3%83%AD%E3%83%A0GX",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ゼクロムGX P 240/SM-P HR仕様"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-22448",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ホウオウ P 065/L-P 未開封",
+      "model": "065/L-P",
+      "condition": "single_card",
+      "condition_label": "未鑑定・未開封",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "ほうおう",
+        "ほうおう",
+        "未開封",
+        "未開封",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%9B%E3%82%A6%E3%82%AA%E3%82%A6",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 2500000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%9B%E3%82%A6%E3%82%AA%E3%82%A6",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ホウオウ P 065/L-P 未開封"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-21982",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "チャンピオンズリーグ P - 2005",
+      "model": "-",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "ちゃんぴおんずりーぐ",
+        "ちゃんぴおんずりーぐ",
+        "2005",
+        "2005",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%81%E3%83%A3%E3%83%B3%E3%83%94%E3%82%AA%E3%83%B3%E3%82%BA%E3%83%AA%E3%83%BC%E3%82%B0",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 2500000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%81%E3%83%A3%E3%83%B3%E3%83%94%E3%82%AA%E3%83%B3%E3%82%BA%E3%83%AA%E3%83%BC%E3%82%B0",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "チャンピオンズリーグ P - 2005"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-5640",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ひかるミュウツー 旧裏",
+      "model": "旧裏",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "ひかるみゅうつー",
+        "ひかるみゅうつー",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%81%B2%E3%81%8B%E3%82%8B%E3%83%9F%E3%83%A5%E3%82%A6%E3%83%84%E3%83%BC",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 2400000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%81%B2%E3%81%8B%E3%82%8B%E3%83%9F%E3%83%A5%E3%82%A6%E3%83%84%E3%83%BC",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ひかるミュウツー 旧裏"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-48307",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "グレッグル 018/016 乱戦！ポケモンスクランブル",
+      "model": "018/016",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "ぐれっぐる",
+        "ぐれっぐる",
+        "乱戦！ぽけもんすくらんぶる",
+        "乱戦ぽけもんすくらんぶる",
+        "",
+        "乱"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%B0%E3%83%AC%E3%83%83%E3%82%B0%E3%83%AB",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 2200000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%B0%E3%83%AC%E3%83%83%E3%82%B0%E3%83%AB",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "グレッグル 018/016 乱戦！ポケモンスクランブル"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-14716",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ポンチョを着たピカチュウ P 208/XY-P 未開封",
+      "model": "208/XY-P",
+      "condition": "single_card",
+      "condition_label": "未鑑定・未開封",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "ぽんちょを着たぴかちゅう",
+        "ぽんちょを着たぴかちゅう",
+        "未開封",
+        "未開封",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%9D%E3%83%B3%E3%83%81%E3%83%A7%E3%82%92%E7%9D%80%E3%81%9F%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 2100000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%9D%E3%83%B3%E3%83%81%E3%83%A7%E3%82%92%E7%9D%80%E3%81%9F%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ポンチョを着たピカチュウ P 208/XY-P 未開封"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-22456",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "夏ポケカ P 186/S-P+187/S-P+188/S-P 未開封/ブースターVMAX/シャワーズVMAX/サンダースVMAX/SA",
+      "model": "186/S-P+187/S-P+188/S-P",
+      "condition": "single_card",
+      "condition_label": "未鑑定・未開封",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "夏ぽけか",
+        "夏ぽけか",
+        "未開封/ぶーすたーvmax/しゃわーずvmax/さんだーすvmax/sa",
+        "未開封ぶーすたーvmaxしゃわーずvmaxさんだーすvmaxsa",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E5%A4%8F%E3%83%9D%E3%82%B1%E3%82%AB",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 2100000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E5%A4%8F%E3%83%9D%E3%82%B1%E3%82%AB",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "夏ポケカ P 186/S-P+187/S-P+188/S-P 未開封/ブースターVMAX/シャワーズVMAX/サンダースVMAX/SA"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-1422",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ポンチョを着たピカチュウ P 207/XY-P",
+      "model": "207/XY-P",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "ぽんちょを着たぴかちゅう",
+        "ぽんちょを着たぴかちゅう",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%9D%E3%83%B3%E3%83%81%E3%83%A7%E3%82%92%E7%9D%80%E3%81%9F%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 2000000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%9D%E3%83%B3%E3%83%81%E3%83%A7%E3%82%92%E7%9D%80%E3%81%9F%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ポンチョを着たピカチュウ P 207/XY-P"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-4950",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ピカチュウ P 175/XY-P イベントオーガナイザー版",
+      "model": "175/XY-P",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "ぴかちゅう",
+        "ぴかちゅう",
+        "いべんとおーがないざー版",
+        "いべんとおーがないざー版",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 2000000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ピカチュウ P 175/XY-P イベントオーガナイザー版"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-6579",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "キモリ☆ ☆ 011/084 1ED",
+      "model": "011/084",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "きもり☆",
+        "きもり",
+        "1ed",
+        "1ed",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%AD%E3%83%A2%E3%83%AA%E2%98%86",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 2000000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%AD%E3%83%A2%E3%83%AA%E2%98%86",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "キモリ☆ ☆ 011/084 1ED"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-7690",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ブースター☆ 024/PLAY",
+      "model": "024/PLAY",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "ぶーすたー☆",
+        "ぶーすたー",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%96%E3%83%BC%E3%82%B9%E3%82%BF%E3%83%BC%E2%98%86",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 2000000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%96%E3%83%BC%E3%82%B9%E3%82%BF%E3%83%BC%E2%98%86",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ブースター☆ 024/PLAY"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-6584",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ラティアス☆ ☆ 065/082 1ED",
+      "model": "065/082",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "らてぃあす☆",
+        "らてぃあす",
+        "1ed",
+        "1ed",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%A9%E3%83%86%E3%82%A3%E3%82%A2%E3%82%B9%E2%98%86",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 2000000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%A9%E3%83%86%E3%82%A3%E3%82%A2%E3%82%B9%E2%98%86",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ラティアス☆ ☆ 065/082 1ED"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-7621",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ラティオス☆ ☆ 066/082 1ED",
+      "model": "066/082",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "らてぃおす☆",
+        "らてぃおす",
+        "1ed",
+        "1ed",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%A9%E3%83%86%E3%82%A3%E3%82%AA%E3%82%B9%E2%98%86",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 2000000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%A9%E3%83%86%E3%82%A3%E3%82%AA%E3%82%B9%E2%98%86",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ラティオス☆ ☆ 066/082 1ED"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-43327",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "夏ポケカ P 186/S-P+187/S-P+188/S-P 開封済/ブースターVMAX/シャワーズVMAX/サンダースVMAX/SA",
+      "model": "186/S-P+187/S-P+188/S-P",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "夏ぽけか",
+        "夏ぽけか",
+        "開封済/ぶーすたーvmax/しゃわーずvmax/さんだーすvmax/sa",
+        "開封済ぶーすたーvmaxしゃわーずvmaxさんだーすvmaxsa",
+        "",
+        ""
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E5%A4%8F%E3%83%9D%E3%82%B1%E3%82%AB",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1950000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E5%A4%8F%E3%83%9D%E3%82%B1%E3%82%AB",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "夏ポケカ P 186/S-P+187/S-P+188/S-P 開封済/ブースターVMAX/シャワーズVMAX/サンダースVMAX/SA"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-5643",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ひかるバンギラス 旧裏",
+      "model": "旧裏",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "ひかるばんぎらす",
+        "ひかるばんぎらす",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%81%B2%E3%81%8B%E3%82%8B%E3%83%90%E3%83%B3%E3%82%AE%E3%83%A9%E3%82%B9",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1800000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%81%B2%E3%81%8B%E3%82%8B%E3%83%90%E3%83%B3%E3%82%AE%E3%83%A9%E3%82%B9",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ひかるバンギラス 旧裏"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-6175",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ホウオウ ☆ 091/088 1ED/クリスタルタイプ",
+      "model": "091/088",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "ほうおう",
+        "ほうおう",
+        "1ed/くりすたるたいぷ",
+        "1edくりすたるたいぷ",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%9B%E3%82%A6%E3%82%AA%E3%82%A6",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1800000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%9B%E3%82%A6%E3%82%AA%E3%82%A6",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ホウオウ ☆ 091/088 1ED/クリスタルタイプ"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-5672",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ミュウツー☆ P 002/002",
+      "model": "002/002",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "みゅうつー☆",
+        "みゅうつー",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%9F%E3%83%A5%E3%82%A6%E3%83%84%E3%83%BC%E2%98%86",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1800000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%9F%E3%83%A5%E3%82%A6%E3%83%84%E3%83%BC%E2%98%86",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ミュウツー☆ P 002/002"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-1423",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ポンチョを着たピカチュウ P 208/XY-P",
+      "model": "208/XY-P",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "ぽんちょを着たぴかちゅう",
+        "ぽんちょを着たぴかちゅう",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%9D%E3%83%B3%E3%83%81%E3%83%A7%E3%82%92%E7%9D%80%E3%81%9F%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1700000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%9D%E3%83%B3%E3%83%81%E3%83%A7%E3%82%92%E7%9D%80%E3%81%9F%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ポンチョを着たピカチュウ P 208/XY-P"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-14714",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "スカル団ごっこピカチュウ P 013/SM-P 未開封",
+      "model": "013/SM-P",
+      "condition": "single_card",
+      "condition_label": "未鑑定・未開封",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "すかる団ごっこぴかちゅう",
+        "すかる団ごっこぴかちゅう",
+        "未開封",
+        "未開封",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%B9%E3%82%AB%E3%83%AB%E5%9B%A3%E3%81%94%E3%81%A3%E3%81%93%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1600000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%B9%E3%82%AB%E3%83%AB%E5%9B%A3%E3%81%94%E3%81%A3%E3%81%93%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "スカル団ごっこピカチュウ P 013/SM-P 未開封"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-7210",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ミミッキュ P 289/SM-P ムンク/ファイル付未開封",
+      "model": "289/SM-P",
+      "condition": "single_card",
+      "condition_label": "未鑑定・未開封",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "みみっきゅ",
+        "みみっきゅ",
+        "むんく/ふぁいる付未開封",
+        "むんくふぁいる付未開封",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%9F%E3%83%9F%E3%83%83%E3%82%AD%E3%83%A5",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1600000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%9F%E3%83%9F%E3%83%83%E3%82%AD%E3%83%A5",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ミミッキュ P 289/SM-P ムンク/ファイル付未開封"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-14921",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "リザードンVMAX＋リザードンV P 103/S-P+104/S-P HR仕様/SR仕様/当選通知書付き",
+      "model": "103/S-P+104/S-P",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "りざーどんvmax＋りざーどんv",
+        "りざーどんvmaxりざーどんv",
+        "hr仕様/sr仕様/当選通知書付き",
+        "hr仕様sr仕様当選通知書付き",
+        "",
+        ""
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%AA%E3%82%B6%E3%83%BC%E3%83%89%E3%83%B3VMAX%EF%BC%8B%E3%83%AA%E3%82%B6%E3%83%BC%E3%83%89%E3%83%B3V",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1600000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%AA%E3%82%B6%E3%83%BC%E3%83%89%E3%83%B3VMAX%EF%BC%8B%E3%83%AA%E3%82%B6%E3%83%BC%E3%83%89%E3%83%B3V",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "リザードンVMAX＋リザードンV P 103/S-P+104/S-P HR仕様/SR仕様/当選通知書付き"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-12",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ルイージピカチュウ P 296/XY-P",
+      "model": "296/XY-P",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "るいーじぴかちゅう",
+        "るいーじぴかちゅう",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%AB%E3%82%A4%E3%83%BC%E3%82%B8%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1500000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%AB%E3%82%A4%E3%83%BC%E3%82%B8%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ルイージピカチュウ P 296/XY-P"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-1145",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ピカチュウ P XY-P 20thアニバーサリー",
+      "model": "XY-P",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "ぴかちゅう",
+        "ぴかちゅう",
+        "20thあにばーさりー",
+        "20thあにばーさりー",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1500000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ピカチュウ P XY-P 20thアニバーサリー"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-1147",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ピカチュウ P 229/BW-P",
+      "model": "229/BW-P",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "ぴかちゅう",
+        "ぴかちゅう",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1500000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ピカチュウ P 229/BW-P"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-2754",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ピカチュウ P 288/SM-P ムンク",
+      "model": "288/SM-P",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "ぴかちゅう",
+        "ぴかちゅう",
+        "むんく",
+        "むんく",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1500000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ピカチュウ P 288/SM-P ムンク"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-2820",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ミミッキュ P 289/SM-P ムンク",
+      "model": "289/SM-P",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "みみっきゅ",
+        "みみっきゅ",
+        "むんく",
+        "むんく",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%9F%E3%83%9F%E3%83%83%E3%82%AD%E3%83%A5",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1500000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%9F%E3%83%9F%E3%83%83%E3%82%AD%E3%83%A5",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ミミッキュ P 289/SM-P ムンク"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-5648",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ひかるコイキング 旧裏 めざめる伝説",
+      "model": "旧裏",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "ひかるこいきんぐ",
+        "ひかるこいきんぐ",
+        "めざめる伝説",
+        "めざめる伝説",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%81%B2%E3%81%8B%E3%82%8B%E3%82%B3%E3%82%A4%E3%82%AD%E3%83%B3%E3%82%B0",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1500000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%81%B2%E3%81%8B%E3%82%8B%E3%82%B3%E3%82%A4%E3%82%AD%E3%83%B3%E3%82%B0",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ひかるコイキング 旧裏 めざめる伝説"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-7616",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ひかるミュウ P 旧裏",
+      "model": "旧裏",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "ひかるみゅう",
+        "ひかるみゅう",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%81%B2%E3%81%8B%E3%82%8B%E3%83%9F%E3%83%A5%E3%82%A6",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1500000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%81%B2%E3%81%8B%E3%82%8B%E3%83%9F%E3%83%A5%E3%82%A6",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ひかるミュウ P 旧裏"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-6169",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "セレビィ ☆ 091/088 1ED/クリスタルタイプ",
+      "model": "091/088",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "せれびぃ",
+        "せれびぃ",
+        "1ed/くりすたるたいぷ",
+        "1edくりすたるたいぷ",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%BB%E3%83%AC%E3%83%93%E3%82%A3",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1500000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%BB%E3%83%AC%E3%83%93%E3%82%A3",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "セレビィ ☆ 091/088 1ED/クリスタルタイプ"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-7654",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "キモリ☆ ☆ 011/084 アンリミ",
+      "model": "011/084",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "きもり☆",
+        "きもり",
+        "あんりみ",
+        "あんりみ",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%AD%E3%83%A2%E3%83%AA%E2%98%86",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1500000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%AD%E3%83%A2%E3%83%AA%E2%98%86",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "キモリ☆ ☆ 011/084 アンリミ"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-6285",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "グラードン☆ ☆ 056/086 1ED",
+      "model": "056/086",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "ぐらーどん☆",
+        "ぐらーどん",
+        "1ed",
+        "1ed",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%B0%E3%83%A9%E3%83%BC%E3%83%89%E3%83%B3%E2%98%86",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1500000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%B0%E3%83%A9%E3%83%BC%E3%83%89%E3%83%B3%E2%98%86",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "グラードン☆ ☆ 056/086 1ED"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-7647",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ラティアス☆ ☆ 065/082 アンリミ",
+      "model": "065/082",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "らてぃあす☆",
+        "らてぃあす",
+        "あんりみ",
+        "あんりみ",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%A9%E3%83%86%E3%82%A3%E3%82%A2%E3%82%B9%E2%98%86",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1500000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%A9%E3%83%86%E3%82%A3%E3%82%A2%E3%82%B9%E2%98%86",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ラティアス☆ ☆ 065/082 アンリミ"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-7089",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ラティオス☆ ☆ 066/082 アンリミ",
+      "model": "066/082",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "らてぃおす☆",
+        "らてぃおす",
+        "あんりみ",
+        "あんりみ",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%A9%E3%83%86%E3%82%A3%E3%82%AA%E3%82%B9%E2%98%86",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1500000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%A9%E3%83%86%E3%82%A3%E3%82%AA%E3%82%B9%E2%98%86",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ラティオス☆ ☆ 066/082 アンリミ"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-6152",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ルギア P 066/L-P",
+      "model": "066/L-P",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "るぎあ",
+        "るぎあ",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%AB%E3%82%AE%E3%82%A2",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1500000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%AB%E3%82%AE%E3%82%A2",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ルギア P 066/L-P"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-6159",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "アセロラ P 395/SM-P SR仕様",
+      "model": "395/SM-P",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "あせろら",
+        "あせろら",
+        "sr仕様",
+        "sr仕様",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%A2%E3%82%BB%E3%83%AD%E3%83%A9",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1500000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%A2%E3%82%BB%E3%83%AD%E3%83%A9",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "アセロラ P 395/SM-P SR仕様"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-14731",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "サカキの計画 P 277/XY-P 未開封",
+      "model": "277/XY-P",
+      "condition": "single_card",
+      "condition_label": "未鑑定・未開封",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "さかきの計画",
+        "さかきの計画",
+        "未開封",
+        "未開封",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%B5%E3%82%AB%E3%82%AD%E3%81%AE%E8%A8%88%E7%94%BB",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1500000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%B5%E3%82%AB%E3%82%AD%E3%81%AE%E8%A8%88%E7%94%BB",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "サカキの計画 P 277/XY-P 未開封"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-14732",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ロケット団参上! P 278/XY-P 未開封",
+      "model": "278/XY-P",
+      "condition": "single_card",
+      "condition_label": "未鑑定・未開封",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "ろけっと団参上!",
+        "ろけっと団参上",
+        "未開封",
+        "未開封",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%AD%E3%82%B1%E3%83%83%E3%83%88%E5%9B%A3%E5%8F%82%E4%B8%8A%21",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1500000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%AD%E3%82%B1%E3%83%83%E3%83%88%E5%9B%A3%E5%8F%82%E4%B8%8A%21",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ロケット団参上! P 278/XY-P 未開封"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-3720",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ギラティナEX P 146/BW-P",
+      "model": "146/BW-P",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "ぎらてぃなex",
+        "ぎらてぃなex",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%AE%E3%83%A9%E3%83%86%E3%82%A3%E3%83%8AEX",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1500000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%AE%E3%83%A9%E3%83%86%E3%82%A3%E3%83%8AEX",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ギラティナEX P 146/BW-P"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-34098",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ライチュウ P 044/L-P グレート/台紙付",
+      "model": "044/L-P",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "らいちゅう",
+        "らいちゅう",
+        "ぐれーと/台紙付",
+        "ぐれーと台紙付",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%A9%E3%82%A4%E3%83%81%E3%83%A5%E3%82%A6",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1400000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%A9%E3%82%A4%E3%83%81%E3%83%A5%E3%82%A6",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ライチュウ P 044/L-P グレート/台紙付"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-1417",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ポンチョを着たピカチュウ P 230/XY-P",
+      "model": "230/XY-P",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "ぽんちょを着たぴかちゅう",
+        "ぽんちょを着たぴかちゅう",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%9D%E3%83%B3%E3%83%81%E3%83%A7%E3%82%92%E7%9D%80%E3%81%9F%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1400000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%9D%E3%83%B3%E3%83%81%E3%83%A7%E3%82%92%E7%9D%80%E3%81%9F%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ポンチョを着たピカチュウ P 230/XY-P"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-5639",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ひかるライチュウ 旧裏",
+      "model": "旧裏",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "ひかるらいちゅう",
+        "ひかるらいちゅう",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%81%B2%E3%81%8B%E3%82%8B%E3%83%A9%E3%82%A4%E3%83%81%E3%83%A5%E3%82%A6",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1400000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%81%B2%E3%81%8B%E3%82%8B%E3%83%A9%E3%82%A4%E3%83%81%E3%83%A5%E3%82%A6",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ひかるライチュウ 旧裏"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-6176",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ホウオウ ☆ 091/088 アンリミ/クリスタルタイプ",
+      "model": "091/088",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "ほうおう",
+        "ほうおう",
+        "あんりみ/くりすたるたいぷ",
+        "あんりみくりすたるたいぷ",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%9B%E3%82%A6%E3%82%AA%E3%82%A6",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1400000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%9B%E3%82%A6%E3%82%AA%E3%82%A6",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ホウオウ ☆ 091/088 アンリミ/クリスタルタイプ"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-78018",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ピカチュウ LV.12 旧裏 マークなし",
+      "model": "旧裏",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "ぴかちゅうlv.12",
+        "ぴかちゅうlv12",
+        "まーくなし",
+        "まーくなし",
+        "",
+        ""
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6%20LV.12",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1300000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6%20LV.12",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ピカチュウ LV.12 旧裏 マークなし"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-34097",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ライチュウ P 044/L-P グレート/未開封",
+      "model": "044/L-P",
+      "condition": "single_card",
+      "condition_label": "未鑑定・未開封",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "らいちゅう",
+        "らいちゅう",
+        "ぐれーと/未開封",
+        "ぐれーと未開封",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%A9%E3%82%A4%E3%83%81%E3%83%A5%E3%82%A6",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1300000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%A9%E3%82%A4%E3%83%81%E3%83%A5%E3%82%A6",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ライチュウ P 044/L-P グレート/未開封"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-749",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "スカル団ごっこピカチュウ P 013/SM-P",
+      "model": "013/SM-P",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "すかる団ごっこぴかちゅう",
+        "すかる団ごっこぴかちゅう",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%B9%E3%82%AB%E3%83%AB%E5%9B%A3%E3%81%94%E3%81%A3%E3%81%93%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1300000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%B9%E3%82%AB%E3%83%AB%E5%9B%A3%E3%81%94%E3%81%A3%E3%81%93%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "スカル団ごっこピカチュウ P 013/SM-P"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-1519",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "メガトウキョーのピカチュウ P 204/XY-P",
+      "model": "204/XY-P",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "めがとうきょーのぴかちゅう",
+        "めがとうきょーのぴかちゅう",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%A1%E3%82%AC%E3%83%88%E3%82%A6%E3%82%AD%E3%83%A7%E3%83%BC%E3%81%AE%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1300000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%A1%E3%82%AC%E3%83%88%E3%82%A6%E3%82%AD%E3%83%A7%E3%83%BC%E3%81%AE%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "メガトウキョーのピカチュウ P 204/XY-P"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-7615",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "シャワーズ☆ 022/PLAY 未開封",
+      "model": "022/PLAY",
+      "condition": "single_card",
+      "condition_label": "未鑑定・未開封",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "しゃわーず☆",
+        "しゃわーず",
+        "未開封",
+        "未開封",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%B7%E3%83%A3%E3%83%AF%E3%83%BC%E3%82%BA%E2%98%86",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1300000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%B7%E3%83%A3%E3%83%AF%E3%83%BC%E3%82%BA%E2%98%86",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "シャワーズ☆ 022/PLAY 未開封"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-6311",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "サンダース☆ 023/PLAY 未開封",
+      "model": "023/PLAY",
+      "condition": "single_card",
+      "condition_label": "未鑑定・未開封",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "さんだーす☆",
+        "さんだーす",
+        "未開封",
+        "未開封",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%B5%E3%83%B3%E3%83%80%E3%83%BC%E3%82%B9%E2%98%86",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1300000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%B5%E3%83%B3%E3%83%80%E3%83%BC%E3%82%B9%E2%98%86",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "サンダース☆ 023/PLAY 未開封"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-7686",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "グラードン☆ ☆ 056/086 アンリミ",
+      "model": "056/086",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "ぐらーどん☆",
+        "ぐらーどん",
+        "あんりみ",
+        "あんりみ",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%B0%E3%83%A9%E3%83%BC%E3%83%89%E3%83%B3%E2%98%86",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1300000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%B0%E3%83%A9%E3%83%BC%E3%83%89%E3%83%B3%E2%98%86",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "グラードン☆ ☆ 056/086 アンリミ"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-7129",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ギャラドス☆δ-デルタ種 ★ 008/052 1ED",
+      "model": "008/052",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "ぎゃらどす☆δ-でるた種",
+        "ぎゃらどすでるた種",
+        "1ed",
+        "1ed",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%AE%E3%83%A3%E3%83%A9%E3%83%89%E3%82%B9%E2%98%86%CE%B4-%E3%83%87%E3%83%AB%E3%82%BF%E7%A8%AE",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1300000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%AE%E3%83%A3%E3%83%A9%E3%83%89%E3%82%B9%E2%98%86%CE%B4-%E3%83%87%E3%83%AB%E3%82%BF%E7%A8%AE",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ギャラドス☆δ-デルタ種 ★ 008/052 1ED"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-5093",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ミュウツーGX P 364/SM-P HR仕様",
+      "model": "364/SM-P",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "みゅうつーgx",
+        "みゅうつーgx",
+        "hr仕様",
+        "hr仕様",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%9F%E3%83%A5%E3%82%A6%E3%83%84%E3%83%BCGX",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1300000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%9F%E3%83%A5%E3%82%A6%E3%83%84%E3%83%BCGX",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ミュウツーGX P 364/SM-P HR仕様"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-14317",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "リザードンVMAX P 104/S-P HR仕様",
+      "model": "104/S-P",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "りざーどんvmax",
+        "りざーどんvmax",
+        "hr仕様",
+        "hr仕様",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%AA%E3%82%B6%E3%83%BC%E3%83%89%E3%83%B3VMAX",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1250000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%AA%E3%82%B6%E3%83%BC%E3%83%89%E3%83%B3VMAX",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "リザードンVMAX P 104/S-P HR仕様"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-1418",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ポンチョを着たピカチュウ P 231/XY-P",
+      "model": "231/XY-P",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "ぽんちょを着たぴかちゅう",
+        "ぽんちょを着たぴかちゅう",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%9D%E3%83%B3%E3%83%81%E3%83%A7%E3%82%92%E7%9D%80%E3%81%9F%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1200000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%9D%E3%83%B3%E3%83%81%E3%83%A7%E3%82%92%E7%9D%80%E3%81%9F%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ポンチョを着たピカチュウ P 231/XY-P"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-493",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ギャラドスごっこピカチュウ P 151/XY-P",
+      "model": "151/XY-P",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "ぎゃらどすごっこぴかちゅう",
+        "ぎゃらどすごっこぴかちゅう",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%AE%E3%83%A3%E3%83%A9%E3%83%89%E3%82%B9%E3%81%94%E3%81%A3%E3%81%93%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1200000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%AE%E3%83%A3%E3%83%A9%E3%83%89%E3%82%B9%E3%81%94%E3%81%A3%E3%81%93%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ギャラドスごっこピカチュウ P 151/XY-P"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-576",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "コイキングごっこピカチュウ P 150/XY-P",
+      "model": "150/XY-P",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "こいきんぐごっこぴかちゅう",
+        "こいきんぐごっこぴかちゅう",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%B3%E3%82%A4%E3%82%AD%E3%83%B3%E3%82%B0%E3%81%94%E3%81%A3%E3%81%93%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1200000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%B3%E3%82%A4%E3%82%AD%E3%83%B3%E3%82%B0%E3%81%94%E3%81%A3%E3%81%93%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "コイキングごっこピカチュウ P 150/XY-P"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-13967",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ミュウex P 007/PLAY 未開封",
+      "model": "007/PLAY",
+      "condition": "single_card",
+      "condition_label": "未鑑定・未開封",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "みゅうex",
+        "みゅうex",
+        "未開封",
+        "未開封",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%9F%E3%83%A5%E3%82%A6ex",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1200000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%83%9F%E3%83%A5%E3%82%A6ex",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "ミュウex P 007/PLAY 未開封"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "cardrush-5676",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "セレビィ☆ ☆ 004/075 1ED",
+      "model": "004/075",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル",
+        "せれびぃ☆",
+        "せれびぃ",
+        "1ed",
+        "1ed",
+        "",
+        "その他"
+      ],
+      "identity_source": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%BB%E3%83%AC%E3%83%93%E3%82%A3%E2%98%86",
+      "quotes": [
+        {
+          "store_id": "cardrush",
+          "store": "カードラッシュ",
+          "price": 1200000,
+          "url": "https://cardrush.media/pokemon/buying_prices?name=%E3%82%BB%E3%83%AC%E3%83%93%E3%82%A3%E2%98%86",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.081646+00:00",
+          "observed_at": "2026-09-27T20:53:11.081646+00:00",
+          "note": "通常の公開買取価格。版・状態による査定あり。PSA等の鑑定価格・キャンペーン加算は含みません。",
+          "matched_name": "セレビィ☆ ☆ 004/075 1ED"
+        }
+      ],
+      "source_updated_at": "2026-09-28T05:45:13.558+09:00"
+    },
+    {
+      "id": "moetaku-101985",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "ポケモンイラストレーター [旧裏面] コロコロコミックイラストコンテスト",
+      "model": "旧裏面・プロモ",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル"
+      ],
+      "identity_source": "https://www.netoff.co.jp/moetaku/detail/101985",
+      "quotes": [
+        {
+          "store_id": "moetaku",
+          "store": "もえたく！",
+          "price": 10000000,
+          "url": "https://www.netoff.co.jp/moetaku/detail/101985",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:11.502157+00:00",
+          "observed_at": "2026-09-27T20:53:11.502157+00:00",
+          "note": "通常の公開買取価格。美品等の状態条件は公式で確認。まとめ売り・未開封加算・PSA加算は含みません。",
+          "matched_name": "ポケモンイラストレーター [旧裏面] コロコロコミックイラストコンテスト"
+        }
+      ]
+    },
+    {
+      "id": "moetaku-101528",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "リザードン LV.76(第1弾初版・かいりき) [旧裏面] No.006",
+      "model": "旧裏面・初版・No.006",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル"
+      ],
+      "identity_source": "https://www.netoff.co.jp/moetaku/detail/101528",
+      "quotes": [
+        {
+          "store_id": "moetaku",
+          "store": "もえたく！",
+          "price": 2000000,
+          "url": "https://www.netoff.co.jp/moetaku/detail/101528",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:15.903118+00:00",
+          "observed_at": "2026-09-27T20:53:15.903118+00:00",
+          "note": "通常の公開買取価格。美品等の状態条件は公式で確認。まとめ売り・未開封加算・PSA加算は含みません。",
+          "matched_name": "リザードン LV.76(第1弾初版・かいりき) [旧裏面] No.006"
+        }
+      ]
+    },
+    {
+      "id": "moetaku-99645",
+      "category": "cards",
+      "kind": "single_card",
+      "name": "リーリエ SR [GXバトルブースト] SM4+ 119/114",
+      "model": "SM4+ 119/114",
+      "condition": "single_card",
+      "condition_label": "未鑑定・美品基準",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル"
+      ],
+      "identity_source": "https://www.netoff.co.jp/moetaku/detail/99645",
+      "quotes": [
+        {
+          "store_id": "moetaku",
+          "store": "もえたく！",
+          "price": 650000,
+          "url": "https://www.netoff.co.jp/moetaku/detail/99645",
+          "status": "ok",
+          "checked_at": "2026-09-27T20:53:17.478250+00:00",
+          "observed_at": "2026-09-27T20:53:17.478250+00:00",
+          "note": "通常の公開買取価格。美品等の状態条件は公式で確認。まとめ売り・未開封加算・PSA加算は含みません。",
+          "matched_name": "リーリエ SR [GXバトルブースト] SM4+ 119/114"
+        }
+      ]
+    },
+    {
+      "id": "trophy-pikachu-no1",
+      "category": "cards",
+      "kind": "card_reference",
+      "name": "トロフィーピカチュウ No.1",
+      "model": "配布年・大会・版の指定が必要",
+      "condition": "single_card",
+      "condition_label": "公開買取価格未確認",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル"
+      ],
+      "identity_source": "https://torecamap.co.jp/column/pokemon-kougaku/",
+      "quotes": [],
+      "reference_note": "同じ通称でも年・大会・鑑定ランクで別商品です。過去の落札額を現在の買取価格には使いません。"
+    },
+    {
+      "id": "trophy-pikachu-no3",
+      "category": "cards",
+      "kind": "card_reference",
+      "name": "トロフィーピカチュウ No.3",
+      "model": "配布年・大会・版の指定が必要",
+      "condition": "single_card",
+      "condition_label": "公開買取価格未確認",
+      "aliases": [
+        "ポケモン",
+        "ポケカ",
+        "シングル"
+      ],
+      "identity_source": "https://torecamap.co.jp/column/pokemon-kougaku/",
+      "quotes": [],
+      "reference_note": "同じ通称でも年・大会・鑑定ランクで別商品です。過去の落札額を現在の買取価格には使いません。"
+    }
+  ],
+  "errors": []
+}

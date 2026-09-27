@@ -1,5 +1,5 @@
 import unittest
-from scripts.crawl_catalog import extract, extract_api, exact_code, fetch_quote
+from scripts.crawl_catalog import extract, extract_api, exact_code, fetch_quote, canonical_jan
 from unittest.mock import patch
 import json
 P = {'jan':'4902370553024','condition':'new'}
@@ -122,5 +122,60 @@ class MoreStoreTests(unittest.TestCase):
         self.assertEqual(row['status'], 'error')
         self.assertIsNone(row['price'])
         self.assertIsNone(row['observed_at'])
+
+ANDROID = {'jan':'0840353922303', 'condition':'new', 'kind':'android'}
+def phone_payload():
+    return {'code':200,'data':{'totalElements':1,'content':[{
+        'goodsId':1263,'allGoodsKbId':1654,'title':'Google Pixel 9a 128GB',
+        'disp':True,'isKeitaiItem':True,'kbName':'新品','kbDesc':'△-7000',
+        'hasLimit':True,'kbCount':8,'kbCountPerAppli':10,'price':79900,
+        'goodsKbDetails':[
+            {'allGoodsKbDetailId':2440,'kbDetailName':'未開封','kbDetailPrice':61500,'maxCamPrice':99999},
+            {'allGoodsKbDetailId':3052,'kbDetailName':'開封','kbDetailPrice':70000}],
+        'keitaiColorOptions':[
+            {'jan':'840353922303','color':'Obsidian','publicPrice':79900,'keitaiKbDetailColorRels':[
+                {'keitaiKbDetailId':2440,'varPrice':-1000},{'keitaiKbDetailId':3052,'varPrice':0}]},
+            {'jan':'840353922358','color':'Porcelain','keitaiKbDetailColorRels':[
+                {'keitaiKbDetailId':2440,'varPrice':2000}]}]
+    }]}}
+
+class AndroidTests(unittest.TestCase):
+    def test_upc_and_jan_require_valid_exact_trade_item(self):
+        self.assertEqual(canonical_jan('840353922303'),ANDROID['jan'])
+        for code in ['1840353922303','00840353922303','84035392230','0840353922304','0840353922303rt',None]:
+            self.assertIsNone(canonical_jan(code))
+
+    def test_phone_uses_exact_color_and_condition_price(self):
+        q,status=extract_api(phone_payload(),'ichome',ANDROID)
+        self.assertEqual((q['price'],status),(60500,'ok'))
+        self.assertIn('Obsidian',q['matched_name'])
+        self.assertIn('△-7000',q['note'])
+        self.assertEqual(q['product_url'],'/productDetail/1263/1654')
+
+    def test_phone_does_not_borrow_other_color_or_guess_missing_jan(self):
+        for jan in [None,'0840353922518','0840353922303rt']:
+            d=phone_payload();d['data']['content'][0]['keitaiColorOptions'][0]['jan']=jan
+            self.assertIsNone(extract_api(d,'ichome',ANDROID)[0])
+
+    def test_phone_requires_explicit_condition_color_relation(self):
+        for rels in [[],[{'keitaiKbDetailId':3052,'varPrice':0}],[{'keitaiKbDetailId':2440}]]:
+            d=phone_payload();d['data']['content'][0]['keitaiColorOptions'][0]['keitaiKbDetailColorRels']=rels
+            self.assertIsNone(extract_api(d,'ichome',ANDROID)[0])
+
+    def test_phone_null_difference_is_zero_but_malformed_is_rejected(self):
+        for delta,expected in [(None,61500),(0,61500),(-61500,None),(True,None),('1000',None)]:
+            d=phone_payload();d['data']['content'][0]['keitaiColorOptions'][0]['keitaiKbDetailColorRels'][0]['varPrice']=delta
+            q,_=extract_api(d,'ichome',ANDROID)
+            self.assertEqual(q['price'] if q else None,expected)
+
+    def test_phone_hidden_used_sold_out_and_conflicts_are_excluded(self):
+        for key,value in [('disp',False),('kbName','中古'),('kbCount',0)]:
+            d=phone_payload();d['data']['content'][0][key]=value
+            self.assertIsNone(extract_api(d,'ichome',ANDROID)[0])
+        d=phone_payload();d['data']['content'][0]['keitaiColorOptions'][0]['keitaiKbDetailColorRels'].append({'keitaiKbDetailId':2440,'varPrice':2000})
+        self.assertEqual(extract_api(d,'ichome',ANDROID)[1],'ambiguous')
+
+    def test_phone_never_applies_to_existing_non_android_products(self):
+        self.assertIsNone(extract_api(phone_payload(),'ichome',{'jan':ANDROID['jan'],'condition':'new'})[0])
 
 if __name__ == '__main__': unittest.main()

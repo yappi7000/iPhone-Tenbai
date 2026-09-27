@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-27T01:41:26.088456+00:00",
+  "generated_at": "2026-09-27T20:53:11.065479+00:00",
   "products": {
     "switch2-jp": [
       {
         "store_id": "homura",
         "store": "買取ホムラ",
         "url": "https://kaitori-homura.com/products/5148?q%5Bname_or_jan_code_cont%5D=4902370553024&search_query=4902370553024",
-        "checked_at": "2026-09-27T01:40:33.668933+00:00",
-        "observed_at": "2026-09-27T01:40:33.668933+00:00",
+        "checked_at": "2026-09-27T20:51:18.354343+00:00",
+        "observed_at": "2026-09-27T20:51:18.354343+00:00",
         "price": 54000,
         "status": "ok",
         "matched_name": "Nintendo Switch 2 日本国内専用版",
@@ -18,8 +18,8 @@
         "store_id": "rudeya",
         "store": "買取ルデヤ",
         "url": "https://kaitori-rudeya.com/product/item/5796",
-        "checked_at": "2026-09-27T01:40:33.669574+00:00",
-        "observed_at": "2026-09-27T01:40:33.669574+00:00",
+        "checked_at": "2026-09-27T20:51:18.354806+00:00",
+        "observed_at": "2026-09-27T20:51:18.354806+00:00",
         "price": 51000,
         "status": "ok",
         "matched_name": "新品 Nintendo Switch 2 日本国内専用版 BEE-S-KB6CA",
@@ -29,9 +29,9 @@
         "store_id": "morimori",
         "store": "森森買取",
         "url": "https://www.morimori-kaitori.jp/category/0104001/product/295062",
-        "checked_at": "2026-09-27T01:40:33.669995+00:00",
-        "observed_at": "2026-09-27T01:40:33.669995+00:00",
-        "price": 52700,
+        "checked_at": "2026-09-27T20:51:18.354933+00:00",
+        "observed_at": "2026-09-27T20:51:18.354933+00:00",
+        "price": 52500,
         "status": "ok",
         "matched_name": "任天堂\n                        Nintendo Switch2 日本語・国内専用",
         "note": ""
@@ -40,8 +40,8 @@
         "store_id": "keitaispace",
         "store": "携帯空間",
         "url": "https://www.keitaispace.co.jp/product/?pid=1781836016-621297&kw=4902370553024",
-        "checked_at": "2026-09-27T01:40:49.509426+00:00",
-        "observed_at": "2026-09-27T01:40:49.509426+00:00",
+        "checked_at": "2026-09-27T20:51:18.355041+00:00",
+        "observed_at": "2026-09-27T20:51:18.355041+00:00",
         "price": 52300,
         "status": "ok",
         "matched_name": "Nintendo Switch 2 BEE-S-KB6CA JAN:4902370553024",
@@ -51,8 +51,8 @@
         "store_id": "kaitoriwiki",
         "store": "買取wiki",
         "url": "https://gamekaitori.jp/purchase/Nintendo-Switch-2--BEE-S-KB6CA-4902370553024",
-        "checked_at": "2026-09-27T01:40:54.698769+00:00",
-        "observed_at": "2026-09-27T01:40:54.698769+00:00",
+        "checked_at": "2026-09-27T20:51:18.355142+00:00",
+        "observed_at": "2026-09-27T20:51:18.355142+00:00",
         "price": 53500,
         "status": "ok",
         "matched_name": "Nintendo Switch 2 日本語・国内専用 BEE-S-KB6CA 4902370553024",
@@ -62,8 +62,8 @@
         "store_id": "kaitorishouten",
         "store": "買取商店",
         "url": "https://www.kaitorishouten-co.jp/products/detail/23170",
-        "checked_at": "2026-09-27T01:40:58.437318+00:00",
-        "observed_at": "2026-09-27T01:40:58.437318+00:00",
+        "checked_at": "2026-09-27T20:51:18.355257+00:00",
+        "observed_at": "2026-09-27T20:51:18.355257+00:00",
         "price": 53300,
         "status": "ok",
         "matched_name": "Nintendo Switch 2 日本語・国内専用",
@@ -73,8 +73,8 @@
         "store_id": "ichome",
         "store": "買取一丁目",
         "url": "https://www.1-chome.com/wineDetail/7048/7078",
-        "checked_at": "2026-09-27T01:41:13.359717+00:00",
-        "observed_at": "2026-09-27T01:41:13.359717+00:00",
+        "checked_at": "2026-09-27T20:51:18.355432+00:00",
+        "observed_at": "2026-09-27T20:51:18.355432+00:00",
         "price": 53800,
         "status": "ok",
         "matched_name": "Nintendo Switch 2 日本語・国内専用",
@@ -86,8 +86,8 @@
         "store_id": "homura",
         "store": "買取ホムラ",
         "url": "https://kaitori-homura.com/products/5147?q%5Bname_or_jan_code_cont%5D=4902370553031&search_query=4902370553031",
-        "checked_at": "2026-09-27T01:40:35.716367+00:00",
-        "observed_at": "2026-09-27T01:40:35.716367+00:00",
+        "checked_at": "2026-09-27T20:51:19.678553+00:00",
+        "observed_at": "2026-09-27T20:51:19.678553+00:00",
         "price": 58500,
         "status": "ok",
         "matched_name": "Nintendo Switch 2 日本国内専用版 マリオカート ワールド セット",
@@ -97,8 +97,8 @@
         "store_id": "rudeya",
         "store": "買取ルデヤ",
         "url": "https://kaitori-rudeya.com/product/item/5798",
-        "checked_at": "2026-09-27T01:40:36.388824+00:00",
-        "observed_at": "2026-09-27T01:40:36.388824+00:00",
+        "checked_at": "2026-09-27T20:51:19.710617+00:00",
+        "observed_at": "2026-09-27T20:51:19.710617+00:00",
         "price": 58500,
         "status": "ok",
         "matched_name": "新品 Nintendo Switch 2 日本国内専用版 マリオカート ワールド セット BEE-S-KB6PA",
@@ -108,9 +108,9 @@
         "store_id": "morimori",
         "store": "森森買取",
         "url": "https://www.morimori-kaitori.jp/category/0104001/product/295063",
-        "checked_at": "2026-09-27T01:40:36.750572+00:00",
-        "observed_at": "2026-09-27T01:40:36.750572+00:00",
-        "price": 58500,
+        "checked_at": "2026-09-27T20:51:19.762974+00:00",
+        "observed_at": "2026-09-27T20:51:19.762974+00:00",
+        "price": 58300,
         "status": "ok",
         "matched_name": "任天堂\n                        Nintendo Switch2 マリオカート ワールドセット 日本語・国内専用",
         "note": ""
@@ -119,8 +119,8 @@
         "store_id": "keitaispace",
         "store": "携帯空間",
         "url": "https://www.keitaispace.co.jp/product/?pid=1781498447-865702&kw=4902370553031",
-        "checked_at": "2026-09-27T01:40:52.608814+00:00",
-        "observed_at": "2026-09-27T01:40:52.608814+00:00",
+        "checked_at": "2026-09-27T20:51:20.242674+00:00",
+        "observed_at": "2026-09-27T20:51:20.242674+00:00",
         "price": 57300,
         "status": "ok",
         "matched_name": "Nintendo Switch 2 マリオカート ワールドセット BEE-S-KB6PA JAN:4902370553031",
@@ -130,8 +130,8 @@
         "store_id": "kaitoriwiki",
         "store": "買取wiki",
         "url": "https://gamekaitori.jp/purchase/Nintendo-Switch-2----BEE-S-KB6PA-4902370553031",
-        "checked_at": "2026-09-27T01:40:57.221704+00:00",
-        "observed_at": "2026-09-27T01:40:57.221704+00:00",
+        "checked_at": "2026-09-27T20:51:19.944834+00:00",
+        "observed_at": "2026-09-27T20:51:19.944834+00:00",
         "price": 58500,
         "status": "ok",
         "matched_name": "Nintendo Switch 2 マリオカート ワールドセット 日本語・国内専用 BEE-S-KB6PA 4902370553031",
@@ -141,8 +141,8 @@
         "store_id": "kaitorishouten",
         "store": "買取商店",
         "url": "https://www.kaitorishouten-co.jp/products/detail/23169",
-        "checked_at": "2026-09-27T01:41:00.734799+00:00",
-        "observed_at": "2026-09-27T01:41:00.734799+00:00",
+        "checked_at": "2026-09-27T20:51:19.957525+00:00",
+        "observed_at": "2026-09-27T20:51:19.957525+00:00",
         "price": 58300,
         "status": "ok",
         "matched_name": "Nintendo Switch 2 マリオカート ワールドセット 日本語・国内専用",
@@ -152,8 +152,8 @@
         "store_id": "ichome",
         "store": "買取一丁目",
         "url": "https://www.1-chome.com/wineDetail/7049/7079",
-        "checked_at": "2026-09-27T01:41:14.963788+00:00",
-        "observed_at": "2026-09-27T01:41:14.963788+00:00",
+        "checked_at": "2026-09-27T20:51:19.575044+00:00",
+        "observed_at": "2026-09-27T20:51:19.575044+00:00",
         "price": 57000,
         "status": "ok",
         "matched_name": "Nintendo Switch 2 マリオカート ワールドセット 日本語・国内専用",
@@ -165,9 +165,9 @@
         "store_id": "homura",
         "store": "買取ホムラ",
         "url": "https://kaitori-homura.com/products/3454?q%5Bname_or_jan_code_cont%5D=4521329362342&search_query=4521329362342",
-        "checked_at": "2026-09-27T01:40:37.716105+00:00",
-        "observed_at": "2026-09-27T01:40:37.716105+00:00",
-        "price": 15000,
+        "checked_at": "2026-09-27T20:51:20.971304+00:00",
+        "observed_at": "2026-09-27T20:51:20.971304+00:00",
+        "price": 14800,
         "status": "ok",
         "matched_name": "【BOX】テラスタルフェスex",
         "note": ""
@@ -176,8 +176,8 @@
         "store_id": "rudeya",
         "store": "買取ルデヤ",
         "url": "https://kaitori-rudeya.com/product/item/6318",
-        "checked_at": "2026-09-27T01:40:38.961909+00:00",
-        "observed_at": "2026-09-27T01:40:38.961909+00:00",
+        "checked_at": "2026-09-27T20:51:20.984236+00:00",
+        "observed_at": "2026-09-27T20:51:20.984236+00:00",
         "price": 13000,
         "status": "ok",
         "matched_name": "新品 ポケモンカード S&V ハイクラスパック テラスタルフェスex BOX [SV8a]",
@@ -187,7 +187,7 @@
         "store_id": "morimori",
         "store": "森森買取",
         "url": "https://www.morimori-kaitori.jp/search?sk=4521329362342",
-        "checked_at": "2026-09-27T01:40:39.799462+00:00",
+        "checked_at": "2026-09-27T20:51:21.140550+00:00",
         "observed_at": null,
         "price": null,
         "status": "not_found"
@@ -196,7 +196,7 @@
         "store_id": "keitaispace",
         "store": "携帯空間",
         "url": "https://www.keitaispace.co.jp/product/?kw=4521329362342",
-        "checked_at": "2026-09-27T01:40:55.648765+00:00",
+        "checked_at": "2026-09-27T20:51:22.826142+00:00",
         "observed_at": null,
         "price": null,
         "status": "not_found"
@@ -205,7 +205,7 @@
         "store_id": "kaitoriwiki",
         "store": "買取wiki",
         "url": "https://kaitori.wiki/search?keyword=4521329362342",
-        "checked_at": "2026-09-27T01:40:59.783694+00:00",
+        "checked_at": "2026-09-27T20:51:21.470138+00:00",
         "observed_at": null,
         "price": null,
         "status": "not_found"
@@ -214,8 +214,8 @@
         "store_id": "kaitorishouten",
         "store": "買取商店",
         "url": "https://www.kaitorishouten-co.jp/products/detail/25599",
-        "checked_at": "2026-09-27T01:41:02.586476+00:00",
-        "observed_at": "2026-09-27T01:41:02.586476+00:00",
+        "checked_at": "2026-09-27T20:51:21.656501+00:00",
+        "observed_at": "2026-09-27T20:51:21.656501+00:00",
         "price": 11500,
         "status": "ok",
         "matched_name": "ポケモンカード S&V ハイクラスパック テラスタルフェスex BOX",
@@ -225,8 +225,8 @@
         "store_id": "ichome",
         "store": "買取一丁目",
         "url": "https://www.1-chome.com/wineDetail/6408/6408",
-        "checked_at": "2026-09-27T01:41:17.023231+00:00",
-        "observed_at": "2026-09-27T01:41:17.023231+00:00",
+        "checked_at": "2026-09-27T20:51:20.743438+00:00",
+        "observed_at": "2026-09-27T20:51:20.743438+00:00",
         "price": 15000,
         "status": "ok",
         "matched_name": "【S＆V】テラスタルフェスex BOX",
@@ -238,7 +238,7 @@
         "store_id": "homura",
         "store": "買取ホムラ",
         "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=4547410520088",
-        "checked_at": "2026-09-27T01:40:39.647657+00:00",
+        "checked_at": "2026-09-27T20:51:22.256916+00:00",
         "observed_at": null,
         "price": null,
         "status": "not_found"
@@ -247,8 +247,8 @@
         "store_id": "rudeya",
         "store": "買取ルデヤ",
         "url": "https://kaitori-rudeya.com/product/item/3587",
-        "checked_at": "2026-09-27T01:40:41.533190+00:00",
-        "observed_at": "2026-09-27T01:40:41.533190+00:00",
+        "checked_at": "2026-09-27T20:51:22.271703+00:00",
+        "observed_at": "2026-09-27T20:51:22.271703+00:00",
         "price": 23500,
         "status": "ok",
         "matched_name": "新品 FUJIFILM (富士フィルム) instax mini Evo チェキ USB Type-C対応 [ブラック]",
@@ -258,9 +258,9 @@
         "store_id": "morimori",
         "store": "森森買取",
         "url": "https://www.morimori-kaitori.jp/category/0505003/product/179273",
-        "checked_at": "2026-09-27T01:40:42.776969+00:00",
-        "observed_at": "2026-09-27T01:40:42.776969+00:00",
-        "price": 24000,
+        "checked_at": "2026-09-27T20:51:22.531524+00:00",
+        "observed_at": "2026-09-27T20:51:22.531524+00:00",
+        "price": 24500,
         "status": "ok",
         "matched_name": "富士フイルム\n                        instax mini Evo  [ブラック]",
         "note": ""
@@ -269,8 +269,8 @@
         "store_id": "keitaispace",
         "store": "携帯空間",
         "url": "https://www.keitaispace.co.jp/product/?pid=1782873972-501335&kw=4547410520088",
-        "checked_at": "2026-09-27T01:40:59.089443+00:00",
-        "observed_at": "2026-09-27T01:40:59.089443+00:00",
+        "checked_at": "2026-09-27T20:51:24.641445+00:00",
+        "observed_at": "2026-09-27T20:51:24.641445+00:00",
         "price": 23500,
         "status": "ok",
         "matched_name": "instax mini Evo チェキ USB Type-C対応 ブラック JAN:4547410520088",
@@ -280,8 +280,8 @@
         "store_id": "kaitoriwiki",
         "store": "買取wiki",
         "url": "https://camerakaitori.tokyo/purchase/instax-mini-Evo--USB-Type-C-[]-4547410520088",
-        "checked_at": "2026-09-27T01:41:02.684711+00:00",
-        "observed_at": "2026-09-27T01:41:02.684711+00:00",
+        "checked_at": "2026-09-27T20:51:22.949122+00:00",
+        "observed_at": "2026-09-27T20:51:22.949122+00:00",
         "price": 24100,
         "status": "ok",
         "matched_name": "instax mini Evo チェキ USB Type-C対応 [ブラック] 4547410520088",
@@ -291,8 +291,8 @@
         "store_id": "kaitorishouten",
         "store": "買取商店",
         "url": "https://www.kaitorishouten-co.jp/products/detail/16867",
-        "checked_at": "2026-09-27T01:41:04.478823+00:00",
-        "observed_at": "2026-09-27T01:41:04.478823+00:00",
+        "checked_at": "2026-09-27T20:51:23.238085+00:00",
+        "observed_at": "2026-09-27T20:51:23.238085+00:00",
         "price": 24000,
         "status": "ok",
         "matched_name": "instax mini Evo チェキ USB [ブラック]",
@@ -302,8 +302,8 @@
         "store_id": "ichome",
         "store": "買取一丁目",
         "url": "https://www.1-chome.com/wineDetail/5193/5193",
-        "checked_at": "2026-09-27T01:41:18.493940+00:00",
-        "observed_at": "2026-09-27T01:41:18.493940+00:00",
+        "checked_at": "2026-09-27T20:51:21.925679+00:00",
+        "observed_at": "2026-09-27T20:51:21.925679+00:00",
         "price": 24000,
         "status": "ok",
         "matched_name": "instax mini Evo チェキ USB [ブラック]",
@@ -315,7 +315,7 @@
         "store_id": "homura",
         "store": "買取ホムラ",
         "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=4547410520125",
-        "checked_at": "2026-09-27T01:40:41.633463+00:00",
+        "checked_at": "2026-09-27T20:51:23.515169+00:00",
         "observed_at": null,
         "price": null,
         "status": "not_found"
@@ -324,8 +324,8 @@
         "store_id": "rudeya",
         "store": "買取ルデヤ",
         "url": "https://kaitori-rudeya.com/product/item/3585",
-        "checked_at": "2026-09-27T01:40:44.173335+00:00",
-        "observed_at": "2026-09-27T01:40:44.173335+00:00",
+        "checked_at": "2026-09-27T20:51:23.558911+00:00",
+        "observed_at": "2026-09-27T20:51:23.558911+00:00",
         "price": 24500,
         "status": "ok",
         "matched_name": "新品 FUJIFILM (富士フィルム) instax mini Evo チェキ USB Type-C対応 [ブラウン]",
@@ -335,9 +335,9 @@
         "store_id": "morimori",
         "store": "森森買取",
         "url": "https://www.morimori-kaitori.jp/category/0505003/product/179274",
-        "checked_at": "2026-09-27T01:40:45.886029+00:00",
-        "observed_at": "2026-09-27T01:40:45.886029+00:00",
-        "price": 24500,
+        "checked_at": "2026-09-27T20:51:23.944140+00:00",
+        "observed_at": "2026-09-27T20:51:23.944140+00:00",
+        "price": 25800,
         "status": "ok",
         "matched_name": "instax\n                        instax mini Evo  [ブラウン]",
         "note": ""
@@ -346,8 +346,8 @@
         "store_id": "keitaispace",
         "store": "携帯空間",
         "url": "https://www.keitaispace.co.jp/product/?pid=1782874030-640708&kw=4547410520125",
-        "checked_at": "2026-09-27T01:41:02.585432+00:00",
-        "observed_at": "2026-09-27T01:41:02.585432+00:00",
+        "checked_at": "2026-09-27T20:51:26.467380+00:00",
+        "observed_at": "2026-09-27T20:51:26.467380+00:00",
         "price": 25000,
         "status": "ok",
         "matched_name": "instax mini Evo チェキ USB Type-C対応 ブラウン JAN:4547410520125",
@@ -357,8 +357,8 @@
         "store_id": "kaitoriwiki",
         "store": "買取wiki",
         "url": "https://camerakaitori.tokyo/purchase/instax-mini-Evo--USB-Type-C-[]-4547410520125",
-        "checked_at": "2026-09-27T01:41:05.411342+00:00",
-        "observed_at": "2026-09-27T01:41:05.411342+00:00",
+        "checked_at": "2026-09-27T20:51:24.492599+00:00",
+        "observed_at": "2026-09-27T20:51:24.492599+00:00",
         "price": 25500,
         "status": "ok",
         "matched_name": "instax mini Evo チェキ USB Type-C対応 [ブラウン] 4547410520125",
@@ -368,8 +368,8 @@
         "store_id": "kaitorishouten",
         "store": "買取商店",
         "url": "https://www.kaitorishouten-co.jp/products/detail/16868",
-        "checked_at": "2026-09-27T01:41:06.316774+00:00",
-        "observed_at": "2026-09-27T01:41:06.316774+00:00",
+        "checked_at": "2026-09-27T20:51:24.745439+00:00",
+        "observed_at": "2026-09-27T20:51:24.745439+00:00",
         "price": 25500,
         "status": "ok",
         "matched_name": "instax mini Evo チェキ USB [ブラウン]",
@@ -379,8 +379,8 @@
         "store_id": "ichome",
         "store": "買取一丁目",
         "url": "https://www.1-chome.com/wineDetail/5194/5194",
-        "checked_at": "2026-09-27T01:41:20.025906+00:00",
-        "observed_at": "2026-09-27T01:41:20.025906+00:00",
+        "checked_at": "2026-09-27T20:51:23.125520+00:00",
+        "observed_at": "2026-09-27T20:51:23.125520+00:00",
         "price": 24500,
         "status": "ok",
         "matched_name": "instax mini Evo チェキ USB [ブラウン]",
@@ -392,7 +392,7 @@
         "store_id": "homura",
         "store": "買取ホムラ",
         "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=4547410555844",
-        "checked_at": "2026-09-27T01:40:43.614112+00:00",
+        "checked_at": "2026-09-27T20:51:24.771738+00:00",
         "observed_at": null,
         "price": null,
         "status": "not_found"
@@ -401,8 +401,8 @@
         "store_id": "rudeya",
         "store": "買取ルデヤ",
         "url": "https://kaitori-rudeya.com/product/item/5528",
-        "checked_at": "2026-09-27T01:40:46.982732+00:00",
-        "observed_at": "2026-09-27T01:40:46.982732+00:00",
+        "checked_at": "2026-09-27T20:51:24.837448+00:00",
+        "observed_at": "2026-09-27T20:51:24.837448+00:00",
         "price": 51000,
         "status": "ok",
         "matched_name": "新品 FUJIFILM (富士フィルム) instax mini Evo チェキ USB Type-C対応 [ピンク]",
@@ -412,8 +412,8 @@
         "store_id": "morimori",
         "store": "森森買取",
         "url": "https://www.morimori-kaitori.jp/category/0505003/product/289563",
-        "checked_at": "2026-09-27T01:40:48.944899+00:00",
-        "observed_at": "2026-09-27T01:40:48.944899+00:00",
+        "checked_at": "2026-09-27T20:51:25.342450+00:00",
+        "observed_at": "2026-09-27T20:51:25.342450+00:00",
         "price": 53000,
         "status": "ok",
         "matched_name": "instax mini Evo チェキ Limited Edition [PINK]",
@@ -423,8 +423,8 @@
         "store_id": "keitaispace",
         "store": "携帯空間",
         "url": "https://www.keitaispace.co.jp/product/?pid=1782874083-069791&kw=4547410555844",
-        "checked_at": "2026-09-27T01:41:06.173080+00:00",
-        "observed_at": "2026-09-27T01:41:06.173080+00:00",
+        "checked_at": "2026-09-27T20:51:28.501559+00:00",
+        "observed_at": "2026-09-27T20:51:28.501559+00:00",
         "price": 54000,
         "status": "ok",
         "matched_name": "instax mini Evo チェキ USB Type-C対応 ピンク JAN:4547410555844",
@@ -434,8 +434,8 @@
         "store_id": "kaitoriwiki",
         "store": "買取wiki",
         "url": "https://camerakaitori.tokyo/purchase/instax-mini-Evo--USB-Type-C-[]-4547410555844",
-        "checked_at": "2026-09-27T01:41:07.922802+00:00",
-        "observed_at": "2026-09-27T01:41:07.922802+00:00",
+        "checked_at": "2026-09-27T20:51:26.050767+00:00",
+        "observed_at": "2026-09-27T20:51:26.050767+00:00",
         "price": 51000,
         "status": "ok",
         "matched_name": "instax mini Evo チェキ USB Type-C対応 [ピンク] 4547410555844",
@@ -445,8 +445,8 @@
         "store_id": "kaitorishouten",
         "store": "買取商店",
         "url": "https://www.kaitorishouten-co.jp/products/detail/22227",
-        "checked_at": "2026-09-27T01:41:08.188729+00:00",
-        "observed_at": "2026-09-27T01:41:08.188729+00:00",
+        "checked_at": "2026-09-27T20:51:26.282510+00:00",
+        "observed_at": "2026-09-27T20:51:26.282510+00:00",
         "price": 53500,
         "status": "ok",
         "matched_name": "instax mini Evo チェキ Limited Edition [PINK]",
@@ -456,8 +456,8 @@
         "store_id": "ichome",
         "store": "買取一丁目",
         "url": "https://www.1-chome.com/wineDetail/6404/6404",
-        "checked_at": "2026-09-27T01:41:21.515885+00:00",
-        "observed_at": "2026-09-27T01:41:21.515885+00:00",
+        "checked_at": "2026-09-27T20:51:24.294365+00:00",
+        "observed_at": "2026-09-27T20:51:24.294365+00:00",
         "price": 53000,
         "status": "ok",
         "matched_name": "instax mini Evo チェキ USB [ピンク]",
@@ -469,7 +469,7 @@
         "store_id": "homura",
         "store": "買取ホムラ",
         "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=4549980652954",
-        "checked_at": "2026-09-27T01:40:45.500248+00:00",
+        "checked_at": "2026-09-27T20:51:26.028061+00:00",
         "observed_at": null,
         "price": null,
         "status": "not_found"
@@ -478,8 +478,8 @@
         "store_id": "rudeya",
         "store": "買取ルデヤ",
         "url": "https://kaitori-rudeya.com/product/item/1762",
-        "checked_at": "2026-09-27T01:40:49.515864+00:00",
-        "observed_at": "2026-09-27T01:40:49.515864+00:00",
+        "checked_at": "2026-09-27T20:51:26.113274+00:00",
+        "observed_at": "2026-09-27T20:51:26.113274+00:00",
         "price": 27000,
         "status": "ok",
         "matched_name": "新品 Panasonic (パナソニック) ナノケア EH-NA0J-W [ウォームホワイト]",
@@ -489,8 +489,8 @@
         "store_id": "morimori",
         "store": "森森買取",
         "url": "https://www.morimori-kaitori.jp/category/0610005/product/71922",
-        "checked_at": "2026-09-27T01:40:52.059511+00:00",
-        "observed_at": "2026-09-27T01:40:52.059511+00:00",
+        "checked_at": "2026-09-27T20:51:26.738973+00:00",
+        "observed_at": "2026-09-27T20:51:26.738973+00:00",
         "price": 28500,
         "status": "ok",
         "matched_name": "パナソニック\n                        Panasonic ヘアードライヤー ナノケア ウォームホワイト EH-NA0J-W",
@@ -500,7 +500,7 @@
         "store_id": "keitaispace",
         "store": "携帯空間",
         "url": "https://www.keitaispace.co.jp/product/?kw=4549980652954",
-        "checked_at": "2026-09-27T01:41:09.422163+00:00",
+        "checked_at": "2026-09-27T20:51:30.452100+00:00",
         "observed_at": null,
         "price": null,
         "status": "not_found"
@@ -509,8 +509,8 @@
         "store_id": "kaitoriwiki",
         "store": "買取wiki",
         "url": "https://kadenkaitori.tokyo/purchase/Panasonic---EH-NA0J-W--4549980652954",
-        "checked_at": "2026-09-27T01:41:11.037202+00:00",
-        "observed_at": "2026-09-27T01:41:11.037202+00:00",
+        "checked_at": "2026-09-27T20:51:27.577913+00:00",
+        "observed_at": "2026-09-27T20:51:27.577913+00:00",
         "price": 28200,
         "status": "ok",
         "matched_name": "Panasonic パナソニック ナノケア EH-NA0J-W  ウォームホワイト 4549980652954",
@@ -520,8 +520,8 @@
         "store_id": "kaitorishouten",
         "store": "買取商店",
         "url": "https://www.kaitorishouten-co.jp/products/detail/14755",
-        "checked_at": "2026-09-27T01:41:09.764560+00:00",
-        "observed_at": "2026-09-27T01:41:09.764560+00:00",
+        "checked_at": "2026-09-27T20:51:27.824491+00:00",
+        "observed_at": "2026-09-27T20:51:27.824491+00:00",
         "price": 28500,
         "status": "ok",
         "matched_name": "Panasonic ナノケア EH-NA0J-W [ウォームホワイト]",
@@ -531,8 +531,8 @@
         "store_id": "ichome",
         "store": "買取一丁目",
         "url": "https://www.1-chome.com/wineDetail/4306/4306",
-        "checked_at": "2026-09-27T01:41:23.056496+00:00",
-        "observed_at": "2026-09-27T01:41:23.056496+00:00",
+        "checked_at": "2026-09-27T20:51:25.483072+00:00",
+        "observed_at": "2026-09-27T20:51:25.483072+00:00",
         "price": 27500,
         "status": "ok",
         "matched_name": "Panasonic ナノケア EH-NA0J-W [ウォームホワイト] ",
@@ -544,8 +544,8 @@
         "store_id": "homura",
         "store": "買取ホムラ",
         "url": "https://kaitori-homura.com/products/3979?q%5Bname_or_jan_code_cont%5D=4549980857779&search_query=4549980857779",
-        "checked_at": "2026-09-27T01:40:47.434669+00:00",
-        "observed_at": "2026-09-27T01:40:47.434669+00:00",
+        "checked_at": "2026-09-27T20:51:27.302873+00:00",
+        "observed_at": "2026-09-27T20:51:27.302873+00:00",
         "price": 15100,
         "status": "ok",
         "matched_name": "ナノケア EH-NA7M-H [モイストグレー]",
@@ -555,8 +555,8 @@
         "store_id": "rudeya",
         "store": "買取ルデヤ",
         "url": "https://kaitori-rudeya.com/product/item/4944",
-        "checked_at": "2026-09-27T01:40:52.177619+00:00",
-        "observed_at": "2026-09-27T01:40:52.177619+00:00",
+        "checked_at": "2026-09-27T20:51:27.411611+00:00",
+        "observed_at": "2026-09-27T20:51:27.411611+00:00",
         "price": 13000,
         "status": "ok",
         "matched_name": "新品 Panasonic (パナソニック) ナノケア EH-NA7M-H [モイストグレー]",
@@ -566,8 +566,8 @@
         "store_id": "morimori",
         "store": "森森買取",
         "url": "https://www.morimori-kaitori.jp/category/0610005/product/264748",
-        "checked_at": "2026-09-27T01:40:55.522421+00:00",
-        "observed_at": "2026-09-27T01:40:55.522421+00:00",
+        "checked_at": "2026-09-27T20:51:28.214343+00:00",
+        "observed_at": "2026-09-27T20:51:28.214343+00:00",
         "price": 15200,
         "status": "ok",
         "matched_name": "ナノケア EH-NA7M-H [モイストグレー]",
@@ -577,7 +577,7 @@
         "store_id": "keitaispace",
         "store": "携帯空間",
         "url": "https://www.keitaispace.co.jp/product/?kw=4549980857779",
-        "checked_at": "2026-09-27T01:41:12.501615+00:00",
+        "checked_at": "2026-09-27T20:51:32.400299+00:00",
         "observed_at": null,
         "price": null,
         "status": "not_found"
@@ -586,8 +586,8 @@
         "store_id": "kaitoriwiki",
         "store": "買取wiki",
         "url": "https://kadenkaitori.tokyo/purchase/Panasonic----EH-NA7M-H-4549980857779",
-        "checked_at": "2026-09-27T01:41:13.354338+00:00",
-        "observed_at": "2026-09-27T01:41:13.354338+00:00",
+        "checked_at": "2026-09-27T20:51:29.138196+00:00",
+        "observed_at": "2026-09-27T20:51:29.138196+00:00",
         "price": 14800,
         "status": "ok",
         "matched_name": "Panasonic ヘアードライヤー ナノケア モイストグレー EH-NA7M-H 4549980857779",
@@ -597,8 +597,8 @@
         "store_id": "kaitorishouten",
         "store": "買取商店",
         "url": "https://www.kaitorishouten-co.jp/products/detail/20488",
-        "checked_at": "2026-09-27T01:41:11.649666+00:00",
-        "observed_at": "2026-09-27T01:41:11.649666+00:00",
+        "checked_at": "2026-09-27T20:51:29.341215+00:00",
+        "observed_at": "2026-09-27T20:51:29.341215+00:00",
         "price": 15100,
         "status": "ok",
         "matched_name": "Panasonic ナノケア EH-NA7M-H [モイストグレー]",
@@ -608,12 +608,3722 @@
         "store_id": "ichome",
         "store": "買取一丁目",
         "url": "https://www.1-chome.com/wineDetail/6017/6017",
-        "checked_at": "2026-09-27T01:41:24.749803+00:00",
-        "observed_at": "2026-09-27T01:41:24.749803+00:00",
+        "checked_at": "2026-09-27T20:51:26.654253+00:00",
+        "observed_at": "2026-09-27T20:51:26.654253+00:00",
         "price": 15100,
         "status": "ok",
         "matched_name": "Panasonic ナノケア EH-NA7M-H [モイストグレー] ",
         "note": "新品 ／  ／ 数量制限あり（公式ページで確認）"
+      }
+    ],
+    "android-4580527851225": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=4580527851225",
+        "checked_at": "2026-09-27T20:51:28.553514+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/7214",
+        "checked_at": "2026-09-27T20:51:28.691645+00:00",
+        "observed_at": "2026-09-27T20:51:28.691645+00:00",
+        "price": 24000,
+        "status": "ok",
+        "matched_name": "新品 FCNT (エフシーエヌティー) arrows We3 64GB ブラック SIMフリー",
+        "note": "未開封品のみ。IMEIの判定結果が「〇」または「-」の商品のみ買取可能です。\nキャリア版は買取対象外です。\n偽物が発見された場合、警察に通報いたします。"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/category/0304020/product/343342",
+        "checked_at": "2026-09-27T20:51:29.604224+00:00",
+        "observed_at": "2026-09-27T20:51:29.604224+00:00",
+        "price": 23000,
+        "status": "ok",
+        "matched_name": "FCNT\n                        arrows We3 M09 64GB SIMフリー [ブラック] (SIMフリー)",
+        "note": ""
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=4580527851225",
+        "checked_at": "2026-09-27T20:51:34.304339+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://iphonekaitori.tokyo/purchase/FCNT---arrows-We3-M09-64GB--SIM-4580527851225",
+        "checked_at": "2026-09-27T20:51:30.759443+00:00",
+        "observed_at": "2026-09-27T20:51:30.759443+00:00",
+        "price": 23500,
+        "status": "ok",
+        "matched_name": "FCNT エフシーエヌティー スマホ arrows We3 M09 64GB ブラック SIMフリー 4580527851225",
+        "note": "新品基準。詳細条件は公式商品ページで確認"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/detail/26674",
+        "checked_at": "2026-09-27T20:51:30.867774+00:00",
+        "observed_at": "2026-09-27T20:51:30.867774+00:00",
+        "price": 23000,
+        "status": "ok",
+        "matched_name": "arrows We3 M09 4G+64G SIMフリー [ブラック]",
+        "note": "通常の基準価格（来店加算を含まない） ／ 新品"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/productDetail/1486/2129",
+        "checked_at": "2026-09-27T20:51:27.823822+00:00",
+        "observed_at": "2026-09-27T20:51:27.823822+00:00",
+        "price": 23000,
+        "status": "ok",
+        "matched_name": "arrows We3 M09 4G+64G SIMフリー ブラック",
+        "note": "新品未使用 ／ 色別の通常買取価格（キャンペーン加算なし）"
+      }
+    ],
+    "android-4580527851232": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=4580527851232",
+        "checked_at": "2026-09-27T20:51:29.813051+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/7216",
+        "checked_at": "2026-09-27T20:51:29.986685+00:00",
+        "observed_at": "2026-09-27T20:51:29.986685+00:00",
+        "price": 24000,
+        "status": "ok",
+        "matched_name": "新品 FCNT (エフシーエヌティー) arrows We3 64GB ホワイト SIMフリー",
+        "note": "未開封品のみ。IMEIの判定結果が「〇」または「-」の商品のみ買取可能です。\nキャリア版は買取対象外です。\n偽物が発見された場合、警察に通報いたします。"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/category/0304020/product/343343",
+        "checked_at": "2026-09-27T20:51:31.002480+00:00",
+        "observed_at": "2026-09-27T20:51:31.002480+00:00",
+        "price": 23000,
+        "status": "ok",
+        "matched_name": "FCNT\n                        arrows We3 M09 64GB SIMフリー [ホワイト] (SIMフリー)",
+        "note": ""
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=4580527851232",
+        "checked_at": "2026-09-27T20:51:36.515278+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://iphonekaitori.tokyo/purchase/FCNT---arrows-We3-M09-64GB--SIM-4580527851232",
+        "checked_at": "2026-09-27T20:51:32.375006+00:00",
+        "observed_at": "2026-09-27T20:51:32.375006+00:00",
+        "price": 23500,
+        "status": "ok",
+        "matched_name": "FCNT エフシーエヌティー スマホ arrows We3 M09 64GB ホワイト SIMフリー 4580527851232",
+        "note": "新品基準。詳細条件は公式商品ページで確認"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/detail/26673",
+        "checked_at": "2026-09-27T20:51:32.423726+00:00",
+        "observed_at": "2026-09-27T20:51:32.423726+00:00",
+        "price": 23000,
+        "status": "ok",
+        "matched_name": "arrows We3 M09 4G+64G SIMフリー [ホワイト]",
+        "note": "通常の基準価格（来店加算を含まない） ／ 新品"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/productDetail/1486/2129",
+        "checked_at": "2026-09-27T20:51:29.015237+00:00",
+        "observed_at": "2026-09-27T20:51:29.015237+00:00",
+        "price": 23000,
+        "status": "ok",
+        "matched_name": "arrows We3 M09 4G+64G SIMフリー ホワイト",
+        "note": "新品未使用 ／ 色別の通常買取価格（キャンペーン加算なし）"
+      }
+    ],
+    "android-4580527851249": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=4580527851249",
+        "checked_at": "2026-09-27T20:51:31.083812+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/7218",
+        "checked_at": "2026-09-27T20:51:31.340501+00:00",
+        "observed_at": "2026-09-27T20:51:31.340501+00:00",
+        "price": 24000,
+        "status": "ok",
+        "matched_name": "新品 FCNT (エフシーエヌティー) arrows We3 64GB ライトブルー SIMフリー",
+        "note": "未開封品のみ。IMEIの判定結果が「〇」または「-」の商品のみ買取可能です。\nキャリア版は買取対象外です。\n偽物が発見された場合、警察に通報いたします。"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/category/0304020/product/343341",
+        "checked_at": "2026-09-27T20:51:32.416530+00:00",
+        "observed_at": "2026-09-27T20:51:32.416530+00:00",
+        "price": 25200,
+        "status": "ok",
+        "matched_name": "FCNT\n                        arrows We3 M09 64GB SIMフリー [ライトブルー] (SIMフリー)",
+        "note": ""
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=4580527851249",
+        "checked_at": "2026-09-27T20:51:38.377822+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://iphonekaitori.tokyo/purchase/FCNT---arrows-We3-M09-64GB--SIM-4580527851249",
+        "checked_at": "2026-09-27T20:51:33.867906+00:00",
+        "observed_at": "2026-09-27T20:51:33.867906+00:00",
+        "price": 23500,
+        "status": "ok",
+        "matched_name": "FCNT エフシーエヌティー スマホ arrows We3 M09 64GB ライトブルー SIMフリー 4580527851249",
+        "note": "新品基準。詳細条件は公式商品ページで確認"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/detail/26675",
+        "checked_at": "2026-09-27T20:51:33.954390+00:00",
+        "observed_at": "2026-09-27T20:51:33.954390+00:00",
+        "price": 23000,
+        "status": "ok",
+        "matched_name": "arrows We3 M09 4G+64G SIMフリー [ライトブルー]",
+        "note": "通常の基準価格（来店加算を含まない） ／ 新品"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/productDetail/1486/2129",
+        "checked_at": "2026-09-27T20:51:30.200079+00:00",
+        "observed_at": "2026-09-27T20:51:30.200079+00:00",
+        "price": 23000,
+        "status": "ok",
+        "matched_name": "arrows We3 M09 4G+64G SIMフリー ライトブルー",
+        "note": "新品未使用 ／ 色別の通常買取価格（キャンペーン加算なし）"
+      }
+    ],
+    "android-4580527850983": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=4580527850983",
+        "checked_at": "2026-09-27T20:51:32.388601+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/7215",
+        "checked_at": "2026-09-27T20:51:32.649650+00:00",
+        "observed_at": "2026-09-27T20:51:32.649650+00:00",
+        "price": 27500,
+        "status": "ok",
+        "matched_name": "新品 FCNT (エフシーエヌティー) arrows We3 128GB ブラック SIMフリー",
+        "note": "未開封品のみ。IMEIの判定結果が「〇」または「-」の商品のみ買取可能です。\nキャリア版は買取対象外です。\n偽物が発見された場合、警察に通報いたします。"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/category/0304020/product/343345",
+        "checked_at": "2026-09-27T20:51:33.808486+00:00",
+        "observed_at": "2026-09-27T20:51:33.808486+00:00",
+        "price": 26000,
+        "status": "ok",
+        "matched_name": "FCNT\n                        arrows We3 M09 128GB SIMフリー [ブラック] (SIMフリー)",
+        "note": ""
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=4580527850983",
+        "checked_at": "2026-09-27T20:51:40.219810+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://iphonekaitori.tokyo/purchase/FCNT---arrows-We3-M09-128GB--SIM-4580527850983",
+        "checked_at": "2026-09-27T20:51:35.427012+00:00",
+        "observed_at": "2026-09-27T20:51:35.427012+00:00",
+        "price": 26500,
+        "status": "ok",
+        "matched_name": "FCNT エフシーエヌティー スマホ arrows We3 M09 128GB ブラック SIMフリー   4580527850983",
+        "note": "新品基準。詳細条件は公式商品ページで確認"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/detail/26677",
+        "checked_at": "2026-09-27T20:51:35.504853+00:00",
+        "observed_at": "2026-09-27T20:51:35.504853+00:00",
+        "price": 26000,
+        "status": "ok",
+        "matched_name": "arrows We3 M09 8G+128G SIMフリー [ブラック]",
+        "note": "通常の基準価格（来店加算を含まない） ／ 新品"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/searchResult",
+        "checked_at": "2026-09-27T20:51:31.407431+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      }
+    ],
+    "android-4580527850990": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=4580527850990",
+        "checked_at": "2026-09-27T20:51:33.661962+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/7217",
+        "checked_at": "2026-09-27T20:51:33.954237+00:00",
+        "observed_at": "2026-09-27T20:51:33.954237+00:00",
+        "price": 27500,
+        "status": "ok",
+        "matched_name": "新品 FCNT (エフシーエヌティー) arrows We3 128GB ホワイト SIMフリー",
+        "note": "未開封品のみ。IMEIの判定結果が「〇」または「-」の商品のみ買取可能です。\nキャリア版は買取対象外です。\n偽物が発見された場合、警察に通報いたします。"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/category/0304020/product/343346",
+        "checked_at": "2026-09-27T20:51:35.230661+00:00",
+        "observed_at": "2026-09-27T20:51:35.230661+00:00",
+        "price": 26000,
+        "status": "ok",
+        "matched_name": "FCNT\n                        arrows We3 M09 128GB SIMフリー [ホワイト] (SIMフリー)",
+        "note": ""
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=4580527850990",
+        "checked_at": "2026-09-27T20:51:42.058323+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://iphonekaitori.tokyo/purchase/FCNT---arrows-We3-M09-128GB--SIM-4580527850990",
+        "checked_at": "2026-09-27T20:51:37.081558+00:00",
+        "observed_at": "2026-09-27T20:51:37.081558+00:00",
+        "price": 26500,
+        "status": "ok",
+        "matched_name": "FCNT エフシーエヌティー スマホ arrows We3 M09 128GB ホワイト SIMフリー  4580527850990",
+        "note": "新品基準。詳細条件は公式商品ページで確認"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/detail/26676",
+        "checked_at": "2026-09-27T20:51:37.031143+00:00",
+        "observed_at": "2026-09-27T20:51:37.031143+00:00",
+        "price": 26000,
+        "status": "ok",
+        "matched_name": "arrows We3 M09 8G+128G SIMフリー [ホワイト]",
+        "note": "通常の基準価格（来店加算を含まない） ／ 新品"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/searchResult",
+        "checked_at": "2026-09-27T20:51:32.585071+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      }
+    ],
+    "android-4580527851003": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=4580527851003",
+        "checked_at": "2026-09-27T20:51:34.917455+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/7219",
+        "checked_at": "2026-09-27T20:51:35.261803+00:00",
+        "observed_at": "2026-09-27T20:51:35.261803+00:00",
+        "price": 27500,
+        "status": "ok",
+        "matched_name": "新品 FCNT (エフシーエヌティー) arrows We3 128GB ライトブルー SIMフリー",
+        "note": "未開封品のみ。IMEIの判定結果が「〇」または「-」の商品のみ買取可能です。\nキャリア版は買取対象外です。\n偽物が発見された場合、警察に通報いたします。"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/category/0304020/product/343344",
+        "checked_at": "2026-09-27T20:51:36.661052+00:00",
+        "observed_at": "2026-09-27T20:51:36.661052+00:00",
+        "price": 26000,
+        "status": "ok",
+        "matched_name": "FCNT\n                        arrows We3 M09 128GB SIMフリー [ライトブルー] (SIMフリー)",
+        "note": ""
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=4580527851003",
+        "checked_at": "2026-09-27T20:51:44.515287+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://iphonekaitori.tokyo/purchase/FCNT---arrows-We3-M09-128GB--SIM-4580527851003",
+        "checked_at": "2026-09-27T20:51:38.890036+00:00",
+        "observed_at": "2026-09-27T20:51:38.890036+00:00",
+        "price": 26500,
+        "status": "ok",
+        "matched_name": "FCNT エフシーエヌティー スマホ arrows We3 M09 128GB ライトブルー SIMフリー   4580527851003",
+        "note": "新品基準。詳細条件は公式商品ページで確認"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/detail/26678",
+        "checked_at": "2026-09-27T20:51:38.576712+00:00",
+        "observed_at": "2026-09-27T20:51:38.576712+00:00",
+        "price": 26000,
+        "status": "ok",
+        "matched_name": "arrows We3 M09 8G+128G SIMフリー [ライトブルー]",
+        "note": "通常の基準価格（来店加算を含まない） ／ 新品"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/searchResult",
+        "checked_at": "2026-09-27T20:51:33.819656+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      }
+    ],
+    "android-4550556178846": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products/6662?q%5Bname_or_jan_code_cont%5D=4550556178846&search_query=4550556178846",
+        "checked_at": "2026-09-27T20:51:36.195842+00:00",
+        "observed_at": "2026-09-27T20:51:36.195842+00:00",
+        "price": 51000,
+        "status": "ok",
+        "matched_name": "AQUOS sense 10 SH-M33 6G+128G SIMフリー ブラック",
+        "note": ""
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/7177",
+        "checked_at": "2026-09-27T20:51:36.548716+00:00",
+        "observed_at": "2026-09-27T20:51:36.548716+00:00",
+        "price": 48000,
+        "status": "ok",
+        "matched_name": "新品 SHARP (シャープ) AQUOS sense10 128GB [フルブラック] SIMフリー",
+        "note": "未開封品のみ。IMEIの判定結果が「〇」または「-」の商品のみ買取可能です。\nキャリア版は買取対象外です。\n偽物が発見された場合、警察に通報いたします。"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/category/0304003/product/306738",
+        "checked_at": "2026-09-27T20:51:38.080473+00:00",
+        "observed_at": "2026-09-27T20:51:38.080473+00:00",
+        "price": 51600,
+        "status": "ok",
+        "matched_name": "シャープ\n                        AQUOS sense10 SH-M33 128GB SIMフリー [フルブラック] (SIMフリー)",
+        "note": ""
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=4550556178846",
+        "checked_at": "2026-09-27T20:51:46.361839+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://iphonekaitori.tokyo/purchase/SHARP---sense10-SH-M33-128GB--4550556178846",
+        "checked_at": "2026-09-27T20:51:40.387223+00:00",
+        "observed_at": "2026-09-27T20:51:40.387223+00:00",
+        "price": 51000,
+        "status": "ok",
+        "matched_name": "SHARP シャープ スマホ sense10 SH-M33 128GB フルブラック 4550556178846",
+        "note": "新品基準。詳細条件は公式商品ページで確認"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/detail/25270",
+        "checked_at": "2026-09-27T20:51:40.068967+00:00",
+        "observed_at": "2026-09-27T20:51:40.068967+00:00",
+        "price": 51000,
+        "status": "ok",
+        "matched_name": "AQUOS sense10 SH-M33 6G+128G SIMフリー [フルブラック]*",
+        "note": "通常の基準価格（来店加算を含まない） ／ 新品 ／ ※格安版の封印シールある場合には開封されたら減額2000円となります。※量販店版封印シールない場合には減額なし。"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/searchResult",
+        "checked_at": "2026-09-27T20:51:34.998593+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      }
+    ],
+    "android-4550556178907": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products/6668?q%5Bname_or_jan_code_cont%5D=4550556178907&search_query=4550556178907",
+        "checked_at": "2026-09-27T20:51:37.466989+00:00",
+        "observed_at": "2026-09-27T20:51:37.466989+00:00",
+        "price": 56500,
+        "status": "ok",
+        "matched_name": "AQUOS sense10 SH-M33 8G＋256GB SIMフリー ブラック",
+        "note": ""
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/7178",
+        "checked_at": "2026-09-27T20:51:37.842190+00:00",
+        "observed_at": "2026-09-27T20:51:37.842190+00:00",
+        "price": 50000,
+        "status": "ok",
+        "matched_name": "新品 SHARP (シャープ) AQUOS sense10 256GB [フルブラック] SIMフリー",
+        "note": "未開封品のみ。IMEIの判定結果が「〇」または「-」の商品のみ買取可能です。\nキャリア版は買取対象外です。\n偽物が発見された場合、警察に通報いたします。"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/category/0304003/product/306744",
+        "checked_at": "2026-09-27T20:51:39.591275+00:00",
+        "observed_at": "2026-09-27T20:51:39.591275+00:00",
+        "price": 56400,
+        "status": "ok",
+        "matched_name": "シャープ\n                        AQUOS sense10 SH-M33 256GB SIMフリー [フルブラック] (SIMフリー)",
+        "note": ""
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=4550556178907",
+        "checked_at": "2026-09-27T20:51:48.262967+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://iphonekaitori.tokyo/purchase/SHARP---sense10-SH-M33-256GB--4550556178907",
+        "checked_at": "2026-09-27T20:51:42.032728+00:00",
+        "observed_at": "2026-09-27T20:51:42.032728+00:00",
+        "price": 56500,
+        "status": "ok",
+        "matched_name": "SHARP シャープ スマホ sense10 SH-M33 256GB フルブラック 4550556178907",
+        "note": "新品基準。詳細条件は公式商品ページで確認"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/detail/25276",
+        "checked_at": "2026-09-27T20:51:41.551370+00:00",
+        "observed_at": "2026-09-27T20:51:41.551370+00:00",
+        "price": 57000,
+        "status": "ok",
+        "matched_name": "AQUOS sense10 SH-M33 8G+256G SIMフリー [フルブラック]*",
+        "note": "通常の基準価格（来店加算を含まない） ／ 新品 ／ ※格安版の封印シールある場合には開封されたら減額2000円となります。※量販店版封印シールない場合には減額なし。"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/searchResult",
+        "checked_at": "2026-09-27T20:51:36.196487+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      }
+    ],
+    "android-4986773243515": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products/5352?q%5Bname_or_jan_code_cont%5D=4986773243515&search_query=4986773243515",
+        "checked_at": "2026-09-27T20:51:38.739386+00:00",
+        "observed_at": "2026-09-27T20:51:38.739386+00:00",
+        "price": 15000,
+        "status": "ok",
+        "matched_name": "【未開封】Galaxy A25 5G SM-A253Q 4G+64G SIMフリー [ブルー]",
+        "note": ""
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/7229",
+        "checked_at": "2026-09-27T20:51:39.163474+00:00",
+        "observed_at": "2026-09-27T20:51:39.163474+00:00",
+        "price": 17000,
+        "status": "ok",
+        "matched_name": "新品 SAMSUNG (サムスン) Galaxy A25 5G [ブルー]  SIMフリー",
+        "note": "未開封品のみ。IMEIの判定結果が「〇」または「-」の商品のみ買取可能です。\nキャリア版は買取対象外です。\n偽物が発見された場合、警察に通報いたします。"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/category/0304012/product/303180",
+        "checked_at": "2026-09-27T20:51:41.060594+00:00",
+        "observed_at": "2026-09-27T20:51:41.060594+00:00",
+        "price": 16700,
+        "status": "ok",
+        "matched_name": "SAMSUNG\n                        Galaxy A25 5G SIMフリー [ブルー] (SIMフリー)",
+        "note": ""
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=4986773243515",
+        "checked_at": "2026-09-27T20:51:51.565310+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://kaitori.wiki/search?keyword=4986773243515",
+        "checked_at": "2026-09-27T20:51:43.650465+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/detail/22511",
+        "checked_at": "2026-09-27T20:51:43.184253+00:00",
+        "observed_at": "2026-09-27T20:51:43.184253+00:00",
+        "price": 16000,
+        "status": "ok",
+        "matched_name": "Galaxy A25 5G SM-A253Q 4G+64G SIMフリー [ブルー]",
+        "note": "通常の基準価格（来店加算を含まない） ／ 新品 ／  ／ 数量制限あり（公式ページで確認）"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/searchResult",
+        "checked_at": "2026-09-27T20:51:37.401415+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      }
+    ],
+    "android-4986773243522": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products/5351?q%5Bname_or_jan_code_cont%5D=4986773243522&search_query=4986773243522",
+        "checked_at": "2026-09-27T20:51:40.047286+00:00",
+        "observed_at": "2026-09-27T20:51:40.047286+00:00",
+        "price": 15000,
+        "status": "ok",
+        "matched_name": "【未開封】Galaxy A25 5G SM-A253Q 4G+64G SIMフリー [ブラック]",
+        "note": ""
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/7230",
+        "checked_at": "2026-09-27T20:51:40.454906+00:00",
+        "observed_at": "2026-09-27T20:51:40.454906+00:00",
+        "price": 17000,
+        "status": "ok",
+        "matched_name": "新品 SAMSUNG (サムスン) Galaxy A25 5G [ブラック]  SIMフリー",
+        "note": "未開封品のみ。IMEIの判定結果が「〇」または「-」の商品のみ買取可能です。\nキャリア版は買取対象外です。\n偽物が発見された場合、警察に通報いたします。"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/search?sk=4986773243522",
+        "checked_at": "2026-09-27T20:51:42.478037+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=4986773243522",
+        "checked_at": "2026-09-27T20:51:53.423234+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://kaitori.wiki/search?keyword=4986773243522",
+        "checked_at": "2026-09-27T20:51:45.102141+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/detail/22510",
+        "checked_at": "2026-09-27T20:51:44.688554+00:00",
+        "observed_at": "2026-09-27T20:51:44.688554+00:00",
+        "price": 16000,
+        "status": "ok",
+        "matched_name": "Galaxy A25 5G SM-A253Q 4G+64G SIMフリー [ブラック]",
+        "note": "通常の基準価格（来店加算を含まない） ／ 新品 ／  ／ 数量制限あり（公式ページで確認）"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/searchResult",
+        "checked_at": "2026-09-27T20:51:38.586081+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      }
+    ],
+    "android-4986773243508": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products/5350?q%5Bname_or_jan_code_cont%5D=4986773243508&search_query=4986773243508",
+        "checked_at": "2026-09-27T20:51:41.319269+00:00",
+        "observed_at": "2026-09-27T20:51:41.319269+00:00",
+        "price": 15000,
+        "status": "ok",
+        "matched_name": "【未開封】Galaxy A25 5G SM-A253Q 4G+64G SIMフリー [ライト ブルー]",
+        "note": ""
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/7231",
+        "checked_at": "2026-09-27T20:51:41.771582+00:00",
+        "observed_at": "2026-09-27T20:51:41.771582+00:00",
+        "price": 17000,
+        "status": "ok",
+        "matched_name": "新品 SAMSUNG (サムスン) Galaxy A25 5G [ライトブルー]  SIMフリー",
+        "note": "未開封品のみ。IMEIの判定結果が「〇」または「-」の商品のみ買取可能です。\nキャリア版は買取対象外です。\n偽物が発見された場合、警察に通報いたします。"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/search?sk=4986773243508",
+        "checked_at": "2026-09-27T20:51:43.884148+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=4986773243508",
+        "checked_at": "2026-09-27T20:51:55.301464+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://kaitori.wiki/search?keyword=4986773243508",
+        "checked_at": "2026-09-27T20:51:46.482684+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/detail/22509",
+        "checked_at": "2026-09-27T20:51:46.195019+00:00",
+        "observed_at": "2026-09-27T20:51:46.195019+00:00",
+        "price": 16000,
+        "status": "ok",
+        "matched_name": "Galaxy A25 5G SM-A253Q 4G+64G SIMフリー [ライト ブルー]",
+        "note": "通常の基準価格（来店加算を含まない） ／ 新品 ／  ／ 数量制限あり（公式ページで確認）"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/searchResult",
+        "checked_at": "2026-09-27T20:51:39.767048+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      }
+    ],
+    "android-0840353922358": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=0840353922358",
+        "checked_at": "2026-09-27T20:51:42.606829+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/5788",
+        "checked_at": "2026-09-27T20:51:43.074953+00:00",
+        "observed_at": "2026-09-27T20:51:43.074953+00:00",
+        "price": 61000,
+        "status": "ok",
+        "matched_name": "新品 Google (グーグル) Pixel 9a 128GB Porcelain 未開封 SIMフリー",
+        "note": "未開封品のみ。IMEIの判定結果が「〇」または「-」の商品のみ買取可能です。\nキャリア版は買取対象外です。\n偽物が発見された場合、警察に通報いたします。"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/search?sk=0840353922358",
+        "checked_at": "2026-09-27T20:51:45.302335+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=0840353922358",
+        "checked_at": "2026-09-27T20:51:57.334174+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://iphonekaitori.tokyo/purchase/Google-Pixel-9a-128GB-Porcelain-SIM-0840353922358",
+        "checked_at": "2026-09-27T20:51:47.934120+00:00",
+        "observed_at": "2026-09-27T20:51:47.934120+00:00",
+        "price": 61800,
+        "status": "ok",
+        "matched_name": "Google Pixel 9a 128GB Porcelain SIMフリー 0840353922358",
+        "note": "新品基準。詳細条件は公式商品ページで確認"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/list?q=0840353922358",
+        "checked_at": "2026-09-27T20:51:47.699182+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/productDetail/1263/1654",
+        "checked_at": "2026-09-27T20:51:40.949402+00:00",
+        "observed_at": "2026-09-27T20:51:40.949402+00:00",
+        "price": 61500,
+        "status": "ok",
+        "matched_name": "Google Pixel 9a 128GB Porcelain",
+        "note": "未開封 ／ 色別の通常買取価格（キャンペーン加算なし） ／ △-7000 ／ 数量制限あり（公式ページで確認）"
+      }
+    ],
+    "android-0840353922303": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=0840353922303",
+        "checked_at": "2026-09-27T20:51:43.901165+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/5789",
+        "checked_at": "2026-09-27T20:51:44.364501+00:00",
+        "observed_at": "2026-09-27T20:51:44.364501+00:00",
+        "price": 61000,
+        "status": "ok",
+        "matched_name": "新品 Google (グーグル) Pixel 9a 128GB Obsidian 未開封 SIMフリー",
+        "note": "未開封品のみ。IMEIの判定結果が「〇」または「-」の商品のみ買取可能です。\nキャリア版は買取対象外です。\n偽物が発見された場合、警察に通報いたします。"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/search?sk=0840353922303",
+        "checked_at": "2026-09-27T20:51:46.747721+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=0840353922303",
+        "checked_at": "2026-09-27T20:51:59.213281+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://iphonekaitori.tokyo/purchase/Google-Pixel-9a-128GB-Obsidian-SIM-0840353922303",
+        "checked_at": "2026-09-27T20:51:49.482212+00:00",
+        "observed_at": "2026-09-27T20:51:49.482212+00:00",
+        "price": 61800,
+        "status": "ok",
+        "matched_name": "Google Pixel 9a 128GB Obsidian SIMフリー 0840353922303",
+        "note": "新品基準。詳細条件は公式商品ページで確認"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/list?q=0840353922303",
+        "checked_at": "2026-09-27T20:51:49.005539+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/productDetail/1263/1654",
+        "checked_at": "2026-09-27T20:51:42.142713+00:00",
+        "observed_at": "2026-09-27T20:51:42.142713+00:00",
+        "price": 61500,
+        "status": "ok",
+        "matched_name": "Google Pixel 9a 128GB Obsidian",
+        "note": "未開封 ／ 色別の通常買取価格（キャンペーン加算なし） ／ △-7000 ／ 数量制限あり（公式ページで確認）"
+      }
+    ],
+    "android-0840353922402": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=0840353922402",
+        "checked_at": "2026-09-27T20:51:45.151628+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/5790",
+        "checked_at": "2026-09-27T20:51:45.643015+00:00",
+        "observed_at": "2026-09-27T20:51:45.643015+00:00",
+        "price": 61000,
+        "status": "ok",
+        "matched_name": "新品 Google (グーグル) Pixel 9a 128GB Iris 未開封 SIMフリー",
+        "note": "未開封品のみ。IMEIの判定結果が「〇」または「-」の商品のみ買取可能です。\nキャリア版は買取対象外です。\n偽物が発見された場合、警察に通報いたします。"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/search?sk=0840353922402",
+        "checked_at": "2026-09-27T20:51:48.168691+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=0840353922402",
+        "checked_at": "2026-09-27T20:52:01.061567+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://iphonekaitori.tokyo/purchase/Google-Pixel-9a-128GB-Iris-SIM-0840353922402",
+        "checked_at": "2026-09-27T20:51:51.227058+00:00",
+        "observed_at": "2026-09-27T20:51:51.227058+00:00",
+        "price": 61800,
+        "status": "ok",
+        "matched_name": "Google Pixel 9a 128GB Iris SIMフリー 0840353922402",
+        "note": "新品基準。詳細条件は公式商品ページで確認"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/list?q=0840353922402",
+        "checked_at": "2026-09-27T20:51:50.328288+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/productDetail/1263/1654",
+        "checked_at": "2026-09-27T20:51:43.325855+00:00",
+        "observed_at": "2026-09-27T20:51:43.325855+00:00",
+        "price": 61500,
+        "status": "ok",
+        "matched_name": "Google Pixel 9a 128GB Iris",
+        "note": "未開封 ／ 色別の通常買取価格（キャンペーン加算なし） ／ △-7000 ／ 数量制限あり（公式ページで確認）"
+      }
+    ],
+    "android-0840353922464": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=0840353922464",
+        "checked_at": "2026-09-27T20:51:46.408336+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/5791",
+        "checked_at": "2026-09-27T20:51:46.945401+00:00",
+        "observed_at": "2026-09-27T20:51:46.945401+00:00",
+        "price": 61000,
+        "status": "ok",
+        "matched_name": "新品 Google (グーグル) Pixel 9a 128GB Peony 未開封 SIMフリー",
+        "note": "未開封品のみ。IMEIの判定結果が「〇」または「-」の商品のみ買取可能です。\nキャリア版は買取対象外です。\n偽物が発見された場合、警察に通報いたします。"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/search?sk=0840353922464",
+        "checked_at": "2026-09-27T20:51:49.667461+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=0840353922464",
+        "checked_at": "2026-09-27T20:52:03.265283+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://iphonekaitori.tokyo/purchase/Google-Pixel-9a-128GB-peony-SIM-0840353922464",
+        "checked_at": "2026-09-27T20:51:52.722758+00:00",
+        "observed_at": "2026-09-27T20:51:52.722758+00:00",
+        "price": 61800,
+        "status": "ok",
+        "matched_name": "Google Pixel 9a 128GB peony SIMフリー  0840353922464",
+        "note": "新品基準。詳細条件は公式商品ページで確認"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/list?q=0840353922464",
+        "checked_at": "2026-09-27T20:51:51.613707+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/productDetail/1263/1654",
+        "checked_at": "2026-09-27T20:51:44.527601+00:00",
+        "observed_at": "2026-09-27T20:51:44.527601+00:00",
+        "price": 61500,
+        "status": "ok",
+        "matched_name": "Google Pixel 9a 128GB Peony",
+        "note": "未開封 ／ 色別の通常買取価格（キャンペーン加算なし） ／ △-7000 ／ 数量制限あり（公式ページで確認）"
+      }
+    ],
+    "android-0840353923317": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=0840353923317",
+        "checked_at": "2026-09-27T20:51:47.683891+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/5792",
+        "checked_at": "2026-09-27T20:51:48.235385+00:00",
+        "observed_at": "2026-09-27T20:51:48.235385+00:00",
+        "price": 69000,
+        "status": "ok",
+        "matched_name": "新品 Google (グーグル) Pixel 9a 256GB Porcelain 未開封 SIMフリー",
+        "note": "未開封品のみ。IMEIの判定結果が「〇」または「-」の商品のみ買取可能です。\nキャリア版は買取対象外です。\n偽物が発見された場合、警察に通報いたします。"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/search?sk=0840353923317",
+        "checked_at": "2026-09-27T20:51:51.098835+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=0840353923317",
+        "checked_at": "2026-09-27T20:52:05.788975+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://iphonekaitori.tokyo/purchase/Google-Pixel-9a-256GB-Porcelain-SIM-0840353923317",
+        "checked_at": "2026-09-27T20:51:54.266436+00:00",
+        "observed_at": "2026-09-27T20:51:54.266436+00:00",
+        "price": 71500,
+        "status": "ok",
+        "matched_name": "Google Pixel 9a 256GB Porcelain SIMフリー 0840353923317",
+        "note": "新品基準。詳細条件は公式商品ページで確認"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/list?q=0840353923317",
+        "checked_at": "2026-09-27T20:51:52.904064+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/productDetail/1264/1655",
+        "checked_at": "2026-09-27T20:51:45.705791+00:00",
+        "observed_at": "2026-09-27T20:51:45.705791+00:00",
+        "price": 68500,
+        "status": "ok",
+        "matched_name": "Google Pixel 9a 256GB Porcelain",
+        "note": "未開封 ／ 色別の通常買取価格（キャンペーン加算なし） ／  ／ 数量制限あり（公式ページで確認）"
+      }
+    ],
+    "android-0840353922518": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=0840353922518",
+        "checked_at": "2026-09-27T20:51:48.976515+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/5793",
+        "checked_at": "2026-09-27T20:51:49.523766+00:00",
+        "observed_at": "2026-09-27T20:51:49.523766+00:00",
+        "price": 69000,
+        "status": "ok",
+        "matched_name": "新品 Google (グーグル) Pixel 9a 256GB Obsidian 未開封 SIMフリー",
+        "note": "未開封品のみ。IMEIの判定結果が「〇」または「-」の商品のみ買取可能です。\nキャリア版は買取対象外です。\n偽物が発見された場合、警察に通報いたします。"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/search?sk=0840353922518",
+        "checked_at": "2026-09-27T20:51:55.440336+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=0840353922518",
+        "checked_at": "2026-09-27T20:52:08.123870+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://iphonekaitori.tokyo/purchase/Google-Pixel-9a-256GB-Obsidian-SIM-0840353922518",
+        "checked_at": "2026-09-27T20:51:55.819931+00:00",
+        "observed_at": "2026-09-27T20:51:55.819931+00:00",
+        "price": 71500,
+        "status": "ok",
+        "matched_name": "Google Pixel 9a 256GB Obsidian SIMフリー 0840353922518",
+        "note": "新品基準。詳細条件は公式商品ページで確認"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/list?q=0840353922518",
+        "checked_at": "2026-09-27T20:51:54.190537+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/productDetail/1264/1655",
+        "checked_at": "2026-09-27T20:51:46.907293+00:00",
+        "observed_at": "2026-09-27T20:51:46.907293+00:00",
+        "price": 68500,
+        "status": "ok",
+        "matched_name": "Google Pixel 9a 256GB Obsidian",
+        "note": "未開封 ／ 色別の通常買取価格（キャンペーン加算なし） ／  ／ 数量制限あり（公式ページで確認）"
+      }
+    ],
+    "android-0840353922563": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=0840353922563",
+        "checked_at": "2026-09-27T20:51:50.255588+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/5794",
+        "checked_at": "2026-09-27T20:51:50.827017+00:00",
+        "observed_at": "2026-09-27T20:51:50.827017+00:00",
+        "price": 69000,
+        "status": "ok",
+        "matched_name": "新品 Google (グーグル) Pixel 9a 256GB Iris 未開封 SIMフリー",
+        "note": "未開封品のみ。IMEIの判定結果が「〇」または「-」の商品のみ買取可能です。\nキャリア版は買取対象外です。\n偽物が発見された場合、警察に通報いたします。"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/search?sk=0840353922563",
+        "checked_at": "2026-09-27T20:51:56.871502+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=0840353922563",
+        "checked_at": "2026-09-27T20:52:09.969191+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://kaitori.wiki/search?keyword=0840353922563",
+        "checked_at": "2026-09-27T20:51:57.906694+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/list?q=0840353922563",
+        "checked_at": "2026-09-27T20:51:55.519156+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/productDetail/1264/1655",
+        "checked_at": "2026-09-27T20:51:48.092124+00:00",
+        "observed_at": "2026-09-27T20:51:48.092124+00:00",
+        "price": 68500,
+        "status": "ok",
+        "matched_name": "Google Pixel 9a 256GB Iris",
+        "note": "未開封 ／ 色別の通常買取価格（キャンペーン加算なし） ／  ／ 数量制限あり（公式ページで確認）"
+      }
+    ],
+    "android-4580038872061": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products/6780?q%5Bname_or_jan_code_cont%5D=4580038872061&search_query=4580038872061",
+        "checked_at": "2026-09-27T20:51:51.564810+00:00",
+        "observed_at": "2026-09-27T20:51:51.564810+00:00",
+        "price": 30000,
+        "status": "ok",
+        "matched_name": "OPPO Reno13 A CPH2699 IB アイスブルー",
+        "note": ""
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/7142",
+        "checked_at": "2026-09-27T20:51:52.124720+00:00",
+        "observed_at": "2026-09-27T20:51:52.124720+00:00",
+        "price": 28000,
+        "status": "ok",
+        "matched_name": "新品 OPPO (オッポ) Reno13 A 8GB/128GB アイスブルー SIMフリー",
+        "note": "未開封品のみ。IMEIの判定結果が「〇」または「-」の商品のみ買取可能です。\nキャリア版は買取対象外です。\n偽物が発見された場合、警察に通報いたします。"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/category/0304004/product/298712",
+        "checked_at": "2026-09-27T20:51:58.321688+00:00",
+        "observed_at": "2026-09-27T20:51:58.321688+00:00",
+        "price": 30200,
+        "status": "ok",
+        "matched_name": "OPPO\n                        OPPO Reno13 A SIMフリー [アイスブルー] (SIMフリー)",
+        "note": ""
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=4580038872061",
+        "checked_at": "2026-09-27T20:52:11.823876+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://iphonekaitori.tokyo/purchase/OPPO---Reno13-A-8GB-128GB--SIM-4580038872061",
+        "checked_at": "2026-09-27T20:51:59.855725+00:00",
+        "observed_at": "2026-09-27T20:51:59.855725+00:00",
+        "price": 30000,
+        "status": "ok",
+        "matched_name": "OPPO オッポ スマホ Reno13 A 8GB/128GB アイスブルー SIMフリー 4580038872061",
+        "note": "新品基準。詳細条件は公式商品ページで確認"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/detail/24057",
+        "checked_at": "2026-09-27T20:51:56.871714+00:00",
+        "observed_at": "2026-09-27T20:51:56.871714+00:00",
+        "price": 30500,
+        "status": "ok",
+        "matched_name": "OPPO Reno13 A 8G+128G SIMフリー [アイスブルー]",
+        "note": "通常の基準価格（来店加算を含まない） ／ 新品"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/searchResult",
+        "checked_at": "2026-09-27T20:51:49.293343+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      }
+    ],
+    "android-4580038872054": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products/6781?q%5Bname_or_jan_code_cont%5D=4580038872054&search_query=4580038872054",
+        "checked_at": "2026-09-27T20:51:52.845831+00:00",
+        "observed_at": "2026-09-27T20:51:52.845831+00:00",
+        "price": 30000,
+        "status": "ok",
+        "matched_name": "OPPO Reno13 A CPH2699 LN ルミナスネイビー",
+        "note": ""
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/7143",
+        "checked_at": "2026-09-27T20:51:53.436612+00:00",
+        "observed_at": "2026-09-27T20:51:53.436612+00:00",
+        "price": 29000,
+        "status": "ok",
+        "matched_name": "新品 OPPO (オッポ) Reno13 A 8GB/128GB ルミナスネイビー SIMフリー",
+        "note": "未開封品のみ。IMEIの判定結果が「〇」または「-」の商品のみ買取可能です。\nキャリア版は買取対象外です。\n偽物が発見された場合、警察に通報いたします。"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/category/0304004/product/298710",
+        "checked_at": "2026-09-27T20:51:59.745318+00:00",
+        "observed_at": "2026-09-27T20:51:59.745318+00:00",
+        "price": 30500,
+        "status": "ok",
+        "matched_name": "OPPO\n                        OPPO Reno13 A SIMフリー [ルミナスネイビー] (SIMフリー)",
+        "note": ""
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=4580038872054",
+        "checked_at": "2026-09-27T20:52:14.360411+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://iphonekaitori.tokyo/purchase/OPPO---Reno13-A-8GB-128GB--SIM-4580038872054",
+        "checked_at": "2026-09-27T20:52:01.469265+00:00",
+        "observed_at": "2026-09-27T20:52:01.469265+00:00",
+        "price": 30000,
+        "status": "ok",
+        "matched_name": "OPPO オッポ スマホ Reno13 A 8GB/128GB ルミナスネイビー SIMフリー 4580038872054",
+        "note": "新品基準。詳細条件は公式商品ページで確認"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/detail/24059",
+        "checked_at": "2026-09-27T20:51:58.436005+00:00",
+        "observed_at": "2026-09-27T20:51:58.436005+00:00",
+        "price": 30500,
+        "status": "ok",
+        "matched_name": "OPPO Reno13 A 8G+128G SIMフリー [ルミナスネイビー]",
+        "note": "通常の基準価格（来店加算を含まない） ／ 新品"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/searchResult",
+        "checked_at": "2026-09-27T20:51:50.467544+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      }
+    ],
+    "android-4580038872078": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products/6799?q%5Bname_or_jan_code_cont%5D=4580038872078&search_query=4580038872078",
+        "checked_at": "2026-09-27T20:51:54.130932+00:00",
+        "observed_at": "2026-09-27T20:51:54.130932+00:00",
+        "price": 30500,
+        "status": "ok",
+        "matched_name": "OPPO Reno13 A CPH2699 CG チャコールグレー",
+        "note": ""
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/7144",
+        "checked_at": "2026-09-27T20:51:54.723099+00:00",
+        "observed_at": "2026-09-27T20:51:54.723099+00:00",
+        "price": 30000,
+        "status": "ok",
+        "matched_name": "新品 OPPO (オッポ) Reno13 A 8GB/128GB チャコールグレー SIMフリー",
+        "note": "未開封品のみ。IMEIの判定結果が「〇」または「-」の商品のみ買取可能です。\nキャリア版は買取対象外です。\n偽物が発見された場合、警察に通報いたします。"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/category/0304004/product/298711",
+        "checked_at": "2026-09-27T20:52:01.186501+00:00",
+        "observed_at": "2026-09-27T20:52:01.186501+00:00",
+        "price": 30700,
+        "status": "ok",
+        "matched_name": "OPPO\n                        OPPO Reno13 A SIMフリー [チャコールグレー] (SIMフリー)",
+        "note": ""
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=4580038872078",
+        "checked_at": "2026-09-27T20:52:16.232037+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://iphonekaitori.tokyo/purchase/OPPO---Reno13-A-8GB-128GB--SIM-4580038872078",
+        "checked_at": "2026-09-27T20:52:03.006977+00:00",
+        "observed_at": "2026-09-27T20:52:03.006977+00:00",
+        "price": 30500,
+        "status": "ok",
+        "matched_name": "OPPO オッポ スマホ Reno13 A 8GB/128GB チャコールグレー SIMフリー 4580038872078",
+        "note": "新品基準。詳細条件は公式商品ページで確認"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/detail/24058",
+        "checked_at": "2026-09-27T20:51:59.924341+00:00",
+        "observed_at": "2026-09-27T20:51:59.924341+00:00",
+        "price": 30500,
+        "status": "ok",
+        "matched_name": "OPPO Reno13 A 8G+128G SIMフリー [チャコールグレー]",
+        "note": "通常の基準価格（来店加算を含まない） ／ 新品"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/searchResult",
+        "checked_at": "2026-09-27T20:51:51.664397+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      }
+    ],
+    "android-4589771651698": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=4589771651698",
+        "checked_at": "2026-09-27T20:51:55.404414+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/7208",
+        "checked_at": "2026-09-27T20:51:56.028655+00:00",
+        "observed_at": "2026-09-27T20:51:56.028655+00:00",
+        "price": 61500,
+        "status": "ok",
+        "matched_name": "新品 SONY (ソニー) Xperia 10 VII 128GB チャコールブラック SIMフリー",
+        "note": "未開封品のみ。IMEIの判定結果が「〇」または「-」の商品のみ買取可能です。\nキャリア版は買取対象外です。\n偽物が発見された場合、警察に通報いたします。"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/category/0304002/product/303937",
+        "checked_at": "2026-09-27T20:52:02.618876+00:00",
+        "observed_at": "2026-09-27T20:52:02.618876+00:00",
+        "price": 60000,
+        "status": "ok",
+        "matched_name": "SONY\n                        Xperia 10 VII XQ-FE44 8GB+128GB SIMフリー [チャコールブラック]",
+        "note": ""
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=4589771651698",
+        "checked_at": "2026-09-27T20:52:18.246322+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://iphonekaitori.tokyo/purchase/SONY---Xperia-10-VII-XQ-FE44--SIM-4589771651698",
+        "checked_at": "2026-09-27T20:52:04.619100+00:00",
+        "observed_at": "2026-09-27T20:52:04.619100+00:00",
+        "price": 60000,
+        "status": "ok",
+        "matched_name": "SONY ソニー スマホ  Xperia 10 VII XQ-FE44 チャコールブラック SIMフリー 4589771651698",
+        "note": "新品基準。詳細条件は公式商品ページで確認"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/detail/24878",
+        "checked_at": "2026-09-27T20:52:01.483907+00:00",
+        "observed_at": "2026-09-27T20:52:01.483907+00:00",
+        "price": 52000,
+        "status": "ok",
+        "matched_name": "Xperia 10 VII XQ-FE44 8GB+128GB SIMフリー [チャコールブラック]",
+        "note": "通常の基準価格（来店加算を含まない） ／ 新品 ／  ／ 数量制限あり（公式ページで確認）"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/searchResult",
+        "checked_at": "2026-09-27T20:51:52.846416+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      }
+    ],
+    "android-4589771651711": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=4589771651711",
+        "checked_at": "2026-09-27T20:51:56.683703+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/7209",
+        "checked_at": "2026-09-27T20:51:57.334338+00:00",
+        "observed_at": "2026-09-27T20:51:57.334338+00:00",
+        "price": 61500,
+        "status": "ok",
+        "matched_name": "新品 SONY (ソニー) Xperia 10 VII 128GB ターコイズ SIMフリー",
+        "note": "未開封品のみ。IMEIの判定結果が「〇」または「-」の商品のみ買取可能です。\nキャリア版は買取対象外です。\n偽物が発見された場合、警察に通報いたします。"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/category/0304002/product/303936",
+        "checked_at": "2026-09-27T20:52:04.059623+00:00",
+        "observed_at": "2026-09-27T20:52:04.059623+00:00",
+        "price": 65000,
+        "status": "ok",
+        "matched_name": "SONY\n                        Xperia 10 VII XQ-FE44 8GB+128GB SIMフリー [ターコイズ]",
+        "note": ""
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=4589771651711",
+        "checked_at": "2026-09-27T20:52:20.388396+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://iphonekaitori.tokyo/purchase/SONY---Xperia-10-VII-XQ-FE44--SIM-4589771651711",
+        "checked_at": "2026-09-27T20:52:06.194476+00:00",
+        "observed_at": "2026-09-27T20:52:06.194476+00:00",
+        "price": 60000,
+        "status": "ok",
+        "matched_name": "SONY ソニー スマホ  Xperia 10 VII XQ-FE44 ターコイズ SIMフリー 4589771651711",
+        "note": "新品基準。詳細条件は公式商品ページで確認"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/detail/24877",
+        "checked_at": "2026-09-27T20:52:03.006755+00:00",
+        "observed_at": "2026-09-27T20:52:03.006755+00:00",
+        "price": 52000,
+        "status": "ok",
+        "matched_name": "Xperia 10 VII XQ-FE44 8GB+128GB SIMフリー [ターコイズ]",
+        "note": "通常の基準価格（来店加算を含まない） ／ 新品 ／  ／ 数量制限あり（公式ページで確認）"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/searchResult",
+        "checked_at": "2026-09-27T20:51:54.036594+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      }
+    ],
+    "android-4589771651704": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=4589771651704",
+        "checked_at": "2026-09-27T20:51:57.924608+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/7210",
+        "checked_at": "2026-09-27T20:51:58.598404+00:00",
+        "observed_at": "2026-09-27T20:51:58.598404+00:00",
+        "price": 61500,
+        "status": "ok",
+        "matched_name": "新品 SONY (ソニー) Xperia 10 VII 128GB ホワイト SIMフリー",
+        "note": "未開封品のみ。IMEIの判定結果が「〇」または「-」の商品のみ買取可能です。\nキャリア版は買取対象外です。\n偽物が発見された場合、警察に通報いたします。"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/category/0304002/product/303938",
+        "checked_at": "2026-09-27T20:52:05.514003+00:00",
+        "observed_at": "2026-09-27T20:52:05.514003+00:00",
+        "price": 65000,
+        "status": "ok",
+        "matched_name": "SONY\n                        Xperia 10 VII XQ-FE44 8GB+128GB SIMフリー [ホワイト]",
+        "note": ""
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=4589771651704",
+        "checked_at": "2026-09-27T20:52:22.252558+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://iphonekaitori.tokyo/purchase/SONY---Xperia-10-VII-XQ-FE44--SIM-4589771651704",
+        "checked_at": "2026-09-27T20:52:08.160691+00:00",
+        "observed_at": "2026-09-27T20:52:08.160691+00:00",
+        "price": 60000,
+        "status": "ok",
+        "matched_name": "SONY ソニー スマホ  Xperia 10 VII XQ-FE44 ホワイト SIMフリー 4589771651704",
+        "note": "新品基準。詳細条件は公式商品ページで確認"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/detail/24879",
+        "checked_at": "2026-09-27T20:52:04.559425+00:00",
+        "observed_at": "2026-09-27T20:52:04.559425+00:00",
+        "price": 52000,
+        "status": "ok",
+        "matched_name": "Xperia 10 VII XQ-FE44 8GB+128GB SIMフリー [ホワイト]",
+        "note": "通常の基準価格（来店加算を含まない） ／ 新品 ／  ／ 数量制限あり（公式ページで確認）"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/searchResult",
+        "checked_at": "2026-09-27T20:51:55.215209+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      }
+    ],
+    "android-0840353949874": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=0840353949874",
+        "checked_at": "2026-09-27T20:51:59.185948+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/6906",
+        "checked_at": "2026-09-27T20:51:59.868577+00:00",
+        "observed_at": "2026-09-27T20:51:59.868577+00:00",
+        "price": 66500,
+        "status": "ok",
+        "matched_name": "新品 Google (グーグル) Pixel 10a 128GB lavender 未開封 SIMフリー",
+        "note": "未開封品のみ。IMEIの判定結果が「〇」または「-」の商品のみ買取可能です。\nキャリア版は買取対象外です。\n偽物が発見された場合、警察に通報いたします。"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/category/0304001/product/331565",
+        "checked_at": "2026-09-27T20:52:06.933817+00:00",
+        "observed_at": "2026-09-27T20:52:06.933817+00:00",
+        "price": 64800,
+        "status": "ok",
+        "matched_name": "Google\n                        Google Pixel 10a 128GB SIMフリー [Lavender]",
+        "note": ""
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=0840353949874",
+        "checked_at": "2026-09-27T20:52:24.125848+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://iphonekaitori.tokyo/purchase/Google-Pixel-10a-128GB-Lavender-SIM-0840353949874",
+        "checked_at": "2026-09-27T20:52:09.646317+00:00",
+        "observed_at": "2026-09-27T20:52:09.646317+00:00",
+        "price": 68000,
+        "status": "ok",
+        "matched_name": "Google Pixel 10a 128GB Lavender SIMフリー 0840353949874",
+        "note": "新品基準。詳細条件は公式商品ページで確認"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/list?q=0840353949874",
+        "checked_at": "2026-09-27T20:52:06.099737+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/productDetail/1478/2117",
+        "checked_at": "2026-09-27T20:51:56.389528+00:00",
+        "observed_at": "2026-09-27T20:51:56.389528+00:00",
+        "price": 67500,
+        "status": "ok",
+        "matched_name": "Google Pixel 10a 128GB Lavender",
+        "note": "未開封 ／ 色別の通常買取価格（キャンペーン加算なし） ／ 保護フィルム破れ減額あり　キャリア版 同額 ／ 数量制限あり（公式ページで確認）"
+      }
+    ],
+    "android-0840353949812": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=0840353949812",
+        "checked_at": "2026-09-27T20:52:00.450078+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/6908",
+        "checked_at": "2026-09-27T20:52:01.186093+00:00",
+        "observed_at": "2026-09-27T20:52:01.186093+00:00",
+        "price": 66500,
+        "status": "ok",
+        "matched_name": "新品 Google (グーグル) Pixel 10a 128GB fog 未開封 SIMフリー",
+        "note": "未開封品のみ。IMEIの判定結果が「〇」または「-」の商品のみ買取可能です。\nキャリア版は買取対象外です。\n偽物が発見された場合、警察に通報いたします。"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/category/0304001/product/331563",
+        "checked_at": "2026-09-27T20:52:08.377194+00:00",
+        "observed_at": "2026-09-27T20:52:08.377194+00:00",
+        "price": 66300,
+        "status": "ok",
+        "matched_name": "Google\n                        Google Pixel 10a 128GB SIMフリー [Fog]",
+        "note": ""
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=0840353949812",
+        "checked_at": "2026-09-27T20:52:25.983032+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://iphonekaitori.tokyo/purchase/Google-Pixel-10a-128GB-Fog-SIM-0840353949812",
+        "checked_at": "2026-09-27T20:52:11.363399+00:00",
+        "observed_at": "2026-09-27T20:52:11.363399+00:00",
+        "price": 68000,
+        "status": "ok",
+        "matched_name": "Google Pixel 10a 128GB Fog SIMフリー 0840353949812",
+        "note": "新品基準。詳細条件は公式商品ページで確認"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/list?q=0840353949812",
+        "checked_at": "2026-09-27T20:52:07.392779+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/productDetail/1478/2117",
+        "checked_at": "2026-09-27T20:51:57.560571+00:00",
+        "observed_at": "2026-09-27T20:51:57.560571+00:00",
+        "price": 67500,
+        "status": "ok",
+        "matched_name": "Google Pixel 10a 128GB Fog",
+        "note": "未開封 ／ 色別の通常買取価格（キャンペーン加算なし） ／ 保護フィルム破れ減額あり　キャリア版 同額 ／ 数量制限あり（公式ページで確認）"
+      }
+    ],
+    "android-0840353949751": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=0840353949751",
+        "checked_at": "2026-09-27T20:52:01.708531+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/6909",
+        "checked_at": "2026-09-27T20:52:02.498588+00:00",
+        "observed_at": "2026-09-27T20:52:02.498588+00:00",
+        "price": 66500,
+        "status": "ok",
+        "matched_name": "新品 Google (グーグル) Pixel 10a 128GB obsidian 未開封 SIMフリー",
+        "note": "未開封品のみ。IMEIの判定結果が「〇」または「-」の商品のみ買取可能です。\nキャリア版は買取対象外です。\n偽物が発見された場合、警察に通報いたします。"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/category/0304001/product/331562",
+        "checked_at": "2026-09-27T20:52:09.779648+00:00",
+        "observed_at": "2026-09-27T20:52:09.779648+00:00",
+        "price": 66500,
+        "status": "ok",
+        "matched_name": "Google\n                        Google Pixel 10a 128GB SIMフリー [Obsidian]",
+        "note": ""
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=0840353949751",
+        "checked_at": "2026-09-27T20:52:27.818627+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://iphonekaitori.tokyo/purchase/Google-Pixel-10a-128GB-Obsidian-SIM-0840353949751",
+        "checked_at": "2026-09-27T20:52:12.876559+00:00",
+        "observed_at": "2026-09-27T20:52:12.876559+00:00",
+        "price": 68000,
+        "status": "ok",
+        "matched_name": "Google Pixel 10a 128GB Obsidian SIMフリー 0840353949751",
+        "note": "新品基準。詳細条件は公式商品ページで確認"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/list?q=0840353949751",
+        "checked_at": "2026-09-27T20:52:08.698294+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/productDetail/1478/2117",
+        "checked_at": "2026-09-27T20:51:58.747974+00:00",
+        "observed_at": "2026-09-27T20:51:58.747974+00:00",
+        "price": 67500,
+        "status": "ok",
+        "matched_name": "Google Pixel 10a 128GB Obsidian",
+        "note": "未開封 ／ 色別の通常買取価格（キャンペーン加算なし） ／ 保護フィルム破れ減額あり　キャリア版 同額 ／ 数量制限あり（公式ページで確認）"
+      }
+    ],
+    "android-0840353949935": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=0840353949935",
+        "checked_at": "2026-09-27T20:52:02.981599+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/6907",
+        "checked_at": "2026-09-27T20:52:03.777817+00:00",
+        "observed_at": "2026-09-27T20:52:03.777817+00:00",
+        "price": 66500,
+        "status": "ok",
+        "matched_name": "新品 Google (グーグル) Pixel 10a 128GB berry 未開封 SIMフリー",
+        "note": "未開封品のみ。IMEIの判定結果が「〇」または「-」の商品のみ買取可能です。\nキャリア版は買取対象外です。\n偽物が発見された場合、警察に通報いたします。"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/category/0304001/product/331564",
+        "checked_at": "2026-09-27T20:52:11.269537+00:00",
+        "observed_at": "2026-09-27T20:52:11.269537+00:00",
+        "price": 66300,
+        "status": "ok",
+        "matched_name": "Google\n                        Google Pixel 10a 128GB SIMフリー [Berry]",
+        "note": ""
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=0840353949935",
+        "checked_at": "2026-09-27T20:52:30.448515+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://iphonekaitori.tokyo/purchase/Google-Pixel-10a-128GB-Berry-SIM-0840353949935",
+        "checked_at": "2026-09-27T20:52:14.549115+00:00",
+        "observed_at": "2026-09-27T20:52:14.549115+00:00",
+        "price": 68000,
+        "status": "ok",
+        "matched_name": "Google Pixel 10a 128GB Berry SIMフリー 0840353949935",
+        "note": "新品基準。詳細条件は公式商品ページで確認"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/list?q=0840353949935",
+        "checked_at": "2026-09-27T20:52:09.983574+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/productDetail/1478/2117",
+        "checked_at": "2026-09-27T20:51:59.932686+00:00",
+        "observed_at": "2026-09-27T20:51:59.932686+00:00",
+        "price": 67500,
+        "status": "ok",
+        "matched_name": "Google Pixel 10a 128GB Berry",
+        "note": "未開封 ／ 色別の通常買取価格（キャンペーン加算なし） ／ 保護フィルム破れ減額あり　キャリア版 同額 ／ 数量制限あり（公式ページで確認）"
+      }
+    ],
+    "android-0840353950115": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=0840353950115",
+        "checked_at": "2026-09-27T20:52:04.267027+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/6911",
+        "checked_at": "2026-09-27T20:52:05.064878+00:00",
+        "observed_at": "2026-09-27T20:52:05.064878+00:00",
+        "price": 80000,
+        "status": "ok",
+        "matched_name": "新品 Google (グーグル) Pixel 10a 256GB lavender 未開封 SIMフリー",
+        "note": "未開封品のみ。IMEIの判定結果が「〇」または「-」の商品のみ買取可能です。\nキャリア版は買取対象外です。\n偽物が発見された場合、警察に通報いたします。"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/category/0304001/product/331570",
+        "checked_at": "2026-09-27T20:52:12.714594+00:00",
+        "observed_at": "2026-09-27T20:52:12.714594+00:00",
+        "price": 80000,
+        "status": "ok",
+        "matched_name": "Google\n                        Google Pixel 10a 256GB SIMフリー [Lavender]",
+        "note": ""
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=0840353950115",
+        "checked_at": "2026-09-27T20:52:32.301174+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://iphonekaitori.tokyo/purchase/Google-Pixel-10a-256GB-Lavender-SIM-0840353950115",
+        "checked_at": "2026-09-27T20:52:16.118954+00:00",
+        "observed_at": "2026-09-27T20:52:16.118954+00:00",
+        "price": 83000,
+        "status": "ok",
+        "matched_name": "Google Pixel 10a 256GB Lavender SIMフリー 0840353950115",
+        "note": "新品基準。詳細条件は公式商品ページで確認"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/list?q=0840353950115",
+        "checked_at": "2026-09-27T20:52:11.282069+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/productDetail/1479/2118",
+        "checked_at": "2026-09-27T20:52:01.114066+00:00",
+        "observed_at": "2026-09-27T20:52:01.114066+00:00",
+        "price": 80000,
+        "status": "ok",
+        "matched_name": "Google Pixel 10a 256GB Lavender",
+        "note": "未開封 ／ 色別の通常買取価格（キャンペーン加算なし） ／ 開封要問合せ　キャリア版 同額 ／ 数量制限あり（公式ページで確認）"
+      }
+    ],
+    "android-0840353950054": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=0840353950054",
+        "checked_at": "2026-09-27T20:52:05.537956+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/6912",
+        "checked_at": "2026-09-27T20:52:06.389066+00:00",
+        "observed_at": "2026-09-27T20:52:06.389066+00:00",
+        "price": 80000,
+        "status": "ok",
+        "matched_name": "新品 Google (グーグル) Pixel 10a 256GB fog 未開封 SIMフリー",
+        "note": "未開封品のみ。IMEIの判定結果が「〇」または「-」の商品のみ買取可能です。\nキャリア版は買取対象外です。\n偽物が発見された場合、警察に通報いたします。"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/category/0304001/product/331567",
+        "checked_at": "2026-09-27T20:52:14.139542+00:00",
+        "observed_at": "2026-09-27T20:52:14.139542+00:00",
+        "price": 83000,
+        "status": "ok",
+        "matched_name": "Google\n                        Google Pixel 10a 256GB SIMフリー [Fog]",
+        "note": ""
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=0840353950054",
+        "checked_at": "2026-09-27T20:52:34.155905+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://iphonekaitori.tokyo/purchase/Google-Pixel-10a-256GB-Fog-SIM-0840353950054",
+        "checked_at": "2026-09-27T20:52:17.711238+00:00",
+        "observed_at": "2026-09-27T20:52:17.711238+00:00",
+        "price": 83000,
+        "status": "ok",
+        "matched_name": "Google Pixel 10a 256GB Fog SIMフリー 0840353950054",
+        "note": "新品基準。詳細条件は公式商品ページで確認"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/list?q=0840353950054",
+        "checked_at": "2026-09-27T20:52:12.584888+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/productDetail/1479/2118",
+        "checked_at": "2026-09-27T20:52:02.286657+00:00",
+        "observed_at": "2026-09-27T20:52:02.286657+00:00",
+        "price": 80000,
+        "status": "ok",
+        "matched_name": "Google Pixel 10a 256GB Fog",
+        "note": "未開封 ／ 色別の通常買取価格（キャンペーン加算なし） ／ 開封要問合せ　キャリア版 同額 ／ 数量制限あり（公式ページで確認）"
+      }
+    ],
+    "android-0840353949997": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=0840353949997",
+        "checked_at": "2026-09-27T20:52:06.806423+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/6913",
+        "checked_at": "2026-09-27T20:52:07.679782+00:00",
+        "observed_at": "2026-09-27T20:52:07.679782+00:00",
+        "price": 80000,
+        "status": "ok",
+        "matched_name": "新品 Google (グーグル) Pixel 10a 256GB obsidian 未開封 SIMフリー",
+        "note": "未開封品のみ。IMEIの判定結果が「〇」または「-」の商品のみ買取可能です。\nキャリア版は買取対象外です。\n偽物が発見された場合、警察に通報いたします。"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/category/0304001/product/331566",
+        "checked_at": "2026-09-27T20:52:15.643151+00:00",
+        "observed_at": "2026-09-27T20:52:15.643151+00:00",
+        "price": 80000,
+        "status": "ok",
+        "matched_name": "Google\n                        Google Pixel 10a 256GB SIMフリー [Obsidian]",
+        "note": ""
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=0840353949997",
+        "checked_at": "2026-09-27T20:52:36.051087+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://iphonekaitori.tokyo/purchase/Google-Pixel-10a-256GB-Obsidian-SIM-0840353949997",
+        "checked_at": "2026-09-27T20:52:19.315299+00:00",
+        "observed_at": "2026-09-27T20:52:19.315299+00:00",
+        "price": 83000,
+        "status": "ok",
+        "matched_name": "Google Pixel 10a 256GB Obsidian SIMフリー 0840353949997",
+        "note": "新品基準。詳細条件は公式商品ページで確認"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/list?q=0840353949997",
+        "checked_at": "2026-09-27T20:52:13.894237+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/productDetail/1479/2118",
+        "checked_at": "2026-09-27T20:52:03.454936+00:00",
+        "observed_at": "2026-09-27T20:52:03.454936+00:00",
+        "price": 80000,
+        "status": "ok",
+        "matched_name": "Google Pixel 10a 256GB Obsidian",
+        "note": "未開封 ／ 色別の通常買取価格（キャンペーン加算なし） ／ 開封要問合せ　キャリア版 同額 ／ 数量制限あり（公式ページで確認）"
+      }
+    ],
+    "android-0840353954168": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=0840353954168",
+        "checked_at": "2026-09-27T20:52:08.076851+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/6910",
+        "checked_at": "2026-09-27T20:52:08.990404+00:00",
+        "observed_at": "2026-09-27T20:52:08.990404+00:00",
+        "price": 80000,
+        "status": "ok",
+        "matched_name": "新品 Google (グーグル) Pixel 10a 256GB Isai blue 未開封 SIMフリー",
+        "note": "未開封品のみ。IMEIの判定結果が「〇」または「-」の商品のみ買取可能です。\nキャリア版は買取対象外です。\n偽物が発見された場合、警察に通報いたします。"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/category/0304001/product/331576",
+        "checked_at": "2026-09-27T20:52:17.131372+00:00",
+        "observed_at": "2026-09-27T20:52:17.131372+00:00",
+        "price": 80000,
+        "status": "ok",
+        "matched_name": "Google\n                        Google Pixel 10a 256GB SIMフリー [Isai Blue]",
+        "note": ""
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=0840353954168",
+        "checked_at": "2026-09-27T20:52:37.929913+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://kaitori.wiki/search?keyword=0840353954168",
+        "checked_at": "2026-09-27T20:52:20.806303+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/list?q=0840353954168",
+        "checked_at": "2026-09-27T20:52:15.180322+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/productDetail/1479/2118",
+        "checked_at": "2026-09-27T20:52:04.631095+00:00",
+        "observed_at": "2026-09-27T20:52:04.631095+00:00",
+        "price": 76000,
+        "status": "ok",
+        "matched_name": "Google Pixel 10a 256GB Isai Blue",
+        "note": "未開封 ／ 色別の通常買取価格（キャンペーン加算なし） ／ 開封要問合せ　キャリア版 同額 ／ 数量制限あり（公式ページで確認）"
+      }
+    ],
+    "android-4942857239133": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=4942857239133",
+        "checked_at": "2026-09-27T20:52:09.322327+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/search/index/4942857239133",
+        "checked_at": "2026-09-27T20:52:10.269106+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/category/0304010/product/303919",
+        "checked_at": "2026-09-27T20:52:18.643278+00:00",
+        "observed_at": "2026-09-27T20:52:18.643278+00:00",
+        "price": 15000,
+        "status": "ok",
+        "matched_name": "富士通\n                        arrows We2 F-52E docomo [ライトオレンジ]",
+        "note": ""
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=4942857239133",
+        "checked_at": "2026-09-27T20:52:39.765069+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://iphonekaitori.tokyo/purchase/FUJITSU--arrows--We2-F-52E-docomo--4942857239133",
+        "checked_at": "2026-09-27T20:52:22.686491+00:00",
+        "observed_at": "2026-09-27T20:52:22.686491+00:00",
+        "price": 15000,
+        "status": "ok",
+        "matched_name": "FUJITSU 富士通 arrows スマホ We2 F-52E docomo ライトオレンジ 4942857239133",
+        "note": "新品基準。詳細条件は公式商品ページで確認"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/detail/20552",
+        "checked_at": "2026-09-27T20:52:16.478080+00:00",
+        "observed_at": "2026-09-27T20:52:16.478080+00:00",
+        "price": 13000,
+        "status": "ok",
+        "matched_name": "arrows We2 F-52E docomo [ライトオレンジ]",
+        "note": "通常の基準価格（来店加算を含まない） ／ 新品"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/searchResult",
+        "checked_at": "2026-09-27T20:52:05.805629+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      }
+    ],
+    "android-4942857239126": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=4942857239126",
+        "checked_at": "2026-09-27T20:52:10.588448+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/search/index/4942857239126",
+        "checked_at": "2026-09-27T20:52:11.564866+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/category/0304010/product/303924",
+        "checked_at": "2026-09-27T20:52:20.127608+00:00",
+        "observed_at": "2026-09-27T20:52:20.127608+00:00",
+        "price": 15000,
+        "status": "ok",
+        "matched_name": "富士通\n                        arrows We2 F-52E docomo [ネイビーグリーン]",
+        "note": ""
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=4942857239126",
+        "checked_at": "2026-09-27T20:52:41.683333+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://iphonekaitori.tokyo/purchase/FUJITSU--arrows--We2-F-52E-docomo--4942857239126",
+        "checked_at": "2026-09-27T20:52:24.274644+00:00",
+        "observed_at": "2026-09-27T20:52:24.274644+00:00",
+        "price": 15000,
+        "status": "ok",
+        "matched_name": "FUJITSU 富士通 arrows スマホ We2 F-52E docomo ネイビーグリーン 4942857239126",
+        "note": "新品基準。詳細条件は公式商品ページで確認"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/detail/20553",
+        "checked_at": "2026-09-27T20:52:17.979831+00:00",
+        "observed_at": "2026-09-27T20:52:17.979831+00:00",
+        "price": 13000,
+        "status": "ok",
+        "matched_name": "arrows We2 F-52E docomo [ネイビーグリーン]",
+        "note": "通常の基準価格（来店加算を含まない） ／ 新品"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/searchResult",
+        "checked_at": "2026-09-27T20:52:06.989584+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      }
+    ],
+    "android-4942857239119": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=4942857239119",
+        "checked_at": "2026-09-27T20:52:11.850774+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/search/index/4942857239119",
+        "checked_at": "2026-09-27T20:52:12.876729+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/category/0304010/product/303923",
+        "checked_at": "2026-09-27T20:52:21.611288+00:00",
+        "observed_at": "2026-09-27T20:52:21.611288+00:00",
+        "price": 15000,
+        "status": "ok",
+        "matched_name": "富士通\n                        arrows We2 F-52E docomo [ライトブルー]",
+        "note": ""
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=4942857239119",
+        "checked_at": "2026-09-27T20:52:43.555265+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://iphonekaitori.tokyo/purchase/FUJITSU--arrows--We2-F-52E-docomo--4942857239119",
+        "checked_at": "2026-09-27T20:52:25.802218+00:00",
+        "observed_at": "2026-09-27T20:52:25.802218+00:00",
+        "price": 15000,
+        "status": "ok",
+        "matched_name": "FUJITSU 富士通 arrows スマホ We2 F-52E docomo ライトブルー 4942857239119",
+        "note": "新品基準。詳細条件は公式商品ページで確認"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/detail/20554",
+        "checked_at": "2026-09-27T20:52:19.509215+00:00",
+        "observed_at": "2026-09-27T20:52:19.509215+00:00",
+        "price": 13000,
+        "status": "ok",
+        "matched_name": "arrows We2 F-52E docomo [ライトブルー]",
+        "note": "通常の基準価格（来店加算を含まない） ／ 新品"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/searchResult",
+        "checked_at": "2026-09-27T20:52:08.187994+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      }
+    ],
+    "android-4550556170550": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=4550556170550",
+        "checked_at": "2026-09-27T20:52:13.118512+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/search/index/4550556170550",
+        "checked_at": "2026-09-27T20:52:14.152588+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/category/0304003/product/298700",
+        "checked_at": "2026-09-27T20:52:23.114508+00:00",
+        "observed_at": "2026-09-27T20:52:23.114508+00:00",
+        "price": 28700,
+        "status": "ok",
+        "matched_name": "シャープ\n                        AQUOS wish5 SIMフリー [ミソラ] (SIMフリー)",
+        "note": ""
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=4550556170550",
+        "checked_at": "2026-09-27T20:52:45.448490+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://iphonekaitori.tokyo/purchase/SHARP---AQUOS-wish5-SH-M32-4G-128G--SIM-4550556170550",
+        "checked_at": "2026-09-27T20:52:27.385635+00:00",
+        "observed_at": "2026-09-27T20:52:27.385635+00:00",
+        "price": 24000,
+        "status": "ok",
+        "matched_name": "SHARP シャープ スマホ AQUOS wish5 SH-M32 4G+128G ミソラ SIMフリー 4550556170550",
+        "note": "新品基準。詳細条件は公式商品ページで確認"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/detail/24060",
+        "checked_at": "2026-09-27T20:52:21.069660+00:00",
+        "observed_at": "2026-09-27T20:52:21.069660+00:00",
+        "price": 23000,
+        "status": "ok",
+        "matched_name": "AQUOS wish5 SH-M32 4G+128G SIMフリー [ミソラ]",
+        "note": "通常の基準価格（来店加算を含まない） ／ 新品 ／ ※格安版の封印シールある場合には開封されたら減額2000円となります。※量販店版封印シールない場合には減額なし。"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/productDetail/1313/1787",
+        "checked_at": "2026-09-27T20:52:09.364046+00:00",
+        "observed_at": "2026-09-27T20:52:09.364046+00:00",
+        "price": 18500,
+        "status": "ok",
+        "matched_name": "AQUOS wish5 SH-M32 4G+128G  ミソラ",
+        "note": "新品 ／ 色別の通常買取価格（キャンペーン加算なし） ／  ／ 数量制限あり（公式ページで確認）"
+      }
+    ],
+    "android-4550556170574": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=4550556170574",
+        "checked_at": "2026-09-27T20:52:14.376275+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/search/index/4550556170574",
+        "checked_at": "2026-09-27T20:52:15.422566+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/category/0304003/product/298701",
+        "checked_at": "2026-09-27T20:52:24.606712+00:00",
+        "observed_at": "2026-09-27T20:52:24.606712+00:00",
+        "price": 28700,
+        "status": "ok",
+        "matched_name": "シャープ\n                        AQUOS wish5 SIMフリー [ナデシコ] (SIMフリー)",
+        "note": ""
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=4550556170574",
+        "checked_at": "2026-09-27T20:52:47.624597+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://iphonekaitori.tokyo/purchase/SHARP---AQUOS-wish5-SH-M32-4G-128G--SIM4550556170574",
+        "checked_at": "2026-09-27T20:52:28.891738+00:00",
+        "observed_at": "2026-09-27T20:52:28.891738+00:00",
+        "price": 24000,
+        "status": "ok",
+        "matched_name": "SHARP シャープ スマホ AQUOS wish5 SH-M32 4G+128G ナデシコ SIMフリー4550556170574",
+        "note": "新品基準。詳細条件は公式商品ページで確認"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/detail/24061",
+        "checked_at": "2026-09-27T20:52:22.594744+00:00",
+        "observed_at": "2026-09-27T20:52:22.594744+00:00",
+        "price": 23000,
+        "status": "ok",
+        "matched_name": "AQUOS wish5 SH-M32 4G+128G SIMフリー [ナデシコ]",
+        "note": "通常の基準価格（来店加算を含まない） ／ 新品 ／ ※格安版の封印シールある場合には開封されたら減額2000円となります。※量販店版封印シールない場合には減額なし。"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/productDetail/1313/1787",
+        "checked_at": "2026-09-27T20:52:10.597677+00:00",
+        "observed_at": "2026-09-27T20:52:10.597677+00:00",
+        "price": 18500,
+        "status": "ok",
+        "matched_name": "AQUOS wish5 SH-M32 4G+128G  ナデシコ",
+        "note": "新品 ／ 色別の通常買取価格（キャンペーン加算なし） ／  ／ 数量制限あり（公式ページで確認）"
+      }
+    ],
+    "android-4550556170581": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=4550556170581",
+        "checked_at": "2026-09-27T20:52:15.662209+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/search/index/4550556170581",
+        "checked_at": "2026-09-27T20:52:16.699909+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/category/0304003/product/298702",
+        "checked_at": "2026-09-27T20:52:26.102877+00:00",
+        "observed_at": "2026-09-27T20:52:26.102877+00:00",
+        "price": 28700,
+        "status": "ok",
+        "matched_name": "シャープ\n                        AQUOS wish5 SIMフリー [ワカバ] (SIMフリー)",
+        "note": ""
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=4550556170581",
+        "checked_at": "2026-09-27T20:52:49.513379+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://iphonekaitori.tokyo/purchase/SHARP---AQUOS-wish5-SH-M32-4G-128G--SIM-4550556170581",
+        "checked_at": "2026-09-27T20:52:30.579258+00:00",
+        "observed_at": "2026-09-27T20:52:30.579258+00:00",
+        "price": 24000,
+        "status": "ok",
+        "matched_name": "SHARP シャープ スマホ AQUOS wish5 SH-M32 4G+128G ワカバ  SIMフリー 4550556170581",
+        "note": "新品基準。詳細条件は公式商品ページで確認"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/detail/24062",
+        "checked_at": "2026-09-27T20:52:24.139141+00:00",
+        "observed_at": "2026-09-27T20:52:24.139141+00:00",
+        "price": 23000,
+        "status": "ok",
+        "matched_name": "AQUOS wish5 SH-M32 4G+128G SIMフリー [ワカバ]",
+        "note": "通常の基準価格（来店加算を含まない） ／ 新品 ／ ※格安版の封印シールある場合には開封されたら減額2000円となります。※量販店版封印シールない場合には減額なし。"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/productDetail/1313/1787",
+        "checked_at": "2026-09-27T20:52:11.804116+00:00",
+        "observed_at": "2026-09-27T20:52:11.804116+00:00",
+        "price": 18500,
+        "status": "ok",
+        "matched_name": "AQUOS wish5 SH-M32 4G+128G  ワカバ",
+        "note": "新品 ／ 色別の通常買取価格（キャンペーン加算なし） ／  ／ 数量制限あり（公式ページで確認）"
+      }
+    ],
+    "android-4550556170598": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=4550556170598",
+        "checked_at": "2026-09-27T20:52:16.936390+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/search/index/4550556170598",
+        "checked_at": "2026-09-27T20:52:17.979186+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/category/0304003/product/298703",
+        "checked_at": "2026-09-27T20:52:27.579534+00:00",
+        "observed_at": "2026-09-27T20:52:27.579534+00:00",
+        "price": 28700,
+        "status": "ok",
+        "matched_name": "シャープ\n                        AQUOS wish5 SIMフリー [ユキ] (SIMフリー)",
+        "note": ""
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=4550556170598",
+        "checked_at": "2026-09-27T20:52:51.536261+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://iphonekaitori.tokyo/purchase/SHARP---AQUOS-wish5-SH-M32-4G-128G--SIM-4550556170598",
+        "checked_at": "2026-09-27T20:52:32.066357+00:00",
+        "observed_at": "2026-09-27T20:52:32.066357+00:00",
+        "price": 24000,
+        "status": "ok",
+        "matched_name": "SHARP シャープ スマホ AQUOS wish5 SH-M32 4G+128G ユキ SIMフリー 4550556170598",
+        "note": "新品基準。詳細条件は公式商品ページで確認"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/detail/24063",
+        "checked_at": "2026-09-27T20:52:25.676206+00:00",
+        "observed_at": "2026-09-27T20:52:25.676206+00:00",
+        "price": 23000,
+        "status": "ok",
+        "matched_name": "AQUOS wish5 SH-M32 4G+128G SIMフリー [ユキ]",
+        "note": "通常の基準価格（来店加算を含まない） ／ 新品 ／ ※格安版の封印シールある場合には開封されたら減額2000円となります。※量販店版封印シールない場合には減額なし。"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/productDetail/1313/1787",
+        "checked_at": "2026-09-27T20:52:13.014528+00:00",
+        "observed_at": "2026-09-27T20:52:13.014528+00:00",
+        "price": 18500,
+        "status": "ok",
+        "matched_name": "AQUOS wish5 SH-M32 4G+128G  ユキ",
+        "note": "新品 ／ 色別の通常買取価格（キャンペーン加算なし） ／  ／ 数量制限あり（公式ページで確認）"
+      }
+    ],
+    "android-4550556170567": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=4550556170567",
+        "checked_at": "2026-09-27T20:52:18.225746+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/search/index/4550556170567",
+        "checked_at": "2026-09-27T20:52:19.278624+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/category/0304003/product/298704",
+        "checked_at": "2026-09-27T20:52:29.067747+00:00",
+        "observed_at": "2026-09-27T20:52:29.067747+00:00",
+        "price": 28700,
+        "status": "ok",
+        "matched_name": "シャープ\n                        AQUOS wish5 SIMフリー [スミ] (SIMフリー)",
+        "note": ""
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=4550556170567",
+        "checked_at": "2026-09-27T20:52:53.664188+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://iphonekaitori.tokyo/purchase/SHARP---AQUOS-wish5-SH-M32-4G-128G--SIM-4550556170567",
+        "checked_at": "2026-09-27T20:52:33.624291+00:00",
+        "observed_at": "2026-09-27T20:52:33.624291+00:00",
+        "price": 24000,
+        "status": "ok",
+        "matched_name": "SHARP シャープ スマホ AQUOS wish5 SH-M32 4G+128G スミ SIMフリー 4550556170567",
+        "note": "新品基準。詳細条件は公式商品ページで確認"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/detail/24064",
+        "checked_at": "2026-09-27T20:52:27.260940+00:00",
+        "observed_at": "2026-09-27T20:52:27.260940+00:00",
+        "price": 23000,
+        "status": "ok",
+        "matched_name": "AQUOS wish5 SH-M32 4G+128G SIMフリー [スミ]",
+        "note": "通常の基準価格（来店加算を含まない） ／ 新品 ／ ※格安版の封印シールある場合には開封されたら減額2000円となります。※量販店版封印シールない場合には減額なし。"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/productDetail/1313/1787",
+        "checked_at": "2026-09-27T20:52:14.206265+00:00",
+        "observed_at": "2026-09-27T20:52:14.206265+00:00",
+        "price": 18500,
+        "status": "ok",
+        "matched_name": "AQUOS wish5 SH-M32 4G+128G  スミ",
+        "note": "新品 ／ 色別の通常買取価格（キャンペーン加算なし） ／  ／ 数量制限あり（公式ページで確認）"
+      }
+    ],
+    "pokemon-30th-4521329462424": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=4521329462424",
+        "checked_at": "2026-09-27T20:52:19.496428+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/7373",
+        "checked_at": "2026-09-27T20:52:20.573602+00:00",
+        "observed_at": "2026-09-27T20:52:20.573602+00:00",
+        "price": 21000,
+        "status": "ok",
+        "matched_name": "新品 ポケモンカードゲーム MEGA 拡張パック 30th CELEBRATION BOX [M6a]",
+        "note": "新品未開封/シュリンク付きのみの買取となります。  箱潰れや痛み具合によって減額又は着払いにて返送となります。  シュリンクが切れているものは買取不可"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/category/2401/product/344337",
+        "checked_at": "2026-09-27T20:52:30.541588+00:00",
+        "observed_at": "2026-09-27T20:52:30.541588+00:00",
+        "price": 24000,
+        "status": "ok",
+        "matched_name": "ポケモンカード\n                        ポケモンカードゲーム MEGA 拡張パック 30th CELEBRATION BOX",
+        "note": ""
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=4521329462424",
+        "checked_at": "2026-09-27T20:52:55.596226+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://kaitori.wiki/search?keyword=4521329462424",
+        "checked_at": "2026-09-27T20:52:35.234554+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/detail/27142",
+        "checked_at": "2026-09-27T20:52:28.838376+00:00",
+        "observed_at": "2026-09-27T20:52:28.838376+00:00",
+        "price": 22500,
+        "status": "ok",
+        "matched_name": "ポケモンカードゲーム MEGA 拡張パック 30th CELEBRATION BOX",
+        "note": "通常の基準価格（来店加算を含まない） ／ 新品 ／ ※シュリンク付き、新品未開封。3か月以内に正規代理店の購入証明原本(納品書、レシート等)の提出が必要となります。 ／ 数量制限あり（公式ページで確認）"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/wineDetail/10646/10682",
+        "checked_at": "2026-09-27T20:52:15.393384+00:00",
+        "observed_at": "2026-09-27T20:52:15.393384+00:00",
+        "price": 24000,
+        "status": "ok",
+        "matched_name": "【MEGA】 30th CELEBRATION BOX",
+        "note": "シュリンク有 ／ *シュリンクなし品　北戸田郵送＆本部来店限定* ／ 数量制限あり（公式ページで確認）"
+      }
+    ],
+    "pokemon-30th-4521329462189": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=4521329462189",
+        "checked_at": "2026-09-27T20:52:20.776618+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/7374",
+        "checked_at": "2026-09-27T20:52:21.881281+00:00",
+        "observed_at": "2026-09-27T20:52:21.881281+00:00",
+        "price": 15800,
+        "status": "ok",
+        "matched_name": "新品 ポケモンカードゲームMEGA 30th CELEBRATION プレミアムデッキセット エーフィ・ブラッキー",
+        "note": "新品未開封のみ買取可  箱潰れや痛み具合によって減額又は着払いにて返送となります。"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/search?sk=4521329462189",
+        "checked_at": "2026-09-27T20:52:32.021059+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?pid=1789635234-378398&kw=4521329462189",
+        "checked_at": "2026-09-27T20:52:57.462755+00:00",
+        "observed_at": "2026-09-27T20:52:57.462755+00:00",
+        "price": 15500,
+        "status": "ok",
+        "matched_name": "ポケモン ポケモンカードゲーム MEGA 30th CELEBRATION プレミアムデッキセット エーフィ・ブラッキー JAN:4521329462189",
+        "note": "未開封品"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://kaitori.wiki/search?keyword=4521329462189",
+        "checked_at": "2026-09-27T20:52:36.641721+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/detail/27143",
+        "checked_at": "2026-09-27T20:52:30.382475+00:00",
+        "observed_at": "2026-09-27T20:52:30.382475+00:00",
+        "price": 15500,
+        "status": "ok",
+        "matched_name": "ポケモンカードゲームMEGA 30th CELEBRATION プレミアムデッキセット エーフィ・ブラッキー",
+        "note": "通常の基準価格（来店加算を含まない） ／ 新品 ／ ※シュリンク付き、新品未開封。3か月以内に正規代理店の購入証明原本(納品書、レシート等)の提出が必要となります。 ／ 数量制限あり（公式ページで確認）"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/wineDetail/10649/10685",
+        "checked_at": "2026-09-27T20:52:16.577023+00:00",
+        "observed_at": "2026-09-27T20:52:16.577023+00:00",
+        "price": 15500,
+        "status": "ok",
+        "matched_name": "【MEGA】 30th CELEBRATION プレミアムデッキセット エーフィ・ブラッキー",
+        "note": " 新品未開封 ／  ／ 数量制限あり（公式ページで確認）"
+      }
+    ],
+    "pokemon-30th-4521329463872": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=4521329463872",
+        "checked_at": "2026-09-27T20:52:22.082320+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/7375",
+        "checked_at": "2026-09-27T20:52:23.145502+00:00",
+        "observed_at": "2026-09-27T20:52:23.145502+00:00",
+        "price": 57000,
+        "status": "ok",
+        "matched_name": "新品 ポケモンカードゲーム MEGA 30th CELEBRATION FUTURISTIC BOX",
+        "note": "新品未開封のみ買取可  箱潰れや痛み具合によって減額又は着払いにて返送となります。"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/search?sk=4521329463872",
+        "checked_at": "2026-09-27T20:52:33.499344+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?pid=1789635259-384013&kw=4521329463872",
+        "checked_at": "2026-09-27T20:53:00.177094+00:00",
+        "observed_at": "2026-09-27T20:53:00.177094+00:00",
+        "price": 56000,
+        "status": "ok",
+        "matched_name": "ポケモン ポケモンカードゲーム MEGA 30th CELEBRATION FUTURISTIC BOX JAN:4521329463872",
+        "note": "未開封品"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://kaitori.wiki/search?keyword=4521329463872",
+        "checked_at": "2026-09-27T20:52:38.073927+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/detail/27144",
+        "checked_at": "2026-09-27T20:52:31.872567+00:00",
+        "observed_at": "2026-09-27T20:52:31.872567+00:00",
+        "price": 56000,
+        "status": "ok",
+        "matched_name": "ポケモンカードゲーム MEGA 30th CELEBRATION FUTURISTIC BOX",
+        "note": "通常の基準価格（来店加算を含まない） ／ 新品 ／ ※シュリンク付き、新品未開封。3か月以内に正規代理店の購入証明原本(納品書、レシート等)の提出が必要となります。 ／ 数量制限あり（公式ページで確認）"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/searchResult",
+        "checked_at": "2026-09-27T20:52:17.753747+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      }
+    ],
+    "pokemon-30th-4521329462295": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=4521329462295",
+        "checked_at": "2026-09-27T20:52:23.369837+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/search/index/4521329462295",
+        "checked_at": "2026-09-27T20:52:24.432322+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/search?sk=4521329462295",
+        "checked_at": "2026-09-27T20:52:35.001334+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=4521329462295",
+        "checked_at": "2026-09-27T20:53:02.033908+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://kaitori.wiki/search?keyword=4521329462295",
+        "checked_at": "2026-09-27T20:52:39.585143+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/list?q=4521329462295",
+        "checked_at": "2026-09-27T20:52:33.379434+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/searchResult",
+        "checked_at": "2026-09-27T20:52:18.915859+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      }
+    ],
+    "pokemon-30th-4521329462325": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=4521329462325",
+        "checked_at": "2026-09-27T20:52:24.374776+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/search/index/4521329462325",
+        "checked_at": "2026-09-27T20:52:25.437495+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/search?sk=4521329462325",
+        "checked_at": "2026-09-27T20:52:36.003308+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=4521329462325",
+        "checked_at": "2026-09-27T20:53:03.035436+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://kaitori.wiki/search?keyword=4521329462325",
+        "checked_at": "2026-09-27T20:52:40.586161+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/list?q=4521329462325",
+        "checked_at": "2026-09-27T20:52:34.380974+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/searchResult",
+        "checked_at": "2026-09-27T20:52:19.919585+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      }
+    ],
+    "pokemon-30th-4521329462349": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=4521329462349",
+        "checked_at": "2026-09-27T20:52:25.379633+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/search/index/4521329462349",
+        "checked_at": "2026-09-27T20:52:26.441877+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/search?sk=4521329462349",
+        "checked_at": "2026-09-27T20:52:37.007579+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=4521329462349",
+        "checked_at": "2026-09-27T20:53:04.039700+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://kaitori.wiki/search?keyword=4521329462349",
+        "checked_at": "2026-09-27T20:52:41.586963+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/list?q=4521329462349",
+        "checked_at": "2026-09-27T20:52:35.386273+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/searchResult",
+        "checked_at": "2026-09-27T20:52:20.923172+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      }
+    ],
+    "pokemon-30th-4521329462356": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=4521329462356",
+        "checked_at": "2026-09-27T20:52:26.383745+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/search/index/4521329462356",
+        "checked_at": "2026-09-27T20:52:27.446959+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/search?sk=4521329462356",
+        "checked_at": "2026-09-27T20:52:38.012767+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=4521329462356",
+        "checked_at": "2026-09-27T20:53:05.045097+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://kaitori.wiki/search?keyword=4521329462356",
+        "checked_at": "2026-09-27T20:52:42.588219+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/list?q=4521329462356",
+        "checked_at": "2026-09-27T20:52:36.391242+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/searchResult",
+        "checked_at": "2026-09-27T20:52:21.928305+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      }
+    ],
+    "pokemon-30th-4521329462363": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=4521329462363",
+        "checked_at": "2026-09-27T20:52:27.397813+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/search/index/4521329462363",
+        "checked_at": "2026-09-27T20:52:28.452134+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/search?sk=4521329462363",
+        "checked_at": "2026-09-27T20:52:39.014137+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=4521329462363",
+        "checked_at": "2026-09-27T20:53:06.050286+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://kaitori.wiki/search?keyword=4521329462363",
+        "checked_at": "2026-09-27T20:52:43.593355+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/list?q=4521329462363",
+        "checked_at": "2026-09-27T20:52:37.395401+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/searchResult",
+        "checked_at": "2026-09-27T20:52:22.929725+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      }
+    ],
+    "pokemon-30th-4521329462370": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=4521329462370",
+        "checked_at": "2026-09-27T20:52:28.403208+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/search/index/4521329462370",
+        "checked_at": "2026-09-27T20:52:29.453258+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/search?sk=4521329462370",
+        "checked_at": "2026-09-27T20:52:40.018490+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=4521329462370",
+        "checked_at": "2026-09-27T20:53:07.054302+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://kaitori.wiki/search?keyword=4521329462370",
+        "checked_at": "2026-09-27T20:52:44.595020+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/list?q=4521329462370",
+        "checked_at": "2026-09-27T20:52:38.398793+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/searchResult",
+        "checked_at": "2026-09-27T20:52:23.934076+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      }
+    ],
+    "pokemon-30th-4521329462387": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=4521329462387",
+        "checked_at": "2026-09-27T20:52:29.418141+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/search/index/4521329462387",
+        "checked_at": "2026-09-27T20:52:30.458309+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/search?sk=4521329462387",
+        "checked_at": "2026-09-27T20:52:41.019326+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=4521329462387",
+        "checked_at": "2026-09-27T20:53:08.056256+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://kaitori.wiki/search?keyword=4521329462387",
+        "checked_at": "2026-09-27T20:52:45.600347+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/list?q=4521329462387",
+        "checked_at": "2026-09-27T20:52:39.403806+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/searchResult",
+        "checked_at": "2026-09-27T20:52:24.944536+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      }
+    ],
+    "pokemon-30th-4521329462394": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=4521329462394",
+        "checked_at": "2026-09-27T20:52:30.448420+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/search/index/4521329462394",
+        "checked_at": "2026-09-27T20:52:31.463421+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/search?sk=4521329462394",
+        "checked_at": "2026-09-27T20:52:42.024670+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=4521329462394",
+        "checked_at": "2026-09-27T20:53:09.059782+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://kaitori.wiki/search?keyword=4521329462394",
+        "checked_at": "2026-09-27T20:52:46.610520+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/list?q=4521329462394",
+        "checked_at": "2026-09-27T20:52:40.407377+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/searchResult",
+        "checked_at": "2026-09-27T20:52:25.974973+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      }
+    ],
+    "pokemon-30th-4521329462400": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=4521329462400",
+        "checked_at": "2026-09-27T20:52:31.452778+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/search/index/4521329462400",
+        "checked_at": "2026-09-27T20:52:32.469883+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/search?sk=4521329462400",
+        "checked_at": "2026-09-27T20:52:43.027439+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=4521329462400",
+        "checked_at": "2026-09-27T20:53:10.061277+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://kaitori.wiki/search?keyword=4521329462400",
+        "checked_at": "2026-09-27T20:52:47.624395+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/list?q=4521329462400",
+        "checked_at": "2026-09-27T20:52:41.412610+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/searchResult",
+        "checked_at": "2026-09-27T20:52:26.978187+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "unreleased"
       }
     ]
   }

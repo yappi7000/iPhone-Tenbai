@@ -83,6 +83,56 @@ def choose(matches):
         return None, 'not_found' if not prices else 'ambiguous'
     return matches[0], 'ok'
 
+def canonical_jan(value):
+    """UPC-A and a leading-zero EAN-13 identify the same trade item."""
+    code = str(value or '').strip()
+    if not re.fullmatch(r'\d{12,13}', code):
+        return None
+    code = code.zfill(13)
+    total = sum(int(n) * (1 if i % 2 == 0 else 3) for i, n in enumerate(code[:-1]))
+    return code if (10 - total % 10) % 10 == int(code[-1]) else None
+
+def ichome_android(item, product):
+    if item.get('disp') is not True or item.get('kbName') != '新品':
+        return []
+    if item.get('hasLimit') and any(item.get(k) == 0 for k in ('kbCount', 'kbCountPerAppli')):
+        return []
+    name = str(item.get('title') or '')
+    if not name or BAD_CONDITION.search(name):
+        return []
+    goods_id, kb_id = str(item.get('goodsId', '')), str(item.get('allGoodsKbId', ''))
+    if not goods_id.isdigit() or not kb_id.isdigit():
+        return []
+    jan = canonical_jan(product['jan'])
+    if not jan:
+        return []
+    memo = Tree(' '.join(str(item.get(k) or '') for k in ('description', 'kbDesc'))).root.text().strip()
+    if item.get('hasLimit'):
+        memo += ' ／ 数量制限あり（公式ページで確認）'
+    matches = []
+    for color in item.get('keitaiColorOptions') or []:
+        if canonical_jan(color.get('jan')) != jan:
+            continue
+        for option in item.get('goodsKbDetails') or []:
+            label, base = option.get('kbDetailName'), option.get('kbDetailPrice')
+            if label not in ('新品', '新品未使用', '未使用', '未使用品', '未開封', '未開封品'):
+                continue
+            detail_id = option.get('allGoodsKbDetailId')
+            if type(detail_id) is not int or type(base) is not int or base <= 0:
+                continue
+            for relation in color.get('keitaiKbDetailColorRels') or []:
+                if relation.get('keitaiKbDetailId') != detail_id or 'varPrice' not in relation:
+                    continue
+                delta = relation['varPrice']
+                delta = 0 if delta is None else delta
+                if type(delta) is not int or not 0 < base + delta <= 10000000:
+                    continue
+                matched_name = name + ' ' + str(color.get('color') or '')
+                note = ' ／ '.join(x for x in [label, '色別の通常買取価格（キャンペーン加算なし）', memo] if x)
+                matches.append({'price': base + delta, 'matched_name': matched_name,
+                    'product_url': '/productDetail/' + goods_id + '/' + kb_id, 'note': note})
+    return matches
+
 def extract_api(payload, store, product):
     """Read anonymous public search data; never use retail/campaign maximums."""
     if store == 'ichome':
@@ -98,6 +148,10 @@ def extract_api(payload, store, product):
         return None, 'ambiguous'
     matches = []
     for item in items:
+        if store == 'ichome' and item.get('isKeitaiItem') is True:
+            if product.get('kind') == 'android' and product['condition'] == 'new':
+                matches.extend(ichome_android(item, product))
+            continue
         if str(item.get('jan', '')).strip() != product['jan']:
             continue
         name = str(item.get('title' if store == 'ichome' else 'name') or '')
@@ -136,6 +190,9 @@ def extract_api(payload, store, product):
                 continue
             if box:
                 if not SEALED.search(label) and not (store == 'kaitorishouten' and label == '新品' and SEALED.search(memo) and not BAD_CONDITION.search(memo)):
+                    continue
+            elif product['condition'] == 'sealed_set':
+                if not re.search(r'未開封', label + ' ' + memo) or BAD_CONDITION.search(label + ' ' + memo):
                     continue
             elif label.strip() not in ('新品', '新品未使用', '未使用', '未使用品', '未開封', '未開封品'):
                 continue
@@ -209,6 +266,8 @@ def extract(html, store, product):
             continue
         if product['condition'] == 'sealed_box' and store in ('keitaispace', 'kaitoriwiki') and not SEALED.search(name + ' ' + memo):
             continue
+        if product['condition'] == 'sealed_set' and (not re.search(r'未開封', name + ' ' + memo) or BAD_CONDITION.search(name + ' ' + memo)):
+            continue
         if price is None:
             continue
         links = [n.attrs.get('href', '') for n in node.walk() if n.tag == 'a']
@@ -219,9 +278,13 @@ def extract(html, store, product):
 def fetch_quote(store, product):
     name, base = STORES[store]
     url = base + urllib.parse.quote(product['jan']) if store != 'ichome' else base
-    request_url = API_BASES[store] + urllib.parse.quote(product['jan']) if store in API_BASES else url
+    query = product.get('store_queries', {}).get(store, product['jan'])
+    request_url = API_BASES[store] + urllib.parse.quote(query) if store in API_BASES else url
     checked = dt.datetime.now(dt.timezone.utc).isoformat()
     row = {'store_id': store, 'store': name, 'url': url, 'checked_at': checked, 'observed_at': None, 'price': None, 'status': 'error'}
+    if product.get('available_from') and dt.datetime.now(dt.timezone(dt.timedelta(hours=9))).date().isoformat() < product['available_from']:
+        row['status'] = 'unreleased'
+        return row
     try:
         request = urllib.request.Request(request_url, headers={'User-Agent': 'Mozilla/5.0', 'Accept': 'application/json' if store in API_BASES else 'text/html'})
         with urllib.request.urlopen(request, timeout=20) as response:
@@ -247,6 +310,8 @@ def main():
     assert len({p['id'] for p in products}) == len(products), 'Duplicate product IDs'
     for p in products:
         assert re.fullmatch(r'\d{13}', p['jan']), 'Invalid JAN format'
+        if p.get('kind') == 'android':
+            assert canonical_jan(p['jan']), 'Invalid Android JAN check digit'
     def crawl_store(store):
         results = []
         for p in products:
@@ -256,7 +321,8 @@ def main():
             time.sleep(1)
         return results
     grouped = {p['id']: [] for p in products}
-    with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool:
+    # One serial worker per store; never send concurrent requests to one store.
+    with concurrent.futures.ThreadPoolExecutor(max_workers=len(STORES)) as pool:
         for results in pool.map(crawl_store, STORES):
             for product_id, row in results:
                 grouped[product_id].append(row)
@@ -266,6 +332,11 @@ def main():
     temp = target.with_suffix('.tmp')
     temp.write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n')
     temp.replace(target)
+    if __package__:
+        from .pokemon_market import crawl
+    else:
+        from pokemon_market import crawl
+    crawl()
 
 if __name__ == '__main__':
     main()

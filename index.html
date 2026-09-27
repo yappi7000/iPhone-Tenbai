@@ -378,8 +378,16 @@ body{background:#eef3f9}
     }
   }
 
+
+/* mori-banner-responsive-v3 */
+.mori-actions{flex-wrap:wrap}
+.mori-btn{flex-shrink:0;max-width:100%;padding:12px 24px}
+@media(max-width:1024px){
+  .mori-banner{grid-template-columns:minmax(0,1fr);background:#fff}
+  .mori-banner:after{display:none}
+}
 </style>
-<link rel="stylesheet" href="assets/catalog.css">
+<link rel="stylesheet" href="assets/catalog.css?v=android-pokemon3">
 </head>
 <body>
 
@@ -434,22 +442,28 @@ body{background:#eef3f9}
   <button type="button" data-catalog-category="cards" aria-pressed="false">🃏 トレカ</button>
   <button type="button" data-catalog-category="cameras" aria-pressed="false">📷 カメラ</button>
   <button type="button" data-catalog-category="appliances" aria-pressed="false">🏠 家電</button>
-  <button type="button" data-catalog-category="other" aria-pressed="false">📦 その他</button>
+  <button type="button" data-catalog-category="other" aria-pressed="false">📱 その他・Android</button>
 </nav>
 <section class="container" id="catalogPanel" hidden aria-label="ジャンル別買取比較">
  <div id="catalogList" class="card">
   <p class="catalog-eyebrow">やっぴ〜Presents ／ 買取価格を比較</p>
-  <div class="catalog-heading"><h2 id="catalogTitle">ジャンル別 買取ランキング</h2><span class="catalog-tag">新品の買取相場</span></div>
+  <div class="catalog-heading"><h2 id="catalogTitle">ジャンル別 買取ランキング</h2><span class="catalog-tag">店舗公開の買取価格</span></div>
   <p class="catalog-muted" id="catalogCategoryNote"></p>
+  <div id="catalogAndroidBrands" class="catalog-brands" aria-label="Androidのブランドで検索" hidden></div>
+  <div id="catalogCardViews" class="catalog-brands" aria-label="トレカの表示を切替" hidden></div>
+  <p id="catalogMarketNote" class="catalog-note" hidden></p>
   <div class="catalog-search"><div><label for="catalogQuery">商品名・型番・JANコード</label><input id="catalogQuery" type="search" placeholder="例：Switch 2、instax、JANコード" autocomplete="off"></div><div><label for="catalogSort">商品の並び順</label><select id="catalogSort"><option value="price">最高買取価格が高い順</option><option value="name">商品名順</option></select></div></div>
   <p class="catalog-muted" id="catalogCount" role="status"></p>
   <div class="catalog-grid" id="catalogProducts"><p>読み込み中…</p></div>
+  <div id="catalogStoreSearch" class="catalog-store-search" hidden></div>
   <p class="catalog-help">掲載は登録商品のみです。36時間を超えた価格・取得に失敗した店舗はランキングに含めません。価格取得は毎日更新予定。表示の取得日時と各店の最新条件をご確認ください。</p>
  </div>
  <div id="catalogDetail" class="card" hidden>
   <button type="button" id="catalogBack" class="catalog-back">← 商品一覧に戻る</button>
   <h2 id="catalogDetailTitle" class="catalog-detail-title" tabindex="-1"></h2>
   <p id="catalogDetailMeta" class="catalog-muted"></p>
+  <p id="catalogAndroidCondition" class="catalog-note" hidden>Androidは新品・未使用を対象にしています。未開封指定、キャリア版の可否、ネットワーク利用制限、付属品・保証書の条件は店舗ごとに異なります。箱のJAN・容量・色と、各店の条件を確認してください。</p>
+  <p id="catalogCardCondition" class="catalog-note" hidden></p>
   <div class="catalog-costs"><div><label for="catalog-cost">仕入れ価格（円）</label><input id="catalog-cost" type="number" min="0" max="100000000" step="1" inputmode="numeric" placeholder="未入力"></div><div><label for="catalog-shipping">送料（円）</label><input id="catalog-shipping" type="number" min="0" max="100000000" step="1" inputmode="numeric" value="0"></div><div><label for="catalog-fees">その他費用（円）</label><input id="catalog-fees" type="number" min="0" max="100000000" step="1" inputmode="numeric" value="0"></div></div>
   <div class="catalog-result" role="status"><span>最高買取価格での手残り試算</span><strong id="catalogProfit"></strong><p id="catalogBest" class="catalog-muted"></p></div>
   <p class="catalog-note">買取額 − 仕入れ価格 − 送料 − その他費用で計算。入力費用は全店舗共通の試算です。送料・振込手数料・減額条件は店舗ごとに異なるため、利用する店舗の条件に合わせて入力してください。税金・ポイント・特典は含みません。</p>
@@ -654,8 +668,8 @@ body{background:#eef3f9}
 
 </div>
 
-<script src="assets/catalog-core.js" defer></script>
-<script src="assets/catalog.js" defer></script>
+<script src="assets/catalog-core.js?v=android-pokemon3" defer></script>
+<script src="assets/catalog.js?v=android-pokemon3" defer></script>
 <footer class="footer">
   iPhone買取チェッカー 実戦版｜買取データ自動更新対応
 </footer>
