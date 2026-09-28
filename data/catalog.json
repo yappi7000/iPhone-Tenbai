@@ -1236,6 +1236,94 @@
       "identity_source": "https://kaitori-rudeya.com/product/item/7384",
       "official_source": "https://www.30th.pokemon-card.com/product",
       "available_from": "2026-10-16"
+    },
+    {
+      "id": "ricoh-gr-iv",
+      "category": "cameras",
+      "name": "RICOH GR IV",
+      "jan": "4549212311291",
+      "condition": "new",
+      "identity_source": "https://www.ricoh-imaging.co.jp/japan/products/gr-4/"
+    },
+    {
+      "id": "ricoh-gr-iv-hdf",
+      "category": "cameras",
+      "name": "RICOH GR IV HDF",
+      "jan": "4549212311871",
+      "condition": "new",
+      "identity_source": "https://www.ricoh-imaging.co.jp/japan/products/gr-4/special/hdf/"
+    },
+    {
+      "id": "ricoh-gr-iv-monochrome",
+      "category": "cameras",
+      "name": "RICOH GR IV Monochrome",
+      "jan": "4549212311994",
+      "condition": "new",
+      "identity_source": "https://www.ricoh-imaging.co.jp/japan/products/gr-4-mono/"
+    },
+    {
+      "id": "ricoh-gr-iiix",
+      "category": "cameras",
+      "name": "RICOH GR IIIx",
+      "jan": "4549212303739",
+      "condition": "new",
+      "identity_source": "https://www.ricoh-imaging.co.jp/japan/products/gr-3/"
+    },
+    {
+      "id": "ricoh-gr-iiix-hdf",
+      "category": "cameras",
+      "name": "RICOH GR IIIx HDF",
+      "jan": "4549212306297",
+      "condition": "new",
+      "identity_source": "https://www.ricoh-imaging.co.jp/japan/products/gr-3/"
+    },
+    {
+      "id": "canon-eos-r5-mark-ii",
+      "category": "cameras",
+      "name": "Canon EOS R5 Mark II ボディ",
+      "jan": "4549292229141",
+      "condition": "new",
+      "identity_source": "https://personal.canon.jp/product/camera/eos/r5mk2"
+    },
+    {
+      "id": "canon-eos-r6-mark-iii",
+      "category": "cameras",
+      "name": "Canon EOS R6 Mark III ボディ",
+      "jan": "4549292246285",
+      "condition": "new",
+      "identity_source": "https://personal.canon.jp/product/camera/eos/r6mk3"
+    },
+    {
+      "id": "canon-g7x-mark-iii-black",
+      "category": "cameras",
+      "name": "Canon PowerShot G7 X Mark III ブラック",
+      "jan": "4549292137743",
+      "condition": "new",
+      "identity_source": "https://personal.canon.jp/product/compact-digital-camera/powershot/g7xmk3"
+    },
+    {
+      "id": "canon-g7x-mark-iii-silver",
+      "category": "cameras",
+      "name": "Canon PowerShot G7 X Mark III シルバー",
+      "jan": "4549292137804",
+      "condition": "new",
+      "identity_source": "https://personal.canon.jp/product/compact-digital-camera/powershot/g7xmk3"
+    },
+    {
+      "id": "canon-sx740-hs-black",
+      "category": "cameras",
+      "name": "Canon PowerShot SX740 HS ブラック",
+      "jan": "4549292119008",
+      "condition": "new",
+      "identity_source": "https://personal.canon.jp/product/compact-digital-camera/powershot/sx740hs"
+    },
+    {
+      "id": "canon-sx740-hs-silver",
+      "category": "cameras",
+      "name": "Canon PowerShot SX740 HS シルバー",
+      "jan": "4549292119060",
+      "condition": "new",
+      "identity_source": "https://personal.canon.jp/product/compact-digital-camera/powershot/sx740hs"
     }
   ]
 }
