@@ -39,6 +39,8 @@ jobs:
         run: npx playwright install chromium --with-deps
 
       - name: Run crawler
+        env:
+          SKIP_IPHONE17: "1"
         run: node scripts/crawler.js
 
       - name: Verify generated prices

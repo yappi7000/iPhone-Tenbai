@@ -4360,7 +4360,10 @@ async function run() {
     reason: "18シリーズ更新失敗のため17シリーズ更新を実行せず"
   };
 
-  if (pricesUpdate.updated) {
+  if (
+    pricesUpdate.updated &&
+    process.env.SKIP_IPHONE17 !== "1"
+  ) {
     try {
       console.log("");
       console.log("==========================================");
@@ -4399,6 +4402,21 @@ async function run() {
         `17シリーズ更新エラー: ${iphone17Update.reason}`
       );
     }
+  }
+
+  if (
+    pricesUpdate.updated &&
+    process.env.SKIP_IPHONE17 === "1"
+  ) {
+    iphone17Update = {
+      updated: false,
+      reason: "SKIP_IPHONE17=1 のため17シリーズ更新をスキップ"
+    };
+
+    console.log("");
+    console.log(
+      "iPhone 17 SERIES UPDATE: SKIPPED"
+    );
   }
 
   diagnostics.iphone17_update =
