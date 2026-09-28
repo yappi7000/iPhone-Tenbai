@@ -6,3 +6,124 @@
 @media(max-width:640px){.catalog-nav{gap:6px}.catalog-nav button{padding:10px 12px;font-size:12px}.catalog-grid{grid-template-columns:1fr}.catalog-search{grid-template-columns:1fr}.catalog-costs{grid-template-columns:1fr}.catalog-store{grid-template-columns:30px minmax(0,1fr)}.catalog-store-price{grid-column:2;text-align:left;font-size:22px}.catalog-heading h2{font-size:23px}.catalog-product{padding:16px}}
 
 .catalog-brands{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}.catalog-brands[hidden],.catalog-store-search[hidden]{display:none}.catalog-brands button{border:1px solid #cddded;border-radius:20px;padding:8px 14px;background:#f4f8fd;color:#1e466d;cursor:pointer;font:inherit;font-size:13px}.catalog-brands button[aria-pressed=true]{background:#1677d2;border-color:#1677d2;color:#fff}.catalog-brands button:focus-visible{outline:3px solid #075bb0;outline-offset:3px}.catalog-store-search{margin-top:20px;padding:18px;background:#f4f8fd;border:1px solid #dce5ef;border-radius:14px}.catalog-search-links{display:flex;flex-wrap:wrap;gap:10px}.catalog-search-links a{color:#075bb0;font-size:13px;background:#fff;border:1px solid #dce5ef;border-radius:8px;padding:10px 12px;text-decoration:none}.catalog-search-links a:hover{text-decoration:underline}
+
+/* ===== Apple Store 在庫 ===== */
+
+.apple-inventory-card {
+  margin-top: 22px;
+  border: 1px solid #d9e1ea;
+  border-radius: 18px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.apple-inventory-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px;
+  background: #f8fafc;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.apple-inventory-title {
+  font-size: 19px;
+  font-weight: 950;
+}
+
+.apple-inventory-product {
+  margin-top: 4px;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.apple-inventory-count {
+  font-weight: 950;
+  white-space: nowrap;
+}
+
+.apple-inventory-price {
+  padding: 15px 20px;
+  font-size: 13px;
+  color: #6b7280;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.apple-inventory-price strong {
+  margin-left: 8px;
+  color: #111827;
+  font-size: 19px;
+}
+
+.apple-inventory-list {
+  padding: 5px 20px;
+}
+
+.apple-store-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  align-items: center;
+  padding: 13px 0;
+  border-bottom: 1px solid #eef2f6;
+}
+
+.apple-store-row:last-child {
+  border-bottom: none;
+}
+
+.apple-store-row strong {
+  display: block;
+  font-size: 14px;
+}
+
+.apple-store-row span {
+  display: block;
+  margin-top: 3px;
+  font-size: 11px;
+  color: #7b8493;
+}
+
+.apple-store-status {
+  font-size: 12px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.apple-store-status.available {
+  color: #07835d;
+}
+
+.apple-store-status.unavailable {
+  color: #9ca3af;
+}
+
+.apple-store-status.unknown {
+  color: #b7791f;
+}
+
+.apple-inventory-note,
+.apple-inventory-empty {
+  padding: 14px 20px;
+  font-size: 11px;
+  line-height: 1.7;
+  color: #7b8493;
+  background: #fafafa;
+}
+
+@media(max-width: 600px) {
+
+  .apple-inventory-header {
+    display: block;
+  }
+
+  .apple-inventory-count {
+    margin-top: 9px;
+  }
+
+  .apple-store-row {
+    gap: 8px;
+  }
+
+}

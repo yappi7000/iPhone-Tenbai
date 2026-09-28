@@ -1,0 +1,77 @@
+name: Update Apple Store inventory
+
+on:
+  schedule:
+    - cron: '7 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: apple-store-inventory
+  cancel-in-progress: false
+
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Fetch Apple Store inventory
+        run: python scripts/apple_inventory.py
+
+      - name: Validate Apple inventory
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          p = Path("data/apple_inventory.json")
+          data = json.loads(p.read_text())
+
+          products = data.get("products", {})
+          stores = data.get("stores", {})
+
+          if len(products) != 32:
+              raise SystemExit(f"Expected 32 products, got {len(products)}")
+
+          if len(stores) < 5:
+              raise SystemExit(f"Too few Apple Stores: {len(stores)}")
+
+          successful = sum(
+              1
+              for item in products.values()
+              if item.get("request_successes", 0) > 0
+          )
+
+          if successful != 32:
+              raise SystemExit(f"Only {successful}/32 SKU requests succeeded")
+
+          print("Products:", len(products))
+          print("Stores:", len(stores))
+          print("Successful SKU:", successful)
+          print("Validation OK")
+          PY
+
+      - name: Commit Apple inventory
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+
+          git add data/apple_inventory.json
+
+          if git diff --cached --quiet; then
+            echo "No inventory changes"
+            exit 0
+          fi
+
+          git commit -m 'Update Apple Store inventory [skip ci]'
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push

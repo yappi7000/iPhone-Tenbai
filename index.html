@@ -516,6 +516,26 @@ body{background:#eef3f9}
     <div id="statusAlert" style="margin-top:10px; font-size:12px;"></div>
   </div>
 
+  <div class="card">
+    <div class="toolbar">
+      <h2 style="margin:0;">🍎 Apple Store 在庫</h2>
+      <button
+        type="button"
+        id="appleInventoryBtn"
+        class="visit"
+        style="background:#111827;cursor:pointer;border:0;padding:10px 16px;font-size:13px;"
+      >
+        在庫を確認
+      </button>
+    </div>
+
+    <div id="appleInventoryStatus" style="font-size:12px;color:var(--muted);">
+      商品を選んで「在庫を確認」を押してください。
+    </div>
+
+    <div id="appleInventoryContainer"></div>
+  </div>
+
   <!-- KPIカード（4つ並び） -->
   <div class="kpis">
     <div class="kpi best">
@@ -668,6 +688,7 @@ body{background:#eef3f9}
 
 </div>
 
+<script src="assets/apple_inventory.js?v=1"></script>
 <script src="assets/catalog-core.js?v=android-pokemon3" defer></script>
 <script src="assets/catalog.js?v=android-pokemon3" defer></script>
 <footer class="footer">
@@ -1266,6 +1287,75 @@ body{background:#eef3f9}
   });
 
   initUI();
+
+  let appleInventoryLoaded = false;
+
+  async function showAppleInventory() {
+    const btn = document.getElementById("appleInventoryBtn");
+    const status = document.getElementById("appleInventoryStatus");
+    const container = document.getElementById("appleInventoryContainer");
+    const jan = document.getElementById("currentJan").textContent.trim();
+
+    if (!jan || jan === "--") {
+      status.textContent = "商品を選択してください。";
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = "確認中...";
+    status.textContent = "Apple Store在庫データを読み込んでいます...";
+
+    try {
+      if (!appleInventoryLoaded) {
+        const ok = await window.loadAppleInventoryData();
+
+        if (!ok) {
+          throw new Error("Apple在庫データの読込に失敗しました");
+        }
+
+        appleInventoryLoaded = true;
+      }
+
+      window.renderAppleInventory(jan, container);
+
+      const data = window.getAppleInventoryByJan(jan);
+
+      if (!data) {
+        status.textContent = "この商品はApple在庫確認の対象外です。";
+      } else if (data.status === "error") {
+        status.textContent = "Apple側の在庫取得に失敗したデータです。";
+      } else {
+        const count = data.availableStoreCount || 0;
+
+        status.textContent =
+          count > 0
+            ? `現在 ${count}店舗で受取可能です。`
+            : "現在、取得できた店舗では受取可能在庫がありません。";
+      }
+
+    } catch (error) {
+      console.error(error);
+      status.textContent = "Apple Store在庫の表示に失敗しました。";
+      container.innerHTML = "";
+    } finally {
+      btn.disabled = false;
+      btn.textContent = "在庫を確認";
+    }
+  }
+
+  document
+    .getElementById("appleInventoryBtn")
+    .addEventListener("click", showAppleInventory);
+
+  ["modelSelect", "storageSelect", "colorSelect"].forEach(id => {
+    document.getElementById(id).addEventListener("change", () => {
+      const container = document.getElementById("appleInventoryContainer");
+      const status = document.getElementById("appleInventoryStatus");
+
+      container.innerHTML = "";
+      status.textContent = "商品が変更されました。「在庫を確認」を押してください。";
+    });
+  });
 
 
 
