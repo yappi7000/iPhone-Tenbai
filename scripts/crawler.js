@@ -3057,16 +3057,23 @@ if (
  */
 
 function updatePricesJsonSafely(diagnostics) {
-  const targetJans =
+  const targets =
     Array.isArray(diagnostics.targets)
       ? diagnostics.targets
-          .map(item => String(item.jan || ""))
-          .filter(Boolean)
       : [];
+
+  const targetJans =
+    targets
+      .map(item => String(item.jan || ""))
+      .filter(Boolean);
 
   const uniqueTargetJans =
     [...new Set(targetJans)];
 
+  /*
+   * iPhone 18 Pro / Pro Max は32 SKU固定。
+   * JAN不足・重複がある場合は安全のため更新しない。
+   */
   if (
     targetJans.length !== 32 ||
     uniqueTargetJans.length !== 32
@@ -3078,131 +3085,310 @@ function updatePricesJsonSafely(diagnostics) {
     };
   }
 
+  /*
+   * 実際に取得成功した価格だけを採用する。
+   *
+   * 1店舗の403や一時障害を理由に
+   * 全SKUの更新を停止しない。
+   *
+   * 推測価格・defaultPrice・0円補完は行わない。
+   */
   const validRows =
     diagnostics.stores.filter(result =>
       result &&
       result.jan &&
+      uniqueTargetJans.includes(
+        String(result.jan)
+      ) &&
       PRICE_OUTPUT_STORE_IDS.includes(
         result.store_id
       ) &&
       result.status === "OK" &&
-      Number.isFinite(Number(result.price)) &&
-      Number(result.price) > 0
+      Number.isFinite(
+        Number(result.price)
+      ) &&
+      Number(result.price) >= 50000 &&
+      Number(result.price) <= 500000
     );
 
-  const expectedStoreCount =
-    PRICE_OUTPUT_STORE_IDS.length;
-
-  const expectedPriceCount =
-    32 * expectedStoreCount;
-
-  if (
-    validRows.length !==
-    expectedPriceCount
-  ) {
+  if (validRows.length === 0) {
     return {
       updated: false,
       reason:
-        `価格レコード数異常: ${validRows.length}/${expectedPriceCount}`
+        "更新可能な実価格が0件"
     };
   }
 
-  const byJan = new Map();
+  /*
+   * 現在のprices.jsonを読み込む。
+   * 既存データをベースにマージすることで、
+   * iPhone 17など他シリーズを削除しない。
+   */
+  let currentPrices;
 
-  for (const jan of uniqueTargetJans) {
-    byJan.set(jan, []);
+  try {
+    currentPrices =
+      JSON.parse(
+        fs.readFileSync(
+          PRICES_PATH,
+          "utf8"
+        )
+      );
+  } catch (error) {
+    return {
+      updated: false,
+      reason:
+        `既存prices.json読込失敗: ${error.message}`
+    };
   }
+
+  const mergedPrices = {
+    ...currentPrices
+  };
+
+  /*
+   * JAN → 店舗 → 最新取得データ
+   */
+  const rowsByJan =
+    new Map();
 
   for (const row of validRows) {
-    const jan = String(row.jan);
+    const jan =
+      String(row.jan);
 
-    if (!byJan.has(jan)) {
-      return {
-        updated: false,
-        reason:
-          `対象外JANを検出: ${jan}`
-      };
+    if (!rowsByJan.has(jan)) {
+      rowsByJan.set(
+        jan,
+        new Map()
+      );
     }
 
-    byJan.get(jan).push(row);
+    rowsByJan
+      .get(jan)
+      .set(
+        row.store_id,
+        row
+      );
   }
 
-  const prices = {};
+  let updatedSkuCount = 0;
+  let freshPriceCount = 0;
+  let preservedPriceCount = 0;
 
-  for (const jan of uniqueTargetJans) {
-    const rows = byJan.get(jan) || [];
+  for (
+    const jan
+    of uniqueTargetJans
+  ) {
+    const freshRows =
+      rowsByJan.get(jan) ||
+      new Map();
 
-    const storeIds =
-      new Set(
-        rows.map(row => row.store_id)
-      );
+    const previous =
+      currentPrices[jan] &&
+      Array.isArray(
+        currentPrices[jan].stores
+      )
+        ? currentPrices[jan]
+        : {
+            stores: []
+          };
 
-    if (
-      rows.length !== expectedStoreCount ||
-      storeIds.size !== expectedStoreCount
-    ) {
-      return {
-        updated: false,
-        reason:
-          `${jan}: 店舗数異常 rows=${rows.length}, unique=${storeIds.size}, expected=${expectedStoreCount}`
-      };
-    }
+    const storesByName =
+      new Map();
 
+    /*
+     * 既存の正常価格を保険として保持。
+     *
+     * 今回取得できなかった店舗について
+     * 既存価格を削除したり0円にしたりしない。
+     */
     for (
-      const requiredId
-      of PRICE_OUTPUT_STORE_IDS
+      const store
+      of previous.stores
     ) {
-      if (!storeIds.has(requiredId)) {
-        return {
-          updated: false,
-          reason:
-            `${jan}: ${requiredId} が不足`
-        };
+      const price =
+        Number(store.price);
+
+      const name =
+        String(
+          store.store || ""
+        ).trim();
+
+      if (
+        name &&
+        Number.isFinite(price) &&
+        price >= 50000 &&
+        price <= 500000
+      ) {
+        storesByName.set(
+          name,
+          {
+            ...store
+          }
+        );
       }
     }
 
-    prices[jan] = {
-      stores:
-        rows
-          .map(row => ({
-            store: row.store,
-            price: Number(row.price),
-            url: row.url,
-            condition: "unopened",
-            scope: "jan"
-          }))
-          .sort(
-            (a, b) =>
-              b.price - a.price
-          ),
+    /*
+     * 今回正常取得できた価格だけ上書き。
+     */
+    for (
+      const row
+      of freshRows.values()
+    ) {
+      storesByName.set(
+        row.store,
+        {
+          store:
+            row.store,
 
+          price:
+            Number(row.price),
+
+          url:
+            row.url || "",
+
+          condition:
+            "unopened",
+
+          scope:
+            "jan",
+
+          checked_at:
+            row.checked_at ||
+            diagnostics.finished_at ||
+            nowJST()
+        }
+      );
+
+      freshPriceCount++;
+    }
+
+    const stores =
+      [...storesByName.values()]
+        .sort(
+          (a, b) =>
+            b.price - a.price
+        );
+
+    /*
+     * 新旧とも価格0件なら
+     * 無理にSKUを作らない。
+     */
+    if (stores.length === 0) {
+      continue;
+    }
+
+    preservedPriceCount +=
+      Math.max(
+        0,
+        stores.length -
+        freshRows.size
+      );
+
+    mergedPrices[jan] = {
+      ...(previous.name
+        ? {
+            name:
+              previous.name
+          }
+        : {}),
+
+      stores,
+
+      /*
+       * 今回実価格が取れたSKUだけ
+       * 更新日時を進める。
+       *
+       * 全取得失敗なのに
+       * 最新日時へ見せかけない。
+       */
       last_update:
-        diagnostics.finished_at || nowJST()
+        freshRows.size > 0
+          ? (
+              diagnostics.finished_at ||
+              nowJST()
+            )
+          : (
+              previous.last_update ||
+              null
+            )
     };
+
+    if (
+      freshRows.size > 0
+    ) {
+      updatedSkuCount++;
+    }
   }
 
   if (
-    Object.keys(prices).length !== 32
+    updatedSkuCount === 0
   ) {
     return {
       updated: false,
       reason:
-        `出力SKU数異常: ${Object.keys(prices).length}/32`
+        "iPhone 18で更新可能なSKUが0件"
     };
   }
 
+  /*
+   * 既存SKUが減った場合は
+   * 安全装置として更新中止。
+   */
+  if (
+    Object.keys(
+      mergedPrices
+    ).length <
+    Object.keys(
+      currentPrices
+    ).length
+  ) {
+    return {
+      updated: false,
+      reason:
+        "マージ後に既存SKUが減少したため中止"
+    };
+  }
+
+  /*
+   * 一時ファイルへ書き込み。
+   */
   const tmpPath =
     `${PRICES_PATH}.tmp`;
 
   fs.writeFileSync(
     tmpPath,
     JSON.stringify(
-      prices,
+      mergedPrices,
       null,
       2
-    ),
+    ) + "\n",
     "utf8"
   );
+
+  /*
+   * JSONとして再読込できることを
+   * 確認してから本番ファイルへ置換。
+   */
+  try {
+    JSON.parse(
+      fs.readFileSync(
+        tmpPath,
+        "utf8"
+      )
+    );
+  } catch (error) {
+    fs.unlinkSync(
+      tmpPath
+    );
+
+    return {
+      updated: false,
+      reason:
+        `生成JSON検証失敗: ${error.message}`
+    };
+  }
 
   fs.renameSync(
     tmpPath,
@@ -3212,13 +3398,18 @@ function updatePricesJsonSafely(diagnostics) {
   return {
     updated: true,
     reason: null,
-    sku_count: 32,
-    price_count:
-      expectedPriceCount
+    sku_count:
+      updatedSkuCount,
+    fresh_price_count:
+      freshPriceCount,
+    preserved_price_count:
+      preservedPriceCount,
+    total_sku_count:
+      Object.keys(
+        mergedPrices
+      ).length
   };
 }
-
-
 
 
 function mergeIPhone17PricesSafely(candidatePrices) {

@@ -53,61 +53,129 @@ jobs:
             )
           );
 
-          const jans = Object.keys(data);
+          const html = fs.readFileSync(
+            'index.html',
+            'utf8'
+          );
 
-          let total = 0;
+          /*
+           * 表示対象の
+           * iPhone 18 Pro / Pro Max
+           * 32 SKUだけを検証する。
+           */
+          const pattern =
+            /"iPhone 18 Pro(?: Max)?_(?:256GB|512GB|1TB|2TB)_(?:ブラック|シルバー|バーガンディ|グレイシャー)"\s*:\s*"(\d{13})"/g;
+
+          const targetJans =
+            [...html.matchAll(pattern)]
+              .map(match => match[1]);
+
+          const uniqueJans =
+            new Set(targetJans);
+
+          if (
+            targetJans.length !== 32 ||
+            uniqueJans.size !== 32
+          ) {
+            console.error(
+              'iPhone 18 target JAN verification failed:',
+              targetJans.length,
+              uniqueJans.size
+            );
+
+            process.exit(1);
+          }
+
           let bad = 0;
+          let available = 0;
 
-          for (const jan of jans) {
+          for (const jan of targetJans) {
+            const item = data[jan];
+
             const stores =
-              Array.isArray(data[jan].stores)
-                ? data[jan].stores
+              item &&
+              Array.isArray(item.stores)
+                ? item.stores
                 : [];
 
-            total += stores.length;
-
-            const unique =
-              new Set(
-                stores.map(x => x.store)
+            /*
+             * 価格0件のSKUは異常。
+             */
+            if (stores.length === 0) {
+              console.error(
+                `${jan}: no valid prices`
               );
 
-            if (
-              stores.length !== 12 ||
-              unique.size !== 12
-            ) {
               bad++;
+              continue;
+            }
+
+            const names =
+              new Set();
+
+            for (const store of stores) {
+              const name =
+                String(
+                  store.store || ''
+                ).trim();
+
+              const price =
+                Number(store.price);
+
+              if (
+                !name ||
+                names.has(name) ||
+                !Number.isFinite(price) ||
+                price < 50000 ||
+                price > 500000
+              ) {
+                console.error(
+                  `${jan}: invalid price row`,
+                  store
+                );
+
+                bad++;
+                continue;
+              }
+
+              names.add(name);
+              available++;
             }
           }
 
           console.log(
-            'SKU数:',
-            jans.length
+            'iPhone 18 SKU数:',
+            targetJans.length
           );
 
           console.log(
-            '価格総数:',
-            total
+            '利用可能価格数:',
+            available
           );
 
           console.log(
-            '異常SKU:',
+            '異常:',
             bad
           );
 
+          console.log(
+            'prices.json 全SKU数:',
+            Object.keys(data).length
+          );
+
           if (
-            jans.length !== 32 ||
-            total !== 384 ||
-            bad !== 0
+            bad !== 0 ||
+            available === 0
           ) {
             console.error(
-              'prices.json verification failed'
+              'prices.json safety verification failed'
             );
 
             process.exit(1);
           }
 
           console.log(
-            'DIRECT CRAWLER COMPLETE'
+            'SAFE CRAWLER VERIFY COMPLETE'
           );
           NODE
 
