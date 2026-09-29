@@ -3074,14 +3074,20 @@ function updatePricesJsonSafely(diagnostics) {
    * iPhone 18 Pro / Pro Max は32 SKU固定。
    * JAN不足・重複がある場合は安全のため更新しない。
    */
+  const onDemand =
+    String(process.env.TARGET_JAN || "").trim() !== "";
+
+  const expectedTargetCount =
+    onDemand ? 1 : 32;
+
   if (
-    targetJans.length !== 32 ||
-    uniqueTargetJans.length !== 32
+    targetJans.length !== expectedTargetCount ||
+    uniqueTargetJans.length !== expectedTargetCount
   ) {
     return {
       updated: false,
       reason:
-        `対象JAN異常: total=${targetJans.length}, unique=${uniqueTargetJans.length}`
+        `対象JAN異常: expected=${expectedTargetCount}, total=${targetJans.length}, unique=${uniqueTargetJans.length}`
     };
   }
 
@@ -3754,7 +3760,35 @@ async function run() {
     throw new Error(
       "iPhone 18 JANに重複があります"
     );
-  }console.log("");
+  }
+
+  const requestedJan =
+    String(process.env.TARGET_JAN || "").trim();
+
+  if (requestedJan) {
+    const matched =
+      activeTargetJans.find(
+        item => String(item.jan) === requestedJan
+      );
+
+    if (!matched) {
+      throw new Error(
+        `指定JANがiPhone 18対象外です: ${requestedJan}`
+      );
+    }
+
+    activeTargetJans.splice(
+      0,
+      activeTargetJans.length,
+      matched
+    );
+
+    console.log(
+      `ON-DEMAND MODE: ${matched.name} / JAN ${matched.jan}`
+    );
+  }
+
+  console.log("");
   console.log("==========================================");
   console.log(" iPhone 買取価格クローラー");
   console.log(" 安全診断モード");
@@ -4010,7 +4044,7 @@ async function run() {
       store => store.id === "amemoba"
     );
 
-    if (amemobaStore) {
+    if (!requestedJan && amemobaStore) {
       const amemobaPages = new Map();
 
       try {
@@ -4176,6 +4210,12 @@ async function run() {
       store => store.id === "mobasute"
     );
 
+    if (requestedJan) {
+      console.log(
+        "\nON-DEMAND MODE: モバステ容量別一括処理をスキップ"
+      );
+    } else {
+
     if (!mobasuteStore) {
       throw new Error("モバステ設定が見つかりません");
     }
@@ -4316,6 +4356,8 @@ async function run() {
 
     } finally {
       await page18.close().catch(() => {});
+    }
+
     }
 
   } finally {

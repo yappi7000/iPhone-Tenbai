@@ -1,0 +1,109 @@
+name: Update selected iPhone price
+
+on:
+  workflow_dispatch:
+    inputs:
+      jan:
+        description: 'JAN code'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: iphone-price-crawler
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright Chromium
+        run: npx playwright install chromium --with-deps
+
+      - name: Update selected iPhone
+        env:
+          TARGET_JAN: ${{ inputs.jan }}
+          SKIP_IPHONE17: "1"
+        run: node scripts/crawler.js
+
+      - name: Verify selected JAN
+        env:
+          TARGET_JAN: ${{ inputs.jan }}
+        run: |
+          node - <<'NODE'
+          const fs = require('fs');
+
+          const jan = process.env.TARGET_JAN;
+
+          const prices = JSON.parse(
+            fs.readFileSync('data/prices.json', 'utf8')
+          );
+
+          const diagnostics = JSON.parse(
+            fs.readFileSync(
+              'data/crawl_diagnostics.json',
+              'utf8'
+            )
+          );
+
+          const item = prices[jan];
+
+          if (!item) {
+            throw new Error(`JAN not found: ${jan}`);
+          }
+
+          if (
+            !Array.isArray(item.stores) ||
+            item.stores.length === 0
+          ) {
+            throw new Error(`No prices found: ${jan}`);
+          }
+
+          if (
+            diagnostics.target_count !== 1 ||
+            diagnostics.targets?.[0]?.jan !== jan
+          ) {
+            throw new Error(
+              'On-demand target verification failed'
+            );
+          }
+
+          console.log('JAN:', jan);
+          console.log('Stores:', item.stores.length);
+          console.log('Last update:', item.last_update);
+          console.log('Verification OK');
+          NODE
+
+      - name: Commit updated price
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+
+          git add data/prices.json
+          git add data/crawl_diagnostics.json
+
+          if git diff --cached --quiet; then
+            echo "No price changes"
+            exit 0
+          fi
+
+          git commit -m "Update selected iPhone price [skip ci]"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push
+
