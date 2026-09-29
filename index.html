@@ -509,7 +509,10 @@ body{background:#eef3f9}
         <label style="margin-bottom:2px;">JANコード (自動判定)</label>
         <span id="currentJan" style="font-family:monospace; font-weight:900; font-size:16px;">--</span>
       </div>
-      <button id="reloadBtn" class="visit" style="background:var(--blue); cursor:pointer; border:0; padding:10px 16px; font-size:13px;">
+      <button id="liveRefreshBtn" type="button" style="margin-left:8px;">
+  <i class="fa-solid fa-bolt"></i> この商品の最新価格を取得
+</button>
+<button id="reloadBtn" class="visit" style="background:var(--blue); cursor:pointer; border:0; padding:10px 16px; font-size:13px;">
         <i class="fa-solid fa-arrows-rotate"></i> 最新保存データを再読込
       </button>
     </div>
@@ -956,6 +959,164 @@ body{background:#eef3f9}
   });
 
   document.getElementById("reloadBtn").addEventListener("click", loadCrawlData);
+
+  const LIVE_REFRESH_ENDPOINT =
+    "https://iphone-tenbai-refresh.thank-you-8p.workers.dev";
+
+  const RAW_PRICES_URL =
+    "https://raw.githubusercontent.com/yappi7000/iPhone-Tenbai/main/data/prices.json";
+
+  function setLiveRefreshStatus(message, isError = false) {
+    const status = document.getElementById("statusAlert");
+    if (!status) return;
+
+    status.style.display = "block";
+    status.textContent = message;
+    status.style.color = isError ? "#b91c1c" : "";
+  }
+
+  async function fetchRawPrices() {
+    const res = await fetch(`${RAW_PRICES_URL}?t=${Date.now()}`, {
+      cache: "no-store"
+    });
+
+    if (!res.ok) {
+      throw new Error(`prices.json取得失敗: ${res.status}`);
+    }
+
+    return await res.json();
+  }
+
+  async function waitForLatestPrice(jan, previousLastUpdate, requestStartedAt) {
+    const startedAt = Date.now();
+    const timeoutMs = 5 * 60 * 1000;
+    const intervalMs = 10000;
+
+    while (Date.now() - startedAt < timeoutMs) {
+      await new Promise(resolve => setTimeout(resolve, intervalMs));
+
+      try {
+        const latestData = await fetchRawPrices();
+        const latestItem = latestData[jan];
+
+        if (latestItem && latestItem.last_update) {
+          const changed =
+            latestItem.last_update !== previousLastUpdate;
+
+          const parsed =
+            new Date(
+              latestItem.last_update
+                .replace(/\//g, "-")
+                .replace(" ", "T")
+            ).getTime();
+
+          const newerThanRequest =
+            Number.isFinite(parsed) &&
+            parsed >= requestStartedAt - 60000;
+
+          if (changed || newerThanRequest) {
+            crawlData = latestData;
+            render();
+            return true;
+          }
+        }
+      } catch (error) {
+        console.warn("最新価格確認中:", error);
+      }
+    }
+
+    return false;
+  }
+
+  document.getElementById("liveRefreshBtn").addEventListener("click", async () => {
+    const btn = document.getElementById("liveRefreshBtn");
+    const jan = document.getElementById("currentJan").textContent.trim();
+
+    if (!jan || jan === "--") {
+      setLiveRefreshStatus("商品を選択してください。", true);
+      return;
+    }
+
+    let updateKey = sessionStorage.getItem("iphoneTenbaiUpdateKey");
+
+    if (!updateKey) {
+      updateKey = prompt(
+        "最新価格取得用の更新キーを入力してください。\nこのキーはこのタブを閉じるまでだけ保存されます。"
+      );
+
+      if (!updateKey) {
+        setLiveRefreshStatus("最新価格の取得をキャンセルしました。");
+        return;
+      }
+
+      sessionStorage.setItem("iphoneTenbaiUpdateKey", updateKey);
+    }
+
+    const previousLastUpdate = crawlData?.[jan]?.last_update || "";
+    const requestStartedAt = Date.now();
+
+    btn.disabled = true;
+    btn.innerHTML =
+      '<i class="fa-solid fa-spinner fa-spin"></i> 更新リクエスト送信中…';
+
+    setLiveRefreshStatus("更新リクエストを送信しています…");
+
+    try {
+      const res = await fetch(LIVE_REFRESH_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Update-Key": updateKey
+        },
+        body: JSON.stringify({ jan })
+      });
+
+      const result = await res.json().catch(() => ({}));
+
+      if (!res.ok) {
+        if (res.status === 401 || res.status === 403) {
+          sessionStorage.removeItem("iphoneTenbaiUpdateKey");
+        }
+
+        throw new Error(
+          result.error || `更新リクエスト失敗: ${res.status}`
+        );
+      }
+
+      btn.innerHTML =
+        '<i class="fa-solid fa-spinner fa-spin"></i> 最新価格を取得中…';
+
+      setLiveRefreshStatus(
+        "買取店から最新価格を取得中です。通常1〜2分ほどかかります…"
+      );
+
+      const updated = await waitForLatestPrice(
+        jan,
+        previousLastUpdate,
+        requestStartedAt
+      );
+
+      if (!updated) {
+        throw new Error(
+          "5分以内に更新を確認できませんでした。しばらくしてから「最新保存データを再読込」を押してください。"
+        );
+      }
+
+      setLiveRefreshStatus("最新価格に更新しました ✓");
+
+    } catch (error) {
+      console.error("最新価格取得エラー:", error);
+      setLiveRefreshStatus(
+        `最新価格の取得に失敗しました：${error.message}`,
+        true
+      );
+
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML =
+        '<i class="fa-solid fa-bolt"></i> この商品の最新価格を取得';
+    }
+  });
 
   document.getElementById("copyMoriCode").addEventListener("click", async () => {
     const btn = document.getElementById("copyMoriCode");
