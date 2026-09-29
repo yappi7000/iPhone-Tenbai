@@ -1,7 +1,7 @@
 {
   "version": "safe-diagnostic-2.0",
-  "started_at": "2026/9/30 7:59:03",
-  "finished_at": "2026/9/30 7:59:39",
+  "started_at": "2026/9/30 8:04:26",
+  "finished_at": "2026/9/30 8:05:20",
   "safety": {
     "prices_json_modified": true,
     "default_price_used": false,
@@ -59,7 +59,7 @@
       "jan": "4549995734843",
       "product_name": "iPhone 18 Pro Max 512GB バーガンディ",
       "url": "https://pastec.net/iphone",
-      "checked_at": "2026/9/30 7:59:03",
+      "checked_at": "2026/9/30 8:04:26",
       "status": "ERROR",
       "http": {
         "status": 403,
@@ -90,7 +90,7 @@
       "jan": "4549995734843",
       "product_name": "iPhone 18 Pro Max 512GB バーガンディ",
       "url": "https://www.morimori-kaitori.jp/search?sk=4549995734843",
-      "checked_at": "2026/9/30 7:59:05",
+      "checked_at": "2026/9/30 8:04:28",
       "status": "OK",
       "http": {
         "status": 200,
@@ -123,7 +123,7 @@
       "jan": "4549995734843",
       "product_name": "iPhone 18 Pro Max 512GB バーガンディ",
       "url": "https://kaitori-homura.com/products?commit=%E6%A4%9C%E7%B4%A2&q%5Bname_or_jan_code_cont%5D=4549995734843",
-      "checked_at": "2026/9/30 7:59:06",
+      "checked_at": "2026/9/30 8:04:30",
       "status": "OK",
       "http": {
         "status": 200,
@@ -156,7 +156,7 @@
       "jan": "4549995734843",
       "product_name": "iPhone 18 Pro Max 512GB バーガンディ",
       "url": "https://kaitori-rudeya.com/search/index/4549995734843",
-      "checked_at": "2026/9/30 7:59:11",
+      "checked_at": "2026/9/30 8:04:36",
       "status": "OK",
       "http": {
         "status": 200,
@@ -189,7 +189,7 @@
       "jan": "4549995734843",
       "product_name": "iPhone 18 Pro Max 512GB バーガンディ",
       "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
-      "checked_at": "2026/9/30 7:59:14",
+      "checked_at": "2026/9/30 8:04:40",
       "status": "OK",
       "http": {
         "status": 200,
@@ -222,8 +222,8 @@
       "jan": "4549995734843",
       "product_name": "iPhone 18 Pro Max 512GB バーガンディ",
       "url": "https://www.1-chome.com/keitai",
-      "checked_at": "2026/9/30 7:59:17",
-      "status": "OK",
+      "checked_at": "2026/9/30 8:04:44",
+      "status": "ERROR",
       "http": {
         "status": 200,
         "ok": true,
@@ -231,23 +231,20 @@
       },
       "page": {
         "title": "買取１丁目",
-        "body_length": 2606,
+        "body_length": 717,
         "body_available": true
       },
       "product": {
         "jan_found": false,
-        "name_found": true
+        "name_found": false
       },
-      "price_candidates": [
-        {
-          "raw": "288,000円",
-          "price": 288000
-        }
+      "price_candidates": [],
+      "errors": [
+        "商品名に一致する商品が見つかりません"
       ],
-      "errors": [],
-      "price": 288000,
-      "raw_price": "288,000円",
-      "caution": "基準288,000円 / 色別増減なし"
+      "price": null,
+      "raw_price": null,
+      "caution": ""
     },
     {
       "store_id": "iphonekaitori",
@@ -255,7 +252,7 @@
       "jan": "4549995734843",
       "product_name": "iPhone 18 Pro Max 512GB バーガンディ",
       "url": "https://www.iphonekaitori.tokyo/brand/apple/market-price",
-      "checked_at": "2026/9/30 7:59:20",
+      "checked_at": "2026/9/30 8:04:47",
       "status": "OK",
       "http": {
         "status": 200,
@@ -288,7 +285,7 @@
       "jan": "4549995734843",
       "product_name": "iPhone 18 Pro Max 512GB バーガンディ",
       "url": "https://kaitori.wiki/search?keyword=4549995734843",
-      "checked_at": "2026/9/30 7:59:23",
+      "checked_at": "2026/9/30 8:04:50",
       "status": "OK",
       "http": {
         "status": 200,
@@ -321,7 +318,7 @@
       "jan": "4549995734843",
       "product_name": "iPhone 18 Pro Max 512GB バーガンディ",
       "url": "https://mobile-mix.jp/?category=7",
-      "checked_at": "2026/9/30 7:59:27",
+      "checked_at": "2026/9/30 8:04:54",
       "status": "OK",
       "http": {
         "status": 200,
@@ -354,7 +351,7 @@
       "jan": "4549995734843",
       "product_name": "iPhone 18 Pro Max 512GB バーガンディ",
       "url": "https://www.mobile-ichiban.com/Prod/1",
-      "checked_at": "2026/9/30 7:59:30",
+      "checked_at": "2026/9/30 8:04:59",
       "status": "OK",
       "http": {
         "status": 200,
@@ -387,32 +384,26 @@
       "jan": "4549995734843",
       "product_name": "iPhone 18 Pro Max 512GB バーガンディ",
       "url": "https://www.keitaispace.co.jp/product/?ca=23",
-      "checked_at": "2026/9/30 7:59:34",
-      "status": "OK",
+      "checked_at": "2026/9/30 8:05:03",
+      "status": "ERROR",
       "http": {
-        "status": 200,
-        "ok": true,
-        "final_url": "https://www.keitaispace.co.jp/product/?ca=23"
+        "status": null,
+        "ok": false,
+        "final_url": null
       },
       "page": {
-        "title": "買取商品一覧｜iPhone・スマホ・iPad・モバイルルーター｜携帯空間",
-        "body_length": 1602,
-        "body_available": true
+        "title": null,
+        "body_length": 0,
+        "body_available": false
       },
       "product": {
         "jan_found": false,
-        "name_found": true
+        "name_found": false
       },
-      "price_candidates": [
-        {
-          "raw": "283,000円",
-          "price": 283000
-        }
-      ],
-      "errors": [],
-      "price": 283000,
-      "raw_price": "283,000円",
-      "caution": "未開封品価格を取得。元ページに色別増減表記なし"
+      "price_candidates": [],
+      "errors": [
+        "page.goto: Timeout 15000ms exceeded.\nCall log:\n  - navigating to \"https://www.keitaispace.co.jp/product/?ca=23\", waiting until \"domcontentloaded\"\n"
+      ]
     },
     {
       "store_id": "kaitorishouten",
@@ -420,7 +411,7 @@
       "jan": "4549995734843",
       "product_name": "iPhone 18 Pro Max 512GB バーガンディ",
       "url": "https://www.kaitorishouten-co.jp/keitai",
-      "checked_at": "2026/9/30 7:59:37",
+      "checked_at": "2026/9/30 8:05:18",
       "status": "ERROR",
       "http": {
         "status": 200,
@@ -446,18 +437,18 @@
     }
   ],
   "summary": {
-    "ok": 10,
-    "error": 2,
+    "ok": 8,
+    "error": 4,
     "jan_found": 5,
-    "product_name_found": 10,
-    "price_candidate_found": 10
+    "product_name_found": 8,
+    "price_candidate_found": 8
   },
   "prices_update": {
     "updated": true,
     "reason": null,
     "sku_count": 1,
-    "fresh_price_count": 10,
-    "preserved_price_count": 2,
+    "fresh_price_count": 8,
+    "preserved_price_count": 4,
     "total_sku_count": 66
   },
   "iphone17_update": {
