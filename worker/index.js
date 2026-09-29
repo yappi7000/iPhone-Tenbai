@@ -7,6 +7,32 @@ const GITHUB_OWNER = "yappi7000";
 const GITHUB_REPO = "iPhone-Tenbai";
 const WORKFLOW_FILE = "on-demand-price.yml";
 
+const ALLOWED_JANS = new Set([
+  "4549995734546","4549995734591","4549995734645","4549995734690",
+  "4549995734744","4549995734799","4549995734843","4549995734898",
+  "4549995734942","4549995734997","4549995735048","4549995735093",
+  "4549995735147","4549995735192","4549995735246","4549995735291",
+  "4549995734140","4549995734157","4549995734164","4549995734171",
+  "4549995734188","4549995734195","4549995734201","4549995734218",
+  "4549995734225","4549995734232","4549995734249","4549995734256",
+  "4549995734263","4549995734270","4549995734287","4549995734294"
+]);
+
+const WRITE_WORKFLOWS = new Set([
+  ".github/workflows/on-demand-price.yml",
+  ".github/workflows/crawl.yml",
+  ".github/workflows/crawl-catalog.yml",
+  ".github/workflows/apple-inventory.yml"
+]);
+
+const ACTIVE_STATUSES = new Set([
+  "queued",
+  "in_progress",
+  "waiting",
+  "requested",
+  "pending"
+]);
+
 function corsHeaders(origin) {
   const allowed =
     ALLOWED_ORIGINS.has(origin)
@@ -104,7 +130,7 @@ export default {
     const jan =
       String(body.jan || "").trim();
 
-    if (!/^\d{13}$/.test(jan)) {
+    if (!/^\d{13}$/.test(jan) || !ALLOWED_JANS.has(jan)) {
       return jsonResponse(
         {
           ok: false,
@@ -126,6 +152,51 @@ export default {
       );
     }
 
+    const githubHeaders = {
+      "Authorization": `Bearer ${env.GITHUB_TOKEN}`,
+      "Accept": "application/vnd.github+json",
+      "X-GitHub-Api-Version": "2022-11-28",
+      "User-Agent": "iPhone-Tenbai-price-refresh"
+    };
+
+    const runsUrl =
+      `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}` +
+      `/actions/runs?branch=main&per_page=30`;
+
+    const runsResponse = await fetch(runsUrl, {
+      headers: githubHeaders
+    });
+
+    if (!runsResponse.ok) {
+      return jsonResponse(
+        {
+          ok: false,
+          error: "GitHub status check failed"
+        },
+        502,
+        origin
+      );
+    }
+
+    const runsData = await runsResponse.json();
+
+    const activeRun = (runsData.workflow_runs || []).find(run =>
+      WRITE_WORKFLOWS.has(run.path) &&
+      ACTIVE_STATUSES.has(run.status)
+    );
+
+    if (activeRun) {
+      return jsonResponse(
+        {
+          ok: false,
+          error: "Price refresh already running",
+          message: "現在ほかの商品・データを更新中です。完了後にもう一度お試しください。"
+        },
+        409,
+        origin
+      );
+    }
+
     const url =
       `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}` +
       `/actions/workflows/${WORKFLOW_FILE}/dispatches`;
@@ -135,16 +206,7 @@ export default {
         url,
         {
           method: "POST",
-          headers: {
-            "Authorization":
-              `Bearer ${env.GITHUB_TOKEN}`,
-            "Accept":
-              "application/vnd.github+json",
-            "X-GitHub-Api-Version":
-              "2022-11-28",
-            "User-Agent":
-              "iPhone-Tenbai-price-refresh"
-          },
+          headers: githubHeaders,
           body: JSON.stringify({
             ref: "main",
             inputs: {

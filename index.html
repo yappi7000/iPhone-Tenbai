@@ -964,7 +964,7 @@ body{background:#eef3f9}
     "https://iphone-tenbai-refresh.thank-you-8p.workers.dev";
 
   const RAW_PRICES_URL =
-    "https://raw.githubusercontent.com/yappi7000/iPhone-Tenbai/main/data/prices.json";
+    "https://yappi7000.github.io/iPhone-Tenbai/data/prices.json";
 
   function setLiveRefreshStatus(message, isError = false) {
     const status = document.getElementById("statusAlert");
@@ -1076,6 +1076,13 @@ body{background:#eef3f9}
       if (!res.ok) {
         if (res.status === 401 || res.status === 403) {
           sessionStorage.removeItem("iphoneTenbaiUpdateKey");
+        }
+
+        if (res.status === 409) {
+          throw new Error(
+            result.message ||
+            "現在ほかの商品を更新中です。完了後にもう一度お試しください。"
+          );
         }
 
         throw new Error(
