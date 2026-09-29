@@ -24,6 +24,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Sync latest main
+        run: |
+          git fetch origin "${GITHUB_REF_NAME}"
+          git reset --hard "origin/${GITHUB_REF_NAME}"
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -104,6 +109,5 @@ jobs:
           fi
 
           git commit -m "Update selected iPhone price [skip ci]"
-          git pull --rebase origin "${GITHUB_REF_NAME}"
-          git push
+          git push origin "HEAD:${GITHUB_REF_NAME}"
 
