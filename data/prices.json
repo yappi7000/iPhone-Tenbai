@@ -135,7 +135,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/9/30 21:43:40"
+        "checked_at": "2026/9/30 21:48:23"
       },
       {
         "store": "買取ルデヤ",
@@ -144,7 +144,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/9/30 21:43:40"
+        "checked_at": "2026/9/30 21:48:23"
       },
       {
         "store": "iPhone買取価格表",
@@ -153,7 +153,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/9/30 21:43:40"
+        "checked_at": "2026/9/30 21:48:23"
       },
       {
         "store": "買取wiki",
@@ -162,10 +162,10 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/9/30 21:43:45"
+        "checked_at": "2026/9/30 21:48:30"
       }
     ],
-    "last_update": "2026/9/30 21:43:52"
+    "last_update": "2026/9/30 21:48:35"
   },
   "4549995734690": {
     "stores": [
