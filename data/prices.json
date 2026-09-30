@@ -215,51 +215,67 @@
       },
       {
         "store": "森森買取",
-        "price": 256000,
+        "price": 261000,
         "url": "https://www.morimori-kaitori.jp/search?sk=4549995734645",
         "condition": "unopened",
         "scope": "jan",
-        "checked_at": "2026/9/29 11:34:53"
+        "checked_at": "2026/9/30 12:15:45"
       },
       {
         "store": "モバイルMIX",
-        "price": 256000,
+        "price": 261000,
         "url": "https://mobile-mix.jp/?category=7",
         "condition": "unopened",
         "scope": "jan",
-        "checked_at": "2026/9/29 11:35:11"
+        "checked_at": "2026/9/30 12:15:51"
       },
       {
         "store": "モバイル一番",
-        "price": 256000,
+        "price": 261000,
         "url": "https://www.mobile-ichiban.com/Prod/1",
         "condition": "unopened",
         "scope": "jan",
-        "checked_at": "2026/9/28 21:03:48"
+        "checked_at": "2026/9/30 12:15:51"
       },
       {
         "store": "買取ホムラ",
-        "price": 256000,
+        "price": 261000,
         "url": "https://kaitori-homura.com/products?commit=%E6%A4%9C%E7%B4%A2&q%5Bname_or_jan_code_cont%5D=4549995734645",
         "condition": "unopened",
         "scope": "jan",
-        "checked_at": "2026/9/29 11:34:54"
-      },
-      {
-        "store": "買取ルデヤ",
-        "price": 256000,
-        "url": "https://kaitori-rudeya.com/search/index/4549995734645",
-        "condition": "unopened",
-        "scope": "jan",
-        "checked_at": "2026/9/29 11:34:59"
+        "checked_at": "2026/9/30 12:15:45"
       },
       {
         "store": "買取楽園",
-        "price": 256000,
+        "price": 261000,
         "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
         "condition": "unopened",
         "scope": "jan",
-        "checked_at": "2026/9/29 11:35:02"
+        "checked_at": "2026/9/30 12:15:45"
+      },
+      {
+        "store": "iPhone買取価格表",
+        "price": 261000,
+        "url": "https://www.iphonekaitori.tokyo/brand/apple/market-price",
+        "condition": "unopened",
+        "scope": "jan",
+        "checked_at": "2026/9/30 12:15:51"
+      },
+      {
+        "store": "買取wiki",
+        "price": 261000,
+        "url": "https://kaitori.wiki/search?keyword=4549995734645",
+        "condition": "unopened",
+        "scope": "jan",
+        "checked_at": "2026/9/30 12:15:51"
+      },
+      {
+        "store": "買取ルデヤ",
+        "price": 260000,
+        "url": "https://kaitori-rudeya.com/search/index/4549995734645",
+        "condition": "unopened",
+        "scope": "jan",
+        "checked_at": "2026/9/30 12:15:45"
       },
       {
         "store": "買取一丁目",
@@ -270,31 +286,15 @@
         "checked_at": "2026/9/29 11:35:02"
       },
       {
-        "store": "iPhone買取価格表",
-        "price": 256000,
-        "url": "https://www.iphonekaitori.tokyo/brand/apple/market-price",
-        "condition": "unopened",
-        "scope": "jan",
-        "checked_at": "2026/9/29 11:35:04"
-      },
-      {
-        "store": "買取wiki",
-        "price": 256000,
-        "url": "https://kaitori.wiki/search?keyword=4549995734645",
-        "condition": "unopened",
-        "scope": "jan",
-        "checked_at": "2026/9/29 11:35:07"
-      },
-      {
         "store": "携帯空間",
-        "price": 256000,
+        "price": 236500,
         "url": "https://www.keitaispace.co.jp/product/?ca=23",
         "condition": "unopened",
         "scope": "jan",
-        "checked_at": "2026/9/29 11:35:30"
+        "checked_at": "2026/9/30 12:15:51"
       }
     ],
-    "last_update": "2026/9/29 11:54:24"
+    "last_update": "2026/9/30 12:16:00"
   },
   "4549995734690": {
     "stores": [
