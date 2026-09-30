@@ -95,23 +95,6 @@ export default {
       );
     }
 
-    const updateKey =
-      request.headers.get("X-Update-Key") || "";
-
-    if (
-      !env.UPDATE_KEY ||
-      updateKey !== env.UPDATE_KEY
-    ) {
-      return jsonResponse(
-        {
-          ok: false,
-          error: "Unauthorized"
-        },
-        401,
-        origin
-      );
-    }
-
     let body;
 
     try {
@@ -123,6 +106,114 @@ export default {
           error: "Invalid JSON"
         },
         400,
+        origin
+      );
+    }
+
+    const legacyUpdateKey =
+      request.headers.get("X-Update-Key") || "";
+
+    const legacyAuthorized =
+      Boolean(
+        env.UPDATE_KEY &&
+        legacyUpdateKey === env.UPDATE_KEY
+      );
+
+    const turnstileToken =
+      String(
+        body.turnstileToken || ""
+      ).trim();
+
+    if (
+      !legacyAuthorized &&
+      (
+        !env.TURNSTILE_SECRET ||
+        !turnstileToken
+      )
+    ) {
+      return jsonResponse(
+        {
+          ok: false,
+          error:
+            "Security verification required"
+        },
+        403,
+        origin
+      );
+    }
+
+    let verification = {
+      success: true,
+      action: "price_refresh",
+      hostname: "yappi7000.github.io"
+    };
+
+    if (!legacyAuthorized) {
+      const verifyBody =
+        new FormData();
+
+    verifyBody.append(
+      "secret",
+      env.TURNSTILE_SECRET
+    );
+
+    verifyBody.append(
+      "response",
+      turnstileToken
+    );
+
+    const remoteIp =
+      request.headers.get(
+        "CF-Connecting-IP"
+      );
+
+    if (remoteIp) {
+      verifyBody.append(
+        "remoteip",
+        remoteIp
+      );
+    }
+
+      try {
+        const verifyResponse =
+          await fetch(
+          "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+          {
+            method: "POST",
+            body: verifyBody
+          }
+        );
+
+        verification =
+          await verifyResponse.json();
+
+      } catch {
+        return jsonResponse(
+          {
+            ok: false,
+            error:
+              "Security verification unavailable"
+          },
+          502,
+          origin
+        );
+      }
+    }
+
+    if (
+      !verification.success ||
+      verification.action !==
+        "price_refresh" ||
+      verification.hostname !==
+        "yappi7000.github.io"
+    ) {
+      return jsonResponse(
+        {
+          ok: false,
+          error:
+            "Security verification failed"
+        },
+        403,
         origin
       );
     }

@@ -3918,110 +3918,114 @@ async function run() {
       );
 
 
+      /*
+       * 通常の定期クロールは従来どおり1店舗ずつ。
+       *
+       * TARGET_JAN が指定された手動更新だけ、
+       * 最大4店舗を並列取得して高速化する。
+       */
+      const storesToInspect =
+        STORES.filter(
+          store => !store.deferred
+        );
+
+      const storeConcurrency =
+        requestedJan ? 4 : 1;
+
       for (
-        const store of STORES
+        let offset = 0;
+        offset < storesToInspect.length;
+        offset += storeConcurrency
       ) {
-
-        if (store.deferred) {
-          continue;
-        }
-
-        const result =
-          await inspectStore(
-            browser,
-            store,
-            item
+        const batch =
+          storesToInspect.slice(
+            offset,
+            offset + storeConcurrency
           );
 
+        const results =
+          await Promise.all(
+            batch.map(
+              store =>
+                inspectStore(
+                  browser,
+                  store,
+                  item
+                )
+            )
+          );
 
-        if (!result) {
-          continue;
-        }
+        for (const result of results) {
 
-        diagnostics.stores.push(
-          result
-        );
+          if (!result) {
+            continue;
+          }
 
+          diagnostics.stores.push(
+            result
+          );
 
-        /*
-         * 集計
-         */
+          if (
+            result.status === "OK"
+          ) {
+            diagnostics.summary.ok++;
+          } else {
+            diagnostics.summary.error++;
+          }
 
-        if (
-          result.status === "OK"
-        ) {
-
-          diagnostics.summary.ok++;
-
-        } else {
-
-          diagnostics.summary.error++;
-        }
-
-
-        if (
-          result.product.jan_found
-        ) {
-
-          diagnostics.summary.jan_found++;
-        }
-
-
-        if (
-          result.product.name_found
-        ) {
-
-          diagnostics.summary.product_name_found++;
-        }
-
-
-        if (
-          result.price_candidates.length > 0
-        ) {
-
-          diagnostics.summary.price_candidate_found++;
-        }
-
-
-        /*
-         * コンソール表示
-         */
-
-        console.log(
-          `      HTTP: ${result.http.status}`
-        );
-
-        console.log(
-          `      JAN: ${
+          if (
             result.product.jan_found
-              ? "FOUND"
-              : "NOT FOUND"
-          }`
-        );
+          ) {
+            diagnostics.summary.jan_found++;
+          }
 
-        console.log(
-          `      NAME: ${
+          if (
             result.product.name_found
-              ? "FOUND"
-              : "NOT FOUND"
-          }`
-        );
+          ) {
+            diagnostics.summary.product_name_found++;
+          }
 
-        console.log(
-          `      PRICE CANDIDATES: ${
-            result.price_candidates.length
-          }`
-        );
-
-        if (
-          result.errors.length > 0
-        ) {
+          if (
+            result.price_candidates.length > 0
+          ) {
+            diagnostics.summary.price_candidate_found++;
+          }
 
           console.log(
-            `      ERROR: ${
-              result.errors.join(" / ")
+            `      HTTP: ${result.http.status}`
+          );
+
+          console.log(
+            `      JAN: ${
+              result.product.jan_found
+                ? "FOUND"
+                : "NOT FOUND"
             }`
           );
+
+          console.log(
+            `      NAME: ${
+              result.product.name_found
+                ? "FOUND"
+                : "NOT FOUND"
+            }`
+          );
+
+          console.log(
+            `      PRICE CANDIDATES: ${
+              result.price_candidates.length
+            }`
+          );
+
+          if (
+            result.errors.length > 0
+          ) {
+            console.log(
+              `      ERROR: ${
+                result.errors.join(" / ")
+              }`
+            );
+          }
         }
       }
     }

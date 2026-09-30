@@ -388,6 +388,7 @@ body{background:#eef3f9}
 }
 </style>
 <link rel="stylesheet" href="assets/catalog.css?v=android-pokemon3">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" defer></script>
 </head>
 <body>
 
@@ -516,6 +517,7 @@ body{background:#eef3f9}
         <i class="fa-solid fa-arrows-rotate"></i> 最新保存データを再読込
       </button>
     </div>
+    <div id="turnstileWidget" style="margin-top:10px;"></div>
     <div id="statusAlert" style="margin-top:10px; font-size:12px;"></div>
   </div>
 
@@ -994,11 +996,11 @@ body{background:#eef3f9}
 
       let phase;
 
-      if (seconds < 30) {
+      if (seconds < 15) {
         phase = "買取店へ最新価格を確認しています";
-      } else if (seconds < 60) {
+      } else if (seconds < 30) {
         phase = "複数の買取店から価格を取得しています";
-      } else if (seconds < 90) {
+      } else if (seconds < 45) {
         phase = "取得した価格データを整理しています";
       } else {
         phase = "もう少しです。最新データの反映を確認しています";
@@ -1006,7 +1008,7 @@ body{background:#eef3f9}
 
       setLiveRefreshStatus(
         `🔄 ${phase}… 経過 ${seconds}秒\n` +
-        "通常60〜120秒ほどかかります。現在表示中のランキングは前回取得データです。"
+        "通常30〜60秒ほどかかります。現在表示中のランキングは前回取得データです。"
       );
     };
 
@@ -1029,7 +1031,7 @@ body{background:#eef3f9}
   async function waitForLatestPrice(jan, previousLastUpdate, requestStartedAt) {
     const startedAt = Date.now();
     const timeoutMs = 5 * 60 * 1000;
-    const intervalMs = 10000;
+    const intervalMs = 3000;
 
     while (Date.now() - startedAt < timeoutMs) {
       await new Promise(resolve => setTimeout(resolve, intervalMs));
@@ -1067,6 +1069,93 @@ body{background:#eef3f9}
     return false;
   }
 
+  const TURNSTILE_SITE_KEY =
+    "0x4AAAAAAFJrc41CNMtSZDi4";
+
+  let turnstileWidgetId = null;
+
+  async function getTurnstileToken() {
+    return await new Promise((resolve, reject) => {
+      const start = Date.now();
+
+      const waitForApi = () => {
+        if (
+          typeof window.turnstile === "undefined"
+        ) {
+          if (Date.now() - start > 10000) {
+            reject(
+              new Error(
+                "セキュリティ認証の読み込みに失敗しました。ページを再読み込みしてください。"
+              )
+            );
+            return;
+          }
+
+          setTimeout(waitForApi, 100);
+          return;
+        }
+
+        try {
+          if (turnstileWidgetId !== null) {
+            try {
+              window.turnstile.remove(
+                turnstileWidgetId
+              );
+            } catch {}
+            turnstileWidgetId = null;
+          }
+
+          turnstileWidgetId =
+            window.turnstile.render(
+              "#turnstileWidget",
+              {
+                sitekey:
+                  TURNSTILE_SITE_KEY,
+
+                execution:
+                  "execute",
+
+                appearance:
+                  "interaction-only",
+
+                action:
+                  "price_refresh",
+
+                callback(token) {
+                  resolve(token);
+                },
+
+                "error-callback"() {
+                  reject(
+                    new Error(
+                      "セキュリティ認証に失敗しました。もう一度お試しください。"
+                    )
+                  );
+                },
+
+                "expired-callback"() {
+                  reject(
+                    new Error(
+                      "セキュリティ認証の有効期限が切れました。もう一度お試しください。"
+                    )
+                  );
+                }
+              }
+            );
+
+          window.turnstile.execute(
+            turnstileWidgetId
+          );
+
+        } catch (error) {
+          reject(error);
+        }
+      };
+
+      waitForApi();
+    });
+  }
+
   document.getElementById("liveRefreshBtn").addEventListener("click", async () => {
     const btn = document.getElementById("liveRefreshBtn");
     const jan = document.getElementById("currentJan").textContent.trim();
@@ -1074,21 +1163,6 @@ body{background:#eef3f9}
     if (!jan || jan === "--") {
       setLiveRefreshStatus("商品を選択してください。", true);
       return;
-    }
-
-    let updateKey = sessionStorage.getItem("iphoneTenbaiUpdateKey");
-
-    if (!updateKey) {
-      updateKey = prompt(
-        "最新価格取得用の更新キーを入力してください。\nこのキーはこのタブを閉じるまでだけ保存されます。"
-      );
-
-      if (!updateKey) {
-        setLiveRefreshStatus("最新価格の取得をキャンセルしました。");
-        return;
-      }
-
-      sessionStorage.setItem("iphoneTenbaiUpdateKey", updateKey);
     }
 
     const previousLastUpdate = crawlData?.[jan]?.last_update || "";
@@ -1101,22 +1175,31 @@ body{background:#eef3f9}
     setLiveRefreshStatus("更新リクエストを送信しています…");
 
     try {
+      setLiveRefreshStatus(
+        "🔐 セキュリティ確認中です…"
+      );
+
+      const turnstileToken =
+        await getTurnstileToken();
+
+      setLiveRefreshStatus(
+        "更新リクエストを送信しています…"
+      );
+
       const res = await fetch(LIVE_REFRESH_ENDPOINT, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
-          "X-Update-Key": updateKey
+          "Content-Type": "application/json"
         },
-        body: JSON.stringify({ jan })
+        body: JSON.stringify({
+          jan,
+          turnstileToken
+        })
       });
 
       const result = await res.json().catch(() => ({}));
 
       if (!res.ok) {
-        if (res.status === 401 || res.status === 403) {
-          sessionStorage.removeItem("iphoneTenbaiUpdateKey");
-        }
-
         if (res.status === 409) {
           setLiveRefreshStatus(
             "⏳ 現在ほかの商品を更新中です。\n" +
