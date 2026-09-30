@@ -993,35 +993,67 @@
     "stores": [
       {
         "store": "森森買取",
-        "price": 355000,
+        "price": 358000,
         "url": "https://www.morimori-kaitori.jp/search?sk=4549995735048",
         "condition": "unopened",
         "scope": "jan",
-        "checked_at": "2026/9/29 11:40:03"
+        "checked_at": "2026/9/30 12:11:58"
       },
       {
         "store": "モバイルMIX",
-        "price": 355000,
+        "price": 358000,
         "url": "https://mobile-mix.jp/?category=7",
         "condition": "unopened",
         "scope": "jan",
-        "checked_at": "2026/9/29 11:40:21"
+        "checked_at": "2026/9/30 12:12:07"
       },
       {
         "store": "買取楽園",
-        "price": 355000,
+        "price": 358000,
         "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
         "condition": "unopened",
         "scope": "jan",
-        "checked_at": "2026/9/29 11:40:13"
+        "checked_at": "2026/9/30 12:11:59"
       },
       {
         "store": "買取ホムラ",
-        "price": 355000,
+        "price": 358000,
         "url": "https://kaitori-homura.com/products?commit=%E6%A4%9C%E7%B4%A2&q%5Bname_or_jan_code_cont%5D=4549995735048",
         "condition": "unopened",
         "scope": "jan",
-        "checked_at": "2026/9/29 11:40:05"
+        "checked_at": "2026/9/30 12:11:59"
+      },
+      {
+        "store": "iPhone買取価格表",
+        "price": 358000,
+        "url": "https://www.iphonekaitori.tokyo/brand/apple/market-price",
+        "condition": "unopened",
+        "scope": "jan",
+        "checked_at": "2026/9/30 12:12:07"
+      },
+      {
+        "store": "買取wiki",
+        "price": 358000,
+        "url": "https://kaitori.wiki/search?keyword=4549995735048",
+        "condition": "unopened",
+        "scope": "jan",
+        "checked_at": "2026/9/30 12:12:07"
+      },
+      {
+        "store": "買取ルデヤ",
+        "price": 357000,
+        "url": "https://kaitori-rudeya.com/search/index/4549995735048",
+        "condition": "unopened",
+        "scope": "jan",
+        "checked_at": "2026/9/30 12:11:59"
+      },
+      {
+        "store": "モバイル一番",
+        "price": 356000,
+        "url": "https://www.mobile-ichiban.com/Prod/1",
+        "condition": "unopened",
+        "scope": "jan",
+        "checked_at": "2026/9/30 12:12:07"
       },
       {
         "store": "買取一丁目",
@@ -1032,12 +1064,12 @@
         "checked_at": "2026/9/29 11:40:13"
       },
       {
-        "store": "買取ルデヤ",
-        "price": 355000,
-        "url": "https://kaitori-rudeya.com/search/index/4549995735048",
+        "store": "携帯空間",
+        "price": 353000,
+        "url": "https://www.keitaispace.co.jp/product/?ca=23",
         "condition": "unopened",
         "scope": "jan",
-        "checked_at": "2026/9/29 11:40:09"
+        "checked_at": "2026/9/30 12:12:07"
       },
       {
         "store": "買取商店",
@@ -1047,38 +1079,6 @@
         "scope": "jan"
       },
       {
-        "store": "iPhone買取価格表",
-        "price": 352000,
-        "url": "https://www.iphonekaitori.tokyo/brand/apple/market-price",
-        "condition": "unopened",
-        "scope": "jan",
-        "checked_at": "2026/9/29 11:40:15"
-      },
-      {
-        "store": "買取wiki",
-        "price": 352000,
-        "url": "https://kaitori.wiki/search?keyword=4549995735048",
-        "condition": "unopened",
-        "scope": "jan",
-        "checked_at": "2026/9/29 11:40:18"
-      },
-      {
-        "store": "モバイル一番",
-        "price": 352000,
-        "url": "https://www.mobile-ichiban.com/Prod/1",
-        "condition": "unopened",
-        "scope": "jan",
-        "checked_at": "2026/9/28 21:06:56"
-      },
-      {
-        "store": "携帯空間",
-        "price": 350000,
-        "url": "https://www.keitaispace.co.jp/product/?ca=23",
-        "condition": "unopened",
-        "scope": "jan",
-        "checked_at": "2026/9/29 11:40:40"
-      },
-      {
         "store": "モバステ",
         "price": 346000,
         "url": "https://pastec.net/iphone",
@@ -1086,7 +1086,7 @@
         "scope": "jan"
       }
     ],
-    "last_update": "2026/9/29 11:54:24"
+    "last_update": "2026/9/30 12:12:14"
   },
   "4549995735093": {
     "stores": [
