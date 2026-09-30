@@ -8,7 +8,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/9/30 19:52:27"
+        "checked_at": "2026/9/30 21:20:57"
       },
       {
         "store": "買取ルデヤ",
@@ -17,7 +17,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/9/30 19:52:27"
+        "checked_at": "2026/9/30 21:20:57"
       },
       {
         "store": "買取楽園",
@@ -26,7 +26,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/9/30 19:52:27"
+        "checked_at": "2026/9/30 21:20:57"
       },
       {
         "store": "iPhone買取価格表",
@@ -35,7 +35,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/9/30 19:52:27"
+        "checked_at": "2026/9/30 21:20:57"
       },
       {
         "store": "買取wiki",
@@ -44,7 +44,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/9/30 19:52:34"
+        "checked_at": "2026/9/30 21:21:05"
       },
       {
         "store": "モバイルMIX",
@@ -53,7 +53,16 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/9/30 19:52:34"
+        "checked_at": "2026/9/30 21:21:05"
+      },
+      {
+        "store": "買取一丁目",
+        "price": 235000,
+        "url": "https://www.1-chome.com/keitai",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/9/30 21:20:57"
       },
       {
         "store": "モバイル一番",
@@ -62,10 +71,10 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/9/30 19:52:34"
+        "checked_at": "2026/9/30 21:21:05"
       }
     ],
-    "last_update": "2026/9/30 19:52:39"
+    "last_update": "2026/9/30 21:21:11"
   },
   "4549995734591": {
     "stores": [
