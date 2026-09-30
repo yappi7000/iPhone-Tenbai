@@ -966,6 +966,8 @@ body{background:#eef3f9}
   const RAW_PRICES_URL =
     "https://yappi7000.github.io/iPhone-Tenbai/data/prices.json";
 
+  let liveRefreshTimer = null;
+
   function setLiveRefreshStatus(message, isError = false) {
     const status = document.getElementById("statusAlert");
     if (!status) return;
@@ -973,6 +975,43 @@ body{background:#eef3f9}
     status.style.display = "block";
     status.textContent = message;
     status.style.color = isError ? "#b91c1c" : "";
+  }
+
+  function stopLiveRefreshProgress() {
+    if (liveRefreshTimer) {
+      clearInterval(liveRefreshTimer);
+      liveRefreshTimer = null;
+    }
+  }
+
+  function startLiveRefreshProgress() {
+    stopLiveRefreshProgress();
+
+    const startedAt = Date.now();
+
+    const updateMessage = () => {
+      const seconds = Math.floor((Date.now() - startedAt) / 1000);
+
+      let phase;
+
+      if (seconds < 30) {
+        phase = "買取店へ最新価格を確認しています";
+      } else if (seconds < 60) {
+        phase = "複数の買取店から価格を取得しています";
+      } else if (seconds < 90) {
+        phase = "取得した価格データを整理しています";
+      } else {
+        phase = "もう少しです。最新データの反映を確認しています";
+      }
+
+      setLiveRefreshStatus(
+        `🔄 ${phase}… 経過 ${seconds}秒\n` +
+        "通常60〜120秒ほどかかります。現在表示中のランキングは前回取得データです。"
+      );
+    };
+
+    updateMessage();
+    liveRefreshTimer = setInterval(updateMessage, 1000);
   }
 
   async function fetchRawPrices() {
@@ -1079,10 +1118,12 @@ body{background:#eef3f9}
         }
 
         if (res.status === 409) {
-          throw new Error(
-            result.message ||
-            "現在ほかの商品を更新中です。完了後にもう一度お試しください。"
+          setLiveRefreshStatus(
+            "⏳ 現在ほかの商品を更新中です。\n" +
+            "前の更新が完了すると、この商品も更新できます。\n" +
+            "30〜60秒ほど待ってから、もう一度お試しください。"
           );
+          return;
         }
 
         throw new Error(
@@ -1093,9 +1134,7 @@ body{background:#eef3f9}
       btn.innerHTML =
         '<i class="fa-solid fa-spinner fa-spin"></i> 最新価格を取得中…';
 
-      setLiveRefreshStatus(
-        "買取店から最新価格を取得中です。通常1〜2分ほどかかります…"
-      );
+      startLiveRefreshProgress();
 
       const updated = await waitForLatestPrice(
         jan,
@@ -1109,7 +1148,8 @@ body{background:#eef3f9}
         );
       }
 
-      setLiveRefreshStatus("最新価格に更新しました ✓");
+      stopLiveRefreshProgress();
+      setLiveRefreshStatus("✅ 最新価格に更新しました ✓");
 
     } catch (error) {
       console.error("最新価格取得エラー:", error);
@@ -1119,6 +1159,7 @@ body{background:#eef3f9}
       );
 
     } finally {
+      stopLiveRefreshProgress();
       btn.disabled = false;
       btn.innerHTML =
         '<i class="fa-solid fa-bolt"></i> この商品の最新価格を取得';
