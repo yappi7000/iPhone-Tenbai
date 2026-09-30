@@ -76,7 +76,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/9/30 19:48:11"
+        "checked_at": "2026/9/30 21:20:12"
       },
       {
         "store": "買取ルデヤ",
@@ -85,7 +85,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/9/30 19:48:11"
+        "checked_at": "2026/9/30 21:20:12"
       },
       {
         "store": "モバイルMIX",
@@ -94,7 +94,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/9/30 19:48:18"
+        "checked_at": "2026/9/30 21:20:19"
       },
       {
         "store": "買取楽園",
@@ -103,16 +103,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/9/30 19:48:11"
-      },
-      {
-        "store": "買取一丁目",
-        "price": 230000,
-        "url": "https://www.1-chome.com/keitai",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/9/30 19:48:11"
+        "checked_at": "2026/9/30 21:20:12"
       },
       {
         "store": "iPhone買取価格表",
@@ -121,7 +112,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/9/30 19:48:11"
+        "checked_at": "2026/9/30 21:20:12"
       },
       {
         "store": "買取wiki",
@@ -130,7 +121,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/9/30 19:48:18"
+        "checked_at": "2026/9/30 21:20:19"
       },
       {
         "store": "モバイル一番",
@@ -139,10 +130,10 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/9/30 19:48:18"
+        "checked_at": "2026/9/30 21:20:19"
       }
     ],
-    "last_update": "2026/9/30 19:48:23"
+    "last_update": "2026/9/30 21:20:24"
   },
   "4549995734645": {
     "stores": [
