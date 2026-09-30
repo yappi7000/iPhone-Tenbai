@@ -3944,9 +3944,19 @@ async function run() {
      * 商品 × 店舗
      */
 
-    for (
-      const item of activeTargetJans
-    ) {
+    /*
+     * 1商品を処理する。
+     *
+     * 手動更新:
+     *   1 SKU × 最大6店舗並列
+     *
+     * 定期全体更新:
+     *   最大3 SKU並列 × 各SKU最大4店舗並列
+     *
+     * 一度に大量アクセスしすぎないよう、
+     * SKU並列数は3に制限する。
+     */
+    async function processTargetItem(item) {
 
       console.log(
         `\n[PRODUCT] ${item.name}`
@@ -3956,13 +3966,6 @@ async function run() {
         `           JAN: ${item.jan}`
       );
 
-
-      /*
-       * 通常の定期クロールは従来どおり1店舗ずつ。
-       *
-       * TARGET_JAN が指定された手動更新だけ、
-       * 最大4店舗を並列取得して高速化する。
-       */
       const storesToInspect =
         STORES.filter(
           store => !store.deferred
@@ -4031,6 +4034,10 @@ async function run() {
           }
 
           console.log(
+            `      ${item.jan} / ${result.store}`
+          );
+
+          console.log(
             `      HTTP: ${result.http.status}`
           );
 
@@ -4067,6 +4074,51 @@ async function run() {
           }
         }
       }
+    }
+
+
+    /*
+     * TARGET_JAN指定時は従来どおり1商品だけ。
+     *
+     * 定期32 SKUクロールだけ、
+     * 商品単位を最大3並列にする。
+     */
+    const skuConcurrency =
+      requestedJan ? 1 : 3;
+
+    console.log(
+      `SKU CONCURRENCY: ${skuConcurrency}`
+    );
+
+    for (
+      let offset = 0;
+      offset < activeTargetJans.length;
+      offset += skuConcurrency
+    ) {
+
+      const skuBatch =
+        activeTargetJans.slice(
+          offset,
+          offset + skuConcurrency
+        );
+
+      console.log(
+        `\n[SKU BATCH] ${
+          Math.floor(offset / skuConcurrency) + 1
+        } / ${
+          Math.ceil(
+            activeTargetJans.length /
+            skuConcurrency
+          )
+        }`
+      );
+
+      await Promise.all(
+        skuBatch.map(
+          item =>
+            processTargetItem(item)
+        )
+      );
     }
 
 
