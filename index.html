@@ -1023,30 +1023,20 @@ body{background:#eef3f9}
 
   function startLiveRefreshProgress() {
     stopLiveRefreshProgress();
-
     const startedAt = Date.now();
-
     const updateMessage = () => {
       const seconds = Math.floor((Date.now() - startedAt) / 1000);
-
-      let phase;
-
-      if (seconds < 15) {
-        phase = "買取店へ最新価格を確認しています";
-      } else if (seconds < 30) {
-        phase = "複数の買取店から価格を取得しています";
-      } else if (seconds < 45) {
-        phase = "取得した価格データを整理しています";
-      } else {
-        phase = "もう少しです。最新データの反映を確認しています";
-      }
-
-      setLiveRefreshStatus(
-        `🔄 ${phase}… 経過 ${seconds}秒\n` +
-        "通常30〜60秒ほどかかります。現在表示中のランキングは前回取得データです。"
-      );
+      const dots = ".".repeat((seconds % 3) + 1);
+      // GitHub Actions does not return this workflow's job ID to the page.
+      // These are honest waiting labels, not claims of observed job state.
+      const phase = seconds < 45
+        ? "GitHubの実行開始待ちです"
+        : "11店舗の最新価格を取得中（GitHub側の実行待ちを含みます）";
+      const note = seconds >= 120
+        ? "GitHub側の順番待ちで数分かかる場合があります。画面は固まっていません。"
+        : "完了を自動確認しています。現在のランキングは前回の保存データです。";
+      setLiveRefreshStatus(`⏳ ${phase}${dots} 経過 ${seconds}秒\n${note}`);
     };
-
     updateMessage();
     liveRefreshTimer = setInterval(updateMessage, 1000);
   }
@@ -1346,7 +1336,7 @@ body{background:#eef3f9}
       }
 
       btn.innerHTML =
-        '<i class="fa-solid fa-spinner fa-spin"></i> 最新価格を取得中…';
+        '<i class="fa-solid fa-spinner fa-spin"></i> 更新状況を確認中…';
 
       startLiveRefreshProgress();
 
@@ -1363,7 +1353,7 @@ body{background:#eef3f9}
       }
 
       stopLiveRefreshProgress();
-      setLiveRefreshStatus("✅ 最新価格に更新しました ✓");
+      setLiveRefreshStatus("✅ 取得完了・最新データを読み込みました");
 
     } catch (error) {
       console.error("最新価格取得エラー:", error);
