@@ -267,7 +267,6 @@ const IPHONE_18_COLOR_SAFE_STORE_IDS = new Set([
   "mobasute",
   "ichome",
   "morimori",
-  "homura",
   "rudeya",
   "iphonekaitori",
   "kaitoriwiki",
@@ -307,18 +306,6 @@ const STORES = [
       `https://www.morimori-kaitori.jp/search?sk=${encodeURIComponent(jan)}`
   },
 
-  {
-    id: "homura",
-    name: "買取ホムラ",
-    searchUrl: jan =>
-      "https://" +
-      "kaitori-homura.com" +
-      "/products?commit=" +
-      encodeURIComponent("検索") +
-      "&q%5Bname_or_jan_code_cont%5D=" +
-      encodeURIComponent(jan),
-    janSearch: true
-  },
   {
     id: "rudeya",
     name: "買取ルデヤ",
@@ -471,7 +458,6 @@ const PRICE_OUTPUT_STORE_IDS = [
   "mobasute",
   "ichome",
   "morimori",
-  "homura",
   "rudeya",
   "iphonekaitori",
   "kaitoriwiki",
@@ -628,99 +614,54 @@ function toMobasute17Name(productName) {
 }
 
 
-function applyMobasuteColorAdjustment(
-  extracted,
-  color
-) {
-  if (
-    !extracted ||
-    extracted.price === null ||
-    extracted.price === undefined
-  ) {
-    return extracted;
+function applyMobasuteColorAdjustment(extracted, color) {
+  if (!extracted || extracted.price === null || extracted.price === undefined) return extracted;
+  const basePrice = Number(extracted.price);
+  const caution = normalizeText(extracted.caution || "");
+  const normalizeColor = value => ({
+    "黒": "ブラック", "銀": "シルバー", "青": "グレイシャー",
+    "グレイシャ": "グレイシャー", "紫": "バーガンディ"
+  }[value] || value);
+  const token = "(?:グレイシャー|グレイシャ|ブラック|シルバー|バーガンディ|黒|銀|青|紫)";
+  const grouped = new RegExp(
+    `(${token}(?:\\s*[,、，/]\\s*${token})*)\\s*([+-]\\s*[0-9,]+)`, "g"
+  );
+  // e.g. "グレイシャー、シルバー、ブラック-24,000" applies to all three.
+  let chosen = null;
+  const matchingRules = [];
+  for (const m of caution.matchAll(grouped)) {
+    const colors = m[1].split(/[,、，/]/).map(x => normalizeColor(x.trim()));
+    if (colors.includes(color)) {
+      const amount = Number(m[2].replace(/[\s,]/g, ""));
+      if (!Number.isFinite(amount)) {
+        return { ...extracted, price: null, raw_price: null, color_verified: false,
+          error: "モバステ: 色別増減額が不正です" };
+      }
+      matchingRules.push(amount);
+    }
   }
-
-  const basePrice =
-    Number(extracted.price);
-
-  if (
-    !Number.isFinite(basePrice) ||
-    basePrice <= 0
-  ) {
-    return extracted;
+  if (matchingRules.length > 0) {
+    if (new Set(matchingRules).size !== 1) {
+      return { ...extracted, price: null, raw_price: null, color_verified: false,
+        error: "モバステ: 対象色に相反する増減条件があります" };
+    }
+    chosen = matchingRules[0];
   }
-
-  const caution =
-    normalizeText(
-      extracted.caution || ""
-    );
-
-  if (!color || !caution) {
-    return {
-      ...extracted,
-      base_price: basePrice,
-      adjustment: 0
-    };
+  const same = /全色\s*(?:同額|共通|同一価格|増減なし)/.test(caution);
+  const allAdj = caution.match(/全色\s*([+-]\s*[0-9,]+)/);
+  if (!color || (chosen === null && !same && !allAdj)) {
+    return { ...extracted, price: null, raw_price: null, color_verified: false,
+      error: "モバステ: 対象色の価格条件が明示されていません" };
   }
-
-  const colorPatterns = {
-    "ブラック":
-      /ブラック\s*([+-]\s*[0-9,]+)/i,
-
-    "シルバー":
-      /シルバー\s*([+-]\s*[0-9,]+)/i,
-
-    "グレイシャー":
-      /(?:グレイシャー|グレイシャ)\s*([+-]\s*[0-9,]+)/i,
-
-    "バーガンディ":
-      /バーガンディ\s*([+-]\s*[0-9,]+)/i
-  };
-
-  const pattern =
-    colorPatterns[color];
-
-  const match =
-    pattern
-      ? caution.match(pattern)
-      : null;
-
-  if (!match) {
-    return {
-      ...extracted,
-      base_price: basePrice,
-      adjustment: 0
-    };
+  const adjustment = chosen !== null ? chosen :
+    allAdj ? Number(allAdj[1].replace(/[\s,]/g, "")) : 0;
+  const price = basePrice + adjustment;
+  if (!Number.isFinite(price) || price < CONFIG.minPrice || price > CONFIG.maxPrice) {
+    return { ...extracted, price: null, raw_price: null, color_verified: false,
+      error: "モバステ: 色別価格が不正です" };
   }
-
-  const adjustment =
-    Number(
-      match[1]
-        .replace(/\s/g, "")
-        .replace(/,/g, "")
-    );
-
-  if (!Number.isFinite(adjustment)) {
-    return {
-      ...extracted,
-      price: null,
-      raw_price: null,
-      error:
-        "モバステ色別増減額を数値化できません"
-    };
-  }
-
-  const finalPrice =
-    basePrice + adjustment;
-
-  return {
-    ...extracted,
-    price: finalPrice,
-    raw_price:
-      `${finalPrice.toLocaleString("ja-JP")}円`,
-    base_price: basePrice,
-    adjustment
-  };
+  return { ...extracted, price, base_price: basePrice, adjustment,
+    raw_price: `${price.toLocaleString("ja-JP")}円`, color_verified: true, error: null };
 }
 
 
@@ -978,6 +919,11 @@ function extractIchomePrice(
     }
   }
 
+  const allColorsExplicit = /全色\s*(?:同額|共通|同一価格|増減なし)/.test(beforeUnopened);
+  if (!color || (rule === "色別増減なし" && !allColorsExplicit)) {
+    return { found: true, price: null, raw_price: null, color_verified: false,
+      error: "一丁目: 対象色の明示条件なし" };
+  }
   const finalPrice =
     basePrice + adjustment;
 
@@ -989,6 +935,7 @@ function extractIchomePrice(
     base_price:
       basePrice,
     adjustment,
+    color_verified: true,
     caution:
       `基準${basePrice.toLocaleString("ja-JP")}円 / ${rule}`,
     error: null
@@ -1264,76 +1211,51 @@ function fetchMorimoriHtml(url) {
   });
 }
 
-function extractHomuraPrice(bodyText, productName) {
+function extractHomuraPrice(bodyText, productName, jan) {
   const text = String(bodyText || "").replace(/\r/g, "");
-
-  const target = String(productName || "")
-    .replace(/\s+/g, " ")
-    .trim();
-
-  /*
-   * ホムラ実ページ確認済み形式
-   *
-   * 【未開封】iPhone 17 Pro Max 256GB silver
-   * 514549995649284
-   * 買取金額（税込）
-   * ¥ 192,000
-   *
-   * 色は商品名照合から除外し、
-   * モデル＋容量まで一致させる。
-   */
-
-  const base = target
-    .replace(/\s+(シルバー|ディープブルー|コズミックオレンジ|ブラック|グレイシャー|バーガンディ)$/i, "")
-    .trim();
-
-  const escaped = base.replace(
-    /[.*+?^${}()|[\]\\]/g,
-    "\\$&"
-  );
-
-  const pattern = new RegExp(
-    "【未開封】[^\\n]*" +
-    escaped +
-    "[^\\n]*" +
-    "[\\s\\S]{0,180}?" +
-    "買取金額（(?:税込|税込み)）" +
-    "\\s*¥?\\s*([0-9,]+)",
-    "i"
-  );
-
-  const match = text.match(pattern);
-
-  if (!match) {
-    return {
-      found: false,
-      price: null,
-      raw_price: null,
-      error: "未開封商品の買取金額が見つかりません"
-    };
+  const targetJan = String(jan || "").trim();
+  if (!/^\d{13}$/.test(targetJan)) {
+    return { found: false, price: null, error: "JAN不正" };
   }
 
-  const price = Number(
-    match[1].replace(/,/g, "")
+  // 検索結果に同一商品が複数回描画されることがある。
+  // JANが一致する各【未開封】ブロックから個別に金額を取得し、
+  // 金額が全て一致するときに限って採用する。
+  const janPattern = new RegExp("(?:^|[^\\d])(?:5)?" + targetJan + "(?!\\d)");
+  const blocks = text.split(/(?=【未開封】)/).filter(block =>
+    block.startsWith("【未開封】") && janPattern.test(block)
   );
-
-  if (
-    !Number.isFinite(price) ||
-    price < CONFIG.minPrice ||
-    price > CONFIG.maxPrice
-  ) {
-    return {
-      found: true,
-      price: null,
-      raw_price: match[1] + "円",
-      error: "買取金額が安全範囲外です"
-    };
+  if (blocks.length === 0) {
+    return { found: false, price: null, error: "対象JANの未開封商品が見つかりません" };
   }
 
+  const prices = [];
+  for (const block of blocks) {
+    // 他商品のJANや別商品の価格まで跨がないよう、対象JANの直後を対象とする。
+    const janMatch = janPattern.exec(block);
+    const fromJan = block.slice(janMatch.index + janMatch[0].length, janMatch.index + janMatch[0].length + 220);
+    if (/\b(?:5)?\d{13}\b/.test(fromJan.split(/買取金額（(?:税込|税込み)）/)[0])) {
+      return { found: true, price: null, error: "JANブロックに別商品JANが混在しています" };
+    }
+    const priceMatch = fromJan.match(/買取金額（(?:税込|税込み)）\s*[¥￥]?\s*([0-9,]+)/);
+    if (!priceMatch) {
+      return { found: true, price: null, error: "JAN一致商品に対応する買取価格を確認できません" };
+    }
+    const price = Number(priceMatch[1].replace(/,/g, ""));
+    if (!Number.isFinite(price) || price < CONFIG.minPrice || price > CONFIG.maxPrice) {
+      return { found: true, price: null, error: "JAN一致商品の価格が安全範囲外です" };
+    }
+    prices.push(price);
+  }
+  if (new Set(prices).size !== 1) {
+    return { found: true, price: null, error: "同一JANで異なる買取価格が掲載されています" };
+  }
+  const price = prices[0];
   return {
-    found: true,
-    price,
-    raw_price: match[1] + "円",
+    found: true, price,
+    raw_price: price.toLocaleString("ja-JP") + "円",
+    color_verified: true,
+    matched_blocks: blocks.length,
     error: null
   };
 }
@@ -1628,6 +1550,13 @@ function extractRakuenPrice(
     }
   }
 
+  const explicitColorProof = rule !== "基準価格" ||
+    (color === "バーガンディ" && /(?:紫|バーガンディ)\s*(?:基準|新品|[¥￥0-9])/.test(block)) ||
+    /全色\s*(?:同額|共通|同一価格)/.test(block);
+  if (!explicitColorProof) {
+    return { found: true, price: null, raw_price: null, color_verified: false,
+      error: "楽園: 対象色の価格根拠なし" };
+  }
   if (
     !Number.isFinite(finalPrice) ||
     finalPrice <= 0
@@ -1655,6 +1584,7 @@ function extractRakuenPrice(
       basePrice,
 
     adjustment,
+    color_verified: true,
 
     caution:
       `基準${basePrice.toLocaleString("ja-JP")}円 / ${rule}を反映。店舗・時間限定条件は未反映`,
@@ -1833,6 +1763,29 @@ async function extractMobileMixPrice(
     }
   }
 
+  // "バーガンディのみ 他色買取不可"等: 対象色のみ基準価格を採用。
+  // 買取対象外の色は全色共通ルールが別にあっても復活させない。
+  const exclusiveMatch = conditionText.match(
+    /(ブラック|シルバー|グレイシャー|バーガンディ)\s*のみ(?:\s|$|他色|買取)/
+  );
+  if (exclusiveMatch && color !== exclusiveMatch[1]) {
+    return { found: true, price: null, raw_price: null,
+      caution: conditionText, color_verified: false,
+      error: `MIX: ${exclusiveMatch[1]}のみ買取対象（${color}は非対象）` };
+  }
+  // 対象色限定の明記があれば、その色の基準価格は掲載根拠あり。
+  const exclusiveTarget = Boolean(exclusiveMatch && color === exclusiveMatch[1]);
+  // 色別指定も全色共通の明記もない場合、基準値を他色へ流用しない。
+  const hasTargetColorRule = Boolean(color && (
+    (rule !== "全色・基準価格" && !rule.startsWith("全色 ")) || exclusiveTarget
+  ));
+  const allColorsExplicit = Boolean(allColorMatch) ||
+    /全色\s*(?:同額|共通|同一価格|増減なし)/.test(conditionText);
+  if (!color || (!hasTargetColorRule && !allColorsExplicit)) {
+    return { found: true, price: null, raw_price: null,
+      caution: conditionText, color_verified: false,
+      error: "MIX: 対象色の明示条件なし" };
+  }
   const finalPrice =
     basePrice + adjustment;
 
@@ -1863,6 +1816,7 @@ async function extractMobileMixPrice(
       basePrice,
 
     adjustment,
+    color_verified: true,
 
     caution:
       `基準${basePrice.toLocaleString("ja-JP")}円 / ${rule}`,
@@ -2013,6 +1967,12 @@ function extractMobileIchibanPrice(
     }
   }
 
+  const sameColorExplicit = /全色\s*(?:同額|共通|同一価格|増減なし)/.test(conditionText);
+  if (!color || (rule === "色別増減なし" && !sameColorExplicit)) {
+    return { found: true, price: null, raw_price: null,
+      caution: conditionText, color_verified: false,
+      error: "モバイル一番: 対象色の明示条件なし" };
+  }
   const finalPrice =
     basePrice + adjustment;
 
@@ -2043,6 +2003,7 @@ function extractMobileIchibanPrice(
       basePrice,
 
     adjustment,
+    color_verified: true,
 
     caution:
       `基準${basePrice.toLocaleString("ja-JP")}円 / ${rule}`,
@@ -2135,18 +2096,18 @@ function extractKeitaiSpacePrice(
     };
   }
 
+  // この表はモデル・容量のみを照合し、色根拠が取れないため採用を停止。
   return {
     found: true,
-
-    price,
-
+    price: null,
+    color_verified: false,
+    error: "携帯空間: 色別または全色共通の掲載根拠を確認できません",
     raw_price:
       `${price.toLocaleString("ja-JP")}円`,
 
     caution:
       "未開封品価格を取得。元ページに色別増減表記なし",
 
-    error: null
   };
 }
 
@@ -2448,6 +2409,9 @@ async function inspectStore(browser, store, item) {
       );
     }
 
+    diagnostic.color_verified = diagnostic.status === "OK" &&
+      diagnostic.product.jan_found === true &&
+      Number.isFinite(diagnostic.price);
     return diagnostic;
   }
  
@@ -2666,6 +2630,7 @@ if (
 
       diagnostic.price =
         extracted.price;
+      diagnostic.extraction_color_verified = extracted.color_verified === true;
 
       diagnostic.raw_price =
         extracted.raw_price;
@@ -2703,6 +2668,7 @@ if (
 
       diagnostic.price =
         extracted.price;
+      diagnostic.extraction_color_verified = extracted.color_verified === true;
 
       diagnostic.raw_price =
         extracted.raw_price || null;
@@ -2742,6 +2708,7 @@ if (
 
       diagnostic.price =
         extracted.price;
+      diagnostic.extraction_color_verified = extracted.color_verified === true;
 
       diagnostic.raw_price =
         extracted.raw_price || null;
@@ -2805,7 +2772,8 @@ if (
       const extracted =
         extractHomuraPrice(
           bodyText,
-          item.name
+          item.name,
+          item.jan
         );
 
       diagnostic.product.jan_found =
@@ -2860,6 +2828,7 @@ if (
 
       diagnostic.price =
         extracted.price;
+      diagnostic.extraction_color_verified = extracted.color_verified === true;
 
       diagnostic.raw_price =
         extracted.raw_price || null;
@@ -2896,6 +2865,7 @@ if (
 
       diagnostic.price =
         extracted.price;
+      diagnostic.extraction_color_verified = extracted.color_verified === true;
 
       diagnostic.raw_price =
         extracted.raw_price || null;
@@ -3090,6 +3060,28 @@ if (
   }
 
 
+  // 全店舗共通: JAN単位の価格、または明示的な色別ルールだけ許可。
+  const janScoped = new Set([
+    "morimori", "rudeya", "kaitorishouten", "iphonekaitori"
+  ]);
+  const ruleScoped = new Set([
+    "mobasute", "mobilemix", "mobileichiban", "rakuen", "ichome"
+  ]);
+  const targetNameScoped = new Set(["kaitoriwiki"]);
+  const hasPrice = diagnostic.status === "OK" &&
+    diagnostic.price !== null && Number.isFinite(Number(diagnostic.price));
+  diagnostic.color_verified = Boolean(hasPrice && (
+    (janScoped.has(store.id) && diagnostic.product.jan_found === true) ||
+    (ruleScoped.has(store.id) && diagnostic.extraction_color_verified === true) ||
+    (targetNameScoped.has(store.id) && diagnostic.product.name_found === true)
+  ));
+  if (hasPrice && !diagnostic.color_verified) {
+    diagnostic.price = null;
+    diagnostic.raw_price = null;
+    diagnostic.price_candidates = [];
+    diagnostic.status = "ERROR";
+    diagnostic.errors.push("色別価格の根拠が確認できないため採用しません");
+  }
   return diagnostic;
 }
 
@@ -3153,6 +3145,7 @@ function updatePricesJsonSafely(diagnostics) {
         result.store_id
       ) &&
       result.status === "OK" &&
+      result.color_verified === true &&
       Number.isFinite(
         Number(result.price)
       ) &&
@@ -3160,12 +3153,11 @@ function updatePricesJsonSafely(diagnostics) {
       Number(result.price) <= 500000
     );
 
-  if (validRows.length === 0) {
-    return {
-      updated: false,
-      reason:
-        "更新可能な実価格が0件"
-    };
+  // 有効価格0件でも、今回試行したJANの過去の未検証価格を消すため続行する。
+  if (!uniqueTargetJans.every(jan =>
+    diagnostics.stores.some(row => String(row.jan || "") === jan)
+  )) {
+    return { updated: false, reason: "診断が不足するJANが存在します" };
   }
 
   /*
@@ -3251,32 +3243,8 @@ function updatePricesJsonSafely(diagnostics) {
      * 今回取得できなかった店舗について
      * 既存価格を削除したり0円にしたりしない。
      */
-    for (
-      const store
-      of previous.stores
-    ) {
-      const price =
-        Number(store.price);
-
-      const name =
-        String(
-          store.store || ""
-        ).trim();
-
-      if (
-        name &&
-        Number.isFinite(price) &&
-        price >= 50000 &&
-        price <= 500000
-      ) {
-        storesByName.set(
-          name,
-          {
-            ...store
-          }
-        );
-      }
-    }
+    // 過去の価格は診断の履歴としてのみ保持する（currentPricesは変更しない）。
+    // 本回のJANに限り、最新取得・色別検証済みの価格だけでランキングを作る。
 
     /*
      * 今回正常取得できた価格だけ上書き。
@@ -3302,6 +3270,7 @@ function updatePricesJsonSafely(diagnostics) {
 
           scope:
             "jan",
+          color_verified: true,
 
           checked_at:
             row.checked_at ||
@@ -3324,9 +3293,7 @@ function updatePricesJsonSafely(diagnostics) {
      * 新旧とも価格0件なら
      * 無理にSKUを作らない。
      */
-    if (stores.length === 0) {
-      continue;
-    }
+    // 価格根拠がないSKUも空配列へ更新し、古いランキングを出さない。
 
     preservedPriceCount +=
       Math.max(
@@ -3364,11 +3331,7 @@ function updatePricesJsonSafely(diagnostics) {
             )
     };
 
-    if (
-      freshRows.size > 0
-    ) {
-      updatedSkuCount++;
-    }
+    updatedSkuCount++;
   }
 
   if (
