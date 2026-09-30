@@ -963,8 +963,10 @@ body{background:#eef3f9}
           <td
             class="price"
             style="${
-              isBelowRetail
-                ? 'background:#fff1f2; color:#b91c1c; font-weight:900;'
+              applePrice > 0
+                ? (isBelowRetail
+                    ? 'color:#b91c1c; font-weight:900;'
+                    : 'color:#15803d; font-weight:900;')
                 : ''
             }"
           >
