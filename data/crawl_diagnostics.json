@@ -1,7 +1,7 @@
 {
   "version": "safe-diagnostic-2.0",
-  "started_at": "2026/9/30 19:50:21",
-  "finished_at": "2026/9/30 19:50:30",
+  "started_at": "2026/9/30 19:52:27",
+  "finished_at": "2026/9/30 19:52:39",
   "safety": {
     "prices_json_modified": true,
     "default_price_used": false,
@@ -59,7 +59,7 @@
       "jan": "4549995734546",
       "product_name": "iPhone 18 Pro Max 256GB ブラック",
       "url": "https://pastec.net/iphone",
-      "checked_at": "2026/9/30 19:50:21",
+      "checked_at": "2026/9/30 19:52:27",
       "status": "ERROR",
       "http": {
         "status": 403,
@@ -92,7 +92,7 @@
       "jan": "4549995734546",
       "product_name": "iPhone 18 Pro Max 256GB ブラック",
       "url": "https://www.morimori-kaitori.jp/search?sk=4549995734546",
-      "checked_at": "2026/9/30 19:50:21",
+      "checked_at": "2026/9/30 19:52:27",
       "status": "OK",
       "http": {
         "status": 200,
@@ -126,7 +126,7 @@
       "jan": "4549995734546",
       "product_name": "iPhone 18 Pro Max 256GB ブラック",
       "url": "https://kaitori-rudeya.com/search/index/4549995734546",
-      "checked_at": "2026/9/30 19:50:21",
+      "checked_at": "2026/9/30 19:52:27",
       "status": "OK",
       "http": {
         "status": 200,
@@ -160,7 +160,7 @@
       "jan": "4549995734546",
       "product_name": "iPhone 18 Pro Max 256GB ブラック",
       "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
-      "checked_at": "2026/9/30 19:50:21",
+      "checked_at": "2026/9/30 19:52:27",
       "status": "OK",
       "http": {
         "status": 200,
@@ -195,7 +195,7 @@
       "jan": "4549995734546",
       "product_name": "iPhone 18 Pro Max 256GB ブラック",
       "url": "https://www.1-chome.com/keitai",
-      "checked_at": "2026/9/30 19:50:21",
+      "checked_at": "2026/9/30 19:52:27",
       "status": "ERROR",
       "http": {
         "status": 200,
@@ -227,7 +227,7 @@
       "jan": "4549995734546",
       "product_name": "iPhone 18 Pro Max 256GB ブラック",
       "url": "https://www.iphonekaitori.tokyo/brand/apple/market-price",
-      "checked_at": "2026/9/30 19:50:21",
+      "checked_at": "2026/9/30 19:52:27",
       "status": "OK",
       "http": {
         "status": 200,
@@ -261,7 +261,7 @@
       "jan": "4549995734546",
       "product_name": "iPhone 18 Pro Max 256GB ブラック",
       "url": "https://kaitori.wiki/search?keyword=4549995734546",
-      "checked_at": "2026/9/30 19:50:25",
+      "checked_at": "2026/9/30 19:52:34",
       "status": "OK",
       "http": {
         "status": 200,
@@ -295,7 +295,7 @@
       "jan": "4549995734546",
       "product_name": "iPhone 18 Pro Max 256GB ブラック",
       "url": "https://mobile-mix.jp/?category=7",
-      "checked_at": "2026/9/30 19:50:25",
+      "checked_at": "2026/9/30 19:52:34",
       "status": "OK",
       "http": {
         "status": 200,
@@ -330,7 +330,7 @@
       "jan": "4549995734546",
       "product_name": "iPhone 18 Pro Max 256GB ブラック",
       "url": "https://www.mobile-ichiban.com/Prod/1",
-      "checked_at": "2026/9/30 19:50:25",
+      "checked_at": "2026/9/30 19:52:34",
       "status": "OK",
       "http": {
         "status": 200,
@@ -365,7 +365,7 @@
       "jan": "4549995734546",
       "product_name": "iPhone 18 Pro Max 256GB ブラック",
       "url": "https://www.keitaispace.co.jp/product/?ca=23",
-      "checked_at": "2026/9/30 19:50:25",
+      "checked_at": "2026/9/30 19:52:34",
       "status": "ERROR",
       "http": {
         "status": 200,
@@ -396,7 +396,7 @@
       "jan": "4549995734546",
       "product_name": "iPhone 18 Pro Max 256GB ブラック",
       "url": "https://www.kaitorishouten-co.jp/keitai",
-      "checked_at": "2026/9/30 19:50:25",
+      "checked_at": "2026/9/30 19:52:34",
       "status": "ERROR",
       "http": {
         "status": 200,
@@ -405,7 +405,7 @@
       },
       "page": {
         "title": "スマホ 買取価格表【iPhone18 Pro Max 最高¥435,000・9月30日更新】｜スマホを売るなら買取商店",
-        "body_length": 3343,
+        "body_length": 771,
         "body_available": true
       },
       "product": {
