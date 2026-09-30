@@ -1298,11 +1298,16 @@ body{background:#eef3f9}
               `自動再試行失敗: ${retryRes.status}`
             );
           }
-        }
 
-        throw new Error(
-          result.error || `更新リクエスト失敗: ${res.status}`
-        );
+          setLiveRefreshStatus(
+            "🚀 更新を開始しました。最新価格を取得しています…"
+          );
+
+        } else {
+          throw new Error(
+            result.error || `更新リクエスト失敗: ${res.status}`
+          );
+        }
       }
 
       btn.innerHTML =
