@@ -41,7 +41,7 @@ function corsHeaders(origin) {
 
   return {
     "Access-Control-Allow-Origin": allowed,
-    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
     "Access-Control-Allow-Headers":
       "Content-Type",
     "Content-Type": "application/json"
@@ -70,6 +70,82 @@ export default {
           status: 204,
           headers: corsHeaders(origin)
         }
+      );
+    }
+
+    if (!ALLOWED_ORIGINS.has(origin)) {
+      return jsonResponse(
+        {
+          ok: false,
+          error: "Origin not allowed"
+        },
+        403,
+        origin
+      );
+    }
+
+    if (request.method === "GET") {
+      if (!env.GITHUB_TOKEN) {
+        return jsonResponse(
+          {
+            ok: false,
+            error: "GitHub token is not configured"
+          },
+          500,
+          origin
+        );
+      }
+
+      const githubHeaders = {
+        "Authorization": `Bearer ${env.GITHUB_TOKEN}`,
+        "Accept": "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2022-11-28",
+        "User-Agent": "iPhone-Tenbai-price-refresh"
+      };
+
+      const runsUrl =
+        `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}` +
+        `/actions/runs?branch=main&per_page=30`;
+
+      const runsResponse = await fetch(
+        runsUrl,
+        {
+          headers: githubHeaders
+        }
+      );
+
+      if (!runsResponse.ok) {
+        return jsonResponse(
+          {
+            ok: false,
+            error: "GitHub status check failed"
+          },
+          502,
+          origin
+        );
+      }
+
+      const runsData =
+        await runsResponse.json();
+
+      const activeRun =
+        (runsData.workflow_runs || []).find(
+          run =>
+            WRITE_WORKFLOWS.has(run.path) &&
+            ACTIVE_STATUSES.has(run.status)
+        );
+
+      return jsonResponse(
+        {
+          ok: true,
+          busy: Boolean(activeRun),
+          workflow:
+            activeRun
+              ? activeRun.name
+              : null
+        },
+        200,
+        origin
       );
     }
 

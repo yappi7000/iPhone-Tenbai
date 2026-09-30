@@ -1156,6 +1156,56 @@ body{background:#eef3f9}
     });
   }
 
+  async function waitUntilRefreshAvailable() {
+    const startedAt = Date.now();
+    const timeoutMs = 10 * 60 * 1000;
+
+    while (Date.now() - startedAt < timeoutMs) {
+      try {
+        const res = await fetch(
+          `${LIVE_REFRESH_ENDPOINT}?t=${Date.now()}`,
+          {
+            method: "GET",
+            cache: "no-store"
+          }
+        );
+
+        const result =
+          await res.json().catch(() => ({}));
+
+        if (
+          res.ok &&
+          result.busy === false
+        ) {
+          return true;
+        }
+
+        const seconds =
+          Math.floor(
+            (Date.now() - startedAt) / 1000
+          );
+
+        setLiveRefreshStatus(
+          `⏳ 現在ほかのデータを更新中です… 経過 ${seconds}秒\n` +
+          "空き次第、この商品の更新を自動で開始します。画面はそのままでお待ちください。"
+        );
+
+      } catch (error) {
+        console.warn(
+          "更新空き状況の確認中:",
+          error
+        );
+      }
+
+      await new Promise(
+        resolve =>
+          setTimeout(resolve, 10000)
+      );
+    }
+
+    return false;
+  }
+
   document.getElementById("liveRefreshBtn").addEventListener("click", async () => {
     const btn = document.getElementById("liveRefreshBtn");
     const jan = document.getElementById("currentJan").textContent.trim();
@@ -1201,12 +1251,53 @@ body{background:#eef3f9}
 
       if (!res.ok) {
         if (res.status === 409) {
+          btn.innerHTML =
+            '<i class="fa-solid fa-spinner fa-spin"></i> 更新待機中…';
+
+          const available =
+            await waitUntilRefreshAvailable();
+
+          if (!available) {
+            throw new Error(
+              "10分以内に更新枠が空きませんでした。時間をおいてもう一度お試しください。"
+            );
+          }
+
           setLiveRefreshStatus(
-            "⏳ 現在ほかの商品を更新中です。\n" +
-            "前の更新が完了すると、この商品も更新できます。\n" +
-            "30〜60秒ほど待ってから、もう一度お試しください。"
+            "✅ 更新枠が空きました。自動で再開します…"
           );
-          return;
+
+          const retryToken =
+            await getTurnstileToken();
+
+          const retryRes =
+            await fetch(
+              LIVE_REFRESH_ENDPOINT,
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type":
+                    "application/json"
+                },
+                body: JSON.stringify({
+                  jan,
+                  turnstileToken:
+                    retryToken
+                })
+              }
+            );
+
+          const retryResult =
+            await retryRes
+              .json()
+              .catch(() => ({}));
+
+          if (!retryRes.ok) {
+            throw new Error(
+              retryResult.error ||
+              `自動再試行失敗: ${retryRes.status}`
+            );
+          }
         }
 
         throw new Error(
