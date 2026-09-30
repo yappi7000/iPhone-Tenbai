@@ -926,6 +926,30 @@ body{background:#eef3f9}
     tableBody.innerHTML = sortedStores.map((s, idx) => {
       const diff = s.price - best.price;
       const diffStr = diff === 0 ? "ー" : `-¥${Math.abs(diff).toLocaleString()}`;
+
+      const retailDiff =
+        applePrice > 0
+          ? s.price - applePrice
+          : null;
+
+      const isBelowRetail =
+        retailDiff !== null &&
+        retailDiff < 0;
+
+      const retailBadge =
+        isBelowRetail
+          ? `<span style="
+              display:inline-block;
+              margin-left:7px;
+              padding:2px 7px;
+              border-radius:999px;
+              background:#fee2e2;
+              color:#b91c1c;
+              font-size:10px;
+              font-weight:900;
+              white-space:nowrap;
+            ">定価割れ -¥${Math.abs(retailDiff).toLocaleString()}</span>`
+          : "";
       
       let extraTag = '';
       if (s.store === "森森買取") {
@@ -936,7 +960,16 @@ body{background:#eef3f9}
         <tr class="${idx === 0 ? 'best-row' : ''}">
           <td class="rank" style="color:${idx === 0 ? 'var(--gold)' : 'var(--muted)'};">${idx + 1}位</td>
           <td style="font-weight:900;">${s.store} ${extraTag}</td>
-          <td class="price">¥${s.price.toLocaleString()}</td>
+          <td
+            class="price"
+            style="${
+              isBelowRetail
+                ? 'background:#fff1f2; color:#b91c1c; font-weight:900;'
+                : ''
+            }"
+          >
+            ¥${s.price.toLocaleString()}${retailBadge}
+          </td>
           <td class="diff" style="font-size:12px; ${diff === 0 ? '' : 'color:#e11d48; font-weight:800;'}">${diffStr}</td>
           <td><span style="background:#d1fae5; color:#065f46; padding:3px 8px; border-radius:4px; font-size:11px; font-weight:800;">自動巡回取得済</span></td>
           <td style="text-align:right;">
