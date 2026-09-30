@@ -1,7 +1,7 @@
 {
   "version": "safe-diagnostic-2.0",
-  "started_at": "2026/9/30 21:22:37",
-  "finished_at": "2026/9/30 21:22:48",
+  "started_at": "2026/9/30 21:27:37",
+  "finished_at": "2026/9/30 21:27:49",
   "safety": {
     "prices_json_modified": true,
     "default_price_used": false,
@@ -44,11 +44,11 @@
   "target_count": 1,
   "targets": [
     {
-      "jan": "4549995734645",
-      "name": "iPhone 18 Pro Max 256GB バーガンディ",
+      "jan": "4549995734690",
+      "name": "iPhone 18 Pro Max 256GB グレイシャー",
       "model": "iPhone 18 Pro Max",
       "storage": "256GB",
-      "color": "バーガンディ"
+      "color": "グレイシャー"
     }
   ],
   "store_count": 14,
@@ -56,10 +56,10 @@
     {
       "store_id": "mobasute",
       "store": "モバステ",
-      "jan": "4549995734645",
-      "product_name": "iPhone 18 Pro Max 256GB バーガンディ",
+      "jan": "4549995734690",
+      "product_name": "iPhone 18 Pro Max 256GB グレイシャー",
       "url": "https://pastec.net/iphone",
-      "checked_at": "2026/9/30 21:22:37",
+      "checked_at": "2026/9/30 21:27:37",
       "status": "ERROR",
       "http": {
         "status": 403,
@@ -89,19 +89,19 @@
     {
       "store_id": "morimori",
       "store": "森森買取",
-      "jan": "4549995734645",
-      "product_name": "iPhone 18 Pro Max 256GB バーガンディ",
-      "url": "https://www.morimori-kaitori.jp/search?sk=4549995734645",
-      "checked_at": "2026/9/30 21:22:37",
+      "jan": "4549995734690",
+      "product_name": "iPhone 18 Pro Max 256GB グレイシャー",
+      "url": "https://www.morimori-kaitori.jp/search?sk=4549995734690",
+      "checked_at": "2026/9/30 21:27:37",
       "status": "OK",
       "http": {
         "status": 200,
         "ok": true,
-        "final_url": "https://www.morimori-kaitori.jp/search?sk=4549995734645"
+        "final_url": "https://www.morimori-kaitori.jp/search?sk=4549995734690"
       },
       "page": {
-        "title": "4549995734645 の買取一覧 | 秋葉原・なんば・福岡で高価買取実施中!",
-        "body_length": 1331775,
+        "title": "4549995734690 の買取一覧 | 秋葉原・なんば・福岡で高価買取実施中!",
+        "body_length": 1331771,
         "body_available": true
       },
       "product": {
@@ -110,31 +110,31 @@
       },
       "price_candidates": [
         {
-          "raw": "262,000円",
-          "price": 262000
+          "raw": "235,000円",
+          "price": 235000
         }
       ],
       "errors": [],
-      "price": 262000,
-      "raw_price": "262,000円",
+      "price": 235000,
+      "raw_price": "235,000円",
       "caution": "",
       "color_verified": true
     },
     {
       "store_id": "rudeya",
       "store": "買取ルデヤ",
-      "jan": "4549995734645",
-      "product_name": "iPhone 18 Pro Max 256GB バーガンディ",
-      "url": "https://kaitori-rudeya.com/search/index/4549995734645",
-      "checked_at": "2026/9/30 21:22:37",
+      "jan": "4549995734690",
+      "product_name": "iPhone 18 Pro Max 256GB グレイシャー",
+      "url": "https://kaitori-rudeya.com/search/index/4549995734690",
+      "checked_at": "2026/9/30 21:27:37",
       "status": "OK",
       "http": {
         "status": 200,
         "ok": true,
-        "final_url": "https://kaitori-rudeya.com/search/index/4549995734645"
+        "final_url": "https://kaitori-rudeya.com/search/index/4549995734690"
       },
       "page": {
-        "title": "買取ルデヤ-東京池袋｜「4549995734645」の検索結果 - 買取",
+        "title": "買取ルデヤ-東京池袋｜「4549995734690」の検索結果 - 買取",
         "body_length": 638,
         "body_available": true
       },
@@ -144,24 +144,24 @@
       },
       "price_candidates": [
         {
-          "raw": "262,000円",
-          "price": 262000
+          "raw": "231,000円",
+          "price": 231000
         }
       ],
       "errors": [],
-      "price": 262000,
-      "raw_price": "262,000円",
+      "price": 231000,
+      "raw_price": "231,000円",
       "caution": "新品・未開封商品の通常買取価格のみ取得。郵送キャンペーン加算なし",
       "color_verified": true
     },
     {
       "store_id": "rakuen",
       "store": "買取楽園",
-      "jan": "4549995734645",
-      "product_name": "iPhone 18 Pro Max 256GB バーガンディ",
+      "jan": "4549995734690",
+      "product_name": "iPhone 18 Pro Max 256GB グレイシャー",
       "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
-      "checked_at": "2026/9/30 21:22:37",
-      "status": "ERROR",
+      "checked_at": "2026/9/30 21:27:37",
+      "status": "OK",
       "http": {
         "status": 200,
         "ok": true,
@@ -176,23 +176,26 @@
         "jan_found": false,
         "name_found": true
       },
-      "price_candidates": [],
-      "errors": [
-        "楽園: 対象色の価格根拠なし"
+      "price_candidates": [
+        {
+          "raw": "232,500円",
+          "price": 232500
+        }
       ],
-      "price": null,
-      "extraction_color_verified": false,
-      "raw_price": null,
-      "caution": "",
-      "color_verified": false
+      "errors": [],
+      "price": 232500,
+      "extraction_color_verified": true,
+      "raw_price": "232,500円",
+      "caution": "基準261,000円 / グレイシャー明示価格を反映。店舗・時間限定条件は未反映",
+      "color_verified": true
     },
     {
       "store_id": "ichome",
       "store": "買取一丁目",
-      "jan": "4549995734645",
-      "product_name": "iPhone 18 Pro Max 256GB バーガンディ",
+      "jan": "4549995734690",
+      "product_name": "iPhone 18 Pro Max 256GB グレイシャー",
       "url": "https://www.1-chome.com/keitai",
-      "checked_at": "2026/9/30 21:22:37",
+      "checked_at": "2026/9/30 21:27:37",
       "status": "ERROR",
       "http": {
         "status": 200,
@@ -221,10 +224,10 @@
     {
       "store_id": "iphonekaitori",
       "store": "iPhone買取価格表",
-      "jan": "4549995734645",
-      "product_name": "iPhone 18 Pro Max 256GB バーガンディ",
+      "jan": "4549995734690",
+      "product_name": "iPhone 18 Pro Max 256GB グレイシャー",
       "url": "https://www.iphonekaitori.tokyo/brand/apple/market-price",
-      "checked_at": "2026/9/30 21:22:37",
+      "checked_at": "2026/9/30 21:27:37",
       "status": "OK",
       "http": {
         "status": 200,
@@ -242,28 +245,28 @@
       },
       "price_candidates": [
         {
-          "raw": "261,000円",
-          "price": 261000
+          "raw": "230,000円",
+          "price": 230000
         }
       ],
       "errors": [],
-      "price": 261000,
-      "raw_price": "261,000円",
+      "price": 230000,
+      "raw_price": "230,000円",
       "caution": "",
       "color_verified": true
     },
     {
       "store_id": "kaitoriwiki",
       "store": "買取wiki",
-      "jan": "4549995734645",
-      "product_name": "iPhone 18 Pro Max 256GB バーガンディ",
-      "url": "https://kaitori.wiki/search?keyword=4549995734645",
-      "checked_at": "2026/9/30 21:22:43",
+      "jan": "4549995734690",
+      "product_name": "iPhone 18 Pro Max 256GB グレイシャー",
+      "url": "https://kaitori.wiki/search?keyword=4549995734690",
+      "checked_at": "2026/9/30 21:27:44",
       "status": "OK",
       "http": {
         "status": 200,
         "ok": true,
-        "final_url": "https://kaitori.wiki/search?keyword=4549995734645"
+        "final_url": "https://kaitori.wiki/search?keyword=4549995734690"
       },
       "page": {
         "title": "検索結果 | 人気商品の買取価格なら買取wiki",
@@ -276,24 +279,24 @@
       },
       "price_candidates": [
         {
-          "raw": "261,000円",
-          "price": 261000
+          "raw": "230,000円",
+          "price": 230000
         }
       ],
       "errors": [],
-      "price": 261000,
-      "raw_price": "261,000円",
+      "price": 230000,
+      "raw_price": "230,000円",
       "caution": "買取wiki検索結果の掲載買取価格",
       "color_verified": true
     },
     {
       "store_id": "mobilemix",
       "store": "モバイルMIX",
-      "jan": "4549995734645",
-      "product_name": "iPhone 18 Pro Max 256GB バーガンディ",
+      "jan": "4549995734690",
+      "product_name": "iPhone 18 Pro Max 256GB グレイシャー",
       "url": "https://mobile-mix.jp/?category=7",
-      "checked_at": "2026/9/30 21:22:43",
-      "status": "ERROR",
+      "checked_at": "2026/9/30 21:27:44",
+      "status": "OK",
       "http": {
         "status": 200,
         "ok": true,
@@ -308,24 +311,27 @@
         "jan_found": false,
         "name_found": true
       },
-      "price_candidates": [],
-      "errors": [
-        "MIX: 対象色の明示条件なし"
+      "price_candidates": [
+        {
+          "raw": "235,000円",
+          "price": 235000
+        }
       ],
-      "price": null,
-      "extraction_color_verified": false,
-      "raw_price": null,
-      "caution": "ブラック-26,000円､グレイシャー-27,000円､シルバー-31,000円",
-      "color_verified": false
+      "errors": [],
+      "price": 235000,
+      "extraction_color_verified": true,
+      "raw_price": "235,000円",
+      "caution": "基準262,000円 / グレイシャー -27,000円",
+      "color_verified": true
     },
     {
       "store_id": "mobileichiban",
       "store": "モバイル一番",
-      "jan": "4549995734645",
-      "product_name": "iPhone 18 Pro Max 256GB バーガンディ",
+      "jan": "4549995734690",
+      "product_name": "iPhone 18 Pro Max 256GB グレイシャー",
       "url": "https://www.mobile-ichiban.com/Prod/1",
-      "checked_at": "2026/9/30 21:22:43",
-      "status": "ERROR",
+      "checked_at": "2026/9/30 21:27:44",
+      "status": "OK",
       "http": {
         "status": 200,
         "ok": true,
@@ -340,23 +346,26 @@
         "jan_found": false,
         "name_found": true
       },
-      "price_candidates": [],
-      "errors": [
-        "モバイル一番: 対象色の明示条件なし"
+      "price_candidates": [
+        {
+          "raw": "235,000円",
+          "price": 235000
+        }
       ],
-      "price": null,
-      "extraction_color_verified": false,
-      "raw_price": null,
-      "caution": "  \nシルバー -32000 グレイシャー/ブラック -27000 \n",
-      "color_verified": false
+      "errors": [],
+      "price": 235000,
+      "extraction_color_verified": true,
+      "raw_price": "235,000円",
+      "caution": "基準262,000円 / グレイシャー/ブラック -27,000円",
+      "color_verified": true
     },
     {
       "store_id": "keitaispace",
       "store": "携帯空間",
-      "jan": "4549995734645",
-      "product_name": "iPhone 18 Pro Max 256GB バーガンディ",
+      "jan": "4549995734690",
+      "product_name": "iPhone 18 Pro Max 256GB グレイシャー",
       "url": "https://www.keitaispace.co.jp/product/?ca=23",
-      "checked_at": "2026/9/30 21:22:43",
+      "checked_at": "2026/9/30 21:27:44",
       "status": "ERROR",
       "http": {
         "status": 200,
@@ -384,10 +393,10 @@
     {
       "store_id": "kaitorishouten",
       "store": "買取商店",
-      "jan": "4549995734645",
-      "product_name": "iPhone 18 Pro Max 256GB バーガンディ",
+      "jan": "4549995734690",
+      "product_name": "iPhone 18 Pro Max 256GB グレイシャー",
       "url": "https://www.kaitorishouten-co.jp/keitai",
-      "checked_at": "2026/9/30 21:22:43",
+      "checked_at": "2026/9/30 21:27:44",
       "status": "ERROR",
       "http": {
         "status": 200,
@@ -396,7 +405,7 @@
       },
       "page": {
         "title": "スマホ 買取価格表【iPhone18 Pro Max 最高¥435,000・9月30日更新】｜スマホを売るなら買取商店",
-        "body_length": 3343,
+        "body_length": 1207,
         "body_available": true
       },
       "product": {
@@ -414,17 +423,17 @@
     }
   ],
   "summary": {
-    "ok": 4,
-    "error": 7,
+    "ok": 7,
+    "error": 4,
     "jan_found": 4,
     "product_name_found": 8,
-    "price_candidate_found": 4
+    "price_candidate_found": 7
   },
   "prices_update": {
     "updated": true,
     "reason": null,
     "sku_count": 1,
-    "fresh_price_count": 4,
+    "fresh_price_count": 7,
     "preserved_price_count": 0,
     "total_sku_count": 66
   },
