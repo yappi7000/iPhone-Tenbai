@@ -43,7 +43,7 @@ function corsHeaders(origin) {
     "Access-Control-Allow-Origin": allowed,
     "Access-Control-Allow-Methods": "POST, OPTIONS",
     "Access-Control-Allow-Headers":
-      "Content-Type, X-Update-Key",
+      "Content-Type",
     "Content-Type": "application/json"
   };
 }
@@ -110,26 +110,14 @@ export default {
       );
     }
 
-    const legacyUpdateKey =
-      request.headers.get("X-Update-Key") || "";
-
-    const legacyAuthorized =
-      Boolean(
-        env.UPDATE_KEY &&
-        legacyUpdateKey === env.UPDATE_KEY
-      );
-
     const turnstileToken =
       String(
         body.turnstileToken || ""
       ).trim();
 
     if (
-      !legacyAuthorized &&
-      (
-        !env.TURNSTILE_SECRET ||
-        !turnstileToken
-      )
+      !env.TURNSTILE_SECRET ||
+      !turnstileToken
     ) {
       return jsonResponse(
         {
@@ -142,15 +130,10 @@ export default {
       );
     }
 
-    let verification = {
-      success: true,
-      action: "price_refresh",
-      hostname: "yappi7000.github.io"
-    };
+    const verifyBody =
+      new FormData();
 
-    if (!legacyAuthorized) {
-      const verifyBody =
-        new FormData();
+    let verification;
 
     verifyBody.append(
       "secret",
@@ -198,7 +181,6 @@ export default {
           origin
         );
       }
-    }
 
     if (
       !verification.success ||
