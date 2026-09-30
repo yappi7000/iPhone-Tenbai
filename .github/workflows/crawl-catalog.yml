@@ -6,7 +6,7 @@ on:
 permissions:
   contents: write
 concurrency:
-  group: iphone-price-crawler
+  group: catalog-buyback
   cancel-in-progress: false
 jobs:
   catalog:

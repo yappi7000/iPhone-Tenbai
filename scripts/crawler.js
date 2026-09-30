@@ -393,6 +393,47 @@ const STORES = [
  * ============================================================
  */
 
+function getChromiumLaunchOptions() {
+  const options = {
+    headless: true,
+    args: [
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+      "--disable-dev-shm-usage"
+    ]
+  };
+
+  const channel =
+    String(
+      process.env.PLAYWRIGHT_CHANNEL || ""
+    ).trim();
+
+  if (channel) {
+    options.channel = channel;
+  }
+
+  return options;
+}
+
+
+async function blockHeavyResources(page) {
+  await page.route("**/*", route => {
+    const type =
+      route.request().resourceType();
+
+    if (
+      type === "image" ||
+      type === "font" ||
+      type === "media"
+    ) {
+      return route.abort();
+    }
+
+    return route.continue();
+  });
+}
+
+
 const CONFIG = {
   pageTimeout: 15000,
   waitAfterLoad: 1500,
@@ -2412,6 +2453,8 @@ async function inspectStore(browser, store, item) {
  
  const page = await browser.newPage();
 
+  await blockHeavyResources(page);
+
 
   try {
 
@@ -3593,9 +3636,10 @@ function loadIPhone17TargetsFromMaster() {
 async function crawlIPhone17Prices() {
   const targets = loadIPhone17TargetsFromMaster();
 
-  const browser = await chromium.launch({
-    headless: true
-  });
+  const browser =
+    await chromium.launch(
+      getChromiumLaunchOptions()
+    );
 
   const collectedPrices = {};
 
@@ -3810,14 +3854,9 @@ async function run() {
    */
 
   const browser =
-    await chromium.launch({
-      headless: true,
-
-      args: [
-        "--no-sandbox",
-        "--disable-setuid-sandbox"
-      ]
-    });
+    await chromium.launch(
+      getChromiumLaunchOptions()
+    );
 
 
   /*
@@ -3930,7 +3969,7 @@ async function run() {
         );
 
       const storeConcurrency =
-        requestedJan ? 4 : 1;
+        requestedJan ? 6 : 4;
 
       for (
         let offset = 0;

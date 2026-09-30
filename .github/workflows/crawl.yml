@@ -13,7 +13,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: iphone-price-crawler
+  group: iphone-price-data
   cancel-in-progress: false
 
 jobs:
@@ -195,4 +195,8 @@ jobs:
           fi
 
           git commit -m "Update iPhone prices [skip ci]"
-          git push
+
+          git fetch origin "${GITHUB_REF_NAME}"
+          git rebase "origin/${GITHUB_REF_NAME}"
+
+          git push origin "HEAD:${GITHUB_REF_NAME}"

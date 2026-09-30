@@ -20,9 +20,7 @@ const ALLOWED_JANS = new Set([
 
 const WRITE_WORKFLOWS = new Set([
   ".github/workflows/on-demand-price.yml",
-  ".github/workflows/crawl.yml",
-  ".github/workflows/crawl-catalog.yml",
-  ".github/workflows/apple-inventory.yml"
+  ".github/workflows/crawl.yml"
 ]);
 
 const ACTIVE_STATUSES = new Set([
