@@ -1,0 +1,590 @@
+{
+  "schema_version": 1,
+  "description": "公式収録カードの参照情報。金額は含めない。",
+  "cards": [
+    {
+      "set_code": "M2",
+      "set_name": "インフェルノX",
+      "number": "081/080",
+      "rarity": "AR",
+      "name": "ルンパッパ",
+      "identity_source": "https://www.pokemon-card.com/ex/m2/"
+    },
+    {
+      "set_code": "M2",
+      "set_name": "インフェルノX",
+      "number": "082/080",
+      "rarity": "AR",
+      "name": "マメバッタ",
+      "identity_source": "https://www.pokemon-card.com/ex/m2/"
+    },
+    {
+      "set_code": "M2",
+      "set_name": "インフェルノX",
+      "number": "083/080",
+      "rarity": "AR",
+      "name": "カルボウ",
+      "identity_source": "https://www.pokemon-card.com/ex/m2/"
+    },
+    {
+      "set_code": "M2",
+      "set_name": "インフェルノX",
+      "number": "084/080",
+      "rarity": "AR",
+      "name": "ジュゴン",
+      "identity_source": "https://www.pokemon-card.com/ex/m2/"
+    },
+    {
+      "set_code": "M2",
+      "set_name": "インフェルノX",
+      "number": "085/080",
+      "rarity": "AR",
+      "name": "ポッチャマ",
+      "identity_source": "https://www.pokemon-card.com/ex/m2/"
+    },
+    {
+      "set_code": "M2",
+      "set_name": "インフェルノX",
+      "number": "086/080",
+      "rarity": "AR",
+      "name": "ワンパチ",
+      "identity_source": "https://www.pokemon-card.com/ex/m2/"
+    },
+    {
+      "set_code": "M2",
+      "set_name": "インフェルノX",
+      "number": "087/080",
+      "rarity": "AR",
+      "name": "ザシアン",
+      "identity_source": "https://www.pokemon-card.com/ex/m2/"
+    },
+    {
+      "set_code": "M2",
+      "set_name": "インフェルノX",
+      "number": "088/080",
+      "rarity": "AR",
+      "name": "フライゴン",
+      "identity_source": "https://www.pokemon-card.com/ex/m2/"
+    },
+    {
+      "set_code": "M2",
+      "set_name": "インフェルノX",
+      "number": "089/080",
+      "rarity": "AR",
+      "name": "ストリンダー",
+      "identity_source": "https://www.pokemon-card.com/ex/m2/"
+    },
+    {
+      "set_code": "M2",
+      "set_name": "インフェルノX",
+      "number": "090/080",
+      "rarity": "AR",
+      "name": "トゲデマル",
+      "identity_source": "https://www.pokemon-card.com/ex/m2/"
+    },
+    {
+      "set_code": "M2",
+      "set_name": "インフェルノX",
+      "number": "091/080",
+      "rarity": "AR",
+      "name": "プクリン",
+      "identity_source": "https://www.pokemon-card.com/ex/m2/"
+    },
+    {
+      "set_code": "M2",
+      "set_name": "インフェルノX",
+      "number": "092/080",
+      "rarity": "AR",
+      "name": "エテボース",
+      "identity_source": "https://www.pokemon-card.com/ex/m2/"
+    },
+    {
+      "set_code": "M2",
+      "set_name": "インフェルノX",
+      "number": "093/080",
+      "rarity": "SR",
+      "name": "メガヘラクロスex",
+      "identity_source": "https://www.pokemon-card.com/ex/m2/"
+    },
+    {
+      "set_code": "M2",
+      "set_name": "インフェルノX",
+      "number": "094/080",
+      "rarity": "SR",
+      "name": "メガリザードンXex",
+      "identity_source": "https://www.pokemon-card.com/ex/m2/"
+    },
+    {
+      "set_code": "M2",
+      "set_name": "インフェルノX",
+      "number": "095/080",
+      "rarity": "SR",
+      "name": "オドリドリex",
+      "identity_source": "https://www.pokemon-card.com/ex/m2/"
+    },
+    {
+      "set_code": "M2",
+      "set_name": "インフェルノX",
+      "number": "096/080",
+      "rarity": "SR",
+      "name": "ロトムex",
+      "identity_source": "https://www.pokemon-card.com/ex/m2/"
+    },
+    {
+      "set_code": "M2",
+      "set_name": "インフェルノX",
+      "number": "097/080",
+      "rarity": "SR",
+      "name": "ムウマージex",
+      "identity_source": "https://www.pokemon-card.com/ex/m2/"
+    },
+    {
+      "set_code": "M2",
+      "set_name": "インフェルノX",
+      "number": "098/080",
+      "rarity": "SR",
+      "name": "メガサメハダーex",
+      "identity_source": "https://www.pokemon-card.com/ex/m2/"
+    },
+    {
+      "set_code": "M2",
+      "set_name": "インフェルノX",
+      "number": "099/080",
+      "rarity": "SR",
+      "name": "エンペルトex",
+      "identity_source": "https://www.pokemon-card.com/ex/m2/"
+    },
+    {
+      "set_code": "M2",
+      "set_name": "インフェルノX",
+      "number": "100/080",
+      "rarity": "SR",
+      "name": "メガミミロップex",
+      "identity_source": "https://www.pokemon-card.com/ex/m2/"
+    },
+    {
+      "set_code": "M2",
+      "set_name": "インフェルノX",
+      "number": "101/080",
+      "rarity": "SR",
+      "name": "ヒートバーナー",
+      "identity_source": "https://www.pokemon-card.com/ex/m2/"
+    },
+    {
+      "set_code": "M2",
+      "set_name": "インフェルノX",
+      "number": "102/080",
+      "rarity": "SR",
+      "name": "ポケモンいれかえ",
+      "identity_source": "https://www.pokemon-card.com/ex/m2/"
+    },
+    {
+      "set_code": "M2",
+      "set_name": "インフェルノX",
+      "number": "103/080",
+      "rarity": "SR",
+      "name": "せいなるおまもり",
+      "identity_source": "https://www.pokemon-card.com/ex/m2/"
+    },
+    {
+      "set_code": "M2",
+      "set_name": "インフェルノX",
+      "number": "104/080",
+      "rarity": "SR",
+      "name": "パンクメット",
+      "identity_source": "https://www.pokemon-card.com/ex/m2/"
+    },
+    {
+      "set_code": "M2",
+      "set_name": "インフェルノX",
+      "number": "105/080",
+      "rarity": "SR",
+      "name": "ギーマの一手",
+      "identity_source": "https://www.pokemon-card.com/ex/m2/"
+    },
+    {
+      "set_code": "M2",
+      "set_name": "インフェルノX",
+      "number": "106/080",
+      "rarity": "SR",
+      "name": "ヒカリ",
+      "identity_source": "https://www.pokemon-card.com/ex/m2/"
+    },
+    {
+      "set_code": "M2",
+      "set_name": "インフェルノX",
+      "number": "107/080",
+      "rarity": "SR",
+      "name": "ひふきやろう",
+      "identity_source": "https://www.pokemon-card.com/ex/m2/"
+    },
+    {
+      "set_code": "M2",
+      "set_name": "インフェルノX",
+      "number": "108/080",
+      "rarity": "SR",
+      "name": "バトルコロシアム",
+      "identity_source": "https://www.pokemon-card.com/ex/m2/"
+    },
+    {
+      "set_code": "M2",
+      "set_name": "インフェルノX",
+      "number": "109/080",
+      "rarity": "SR",
+      "name": "イグニッションエネルギー",
+      "identity_source": "https://www.pokemon-card.com/ex/m2/"
+    },
+    {
+      "set_code": "M2",
+      "set_name": "インフェルノX",
+      "number": "110/080",
+      "rarity": "SAR",
+      "name": "メガリザードンXex",
+      "identity_source": "https://www.pokemon-card.com/ex/m2/"
+    },
+    {
+      "set_code": "M2",
+      "set_name": "インフェルノX",
+      "number": "111/080",
+      "rarity": "SAR",
+      "name": "オドリドリex",
+      "identity_source": "https://www.pokemon-card.com/ex/m2/"
+    },
+    {
+      "set_code": "M2",
+      "set_name": "インフェルノX",
+      "number": "112/080",
+      "rarity": "SAR",
+      "name": "ロトムex",
+      "identity_source": "https://www.pokemon-card.com/ex/m2/"
+    },
+    {
+      "set_code": "M2",
+      "set_name": "インフェルノX",
+      "number": "113/080",
+      "rarity": "SAR",
+      "name": "メガサメハダーex",
+      "identity_source": "https://www.pokemon-card.com/ex/m2/"
+    },
+    {
+      "set_code": "M2",
+      "set_name": "インフェルノX",
+      "number": "114/080",
+      "rarity": "SAR",
+      "name": "メガミミロップex",
+      "identity_source": "https://www.pokemon-card.com/ex/m2/"
+    },
+    {
+      "set_code": "M2",
+      "set_name": "インフェルノX",
+      "number": "115/080",
+      "rarity": "SAR",
+      "name": "ヒカリ",
+      "identity_source": "https://www.pokemon-card.com/ex/m2/"
+    },
+    {
+      "set_code": "M2",
+      "set_name": "インフェルノX",
+      "number": "116/080",
+      "rarity": "MUR",
+      "name": "メガリザードンXex",
+      "identity_source": "https://www.pokemon-card.com/ex/m2/"
+    },
+    {
+      "set_code": "M6",
+      "set_name": "ストームエメラルダ",
+      "number": "077/076",
+      "rarity": "AR",
+      "name": "アメモース",
+      "identity_source": "https://www.pokemon-card.com/ex/m6/"
+    },
+    {
+      "set_code": "M6",
+      "set_name": "ストームエメラルダ",
+      "number": "078/076",
+      "rarity": "AR",
+      "name": "ガーディ",
+      "identity_source": "https://www.pokemon-card.com/ex/m6/"
+    },
+    {
+      "set_code": "M6",
+      "set_name": "ストームエメラルダ",
+      "number": "079/076",
+      "rarity": "AR",
+      "name": "ブーバーン",
+      "identity_source": "https://www.pokemon-card.com/ex/m6/"
+    },
+    {
+      "set_code": "M6",
+      "set_name": "ストームエメラルダ",
+      "number": "080/076",
+      "rarity": "AR",
+      "name": "カイオーガ",
+      "identity_source": "https://www.pokemon-card.com/ex/m6/"
+    },
+    {
+      "set_code": "M6",
+      "set_name": "ストームエメラルダ",
+      "number": "081/076",
+      "rarity": "AR",
+      "name": "エレキブル",
+      "identity_source": "https://www.pokemon-card.com/ex/m6/"
+    },
+    {
+      "set_code": "M6",
+      "set_name": "ストームエメラルダ",
+      "number": "082/076",
+      "rarity": "AR",
+      "name": "バチンウニ",
+      "identity_source": "https://www.pokemon-card.com/ex/m6/"
+    },
+    {
+      "set_code": "M6",
+      "set_name": "ストームエメラルダ",
+      "number": "083/076",
+      "rarity": "AR",
+      "name": "ラブトロス",
+      "identity_source": "https://www.pokemon-card.com/ex/m6/"
+    },
+    {
+      "set_code": "M6",
+      "set_name": "ストームエメラルダ",
+      "number": "084/076",
+      "rarity": "AR",
+      "name": "グラードン",
+      "identity_source": "https://www.pokemon-card.com/ex/m6/"
+    },
+    {
+      "set_code": "M6",
+      "set_name": "ストームエメラルダ",
+      "number": "085/076",
+      "rarity": "AR",
+      "name": "マーイーカ",
+      "identity_source": "https://www.pokemon-card.com/ex/m6/"
+    },
+    {
+      "set_code": "M6",
+      "set_name": "ストームエメラルダ",
+      "number": "086/076",
+      "rarity": "AR",
+      "name": "ルリリ",
+      "identity_source": "https://www.pokemon-card.com/ex/m6/"
+    },
+    {
+      "set_code": "M6",
+      "set_name": "ストームエメラルダ",
+      "number": "087/076",
+      "rarity": "AR",
+      "name": "チルタリス",
+      "identity_source": "https://www.pokemon-card.com/ex/m6/"
+    },
+    {
+      "set_code": "M6",
+      "set_name": "ストームエメラルダ",
+      "number": "088/076",
+      "rarity": "AR",
+      "name": "カクレオン",
+      "identity_source": "https://www.pokemon-card.com/ex/m6/"
+    },
+    {
+      "set_code": "M6",
+      "set_name": "ストームエメラルダ",
+      "number": "089/076",
+      "rarity": "SR",
+      "name": "メガグソクムシャex",
+      "identity_source": "https://www.pokemon-card.com/ex/m6/"
+    },
+    {
+      "set_code": "M6",
+      "set_name": "ストームエメラルダ",
+      "number": "090/076",
+      "rarity": "SR",
+      "name": "ヒートロトムex",
+      "identity_source": "https://www.pokemon-card.com/ex/m6/"
+    },
+    {
+      "set_code": "M6",
+      "set_name": "ストームエメラルダ",
+      "number": "091/076",
+      "rarity": "SR",
+      "name": "ヨワシex",
+      "identity_source": "https://www.pokemon-card.com/ex/m6/"
+    },
+    {
+      "set_code": "M6",
+      "set_name": "ストームエメラルダ",
+      "number": "092/076",
+      "rarity": "SR",
+      "name": "ライコウex",
+      "identity_source": "https://www.pokemon-card.com/ex/m6/"
+    },
+    {
+      "set_code": "M6",
+      "set_name": "ストームエメラルダ",
+      "number": "093/076",
+      "rarity": "SR",
+      "name": "メガゴルーグex",
+      "identity_source": "https://www.pokemon-card.com/ex/m6/"
+    },
+    {
+      "set_code": "M6",
+      "set_name": "ストームエメラルダ",
+      "number": "094/076",
+      "rarity": "SR",
+      "name": "メガカラマネロex",
+      "identity_source": "https://www.pokemon-card.com/ex/m6/"
+    },
+    {
+      "set_code": "M6",
+      "set_name": "ストームエメラルダ",
+      "number": "095/076",
+      "rarity": "SR",
+      "name": "メガレックウザex",
+      "identity_source": "https://www.pokemon-card.com/ex/m6/"
+    },
+    {
+      "set_code": "M6",
+      "set_name": "ストームエメラルダ",
+      "number": "096/076",
+      "rarity": "SR",
+      "name": "ファイアローex",
+      "identity_source": "https://www.pokemon-card.com/ex/m6/"
+    },
+    {
+      "set_code": "M6",
+      "set_name": "ストームエメラルダ",
+      "number": "097/076",
+      "rarity": "SR",
+      "name": "ぼうけんのランタン",
+      "identity_source": "https://www.pokemon-card.com/ex/m6/"
+    },
+    {
+      "set_code": "M6",
+      "set_name": "ストームエメラルダ",
+      "number": "098/076",
+      "rarity": "SR",
+      "name": "ポケモンキャッチャー",
+      "identity_source": "https://www.pokemon-card.com/ex/m6/"
+    },
+    {
+      "set_code": "M6",
+      "set_name": "ストームエメラルダ",
+      "number": "099/076",
+      "rarity": "SR",
+      "name": "とくちゅうチョッキ",
+      "identity_source": "https://www.pokemon-card.com/ex/m6/"
+    },
+    {
+      "set_code": "M6",
+      "set_name": "ストームエメラルダ",
+      "number": "100/076",
+      "rarity": "SR",
+      "name": "MCの盛り上げ",
+      "identity_source": "https://www.pokemon-card.com/ex/m6/"
+    },
+    {
+      "set_code": "M6",
+      "set_name": "ストームエメラルダ",
+      "number": "101/076",
+      "rarity": "SR",
+      "name": "ギリー",
+      "identity_source": "https://www.pokemon-card.com/ex/m6/"
+    },
+    {
+      "set_code": "M6",
+      "set_name": "ストームエメラルダ",
+      "number": "102/076",
+      "rarity": "SR",
+      "name": "ヒガナの信頼",
+      "identity_source": "https://www.pokemon-card.com/ex/m6/"
+    },
+    {
+      "set_code": "M6",
+      "set_name": "ストームエメラルダ",
+      "number": "103/076",
+      "rarity": "SR",
+      "name": "フウとランの修行",
+      "identity_source": "https://www.pokemon-card.com/ex/m6/"
+    },
+    {
+      "set_code": "M6",
+      "set_name": "ストームエメラルダ",
+      "number": "104/076",
+      "rarity": "SR",
+      "name": "グロウ草エネルギー",
+      "identity_source": "https://www.pokemon-card.com/ex/m6/"
+    },
+    {
+      "set_code": "M6",
+      "set_name": "ストームエメラルダ",
+      "number": "105/076",
+      "rarity": "SR",
+      "name": "ニトロ炎エネルギー",
+      "identity_source": "https://www.pokemon-card.com/ex/m6/"
+    },
+    {
+      "set_code": "M6",
+      "set_name": "ストームエメラルダ",
+      "number": "106/076",
+      "rarity": "SR",
+      "name": "バブル水エネルギー",
+      "identity_source": "https://www.pokemon-card.com/ex/m6/"
+    },
+    {
+      "set_code": "M6",
+      "set_name": "ストームエメラルダ",
+      "number": "107/076",
+      "rarity": "SAR",
+      "name": "メガグソクムシャex",
+      "identity_source": "https://www.pokemon-card.com/ex/m6/"
+    },
+    {
+      "set_code": "M6",
+      "set_name": "ストームエメラルダ",
+      "number": "108/076",
+      "rarity": "SAR",
+      "name": "ライコウex",
+      "identity_source": "https://www.pokemon-card.com/ex/m6/"
+    },
+    {
+      "set_code": "M6",
+      "set_name": "ストームエメラルダ",
+      "number": "109/076",
+      "rarity": "SAR",
+      "name": "メガゴルーグex",
+      "identity_source": "https://www.pokemon-card.com/ex/m6/"
+    },
+    {
+      "set_code": "M6",
+      "set_name": "ストームエメラルダ",
+      "number": "110/076",
+      "rarity": "SAR",
+      "name": "メガレックウザex",
+      "identity_source": "https://www.pokemon-card.com/ex/m6/"
+    },
+    {
+      "set_code": "M6",
+      "set_name": "ストームエメラルダ",
+      "number": "111/076",
+      "rarity": "SAR",
+      "name": "ギリー",
+      "identity_source": "https://www.pokemon-card.com/ex/m6/"
+    },
+    {
+      "set_code": "M6",
+      "set_name": "ストームエメラルダ",
+      "number": "112/076",
+      "rarity": "SAR",
+      "name": "ヒガナの信頼",
+      "identity_source": "https://www.pokemon-card.com/ex/m6/"
+    },
+    {
+      "set_code": "M6",
+      "set_name": "ストームエメラルダ",
+      "number": "113/076",
+      "rarity": "MUR",
+      "name": "メガレックウザex",
+      "identity_source": "https://www.pokemon-card.com/ex/m6/"
+    }
+  ]
+}
