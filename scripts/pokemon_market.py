@@ -132,6 +132,29 @@ def crawl():
             '公開買取価格未確認', 'https://torecamap.co.jp/column/pokemon-kougaku/')
         p.update(kind='card_reference', reference_note='同じ通称でも年・大会・鑑定ランクで別商品です。過去の落札額を現在の買取価格には使いません。')
         products[product_id] = p
+    # BEGIN featured set single cards (M2/M6)
+    # Missing official quotes must remain unavailable; never invent a buyback value.
+    reference_file = ROOT / 'data/featured_single_cards.json'
+    for entry in json.loads(reference_file.read_text(encoding='utf-8'))['cards']:
+        code, number, rarity = entry['set_code'], entry['number'], entry['rarity']
+        ident = 'set-' + code.lower() + '-' + number.split('/')[0]
+        exact = next((p for p in products.values()
+                      if p.get('kind') == 'single_card'
+                      and p.get('model') == number
+                      and code in p.get('aliases', [])
+                      and rarity in p.get('name', '').split()), None)
+        if exact:
+            exact['aliases'].extend([entry['set_name'], code, number, rarity])
+            continue
+        if ident in products:
+            raise ValueError('Featured identity conflicts with market card: ' + ident)
+        p = card(ident, entry['name'] + ' ' + rarity + ' [' + entry['set_name'] + '] ' +
+                 code + ' ' + number, number, '未鑑定・美品基準', entry['identity_source'])
+        p.update(kind='card_reference', reference_note=(
+            '公式収録カードとして登録。公開買取価格は未取得です。販売価格や推定額を買取価格として表示しません。'),
+            aliases=p['aliases'] + [entry['set_name'], code, number, rarity])
+        products[ident] = p
+    # END featured set single cards (M2/M6)
     result = {'schema_version': 1, 'generated_at': dt.datetime.now(dt.timezone.utc).isoformat(),
         'scope': 'カードラッシュの公開買取一覧先頭100件と、もえたく！の登録5商品。版・状態別。市場全体の順位ではありません。',
         'products': list(products.values()), 'errors': errors}
