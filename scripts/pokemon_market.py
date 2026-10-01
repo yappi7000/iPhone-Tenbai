@@ -103,6 +103,42 @@ def extract_moetaku(html, code, expected_name):
         raise ValueError('Missing or conflicting card prices')
     return amounts.pop()
 
+def get_featured_quote(entry, checked):
+    """Try Netoff's live buyback search; match set, card number and rarity strictly.
+
+    The listing's `data-item` is the same official buyback structure used by
+    extract_moetaku. Selling prices and estimated/old prices are never used.
+    """
+    base = 'https://www.netoff.co.jp/figure/purchase/'
+    parameters = {'ct': 'トレカ', 'mk': 'ポケモンカードゲーム', 'ky': entry['number']}
+    url = base + '?' + urllib.parse.urlencode(parameters)
+    html = fetch(url)
+    matching = []
+    expected_name = normalized_name(entry['name'])
+    expected_pack = normalized_name(entry['set_name'])
+    expected_number = normalized_name(entry['number'])
+    expected_code = normalized_name(entry['set_code'])
+    rarity = entry['rarity']
+    for item in Items(html).items:
+        raw_label = unicodedata.normalize('NFKC', unescape(str(item.get('name') or '')))
+        label = normalized_name(raw_label)
+        if not (expected_name in label and expected_pack in label and expected_number in label
+                and re.search(r'(?<![A-Za-z0-9])' + re.escape(expected_code) + r'(?![A-Za-z0-9])', raw_label, re.I)
+                and re.search(r'(?<![A-Za-z])' + re.escape(rarity) + r'(?![A-Za-z])', raw_label, re.I)):
+            continue
+        value = item.get('price')
+        if (item.get('maker') == 'ポケモンカードゲーム' and item.get('genre') == 'トレカ'
+                and type(value) is int and 0 < value <= 1000000000
+                and not re.search(r'PSA|BGS|ARS|鑑定|状態[BCD]|傷|キズ', label, re.I)):
+            code = str(item.get('code') or '')
+            if code.isdigit(): matching.append((value, code, str(item.get('name'))))
+    if len({(price, code) for price,code,_ in matching}) != 1:
+        raise ValueError('Exact official buyback listing not found or ambiguous')
+    price, code, name = matching[0]
+    detail = 'https://www.netoff.co.jp/moetaku/detail/' + code
+    return quote('moetaku', 'もえたく！', price, detail, checked,
+        '公開通常買取価格。版・状態・最新の査定条件は公式で確認。キャンペーン加算・PSA価格なし。', name)
+
 def crawl():
     products, errors = {}, []
     checked = dt.datetime.now(dt.timezone.utc).isoformat()
@@ -133,30 +169,36 @@ def crawl():
         p.update(kind='card_reference', reference_note='同じ通称でも年・大会・鑑定ランクで別商品です。過去の落札額を現在の買取価格には使いません。')
         products[product_id] = p
     # BEGIN featured set single cards (M2/M6)
-    # Missing official quotes must remain unavailable; never invent a buyback value.
     reference_file = ROOT / 'data/featured_single_cards.json'
     for entry in json.loads(reference_file.read_text(encoding='utf-8'))['cards']:
         code, number, rarity = entry['set_code'], entry['number'], entry['rarity']
         ident = 'set-' + code.lower() + '-' + number.split('/')[0]
-        exact = next((p for p in products.values()
-                      if p.get('kind') == 'single_card'
-                      and p.get('model') == number
-                      and code in p.get('aliases', [])
-                      and rarity in p.get('name', '').split()), None)
-        if exact:
-            exact['aliases'].extend([entry['set_name'], code, number, rarity])
-            continue
-        if ident in products:
-            raise ValueError('Featured identity conflicts with market card: ' + ident)
-        p = card(ident, entry['name'] + ' ' + rarity + ' [' + entry['set_name'] + '] ' +
-                 code + ' ' + number, number, '未鑑定・美品基準', entry['identity_source'])
-        p.update(kind='card_reference', reference_note=(
-            '公式収録カードとして登録。公開買取価格は未取得です。販売価格や推定額を買取価格として表示しません。'),
-            aliases=p['aliases'] + [entry['set_name'], code, number, rarity])
-        products[ident] = p
+        p = products.get(ident)
+        if p is None:
+            p = card(ident, entry['name'] + ' ' + rarity + ' [' + entry['set_name'] + '] ' +
+                     code + ' ' + number, number, '未鑑定・美品基準', entry['identity_source'])
+            products[ident] = p
+        p.update(kind='single_card', reference_note=(
+            '収録カード・番号・レアリティを厳密に照合。公式通常買取価格だけを表示します。'),
+            aliases=list(dict.fromkeys(p['aliases'] + [entry['set_name'], code, number, rarity])))
+        # Reuse an exactly matching official Cardrush listing, when available.
+        rush = next((x for x in products.values() if x['id'].startswith('cardrush-')
+                     and x.get('model') == number and code in x.get('aliases', [])
+                     and re.search(r'(?<![A-Za-z])' + re.escape(rarity) + r'(?![A-Za-z])', x['name'], re.I)
+                     and normalized_name(entry['name']) in normalized_name(x['name'])
+                     and x.get('quotes')), None)
+        if rush:
+            p['quotes'].extend(rush['quotes'])
+        # Netoff buyback prices are searched by card number, never by sale price.
+        try:
+            current = dt.datetime.now(dt.timezone.utc).isoformat()
+            offer = get_featured_quote(entry, current)
+            p['quotes'] = [q for q in p['quotes'] if q.get('store_id') != 'moetaku'] + [offer]
+        except Exception as e:
+            errors.append('もえたく！ ' + code + ' ' + number + ': ' + type(e).__name__ + ': ' + str(e)[:90])
     # END featured set single cards (M2/M6)
     result = {'schema_version': 1, 'generated_at': dt.datetime.now(dt.timezone.utc).isoformat(),
-        'scope': 'カードラッシュの公開買取一覧先頭100件と、もえたく！の登録5商品。版・状態別。市場全体の順位ではありません。',
+        'scope': 'カードラッシュの公開買取一覧と、もえたく！の登録カード・M2/M6高レアカードの公開通常買取価格を確認。取得できた価格のみ掲載。市場全体の順位ではありません。',
         'products': list(products.values()), 'errors': errors}
     target = ROOT / 'data/pokemon_market.json'
     temp = target.with_suffix('.tmp')
