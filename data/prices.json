@@ -129,31 +129,22 @@
   "4549995734645": {
     "stores": [
       {
-        "store": "iPhone買取価格表",
-        "price": 256000,
-        "url": "https://www.iphonekaitori.tokyo/brand/apple/market-price",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/2 11:06:43"
-      },
-      {
-        "store": "買取wiki",
-        "price": 256000,
-        "url": "https://kaitori.wiki/search?keyword=4549995734645",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/2 11:06:43"
-      },
-      {
         "store": "森森買取",
-        "price": 255000,
+        "price": 259000,
         "url": "https://www.morimori-kaitori.jp/search?sk=4549995734645",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/2 11:06:28"
+        "checked_at": "2026/10/2 16:04:51"
+      },
+      {
+        "store": "モバイルMIX",
+        "price": 259000,
+        "url": "https://mobile-mix.jp/?category=7",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/2 16:05:00"
       },
       {
         "store": "買取ルデヤ",
@@ -162,10 +153,28 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/2 11:06:28"
+        "checked_at": "2026/10/2 16:04:51"
+      },
+      {
+        "store": "iPhone買取価格表",
+        "price": 255000,
+        "url": "https://www.iphonekaitori.tokyo/brand/apple/market-price",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/2 16:04:51"
+      },
+      {
+        "store": "買取wiki",
+        "price": 255000,
+        "url": "https://kaitori.wiki/search?keyword=4549995734645",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/2 16:05:00"
       }
     ],
-    "last_update": "2026/10/2 11:09:57"
+    "last_update": "2026/10/2 16:05:05"
   },
   "4549995734690": {
     "stores": [
