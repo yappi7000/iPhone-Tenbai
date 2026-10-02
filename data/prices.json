@@ -8,7 +8,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/2 11:06:42"
+        "checked_at": "2026/10/3 7:32:36"
       },
       {
         "store": "買取wiki",
@@ -17,7 +17,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/2 11:06:42"
+        "checked_at": "2026/10/3 7:32:45"
       },
       {
         "store": "モバイル一番",
@@ -26,7 +26,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/2 11:06:49"
+        "checked_at": "2026/10/3 7:32:45"
       },
       {
         "store": "森森買取",
@@ -35,28 +35,28 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/2 11:06:27"
+        "checked_at": "2026/10/3 7:32:36"
       },
       {
         "store": "買取ルデヤ",
-        "price": 235000,
+        "price": 234000,
         "url": "https://kaitori-rudeya.com/search/index/4549995734546",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/2 11:06:28"
+        "checked_at": "2026/10/3 7:32:36"
       },
       {
-        "store": "モバイルMIX",
-        "price": 235000,
-        "url": "https://mobile-mix.jp/?category=7",
+        "store": "買取一丁目",
+        "price": 230000,
+        "url": "https://www.1-chome.com/keitai",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/2 11:06:49"
+        "checked_at": "2026/10/3 7:32:36"
       }
     ],
-    "last_update": "2026/10/2 11:09:57"
+    "last_update": "2026/10/3 7:32:50"
   },
   "4549995734591": {
     "stores": [
