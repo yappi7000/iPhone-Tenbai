@@ -61,13 +61,40 @@
   "4549995734591": {
     "stores": [
       {
+        "store": "買取楽園",
+        "price": 231000,
+        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/2 13:00:20"
+      },
+      {
+        "store": "iPhone買取価格表",
+        "price": 231000,
+        "url": "https://www.iphonekaitori.tokyo/brand/apple/market-price",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/2 13:00:20"
+      },
+      {
+        "store": "買取wiki",
+        "price": 231000,
+        "url": "https://kaitori.wiki/search?keyword=4549995734591",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/2 13:00:34"
+      },
+      {
         "store": "モバイルMIX",
         "price": 231000,
         "url": "https://mobile-mix.jp/?category=7",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/2 11:06:49"
+        "checked_at": "2026/10/2 13:00:34"
       },
       {
         "store": "森森買取",
@@ -76,7 +103,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/2 11:06:28"
+        "checked_at": "2026/10/2 13:00:20"
       },
       {
         "store": "買取ルデヤ",
@@ -85,25 +112,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/2 11:06:28"
-      },
-      {
-        "store": "iPhone買取価格表",
-        "price": 230000,
-        "url": "https://www.iphonekaitori.tokyo/brand/apple/market-price",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/2 11:06:43"
-      },
-      {
-        "store": "買取wiki",
-        "price": 230000,
-        "url": "https://kaitori.wiki/search?keyword=4549995734591",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/2 11:06:43"
+        "checked_at": "2026/10/2 13:00:20"
       },
       {
         "store": "モバイル一番",
@@ -112,19 +121,10 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/2 11:06:49"
-      },
-      {
-        "store": "買取楽園",
-        "price": 229000,
-        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/2 11:06:28"
+        "checked_at": "2026/10/2 13:00:34"
       }
     ],
-    "last_update": "2026/10/2 11:09:57"
+    "last_update": "2026/10/2 13:00:41"
   },
   "4549995734645": {
     "stores": [
