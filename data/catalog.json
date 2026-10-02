@@ -1324,6 +1324,44 @@
       "jan": "4549292119060",
       "condition": "new",
       "identity_source": "https://personal.canon.jp/product/compact-digital-camera/powershot/sx740hs"
+    },
+    {
+      "id": "pokemon-storm-emeralda-box",
+      "category": "cards",
+      "kind": "card_pack",
+      "name": "【BOX】ストームエメラルダ",
+      "jan": "4521329462233",
+      "condition": "sealed_box",
+      "aliases": [
+        "ポケモンカードゲーム MEGA 拡張パック ストームエメラルダ BOX",
+        "ストームエメラルダ",
+        "M6",
+        "シュリンク付きBOX"
+      ],
+      "identity_source": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=4521329462233",
+      "official_source": "https://www.pokemoncenter-online.com/9900000008109.html",
+      "store_codes": {
+        "homura": "114521329462233"
+      }
+    },
+    {
+      "id": "pokemon-inferno-x-box",
+      "category": "cards",
+      "kind": "card_pack",
+      "name": "【BOX】インフェルノX",
+      "jan": "4521329431529",
+      "condition": "sealed_box",
+      "aliases": [
+        "ポケモンカードゲーム MEGA 拡張パック インフェルノX BOX",
+        "インフェルノX",
+        "M2",
+        "シュリンク付きBOX"
+      ],
+      "identity_source": "https://kaitori-homura.com/products?q%5Bname_or_jan_code_cont%5D=4521329431529",
+      "official_source": "https://www.pokemon-card.com/ex/m2/",
+      "store_codes": {
+        "homura": "114521329431529"
+      }
     }
   ]
 }
