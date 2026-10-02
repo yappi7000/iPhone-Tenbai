@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-02T02:22:14.218357+00:00",
+  "generated_at": "2026-10-02T10:43:44.069602+00:00",
   "products": {
     "switch2-jp": [
       {
@@ -5185,6 +5185,154 @@
         "observed_at": null,
         "price": null,
         "status": "not_found"
+      }
+    ],
+    "pokemon-storm-emeralda-box": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products/6933?q%5Bname_or_jan_code_cont%5D=4521329462233&search_query=4521329462233",
+        "checked_at": "2026-10-02T10:43:23.007624+00:00",
+        "observed_at": "2026-10-02T10:43:23.007624+00:00",
+        "price": 9400,
+        "status": "ok",
+        "matched_name": "【BOX】ストームエメラルダ",
+        "note": ""
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/7186",
+        "checked_at": "2026-10-02T10:43:24.304297+00:00",
+        "observed_at": "2026-10-02T10:43:24.304297+00:00",
+        "price": 8700,
+        "status": "ok",
+        "matched_name": "新品 ポケモンカードゲーム MEGA 拡張パック ストームエメラルダ BOX [M6]",
+        "note": "新品未開封/シュリンク付きのみの買取となります。  箱潰れや痛み具合によって減額又は着払いにて返送となります。  シュリンクが切れているものは買取不可"
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/category/2401/product/344245",
+        "checked_at": "2026-10-02T10:43:25.655271+00:00",
+        "observed_at": "2026-10-02T10:43:25.655271+00:00",
+        "price": 9000,
+        "status": "ok",
+        "matched_name": "ポケモンカード\n                        ポケモン  ストームエメラルダ　BOX",
+        "note": ""
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=4521329462233",
+        "checked_at": "2026-10-02T10:43:27.088904+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://kaitori.wiki/search?keyword=4521329462233",
+        "checked_at": "2026-10-02T10:43:29.041386+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/detail/26717",
+        "checked_at": "2026-10-02T10:43:30.436554+00:00",
+        "observed_at": "2026-10-02T10:43:30.436554+00:00",
+        "price": 9000,
+        "status": "ok",
+        "matched_name": "ポケモンカードゲーム MEGA 拡張パック ストームエメラルダ BOX",
+        "note": "通常の基準価格（来店加算を含まない） ／ 新品 ／ ※シュリンク付き、新品未開封。購入から三カ月以内の正規代理店の購入証明原本(納品書、レシート等)の提出が必要となります。 ／ 数量制限あり（公式ページで確認）"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/wineDetail/9802/9835",
+        "checked_at": "2026-10-02T10:43:32.060103+00:00",
+        "observed_at": "2026-10-02T10:43:32.060103+00:00",
+        "price": 9000,
+        "status": "ok",
+        "matched_name": "【MEGA】 ストームエメラルダ BOX",
+        "note": "シュリンク有 ／ *シュリンクなし品　北戸田郵送＆本部来店限定* ／ 数量制限あり（公式ページで確認）"
+      }
+    ],
+    "pokemon-inferno-x-box": [
+      {
+        "store_id": "homura",
+        "store": "買取ホムラ",
+        "url": "https://kaitori-homura.com/products/3464?q%5Bname_or_jan_code_cont%5D=4521329431529&search_query=4521329431529",
+        "checked_at": "2026-10-02T10:43:33.233922+00:00",
+        "observed_at": "2026-10-02T10:43:33.233922+00:00",
+        "price": 15200,
+        "status": "ok",
+        "matched_name": "【BOX】インフェルノX",
+        "note": ""
+      },
+      {
+        "store_id": "rudeya",
+        "store": "買取ルデヤ",
+        "url": "https://kaitori-rudeya.com/product/item/6329",
+        "checked_at": "2026-10-02T10:43:34.515449+00:00",
+        "observed_at": "2026-10-02T10:43:34.515449+00:00",
+        "price": 12500,
+        "status": "ok",
+        "matched_name": "新品 ポケモンカードゲーム MEGA 拡張パック インフェルノX BOX [M2]",
+        "note": "新品未開封/シュリンク付きのみの買取となります。  箱潰れや痛み具合によって減額又は着払いにて返送となります。  シュリンクが切れているものは買取不可 "
+      },
+      {
+        "store_id": "morimori",
+        "store": "森森買取",
+        "url": "https://www.morimori-kaitori.jp/search?sk=4521329431529",
+        "checked_at": "2026-10-02T10:43:35.816221+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "keitaispace",
+        "store": "携帯空間",
+        "url": "https://www.keitaispace.co.jp/product/?kw=4521329431529",
+        "checked_at": "2026-10-02T10:43:37.291974+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitoriwiki",
+        "store": "買取wiki",
+        "url": "https://kaitori.wiki/search?keyword=4521329431529",
+        "checked_at": "2026-10-02T10:43:39.165096+00:00",
+        "observed_at": null,
+        "price": null,
+        "status": "not_found"
+      },
+      {
+        "store_id": "kaitorishouten",
+        "store": "買取商店",
+        "url": "https://www.kaitorishouten-co.jp/products/detail/24838",
+        "checked_at": "2026-10-02T10:43:41.188481+00:00",
+        "observed_at": "2026-10-02T10:43:41.188481+00:00",
+        "price": 12500,
+        "status": "ok",
+        "matched_name": "ポケモンカードゲーム MEGA 拡張パック インフェルノX BOX",
+        "note": "通常の基準価格（来店加算を含まない） ／ 新品 ／ ※シュリンク付き、新品未開封。購入から三カ月以内の正規代理店の購入証明原本(納品書、レシート等)の提出が必要となります。 ／ 数量制限あり（公式ページで確認）"
+      },
+      {
+        "store_id": "ichome",
+        "store": "買取一丁目",
+        "url": "https://www.1-chome.com/wineDetail/7553/7583",
+        "checked_at": "2026-10-02T10:43:42.885517+00:00",
+        "observed_at": "2026-10-02T10:43:42.885517+00:00",
+        "price": 14000,
+        "status": "ok",
+        "matched_name": "【MEGA】 インフェルノX BOX",
+        "note": "シュリンク有 ／ *シュリンクなし品　北戸田郵送＆本部来店限定* ／ 数量制限あり（公式ページで確認）"
       }
     ]
   }
