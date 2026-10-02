@@ -144,7 +144,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/1 13:02:01"
+        "checked_at": "2026/10/2 9:00:26"
       },
       {
         "store": "買取ルデヤ",
@@ -153,16 +153,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/1 13:02:01"
-      },
-      {
-        "store": "買取楽園",
-        "price": 262000,
-        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/1 13:02:01"
+        "checked_at": "2026/10/2 9:00:26"
       },
       {
         "store": "iPhone買取価格表",
@@ -171,7 +162,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/1 13:02:01"
+        "checked_at": "2026/10/2 9:00:26"
       },
       {
         "store": "買取wiki",
@@ -180,10 +171,10 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/1 13:02:10"
+        "checked_at": "2026/10/2 9:00:35"
       }
     ],
-    "last_update": "2026/10/1 13:02:16"
+    "last_update": "2026/10/2 9:00:40"
   },
   "4549995734690": {
     "stores": [
