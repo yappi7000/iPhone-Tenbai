@@ -53,12 +53,12 @@
     "stores": [
       {
         "store": "森森買取",
-        "price": 221000,
+        "price": 220000,
         "url": "https://www.morimori-kaitori.jp/search?sk=4549995734591",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/3 10:55:52"
+        "checked_at": "2026/10/4 7:04:46"
       },
       {
         "store": "買取ルデヤ",
@@ -67,7 +67,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/3 10:55:52"
+        "checked_at": "2026/10/4 7:04:46"
       },
       {
         "store": "買取楽園",
@@ -76,7 +76,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/3 10:55:52"
+        "checked_at": "2026/10/4 7:04:46"
       },
       {
         "store": "iPhone買取価格表",
@@ -85,7 +85,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/3 10:55:52"
+        "checked_at": "2026/10/4 7:04:46"
       },
       {
         "store": "買取wiki",
@@ -94,7 +94,16 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/3 10:55:58"
+        "checked_at": "2026/10/4 7:04:53"
+      },
+      {
+        "store": "モバイルMIX",
+        "price": 220000,
+        "url": "https://mobile-mix.jp/?category=7",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/4 7:04:53"
       },
       {
         "store": "モバイル一番",
@@ -103,10 +112,10 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/3 10:55:58"
+        "checked_at": "2026/10/4 7:04:53"
       }
     ],
-    "last_update": "2026/10/3 10:56:03"
+    "last_update": "2026/10/4 7:05:09"
   },
   "4549995734645": {
     "stores": [
