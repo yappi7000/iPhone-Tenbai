@@ -58,7 +58,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/3 10:51:27"
+        "checked_at": "2026/10/3 10:55:52"
       },
       {
         "store": "買取ルデヤ",
@@ -67,7 +67,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/3 10:51:27"
+        "checked_at": "2026/10/3 10:55:52"
       },
       {
         "store": "買取楽園",
@@ -76,16 +76,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/3 10:51:27"
-      },
-      {
-        "store": "買取一丁目",
-        "price": 220000,
-        "url": "https://www.1-chome.com/keitai",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/3 10:51:35"
+        "checked_at": "2026/10/3 10:55:52"
       },
       {
         "store": "iPhone買取価格表",
@@ -94,7 +85,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/3 10:51:35"
+        "checked_at": "2026/10/3 10:55:52"
       },
       {
         "store": "買取wiki",
@@ -103,7 +94,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/3 10:51:35"
+        "checked_at": "2026/10/3 10:55:58"
       },
       {
         "store": "モバイル一番",
@@ -112,10 +103,10 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/3 10:51:41"
+        "checked_at": "2026/10/3 10:55:58"
       }
     ],
-    "last_update": "2026/10/3 10:54:32"
+    "last_update": "2026/10/3 10:56:03"
   },
   "4549995734645": {
     "stores": [
