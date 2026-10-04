@@ -58,7 +58,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/4 11:30:12"
+        "checked_at": "2026/10/4 20:31:03"
       },
       {
         "store": "買取ルデヤ",
@@ -67,7 +67,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/4 11:30:12"
+        "checked_at": "2026/10/4 20:31:03"
       },
       {
         "store": "買取楽園",
@@ -76,7 +76,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/4 11:30:12"
+        "checked_at": "2026/10/4 20:31:03"
       },
       {
         "store": "iPhone買取価格表",
@@ -85,7 +85,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/4 11:30:20"
+        "checked_at": "2026/10/4 20:31:03"
       },
       {
         "store": "買取wiki",
@@ -94,7 +94,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/4 11:30:20"
+        "checked_at": "2026/10/4 20:31:12"
       },
       {
         "store": "モバイルMIX",
@@ -103,10 +103,19 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/4 11:30:27"
+        "checked_at": "2026/10/4 20:31:12"
+      },
+      {
+        "store": "モバイル一番",
+        "price": 220000,
+        "url": "https://www.mobile-ichiban.com/Prod/1",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/4 20:31:12"
       }
     ],
-    "last_update": "2026/10/4 11:35:34"
+    "last_update": "2026/10/4 20:31:18"
   },
   "4549995734645": {
     "stores": [
