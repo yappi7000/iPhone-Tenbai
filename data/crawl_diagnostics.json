@@ -1,7 +1,7 @@
 {
   "version": "safe-diagnostic-2.0",
-  "started_at": "2026/10/6 19:52:46",
-  "finished_at": "2026/10/6 19:52:58",
+  "started_at": "2026/10/6 22:08:22",
+  "finished_at": "2026/10/6 22:08:46",
   "safety": {
     "prices_json_modified": true,
     "default_price_used": false,
@@ -59,7 +59,7 @@
       "jan": "4549995734645",
       "product_name": "iPhone 18 Pro Max 256GB バーガンディ",
       "url": "https://pastec.net/iphone",
-      "checked_at": "2026/10/6 19:52:46",
+      "checked_at": "2026/10/6 22:08:22",
       "status": "ERROR",
       "http": {
         "status": 403,
@@ -92,7 +92,7 @@
       "jan": "4549995734645",
       "product_name": "iPhone 18 Pro Max 256GB バーガンディ",
       "url": "https://www.morimori-kaitori.jp/search?sk=4549995734645",
-      "checked_at": "2026/10/6 19:52:46",
+      "checked_at": "2026/10/6 22:08:22",
       "status": "OK",
       "http": {
         "status": 200,
@@ -126,7 +126,7 @@
       "jan": "4549995734645",
       "product_name": "iPhone 18 Pro Max 256GB バーガンディ",
       "url": "https://kaitori-rudeya.com/search/index/4549995734645",
-      "checked_at": "2026/10/6 19:52:46",
+      "checked_at": "2026/10/6 22:08:22",
       "status": "OK",
       "http": {
         "status": 200,
@@ -160,7 +160,7 @@
       "jan": "4549995734645",
       "product_name": "iPhone 18 Pro Max 256GB バーガンディ",
       "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
-      "checked_at": "2026/10/6 19:52:46",
+      "checked_at": "2026/10/6 22:08:22",
       "status": "ERROR",
       "http": {
         "status": 200,
@@ -192,7 +192,7 @@
       "jan": "4549995734645",
       "product_name": "iPhone 18 Pro Max 256GB バーガンディ",
       "url": "https://www.1-chome.com/keitai",
-      "checked_at": "2026/10/6 19:52:46",
+      "checked_at": "2026/10/6 22:08:22",
       "status": "ERROR",
       "http": {
         "status": 200,
@@ -201,16 +201,16 @@
       },
       "page": {
         "title": "買取１丁目",
-        "body_length": 536,
+        "body_length": 2558,
         "body_available": true
       },
       "product": {
         "jan_found": false,
-        "name_found": false
+        "name_found": true
       },
       "price_candidates": [],
       "errors": [
-        "商品名に一致する商品が見つかりません"
+        "一丁目: 対象色の明示条件なし"
       ],
       "price": null,
       "extraction_color_verified": false,
@@ -224,7 +224,7 @@
       "jan": "4549995734645",
       "product_name": "iPhone 18 Pro Max 256GB バーガンディ",
       "url": "https://www.iphonekaitori.tokyo/brand/apple/market-price",
-      "checked_at": "2026/10/6 19:52:46",
+      "checked_at": "2026/10/6 22:08:22",
       "status": "OK",
       "http": {
         "status": 200,
@@ -258,7 +258,7 @@
       "jan": "4549995734645",
       "product_name": "iPhone 18 Pro Max 256GB バーガンディ",
       "url": "https://kaitori.wiki/search?keyword=4549995734645",
-      "checked_at": "2026/10/6 19:52:53",
+      "checked_at": "2026/10/6 22:08:30",
       "status": "OK",
       "http": {
         "status": 200,
@@ -292,7 +292,7 @@
       "jan": "4549995734645",
       "product_name": "iPhone 18 Pro Max 256GB バーガンディ",
       "url": "https://mobile-mix.jp/?category=7",
-      "checked_at": "2026/10/6 19:52:53",
+      "checked_at": "2026/10/6 22:08:30",
       "status": "ERROR",
       "http": {
         "status": 200,
@@ -324,30 +324,26 @@
       "jan": "4549995734645",
       "product_name": "iPhone 18 Pro Max 256GB バーガンディ",
       "url": "https://www.mobile-ichiban.com/Prod/1",
-      "checked_at": "2026/10/6 19:52:53",
+      "checked_at": "2026/10/6 22:08:30",
       "status": "ERROR",
       "http": {
-        "status": 200,
-        "ok": true,
-        "final_url": "https://www.mobile-ichiban.com/Prod/1"
+        "status": null,
+        "ok": false,
+        "final_url": null
       },
       "page": {
-        "title": "モバイル一番｜海峡通信株式会社｜携帯電話,iPhone,ゲーム機,家電製品を高額買取",
-        "body_length": 2426,
-        "body_available": true
+        "title": null,
+        "body_length": 0,
+        "body_available": false
       },
       "product": {
         "jan_found": false,
-        "name_found": true
+        "name_found": false
       },
       "price_candidates": [],
       "errors": [
-        "モバイル一番: 対象色の明示条件なし"
+        "page.goto: Timeout 15000ms exceeded.\nCall log:\n  - navigating to \"https://www.mobile-ichiban.com/Prod/1\", waiting until \"domcontentloaded\"\n"
       ],
-      "price": null,
-      "extraction_color_verified": false,
-      "raw_price": null,
-      "caution": "  \nシルバー/グレイシャー/ブラック -17000 \n",
       "color_verified": false
     },
     {
@@ -356,7 +352,7 @@
       "jan": "4549995734645",
       "product_name": "iPhone 18 Pro Max 256GB バーガンディ",
       "url": "https://www.keitaispace.co.jp/product/?ca=23",
-      "checked_at": "2026/10/6 19:52:53",
+      "checked_at": "2026/10/6 22:08:30",
       "status": "ERROR",
       "http": {
         "status": 200,
@@ -387,7 +383,7 @@
       "jan": "4549995734645",
       "product_name": "iPhone 18 Pro Max 256GB バーガンディ",
       "url": "https://www.kaitorishouten-co.jp/keitai",
-      "checked_at": "2026/10/6 19:52:53",
+      "checked_at": "2026/10/6 22:08:30",
       "status": "ERROR",
       "http": {
         "status": 200,
