@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-08T01:48:26.725403+00:00",
+  "generated_at": "2026-10-08T08:50:09.289716+00:00",
   "source": "Apple Japan retail pickup",
   "anchors": {
     "tokyo": "100-0005",
@@ -10,26 +10,6 @@
     "fukuoka": "810-0001"
   },
   "stores": {
-    "R718": {
-      "store_number": "R718",
-      "name": "丸の内",
-      "state": "東京都",
-      "city": "千代田区",
-      "postal_code": "100-0005",
-      "latitude": 35.680176,
-      "longitude": 139.763855,
-      "reservation_url": "http://www.apple.com/jp/retail/marunouchi"
-    },
-    "R079": {
-      "store_number": "R079",
-      "name": "銀座",
-      "state": "東京都",
-      "city": "中央区",
-      "postal_code": "104-0061",
-      "latitude": 35.67223450792639,
-      "longitude": 139.76587451661862,
-      "reservation_url": "http://www.apple.com/jp/retail/ginza"
-    },
     "R224": {
       "store_number": "R224",
       "name": "表参道",
@@ -40,26 +20,6 @@
       "longitude": 139.710932,
       "reservation_url": "http://www.apple.com/jp/retail/omotesando"
     },
-    "R128": {
-      "store_number": "R128",
-      "name": "新宿",
-      "state": "東京都",
-      "city": "新宿区",
-      "postal_code": "160-0022",
-      "latitude": 35.691,
-      "longitude": 139.7041,
-      "reservation_url": "http://www.apple.com/jp/retail/shinjuku"
-    },
-    "R119": {
-      "store_number": "R119",
-      "name": "渋谷",
-      "state": "東京都",
-      "city": "渋谷区",
-      "postal_code": "150-0041",
-      "latitude": 35.66196,
-      "longitude": 139.69978,
-      "reservation_url": "http://www.apple.com/jp/retail/shibuya"
-    },
     "R710": {
       "store_number": "R710",
       "name": "川崎",
@@ -69,16 +29,6 @@
       "latitude": 35.532695,
       "longitude": 139.695856,
       "reservation_url": "http://www.apple.com/jp/retail/kawasaki"
-    },
-    "R005": {
-      "store_number": "R005",
-      "name": "名古屋栄",
-      "state": "愛知県",
-      "city": "名古屋市",
-      "postal_code": "460-0008",
-      "latitude": 35.16555,
-      "longitude": 136.90716,
-      "reservation_url": "http://www.apple.com/jp/retail/nagoyasakae"
     },
     "R711": {
       "store_number": "R711",
@@ -119,6 +69,56 @@
       "latitude": 33.587908,
       "longitude": 130.397033,
       "reservation_url": "http://www.apple.com/jp/retail/fukuoka"
+    },
+    "R718": {
+      "store_number": "R718",
+      "name": "丸の内",
+      "state": "東京都",
+      "city": "千代田区",
+      "postal_code": "100-0005",
+      "latitude": 35.680176,
+      "longitude": 139.763855,
+      "reservation_url": "http://www.apple.com/jp/retail/marunouchi"
+    },
+    "R079": {
+      "store_number": "R079",
+      "name": "銀座",
+      "state": "東京都",
+      "city": "中央区",
+      "postal_code": "104-0061",
+      "latitude": 35.67223450792639,
+      "longitude": 139.76587451661862,
+      "reservation_url": "http://www.apple.com/jp/retail/ginza"
+    },
+    "R128": {
+      "store_number": "R128",
+      "name": "新宿",
+      "state": "東京都",
+      "city": "新宿区",
+      "postal_code": "160-0022",
+      "latitude": 35.691,
+      "longitude": 139.7041,
+      "reservation_url": "http://www.apple.com/jp/retail/shinjuku"
+    },
+    "R119": {
+      "store_number": "R119",
+      "name": "渋谷",
+      "state": "東京都",
+      "city": "渋谷区",
+      "postal_code": "150-0041",
+      "latitude": 35.66196,
+      "longitude": 139.69978,
+      "reservation_url": "http://www.apple.com/jp/retail/shibuya"
+    },
+    "R005": {
+      "store_number": "R005",
+      "name": "名古屋栄",
+      "state": "愛知県",
+      "city": "名古屋市",
+      "postal_code": "460-0008",
+      "latitude": 35.16555,
+      "longitude": 136.90716,
+      "reservation_url": "http://www.apple.com/jp/retail/nagoyasakae"
     }
   },
   "products": {
@@ -391,8 +391,8 @@
       "request_successes": 5,
       "request_errors": [],
       "overall_status": "ok",
-      "available_store_count": 10,
-      "unavailable_store_count": 1,
+      "available_store_count": 6,
+      "unavailable_store_count": 5,
       "stores": [
         {
           "store_number": "R711",
@@ -439,40 +439,40 @@
           "store_name": "銀座",
           "state": "東京都",
           "city": "中央区",
-          "status": "available",
-          "pickup_display": "available",
+          "status": "unavailable",
+          "pickup_display": "unavailable",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "選択できません"
         },
         {
           "store_number": "R718",
           "store_name": "丸の内",
           "state": "東京都",
           "city": "千代田区",
-          "status": "available",
-          "pickup_display": "available",
+          "status": "unavailable",
+          "pickup_display": "unavailable",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "選択できません"
         },
         {
           "store_number": "R128",
           "store_name": "新宿",
           "state": "東京都",
           "city": "新宿区",
-          "status": "available",
-          "pickup_display": "available",
+          "status": "unavailable",
+          "pickup_display": "unavailable",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "選択できません"
         },
         {
           "store_number": "R119",
           "store_name": "渋谷",
           "state": "東京都",
           "city": "渋谷区",
-          "status": "available",
-          "pickup_display": "available",
+          "status": "unavailable",
+          "pickup_display": "unavailable",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "選択できません"
         },
         {
           "store_number": "R224",
@@ -647,6 +647,134 @@
       "request_successes": 5,
       "request_errors": [],
       "overall_status": "ok",
+      "available_store_count": 10,
+      "unavailable_store_count": 1,
+      "stores": [
+        {
+          "store_number": "R711",
+          "store_name": "京都",
+          "state": "京都府",
+          "city": "京都市",
+          "status": "available",
+          "pickup_display": "available",
+          "store_pick_eligible": true,
+          "pickup_search_quote": "受け取れる日 本日"
+        },
+        {
+          "store_number": "R091",
+          "store_name": "心斎橋",
+          "state": "大阪府",
+          "city": "大阪市",
+          "status": "available",
+          "pickup_display": "available",
+          "store_pick_eligible": true,
+          "pickup_search_quote": "受け取れる日 本日"
+        },
+        {
+          "store_number": "R768",
+          "store_name": "梅田",
+          "state": "大阪府",
+          "city": "大阪市",
+          "status": "available",
+          "pickup_display": "available",
+          "store_pick_eligible": true,
+          "pickup_search_quote": "受け取れる日 本日"
+        },
+        {
+          "store_number": "R005",
+          "store_name": "名古屋栄",
+          "state": "愛知県",
+          "city": "名古屋市",
+          "status": "available",
+          "pickup_display": "available",
+          "store_pick_eligible": true,
+          "pickup_search_quote": "受け取れる日 本日"
+        },
+        {
+          "store_number": "R079",
+          "store_name": "銀座",
+          "state": "東京都",
+          "city": "中央区",
+          "status": "available",
+          "pickup_display": "available",
+          "store_pick_eligible": true,
+          "pickup_search_quote": "受け取れる日 本日"
+        },
+        {
+          "store_number": "R718",
+          "store_name": "丸の内",
+          "state": "東京都",
+          "city": "千代田区",
+          "status": "available",
+          "pickup_display": "available",
+          "store_pick_eligible": true,
+          "pickup_search_quote": "受け取れる日 本日"
+        },
+        {
+          "store_number": "R128",
+          "store_name": "新宿",
+          "state": "東京都",
+          "city": "新宿区",
+          "status": "unavailable",
+          "pickup_display": "unavailable",
+          "store_pick_eligible": true,
+          "pickup_search_quote": "選択できません"
+        },
+        {
+          "store_number": "R119",
+          "store_name": "渋谷",
+          "state": "東京都",
+          "city": "渋谷区",
+          "status": "available",
+          "pickup_display": "available",
+          "store_pick_eligible": true,
+          "pickup_search_quote": "受け取れる日 本日"
+        },
+        {
+          "store_number": "R224",
+          "store_name": "表参道",
+          "state": "東京都",
+          "city": "渋谷区",
+          "status": "available",
+          "pickup_display": "available",
+          "store_pick_eligible": true,
+          "pickup_search_quote": "受け取れる日 本日"
+        },
+        {
+          "store_number": "R710",
+          "store_name": "川崎",
+          "state": "神奈川県",
+          "city": "川崎市",
+          "status": "available",
+          "pickup_display": "available",
+          "store_pick_eligible": true,
+          "pickup_search_quote": "受け取れる日 本日"
+        },
+        {
+          "store_number": "R048",
+          "store_name": "福岡",
+          "state": "福岡県",
+          "city": "福岡市",
+          "status": "available",
+          "pickup_display": "available",
+          "store_pick_eligible": true,
+          "pickup_search_quote": "受け取れる日 本日"
+        }
+      ]
+    },
+    "MJRC4J/A": {
+      "sku": "MJRC4",
+      "part_number": "MJRC4J/A",
+      "model": "iPhone 18 Pro",
+      "storage": "512GB",
+      "color": "シルバー",
+      "color_en": "Silver",
+      "jan": "4549995734195",
+      "apple_price": 254800,
+      "name": "iPhone 18 Pro 512GB Silver",
+      "request_successes": 5,
+      "request_errors": [],
+      "overall_status": "ok",
       "available_store_count": 11,
       "unavailable_store_count": 0,
       "stores": [
@@ -762,134 +890,6 @@
         }
       ]
     },
-    "MJRC4J/A": {
-      "sku": "MJRC4",
-      "part_number": "MJRC4J/A",
-      "model": "iPhone 18 Pro",
-      "storage": "512GB",
-      "color": "シルバー",
-      "color_en": "Silver",
-      "jan": "4549995734195",
-      "apple_price": 254800,
-      "name": "iPhone 18 Pro 512GB Silver",
-      "request_successes": 5,
-      "request_errors": [],
-      "overall_status": "ok",
-      "available_store_count": 10,
-      "unavailable_store_count": 1,
-      "stores": [
-        {
-          "store_number": "R711",
-          "store_name": "京都",
-          "state": "京都府",
-          "city": "京都市",
-          "status": "available",
-          "pickup_display": "available",
-          "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
-        },
-        {
-          "store_number": "R091",
-          "store_name": "心斎橋",
-          "state": "大阪府",
-          "city": "大阪市",
-          "status": "available",
-          "pickup_display": "available",
-          "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
-        },
-        {
-          "store_number": "R768",
-          "store_name": "梅田",
-          "state": "大阪府",
-          "city": "大阪市",
-          "status": "available",
-          "pickup_display": "available",
-          "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
-        },
-        {
-          "store_number": "R005",
-          "store_name": "名古屋栄",
-          "state": "愛知県",
-          "city": "名古屋市",
-          "status": "available",
-          "pickup_display": "available",
-          "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
-        },
-        {
-          "store_number": "R079",
-          "store_name": "銀座",
-          "state": "東京都",
-          "city": "中央区",
-          "status": "available",
-          "pickup_display": "available",
-          "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
-        },
-        {
-          "store_number": "R718",
-          "store_name": "丸の内",
-          "state": "東京都",
-          "city": "千代田区",
-          "status": "available",
-          "pickup_display": "available",
-          "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
-        },
-        {
-          "store_number": "R128",
-          "store_name": "新宿",
-          "state": "東京都",
-          "city": "新宿区",
-          "status": "available",
-          "pickup_display": "available",
-          "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
-        },
-        {
-          "store_number": "R119",
-          "store_name": "渋谷",
-          "state": "東京都",
-          "city": "渋谷区",
-          "status": "available",
-          "pickup_display": "available",
-          "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
-        },
-        {
-          "store_number": "R224",
-          "store_name": "表参道",
-          "state": "東京都",
-          "city": "渋谷区",
-          "status": "available",
-          "pickup_display": "available",
-          "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
-        },
-        {
-          "store_number": "R710",
-          "store_name": "川崎",
-          "state": "神奈川県",
-          "city": "川崎市",
-          "status": "available",
-          "pickup_display": "available",
-          "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
-        },
-        {
-          "store_number": "R048",
-          "store_name": "福岡",
-          "state": "福岡県",
-          "city": "福岡市",
-          "status": "unavailable",
-          "pickup_display": "unavailable",
-          "store_pick_eligible": true,
-          "pickup_search_quote": "選択できません"
-        }
-      ]
-    },
     "MJRD4J/A": {
       "sku": "MJRD4",
       "part_number": "MJRD4J/A",
@@ -903,8 +903,8 @@
       "request_successes": 5,
       "request_errors": [],
       "overall_status": "ok",
-      "available_store_count": 10,
-      "unavailable_store_count": 1,
+      "available_store_count": 3,
+      "unavailable_store_count": 8,
       "stores": [
         {
           "store_number": "R711",
@@ -941,70 +941,70 @@
           "store_name": "名古屋栄",
           "state": "愛知県",
           "city": "名古屋市",
-          "status": "available",
-          "pickup_display": "available",
+          "status": "unavailable",
+          "pickup_display": "unavailable",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "選択できません"
         },
         {
           "store_number": "R079",
           "store_name": "銀座",
           "state": "東京都",
           "city": "中央区",
-          "status": "available",
-          "pickup_display": "available",
+          "status": "unavailable",
+          "pickup_display": "unavailable",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "選択できません"
         },
         {
           "store_number": "R718",
           "store_name": "丸の内",
           "state": "東京都",
           "city": "千代田区",
-          "status": "available",
-          "pickup_display": "available",
+          "status": "unavailable",
+          "pickup_display": "unavailable",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "選択できません"
         },
         {
           "store_number": "R128",
           "store_name": "新宿",
           "state": "東京都",
           "city": "新宿区",
-          "status": "available",
-          "pickup_display": "available",
+          "status": "unavailable",
+          "pickup_display": "unavailable",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "選択できません"
         },
         {
           "store_number": "R119",
           "store_name": "渋谷",
           "state": "東京都",
           "city": "渋谷区",
-          "status": "available",
-          "pickup_display": "available",
+          "status": "unavailable",
+          "pickup_display": "unavailable",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "選択できません"
         },
         {
           "store_number": "R224",
           "store_name": "表参道",
           "state": "東京都",
           "city": "渋谷区",
-          "status": "available",
-          "pickup_display": "available",
+          "status": "unavailable",
+          "pickup_display": "unavailable",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "選択できません"
         },
         {
           "store_number": "R710",
           "store_name": "川崎",
           "state": "神奈川県",
           "city": "川崎市",
-          "status": "available",
-          "pickup_display": "available",
+          "status": "unavailable",
+          "pickup_display": "unavailable",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "選択できません"
         },
         {
           "store_number": "R048",
@@ -1031,8 +1031,8 @@
       "request_successes": 5,
       "request_errors": [],
       "overall_status": "ok",
-      "available_store_count": 7,
-      "unavailable_store_count": 4,
+      "available_store_count": 6,
+      "unavailable_store_count": 5,
       "stores": [
         {
           "store_number": "R711",
@@ -1079,10 +1079,10 @@
           "store_name": "銀座",
           "state": "東京都",
           "city": "中央区",
-          "status": "available",
-          "pickup_display": "available",
+          "status": "unavailable",
+          "pickup_display": "unavailable",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "選択できません"
         },
         {
           "store_number": "R718",
@@ -1159,8 +1159,8 @@
       "request_successes": 5,
       "request_errors": [],
       "overall_status": "ok",
-      "available_store_count": 6,
-      "unavailable_store_count": 5,
+      "available_store_count": 5,
+      "unavailable_store_count": 6,
       "stores": [
         {
           "store_number": "R711",
@@ -1247,10 +1247,10 @@
           "store_name": "表参道",
           "state": "東京都",
           "city": "渋谷区",
-          "status": "available",
-          "pickup_display": "available",
+          "status": "unavailable",
+          "pickup_display": "unavailable",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "選択できません"
         },
         {
           "store_number": "R710",
@@ -1287,8 +1287,8 @@
       "request_successes": 5,
       "request_errors": [],
       "overall_status": "ok",
-      "available_store_count": 4,
-      "unavailable_store_count": 7,
+      "available_store_count": 3,
+      "unavailable_store_count": 8,
       "stores": [
         {
           "store_number": "R711",
@@ -1325,10 +1325,10 @@
           "store_name": "名古屋栄",
           "state": "愛知県",
           "city": "名古屋市",
-          "status": "available",
-          "pickup_display": "available",
+          "status": "unavailable",
+          "pickup_display": "unavailable",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "選択できません"
         },
         {
           "store_number": "R079",
@@ -1543,8 +1543,8 @@
       "request_successes": 5,
       "request_errors": [],
       "overall_status": "ok",
-      "available_store_count": 11,
-      "unavailable_store_count": 0,
+      "available_store_count": 7,
+      "unavailable_store_count": 4,
       "stores": [
         {
           "store_number": "R711",
@@ -1591,30 +1591,30 @@
           "store_name": "銀座",
           "state": "東京都",
           "city": "中央区",
-          "status": "available",
-          "pickup_display": "available",
+          "status": "unavailable",
+          "pickup_display": "unavailable",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "選択できません"
         },
         {
           "store_number": "R718",
           "store_name": "丸の内",
           "state": "東京都",
           "city": "千代田区",
-          "status": "available",
-          "pickup_display": "available",
+          "status": "unavailable",
+          "pickup_display": "unavailable",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "選択できません"
         },
         {
           "store_number": "R128",
           "store_name": "新宿",
           "state": "東京都",
           "city": "新宿区",
-          "status": "available",
-          "pickup_display": "available",
+          "status": "unavailable",
+          "pickup_display": "unavailable",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "選択できません"
         },
         {
           "store_number": "R119",
@@ -1651,10 +1651,10 @@
           "store_name": "福岡",
           "state": "福岡県",
           "city": "福岡市",
-          "status": "available",
-          "pickup_display": "available",
+          "status": "unavailable",
+          "pickup_display": "unavailable",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "選択できません"
         }
       ]
     },
@@ -1671,8 +1671,8 @@
       "request_successes": 5,
       "request_errors": [],
       "overall_status": "ok",
-      "available_store_count": 3,
-      "unavailable_store_count": 8,
+      "available_store_count": 2,
+      "unavailable_store_count": 9,
       "stores": [
         {
           "store_number": "R711",
@@ -1719,10 +1719,10 @@
           "store_name": "銀座",
           "state": "東京都",
           "city": "中央区",
-          "status": "available",
-          "pickup_display": "available",
+          "status": "unavailable",
+          "pickup_display": "unavailable",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "選択できません"
         },
         {
           "store_number": "R718",
@@ -1927,18 +1927,18 @@
       "request_successes": 5,
       "request_errors": [],
       "overall_status": "ok",
-      "available_store_count": 3,
-      "unavailable_store_count": 8,
+      "available_store_count": 1,
+      "unavailable_store_count": 10,
       "stores": [
         {
           "store_number": "R711",
           "store_name": "京都",
           "state": "京都府",
           "city": "京都市",
-          "status": "available",
-          "pickup_display": "available",
+          "status": "unavailable",
+          "pickup_display": "unavailable",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "選択できません"
         },
         {
           "store_number": "R091",
@@ -1985,10 +1985,10 @@
           "store_name": "丸の内",
           "state": "東京都",
           "city": "千代田区",
-          "status": "available",
-          "pickup_display": "available",
+          "status": "unavailable",
+          "pickup_display": "unavailable",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "選択できません"
         },
         {
           "store_number": "R128",
@@ -2439,28 +2439,28 @@
       "request_successes": 5,
       "request_errors": [],
       "overall_status": "ok",
-      "available_store_count": 2,
-      "unavailable_store_count": 9,
+      "available_store_count": 0,
+      "unavailable_store_count": 11,
       "stores": [
         {
           "store_number": "R711",
           "store_name": "京都",
           "state": "京都府",
           "city": "京都市",
-          "status": "available",
-          "pickup_display": "available",
+          "status": "unavailable",
+          "pickup_display": "unavailable",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "選択できません"
         },
         {
           "store_number": "R091",
           "store_name": "心斎橋",
           "state": "大阪府",
           "city": "大阪市",
-          "status": "available",
-          "pickup_display": "available",
+          "status": "unavailable",
+          "pickup_display": "unavailable",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "選択できません"
         },
         {
           "store_number": "R768",
@@ -2951,38 +2951,38 @@
       "request_successes": 5,
       "request_errors": [],
       "overall_status": "ok",
-      "available_store_count": 3,
-      "unavailable_store_count": 8,
+      "available_store_count": 0,
+      "unavailable_store_count": 11,
       "stores": [
         {
           "store_number": "R711",
           "store_name": "京都",
           "state": "京都府",
           "city": "京都市",
-          "status": "available",
-          "pickup_display": "available",
+          "status": "unavailable",
+          "pickup_display": "unavailable",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "選択できません"
         },
         {
           "store_number": "R091",
           "store_name": "心斎橋",
           "state": "大阪府",
           "city": "大阪市",
-          "status": "available",
-          "pickup_display": "available",
+          "status": "unavailable",
+          "pickup_display": "unavailable",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "選択できません"
         },
         {
           "store_number": "R768",
           "store_name": "梅田",
           "state": "大阪府",
           "city": "大阪市",
-          "status": "available",
-          "pickup_display": "available",
+          "status": "unavailable",
+          "pickup_display": "unavailable",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "選択できません"
         },
         {
           "store_number": "R005",
@@ -3463,28 +3463,28 @@
       "request_successes": 5,
       "request_errors": [],
       "overall_status": "ok",
-      "available_store_count": 2,
-      "unavailable_store_count": 9,
+      "available_store_count": 0,
+      "unavailable_store_count": 11,
       "stores": [
         {
           "store_number": "R711",
           "store_name": "京都",
           "state": "京都府",
           "city": "京都市",
-          "status": "available",
-          "pickup_display": "available",
+          "status": "unavailable",
+          "pickup_display": "unavailable",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "選択できません"
         },
         {
           "store_number": "R091",
           "store_name": "心斎橋",
           "state": "大阪府",
           "city": "大阪市",
-          "status": "available",
-          "pickup_display": "available",
+          "status": "unavailable",
+          "pickup_display": "unavailable",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "選択できません"
         },
         {
           "store_number": "R768",
