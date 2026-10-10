@@ -2,93 +2,93 @@
   "4549995734546": {
     "stores": [
       {
+        "store": "買取一丁目",
+        "price": 229000,
+        "url": "https://www.1-chome.com/keitai",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:14:18"
+      },
+      {
+        "store": "モバイルMIX",
+        "price": 226500,
+        "url": "https://mobile-mix.jp/?category=7",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:14:23"
+      },
+      {
+        "store": "買取ルデヤ",
+        "price": 225000,
+        "url": "https://kaitori-rudeya.com/search/index/4549995734546",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:14:07"
+      },
+      {
+        "store": "モバイル一番",
+        "price": 225000,
+        "url": "https://www.mobile-ichiban.com/Prod/1",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:14:23"
+      }
+    ],
+    "last_update": "2026/10/10 11:17:10"
+  },
+  "4549995734591": {
+    "stores": [
+      {
+        "store": "買取一丁目",
+        "price": 227000,
+        "url": "https://www.1-chome.com/keitai",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:14:19"
+      },
+      {
         "store": "モバイルMIX",
         "price": 224000,
         "url": "https://mobile-mix.jp/?category=7",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/9 11:53:36"
+        "checked_at": "2026/10/10 11:14:24"
       },
       {
         "store": "買取ルデヤ",
         "price": 223000,
-        "url": "https://kaitori-rudeya.com/search/index/4549995734546",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:53:22"
-      },
-      {
-        "store": "買取一丁目",
-        "price": 223000,
-        "url": "https://www.1-chome.com/keitai",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:53:32"
-      },
-      {
-        "store": "モバイル一番",
-        "price": 223000,
-        "url": "https://www.mobile-ichiban.com/Prod/1",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:53:36"
-      }
-    ],
-    "last_update": "2026/10/9 11:56:17"
-  },
-  "4549995734591": {
-    "stores": [
-      {
-        "store": "モバイルMIX",
-        "price": 222000,
-        "url": "https://mobile-mix.jp/?category=7",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:53:38"
-      },
-      {
-        "store": "買取楽園",
-        "price": 221500,
-        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:53:22"
-      },
-      {
-        "store": "買取ルデヤ",
-        "price": 221000,
         "url": "https://kaitori-rudeya.com/search/index/4549995734591",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/9 11:53:22"
+        "checked_at": "2026/10/10 11:14:07"
       },
       {
-        "store": "買取一丁目",
-        "price": 221000,
-        "url": "https://www.1-chome.com/keitai",
+        "store": "買取楽園",
+        "price": 223000,
+        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/9 11:53:33"
+        "checked_at": "2026/10/10 11:14:07"
       },
       {
         "store": "モバイル一番",
-        "price": 221000,
+        "price": 223000,
         "url": "https://www.mobile-ichiban.com/Prod/1",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/9 11:53:38"
+        "checked_at": "2026/10/10 11:14:24"
       }
     ],
-    "last_update": "2026/10/9 11:56:17"
+    "last_update": "2026/10/10 11:17:10"
   },
   "4549995734645": {
     "stores": [
@@ -99,624 +99,12 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/9 11:53:22"
+        "checked_at": "2026/10/10 11:14:07"
       }
     ],
-    "last_update": "2026/10/9 11:56:17"
+    "last_update": "2026/10/10 11:17:10"
   },
   "4549995734690": {
-    "stores": [
-      {
-        "store": "モバイルMIX",
-        "price": 224000,
-        "url": "https://mobile-mix.jp/?category=7",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:53:53"
-      },
-      {
-        "store": "買取楽園",
-        "price": 223500,
-        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:53:44"
-      },
-      {
-        "store": "買取ルデヤ",
-        "price": 223000,
-        "url": "https://kaitori-rudeya.com/search/index/4549995734690",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:53:44"
-      },
-      {
-        "store": "買取一丁目",
-        "price": 223000,
-        "url": "https://www.1-chome.com/keitai",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:53:49"
-      }
-    ],
-    "last_update": "2026/10/9 11:56:17"
-  },
-  "4549995734744": {
-    "stores": [
-      {
-        "store": "モバイルMIX",
-        "price": 261000,
-        "url": "https://mobile-mix.jp/?category=7",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:53:54"
-      },
-      {
-        "store": "買取ルデヤ",
-        "price": 260000,
-        "url": "https://kaitori-rudeya.com/search/index/4549995734744",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:53:44"
-      },
-      {
-        "store": "モバイル一番",
-        "price": 260000,
-        "url": "https://www.mobile-ichiban.com/Prod/1",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:53:54"
-      }
-    ],
-    "last_update": "2026/10/9 11:56:17"
-  },
-  "4549995734799": {
-    "stores": [
-      {
-        "store": "モバイルMIX",
-        "price": 259000,
-        "url": "https://mobile-mix.jp/?category=7",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:53:55"
-      },
-      {
-        "store": "買取ルデヤ",
-        "price": 258000,
-        "url": "https://kaitori-rudeya.com/search/index/4549995734799",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:53:44"
-      },
-      {
-        "store": "買取楽園",
-        "price": 258000,
-        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:53:44"
-      },
-      {
-        "store": "買取一丁目",
-        "price": 258000,
-        "url": "https://www.1-chome.com/keitai",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:53:49"
-      },
-      {
-        "store": "モバイル一番",
-        "price": 258000,
-        "url": "https://www.mobile-ichiban.com/Prod/1",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:53:55"
-      }
-    ],
-    "last_update": "2026/10/9 11:56:17"
-  },
-  "4549995734843": {
-    "stores": [
-      {
-        "store": "買取ルデヤ",
-        "price": 276000,
-        "url": "https://kaitori-rudeya.com/search/index/4549995734843",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:53:59"
-      }
-    ],
-    "last_update": "2026/10/9 11:56:17"
-  },
-  "4549995734898": {
-    "stores": [
-      {
-        "store": "モバイルMIX",
-        "price": 261000,
-        "url": "https://mobile-mix.jp/?category=7",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:54:08"
-      },
-      {
-        "store": "買取ルデヤ",
-        "price": 260000,
-        "url": "https://kaitori-rudeya.com/search/index/4549995734898",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:53:59"
-      },
-      {
-        "store": "買取楽園",
-        "price": 260000,
-        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:53:59"
-      },
-      {
-        "store": "買取一丁目",
-        "price": 260000,
-        "url": "https://www.1-chome.com/keitai",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:54:03"
-      },
-      {
-        "store": "モバイル一番",
-        "price": 260000,
-        "url": "https://www.mobile-ichiban.com/Prod/1",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:54:08"
-      }
-    ],
-    "last_update": "2026/10/9 11:56:17"
-  },
-  "4549995734942": {
-    "stores": [
-      {
-        "store": "モバイルMIX",
-        "price": 326000,
-        "url": "https://mobile-mix.jp/?category=7",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:54:08"
-      },
-      {
-        "store": "買取ルデヤ",
-        "price": 323000,
-        "url": "https://kaitori-rudeya.com/search/index/4549995734942",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:53:59"
-      },
-      {
-        "store": "モバイル一番",
-        "price": 323000,
-        "url": "https://www.mobile-ichiban.com/Prod/1",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:54:08"
-      }
-    ],
-    "last_update": "2026/10/9 11:56:17"
-  },
-  "4549995734997": {
-    "stores": [
-      {
-        "store": "買取ルデヤ",
-        "price": 323000,
-        "url": "https://kaitori-rudeya.com/search/index/4549995734997",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:54:14"
-      },
-      {
-        "store": "買取楽園",
-        "price": 323000,
-        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:54:14"
-      },
-      {
-        "store": "買取一丁目",
-        "price": 323000,
-        "url": "https://www.1-chome.com/keitai",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:54:18"
-      },
-      {
-        "store": "モバイルMIX",
-        "price": 323000,
-        "url": "https://mobile-mix.jp/?category=7",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:54:24"
-      },
-      {
-        "store": "モバイル一番",
-        "price": 323000,
-        "url": "https://www.mobile-ichiban.com/Prod/1",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:54:24"
-      }
-    ],
-    "last_update": "2026/10/9 11:56:17"
-  },
-  "4549995735048": {
-    "stores": [
-      {
-        "store": "買取ルデヤ",
-        "price": 338000,
-        "url": "https://kaitori-rudeya.com/search/index/4549995735048",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:54:14"
-      }
-    ],
-    "last_update": "2026/10/9 11:56:17"
-  },
-  "4549995735093": {
-    "stores": [
-      {
-        "store": "モバイルMIX",
-        "price": 326000,
-        "url": "https://mobile-mix.jp/?category=7",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:54:23"
-      },
-      {
-        "store": "買取ルデヤ",
-        "price": 323000,
-        "url": "https://kaitori-rudeya.com/search/index/4549995735093",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:54:14"
-      },
-      {
-        "store": "買取楽園",
-        "price": 323000,
-        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:54:14"
-      },
-      {
-        "store": "モバイル一番",
-        "price": 323000,
-        "url": "https://www.mobile-ichiban.com/Prod/1",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:54:23"
-      }
-    ],
-    "last_update": "2026/10/9 11:56:17"
-  },
-  "4549995735147": {
-    "stores": [
-      {
-        "store": "買取ルデヤ",
-        "price": 385000,
-        "url": "https://kaitori-rudeya.com/search/index/4549995735147",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:54:28"
-      },
-      {
-        "store": "買取一丁目",
-        "price": 385000,
-        "url": "https://www.1-chome.com/keitai",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:54:33"
-      },
-      {
-        "store": "モバイル一番",
-        "price": 385000,
-        "url": "https://www.mobile-ichiban.com/Prod/1",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:54:37"
-      }
-    ],
-    "last_update": "2026/10/9 11:56:17"
-  },
-  "4549995735192": {
-    "stores": [
-      {
-        "store": "買取ルデヤ",
-        "price": 385000,
-        "url": "https://kaitori-rudeya.com/search/index/4549995735192",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:54:28"
-      },
-      {
-        "store": "モバイル一番",
-        "price": 385000,
-        "url": "https://www.mobile-ichiban.com/Prod/1",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:54:38"
-      },
-      {
-        "store": "買取楽園",
-        "price": 375000,
-        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:54:28"
-      }
-    ],
-    "last_update": "2026/10/9 11:56:17"
-  },
-  "4549995735246": {
-    "stores": [
-      {
-        "store": "買取ルデヤ",
-        "price": 395000,
-        "url": "https://kaitori-rudeya.com/search/index/4549995735246",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:54:28"
-      }
-    ],
-    "last_update": "2026/10/9 11:56:17"
-  },
-  "4549995735291": {
-    "stores": [
-      {
-        "store": "買取ルデヤ",
-        "price": 385000,
-        "url": "https://kaitori-rudeya.com/search/index/4549995735291",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:54:43"
-      },
-      {
-        "store": "買取一丁目",
-        "price": 385000,
-        "url": "https://www.1-chome.com/keitai",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:54:48"
-      },
-      {
-        "store": "モバイル一番",
-        "price": 385000,
-        "url": "https://www.mobile-ichiban.com/Prod/1",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:54:53"
-      },
-      {
-        "store": "買取楽園",
-        "price": 375000,
-        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:54:43"
-      }
-    ],
-    "last_update": "2026/10/9 11:56:17"
-  },
-  "4549995734140": {
-    "stores": [
-      {
-        "store": "買取ルデヤ",
-        "price": 194000,
-        "url": "https://kaitori-rudeya.com/search/index/4549995734140",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:54:43"
-      },
-      {
-        "store": "モバイルMIX",
-        "price": 194000,
-        "url": "https://mobile-mix.jp/?category=7",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:54:53"
-      },
-      {
-        "store": "モバイル一番",
-        "price": 194000,
-        "url": "https://www.mobile-ichiban.com/Prod/1",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:54:53"
-      }
-    ],
-    "last_update": "2026/10/9 11:56:17"
-  },
-  "4549995734157": {
-    "stores": [
-      {
-        "store": "買取ルデヤ",
-        "price": 191000,
-        "url": "https://kaitori-rudeya.com/search/index/4549995734157",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:54:43"
-      },
-      {
-        "store": "買取楽園",
-        "price": 191000,
-        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:54:43"
-      },
-      {
-        "store": "買取一丁目",
-        "price": 191000,
-        "url": "https://www.1-chome.com/keitai",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:54:48"
-      },
-      {
-        "store": "モバイル一番",
-        "price": 191000,
-        "url": "https://www.mobile-ichiban.com/Prod/1",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:54:52"
-      }
-    ],
-    "last_update": "2026/10/9 11:56:17"
-  },
-  "4549995734164": {
-    "stores": [
-      {
-        "store": "買取ルデヤ",
-        "price": 210000,
-        "url": "https://kaitori-rudeya.com/search/index/4549995734164",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:54:58"
-      }
-    ],
-    "last_update": "2026/10/9 11:56:17"
-  },
-  "4549995734171": {
-    "stores": [
-      {
-        "store": "買取ルデヤ",
-        "price": 194000,
-        "url": "https://kaitori-rudeya.com/search/index/4549995734171",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:54:58"
-      },
-      {
-        "store": "買取楽園",
-        "price": 194000,
-        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:54:58"
-      },
-      {
-        "store": "モバイルMIX",
-        "price": 194000,
-        "url": "https://mobile-mix.jp/?category=7",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:55:07"
-      },
-      {
-        "store": "モバイル一番",
-        "price": 194000,
-        "url": "https://www.mobile-ichiban.com/Prod/1",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:55:07"
-      }
-    ],
-    "last_update": "2026/10/9 11:56:17"
-  },
-  "4549995734188": {
-    "stores": [
-      {
-        "store": "買取一丁目",
-        "price": 234000,
-        "url": "https://www.1-chome.com/keitai",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:55:03"
-      },
-      {
-        "store": "買取ルデヤ",
-        "price": 230000,
-        "url": "https://kaitori-rudeya.com/search/index/4549995734188",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:54:58"
-      },
-      {
-        "store": "モバイルMIX",
-        "price": 230000,
-        "url": "https://mobile-mix.jp/?category=7",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:55:08"
-      },
-      {
-        "store": "モバイル一番",
-        "price": 230000,
-        "url": "https://www.mobile-ichiban.com/Prod/1",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:55:08"
-      }
-    ],
-    "last_update": "2026/10/9 11:56:17"
-  },
-  "4549995734195": {
     "stores": [
       {
         "store": "買取一丁目",
@@ -725,16 +113,673 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/9 11:55:18"
+        "checked_at": "2026/10/10 11:14:35"
+      },
+      {
+        "store": "モバイルMIX",
+        "price": 226500,
+        "url": "https://mobile-mix.jp/?category=7",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:14:40"
       },
       {
         "store": "買取ルデヤ",
         "price": 225000,
+        "url": "https://kaitori-rudeya.com/search/index/4549995734690",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:14:31"
+      },
+      {
+        "store": "買取楽園",
+        "price": 225000,
+        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:14:31"
+      }
+    ],
+    "last_update": "2026/10/10 11:17:10"
+  },
+  "4549995734744": {
+    "stores": [
+      {
+        "store": "モバイルMIX",
+        "price": 263000,
+        "url": "https://mobile-mix.jp/?category=7",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:14:41"
+      },
+      {
+        "store": "買取ルデヤ",
+        "price": 262000,
+        "url": "https://kaitori-rudeya.com/search/index/4549995734744",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:14:31"
+      },
+      {
+        "store": "買取一丁目",
+        "price": 262000,
+        "url": "https://www.1-chome.com/keitai",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:14:36"
+      },
+      {
+        "store": "モバイル一番",
+        "price": 262000,
+        "url": "https://www.mobile-ichiban.com/Prod/1",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:14:41"
+      }
+    ],
+    "last_update": "2026/10/10 11:17:10"
+  },
+  "4549995734799": {
+    "stores": [
+      {
+        "store": "モバイルMIX",
+        "price": 260000,
+        "url": "https://mobile-mix.jp/?category=7",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:14:41"
+      },
+      {
+        "store": "買取ルデヤ",
+        "price": 259000,
+        "url": "https://kaitori-rudeya.com/search/index/4549995734799",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:14:31"
+      },
+      {
+        "store": "買取楽園",
+        "price": 259000,
+        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:14:31"
+      },
+      {
+        "store": "買取一丁目",
+        "price": 259000,
+        "url": "https://www.1-chome.com/keitai",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:14:36"
+      },
+      {
+        "store": "モバイル一番",
+        "price": 259000,
+        "url": "https://www.mobile-ichiban.com/Prod/1",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:14:41"
+      }
+    ],
+    "last_update": "2026/10/10 11:17:10"
+  },
+  "4549995734843": {
+    "stores": [
+      {
+        "store": "買取ルデヤ",
+        "price": 277000,
+        "url": "https://kaitori-rudeya.com/search/index/4549995734843",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:14:46"
+      }
+    ],
+    "last_update": "2026/10/10 11:17:10"
+  },
+  "4549995734898": {
+    "stores": [
+      {
+        "store": "モバイルMIX",
+        "price": 263000,
+        "url": "https://mobile-mix.jp/?category=7",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:14:56"
+      },
+      {
+        "store": "買取ルデヤ",
+        "price": 262000,
+        "url": "https://kaitori-rudeya.com/search/index/4549995734898",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:14:46"
+      },
+      {
+        "store": "買取楽園",
+        "price": 262000,
+        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:14:46"
+      },
+      {
+        "store": "買取一丁目",
+        "price": 262000,
+        "url": "https://www.1-chome.com/keitai",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:14:51"
+      },
+      {
+        "store": "モバイル一番",
+        "price": 262000,
+        "url": "https://www.mobile-ichiban.com/Prod/1",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:14:56"
+      }
+    ],
+    "last_update": "2026/10/10 11:17:10"
+  },
+  "4549995734942": {
+    "stores": [
+      {
+        "store": "買取ルデヤ",
+        "price": 327000,
+        "url": "https://kaitori-rudeya.com/search/index/4549995734942",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:14:46"
+      },
+      {
+        "store": "モバイルMIX",
+        "price": 327000,
+        "url": "https://mobile-mix.jp/?category=7",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:14:55"
+      },
+      {
+        "store": "買取一丁目",
+        "price": 324000,
+        "url": "https://www.1-chome.com/keitai",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:14:51"
+      },
+      {
+        "store": "モバイル一番",
+        "price": 323000,
+        "url": "https://www.mobile-ichiban.com/Prod/1",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:14:55"
+      }
+    ],
+    "last_update": "2026/10/10 11:17:10"
+  },
+  "4549995734997": {
+    "stores": [
+      {
+        "store": "買取ルデヤ",
+        "price": 327000,
+        "url": "https://kaitori-rudeya.com/search/index/4549995734997",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:15:02"
+      },
+      {
+        "store": "買取楽園",
+        "price": 325000,
+        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:15:02"
+      },
+      {
+        "store": "買取一丁目",
+        "price": 324000,
+        "url": "https://www.1-chome.com/keitai",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:15:07"
+      },
+      {
+        "store": "モバイルMIX",
+        "price": 323000,
+        "url": "https://mobile-mix.jp/?category=7",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:15:12"
+      },
+      {
+        "store": "モバイル一番",
+        "price": 323000,
+        "url": "https://www.mobile-ichiban.com/Prod/1",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:15:12"
+      }
+    ],
+    "last_update": "2026/10/10 11:17:10"
+  },
+  "4549995735048": {
+    "stores": [
+      {
+        "store": "買取ルデヤ",
+        "price": 342000,
+        "url": "https://kaitori-rudeya.com/search/index/4549995735048",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:15:02"
+      }
+    ],
+    "last_update": "2026/10/10 11:17:10"
+  },
+  "4549995735093": {
+    "stores": [
+      {
+        "store": "買取ルデヤ",
+        "price": 327000,
+        "url": "https://kaitori-rudeya.com/search/index/4549995735093",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:15:02"
+      },
+      {
+        "store": "モバイルMIX",
+        "price": 327000,
+        "url": "https://mobile-mix.jp/?category=7",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:15:11"
+      },
+      {
+        "store": "買取楽園",
+        "price": 325000,
+        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:15:02"
+      },
+      {
+        "store": "買取一丁目",
+        "price": 324000,
+        "url": "https://www.1-chome.com/keitai",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:15:06"
+      },
+      {
+        "store": "モバイル一番",
+        "price": 323000,
+        "url": "https://www.mobile-ichiban.com/Prod/1",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:15:11"
+      }
+    ],
+    "last_update": "2026/10/10 11:17:10"
+  },
+  "4549995735147": {
+    "stores": [
+      {
+        "store": "買取一丁目",
+        "price": 386000,
+        "url": "https://www.1-chome.com/keitai",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:15:22"
+      },
+      {
+        "store": "買取ルデヤ",
+        "price": 385000,
+        "url": "https://kaitori-rudeya.com/search/index/4549995735147",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:15:17"
+      },
+      {
+        "store": "モバイル一番",
+        "price": 385000,
+        "url": "https://www.mobile-ichiban.com/Prod/1",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:15:26"
+      }
+    ],
+    "last_update": "2026/10/10 11:17:10"
+  },
+  "4549995735192": {
+    "stores": [
+      {
+        "store": "買取一丁目",
+        "price": 386000,
+        "url": "https://www.1-chome.com/keitai",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:15:23"
+      },
+      {
+        "store": "買取ルデヤ",
+        "price": 385000,
+        "url": "https://kaitori-rudeya.com/search/index/4549995735192",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:15:17"
+      },
+      {
+        "store": "モバイル一番",
+        "price": 385000,
+        "url": "https://www.mobile-ichiban.com/Prod/1",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:15:27"
+      },
+      {
+        "store": "買取楽園",
+        "price": 375000,
+        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:15:17"
+      }
+    ],
+    "last_update": "2026/10/10 11:17:10"
+  },
+  "4549995735246": {
+    "stores": [
+      {
+        "store": "買取ルデヤ",
+        "price": 397000,
+        "url": "https://kaitori-rudeya.com/search/index/4549995735246",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:15:17"
+      },
+      {
+        "store": "モバイルMIX",
+        "price": 397000,
+        "url": "https://mobile-mix.jp/?category=7",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:15:28"
+      }
+    ],
+    "last_update": "2026/10/10 11:17:10"
+  },
+  "4549995735291": {
+    "stores": [
+      {
+        "store": "買取一丁目",
+        "price": 386000,
+        "url": "https://www.1-chome.com/keitai",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:15:38"
+      },
+      {
+        "store": "買取ルデヤ",
+        "price": 385000,
+        "url": "https://kaitori-rudeya.com/search/index/4549995735291",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:15:32"
+      },
+      {
+        "store": "モバイル一番",
+        "price": 385000,
+        "url": "https://www.mobile-ichiban.com/Prod/1",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:15:43"
+      },
+      {
+        "store": "買取楽園",
+        "price": 375000,
+        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:15:32"
+      }
+    ],
+    "last_update": "2026/10/10 11:17:10"
+  },
+  "4549995734140": {
+    "stores": [
+      {
+        "store": "モバイルMIX",
+        "price": 196500,
+        "url": "https://mobile-mix.jp/?category=7",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:15:43"
+      },
+      {
+        "store": "買取ルデヤ",
+        "price": 195000,
+        "url": "https://kaitori-rudeya.com/search/index/4549995734140",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:15:32"
+      },
+      {
+        "store": "モバイル一番",
+        "price": 195000,
+        "url": "https://www.mobile-ichiban.com/Prod/1",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:15:43"
+      }
+    ],
+    "last_update": "2026/10/10 11:17:10"
+  },
+  "4549995734157": {
+    "stores": [
+      {
+        "store": "買取一丁目",
+        "price": 193000,
+        "url": "https://www.1-chome.com/keitai",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:15:37"
+      },
+      {
+        "store": "買取楽園",
+        "price": 192000,
+        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:15:32"
+      },
+      {
+        "store": "モバイル一番",
+        "price": 192000,
+        "url": "https://www.mobile-ichiban.com/Prod/1",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:15:41"
+      },
+      {
+        "store": "買取ルデヤ",
+        "price": 191000,
+        "url": "https://kaitori-rudeya.com/search/index/4549995734157",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:15:32"
+      }
+    ],
+    "last_update": "2026/10/10 11:17:10"
+  },
+  "4549995734164": {
+    "stores": [
+      {
+        "store": "買取ルデヤ",
+        "price": 211000,
+        "url": "https://kaitori-rudeya.com/search/index/4549995734164",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:15:48"
+      }
+    ],
+    "last_update": "2026/10/10 11:17:10"
+  },
+  "4549995734171": {
+    "stores": [
+      {
+        "store": "モバイルMIX",
+        "price": 196500,
+        "url": "https://mobile-mix.jp/?category=7",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:15:57"
+      },
+      {
+        "store": "買取ルデヤ",
+        "price": 195000,
+        "url": "https://kaitori-rudeya.com/search/index/4549995734171",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:15:48"
+      },
+      {
+        "store": "買取楽園",
+        "price": 195000,
+        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:15:48"
+      },
+      {
+        "store": "モバイル一番",
+        "price": 195000,
+        "url": "https://www.mobile-ichiban.com/Prod/1",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:15:57"
+      }
+    ],
+    "last_update": "2026/10/10 11:17:10"
+  },
+  "4549995734188": {
+    "stores": [
+      {
+        "store": "買取ルデヤ",
+        "price": 235000,
+        "url": "https://kaitori-rudeya.com/search/index/4549995734188",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:15:48"
+      },
+      {
+        "store": "モバイルMIX",
+        "price": 235000,
+        "url": "https://mobile-mix.jp/?category=7",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:15:58"
+      },
+      {
+        "store": "買取一丁目",
+        "price": 232000,
+        "url": "https://www.1-chome.com/keitai",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:15:53"
+      },
+      {
+        "store": "モバイル一番",
+        "price": 230000,
+        "url": "https://www.mobile-ichiban.com/Prod/1",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:15:58"
+      }
+    ],
+    "last_update": "2026/10/10 11:17:10"
+  },
+  "4549995734195": {
+    "stores": [
+      {
+        "store": "買取ルデヤ",
+        "price": 229000,
         "url": "https://kaitori-rudeya.com/search/index/4549995734195",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/9 11:55:13"
+        "checked_at": "2026/10/10 11:16:03"
+      },
+      {
+        "store": "買取一丁目",
+        "price": 226000,
+        "url": "https://www.1-chome.com/keitai",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:16:08"
       },
       {
         "store": "買取楽園",
@@ -743,7 +788,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/9 11:55:13"
+        "checked_at": "2026/10/10 11:16:03"
       },
       {
         "store": "モバイル一番",
@@ -752,44 +797,53 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/9 11:55:23"
+        "checked_at": "2026/10/10 11:16:13"
       }
     ],
-    "last_update": "2026/10/9 11:56:17"
+    "last_update": "2026/10/10 11:17:10"
   },
   "4549995734201": {
     "stores": [
       {
         "store": "買取ルデヤ",
-        "price": 244000,
+        "price": 247000,
         "url": "https://kaitori-rudeya.com/search/index/4549995734201",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/9 11:55:13"
+        "checked_at": "2026/10/10 11:16:03"
       }
     ],
-    "last_update": "2026/10/9 11:56:17"
+    "last_update": "2026/10/10 11:17:10"
   },
   "4549995734218": {
     "stores": [
       {
-        "store": "買取一丁目",
-        "price": 234000,
-        "url": "https://www.1-chome.com/keitai",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:55:17"
-      },
-      {
         "store": "買取ルデヤ",
-        "price": 230000,
+        "price": 235000,
         "url": "https://kaitori-rudeya.com/search/index/4549995734218",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/9 11:55:13"
+        "checked_at": "2026/10/10 11:16:03"
+      },
+      {
+        "store": "モバイルMIX",
+        "price": 235000,
+        "url": "https://mobile-mix.jp/?category=7",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:16:13"
+      },
+      {
+        "store": "買取一丁目",
+        "price": 232000,
+        "url": "https://www.1-chome.com/keitai",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:16:08"
       },
       {
         "store": "買取楽園",
@@ -798,19 +852,10 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/9 11:55:13"
-      },
-      {
-        "store": "モバイルMIX",
-        "price": 230000,
-        "url": "https://mobile-mix.jp/?category=7",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:55:23"
+        "checked_at": "2026/10/10 11:16:03"
       }
     ],
-    "last_update": "2026/10/9 11:56:17"
+    "last_update": "2026/10/10 11:17:10"
   },
   "4549995734225": {
     "stores": [
@@ -821,16 +866,16 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/9 11:55:28"
+        "checked_at": "2026/10/10 11:16:19"
       },
       {
         "store": "買取一丁目",
-        "price": 295000,
+        "price": 292000,
         "url": "https://www.1-chome.com/keitai",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/9 11:55:33"
+        "checked_at": "2026/10/10 11:16:24"
       },
       {
         "store": "モバイル一番",
@@ -839,10 +884,10 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/9 11:55:38"
+        "checked_at": "2026/10/10 11:16:28"
       }
     ],
-    "last_update": "2026/10/9 11:56:17"
+    "last_update": "2026/10/10 11:17:10"
   },
   "4549995734232": {
     "stores": [
@@ -853,31 +898,40 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/9 11:55:28"
-      },
-      {
-        "store": "買取一丁目",
-        "price": 295000,
-        "url": "https://www.1-chome.com/keitai",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:55:33"
+        "checked_at": "2026/10/10 11:16:19"
       },
       {
         "store": "買取楽園",
-        "price": 290000,
+        "price": 295000,
         "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/9 11:55:28"
+        "checked_at": "2026/10/10 11:16:19"
+      },
+      {
+        "store": "買取一丁目",
+        "price": 292000,
+        "url": "https://www.1-chome.com/keitai",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:16:24"
       }
     ],
-    "last_update": "2026/10/9 11:56:17"
+    "last_update": "2026/10/10 11:17:10"
   },
   "4549995734249": {
     "stores": [
+      {
+        "store": "買取ルデヤ",
+        "price": 308000,
+        "url": "https://kaitori-rudeya.com/search/index/4549995734249",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:16:19"
+      },
       {
         "store": "モバイルMIX",
         "price": 308000,
@@ -885,19 +939,10 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/9 11:55:37"
-      },
-      {
-        "store": "買取ルデヤ",
-        "price": 305000,
-        "url": "https://kaitori-rudeya.com/search/index/4549995734249",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:55:28"
+        "checked_at": "2026/10/10 11:16:30"
       }
     ],
-    "last_update": "2026/10/9 11:56:17"
+    "last_update": "2026/10/10 11:17:10"
   },
   "4549995734256": {
     "stores": [
@@ -908,28 +953,28 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/9 11:55:43"
-      },
-      {
-        "store": "買取一丁目",
-        "price": 295000,
-        "url": "https://www.1-chome.com/keitai",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/10/9 11:55:47"
+        "checked_at": "2026/10/10 11:16:34"
       },
       {
         "store": "買取楽園",
-        "price": 291000,
+        "price": 295000,
         "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/9 11:55:43"
+        "checked_at": "2026/10/10 11:16:34"
+      },
+      {
+        "store": "買取一丁目",
+        "price": 292000,
+        "url": "https://www.1-chome.com/keitai",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/10/10 11:16:40"
       }
     ],
-    "last_update": "2026/10/9 11:56:17"
+    "last_update": "2026/10/10 11:17:10"
   },
   "4549995734263": {
     "stores": [
@@ -940,7 +985,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/9 11:55:43"
+        "checked_at": "2026/10/10 11:16:34"
       },
       {
         "store": "モバイル一番",
@@ -949,10 +994,10 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/9 11:55:52"
+        "checked_at": "2026/10/10 11:16:44"
       }
     ],
-    "last_update": "2026/10/9 11:56:17"
+    "last_update": "2026/10/10 11:17:10"
   },
   "4549995734270": {
     "stores": [
@@ -963,7 +1008,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/9 11:55:43"
+        "checked_at": "2026/10/10 11:16:34"
       },
       {
         "store": "買取一丁目",
@@ -972,7 +1017,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/9 11:55:48"
+        "checked_at": "2026/10/10 11:16:39"
       },
       {
         "store": "モバイル一番",
@@ -981,7 +1026,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/9 11:55:53"
+        "checked_at": "2026/10/10 11:16:43"
       },
       {
         "store": "買取楽園",
@@ -990,10 +1035,10 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/9 11:55:43"
+        "checked_at": "2026/10/10 11:16:34"
       }
     ],
-    "last_update": "2026/10/9 11:56:17"
+    "last_update": "2026/10/10 11:17:10"
   },
   "4549995734287": {
     "stores": [
@@ -1004,10 +1049,10 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/9 11:55:58"
+        "checked_at": "2026/10/10 11:16:50"
       }
     ],
-    "last_update": "2026/10/9 11:56:17"
+    "last_update": "2026/10/10 11:17:10"
   },
   "4549995734294": {
     "stores": [
@@ -1018,7 +1063,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/9 11:55:58"
+        "checked_at": "2026/10/10 11:16:50"
       },
       {
         "store": "買取一丁目",
@@ -1027,7 +1072,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/9 11:56:02"
+        "checked_at": "2026/10/10 11:16:54"
       },
       {
         "store": "モバイル一番",
@@ -1036,7 +1081,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/9 11:56:06"
+        "checked_at": "2026/10/10 11:16:58"
       },
       {
         "store": "買取楽園",
@@ -1045,10 +1090,10 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/9 11:55:58"
+        "checked_at": "2026/10/10 11:16:50"
       }
     ],
-    "last_update": "2026/10/9 11:56:17"
+    "last_update": "2026/10/10 11:17:10"
   },
   "4549995649284": {
     "name": "iPhone 17 Pro Max 256GB シルバー",
