@@ -1238,6 +1238,41 @@
       "available_from": "2026-10-16"
     },
     {
+      "id": "pokemon-30th-celebration-cardset-9",
+      "category": "cards",
+      "kind": "card_bundle",
+      "name": "ポケモンカードゲーム MEGA 30th CELEBRATION カードセット 9種セット",
+      "jan": "4521329462295",
+      "condition": "sealed_set",
+      "condition_label": "未開封 9種セット",
+      "aliases": [
+        "30th CELEBRATION カードセット 9種セット",
+        "30th celebrationカードセット 9種セット",
+        "30周年カードセット9種",
+        "30周年 9種セット",
+        "9種セット",
+        "9種コンプ",
+        "御三家9種セット",
+        "ポケカ30周年"
+      ],
+      "tags": [
+        "anniversary30"
+      ],
+      "required_name_terms": [
+        "9種セット"
+      ],
+      "store_queries": {
+        "rudeya": "30th CELEBRATION カードセット 9種セット",
+        "morimori": "30th CELEBRATION カードセット 9種セット",
+        "keitaispace": "30th CELEBRATION カードセット 9種セット",
+        "kaitoriwiki": "30th CELEBRATION カードセット 9種セット",
+        "kaitorishouten": "30th CELEBRATION カードセット 9種セット",
+        "ichome": "30th CELEBRATION カードセット 9種セット"
+      },
+      "reference_note": "30th CELEBRATION カードセット全9種類を各1点含む未開封9種セットです。単品カードセットとJANが重複する掲載例があるため、買取価格は「9種セット」と商品名まで確認できた公開価格だけを採用します。",
+      "official_source": "https://www.30th.pokemon-card.com/product"
+    },
+    {
       "id": "ricoh-gr-iv",
       "category": "cameras",
       "name": "RICOH GR IV",

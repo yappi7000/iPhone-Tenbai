@@ -70,6 +70,20 @@ class Tree(HTMLParser):
 def exact_code(text, code):
     return re.search(r'(?<!\d)' + re.escape(code) + r'(?!\d)', text) is not None
 
+def required_name_terms_match(product, text):
+    """Require identifying words for products that share a JAN with another item."""
+    terms = product.get('required_name_terms') or []
+    if not terms:
+        return True
+
+    value = re.sub(r'[\\s　]+', '', str(text or '')).lower()
+
+    return all(
+        re.sub(r'[\\s　]+', '', str(term)).lower() in value
+        for term in terms
+    )
+
+
 def amount(text):
     m = re.fullmatch(r'\s*[¥￥]?\s*([0-9]+(?:,[0-9]{3})*)\s*円?\s*', text)
     if not m:
@@ -157,6 +171,8 @@ def extract_api(payload, store, product):
         name = str(item.get('title' if store == 'ichome' else 'name') or '')
         if not name or BAD_CONDITION.search(name):
             continue
+        if not required_name_terms_match(product, name):
+            continue
         box = product['condition'] == 'sealed_box'
         if box and not re.search(r'BOX|ボックス', name, re.I):
             continue
@@ -192,7 +208,10 @@ def extract_api(payload, store, product):
                 if not SEALED.search(label) and not (store == 'kaitorishouten' and label == '新品' and SEALED.search(memo) and not BAD_CONDITION.search(memo)):
                     continue
             elif product['condition'] == 'sealed_set':
-                if not re.search(r'未開封', label + ' ' + memo) or BAD_CONDITION.search(label + ' ' + memo):
+                if product.get('kind') == 'card_bundle':
+                    if BAD_CONDITION.search(label + ' ' + memo):
+                        continue
+                elif not re.search(r'未開封', label + ' ' + memo) or BAD_CONDITION.search(label + ' ' + memo):
                     continue
             elif label.strip() not in ('新品', '新品未使用', '未使用', '未使用品', '未開封', '未開封品'):
                 continue
@@ -222,8 +241,29 @@ def extract(html, store, product):
             if p and p.parent:
                 name = button.attrs.get('data-product-name', '')
                 code = product.get('store_codes', {}).get(store, product['jan'])
-                if exact_code(p.text(), code):
-                    candidates.append((name, amount(button.attrs['data-product-price']), p, ''))
+
+                # 9種セットのように単品とJANが重複する商品は、
+                # 商品名の必須語を優先して識別する。
+                # 通常商品は従来どおりJAN/店舗コード一致を必須とする。
+                if product.get('required_name_terms'):
+                    if required_name_terms_match(product, name + ' ' + p.text()):
+                        candidates.append(
+                            (
+                                name,
+                                amount(button.attrs['data-product-price']),
+                                p,
+                                ''
+                            )
+                        )
+                elif exact_code(p.text(), code):
+                    candidates.append(
+                        (
+                            name,
+                            amount(button.attrs['data-product-price']),
+                            p,
+                            ''
+                        )
+                    )
     elif store == 'keitaispace':
         # Use only grid cards, not the duplicate mobile/list presentation.
         for p in root.walk():
@@ -262,12 +302,18 @@ def extract(html, store, product):
     for name, price, node, memo in candidates:
         if BAD_CONDITION.search(name):
             continue
+        if not required_name_terms_match(product, name + ' ' + memo):
+            continue
         if product['condition'] == 'sealed_box' and not re.search(r'BOX|ボックス', name, re.I):
             continue
         if product['condition'] == 'sealed_box' and store in ('keitaispace', 'kaitoriwiki') and not SEALED.search(name + ' ' + memo):
             continue
-        if product['condition'] == 'sealed_set' and (not re.search(r'未開封', name + ' ' + memo) or BAD_CONDITION.search(name + ' ' + memo)):
-            continue
+        if product['condition'] == 'sealed_set':
+            if product.get('kind') == 'card_bundle':
+                if BAD_CONDITION.search(name + ' ' + memo):
+                    continue
+            elif not re.search(r'未開封', name + ' ' + memo) or BAD_CONDITION.search(name + ' ' + memo):
+                continue
         if price is None:
             continue
         links = [n.attrs.get('href', '') for n in node.walk() if n.tag == 'a']
@@ -275,10 +321,145 @@ def extract(html, store, product):
         matches.append({'price': price, 'matched_name': name, 'product_url': link, 'note': memo})
     return choose(matches)
 
+def fetch_homura_nine_set(product):
+    """Fetch Homura's real 30th CELEBRATION 9-set listing.
+
+    The normal JAN search can miss this item, so fetch Homura's product
+    catalogue and identify the item only when BOTH:
+      - JAN 4521329462295 is present
+      - the product name contains the required '9種セット' term
+    """
+    store = 'homura'
+    store_name = STORES[store][0]
+    url = 'https://kaitori-homura.com/products'
+
+    checked = dt.datetime.now(dt.timezone.utc).isoformat()
+
+    row = {
+        'store_id': store,
+        'store': store_name,
+        'url': url,
+        'checked_at': checked,
+        'observed_at': None,
+        'price': None,
+        'status': 'error'
+    }
+
+    try:
+        request = urllib.request.Request(
+            url,
+            headers={
+                'User-Agent': 'Mozilla/5.0',
+                'Accept': 'text/html'
+            }
+        )
+
+        with urllib.request.urlopen(request, timeout=20) as response:
+            if response.status != 200:
+                raise ValueError('HTTP ' + str(response.status))
+
+            raw = response.read(4_000_001)
+
+            if len(raw) > 4_000_000:
+                raise ValueError('Response exceeds limit')
+
+            body = raw.decode('utf-8', errors='replace')
+
+        root = Tree(body).root
+        matches = []
+
+        for button in root.walk():
+            if 'data-product-price' not in button.attrs:
+                continue
+
+            node = button.parent
+
+            while node and node.parent:
+                text_value = node.text()
+
+                if (
+                    exact_code(text_value, product['jan'])
+                    and required_name_terms_match(product, text_value)
+                ):
+                    break
+
+                node = node.parent
+
+            if not node or not node.parent:
+                continue
+
+            text_value = node.text()
+
+            if not exact_code(text_value, product['jan']):
+                continue
+
+            if not required_name_terms_match(product, text_value):
+                continue
+
+            price = amount(button.attrs.get('data-product-price', ''))
+
+            if price is None:
+                continue
+
+            name = button.attrs.get(
+                'data-product-name',
+                '30th CELEBRATION カードセット 9種セット'
+            ).strip()
+
+            links = [
+                n.attrs.get('href', '')
+                for n in node.walk()
+                if n.tag == 'a'
+            ]
+
+            product_url = next(
+                (
+                    x for x in links
+                    if re.search(r'/products/\d+', x)
+                ),
+                ''
+            )
+
+            matches.append({
+                'price': price,
+                'matched_name': name,
+                'product_url': product_url,
+                'note': (
+                    'ホムラ公開買取価格。'
+                    '9種セット名とJANを両方照合。'
+                )
+            })
+
+        quote, status = choose(matches)
+
+        row['status'] = status
+
+        if quote:
+            row.update(quote)
+            row['url'] = (
+                urllib.parse.urljoin(url, row.pop('product_url'))
+                or url
+            )
+            row['observed_at'] = checked
+
+    except Exception as e:
+        row['error'] = (
+            type(e).__name__ + ': ' + str(e)[:180]
+        )
+
+    return row
+
+
 def fetch_quote(store, product):
+    if (
+        store == 'homura'
+        and product.get('id') == 'pokemon-30th-celebration-cardset-9'
+    ):
+        return fetch_homura_nine_set(product)
+
     name, base = STORES[store]
-    url = base + urllib.parse.quote(product['jan']) if store != 'ichome' else base
     query = product.get('store_queries', {}).get(store, product['jan'])
+    url = base + urllib.parse.quote(query) if store != 'ichome' else base
     request_url = API_BASES[store] + urllib.parse.quote(query) if store in API_BASES else url
     checked = dt.datetime.now(dt.timezone.utc).isoformat()
     row = {'store_id': store, 'store': name, 'url': url, 'checked_at': checked, 'observed_at': None, 'price': None, 'status': 'error'}
