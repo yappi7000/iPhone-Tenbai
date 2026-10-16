@@ -485,6 +485,7 @@ body{background:#eef3f9}
       <div>
         <label>モデル</label>
         <select id="modelSelect">
+          <option value="iPhone Duo">iPhone Duo</option>
           <option value="iPhone 18 Pro Max">iPhone 18 Pro Max</option>
           <option value="iPhone 18 Pro">iPhone 18 Pro</option>
         </select>
@@ -638,7 +639,8 @@ body{background:#eef3f9}
 
     <p style="margin:0 0 16px; color:var(--muted); line-height:1.8;">
       JANコードまたは商品名から、現在登録されているiPhoneの買取相場を検索できます。
-      売却前の価格チェックにご利用ください。
+      iPhone DuoはApple Store定価も確認できます。
+      売却前・購入前の価格チェックにご利用ください。
     </p>
 
     <div class="present-search">
@@ -666,6 +668,10 @@ body{background:#eef3f9}
           <div class="sim-row">
             <span>JANコード</span>
             <strong id="presentJan">--</strong>
+          </div>
+          <div class="sim-row">
+            <span>Apple定価</span>
+            <strong id="presentApplePrice">--</strong>
           </div>
           <div class="sim-row">
             <span>最高買取価格</span>
@@ -702,6 +708,10 @@ body{background:#eef3f9}
 
 <script>
   const APPLE_PRICES = {
+    "iPhone Duo_256GB": 364800,
+    "iPhone Duo_512GB": 399800,
+    "iPhone Duo_1TB": 469800,
+    "iPhone Duo_2TB": 574800,
     "iPhone 18 Pro Max_256GB": 239800,
     "iPhone 18 Pro Max_512GB": 274800,
     "iPhone 18 Pro Max_1TB": 344800,
@@ -715,6 +725,10 @@ body{background:#eef3f9}
   const APPLE_STATUS = {};
 
   const PRODUCT_CONFIG = {
+    "iPhone Duo": {
+      storages: ["256GB", "512GB", "1TB", "2TB"],
+      colors: ["スターホワイト", "ナイトスカイ"]
+    },
     "iPhone 18 Pro Max": {
       storages: ["256GB", "512GB", "1TB", "2TB"],
       colors: ["ブラック", "シルバー", "グレイシャー", "バーガンディ"]
@@ -863,8 +877,9 @@ body{background:#eef3f9}
     const color = document.getElementById("colorSelect").value;
 
     const key = `${model}_${storage}_${color}`;
-    const jan = JAN_DATABASE[key] || "--";
-    document.getElementById("currentJan").textContent = jan;
+    const jan = JAN_DATABASE[key] || "";
+    document.getElementById("currentJan").textContent =
+      jan || (model === "iPhone Duo" ? "JAN未登録（Apple公開待ち）" : "--");
 
     const appleKey = `${model}_${storage}`;
     const applePrice = APPLE_PRICES[appleKey] ?? 0;
@@ -873,7 +888,8 @@ body{background:#eef3f9}
       applePrice ? `¥${applePrice.toLocaleString()}` :
       `<span class="discontinued">${appleStatus || "Apple価格確認中"}</span>`;
 
-    let itemData = selectedCondition === "unopened" ? crawlData[jan] : null;
+    let itemData =
+      selectedCondition === "unopened" && jan ? crawlData[jan] : null;
     const tableBody = document.getElementById("rankingTableBody");
     const maxPriceCard = document.getElementById("maxPriceCard");
     const bestStoreName = document.getElementById("bestStoreName");
@@ -895,8 +911,12 @@ body{background:#eef3f9}
       tableBody.innerHTML = `
         <tr>
           <td colspan="6" style="text-align:center;padding:24px;color:var(--muted);">
-            このモデル・容量・カラーの買取データをまだ取得できていません。<br>
-            <span style="font-size:11px;">${selectedCondition === "opened" ? "開封済みの買取データは現在未対応です。" : `JAN: ${jan}`}</span>
+            ${model === "iPhone Duo" && !jan
+              ? "Apple Store定価は登録済みです。JAN・買取価格はApple公開後に追加します。"
+              : "このモデル・容量・カラーの買取データをまだ取得できていません。"}<br>
+            <span style="font-size:11px;">${selectedCondition === "opened"
+              ? "開封済みの買取データは現在未対応です。"
+              : (jan ? `JAN: ${jan}` : "iPhone Duo / Apple公式価格を表示中")}</span>
           </td>
         </tr>`;
       return;
@@ -1402,6 +1422,17 @@ body{background:#eef3f9}
 
   let presentProductDatabase = {};
 
+  const DUO_PRESENT_PRODUCTS = {
+    "iPhone Duo_256GB_スターホワイト": "APPLE-DUO-256-WHITE",
+    "iPhone Duo_256GB_ナイトスカイ": "APPLE-DUO-256-NIGHT",
+    "iPhone Duo_512GB_スターホワイト": "APPLE-DUO-512-WHITE",
+    "iPhone Duo_512GB_ナイトスカイ": "APPLE-DUO-512-NIGHT",
+    "iPhone Duo_1TB_スターホワイト": "APPLE-DUO-1TB-WHITE",
+    "iPhone Duo_1TB_ナイトスカイ": "APPLE-DUO-1TB-NIGHT",
+    "iPhone Duo_2TB_スターホワイト": "APPLE-DUO-2TB-WHITE",
+    "iPhone Duo_2TB_ナイトスカイ": "APPLE-DUO-2TB-NIGHT"
+  };
+
   async function loadPresentProductMaster() {
     try {
       const res = await fetch(`data/product_master.json?t=${Date.now()}`);
@@ -1418,6 +1449,8 @@ body{background:#eef3f9}
         }
       }
 
+      Object.assign(database, DUO_PRESENT_PRODUCTS);
+
       presentProductDatabase = database;
 
       console.log(
@@ -1425,7 +1458,10 @@ body{background:#eef3f9}
       );
     } catch (error) {
       console.error("Present商品マスター読込失敗:", error);
-      presentProductDatabase = { ...JAN_DATABASE };
+      presentProductDatabase = {
+        ...JAN_DATABASE,
+        ...DUO_PRESENT_PRODUCTS
+      };
     }
   }
 
@@ -1488,18 +1524,58 @@ body{background:#eef3f9}
           `<span style="display:block;white-space:nowrap;">${part}</span>`
         )
         .join("");
-    document.getElementById("presentJan").textContent = jan;
+    document.getElementById("presentJan").textContent =
+      String(jan).startsWith("APPLE-DUO-")
+        ? "JAN確認中"
+        : jan;
+
+    const presentPartsForApple = productKey.split("_");
+    const presentModelForApple = presentPartsForApple[0];
+    const presentStorageForApple = presentPartsForApple[1];
+
+    const presentAppleRetailPrice =
+      APPLE_PRICES[
+        `${presentModelForApple}_${presentStorageForApple}`
+      ] ?? 0;
+
+    const presentApplePriceElement =
+      document.getElementById("presentApplePrice");
+
+    if (presentApplePriceElement) {
+      presentApplePriceElement.textContent =
+        presentAppleRetailPrice
+          ? `¥${presentAppleRetailPrice.toLocaleString()}`
+          : "--";
+    }
 
     if (!itemData || !Array.isArray(itemData.stores) || itemData.stores.length === 0) {
       document.getElementById("presentBestPrice").textContent = "--";
       document.getElementById("presentBestStore").textContent = "買取データ未取得";
 
+      const isDuoPendingJan =
+        String(jan).startsWith("APPLE-DUO-");
+
       ranking.innerHTML = `
         <div style="padding:16px;background:#f8fafc;border-radius:10px;color:var(--muted);">
-          この商品の買取価格データはまだ取得できていません。<br>
-          <span style="font-size:12px;">JAN: ${jan}</span>
+          ${isDuoPendingJan
+            ? "Apple Store定価は登録済みです。買取価格はデータ取得後に表示します。"
+            : "この商品の買取価格データはまだ取得できていません。"
+          }<br>
+          <span style="font-size:12px;">
+            ${isDuoPendingJan ? "JANコード：確認中" : `JAN: ${jan}`}
+          </span>
         </div>
       `;
+
+      const usePriceBtn =
+        document.getElementById("presentUsePriceBtn");
+
+      if (usePriceBtn) {
+        usePriceBtn.disabled = true;
+        usePriceBtn.textContent = "買取価格取得後に利益計算できます";
+        usePriceBtn.style.opacity = "0.55";
+        usePriceBtn.style.cursor = "not-allowed";
+      }
 
       result.style.display = "block";
       return;
