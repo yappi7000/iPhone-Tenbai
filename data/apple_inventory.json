@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-17T17:01:11.145685+00:00",
+  "generated_at": "2026-10-17T19:13:49.497008+00:00",
   "source": "Apple Japan retail pickup",
   "anchors": {
     "tokyo": "100-0005",
@@ -2487,20 +2487,20 @@
           "store_name": "銀座",
           "state": "東京都",
           "city": "中央区",
-          "status": "unavailable",
-          "pickup_display": "unavailable",
+          "status": "available",
+          "pickup_display": "available",
           "store_pick_eligible": true,
-          "pickup_search_quote": "選択できません"
+          "pickup_search_quote": "受け取れる日 本日"
         },
         {
           "store_number": "R718",
           "store_name": "丸の内",
           "state": "東京都",
           "city": "千代田区",
-          "status": "unavailable",
-          "pickup_display": "unavailable",
+          "status": "available",
+          "pickup_display": "available",
           "store_pick_eligible": true,
-          "pickup_search_quote": "選択できません"
+          "pickup_search_quote": "受け取れる日 本日"
         },
         {
           "store_number": "R128",
@@ -2517,10 +2517,10 @@
           "store_name": "渋谷",
           "state": "東京都",
           "city": "渋谷区",
-          "status": "available",
-          "pickup_display": "available",
+          "status": "unavailable",
+          "pickup_display": "unavailable",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "選択できません"
         },
         {
           "store_number": "R224",
@@ -2537,10 +2537,10 @@
           "store_name": "川崎",
           "state": "神奈川県",
           "city": "川崎市",
-          "status": "available",
-          "pickup_display": "available",
+          "status": "unavailable",
+          "pickup_display": "unavailable",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "選択できません"
         },
         {
           "store_number": "R048",
