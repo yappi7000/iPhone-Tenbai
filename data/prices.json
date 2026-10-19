@@ -127,7 +127,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/18 9:49:23"
+        "checked_at": "2026/10/19 9:53:48"
       },
       {
         "store": "買取楽園",
@@ -136,7 +136,7 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/18 9:49:23"
+        "checked_at": "2026/10/19 9:53:48"
       },
       {
         "store": "モバイルMIX",
@@ -145,19 +145,19 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/18 9:49:32"
+        "checked_at": "2026/10/19 9:53:55"
       },
       {
-        "store": "買取一丁目",
-        "price": 270000,
-        "url": "https://www.1-chome.com/keitai",
+        "store": "モバイル一番",
+        "price": 271000,
+        "url": "https://www.mobile-ichiban.com/Prod/1",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/18 9:49:28"
+        "checked_at": "2026/10/19 9:53:55"
       }
     ],
-    "last_update": "2026/10/18 9:53:49"
+    "last_update": "2026/10/19 9:54:00"
   },
   "4549995734799": {
     "stores": [
