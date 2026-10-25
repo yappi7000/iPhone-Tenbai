@@ -9,7 +9,8 @@
   const time = value => Number.isFinite(Date.parse(value)) ? new Date(value).toLocaleString('ja-JP', {timeZone:'Asia/Tokyo',month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'}) + ' JST' : '未取得';
   let category = '', products = [], prices = {}, selected = null, error = '', loaded = false;
   let listScroll = 0, cardView = 'packs', marketError = '', marketScope = '';
-  const meta = p => p.jan ? 'JAN ' + p.jan : p.model || '版・状態を確認';
+  // 9種セットは専用JANが無いので単品JANを表示しない（構成数だけ示す）
+  const meta = p => p.kind === 'card_bundle' ? `セット専用JANなし ／ 構成${(p.bundle?.component_ids || []).length}種` : p.jan ? 'JAN ' + p.jan : p.model || '版・状態を確認';
   function quoteRows(p) {return Array.isArray(prices[p.id]) ? prices[p.id] : [];}
   function condition(p) {return p.condition_label || (p.condition === 'sealed_set' ? '未開封セット' : p.kind === 'android' ? '新品・未使用（未開封条件は店舗別）' : p.condition === 'sealed_box' ? '未開封BOX・シュリンクあり' : '新品（詳細条件は各店で確認）');}
   function selectCategory(value) {
@@ -110,8 +111,9 @@
       return `<div class="catalog-store"><span class="catalog-rank">${rank}</span><div><div class="catalog-store-name">${escape(row.store)}</div><div class="catalog-store-note">取得 ${escape(time(row.observed_at))}</div>${row.note ? '<div class="catalog-store-note">' + escape(row.note) + '</div>' : ''}<a href="${escape(safeUrl(row.url))}" target="_blank" rel="noopener noreferrer">公式の価格・買取条件を確認 ↗</a></div><div class="catalog-store-price">${yen(row.price)}${net !== null ? '<div class="catalog-store-note">手残り試算 ' + (net>=0?'+':'−') + yen(Math.abs(net)) + '</div>' : ''}</div></div>`;
     }).join('');
     const excluded = quoteRows(selected).filter(r=>!core.validQuote(r));
-    const statuses = {unreleased:'発売前・順位対象外',not_found:'対象条件の価格なし',ambiguous:'価格を特定できず',error:'取得失敗'};
-    $('catalogRanking').innerHTML = (rankingHtml || '<p class="catalog-empty">現在、比較できる価格を取得できていません。</p>') + excluded.map(r => `<div class="catalog-store"><span>—</span><div><span class="catalog-store-name">${escape(r.store)}</span><div class="catalog-store-note">${r.status==='ok'?'価格が古いため順位から除外':escape(statuses[r.status] || '未取得')} ／ 確認 ${escape(time(r.checked_at))}</div><a href="${escape(safeUrl(r.url))}" target="_blank" rel="noopener noreferrer">公式サイトで確認 ↗</a></div><span class="catalog-status">順位対象外</span></div>`).join('');
+    const statuses = {unreleased:'発売前・順位対象外',not_found:'対象条件の価格なし',ambiguous:'価格を特定できず',error:'取得失敗',rejected:'単品価格の混入の疑いで除外',reference:'参考情報（比較サイト掲載・店舗公式で未確認）'};
+    const referenceNote = r => r.status === 'reference' && Number.isSafeInteger(r.reference_price) ? ` ／ 掲載額 ${yen(r.reference_price)}（${escape(time(r.reference_observed_at))}時点）` : '';
+    $('catalogRanking').innerHTML = (rankingHtml || '<p class="catalog-empty">現在、比較できる価格を取得できていません。</p>') + excluded.map(r => `<div class="catalog-store"><span>—</span><div><span class="catalog-store-name">${escape(r.store)}</span><div class="catalog-store-note">${r.status==='ok'?'価格が古いため順位から除外':escape(statuses[r.status] || '未取得')}${referenceNote(r)} ／ 確認 ${escape(time(r.checked_at))}</div><a href="${escape(safeUrl(r.url))}" target="_blank" rel="noopener noreferrer">${r.status === 'reference' ? '掲載ページで確認 ↗' : '公式サイトで確認 ↗'}</a></div><span class="catalog-status">順位対象外</span></div>`).join('');
   }
   for (const k of ['cost','shipping','fees']) $('catalog-' + k).addEventListener('input', () => {
     if (!selected) return;

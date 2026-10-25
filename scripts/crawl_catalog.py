@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 import re
 import time
+import unicodedata
 import urllib.parse
 import urllib.request
 
@@ -70,18 +71,65 @@ class Tree(HTMLParser):
 def exact_code(text, code):
     return re.search(r'(?<!\d)' + re.escape(code) + r'(?!\d)', text) is not None
 
+def _compact(text):
+    """表記ゆれ吸収: 全角/半角(NFKC)・大文字小文字・空白・区切り記号を無視する。"""
+    value = unicodedata.normalize('NFKC', str(text or '')).lower()
+    return re.sub(r'[\s・･,、/／()（）\-]+', '', value)
+
+
 def required_name_terms_match(product, text):
-    """Require identifying words for products that share a JAN with another item."""
+    """Require identifying words for products that share a JAN with another item.
+
+    旧実装は r'[\\s　]+' と二重エスケープしていたため空白を除去できず、
+    「9種 セット」のような半角スペース入りの掲載を取りこぼし、英字の s を消していた。
+    """
     terms = product.get('required_name_terms') or []
     if not terms:
         return True
 
-    value = re.sub(r'[\\s　]+', '', str(text or '')).lower()
+    value = _compact(text)
 
-    return all(
-        re.sub(r'[\\s　]+', '', str(term)).lower() in value
-        for term in terms
-    )
+    return all(_compact(term) in value for term in terms)
+
+
+def is_bundle(product):
+    return product.get('kind') == 'card_bundle'
+
+
+def bundle_composition_ok(product, text):
+    """9種セット本体の掲載かどうか（単品セットの掲載を除外する）。
+
+    - 「9種」を含むこと
+    - 構成9種のうち1種の名前だけを含む掲載は単品セットとみなして除外
+      （0種＝構成の記載なし、2種以上＝構成の列挙は許可）
+    """
+    value = _compact(text)
+    if '9種' not in value:
+        return False
+    names = (product.get('bundle') or {}).get('component_names') or []
+    hits = sum(1 for name in names if _compact(name) in value)
+    return hits != 1
+
+
+def is_bundle_listing_for_single(product, name):
+    """単品カードセットの検索結果に混ざった「9種セット」の掲載か。
+
+    店舗によっては9種セットの掲載に単品のJANが書かれているため、
+    JAN一致だけでは単品と9種セットを区別できない。
+    """
+    return product.get('kind') == 'card_pack' and '9種' in _compact(name)
+
+
+def identity_match(product, text, code=None):
+    """店舗掲載が対象商品かどうか。
+
+    通常商品: JAN（または店舗コード）の完全一致。
+    9種セット: 専用JANが無いため、商品名の必須語と構成で判定する。
+               単品セットのJANが同じ掲載に書かれていても、それだけでは一致としない。
+    """
+    if is_bundle(product):
+        return required_name_terms_match(product, text) and bundle_composition_ok(product, text)
+    return exact_code(text, code or product['jan'])
 
 
 def amount(text):
@@ -166,12 +214,17 @@ def extract_api(payload, store, product):
             if product.get('kind') == 'android' and product['condition'] == 'new':
                 matches.extend(ichome_android(item, product))
             continue
-        if str(item.get('jan', '')).strip() != product['jan']:
-            continue
         name = str(item.get('title' if store == 'ichome' else 'name') or '')
+        if is_bundle(product):
+            if not identity_match(product, name):
+                continue
+        elif str(item.get('jan', '')).strip() != product['jan']:
+            continue
         if not name or BAD_CONDITION.search(name):
             continue
         if not required_name_terms_match(product, name):
+            continue
+        if is_bundle_listing_for_single(product, name):
             continue
         box = product['condition'] == 'sealed_box'
         if box and not re.search(r'BOX|ボックス', name, re.I):
@@ -240,13 +293,12 @@ def extract(html, store, product):
                 p = p.parent
             if p and p.parent:
                 name = button.attrs.get('data-product-name', '')
-                code = product.get('store_codes', {}).get(store, product['jan'])
+                code = product.get('store_codes', {}).get(store, product.get('jan'))
 
-                # 9種セットのように単品とJANが重複する商品は、
-                # 商品名の必須語を優先して識別する。
+                # 9種セットは商品名の必須語＋構成で識別する（1商品カード内だけで判定）。
                 # 通常商品は従来どおりJAN/店舗コード一致を必須とする。
-                if product.get('required_name_terms'):
-                    if required_name_terms_match(product, name + ' ' + p.text()):
+                if is_bundle(product):
+                    if identity_match(product, name + ' ' + p.text()):
                         candidates.append(
                             (
                                 name,
@@ -270,7 +322,7 @@ def extract(html, store, product):
             if not p.has('product-card'):
                 continue
             title, price_node = p.find('product-name'), p.find('price_pro_news')
-            if not title or not exact_code(title.text(), product['jan']) or not price_node:
+            if not title or not identity_match(product, title.text()) or not price_node:
                 continue
             label = price_node.text().strip()
             if not re.match(r'^(未開封品|未使用品?|新品)\s', label):
@@ -282,14 +334,14 @@ def extract(html, store, product):
             if not p.has('pro_list'):
                 continue
             title, price_node = p.find('sub-pro-career'), p.find('sub-pro-jia')
-            if not title or not exact_code(title.text(), product['jan']) or not price_node:
+            if not title or not identity_match(product, title.text()) or not price_node:
                 continue
             value = re.sub(r'^\s*買取価格\s*[:：]\s*', '', price_node.text())
             candidates.append((title.text(), amount(value), p, '新品基準。詳細条件は公式商品ページで確認'))
     elif store in ('rudeya', 'morimori'):
         cls = 'pgrid-card' if store == 'rudeya' else 'product-item'
         for p in root.walk():
-            if not p.has(cls) or not exact_code(p.text(), product['jan']):
+            if not p.has(cls) or not identity_match(product, p.text()):
                 continue
             title = p.find('product-card-name') if store == 'rudeya' else next((n for n in p.walk() if n.tag in ('h3','h4','h5')), None)
             name = title.text() if title else p.text().split('JAN')[0]
@@ -303,6 +355,12 @@ def extract(html, store, product):
         if BAD_CONDITION.search(name):
             continue
         if not required_name_terms_match(product, name + ' ' + memo):
+            continue
+        # 9種セットは採用する商品名そのものでも構成を再確認する
+        if is_bundle(product) and not bundle_composition_ok(product, name + ' ' + memo):
+            continue
+        # 逆方向の混同防止: 単品セットの検索で「9種セット」の掲載を拾わない
+        if is_bundle_listing_for_single(product, name):
             continue
         if product['condition'] == 'sealed_box' and not re.search(r'BOX|ボックス', name, re.I):
             continue
@@ -322,19 +380,17 @@ def extract(html, store, product):
     return choose(matches)
 
 def fetch_homura_nine_set(product):
-    """Fetch Homura's real 30th CELEBRATION 9-set listing.
+    """ホムラの商品一覧ページから 9種セットの掲載を取得する。
 
-    The normal JAN search can miss this item, so fetch Homura's product
-    catalogue and identify the item only when BOTH:
-      - JAN 4521329462295 is present
-      - the product name contains the required '9種セット' term
+    JAN検索では9種セットが出ないため一覧ページを読む。
+    旧実装は価格ボタンから親要素へさかのぼり「JANと『9種セット』を含む要素」まで
+    広げていたため、単品カードのボタンでも一覧全体まで遡れば一致してしまう恐れがあった。
+    ここでは通常の抽出（1商品カード単位・商品名の必須語＋構成で判定）を使う。
     """
     store = 'homura'
     store_name = STORES[store][0]
     url = 'https://kaitori-homura.com/products'
-
     checked = dt.datetime.now(dt.timezone.utc).isoformat()
-
     row = {
         'store_id': store,
         'store': store_name,
@@ -344,121 +400,33 @@ def fetch_homura_nine_set(product):
         'price': None,
         'status': 'error'
     }
-
     try:
-        request = urllib.request.Request(
-            url,
-            headers={
-                'User-Agent': 'Mozilla/5.0',
-                'Accept': 'text/html'
-            }
-        )
-
+        request = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0', 'Accept': 'text/html'})
         with urllib.request.urlopen(request, timeout=20) as response:
             if response.status != 200:
                 raise ValueError('HTTP ' + str(response.status))
-
             raw = response.read(4_000_001)
-
             if len(raw) > 4_000_000:
                 raise ValueError('Response exceeds limit')
-
             body = raw.decode('utf-8', errors='replace')
-
-        root = Tree(body).root
-        matches = []
-
-        for button in root.walk():
-            if 'data-product-price' not in button.attrs:
-                continue
-
-            node = button.parent
-
-            while node and node.parent:
-                text_value = node.text()
-
-                if (
-                    exact_code(text_value, product['jan'])
-                    and required_name_terms_match(product, text_value)
-                ):
-                    break
-
-                node = node.parent
-
-            if not node or not node.parent:
-                continue
-
-            text_value = node.text()
-
-            if not exact_code(text_value, product['jan']):
-                continue
-
-            if not required_name_terms_match(product, text_value):
-                continue
-
-            price = amount(button.attrs.get('data-product-price', ''))
-
-            if price is None:
-                continue
-
-            name = button.attrs.get(
-                'data-product-name',
-                '30th CELEBRATION カードセット 9種セット'
-            ).strip()
-
-            links = [
-                n.attrs.get('href', '')
-                for n in node.walk()
-                if n.tag == 'a'
-            ]
-
-            product_url = next(
-                (
-                    x for x in links
-                    if re.search(r'/products/\d+', x)
-                ),
-                ''
-            )
-
-            matches.append({
-                'price': price,
-                'matched_name': name,
-                'product_url': product_url,
-                'note': (
-                    'ホムラ公開買取価格。'
-                    '9種セット名とJANを両方照合。'
-                )
-            })
-
-        quote, status = choose(matches)
-
+        quote, status = extract(body, store, product)
         row['status'] = status
-
         if quote:
             row.update(quote)
-            row['url'] = (
-                urllib.parse.urljoin(url, row.pop('product_url'))
-                or url
-            )
+            row['url'] = urllib.parse.urljoin(url, row.pop('product_url')) or url
             row['observed_at'] = checked
-
+            row['note'] = 'ホムラ公開買取価格。9種セットの商品名と構成を照合。' + (' ／ ' + row['note'] if row.get('note') else '')
     except Exception as e:
-        row['error'] = (
-            type(e).__name__ + ': ' + str(e)[:180]
-        )
-
+        row['error'] = type(e).__name__ + ': ' + str(e)[:180]
     return row
 
 
 def fetch_quote(store, product):
-    if (
-        store == 'homura'
-        and product.get('id') == 'pokemon-30th-celebration-cardset-9'
-    ):
+    if store == 'homura' and is_bundle(product):
         return fetch_homura_nine_set(product)
 
     name, base = STORES[store]
-    query = product.get('store_queries', {}).get(store, product['jan'])
+    query = product.get('store_queries', {}).get(store) or product.get('jan') or product['name']
     url = base + urllib.parse.quote(query) if store != 'ichome' else base
     request_url = API_BASES[store] + urllib.parse.quote(query) if store in API_BASES else url
     checked = dt.datetime.now(dt.timezone.utc).isoformat()
@@ -485,14 +453,56 @@ def fetch_quote(store, product):
         row['error'] = type(e).__name__ + ': ' + str(e)[:180]
     return row
 
+def validate_catalog(products):
+    """カタログ定義の検査。9種セットは単品JANを流用せず、構成リストを持つこと。"""
+    by_id = {p['id']: p for p in products}
+    jans = [p['jan'] for p in products if not is_bundle(p)]
+    assert len(set(jans)) == len(jans), 'Duplicate JAN between products'
+    for p in products:
+        if is_bundle(p):
+            assert p.get('jan') is None, 'Bundle must not reuse a JAN: ' + p['id']
+            bundle = p.get('bundle') or {}
+            ids = bundle.get('component_ids') or []
+            assert len(ids) == len(set(ids)) == len(bundle.get('component_jans') or []) == len(bundle.get('component_names') or []), 'Bundle component list mismatch: ' + p['id']
+            for cid, cjan in zip(ids, bundle['component_jans']):
+                assert cid in by_id and not is_bundle(by_id[cid]), 'Unknown bundle component: ' + cid
+                assert by_id[cid]['jan'] == cjan, 'Bundle component JAN mismatch: ' + cid
+            assert '9種セット' in p['name'] and len(ids) == 9, 'Bundle name/count mismatch: ' + p['id']
+            continue
+        assert re.fullmatch(r'\d{13}', p['jan']), 'Invalid JAN format'
+        if p.get('kind') == 'android':
+            assert canonical_jan(p['jan']), 'Invalid Android JAN check digit'
+
+
+def guard_bundle_prices(products, grouped):
+    """同じ店舗の単品セット価格以下の「9種セット価格」は単品の混入とみなして除外する。
+
+    9種セットは単品9種を各1点含むので、どれか1種の単品価格以下になることはない。
+    """
+    for p in products:
+        if not is_bundle(p):
+            continue
+        component_ids = (p.get('bundle') or {}).get('component_ids') or []
+        for row in grouped.get(p['id'], []):
+            if row.get('status') != 'ok' or not isinstance(row.get('price'), int):
+                continue
+            singles = [
+                r['price'] for cid in component_ids for r in grouped.get(cid, [])
+                if r.get('store_id') == row.get('store_id') and r.get('status') == 'ok' and isinstance(r.get('price'), int)
+            ]
+            if singles and row['price'] <= max(singles):
+                row['rejected_price'] = row['price']
+                row['price'] = None
+                row['observed_at'] = None
+                row['status'] = 'rejected'
+                row['error'] = '同じ店舗の単品セット価格以下のため、9種セット価格として採用しません'
+
+
 def main():
     catalog = json.loads((ROOT / 'data/catalog.json').read_text())
     products = catalog['products']
     assert len({p['id'] for p in products}) == len(products), 'Duplicate product IDs'
-    for p in products:
-        assert re.fullmatch(r'\d{13}', p['jan']), 'Invalid JAN format'
-        if p.get('kind') == 'android':
-            assert canonical_jan(p['jan']), 'Invalid Android JAN check digit'
+    validate_catalog(products)
     def crawl_store(store):
         results = []
         for p in products:
@@ -507,6 +517,7 @@ def main():
         for results in pool.map(crawl_store, STORES):
             for product_id, row in results:
                 grouped[product_id].append(row)
+    guard_bundle_prices(products, grouped)
     # Never carry yesterday's price forward as a new observation.
     result = {'schema_version': 1, 'generated_at': dt.datetime.now(dt.timezone.utc).isoformat(), 'products': grouped}
     target = ROOT / 'data/catalog_prices.json'

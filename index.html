@@ -45,6 +45,13 @@ select,input{width:100%;padding:12px 13px;border:1px solid #ced8e4;border-radius
 .profit-text{color:var(--gold)}
 .kpi-sub{font-size:12px;color:var(--muted);margin-top:3px}
 .toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+.freshness-notice{margin:0 0 12px;padding:10px 12px;border-radius:10px;font-size:12px;font-weight:800;line-height:1.7}
+.freshness-notice.is-stale,.freshness-notice.is-unknown{background:#fff7ed;color:#9a3412;border:1px solid #fed7aa}
+.freshness-notice.is-no-price{background:#f1f5f9;color:#334155;border:1px solid #cbd5e1}
+.data-badge{padding:3px 8px;border-radius:4px;font-size:11px;font-weight:800;white-space:nowrap}
+.data-badge.is-fresh{background:#d1fae5;color:#065f46}
+.data-badge.is-stale{background:#ffedd5;color:#9a3412}
+.data-badge.is-unknown{background:#e2e8f0;color:#334155}
 .status-pill{display:inline-flex;align-items:center;gap:6px;padding:7px 10px;border-radius:999px;background:#eef7ff;color:var(--blue);font-size:12px;font-weight:900}
 .table-wrap{overflow:auto;border:1px solid var(--line);border-radius:14px}
 table{width:100%;border-collapse:collapse;min-width:920px}
@@ -572,6 +579,8 @@ body{background:#eef3f9}
       <div id="lastUpdateBadge" class="status-pill">データ最終取得日: 取得中...</div>
     </div>
 
+    <div id="priceFreshnessNotice" class="freshness-notice" role="status" style="display:none;"></div>
+
     <div class="table-wrap">
       <table>
         <thead>
@@ -699,9 +708,10 @@ body{background:#eef3f9}
 
 </div>
 
+<script src="assets/price-freshness.js?v=1"></script>
 <script src="assets/apple_inventory.js?v=1"></script>
 <script src="assets/catalog-core.js?v=android-pokemon3" defer></script>
-<script src="assets/catalog.js?v=android-pokemon3" defer></script>
+<script src="assets/catalog.js?v=android-pokemon4" defer></script>
 <footer class="footer">
   iPhone買取チェッカー 実戦版｜買取データ自動更新対応
 </footer>
@@ -740,6 +750,20 @@ body{background:#eef3f9}
   };
 
   const JAN_DATABASE = {
+    /*
+     * iPhone Duo（SIMフリー・国内版）
+     * 2店舗（買取ルデヤ・森森買取）の商品掲載で8件とも一致し、
+     * チェックディジットも正しいことを確認済み（2026/10/25）。
+     */
+    "iPhone Duo_256GB_スターホワイト":"4549995732641",
+    "iPhone Duo_256GB_ナイトスカイ":"4549995732696",
+    "iPhone Duo_512GB_スターホワイト":"4549995732740",
+    "iPhone Duo_512GB_ナイトスカイ":"4549995732795",
+    "iPhone Duo_1TB_スターホワイト":"4549995732849",
+    "iPhone Duo_1TB_ナイトスカイ":"4549995732894",
+    "iPhone Duo_2TB_スターホワイト":"4549995732948",
+    "iPhone Duo_2TB_ナイトスカイ":"4549995732993",
+
     "iPhone 18 Pro Max_256GB_ブラック":"4549995734546",
     "iPhone 18 Pro Max_256GB_シルバー":"4549995734591",
     "iPhone 18 Pro Max_256GB_バーガンディ":"4549995734645",
@@ -871,6 +895,66 @@ body{background:#eef3f9}
     render();
   }
 
+  /*
+   * 価格の鮮度表示（assets/price-freshness.js）
+   *   古い価格（36時間超）・日時不明・価格未取得を「最新」として見せない。
+   */
+  function describeFreshness(itemData) {
+    const F = window.PriceFreshness;
+    const info = F.classifyItem(itemData);
+    const successText = F.formatJst(info.successAt);
+    const checkedText = F.formatJst(info.checkedAt);
+
+    if (info.state === "no_data") {
+      return { info, badge: "データ最終取得日: 未取得", notice: "", noticeClass: "" };
+    }
+
+    const badge = info.checkedAt !== null
+      ? `最終取得成功: ${successText} ／ 最終確認: ${checkedText}`
+      : `データ最終取得日: ${successText}`;
+
+    if (info.state === "no_price") {
+      return {
+        info,
+        badge,
+        noticeClass: "is-no-price",
+        notice:
+          `⚠️ 価格未取得：${info.checkedAt !== null ? `${checkedText} の確認では` : "現在"}有効な買取価格を取得できませんでした。` +
+          `古い価格は表示していません。` +
+          (info.successAt !== null ? `（最後に取得できたのは ${successText}）` : "")
+      };
+    }
+
+    if (info.state === "stale") {
+      return {
+        info,
+        badge,
+        noticeClass: "is-stale",
+        notice: `⚠️ 古い情報：この価格は取得から${Math.floor(info.ageHours)}時間以上経過しています（${F.STALE_HOURS}時間超）。現在の買取価格とは異なる可能性があります。`
+      };
+    }
+
+    if (info.state === "unknown") {
+      return {
+        info,
+        badge,
+        noticeClass: "is-unknown",
+        notice: "⚠️ 更新日時不明：この価格の取得日時を確認できません。最新の価格とは限りません。"
+      };
+    }
+
+    return { info, badge, notice: "", noticeClass: "" };
+  }
+
+  function storeDataBadge(row, itemData) {
+    const F = window.PriceFreshness;
+    const s = F.classifyStore(row, Date.now(), itemData);
+    const when = F.formatJst(s.observedAt);
+    if (s.state === "fresh") return `<span class="data-badge is-fresh" title="取得: ${when}">自動巡回取得済</span>`;
+    if (s.state === "stale") return `<span class="data-badge is-stale" title="取得: ${when}">古い情報（${when}）</span>`;
+    return '<span class="data-badge is-unknown">更新日時不明</span>';
+  }
+
   function render() {
     const model = document.getElementById("modelSelect").value;
     const storage = document.getElementById("storageSelect").value;
@@ -878,8 +962,7 @@ body{background:#eef3f9}
 
     const key = `${model}_${storage}_${color}`;
     const jan = JAN_DATABASE[key] || "";
-    document.getElementById("currentJan").textContent =
-      jan || (model === "iPhone Duo" ? "JAN未登録（Apple公開待ち）" : "--");
+    document.getElementById("currentJan").textContent = jan || "JAN未登録";
 
     const appleKey = `${model}_${storage}`;
     const applePrice = APPLE_PRICES[appleKey] ?? 0;
@@ -897,11 +980,14 @@ body{background:#eef3f9}
     const finalProfitCard = document.getElementById("finalProfitCard");
     const lastUpdateBadge = document.getElementById("lastUpdateBadge");
 
-    if (itemData && itemData.last_update) {
-      lastUpdateBadge.textContent = `データ最終取得日: ${itemData.last_update}`;
-    } else {
-      lastUpdateBadge.textContent = `データ最終取得日: ${new Date().toLocaleDateString()}`;
-    }
+    const freshnessNotice = document.getElementById("priceFreshnessNotice");
+    const freshness = describeFreshness(itemData);
+
+    // データが無いときに今日の日付を「最終取得日」として出さない
+    lastUpdateBadge.textContent = freshness.badge;
+    freshnessNotice.className = `freshness-notice ${freshness.noticeClass}`;
+    freshnessNotice.textContent = freshness.notice;
+    freshnessNotice.style.display = freshness.notice ? "block" : "none";
 
     if (!itemData || !itemData.stores || itemData.stores.length === 0) {
       maxPriceCard.textContent = "--";
@@ -911,12 +997,12 @@ body{background:#eef3f9}
       tableBody.innerHTML = `
         <tr>
           <td colspan="6" style="text-align:center;padding:24px;color:var(--muted);">
-            ${model === "iPhone Duo" && !jan
-              ? "Apple Store定価は登録済みです。JAN・買取価格はApple公開後に追加します。"
+            ${freshness.info.state === "no_price"
+              ? "価格未取得：今回の確認では有効な買取価格を取得できませんでした。"
               : "このモデル・容量・カラーの買取データをまだ取得できていません。"}<br>
             <span style="font-size:11px;">${selectedCondition === "opened"
               ? "開封済みの買取データは現在未対応です。"
-              : (jan ? `JAN: ${jan}` : "iPhone Duo / Apple公式価格を表示中")}</span>
+              : (jan ? `JAN: ${jan}` : "JAN未登録のため買取価格は取得していません")}</span>
           </td>
         </tr>`;
       return;
@@ -993,7 +1079,7 @@ body{background:#eef3f9}
             ¥${s.price.toLocaleString()}${retailBadge}
           </td>
           <td class="diff" style="font-size:12px; ${diff === 0 ? '' : 'color:#e11d48; font-weight:800;'}">${diffStr}</td>
-          <td><span style="background:#d1fae5; color:#065f46; padding:3px 8px; border-radius:4px; font-size:11px; font-weight:800;">自動巡回取得済</span></td>
+          <td>${storeDataBadge(s, itemData)}</td>
           <td style="text-align:right;">
             <a href="${s.url}" target="_blank" rel="noopener noreferrer" class="visit">公式確認</a>
             ${s.store === "森森買取" ? `<span class="coupon-box">紹介コード：InfA00172 <button type="button" class="copy-coupon" data-code="InfA00172">コピー</button></span>` : ""}
@@ -1051,7 +1137,7 @@ body{background:#eef3f9}
       // These are honest waiting labels, not claims of observed job state.
       const phase = seconds < 45
         ? "GitHubの実行開始待ちです"
-        : "11店舗の最新価格を取得中（GitHub側の実行待ちを含みます）";
+        : "対応店舗の最新価格を取得中（GitHub側の実行待ちを含みます）";
       const note = seconds >= 120
         ? "GitHub側の順番待ちで数分かかる場合があります。画面は固まっていません。"
         : "完了を自動確認しています。現在のランキングは前回の保存データです。";
@@ -1085,19 +1171,20 @@ body{background:#eef3f9}
         const latestData = await fetchRawPrices();
         const latestItem = latestData[jan];
 
-        if (latestItem && latestItem.last_update) {
+        const latestMarker =
+          latestItem &&
+          (latestItem.last_checked_at || latestItem.last_update);
+
+        if (latestMarker) {
+          // 価格0件（価格未取得）でも「確認が完了した」ことは last_checked_at で分かる
           const changed =
-            latestItem.last_update !== previousLastUpdate;
+            latestMarker !== previousLastUpdate;
 
           const parsed =
-            new Date(
-              latestItem.last_update
-                .replace(/\//g, "-")
-                .replace(" ", "T")
-            ).getTime();
+            window.PriceFreshness.parseTimestamp(latestMarker);
 
           const newerThanRequest =
-            Number.isFinite(parsed) &&
+            parsed !== null &&
             parsed >= requestStartedAt - 60000;
 
           if (changed || newerThanRequest) {
@@ -1253,14 +1340,27 @@ body{background:#eef3f9}
 
   document.getElementById("liveRefreshBtn").addEventListener("click", async () => {
     const btn = document.getElementById("liveRefreshBtn");
-    const jan = document.getElementById("currentJan").textContent.trim();
 
-    if (!jan || jan === "--") {
-      setLiveRefreshStatus("商品を選択してください。", true);
+    // 画面の表示文字列ではなく、登録済みJANだけを送る（Invalid JAN 対策）
+    const selectedKey = [
+      document.getElementById("modelSelect").value,
+      document.getElementById("storageSelect").value,
+      document.getElementById("colorSelect").value
+    ].join("_");
+    const jan = JAN_DATABASE[selectedKey] || "";
+
+    if (!/^\d{13}$/.test(jan)) {
+      setLiveRefreshStatus(
+        "この商品はJANが登録されていないため、最新価格を取得できません。",
+        true
+      );
       return;
     }
 
-    const previousLastUpdate = crawlData?.[jan]?.last_update || "";
+    const previousLastUpdate =
+      crawlData?.[jan]?.last_checked_at ||
+      crawlData?.[jan]?.last_update ||
+      "";
     const requestStartedAt = Date.now();
 
     btn.disabled = true;
@@ -1373,12 +1473,19 @@ body{background:#eef3f9}
       }
 
       stopLiveRefreshProgress();
-      setLiveRefreshStatus("✅ 取得完了・最新データを読み込みました");
+      setLiveRefreshStatus(
+        (crawlData?.[jan]?.stores || []).length
+          ? "✅ 取得完了・最新データを読み込みました"
+          : "⚠️ 確認は完了しましたが、有効な買取価格を取得できませんでした（価格未取得）"
+      );
 
     } catch (error) {
       console.error("最新価格取得エラー:", error);
       setLiveRefreshStatus(
-        `最新価格の取得に失敗しました：${error.message}`,
+        error.message === "Invalid JAN"
+          // 更新用Workerの許可リストが未反映の商品（公開サイトとWorkerの反映タイミング差）
+          ? "この商品の即時更新はまだ有効になっていません。価格は毎朝の定時更新で反映されます。"
+          : `最新価格の取得に失敗しました：${error.message}`,
         true
       );
 
@@ -1422,16 +1529,6 @@ body{background:#eef3f9}
 
   let presentProductDatabase = {};
 
-  const DUO_PRESENT_PRODUCTS = {
-    "iPhone Duo_256GB_スターホワイト": "APPLE-DUO-256-WHITE",
-    "iPhone Duo_256GB_ナイトスカイ": "APPLE-DUO-256-NIGHT",
-    "iPhone Duo_512GB_スターホワイト": "APPLE-DUO-512-WHITE",
-    "iPhone Duo_512GB_ナイトスカイ": "APPLE-DUO-512-NIGHT",
-    "iPhone Duo_1TB_スターホワイト": "APPLE-DUO-1TB-WHITE",
-    "iPhone Duo_1TB_ナイトスカイ": "APPLE-DUO-1TB-NIGHT",
-    "iPhone Duo_2TB_スターホワイト": "APPLE-DUO-2TB-WHITE",
-    "iPhone Duo_2TB_ナイトスカイ": "APPLE-DUO-2TB-NIGHT"
-  };
 
   async function loadPresentProductMaster() {
     try {
@@ -1449,8 +1546,6 @@ body{background:#eef3f9}
         }
       }
 
-      Object.assign(database, DUO_PRESENT_PRODUCTS);
-
       presentProductDatabase = database;
 
       console.log(
@@ -1458,10 +1553,7 @@ body{background:#eef3f9}
       );
     } catch (error) {
       console.error("Present商品マスター読込失敗:", error);
-      presentProductDatabase = {
-        ...JAN_DATABASE,
-        ...DUO_PRESENT_PRODUCTS
-      };
+      presentProductDatabase = { ...JAN_DATABASE };
     }
   }
 
@@ -1524,10 +1616,7 @@ body{background:#eef3f9}
           `<span style="display:block;white-space:nowrap;">${part}</span>`
         )
         .join("");
-    document.getElementById("presentJan").textContent =
-      String(jan).startsWith("APPLE-DUO-")
-        ? "JAN確認中"
-        : jan;
+    document.getElementById("presentJan").textContent = jan;
 
     const presentPartsForApple = productKey.split("_");
     const presentModelForApple = presentPartsForApple[0];
@@ -1552,18 +1641,14 @@ body{background:#eef3f9}
       document.getElementById("presentBestPrice").textContent = "--";
       document.getElementById("presentBestStore").textContent = "買取データ未取得";
 
-      const isDuoPendingJan =
-        String(jan).startsWith("APPLE-DUO-");
 
       ranking.innerHTML = `
         <div style="padding:16px;background:#f8fafc;border-radius:10px;color:var(--muted);">
-          ${isDuoPendingJan
-            ? "Apple Store定価は登録済みです。買取価格はデータ取得後に表示します。"
+          ${describeFreshness(itemData).info.state === "no_price"
+            ? describeFreshness(itemData).notice
             : "この商品の買取価格データはまだ取得できていません。"
           }<br>
-          <span style="font-size:12px;">
-            ${isDuoPendingJan ? "JANコード：確認中" : `JAN: ${jan}`}
-          </span>
+          <span style="font-size:12px;">JAN: ${jan}</span>
         </div>
       `;
 
@@ -1651,9 +1736,13 @@ body{background:#eef3f9}
       </div>
     ` : "";
 
-    const updateText = itemData.last_update
-      ? `<div style="margin-bottom:10px;font-size:12px;color:var(--muted);">最終取得：${itemData.last_update}</div>`
-      : "";
+    // 古い価格（36時間超）・日時不明はここで明示する
+    const presentFreshness = describeFreshness(itemData);
+    const updateText = `
+      <div style="margin-bottom:10px;font-size:12px;color:var(--muted);">${presentFreshness.badge}</div>
+      ${presentFreshness.notice
+        ? `<div class="freshness-notice ${presentFreshness.noticeClass}">${presentFreshness.notice}</div>`
+        : ""}`;
 
     ranking.innerHTML = `
       ${profitSummary}
@@ -1664,6 +1753,7 @@ body{background:#eef3f9}
           <span style="min-width:38px;font-weight:900;">${index + 1}位</span>
           <span style="flex:1;font-weight:800;">${store.store}</span>
           <span style="font-weight:900;">¥${Number(store.price).toLocaleString()}</span>
+          ${storeDataBadge(store, itemData)}
           ${store.url ? `<a href="${store.url}" target="_blank" rel="noopener noreferrer" class="visit">公式確認</a>` : ""}
         </div>
       `).join("")}
