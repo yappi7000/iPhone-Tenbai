@@ -49,6 +49,9 @@ jobs:
             npx playwright install --with-deps --only-shell chromium
           fi
 
+      - name: Save previous prices for comparison
+        run: cp data/prices.json "$RUNNER_TEMP/previous_prices.json"
+
       - name: Update selected iPhone
         env:
           TARGET_JAN: ${{ inputs.jan }}
@@ -56,52 +59,34 @@ jobs:
         run: node scripts/crawler.js
 
       - name: Verify selected JAN
+        # 定時実行と同じ検証スクリプトをオンデマンドモードで実行。
+        # 価格0件は「価格未取得」として保存し（古い価格は出さない）、
+        # 他SKUが書き換わっていないこともここで確認する。
         env:
           TARGET_JAN: ${{ inputs.jan }}
         run: |
-          node - <<'NODE'
-          const fs = require('fs');
+          export VERIFY_REPORT_PATH="$RUNNER_TEMP/verify_report.md"
+          node scripts/verify_prices.js \
+            --prices data/prices.json \
+            --diagnostics data/crawl_diagnostics.json \
+            --index index.html \
+            --previous "$RUNNER_TEMP/previous_prices.json" \
+            --target-jan "$TARGET_JAN"
 
-          const jan = process.env.TARGET_JAN;
-
-          const prices = JSON.parse(
-            fs.readFileSync('data/prices.json', 'utf8')
-          );
-
-          const diagnostics = JSON.parse(
-            fs.readFileSync(
-              'data/crawl_diagnostics.json',
-              'utf8'
-            )
-          );
-
-          const item = prices[jan];
-
-          if (!item) {
-            throw new Error(`JAN not found: ${jan}`);
-          }
-
-          if (
-            !Array.isArray(item.stores) ||
-            item.stores.length === 0
-          ) {
-            throw new Error(`No prices found: ${jan}`);
-          }
-
-          if (
-            diagnostics.target_count !== 1 ||
-            diagnostics.targets?.[0]?.jan !== jan
-          ) {
-            throw new Error(
-              'On-demand target verification failed'
-            );
-          }
-
-          console.log('JAN:', jan);
-          console.log('Stores:', item.stores.length);
-          console.log('Last update:', item.last_update);
-          console.log('Verification OK');
-          NODE
+      - name: Keep crawl results (also when verification fails)
+        # 検証失敗時は prices.json をコミットしない（公開データは前回のまま）。
+        # その回に取得できた価格・診断・検証レポートは成果物として30日保存し、
+        # 原因調査や結果の確認ができるようにする（公開はしない）。
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: on-demand-results-${{ github.run_number }}-${{ github.run_attempt }}
+          path: |
+            data/prices.json
+            data/crawl_diagnostics.json
+            ${{ runner.temp }}/verify_report.md
+          retention-days: 30
+          if-no-files-found: warn
 
       - name: Commit updated price
         run: |

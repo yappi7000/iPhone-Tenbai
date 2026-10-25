@@ -46,148 +46,42 @@ jobs:
             npx playwright install --with-deps --only-shell chromium
           fi
 
+      - name: Test price rules and verification
+        run: node --test tests/verify-prices.test.js tests/price-freshness.test.js
+
+      - name: Save previous prices for comparison
+        run: cp data/prices.json "$RUNNER_TEMP/previous_prices.json"
+
       - name: Run crawler
         env:
           SKIP_IPHONE17: "1"
         run: node scripts/crawler.js
 
       - name: Verify generated prices
+        # 検証条件は scripts/verify_prices.js と scripts/price_rules.js を参照
+        # （取得率の閾値は過去実績に基づく。根拠は price_rules.js のコメント）
         run: |
-          node - <<'NODE'
-          const fs = require('fs');
+          export VERIFY_REPORT_PATH="$RUNNER_TEMP/verify_report.md"
+          node scripts/verify_prices.js \
+            --prices data/prices.json \
+            --diagnostics data/crawl_diagnostics.json \
+            --index index.html \
+            --previous "$RUNNER_TEMP/previous_prices.json"
 
-          const data = JSON.parse(
-            fs.readFileSync(
-              'data/prices.json',
-              'utf8'
-            )
-          );
-
-          const html = fs.readFileSync(
-            'index.html',
-            'utf8'
-          );
-
-          /*
-           * 表示対象の
-           * iPhone 18 Pro / Pro Max
-           * 32 SKUだけを検証する。
-           */
-          const pattern =
-            /"iPhone 18 Pro(?: Max)?_(?:256GB|512GB|1TB|2TB)_(?:ブラック|シルバー|バーガンディ|グレイシャー)"\s*:\s*"(\d{13})"/g;
-
-          const targetJans =
-            [...html.matchAll(pattern)]
-              .map(match => match[1]);
-
-          const uniqueJans =
-            new Set(targetJans);
-
-          if (
-            targetJans.length !== 32 ||
-            uniqueJans.size !== 32
-          ) {
-            console.error(
-              'iPhone 18 target JAN verification failed:',
-              targetJans.length,
-              uniqueJans.size
-            );
-
-            process.exit(1);
-          }
-
-          let bad = 0;
-          let available = 0;
-
-          for (const jan of targetJans) {
-            const item = data[jan];
-
-            const stores =
-              item &&
-              Array.isArray(item.stores)
-                ? item.stores
-                : [];
-
-            /*
-             * 価格0件のSKUは異常。
-             */
-            if (stores.length === 0) {
-              console.error(
-                `${jan}: no valid prices`
-              );
-
-              bad++;
-              continue;
-            }
-
-            const names =
-              new Set();
-
-            for (const store of stores) {
-              const name =
-                String(
-                  store.store || ''
-                ).trim();
-
-              const price =
-                Number(store.price);
-
-              if (
-                !name ||
-                names.has(name) ||
-                !Number.isFinite(price) ||
-                price < 50000 ||
-                price > 500000
-              ) {
-                console.error(
-                  `${jan}: invalid price row`,
-                  store
-                );
-
-                bad++;
-                continue;
-              }
-
-              names.add(name);
-              available++;
-            }
-          }
-
-          console.log(
-            'iPhone 18 SKU数:',
-            targetJans.length
-          );
-
-          console.log(
-            '利用可能価格数:',
-            available
-          );
-
-          console.log(
-            '異常:',
-            bad
-          );
-
-          console.log(
-            'prices.json 全SKU数:',
-            Object.keys(data).length
-          );
-
-          if (
-            bad !== 0 ||
-            available === 0
-          ) {
-            console.error(
-              'prices.json safety verification failed'
-            );
-
-            process.exit(1);
-          }
-
-          console.log(
-            'SAFE CRAWLER VERIFY COMPLETE'
-          );
-          NODE
+      - name: Keep crawl results (also when verification fails)
+        # 検証失敗時は prices.json をコミットしない（公開データは前回のまま）。
+        # その回に取得できた価格・診断・検証レポートは成果物として30日保存し、
+        # 原因調査や結果の確認ができるようにする（公開はしない）。
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: crawl-results-${{ github.run_number }}-${{ github.run_attempt }}
+          path: |
+            data/prices.json
+            data/crawl_diagnostics.json
+            ${{ runner.temp }}/verify_report.md
+          retention-days: 30
+          if-no-files-found: warn
 
       - name: Commit and push updated prices
         run: |

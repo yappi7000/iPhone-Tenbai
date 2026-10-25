@@ -19,3 +19,7 @@ data/ringo_snapshot.json
 data/price_verification.json
 
 .github/workflows/*.backup
+
+# Python キャッシュ（テスト実行で生成）
+__pycache__/
+*.pyc

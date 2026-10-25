@@ -2,6 +2,13 @@ const fs = require('fs');
 const path = require('path');
 const https = require('https');
 const { chromium } = require('playwright');
+const {
+  MODEL_RULES,
+  extractTargets,
+  validateTargets,
+  isPriceInRange,
+  isStoreAllowedForModel
+} = require('./price_rules');
 
 /*
  * ============================================================
@@ -2259,6 +2266,14 @@ async function inspectStore(browser, store, item) {
   }
 
   /*
+   * モデル別の店舗制限（scripts/price_rules.js の allowedStoreIds）。
+   * iPhone Duo は JAN完全一致で抽出できる店舗だけを使う。
+   */
+  if (!isStoreAllowedForModel(item.model, store.id)) {
+    return null;
+  }
+
+  /*
    * SMOKE=1 の場合は
    * Pro / Pro Max の256GBブラックだけ確認。
    */
@@ -3091,7 +3106,10 @@ if (
  * ============================================================
  */
 
-function updatePricesJsonSafely(diagnostics) {
+function updatePricesJsonSafely(
+  diagnostics,
+  pricesPath = PRICES_PATH
+) {
   const targets =
     Array.isArray(diagnostics.targets)
       ? diagnostics.targets
@@ -3113,7 +3131,20 @@ function updatePricesJsonSafely(diagnostics) {
     String(process.env.TARGET_JAN || "").trim() !== "";
 
   const expectedTargetCount =
-    onDemand ? 1 : 32;
+    onDemand
+      ? 1
+      : MODEL_RULES.reduce(
+          (sum, rule) => sum + rule.expectedSkus,
+          0
+        );
+
+  const targetByJan =
+    new Map(
+      targets.map(item => [
+        String(item.jan || ""),
+        item
+      ])
+    );
 
   if (
     targetJans.length !== expectedTargetCount ||
@@ -3146,11 +3177,17 @@ function updatePricesJsonSafely(diagnostics) {
       ) &&
       result.status === "OK" &&
       result.color_verified === true &&
-      Number.isFinite(
-        Number(result.price)
+      isPriceInRange(
+        targetByJan.get(String(result.jan))?.model,
+        Number(result.price),
+        undefined,
+        targetByJan.get(String(result.jan))?.storage
       ) &&
-      Number(result.price) >= 50000 &&
-      Number(result.price) <= 500000
+      // 許可されていない店舗の価格はモデルごとに除外（Duo の名前解析系店舗など）
+      isStoreAllowedForModel(
+        targetByJan.get(String(result.jan))?.model,
+        result.store_id
+      )
     );
 
   // 有効価格0件でも、今回試行したJANの過去の未検証価格を消すため続行する。
@@ -3171,7 +3208,7 @@ function updatePricesJsonSafely(diagnostics) {
     currentPrices =
       JSON.parse(
         fs.readFileSync(
-          PRICES_PATH,
+          pricesPath,
           "utf8"
         )
       );
@@ -3272,10 +3309,18 @@ function updatePricesJsonSafely(diagnostics) {
             "jan",
           color_verified: true,
 
+          // 表示用（日本時間）。旧データとの互換のため残す
           checked_at:
             row.checked_at ||
             diagnostics.finished_at ||
-            nowJST()
+            nowJST(),
+
+          /*
+           * 取得成功日時（ISO 8601）。
+           * 実行開始時刻を使い、実際より新しく見せない。
+           */
+          observed_at:
+            diagnostics.started_at_iso
         }
       );
 
@@ -3313,12 +3358,30 @@ function updatePricesJsonSafely(diagnostics) {
       stores,
 
       /*
-       * 今回実価格が取れたSKUだけ
-       * 更新日時を進める。
-       *
-       * 全取得失敗なのに
-       * 最新日時へ見せかけない。
+       * fetch_status
+       *   ok       : 今回、色別検証済みの価格を1件以上取得できた
+       *   no_price : 今回の確認では有効な価格を取得できなかった
+       *              （古い価格は出さず、画面で「価格未取得」と表示する）
        */
+      fetch_status:
+        freshRows.size > 0
+          ? "ok"
+          : "no_price",
+
+      // 確認実行日時：取得の成否にかかわらず今回の実行日時
+      last_checked_at:
+        diagnostics.finished_at_iso,
+
+      /*
+       * 取得成功日時：今回取れたSKUだけ進める。
+       * 全取得失敗なのに最新日時へ見せかけない。
+       */
+      last_success_at:
+        freshRows.size > 0
+          ? diagnostics.finished_at_iso
+          : (previous.last_success_at || null),
+
+      // 旧形式（日本時間の文字列）。意味は last_success_at と同じ
       last_update:
         freshRows.size > 0
           ? (
@@ -3340,7 +3403,7 @@ function updatePricesJsonSafely(diagnostics) {
     return {
       updated: false,
       reason:
-        "iPhone 18で更新可能なSKUが0件"
+        "更新可能なSKUが0件"
     };
   }
 
@@ -3367,7 +3430,7 @@ function updatePricesJsonSafely(diagnostics) {
    * 一時ファイルへ書き込み。
    */
   const tmpPath =
-    `${PRICES_PATH}.tmp`;
+    `${pricesPath}.tmp`;
 
   fs.writeFileSync(
     tmpPath,
@@ -3404,7 +3467,7 @@ function updatePricesJsonSafely(diagnostics) {
 
   fs.renameSync(
     tmpPath,
-    PRICES_PATH
+    pricesPath
   );
 
   return {
@@ -3732,40 +3795,19 @@ async function run() {
       "utf8"
     );
 
-  const activeTargetJans = [];
+  /*
+   * 対象SKUは scripts/price_rules.js の MODEL_RULES に従って
+   * index.html の JAN_DATABASE から抽出する（検証ステップと同じ関数）。
+   */
+  const activeTargetJans =
+    extractTargets(indexHtml18);
 
-  const jan18Pattern =
-    /"(iPhone 18 Pro(?: Max)?_(?:256GB|512GB|1TB|2TB)_(?:ブラック|シルバー|バーガンディ|グレイシャー))"\s*:\s*"(\d{13})"/g;
+  const targetErrors =
+    validateTargets(activeTargetJans);
 
-  for (const match of indexHtml18.matchAll(jan18Pattern)) {
-    const parts = match[1].split("_");
-
-    const model = parts[0];
-    const storage = parts[1];
-    const color = parts[2];
-
-    activeTargetJans.push({
-      jan: match[2],
-      name: `${model} ${storage} ${color}`,
-      model,
-      storage,
-      color
-    });
-  }
-
-  if (activeTargetJans.length !== 32) {
+  if (targetErrors.length) {
     throw new Error(
-      `iPhone 18 SKU数異常: ${activeTargetJans.length}件`
-    );
-  }
-
-  if (
-    new Set(
-      activeTargetJans.map(item => item.jan)
-    ).size !== 32
-  ) {
-    throw new Error(
-      "iPhone 18 JANに重複があります"
+      `対象SKU異常: ${targetErrors.join(" / ")}`
     );
   }
 
@@ -3780,7 +3822,7 @@ async function run() {
 
     if (!matched) {
       throw new Error(
-        `指定JANがiPhone 18対象外です: ${requestedJan}`
+        `指定JANが更新対象外です: ${requestedJan}`
       );
     }
 
@@ -3803,7 +3845,7 @@ async function run() {
   console.log("");
 
   console.log(
-    `対象商品: ${activeTargetJans.length}件（iPhone 18 Pro / Pro Max）`
+    `対象商品: ${activeTargetJans.length}件（${MODEL_RULES.map(rule => rule.model).join(" / ")}）`
   );
 
   console.log(
@@ -3832,7 +3874,19 @@ async function run() {
 
     started_at: nowJST(),
 
+    // 機械判定用（ISO 8601）。started_at / finished_at は表示用の日本時間文字列
+    started_at_iso: new Date().toISOString(),
+
+    // モデル別に価格取得へ使う店舗（null = 制限なし）
+    store_support:
+      MODEL_RULES.map(rule => ({
+        model: rule.model,
+        allowed_store_ids: rule.allowedStoreIds || null
+      })),
+
     finished_at: null,
+
+    finished_at_iso: null,
 
     /*
      * 安全確認フラグ
@@ -4431,10 +4485,14 @@ async function run() {
   diagnostics.finished_at =
     nowJST();
 
+  diagnostics.finished_at_iso =
+    new Date().toISOString();
+
 
   /*
-   * 32 SKU × 6店舗が全件成功した時だけ
-   * prices.json を原子的に更新する。
+   * 色別検証済みの価格だけで prices.json を原子的に更新する。
+   * 価格0件のSKUは fetch_status: "no_price" として保存し、
+   * 取得率の合否は scripts/verify_prices.js が判定する。
    */
   const pricesUpdate =
     updatePricesJsonSafely(
@@ -4655,6 +4713,7 @@ const mainRunner =
     ? runIPhone17Smoke
     : run;
 
+if (require.main === module) {
 mainRunner().catch(error => {
 
   console.error("");
@@ -4676,3 +4735,9 @@ mainRunner().catch(error => {
 
   process.exitCode = 1;
 });
+}
+
+// テスト用（実行時の動作には影響しない）
+module.exports = {
+  updatePricesJsonSafely
+};
