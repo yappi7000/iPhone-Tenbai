@@ -2663,14 +2663,14 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/25 10:59:15",
-        "observed_at": "2026-10-25T01:56:32.351Z"
+        "checked_at": "2026/10/25 11:56:58",
+        "observed_at": "2026-10-25T02:56:58.152Z"
       }
     ],
     "fetch_status": "ok",
-    "last_checked_at": "2026-10-25T01:59:33.912Z",
-    "last_success_at": "2026-10-25T01:59:33.912Z",
-    "last_update": "2026/10/25 10:59:33"
+    "last_checked_at": "2026-10-25T02:57:05.061Z",
+    "last_success_at": "2026-10-25T02:57:05.061Z",
+    "last_update": "2026/10/25 11:57:05"
   },
   "4549995732948": {
     "stores": [
