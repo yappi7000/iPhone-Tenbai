@@ -281,19 +281,19 @@
     "stores": [
       {
         "store": "買取ルデヤ",
-        "price": 275500,
+        "price": 278000,
         "url": "https://kaitori-rudeya.com/search/index/4549995734843",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/10/26 10:05:43",
-        "observed_at": "2026-10-26T01:05:04.796Z"
+        "checked_at": "2026/10/26 14:19:28",
+        "observed_at": "2026-10-26T05:19:28.903Z"
       }
     ],
     "fetch_status": "ok",
-    "last_checked_at": "2026-10-26T01:08:09.919Z",
-    "last_success_at": "2026-10-26T01:08:09.919Z",
-    "last_update": "2026/10/26 10:08:09"
+    "last_checked_at": "2026-10-26T05:19:41.248Z",
+    "last_success_at": "2026-10-26T05:19:41.248Z",
+    "last_update": "2026/10/26 14:19:41"
   },
   "4549995734898": {
     "stores": [
