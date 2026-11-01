@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-01T16:45:19.003258+00:00",
+  "generated_at": "2026-11-01T21:06:14.938894+00:00",
   "source": "Apple Japan retail pickup",
   "anchors": {
     "tokyo": "100-0005",
@@ -2567,8 +2567,8 @@
       "request_successes": 5,
       "request_errors": [],
       "overall_status": "ok",
-      "available_store_count": 7,
-      "unavailable_store_count": 4,
+      "available_store_count": 6,
+      "unavailable_store_count": 5,
       "stores": [
         {
           "store_number": "R711",
@@ -2645,10 +2645,10 @@
           "store_name": "渋谷",
           "state": "東京都",
           "city": "渋谷区",
-          "status": "available",
-          "pickup_display": "available",
+          "status": "unavailable",
+          "pickup_display": "unavailable",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "選択できません"
         },
         {
           "store_number": "R224",
