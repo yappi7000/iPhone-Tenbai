@@ -1,7 +1,7 @@
 {
   "version": "safe-diagnostic-2.0",
-  "started_at": "2026/11/3 20:23:56",
-  "started_at_iso": "2026-11-03T11:23:56.180Z",
+  "started_at": "2026/11/3 20:37:54",
+  "started_at_iso": "2026-11-03T11:37:54.966Z",
   "store_support": [
     {
       "model": "iPhone 18 Pro Max",
@@ -22,8 +22,8 @@
       ]
     }
   ],
-  "finished_at": "2026/11/3 20:24:09",
-  "finished_at_iso": "2026-11-03T11:24:09.978Z",
+  "finished_at": "2026/11/3 20:38:10",
+  "finished_at_iso": "2026-11-03T11:38:10.602Z",
   "safety": {
     "prices_json_modified": true,
     "default_price_used": false,
@@ -66,10 +66,10 @@
   "target_count": 1,
   "targets": [
     {
-      "jan": "4549995735246",
-      "name": "iPhone 18 Pro Max 2TB バーガンディ",
+      "jan": "4549995734843",
+      "name": "iPhone 18 Pro Max 512GB バーガンディ",
       "model": "iPhone 18 Pro Max",
-      "storage": "2TB",
+      "storage": "512GB",
       "color": "バーガンディ"
     }
   ],
@@ -78,10 +78,10 @@
     {
       "store_id": "mobasute",
       "store": "モバステ",
-      "jan": "4549995735246",
-      "product_name": "iPhone 18 Pro Max 2TB バーガンディ",
+      "jan": "4549995734843",
+      "product_name": "iPhone 18 Pro Max 512GB バーガンディ",
       "url": "https://pastec.net/iphone",
-      "checked_at": "2026/11/3 20:23:56",
+      "checked_at": "2026/11/3 20:37:54",
       "status": "ERROR",
       "http": {
         "status": 403,
@@ -113,10 +113,10 @@
     {
       "store_id": "morimori",
       "store": "森森買取",
-      "jan": "4549995735246",
-      "product_name": "iPhone 18 Pro Max 2TB バーガンディ",
-      "url": "https://www.morimori-kaitori.jp/search?sk=4549995735246",
-      "checked_at": "2026/11/3 20:24:00",
+      "jan": "4549995734843",
+      "product_name": "iPhone 18 Pro Max 512GB バーガンディ",
+      "url": "https://www.morimori-kaitori.jp/search?sk=4549995734843",
+      "checked_at": "2026/11/3 20:37:58",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -146,19 +146,19 @@
     {
       "store_id": "rudeya",
       "store": "買取ルデヤ",
-      "jan": "4549995735246",
-      "product_name": "iPhone 18 Pro Max 2TB バーガンディ",
-      "url": "https://kaitori-rudeya.com/search/index/4549995735246",
-      "checked_at": "2026/11/3 20:23:56",
+      "jan": "4549995734843",
+      "product_name": "iPhone 18 Pro Max 512GB バーガンディ",
+      "url": "https://kaitori-rudeya.com/search/index/4549995734843",
+      "checked_at": "2026/11/3 20:37:54",
       "status": "OK",
       "http": {
         "status": 200,
         "ok": true,
-        "final_url": "https://kaitori-rudeya.com/search/index/4549995735246"
+        "final_url": "https://kaitori-rudeya.com/search/index/4549995734843"
       },
       "page": {
-        "title": "買取ルデヤ-東京池袋｜「4549995735246」の検索結果 - 買取",
-        "body_length": 636,
+        "title": "買取ルデヤ-東京池袋｜「4549995734843」の検索結果 - 買取",
+        "body_length": 638,
         "body_available": true
       },
       "product": {
@@ -167,13 +167,13 @@
       },
       "price_candidates": [
         {
-          "raw": "395,000円",
-          "price": 395000
+          "raw": "266,000円",
+          "price": 266000
         }
       ],
       "errors": [],
-      "price": 395000,
-      "raw_price": "395,000円",
+      "price": 266000,
+      "raw_price": "266,000円",
       "caution": "新品・未開封商品の通常買取価格のみ取得。郵送キャンペーン加算なし",
       "color_verified": true,
       "outcome": "success",
@@ -182,10 +182,10 @@
     {
       "store_id": "rakuen",
       "store": "買取楽園",
-      "jan": "4549995735246",
-      "product_name": "iPhone 18 Pro Max 2TB バーガンディ",
+      "jan": "4549995734843",
+      "product_name": "iPhone 18 Pro Max 512GB バーガンディ",
       "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
-      "checked_at": "2026/11/3 20:23:56",
+      "checked_at": "2026/11/3 20:37:54",
       "status": "ERROR",
       "http": {
         "status": 200,
@@ -216,10 +216,10 @@
     {
       "store_id": "ichome",
       "store": "買取一丁目",
-      "jan": "4549995735246",
-      "product_name": "iPhone 18 Pro Max 2TB バーガンディ",
+      "jan": "4549995734843",
+      "product_name": "iPhone 18 Pro Max 512GB バーガンディ",
       "url": "https://www.1-chome.com/keitai",
-      "checked_at": "2026/11/3 20:23:56",
+      "checked_at": "2026/11/3 20:37:54",
       "status": "ERROR",
       "http": {
         "status": 200,
@@ -228,32 +228,32 @@
       },
       "page": {
         "title": "買取１丁目",
-        "body_length": 2809,
+        "body_length": 909,
         "body_available": true
       },
       "product": {
         "jan_found": false,
-        "name_found": true
+        "name_found": false
       },
       "price_candidates": [],
       "errors": [
-        "一丁目: 対象色の明示条件なし"
+        "商品名に一致する商品が見つかりません"
       ],
       "price": null,
       "extraction_color_verified": false,
       "raw_price": null,
       "caution": "",
       "color_verified": false,
-      "outcome": "extraction_failed",
+      "outcome": "no_price",
       "attempts": 1
     },
     {
       "store_id": "iphonekaitori",
       "store": "iPhone買取価格表",
-      "jan": "4549995735246",
-      "product_name": "iPhone 18 Pro Max 2TB バーガンディ",
+      "jan": "4549995734843",
+      "product_name": "iPhone 18 Pro Max 512GB バーガンディ",
       "url": "https://www.iphonekaitori.tokyo/brand/apple/market-price",
-      "checked_at": "2026/11/3 20:24:02",
+      "checked_at": "2026/11/3 20:38:03",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -283,10 +283,10 @@
     {
       "store_id": "kaitoriwiki",
       "store": "買取wiki",
-      "jan": "4549995735246",
-      "product_name": "iPhone 18 Pro Max 2TB バーガンディ",
-      "url": "https://kaitori.wiki/search?keyword=4549995735246",
-      "checked_at": "2026/11/3 20:24:09",
+      "jan": "4549995734843",
+      "product_name": "iPhone 18 Pro Max 512GB バーガンディ",
+      "url": "https://kaitori.wiki/search?keyword=4549995734843",
+      "checked_at": "2026/11/3 20:38:09",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -304,22 +304,22 @@
       },
       "price_candidates": [],
       "errors": [
-        "page.goto: net::ERR_EMPTY_RESPONSE at https://kaitori.wiki/search?keyword=4549995735246\nCall log:\n  - navigating to \"https://kaitori.wiki/search?keyword=4549995735246\", waiting until \"domcontentloaded\"\n"
+        "page.goto: net::ERR_EMPTY_RESPONSE at https://kaitori.wiki/search?keyword=4549995734843\nCall log:\n  - navigating to \"https://kaitori.wiki/search?keyword=4549995734843\", waiting until \"domcontentloaded\"\n"
       ],
       "color_verified": false,
       "outcome": "connection_error",
       "attempts": 2,
       "first_attempt_errors": [
-        "page.goto: net::ERR_EMPTY_RESPONSE at https://kaitori.wiki/search?keyword=4549995735246\nCall log:\n  - navigating to \"https://kaitori.wiki/search?keyword=4549995735246\", waiting until \"domcontentloaded\"\n"
+        "page.goto: net::ERR_EMPTY_RESPONSE at https://kaitori.wiki/search?keyword=4549995734843\nCall log:\n  - navigating to \"https://kaitori.wiki/search?keyword=4549995734843\", waiting until \"domcontentloaded\"\n"
       ]
     },
     {
       "store_id": "mobilemix",
       "store": "モバイルMIX",
-      "jan": "4549995735246",
-      "product_name": "iPhone 18 Pro Max 2TB バーガンディ",
+      "jan": "4549995734843",
+      "product_name": "iPhone 18 Pro Max 512GB バーガンディ",
       "url": "https://mobile-mix.jp/?category=7",
-      "checked_at": "2026/11/3 20:24:04",
+      "checked_at": "2026/11/3 20:38:05",
       "status": "ERROR",
       "http": {
         "status": 200,
@@ -342,7 +342,7 @@
       "price": null,
       "extraction_color_verified": false,
       "raw_price": null,
-      "caution": "ブラック/シルバー-14,000円 グレイシャー買取不可",
+      "caution": "グレイシャー-4,000円､ブラック-7,000円､シルバー-8,000円",
       "color_verified": false,
       "outcome": "extraction_failed",
       "attempts": 1
@@ -350,10 +350,10 @@
     {
       "store_id": "mobileichiban",
       "store": "モバイル一番",
-      "jan": "4549995735246",
-      "product_name": "iPhone 18 Pro Max 2TB バーガンディ",
+      "jan": "4549995734843",
+      "product_name": "iPhone 18 Pro Max 512GB バーガンディ",
       "url": "https://www.mobile-ichiban.com/Prod/1",
-      "checked_at": "2026/11/3 20:24:04",
+      "checked_at": "2026/11/3 20:38:05",
       "status": "ERROR",
       "http": {
         "status": 200,
@@ -367,27 +367,27 @@
       },
       "product": {
         "jan_found": false,
-        "name_found": false
+        "name_found": true
       },
       "price_candidates": [],
       "errors": [
-        "simfree未開封の新品価格を取得できません"
+        "モバイル一番: 対象色の明示条件なし"
       ],
       "price": null,
       "extraction_color_verified": false,
       "raw_price": null,
-      "caution": "",
+      "caution": "  \nシルバー -10000/ グレイシャー -7000/ ブラック -9000 \n",
       "color_verified": false,
-      "outcome": "no_price",
+      "outcome": "extraction_failed",
       "attempts": 1
     },
     {
       "store_id": "keitaispace",
       "store": "携帯空間",
-      "jan": "4549995735246",
-      "product_name": "iPhone 18 Pro Max 2TB バーガンディ",
+      "jan": "4549995734843",
+      "product_name": "iPhone 18 Pro Max 512GB バーガンディ",
       "url": "https://www.keitaispace.co.jp/product/?ca=23",
-      "checked_at": "2026/11/3 20:24:04",
+      "checked_at": "2026/11/3 20:38:05",
       "status": "ERROR",
       "http": {
         "status": 200,
@@ -408,7 +408,7 @@
         "携帯空間: 色別または全色共通の掲載根拠を確認できません"
       ],
       "price": null,
-      "raw_price": "395,000円",
+      "raw_price": "263,000円",
       "caution": "未開封品価格を取得。元ページに色別増減表記なし",
       "color_verified": false,
       "outcome": "extraction_failed",
@@ -417,10 +417,10 @@
     {
       "store_id": "kaitorishouten",
       "store": "買取商店",
-      "jan": "4549995735246",
-      "product_name": "iPhone 18 Pro Max 2TB バーガンディ",
+      "jan": "4549995734843",
+      "product_name": "iPhone 18 Pro Max 512GB バーガンディ",
       "url": "https://www.kaitorishouten-co.jp/keitai",
-      "checked_at": "2026/11/3 20:24:04",
+      "checked_at": "2026/11/3 20:38:05",
       "status": "ERROR",
       "http": {
         "status": 403,
