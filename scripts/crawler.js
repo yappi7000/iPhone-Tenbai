@@ -3157,7 +3157,7 @@ function storesForItem(item, stores = STORES) {
 /*
  * 同一実行内の店舗状態
  *   blocked       : アクセス停止した店舗（停止条件は BLOCK_STOP_POLICY） → 以降アクセスしない
- *   blockStrikes  : 遮断ページの特徴が無い HTTP 403 の連続回数（成功で0に戻す）
+ *   blockStrikes  : 遮断ページの特徴が無い HTTP 403 の連続回数（正常な HTTP 2xx 応答で0に戻す）
  *   retryDisabled : 再試行しても接続エラーだった店舗 → 以降は再試行しない
  */
 function createStoreRunState() {
@@ -3173,12 +3173,34 @@ function createStoreRunState() {
  *   - WAF・CDN の遮断ページ（Webサイトファイアウォール 等）: 1回で停止。
  *   - 遮断ページの特徴が無い HTTP 403: 同じ店舗で2回連続したら停止
  *     （1SKUだけの一時的な 403 で、ルデヤ等の主要店舗の残りSKUを失わないため）。
- *     途中で成功すれば連続回数を0に戻す。
+ *     途中で遮断ページではない HTTP 2xx 応答を受け取れば、価格取得の成否
+ *     （成功・掲載なし・抽出失敗）にかかわらず連続回数を0に戻す。
+ *     タイムアウト・接続エラー・キャッシュの使い回しでは0に戻さない。
  *   - HTTP 429（レート制限）: 再試行はしないが、停止もしない（一時的なことが多いため）。
  */
 const BLOCK_STOP_POLICY = {
   plain403Strikes: 2
 };
+
+/*
+ * 今回の実行でその店舗から正常な応答（遮断ページではない HTTP 2xx）を受け取ったか。
+ * キャッシュの使い回しは新しい応答ではないので含めない。
+ */
+const NORMAL_RESPONSE_OUTCOMES =
+  new Set(["success", "no_price", "extraction_failed"]);
+
+function isFreshNormalResponse(result) {
+  const status = result.http && result.http.status;
+
+  return (
+    !result.cache_hit &&
+    Number.isInteger(status) &&
+    status >= 200 &&
+    status < 300 &&
+    NORMAL_RESPONSE_OUTCOMES.has(result.outcome) &&
+    !hasBlockPageSignature(result)
+  );
+}
 
 /*
  * この結果で店舗のアクセスを止めるか。止める場合は停止理由、止めない場合は null。
@@ -3317,7 +3339,7 @@ async function inspectStoreWithPolicy(
     }
   }
 
-  if (result.outcome === "success") {
+  if (isFreshNormalResponse(result)) {
     state.blockStrikes.delete(store.id);
   }
 
