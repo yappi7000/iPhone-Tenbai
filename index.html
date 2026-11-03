@@ -48,6 +48,7 @@ select,input{width:100%;padding:12px 13px;border:1px solid #ced8e4;border-radius
 .freshness-notice{margin:0 0 12px;padding:10px 12px;border-radius:10px;font-size:12px;font-weight:800;line-height:1.7}
 .freshness-notice.is-stale,.freshness-notice.is-unknown{background:#fff7ed;color:#9a3412;border:1px solid #fed7aa}
 .freshness-notice.is-no-price{background:#f1f5f9;color:#334155;border:1px solid #cbd5e1}
+.price-disclaimer{margin:0 0 12px;padding:8px 12px;border-radius:10px;font-size:12px;line-height:1.7;background:#fffbeb;color:#78350f;border:1px solid #fde68a}
 .fetch-summary{margin:0 0 12px;padding:8px 12px;border-radius:10px;font-size:12px;font-weight:700;line-height:1.7;background:#f8fafc;color:#334155;border:1px solid #e2e8f0}
 .fetch-summary details{margin-top:4px;font-weight:500}
 .fetch-summary summary{cursor:pointer}
@@ -475,6 +476,7 @@ body{background:#eef3f9}
   <p id="catalogDetailMeta" class="catalog-muted"></p>
   <p id="catalogAndroidCondition" class="catalog-note" hidden>Androidは新品・未使用を対象にしています。未開封指定、キャリア版の可否、ネットワーク利用制限、付属品・保証書の条件は店舗ごとに異なります。箱のJAN・容量・色と、各店の条件を確認してください。</p>
   <p id="catalogCardCondition" class="catalog-note" hidden></p>
+  <p class="price-disclaimer">※ 表示している買取価格は取得時点の参考値です。実際の買取価格・買取条件は変わるため、売却前に必ず各店舗の公式サイトで確認してください。</p>
   <div class="catalog-costs"><div><label for="catalog-cost">仕入れ価格（円）</label><input id="catalog-cost" type="number" min="0" max="100000000" step="1" inputmode="numeric" placeholder="未入力"></div><div><label for="catalog-shipping">送料（円）</label><input id="catalog-shipping" type="number" min="0" max="100000000" step="1" inputmode="numeric" value="0"></div><div><label for="catalog-fees">その他費用（円）</label><input id="catalog-fees" type="number" min="0" max="100000000" step="1" inputmode="numeric" value="0"></div></div>
   <div class="catalog-result" role="status"><span>最高買取価格での手残り試算</span><strong id="catalogProfit"></strong><p id="catalogBest" class="catalog-muted"></p></div>
   <p class="catalog-note">買取額 − 仕入れ価格 − 送料 − その他費用で計算。入力費用は全店舗共通の試算です。送料・振込手数料・減額条件は店舗ごとに異なるため、利用する店舗の条件に合わせて入力してください。税金・ポイント・特典は含みません。</p>
@@ -585,6 +587,8 @@ body{background:#eef3f9}
     <div id="priceFreshnessNotice" class="freshness-notice" role="status" style="display:none;"></div>
 
     <div id="fetchSummaryNotice" class="fetch-summary" style="display:none;"></div>
+
+    <p id="priceDisclaimer" class="price-disclaimer">※ 表示している買取価格は、自動巡回で取得した時点の<strong>参考値</strong>です。実際の買取価格・買取条件（未開封・付属品・本体の状態・キャンペーン等）は変わるため、売却前に必ず各店舗の公式サイトで確認してください。利益は目安で、送料・振込手数料などは含みません。</p>
 
     <div class="table-wrap">
       <table>
@@ -825,9 +829,9 @@ body{background:#eef3f9}
     const jan = JAN_DATABASE[`${model}_${storage}_${color}`];
     const itemData = selectedCondition === "unopened" ? crawlData[jan] : null;
 
-    const autoBest = itemData && itemData.stores && itemData.stores.length
-      ? Math.max(...itemData.stores.map(x => Number(x.price) || 0))
-      : 0;
+    // 古い価格・色未検証の価格は自動入力しない（順位と同じ基準）
+    const rankable = splitRankableStores(itemData).ranked;
+    const autoBest = rankable.length ? Number(rankable[0].price) : 0;
 
     const currentKey = `${model}_${storage}_${color}_${selectedCondition}`;
     const bestInput = document.getElementById("simBestPrice");
@@ -850,7 +854,7 @@ body{background:#eef3f9}
     if (apple && best) {
       const profit = best + cardPoint - apple - cost;
       document.getElementById("simProfit").textContent =
-        `${profit >= 0 ? "+" : ""}¥${profit.toLocaleString()}`;
+        formatSignedYen(profit);
       document.getElementById("simProfit").style.color =
         profit >= 0 ? "#438b6c" : "#c92a2a";
     } else {
@@ -992,6 +996,46 @@ body{background:#eef3f9}
     el.style.display = "block";
   }
 
+  /*
+   * 符号付きの円表示（赤字を「+¥-12,902」のように見せない）
+   */
+  function formatSignedYen(value) {
+    const n = Math.round(Number(value) || 0);
+    if (n > 0) return `+¥${n.toLocaleString()}`;
+    if (n < 0) return `-¥${Math.abs(n).toLocaleString()}`;
+    return "¥0";
+  }
+
+  /*
+   * 順位・最高価格・利益計算に使ってよい価格だけを分ける。
+   *   ranked   : 36時間以内に取得・色別検証済み・正の金額（高い順）
+   *   excluded : 表には残すが順位と計算からは外す価格（理由付き）
+   * 古い価格・日時不明・色未検証の価格を「最新の最高価格」として使わない。
+   */
+  function splitRankableStores(itemData) {
+    const F = window.PriceFreshness;
+    const stores = itemData && Array.isArray(itemData.stores) ? itemData.stores : [];
+    const ranked = [];
+    const excluded = [];
+    for (const row of stores) {
+      const price = Number(row.price);
+      const freshness = F.classifyStore(row, Date.now(), itemData).state;
+      const reason =
+        !(Number.isSafeInteger(price) && price > 0) ? "金額が不正なため順位から除外" :
+        freshness === "stale" ? "価格が古いため順位から除外" :
+        freshness !== "fresh" ? "取得日時が不明なため順位から除外" :
+        row.color_verified !== true ? "色別の価格根拠が未確認のため順位から除外" :
+        null;
+      if (reason) excluded.push({ ...row, excludeReason: reason });
+      else ranked.push(row);
+    }
+    ranked.sort((a, b) => Number(b.price) - Number(a.price));
+    return { ranked, excluded };
+  }
+
+  const PRICE_DISCLAIMER_HTML =
+    '<p class="price-disclaimer">※ 表示している買取価格は取得時点の<strong>参考値</strong>です。実際の買取価格・買取条件は変わるため、売却前に必ず各店舗の公式サイトで確認してください。</p>';
+
   function storeDataBadge(row, itemData) {
     const F = window.PriceFreshness;
     const s = F.classifyStore(row, Date.now(), itemData);
@@ -1055,7 +1099,33 @@ body{background:#eef3f9}
       return;
     }
 
-    const sortedStores = [...itemData.stores].sort((a, b) => b.price - a.price);
+    const { ranked: sortedStores, excluded: excludedStores } =
+      splitRankableStores(itemData);
+
+    // 順位から外した価格（古い・日時不明・色未検証）は表に残すが、順位と計算には使わない
+    const excludedRowsHtml = excludedStores.map(s => `
+        <tr class="excluded-row">
+          <td class="rank" style="color:var(--muted);">—</td>
+          <td style="font-weight:900;">${s.store}</td>
+          <td class="price" style="color:var(--muted);">¥${Number(s.price).toLocaleString()}<div style="font-size:10px;">（参考）</div></td>
+          <td class="diff" style="font-size:11px;color:var(--muted);">${s.excludeReason}</td>
+          <td>${storeDataBadge(s, itemData)}</td>
+          <td style="text-align:right;">${s.url ? `<a href="${s.url}" target="_blank" rel="noopener noreferrer" class="visit">公式確認</a>` : ""}</td>
+        </tr>`).join("");
+
+    if (sortedStores.length === 0) {
+      maxPriceCard.textContent = "--";
+      maxPriceCard.style.color = "";
+      bestStoreName.textContent = "最新の買取価格なし（古い価格は順位から除外）";
+      diffPriceCard.textContent = "--";
+      diffPriceCard.style.color = "";
+      finalProfitCard.textContent = "--";
+      finalProfitCard.style.color = "";
+      tableBody.innerHTML = excludedRowsHtml;
+      updateSimulation();
+      return;
+    }
+
     const best = sortedStores[0];
 
     maxPriceCard.textContent = `¥${best.price.toLocaleString()}`;
@@ -1064,13 +1134,12 @@ body{background:#eef3f9}
 
     if (applePrice > 0) {
       const diff = best.price - applePrice;
-      const sign = diff > 0 ? "+" : "";
-      diffPriceCard.textContent = `${sign}¥${diff.toLocaleString()}`;
+      diffPriceCard.textContent = formatSignedYen(diff);
       diffPriceCard.style.color = diff >= 0 ? "var(--gold)" : "#c92a2a";
 
       const cardPoint = Math.round(applePrice * 0.01); const estimatedProfit = diff + cardPoint;
-      finalProfitCard.textContent = `+¥${estimatedProfit.toLocaleString()}`;
-      finalProfitCard.style.color = "var(--gold)";
+      finalProfitCard.textContent = formatSignedYen(estimatedProfit);
+      finalProfitCard.style.color = estimatedProfit >= 0 ? "var(--gold)" : "#c92a2a";
     } else {
       diffPriceCard.textContent = "--";
       finalProfitCard.textContent = "--";
@@ -1133,7 +1202,7 @@ body{background:#eef3f9}
           </td>
         </tr>
       `;
-    }).join("");
+    }).join("") + excludedRowsHtml;
     updateSimulation();
   }
 
@@ -1715,13 +1784,52 @@ body{background:#eef3f9}
       return;
     }
 
-    const sortedStores = [...itemData.stores]
-      .filter(store => Number(store.price) > 0)
-      .sort((a, b) => Number(b.price) - Number(a.price));
+    // メイン画面と同じ基準：古い価格・日時不明・色未検証の価格は順位と利益計算に使わない
+    const { ranked: sortedStores, excluded: excludedStores } =
+      splitRankableStores(itemData);
+
+    // スマホでも店舗名・バッジ・リンクが切れないよう折り返す
+    const presentRowHtml = (store, rankLabel, note) => `
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;padding:10px 0;border-bottom:1px solid #e5e7eb;">
+          <span style="min-width:38px;font-weight:900;">${rankLabel}</span>
+          <span style="flex:1 1 7em;min-width:7em;font-weight:800;">${store.store}</span>
+          <span style="font-weight:900;${note ? "color:var(--muted);" : ""}">¥${Number(store.price).toLocaleString()}${note ? "（参考）" : ""}</span>
+          ${storeDataBadge(store, itemData)}
+          ${store.url ? `<a href="${store.url}" target="_blank" rel="noopener noreferrer" class="visit">公式確認</a>` : ""}
+          ${note ? `<span style="flex-basis:100%;font-size:11px;color:var(--muted);">${note}</span>` : ""}
+        </div>`;
+
+    const excludedHtml = excludedStores
+      .map(store => presentRowHtml(store, "—", store.excludeReason))
+      .join("");
 
     if (sortedStores.length === 0) {
       document.getElementById("presentBestPrice").textContent = "--";
-      document.getElementById("presentBestStore").textContent = "有効な価格データなし";
+      document.getElementById("presentBestStore").textContent =
+        excludedStores.length ? "最新の買取価格なし（古い価格は順位から除外）" : "有効な価格データなし";
+
+      // 前に検索した商品のランキング・利益計算を残さない
+      const noRankFreshness = describeFreshness(itemData);
+      ranking.innerHTML = `
+        <div style="margin-bottom:10px;font-size:12px;color:var(--muted);">${noRankFreshness.badge}</div>
+        ${noRankFreshness.notice ? `<div class="freshness-notice ${noRankFreshness.noticeClass}">${noRankFreshness.notice}</div>` : ""}
+        ${PRICE_DISCLAIMER_HTML}
+        <div style="font-weight:900;margin-bottom:10px;">順位をつけられる最新の買取価格はありません</div>
+        ${excludedHtml}
+      `;
+
+      presentSelectedProduct = null;
+
+      const usePriceBtn =
+        document.getElementById("presentUsePriceBtn");
+
+      if (usePriceBtn) {
+        usePriceBtn.disabled = true;
+        usePriceBtn.textContent = "最新の買取価格がないため利益計算できません";
+        usePriceBtn.style.opacity = "0.55";
+        usePriceBtn.style.cursor = "not-allowed";
+      }
+
       result.style.display = "block";
       return;
     }
@@ -1796,16 +1904,10 @@ body{background:#eef3f9}
     ranking.innerHTML = `
       ${profitSummary}
       ${updateText}
+      ${PRICE_DISCLAIMER_HTML}
       <div style="font-weight:900;margin-bottom:10px;">🏆 買取価格ランキング</div>
-      ${sortedStores.map((store, index) => `
-        <div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #e5e7eb;">
-          <span style="min-width:38px;font-weight:900;">${index + 1}位</span>
-          <span style="flex:1;font-weight:800;">${store.store}</span>
-          <span style="font-weight:900;">¥${Number(store.price).toLocaleString()}</span>
-          ${storeDataBadge(store, itemData)}
-          ${store.url ? `<a href="${store.url}" target="_blank" rel="noopener noreferrer" class="visit">公式確認</a>` : ""}
-        </div>
-      `).join("")}
+      ${sortedStores.map((store, index) => presentRowHtml(store, `${index + 1}位`, "")).join("")}
+      ${excludedHtml}
     `;
 
     const canUseProfitSimulation =
