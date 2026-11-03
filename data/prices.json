@@ -3,72 +3,103 @@
     "stores": [
       {
         "store": "モバイルMIX",
-        "price": 226000,
+        "price": 224500,
         "url": "https://mobile-mix.jp/?category=7",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:17:17",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:53:52",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       },
       {
         "store": "買取ルデヤ",
-        "price": 224500,
+        "price": 222500,
         "url": "https://kaitori-rudeya.com/search/index/4549995734546",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:17:00",
-        "observed_at": "2026-11-02T02:17:00.819Z"
-      },
-      {
-        "store": "買取楽園",
-        "price": 224000,
-        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/2 11:17:00",
-        "observed_at": "2026-11-02T02:17:00.819Z"
-      },
-      {
-        "store": "買取一丁目",
-        "price": 223000,
-        "url": "https://www.1-chome.com/keitai",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/2 11:17:12",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:53:45",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       },
       {
         "store": "モバイル一番",
-        "price": 221000,
+        "price": 222000,
         "url": "https://www.mobile-ichiban.com/Prod/1",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:17:17",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:54:09",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       }
     ],
     "fetch_status": "ok",
-    "last_checked_at": "2026-11-02T02:20:16.116Z",
-    "last_success_at": "2026-11-02T02:20:16.116Z",
-    "last_update": "2026/11/2 11:20:16"
+    "fetch_summary": {
+      "checked_at": "2026-11-03T03:58:44.025Z",
+      "target_stores": 11,
+      "attempted": 11,
+      "success": 3,
+      "no_price": 2,
+      "failed": 6,
+      "stopped": 0,
+      "failures": {
+        "connection_error": 1,
+        "timeout": 2,
+        "blocked": 2,
+        "extraction_failed": 1
+      },
+      "stores": [
+        {
+          "store": "モバステ",
+          "outcome": "blocked"
+        },
+        {
+          "store": "森森買取",
+          "outcome": "connection_error"
+        },
+        {
+          "store": "買取ルデヤ",
+          "outcome": "success"
+        },
+        {
+          "store": "買取楽園",
+          "outcome": "no_price"
+        },
+        {
+          "store": "買取一丁目",
+          "outcome": "no_price"
+        },
+        {
+          "store": "iPhone買取価格表",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取wiki",
+          "outcome": "timeout"
+        },
+        {
+          "store": "モバイルMIX",
+          "outcome": "success"
+        },
+        {
+          "store": "モバイル一番",
+          "outcome": "success"
+        },
+        {
+          "store": "携帯空間",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "買取商店",
+          "outcome": "blocked"
+        }
+      ]
+    },
+    "last_checked_at": "2026-11-03T03:58:44.025Z",
+    "last_success_at": "2026-11-03T03:58:44.025Z",
+    "last_update": "2026/11/3 12:58:44"
   },
   "4549995734591": {
     "stores": [
-      {
-        "store": "買取ルデヤ",
-        "price": 224000,
-        "url": "https://kaitori-rudeya.com/search/index/4549995734591",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/2 11:17:00",
-        "observed_at": "2026-11-02T02:17:00.819Z"
-      },
       {
         "store": "モバイルMIX",
         "price": 223000,
@@ -76,152 +107,305 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:17:16",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:53:52",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       },
       {
-        "store": "買取楽園",
-        "price": 221500,
-        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
+        "store": "買取ルデヤ",
+        "price": 220000,
+        "url": "https://kaitori-rudeya.com/search/index/4549995734591",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:17:00",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:53:45",
+        "observed_at": "2026-11-03T03:53:45.846Z"
+      },
+      {
+        "store": "買取一丁目",
+        "price": 219500,
+        "url": "https://www.1-chome.com/keitai",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/3 12:53:52",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       },
       {
         "store": "モバイル一番",
-        "price": 218500,
+        "price": 219500,
         "url": "https://www.mobile-ichiban.com/Prod/1",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:17:16",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:54:09",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       }
     ],
     "fetch_status": "ok",
-    "last_checked_at": "2026-11-02T02:20:16.116Z",
-    "last_success_at": "2026-11-02T02:20:16.116Z",
-    "last_update": "2026/11/2 11:20:16"
+    "fetch_summary": {
+      "checked_at": "2026-11-03T03:58:44.025Z",
+      "target_stores": 11,
+      "attempted": 11,
+      "success": 4,
+      "no_price": 1,
+      "failed": 6,
+      "stopped": 0,
+      "failures": {
+        "connection_error": 1,
+        "timeout": 2,
+        "blocked": 2,
+        "extraction_failed": 1
+      },
+      "stores": [
+        {
+          "store": "モバステ",
+          "outcome": "blocked"
+        },
+        {
+          "store": "森森買取",
+          "outcome": "connection_error"
+        },
+        {
+          "store": "買取ルデヤ",
+          "outcome": "success"
+        },
+        {
+          "store": "買取楽園",
+          "outcome": "no_price"
+        },
+        {
+          "store": "買取一丁目",
+          "outcome": "success"
+        },
+        {
+          "store": "iPhone買取価格表",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取wiki",
+          "outcome": "timeout"
+        },
+        {
+          "store": "モバイルMIX",
+          "outcome": "success"
+        },
+        {
+          "store": "モバイル一番",
+          "outcome": "success"
+        },
+        {
+          "store": "携帯空間",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "買取商店",
+          "outcome": "blocked"
+        }
+      ]
+    },
+    "last_checked_at": "2026-11-03T03:58:44.025Z",
+    "last_success_at": "2026-11-03T03:58:44.025Z",
+    "last_update": "2026/11/3 12:58:44"
   },
   "4549995734645": {
     "stores": [
       {
         "store": "買取ルデヤ",
-        "price": 236000,
+        "price": 231000,
         "url": "https://kaitori-rudeya.com/search/index/4549995734645",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:17:00",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:53:45",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       }
     ],
     "fetch_status": "ok",
-    "last_checked_at": "2026-11-02T02:20:16.116Z",
-    "last_success_at": "2026-11-02T02:20:16.116Z",
-    "last_update": "2026/11/2 11:20:16"
+    "fetch_summary": {
+      "checked_at": "2026-11-03T03:58:44.025Z",
+      "target_stores": 11,
+      "attempted": 11,
+      "success": 1,
+      "no_price": 1,
+      "failed": 9,
+      "stopped": 0,
+      "failures": {
+        "connection_error": 1,
+        "timeout": 2,
+        "blocked": 2,
+        "extraction_failed": 4
+      },
+      "stores": [
+        {
+          "store": "モバステ",
+          "outcome": "blocked"
+        },
+        {
+          "store": "森森買取",
+          "outcome": "connection_error"
+        },
+        {
+          "store": "買取ルデヤ",
+          "outcome": "success"
+        },
+        {
+          "store": "買取楽園",
+          "outcome": "no_price"
+        },
+        {
+          "store": "買取一丁目",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "iPhone買取価格表",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取wiki",
+          "outcome": "timeout"
+        },
+        {
+          "store": "モバイルMIX",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "モバイル一番",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "携帯空間",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "買取商店",
+          "outcome": "blocked"
+        }
+      ]
+    },
+    "last_checked_at": "2026-11-03T03:58:44.025Z",
+    "last_success_at": "2026-11-03T03:58:44.025Z",
+    "last_update": "2026/11/3 12:58:44"
   },
   "4549995734690": {
     "stores": [
       {
         "store": "モバイルMIX",
-        "price": 228000,
+        "price": 226500,
         "url": "https://mobile-mix.jp/?category=7",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:17:31",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:54:19",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       },
       {
         "store": "買取ルデヤ",
-        "price": 226500,
+        "price": 224500,
         "url": "https://kaitori-rudeya.com/search/index/4549995734690",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:17:23",
-        "observed_at": "2026-11-02T02:17:00.819Z"
-      },
-      {
-        "store": "買取楽園",
-        "price": 226000,
-        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/2 11:17:23",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:54:15",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       },
       {
         "store": "買取一丁目",
-        "price": 225000,
+        "price": 224000,
         "url": "https://www.1-chome.com/keitai",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:17:27",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:54:19",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       },
       {
         "store": "モバイル一番",
-        "price": 223000,
+        "price": 224000,
         "url": "https://www.mobile-ichiban.com/Prod/1",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:17:31",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:54:35",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       }
     ],
     "fetch_status": "ok",
-    "last_checked_at": "2026-11-02T02:20:16.116Z",
-    "last_success_at": "2026-11-02T02:20:16.116Z",
-    "last_update": "2026/11/2 11:20:16"
+    "fetch_summary": {
+      "checked_at": "2026-11-03T03:58:44.025Z",
+      "target_stores": 11,
+      "attempted": 9,
+      "success": 4,
+      "no_price": 1,
+      "failed": 4,
+      "stopped": 2,
+      "failures": {
+        "connection_error": 1,
+        "timeout": 2,
+        "blocked": 0,
+        "extraction_failed": 1
+      },
+      "stores": [
+        {
+          "store": "モバステ",
+          "outcome": "stopped"
+        },
+        {
+          "store": "森森買取",
+          "outcome": "connection_error"
+        },
+        {
+          "store": "買取ルデヤ",
+          "outcome": "success"
+        },
+        {
+          "store": "買取楽園",
+          "outcome": "no_price"
+        },
+        {
+          "store": "買取一丁目",
+          "outcome": "success"
+        },
+        {
+          "store": "iPhone買取価格表",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取wiki",
+          "outcome": "timeout"
+        },
+        {
+          "store": "モバイルMIX",
+          "outcome": "success"
+        },
+        {
+          "store": "モバイル一番",
+          "outcome": "success"
+        },
+        {
+          "store": "携帯空間",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "買取商店",
+          "outcome": "stopped"
+        }
+      ]
+    },
+    "last_checked_at": "2026-11-03T03:58:44.025Z",
+    "last_success_at": "2026-11-03T03:58:44.025Z",
+    "last_update": "2026/11/3 12:58:44"
   },
   "4549995734744": {
     "stores": [
       {
-        "store": "買取ルデヤ",
-        "price": 264500,
-        "url": "https://kaitori-rudeya.com/search/index/4549995734744",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/2 11:17:23",
-        "observed_at": "2026-11-02T02:17:00.819Z"
-      },
-      {
         "store": "モバイルMIX",
-        "price": 263000,
+        "price": 261000,
         "url": "https://mobile-mix.jp/?category=7",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:17:32",
-        "observed_at": "2026-11-02T02:17:00.819Z"
-      },
-      {
-        "store": "買取楽園",
-        "price": 261000,
-        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/2 11:17:23",
-        "observed_at": "2026-11-02T02:17:00.819Z"
-      },
-      {
-        "store": "買取一丁目",
-        "price": 260000,
-        "url": "https://www.1-chome.com/keitai",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/2 11:17:28",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:54:19",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       },
       {
         "store": "モバイル一番",
@@ -230,46 +414,97 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:17:32",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:54:35",
+        "observed_at": "2026-11-03T03:53:45.846Z"
+      },
+      {
+        "store": "買取ルデヤ",
+        "price": 257500,
+        "url": "https://kaitori-rudeya.com/search/index/4549995734744",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/3 12:54:15",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       }
     ],
     "fetch_status": "ok",
-    "last_checked_at": "2026-11-02T02:20:16.116Z",
-    "last_success_at": "2026-11-02T02:20:16.116Z",
-    "last_update": "2026/11/2 11:20:16"
+    "fetch_summary": {
+      "checked_at": "2026-11-03T03:58:44.025Z",
+      "target_stores": 11,
+      "attempted": 9,
+      "success": 3,
+      "no_price": 2,
+      "failed": 4,
+      "stopped": 2,
+      "failures": {
+        "connection_error": 1,
+        "timeout": 2,
+        "blocked": 0,
+        "extraction_failed": 1
+      },
+      "stores": [
+        {
+          "store": "モバステ",
+          "outcome": "stopped"
+        },
+        {
+          "store": "森森買取",
+          "outcome": "connection_error"
+        },
+        {
+          "store": "買取ルデヤ",
+          "outcome": "success"
+        },
+        {
+          "store": "買取楽園",
+          "outcome": "no_price"
+        },
+        {
+          "store": "買取一丁目",
+          "outcome": "no_price"
+        },
+        {
+          "store": "iPhone買取価格表",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取wiki",
+          "outcome": "timeout"
+        },
+        {
+          "store": "モバイルMIX",
+          "outcome": "success"
+        },
+        {
+          "store": "モバイル一番",
+          "outcome": "success"
+        },
+        {
+          "store": "携帯空間",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "買取商店",
+          "outcome": "stopped"
+        }
+      ]
+    },
+    "last_checked_at": "2026-11-03T03:58:44.025Z",
+    "last_success_at": "2026-11-03T03:58:44.025Z",
+    "last_update": "2026/11/3 12:58:44"
   },
   "4549995734799": {
     "stores": [
       {
-        "store": "買取ルデヤ",
-        "price": 262500,
-        "url": "https://kaitori-rudeya.com/search/index/4549995734799",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/2 11:17:23",
-        "observed_at": "2026-11-02T02:17:00.819Z"
-      },
-      {
         "store": "モバイルMIX",
-        "price": 262000,
+        "price": 260000,
         "url": "https://mobile-mix.jp/?category=7",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:17:33",
-        "observed_at": "2026-11-02T02:17:00.819Z"
-      },
-      {
-        "store": "買取楽園",
-        "price": 260000,
-        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/2 11:17:23",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:54:20",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       },
       {
         "store": "モバイル一番",
@@ -278,64 +513,176 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:17:33",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:54:36",
+        "observed_at": "2026-11-03T03:53:45.846Z"
+      },
+      {
+        "store": "買取ルデヤ",
+        "price": 256500,
+        "url": "https://kaitori-rudeya.com/search/index/4549995734799",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/3 12:54:15",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       }
     ],
     "fetch_status": "ok",
-    "last_checked_at": "2026-11-02T02:20:16.116Z",
-    "last_success_at": "2026-11-02T02:20:16.116Z",
-    "last_update": "2026/11/2 11:20:16"
+    "fetch_summary": {
+      "checked_at": "2026-11-03T03:58:44.025Z",
+      "target_stores": 11,
+      "attempted": 9,
+      "success": 3,
+      "no_price": 2,
+      "failed": 4,
+      "stopped": 2,
+      "failures": {
+        "connection_error": 1,
+        "timeout": 2,
+        "blocked": 0,
+        "extraction_failed": 1
+      },
+      "stores": [
+        {
+          "store": "モバステ",
+          "outcome": "stopped"
+        },
+        {
+          "store": "森森買取",
+          "outcome": "connection_error"
+        },
+        {
+          "store": "買取ルデヤ",
+          "outcome": "success"
+        },
+        {
+          "store": "買取楽園",
+          "outcome": "no_price"
+        },
+        {
+          "store": "買取一丁目",
+          "outcome": "no_price"
+        },
+        {
+          "store": "iPhone買取価格表",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取wiki",
+          "outcome": "timeout"
+        },
+        {
+          "store": "モバイルMIX",
+          "outcome": "success"
+        },
+        {
+          "store": "モバイル一番",
+          "outcome": "success"
+        },
+        {
+          "store": "携帯空間",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "買取商店",
+          "outcome": "stopped"
+        }
+      ]
+    },
+    "last_checked_at": "2026-11-03T03:58:44.025Z",
+    "last_success_at": "2026-11-03T03:58:44.025Z",
+    "last_update": "2026/11/3 12:58:44"
   },
   "4549995734843": {
     "stores": [
       {
         "store": "買取ルデヤ",
-        "price": 270500,
+        "price": 266000,
         "url": "https://kaitori-rudeya.com/search/index/4549995734843",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:17:38",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:54:36",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       }
     ],
     "fetch_status": "ok",
-    "last_checked_at": "2026-11-02T02:20:16.116Z",
-    "last_success_at": "2026-11-02T02:20:16.116Z",
-    "last_update": "2026/11/2 11:20:16"
+    "fetch_summary": {
+      "checked_at": "2026-11-03T03:58:44.025Z",
+      "target_stores": 11,
+      "attempted": 9,
+      "success": 1,
+      "no_price": 2,
+      "failed": 6,
+      "stopped": 2,
+      "failures": {
+        "connection_error": 1,
+        "timeout": 2,
+        "blocked": 0,
+        "extraction_failed": 3
+      },
+      "stores": [
+        {
+          "store": "モバステ",
+          "outcome": "stopped"
+        },
+        {
+          "store": "森森買取",
+          "outcome": "connection_error"
+        },
+        {
+          "store": "買取ルデヤ",
+          "outcome": "success"
+        },
+        {
+          "store": "買取楽園",
+          "outcome": "no_price"
+        },
+        {
+          "store": "買取一丁目",
+          "outcome": "no_price"
+        },
+        {
+          "store": "iPhone買取価格表",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取wiki",
+          "outcome": "timeout"
+        },
+        {
+          "store": "モバイルMIX",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "モバイル一番",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "携帯空間",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "買取商店",
+          "outcome": "stopped"
+        }
+      ]
+    },
+    "last_checked_at": "2026-11-03T03:58:44.025Z",
+    "last_success_at": "2026-11-03T03:58:44.025Z",
+    "last_update": "2026/11/3 12:58:44"
   },
   "4549995734898": {
     "stores": [
       {
         "store": "モバイルMIX",
-        "price": 265000,
+        "price": 264000,
         "url": "https://mobile-mix.jp/?category=7",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:17:47",
-        "observed_at": "2026-11-02T02:17:00.819Z"
-      },
-      {
-        "store": "買取ルデヤ",
-        "price": 264500,
-        "url": "https://kaitori-rudeya.com/search/index/4549995734898",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/2 11:17:38",
-        "observed_at": "2026-11-02T02:17:00.819Z"
-      },
-      {
-        "store": "買取楽園",
-        "price": 263000,
-        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/2 11:17:38",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:54:41",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       },
       {
         "store": "モバイル一番",
@@ -344,323 +691,741 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:17:47",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:54:57",
+        "observed_at": "2026-11-03T03:53:45.846Z"
+      },
+      {
+        "store": "買取ルデヤ",
+        "price": 259500,
+        "url": "https://kaitori-rudeya.com/search/index/4549995734898",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/3 12:54:36",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       }
     ],
     "fetch_status": "ok",
-    "last_checked_at": "2026-11-02T02:20:16.116Z",
-    "last_success_at": "2026-11-02T02:20:16.116Z",
-    "last_update": "2026/11/2 11:20:16"
+    "fetch_summary": {
+      "checked_at": "2026-11-03T03:58:44.025Z",
+      "target_stores": 11,
+      "attempted": 9,
+      "success": 3,
+      "no_price": 2,
+      "failed": 4,
+      "stopped": 2,
+      "failures": {
+        "connection_error": 1,
+        "timeout": 2,
+        "blocked": 0,
+        "extraction_failed": 1
+      },
+      "stores": [
+        {
+          "store": "モバステ",
+          "outcome": "stopped"
+        },
+        {
+          "store": "森森買取",
+          "outcome": "connection_error"
+        },
+        {
+          "store": "買取ルデヤ",
+          "outcome": "success"
+        },
+        {
+          "store": "買取楽園",
+          "outcome": "no_price"
+        },
+        {
+          "store": "買取一丁目",
+          "outcome": "no_price"
+        },
+        {
+          "store": "iPhone買取価格表",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取wiki",
+          "outcome": "timeout"
+        },
+        {
+          "store": "モバイルMIX",
+          "outcome": "success"
+        },
+        {
+          "store": "モバイル一番",
+          "outcome": "success"
+        },
+        {
+          "store": "携帯空間",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "買取商店",
+          "outcome": "stopped"
+        }
+      ]
+    },
+    "last_checked_at": "2026-11-03T03:58:44.025Z",
+    "last_success_at": "2026-11-03T03:58:44.025Z",
+    "last_update": "2026/11/3 12:58:44"
   },
   "4549995734942": {
     "stores": [
       {
         "store": "モバイルMIX",
-        "price": 328000,
+        "price": 327500,
         "url": "https://mobile-mix.jp/?category=7",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:17:46",
-        "observed_at": "2026-11-02T02:17:00.819Z"
-      },
-      {
-        "store": "買取ルデヤ",
-        "price": 327500,
-        "url": "https://kaitori-rudeya.com/search/index/4549995734942",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/2 11:17:38",
-        "observed_at": "2026-11-02T02:17:00.819Z"
-      },
-      {
-        "store": "買取一丁目",
-        "price": 327000,
-        "url": "https://www.1-chome.com/keitai",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/2 11:17:42",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:54:41",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       },
       {
         "store": "モバイル一番",
-        "price": 325000,
+        "price": 326000,
         "url": "https://www.mobile-ichiban.com/Prod/1",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:17:46",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:54:57",
+        "observed_at": "2026-11-03T03:53:45.846Z"
+      },
+      {
+        "store": "買取ルデヤ",
+        "price": 325500,
+        "url": "https://kaitori-rudeya.com/search/index/4549995734942",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/3 12:54:36",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       }
     ],
     "fetch_status": "ok",
-    "last_checked_at": "2026-11-02T02:20:16.116Z",
-    "last_success_at": "2026-11-02T02:20:16.116Z",
-    "last_update": "2026/11/2 11:20:16"
+    "fetch_summary": {
+      "checked_at": "2026-11-03T03:58:44.025Z",
+      "target_stores": 11,
+      "attempted": 9,
+      "success": 3,
+      "no_price": 2,
+      "failed": 4,
+      "stopped": 2,
+      "failures": {
+        "connection_error": 1,
+        "timeout": 2,
+        "blocked": 0,
+        "extraction_failed": 1
+      },
+      "stores": [
+        {
+          "store": "モバステ",
+          "outcome": "stopped"
+        },
+        {
+          "store": "森森買取",
+          "outcome": "connection_error"
+        },
+        {
+          "store": "買取ルデヤ",
+          "outcome": "success"
+        },
+        {
+          "store": "買取楽園",
+          "outcome": "no_price"
+        },
+        {
+          "store": "買取一丁目",
+          "outcome": "no_price"
+        },
+        {
+          "store": "iPhone買取価格表",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取wiki",
+          "outcome": "timeout"
+        },
+        {
+          "store": "モバイルMIX",
+          "outcome": "success"
+        },
+        {
+          "store": "モバイル一番",
+          "outcome": "success"
+        },
+        {
+          "store": "携帯空間",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "買取商店",
+          "outcome": "stopped"
+        }
+      ]
+    },
+    "last_checked_at": "2026-11-03T03:58:44.025Z",
+    "last_success_at": "2026-11-03T03:58:44.025Z",
+    "last_update": "2026/11/3 12:58:44"
   },
   "4549995734997": {
     "stores": [
       {
         "store": "モバイルMIX",
-        "price": 324000,
+        "price": 323500,
         "url": "https://mobile-mix.jp/?category=7",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:18:01",
-        "observed_at": "2026-11-02T02:17:00.819Z"
-      },
-      {
-        "store": "買取ルデヤ",
-        "price": 323500,
-        "url": "https://kaitori-rudeya.com/search/index/4549995734997",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/2 11:17:53",
-        "observed_at": "2026-11-02T02:17:00.819Z"
-      },
-      {
-        "store": "買取楽園",
-        "price": 323000,
-        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/2 11:17:53",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:55:02",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       },
       {
         "store": "モバイル一番",
-        "price": 321000,
+        "price": 322000,
         "url": "https://www.mobile-ichiban.com/Prod/1",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:18:01",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:55:17",
+        "observed_at": "2026-11-03T03:53:45.846Z"
+      },
+      {
+        "store": "買取ルデヤ",
+        "price": 321500,
+        "url": "https://kaitori-rudeya.com/search/index/4549995734997",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/3 12:54:58",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       }
     ],
     "fetch_status": "ok",
-    "last_checked_at": "2026-11-02T02:20:16.116Z",
-    "last_success_at": "2026-11-02T02:20:16.116Z",
-    "last_update": "2026/11/2 11:20:16"
+    "fetch_summary": {
+      "checked_at": "2026-11-03T03:58:44.025Z",
+      "target_stores": 11,
+      "attempted": 9,
+      "success": 3,
+      "no_price": 2,
+      "failed": 4,
+      "stopped": 2,
+      "failures": {
+        "connection_error": 1,
+        "timeout": 2,
+        "blocked": 0,
+        "extraction_failed": 1
+      },
+      "stores": [
+        {
+          "store": "モバステ",
+          "outcome": "stopped"
+        },
+        {
+          "store": "森森買取",
+          "outcome": "connection_error"
+        },
+        {
+          "store": "買取ルデヤ",
+          "outcome": "success"
+        },
+        {
+          "store": "買取楽園",
+          "outcome": "no_price"
+        },
+        {
+          "store": "買取一丁目",
+          "outcome": "no_price"
+        },
+        {
+          "store": "iPhone買取価格表",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取wiki",
+          "outcome": "timeout"
+        },
+        {
+          "store": "モバイルMIX",
+          "outcome": "success"
+        },
+        {
+          "store": "モバイル一番",
+          "outcome": "success"
+        },
+        {
+          "store": "携帯空間",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "買取商店",
+          "outcome": "stopped"
+        }
+      ]
+    },
+    "last_checked_at": "2026-11-03T03:58:44.025Z",
+    "last_success_at": "2026-11-03T03:58:44.025Z",
+    "last_update": "2026/11/3 12:58:44"
   },
   "4549995735048": {
     "stores": [
       {
         "store": "買取ルデヤ",
-        "price": 338500,
+        "price": 336500,
         "url": "https://kaitori-rudeya.com/search/index/4549995735048",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:17:53",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:54:58",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       }
     ],
     "fetch_status": "ok",
-    "last_checked_at": "2026-11-02T02:20:16.116Z",
-    "last_success_at": "2026-11-02T02:20:16.116Z",
-    "last_update": "2026/11/2 11:20:16"
+    "fetch_summary": {
+      "checked_at": "2026-11-03T03:58:44.025Z",
+      "target_stores": 11,
+      "attempted": 9,
+      "success": 1,
+      "no_price": 1,
+      "failed": 7,
+      "stopped": 2,
+      "failures": {
+        "connection_error": 1,
+        "timeout": 2,
+        "blocked": 0,
+        "extraction_failed": 4
+      },
+      "stores": [
+        {
+          "store": "モバステ",
+          "outcome": "stopped"
+        },
+        {
+          "store": "森森買取",
+          "outcome": "connection_error"
+        },
+        {
+          "store": "買取ルデヤ",
+          "outcome": "success"
+        },
+        {
+          "store": "買取楽園",
+          "outcome": "no_price"
+        },
+        {
+          "store": "買取一丁目",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "iPhone買取価格表",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取wiki",
+          "outcome": "timeout"
+        },
+        {
+          "store": "モバイルMIX",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "モバイル一番",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "携帯空間",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "買取商店",
+          "outcome": "stopped"
+        }
+      ]
+    },
+    "last_checked_at": "2026-11-03T03:58:44.025Z",
+    "last_success_at": "2026-11-03T03:58:44.025Z",
+    "last_update": "2026/11/3 12:58:44"
   },
   "4549995735093": {
     "stores": [
       {
         "store": "モバイルMIX",
-        "price": 328000,
+        "price": 327500,
         "url": "https://mobile-mix.jp/?category=7",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:18:02",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:55:03",
+        "observed_at": "2026-11-03T03:53:45.846Z"
+      },
+      {
+        "store": "モバイル一番",
+        "price": 326000,
+        "url": "https://www.mobile-ichiban.com/Prod/1",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/3 12:55:19",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       },
       {
         "store": "買取ルデヤ",
-        "price": 327500,
+        "price": 325500,
         "url": "https://kaitori-rudeya.com/search/index/4549995735093",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:17:53",
-        "observed_at": "2026-11-02T02:17:00.819Z"
-      },
-      {
-        "store": "買取楽園",
-        "price": 327000,
-        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/2 11:17:53",
-        "observed_at": "2026-11-02T02:17:00.819Z"
-      },
-      {
-        "store": "モバイル一番",
-        "price": 325000,
-        "url": "https://www.mobile-ichiban.com/Prod/1",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/2 11:18:02",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:54:58",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       }
     ],
     "fetch_status": "ok",
-    "last_checked_at": "2026-11-02T02:20:16.116Z",
-    "last_success_at": "2026-11-02T02:20:16.116Z",
-    "last_update": "2026/11/2 11:20:16"
+    "fetch_summary": {
+      "checked_at": "2026-11-03T03:58:44.025Z",
+      "target_stores": 11,
+      "attempted": 9,
+      "success": 3,
+      "no_price": 2,
+      "failed": 4,
+      "stopped": 2,
+      "failures": {
+        "connection_error": 1,
+        "timeout": 2,
+        "blocked": 0,
+        "extraction_failed": 1
+      },
+      "stores": [
+        {
+          "store": "モバステ",
+          "outcome": "stopped"
+        },
+        {
+          "store": "森森買取",
+          "outcome": "connection_error"
+        },
+        {
+          "store": "買取ルデヤ",
+          "outcome": "success"
+        },
+        {
+          "store": "買取楽園",
+          "outcome": "no_price"
+        },
+        {
+          "store": "買取一丁目",
+          "outcome": "no_price"
+        },
+        {
+          "store": "iPhone買取価格表",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取wiki",
+          "outcome": "timeout"
+        },
+        {
+          "store": "モバイルMIX",
+          "outcome": "success"
+        },
+        {
+          "store": "モバイル一番",
+          "outcome": "success"
+        },
+        {
+          "store": "携帯空間",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "買取商店",
+          "outcome": "stopped"
+        }
+      ]
+    },
+    "last_checked_at": "2026-11-03T03:58:44.025Z",
+    "last_success_at": "2026-11-03T03:58:44.025Z",
+    "last_update": "2026/11/3 12:58:44"
   },
   "4549995735147": {
     "stores": [
       {
+        "store": "モバイル一番",
+        "price": 385000,
+        "url": "https://www.mobile-ichiban.com/Prod/1",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/3 12:55:40",
+        "observed_at": "2026-11-03T03:53:45.846Z"
+      },
+      {
         "store": "買取ルデヤ",
-        "price": 386000,
+        "price": 383000,
         "url": "https://kaitori-rudeya.com/search/index/4549995735147",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:18:07",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:55:19",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       },
       {
         "store": "モバイルMIX",
-        "price": 386000,
+        "price": 382000,
         "url": "https://mobile-mix.jp/?category=7",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:18:16",
-        "observed_at": "2026-11-02T02:17:00.819Z"
-      },
-      {
-        "store": "買取一丁目",
-        "price": 385000,
-        "url": "https://www.1-chome.com/keitai",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/2 11:18:11",
-        "observed_at": "2026-11-02T02:17:00.819Z"
-      },
-      {
-        "store": "モバイル一番",
-        "price": 385000,
-        "url": "https://www.mobile-ichiban.com/Prod/1",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/2 11:18:16",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:55:24",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       }
     ],
     "fetch_status": "ok",
-    "last_checked_at": "2026-11-02T02:20:16.116Z",
-    "last_success_at": "2026-11-02T02:20:16.116Z",
-    "last_update": "2026/11/2 11:20:16"
+    "fetch_summary": {
+      "checked_at": "2026-11-03T03:58:44.025Z",
+      "target_stores": 11,
+      "attempted": 9,
+      "success": 3,
+      "no_price": 2,
+      "failed": 4,
+      "stopped": 2,
+      "failures": {
+        "connection_error": 1,
+        "timeout": 2,
+        "blocked": 0,
+        "extraction_failed": 1
+      },
+      "stores": [
+        {
+          "store": "モバステ",
+          "outcome": "stopped"
+        },
+        {
+          "store": "森森買取",
+          "outcome": "connection_error"
+        },
+        {
+          "store": "買取ルデヤ",
+          "outcome": "success"
+        },
+        {
+          "store": "買取楽園",
+          "outcome": "no_price"
+        },
+        {
+          "store": "買取一丁目",
+          "outcome": "no_price"
+        },
+        {
+          "store": "iPhone買取価格表",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取wiki",
+          "outcome": "timeout"
+        },
+        {
+          "store": "モバイルMIX",
+          "outcome": "success"
+        },
+        {
+          "store": "モバイル一番",
+          "outcome": "success"
+        },
+        {
+          "store": "携帯空間",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "買取商店",
+          "outcome": "stopped"
+        }
+      ]
+    },
+    "last_checked_at": "2026-11-03T03:58:44.025Z",
+    "last_success_at": "2026-11-03T03:58:44.025Z",
+    "last_update": "2026/11/3 12:58:44"
   },
   "4549995735192": {
     "stores": [
       {
-        "store": "買取ルデヤ",
-        "price": 386000,
-        "url": "https://kaitori-rudeya.com/search/index/4549995735192",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/2 11:18:07",
-        "observed_at": "2026-11-02T02:17:00.819Z"
-      },
-      {
-        "store": "モバイルMIX",
-        "price": 386000,
-        "url": "https://mobile-mix.jp/?category=7",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/2 11:18:17",
-        "observed_at": "2026-11-02T02:17:00.819Z"
-      },
-      {
-        "store": "買取一丁目",
-        "price": 385000,
-        "url": "https://www.1-chome.com/keitai",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/2 11:18:12",
-        "observed_at": "2026-11-02T02:17:00.819Z"
-      },
-      {
         "store": "モバイル一番",
         "price": 385000,
         "url": "https://www.mobile-ichiban.com/Prod/1",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:18:17",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:55:39",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       },
       {
-        "store": "買取楽園",
-        "price": 380000,
-        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
+        "store": "買取ルデヤ",
+        "price": 383000,
+        "url": "https://kaitori-rudeya.com/search/index/4549995735192",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:18:07",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:55:19",
+        "observed_at": "2026-11-03T03:53:45.846Z"
+      },
+      {
+        "store": "モバイルMIX",
+        "price": 382000,
+        "url": "https://mobile-mix.jp/?category=7",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/3 12:55:23",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       }
     ],
     "fetch_status": "ok",
-    "last_checked_at": "2026-11-02T02:20:16.116Z",
-    "last_success_at": "2026-11-02T02:20:16.116Z",
-    "last_update": "2026/11/2 11:20:16"
+    "fetch_summary": {
+      "checked_at": "2026-11-03T03:58:44.025Z",
+      "target_stores": 11,
+      "attempted": 9,
+      "success": 3,
+      "no_price": 2,
+      "failed": 4,
+      "stopped": 2,
+      "failures": {
+        "connection_error": 1,
+        "timeout": 2,
+        "blocked": 0,
+        "extraction_failed": 1
+      },
+      "stores": [
+        {
+          "store": "モバステ",
+          "outcome": "stopped"
+        },
+        {
+          "store": "森森買取",
+          "outcome": "connection_error"
+        },
+        {
+          "store": "買取ルデヤ",
+          "outcome": "success"
+        },
+        {
+          "store": "買取楽園",
+          "outcome": "no_price"
+        },
+        {
+          "store": "買取一丁目",
+          "outcome": "no_price"
+        },
+        {
+          "store": "iPhone買取価格表",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取wiki",
+          "outcome": "timeout"
+        },
+        {
+          "store": "モバイルMIX",
+          "outcome": "success"
+        },
+        {
+          "store": "モバイル一番",
+          "outcome": "success"
+        },
+        {
+          "store": "携帯空間",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "買取商店",
+          "outcome": "stopped"
+        }
+      ]
+    },
+    "last_checked_at": "2026-11-03T03:58:44.025Z",
+    "last_success_at": "2026-11-03T03:58:44.025Z",
+    "last_update": "2026/11/3 12:58:44"
   },
   "4549995735246": {
     "stores": [
       {
         "store": "買取ルデヤ",
-        "price": 400000,
+        "price": 395000,
         "url": "https://kaitori-rudeya.com/search/index/4549995735246",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:18:07",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:55:19",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       }
     ],
     "fetch_status": "ok",
-    "last_checked_at": "2026-11-02T02:20:16.116Z",
-    "last_success_at": "2026-11-02T02:20:16.116Z",
-    "last_update": "2026/11/2 11:20:16"
+    "fetch_summary": {
+      "checked_at": "2026-11-03T03:58:44.025Z",
+      "target_stores": 11,
+      "attempted": 9,
+      "success": 1,
+      "no_price": 1,
+      "failed": 7,
+      "stopped": 2,
+      "failures": {
+        "connection_error": 1,
+        "timeout": 2,
+        "blocked": 0,
+        "extraction_failed": 4
+      },
+      "stores": [
+        {
+          "store": "モバステ",
+          "outcome": "stopped"
+        },
+        {
+          "store": "森森買取",
+          "outcome": "connection_error"
+        },
+        {
+          "store": "買取ルデヤ",
+          "outcome": "success"
+        },
+        {
+          "store": "買取楽園",
+          "outcome": "no_price"
+        },
+        {
+          "store": "買取一丁目",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "iPhone買取価格表",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取wiki",
+          "outcome": "timeout"
+        },
+        {
+          "store": "モバイルMIX",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "モバイル一番",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "携帯空間",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "買取商店",
+          "outcome": "stopped"
+        }
+      ]
+    },
+    "last_checked_at": "2026-11-03T03:58:44.025Z",
+    "last_success_at": "2026-11-03T03:58:44.025Z",
+    "last_update": "2026/11/3 12:58:44"
   },
   "4549995735291": {
     "stores": [
-      {
-        "store": "買取ルデヤ",
-        "price": 386000,
-        "url": "https://kaitori-rudeya.com/search/index/4549995735291",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/2 11:18:22",
-        "observed_at": "2026-11-02T02:17:00.819Z"
-      },
-      {
-        "store": "買取一丁目",
-        "price": 385000,
-        "url": "https://www.1-chome.com/keitai",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/2 11:18:26",
-        "observed_at": "2026-11-02T02:17:00.819Z"
-      },
       {
         "store": "モバイル一番",
         "price": 385000,
@@ -668,24 +1433,85 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:18:31",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:56:02",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       },
       {
-        "store": "買取楽園",
-        "price": 380000,
-        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
+        "store": "買取ルデヤ",
+        "price": 383000,
+        "url": "https://kaitori-rudeya.com/search/index/4549995735291",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:18:22",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:55:41",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       }
     ],
     "fetch_status": "ok",
-    "last_checked_at": "2026-11-02T02:20:16.116Z",
-    "last_success_at": "2026-11-02T02:20:16.116Z",
-    "last_update": "2026/11/2 11:20:16"
+    "fetch_summary": {
+      "checked_at": "2026-11-03T03:58:44.025Z",
+      "target_stores": 11,
+      "attempted": 9,
+      "success": 2,
+      "no_price": 2,
+      "failed": 5,
+      "stopped": 2,
+      "failures": {
+        "connection_error": 1,
+        "timeout": 2,
+        "blocked": 0,
+        "extraction_failed": 2
+      },
+      "stores": [
+        {
+          "store": "モバステ",
+          "outcome": "stopped"
+        },
+        {
+          "store": "森森買取",
+          "outcome": "connection_error"
+        },
+        {
+          "store": "買取ルデヤ",
+          "outcome": "success"
+        },
+        {
+          "store": "買取楽園",
+          "outcome": "no_price"
+        },
+        {
+          "store": "買取一丁目",
+          "outcome": "no_price"
+        },
+        {
+          "store": "iPhone買取価格表",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取wiki",
+          "outcome": "timeout"
+        },
+        {
+          "store": "モバイルMIX",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "モバイル一番",
+          "outcome": "success"
+        },
+        {
+          "store": "携帯空間",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "買取商店",
+          "outcome": "stopped"
+        }
+      ]
+    },
+    "last_checked_at": "2026-11-03T03:58:44.025Z",
+    "last_success_at": "2026-11-03T03:58:44.025Z",
+    "last_update": "2026/11/3 12:58:44"
   },
   "4549995734140": {
     "stores": [
@@ -696,8 +1522,18 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:18:22",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:55:41",
+        "observed_at": "2026-11-03T03:53:45.846Z"
+      },
+      {
+        "store": "買取一丁目",
+        "price": 197000,
+        "url": "https://www.1-chome.com/keitai",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/3 12:55:45",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       },
       {
         "store": "モバイルMIX",
@@ -706,36 +1542,87 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:18:30",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:55:45",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       }
     ],
     "fetch_status": "ok",
-    "last_checked_at": "2026-11-02T02:20:16.116Z",
-    "last_success_at": "2026-11-02T02:20:16.116Z",
-    "last_update": "2026/11/2 11:20:16"
+    "fetch_summary": {
+      "checked_at": "2026-11-03T03:58:44.025Z",
+      "target_stores": 11,
+      "attempted": 9,
+      "success": 3,
+      "no_price": 2,
+      "failed": 4,
+      "stopped": 2,
+      "failures": {
+        "connection_error": 1,
+        "timeout": 2,
+        "blocked": 0,
+        "extraction_failed": 1
+      },
+      "stores": [
+        {
+          "store": "モバステ",
+          "outcome": "stopped"
+        },
+        {
+          "store": "森森買取",
+          "outcome": "connection_error"
+        },
+        {
+          "store": "買取ルデヤ",
+          "outcome": "success"
+        },
+        {
+          "store": "買取楽園",
+          "outcome": "no_price"
+        },
+        {
+          "store": "買取一丁目",
+          "outcome": "success"
+        },
+        {
+          "store": "iPhone買取価格表",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取wiki",
+          "outcome": "timeout"
+        },
+        {
+          "store": "モバイルMIX",
+          "outcome": "success"
+        },
+        {
+          "store": "モバイル一番",
+          "outcome": "no_price"
+        },
+        {
+          "store": "携帯空間",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "買取商店",
+          "outcome": "stopped"
+        }
+      ]
+    },
+    "last_checked_at": "2026-11-03T03:58:44.025Z",
+    "last_success_at": "2026-11-03T03:58:44.025Z",
+    "last_update": "2026/11/3 12:58:44"
   },
   "4549995734157": {
     "stores": [
       {
         "store": "買取ルデヤ",
-        "price": 194500,
+        "price": 192500,
         "url": "https://kaitori-rudeya.com/search/index/4549995734157",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:18:22",
-        "observed_at": "2026-11-02T02:17:00.819Z"
-      },
-      {
-        "store": "買取楽園",
-        "price": 192000,
-        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/2 11:18:22",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:55:41",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       },
       {
         "store": "買取一丁目",
@@ -744,8 +1631,8 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:18:26",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:55:45",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       },
       {
         "store": "モバイルMIX",
@@ -754,32 +1641,154 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:18:32",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:55:45",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       }
     ],
     "fetch_status": "ok",
-    "last_checked_at": "2026-11-02T02:20:16.116Z",
-    "last_success_at": "2026-11-02T02:20:16.116Z",
-    "last_update": "2026/11/2 11:20:16"
+    "fetch_summary": {
+      "checked_at": "2026-11-03T03:58:44.025Z",
+      "target_stores": 11,
+      "attempted": 9,
+      "success": 3,
+      "no_price": 2,
+      "failed": 4,
+      "stopped": 2,
+      "failures": {
+        "connection_error": 1,
+        "timeout": 2,
+        "blocked": 0,
+        "extraction_failed": 1
+      },
+      "stores": [
+        {
+          "store": "モバステ",
+          "outcome": "stopped"
+        },
+        {
+          "store": "森森買取",
+          "outcome": "connection_error"
+        },
+        {
+          "store": "買取ルデヤ",
+          "outcome": "success"
+        },
+        {
+          "store": "買取楽園",
+          "outcome": "no_price"
+        },
+        {
+          "store": "買取一丁目",
+          "outcome": "success"
+        },
+        {
+          "store": "iPhone買取価格表",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取wiki",
+          "outcome": "timeout"
+        },
+        {
+          "store": "モバイルMIX",
+          "outcome": "success"
+        },
+        {
+          "store": "モバイル一番",
+          "outcome": "no_price"
+        },
+        {
+          "store": "携帯空間",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "買取商店",
+          "outcome": "stopped"
+        }
+      ]
+    },
+    "last_checked_at": "2026-11-03T03:58:44.025Z",
+    "last_success_at": "2026-11-03T03:58:44.025Z",
+    "last_update": "2026/11/3 12:58:44"
   },
   "4549995734164": {
     "stores": [
       {
         "store": "買取ルデヤ",
-        "price": 203500,
+        "price": 203000,
         "url": "https://kaitori-rudeya.com/search/index/4549995734164",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:18:37",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:56:02",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       }
     ],
     "fetch_status": "ok",
-    "last_checked_at": "2026-11-02T02:20:16.116Z",
-    "last_success_at": "2026-11-02T02:20:16.116Z",
-    "last_update": "2026/11/2 11:20:16"
+    "fetch_summary": {
+      "checked_at": "2026-11-03T03:58:44.025Z",
+      "target_stores": 11,
+      "attempted": 9,
+      "success": 1,
+      "no_price": 3,
+      "failed": 5,
+      "stopped": 2,
+      "failures": {
+        "connection_error": 1,
+        "timeout": 2,
+        "blocked": 0,
+        "extraction_failed": 2
+      },
+      "stores": [
+        {
+          "store": "モバステ",
+          "outcome": "stopped"
+        },
+        {
+          "store": "森森買取",
+          "outcome": "connection_error"
+        },
+        {
+          "store": "買取ルデヤ",
+          "outcome": "success"
+        },
+        {
+          "store": "買取楽園",
+          "outcome": "no_price"
+        },
+        {
+          "store": "買取一丁目",
+          "outcome": "no_price"
+        },
+        {
+          "store": "iPhone買取価格表",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取wiki",
+          "outcome": "timeout"
+        },
+        {
+          "store": "モバイルMIX",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "モバイル一番",
+          "outcome": "no_price"
+        },
+        {
+          "store": "携帯空間",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "買取商店",
+          "outcome": "stopped"
+        }
+      ]
+    },
+    "last_checked_at": "2026-11-03T03:58:44.025Z",
+    "last_success_at": "2026-11-03T03:58:44.025Z",
+    "last_update": "2026/11/3 12:58:44"
   },
   "4549995734171": {
     "stores": [
@@ -790,8 +1799,8 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:18:37",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:56:02",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       },
       {
         "store": "モバイルMIX",
@@ -800,24 +1809,75 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:18:46",
-        "observed_at": "2026-11-02T02:17:00.819Z"
-      },
-      {
-        "store": "買取楽園",
-        "price": 196000,
-        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/2 11:18:37",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:56:07",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       }
     ],
     "fetch_status": "ok",
-    "last_checked_at": "2026-11-02T02:20:16.116Z",
-    "last_success_at": "2026-11-02T02:20:16.116Z",
-    "last_update": "2026/11/2 11:20:16"
+    "fetch_summary": {
+      "checked_at": "2026-11-03T03:58:44.025Z",
+      "target_stores": 11,
+      "attempted": 9,
+      "success": 2,
+      "no_price": 3,
+      "failed": 4,
+      "stopped": 2,
+      "failures": {
+        "connection_error": 1,
+        "timeout": 2,
+        "blocked": 0,
+        "extraction_failed": 1
+      },
+      "stores": [
+        {
+          "store": "モバステ",
+          "outcome": "stopped"
+        },
+        {
+          "store": "森森買取",
+          "outcome": "connection_error"
+        },
+        {
+          "store": "買取ルデヤ",
+          "outcome": "success"
+        },
+        {
+          "store": "買取楽園",
+          "outcome": "no_price"
+        },
+        {
+          "store": "買取一丁目",
+          "outcome": "no_price"
+        },
+        {
+          "store": "iPhone買取価格表",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取wiki",
+          "outcome": "timeout"
+        },
+        {
+          "store": "モバイルMIX",
+          "outcome": "success"
+        },
+        {
+          "store": "モバイル一番",
+          "outcome": "no_price"
+        },
+        {
+          "store": "携帯空間",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "買取商店",
+          "outcome": "stopped"
+        }
+      ]
+    },
+    "last_checked_at": "2026-11-03T03:58:44.025Z",
+    "last_success_at": "2026-11-03T03:58:44.025Z",
+    "last_update": "2026/11/3 12:58:44"
   },
   "4549995734188": {
     "stores": [
@@ -828,8 +1888,8 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:18:45",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:56:07",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       },
       {
         "store": "買取ルデヤ",
@@ -838,14 +1898,85 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:18:37",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:56:02",
+        "observed_at": "2026-11-03T03:53:45.846Z"
+      },
+      {
+        "store": "買取一丁目",
+        "price": 233000,
+        "url": "https://www.1-chome.com/keitai",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/3 12:56:07",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       }
     ],
     "fetch_status": "ok",
-    "last_checked_at": "2026-11-02T02:20:16.116Z",
-    "last_success_at": "2026-11-02T02:20:16.116Z",
-    "last_update": "2026/11/2 11:20:16"
+    "fetch_summary": {
+      "checked_at": "2026-11-03T03:58:44.025Z",
+      "target_stores": 11,
+      "attempted": 9,
+      "success": 3,
+      "no_price": 2,
+      "failed": 4,
+      "stopped": 2,
+      "failures": {
+        "connection_error": 1,
+        "timeout": 2,
+        "blocked": 0,
+        "extraction_failed": 1
+      },
+      "stores": [
+        {
+          "store": "モバステ",
+          "outcome": "stopped"
+        },
+        {
+          "store": "森森買取",
+          "outcome": "connection_error"
+        },
+        {
+          "store": "買取ルデヤ",
+          "outcome": "success"
+        },
+        {
+          "store": "買取楽園",
+          "outcome": "no_price"
+        },
+        {
+          "store": "買取一丁目",
+          "outcome": "success"
+        },
+        {
+          "store": "iPhone買取価格表",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取wiki",
+          "outcome": "timeout"
+        },
+        {
+          "store": "モバイルMIX",
+          "outcome": "success"
+        },
+        {
+          "store": "モバイル一番",
+          "outcome": "no_price"
+        },
+        {
+          "store": "携帯空間",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "買取商店",
+          "outcome": "stopped"
+        }
+      ]
+    },
+    "last_checked_at": "2026-11-03T03:58:44.025Z",
+    "last_success_at": "2026-11-03T03:58:44.025Z",
+    "last_update": "2026/11/3 12:58:44"
   },
   "4549995734195": {
     "stores": [
@@ -856,8 +1987,8 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:18:59",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:56:28",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       },
       {
         "store": "買取ルデヤ",
@@ -866,42 +1997,154 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:18:51",
-        "observed_at": "2026-11-02T02:17:00.819Z"
-      },
-      {
-        "store": "買取楽園",
-        "price": 226000,
-        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/2 11:18:51",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:56:24",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       }
     ],
     "fetch_status": "ok",
-    "last_checked_at": "2026-11-02T02:20:16.116Z",
-    "last_success_at": "2026-11-02T02:20:16.116Z",
-    "last_update": "2026/11/2 11:20:16"
+    "fetch_summary": {
+      "checked_at": "2026-11-03T03:58:44.025Z",
+      "target_stores": 11,
+      "attempted": 9,
+      "success": 2,
+      "no_price": 3,
+      "failed": 4,
+      "stopped": 2,
+      "failures": {
+        "connection_error": 1,
+        "timeout": 2,
+        "blocked": 0,
+        "extraction_failed": 1
+      },
+      "stores": [
+        {
+          "store": "モバステ",
+          "outcome": "stopped"
+        },
+        {
+          "store": "森森買取",
+          "outcome": "connection_error"
+        },
+        {
+          "store": "買取ルデヤ",
+          "outcome": "success"
+        },
+        {
+          "store": "買取楽園",
+          "outcome": "no_price"
+        },
+        {
+          "store": "買取一丁目",
+          "outcome": "no_price"
+        },
+        {
+          "store": "iPhone買取価格表",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取wiki",
+          "outcome": "timeout"
+        },
+        {
+          "store": "モバイルMIX",
+          "outcome": "success"
+        },
+        {
+          "store": "モバイル一番",
+          "outcome": "no_price"
+        },
+        {
+          "store": "携帯空間",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "買取商店",
+          "outcome": "stopped"
+        }
+      ]
+    },
+    "last_checked_at": "2026-11-03T03:58:44.025Z",
+    "last_success_at": "2026-11-03T03:58:44.025Z",
+    "last_update": "2026/11/3 12:58:44"
   },
   "4549995734201": {
     "stores": [
       {
         "store": "買取ルデヤ",
-        "price": 240500,
+        "price": 240000,
         "url": "https://kaitori-rudeya.com/search/index/4549995734201",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:18:51",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:56:24",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       }
     ],
     "fetch_status": "ok",
-    "last_checked_at": "2026-11-02T02:20:16.116Z",
-    "last_success_at": "2026-11-02T02:20:16.116Z",
-    "last_update": "2026/11/2 11:20:16"
+    "fetch_summary": {
+      "checked_at": "2026-11-03T03:58:44.025Z",
+      "target_stores": 11,
+      "attempted": 9,
+      "success": 1,
+      "no_price": 3,
+      "failed": 5,
+      "stopped": 2,
+      "failures": {
+        "connection_error": 1,
+        "timeout": 2,
+        "blocked": 0,
+        "extraction_failed": 2
+      },
+      "stores": [
+        {
+          "store": "モバステ",
+          "outcome": "stopped"
+        },
+        {
+          "store": "森森買取",
+          "outcome": "connection_error"
+        },
+        {
+          "store": "買取ルデヤ",
+          "outcome": "success"
+        },
+        {
+          "store": "買取楽園",
+          "outcome": "no_price"
+        },
+        {
+          "store": "買取一丁目",
+          "outcome": "no_price"
+        },
+        {
+          "store": "iPhone買取価格表",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取wiki",
+          "outcome": "timeout"
+        },
+        {
+          "store": "モバイルMIX",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "モバイル一番",
+          "outcome": "no_price"
+        },
+        {
+          "store": "携帯空間",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "買取商店",
+          "outcome": "stopped"
+        }
+      ]
+    },
+    "last_checked_at": "2026-11-03T03:58:44.025Z",
+    "last_success_at": "2026-11-03T03:58:44.025Z",
+    "last_update": "2026/11/3 12:58:44"
   },
   "4549995734218": {
     "stores": [
@@ -912,8 +2155,8 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:19:01",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:56:28",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       },
       {
         "store": "買取ルデヤ",
@@ -922,24 +2165,75 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:18:51",
-        "observed_at": "2026-11-02T02:17:00.819Z"
-      },
-      {
-        "store": "買取楽園",
-        "price": 230000,
-        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/2 11:18:51",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:56:24",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       }
     ],
     "fetch_status": "ok",
-    "last_checked_at": "2026-11-02T02:20:16.116Z",
-    "last_success_at": "2026-11-02T02:20:16.116Z",
-    "last_update": "2026/11/2 11:20:16"
+    "fetch_summary": {
+      "checked_at": "2026-11-03T03:58:44.025Z",
+      "target_stores": 11,
+      "attempted": 9,
+      "success": 2,
+      "no_price": 3,
+      "failed": 4,
+      "stopped": 2,
+      "failures": {
+        "connection_error": 1,
+        "timeout": 2,
+        "blocked": 0,
+        "extraction_failed": 1
+      },
+      "stores": [
+        {
+          "store": "モバステ",
+          "outcome": "stopped"
+        },
+        {
+          "store": "森森買取",
+          "outcome": "connection_error"
+        },
+        {
+          "store": "買取ルデヤ",
+          "outcome": "success"
+        },
+        {
+          "store": "買取楽園",
+          "outcome": "no_price"
+        },
+        {
+          "store": "買取一丁目",
+          "outcome": "no_price"
+        },
+        {
+          "store": "iPhone買取価格表",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取wiki",
+          "outcome": "timeout"
+        },
+        {
+          "store": "モバイルMIX",
+          "outcome": "success"
+        },
+        {
+          "store": "モバイル一番",
+          "outcome": "no_price"
+        },
+        {
+          "store": "携帯空間",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "買取商店",
+          "outcome": "stopped"
+        }
+      ]
+    },
+    "last_checked_at": "2026-11-03T03:58:44.025Z",
+    "last_success_at": "2026-11-03T03:58:44.025Z",
+    "last_update": "2026/11/3 12:58:44"
   },
   "4549995734225": {
     "stores": [
@@ -950,14 +2244,85 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:19:06",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:56:45",
+        "observed_at": "2026-11-03T03:53:45.846Z"
+      },
+      {
+        "store": "買取一丁目",
+        "price": 296000,
+        "url": "https://www.1-chome.com/keitai",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/3 12:56:49",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       }
     ],
     "fetch_status": "ok",
-    "last_checked_at": "2026-11-02T02:20:16.116Z",
-    "last_success_at": "2026-11-02T02:20:16.116Z",
-    "last_update": "2026/11/2 11:20:16"
+    "fetch_summary": {
+      "checked_at": "2026-11-03T03:58:44.025Z",
+      "target_stores": 11,
+      "attempted": 9,
+      "success": 2,
+      "no_price": 2,
+      "failed": 5,
+      "stopped": 2,
+      "failures": {
+        "connection_error": 1,
+        "timeout": 2,
+        "blocked": 0,
+        "extraction_failed": 2
+      },
+      "stores": [
+        {
+          "store": "モバステ",
+          "outcome": "stopped"
+        },
+        {
+          "store": "森森買取",
+          "outcome": "connection_error"
+        },
+        {
+          "store": "買取ルデヤ",
+          "outcome": "success"
+        },
+        {
+          "store": "買取楽園",
+          "outcome": "no_price"
+        },
+        {
+          "store": "買取一丁目",
+          "outcome": "success"
+        },
+        {
+          "store": "iPhone買取価格表",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取wiki",
+          "outcome": "timeout"
+        },
+        {
+          "store": "モバイルMIX",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "モバイル一番",
+          "outcome": "no_price"
+        },
+        {
+          "store": "携帯空間",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "買取商店",
+          "outcome": "stopped"
+        }
+      ]
+    },
+    "last_checked_at": "2026-11-03T03:58:44.025Z",
+    "last_success_at": "2026-11-03T03:58:44.025Z",
+    "last_update": "2026/11/3 12:58:44"
   },
   "4549995734232": {
     "stores": [
@@ -968,24 +2333,75 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:19:06",
-        "observed_at": "2026-11-02T02:17:00.819Z"
-      },
-      {
-        "store": "買取楽園",
-        "price": 294000,
-        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/2 11:19:06",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:56:46",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       }
     ],
     "fetch_status": "ok",
-    "last_checked_at": "2026-11-02T02:20:16.116Z",
-    "last_success_at": "2026-11-02T02:20:16.116Z",
-    "last_update": "2026/11/2 11:20:16"
+    "fetch_summary": {
+      "checked_at": "2026-11-03T03:58:44.025Z",
+      "target_stores": 11,
+      "attempted": 9,
+      "success": 1,
+      "no_price": 3,
+      "failed": 5,
+      "stopped": 2,
+      "failures": {
+        "connection_error": 1,
+        "timeout": 2,
+        "blocked": 0,
+        "extraction_failed": 2
+      },
+      "stores": [
+        {
+          "store": "モバステ",
+          "outcome": "stopped"
+        },
+        {
+          "store": "森森買取",
+          "outcome": "connection_error"
+        },
+        {
+          "store": "買取ルデヤ",
+          "outcome": "success"
+        },
+        {
+          "store": "買取楽園",
+          "outcome": "no_price"
+        },
+        {
+          "store": "買取一丁目",
+          "outcome": "no_price"
+        },
+        {
+          "store": "iPhone買取価格表",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取wiki",
+          "outcome": "timeout"
+        },
+        {
+          "store": "モバイルMIX",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "モバイル一番",
+          "outcome": "no_price"
+        },
+        {
+          "store": "携帯空間",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "買取商店",
+          "outcome": "stopped"
+        }
+      ]
+    },
+    "last_checked_at": "2026-11-03T03:58:44.025Z",
+    "last_success_at": "2026-11-03T03:58:44.025Z",
+    "last_update": "2026/11/3 12:58:44"
   },
   "4549995734249": {
     "stores": [
@@ -996,8 +2412,8 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:19:06",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:56:46",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       },
       {
         "store": "モバイルMIX",
@@ -1006,14 +2422,75 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:19:15",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:56:50",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       }
     ],
     "fetch_status": "ok",
-    "last_checked_at": "2026-11-02T02:20:16.116Z",
-    "last_success_at": "2026-11-02T02:20:16.116Z",
-    "last_update": "2026/11/2 11:20:16"
+    "fetch_summary": {
+      "checked_at": "2026-11-03T03:58:44.025Z",
+      "target_stores": 11,
+      "attempted": 9,
+      "success": 2,
+      "no_price": 3,
+      "failed": 4,
+      "stopped": 2,
+      "failures": {
+        "connection_error": 1,
+        "timeout": 2,
+        "blocked": 0,
+        "extraction_failed": 1
+      },
+      "stores": [
+        {
+          "store": "モバステ",
+          "outcome": "stopped"
+        },
+        {
+          "store": "森森買取",
+          "outcome": "connection_error"
+        },
+        {
+          "store": "買取ルデヤ",
+          "outcome": "success"
+        },
+        {
+          "store": "買取楽園",
+          "outcome": "no_price"
+        },
+        {
+          "store": "買取一丁目",
+          "outcome": "no_price"
+        },
+        {
+          "store": "iPhone買取価格表",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取wiki",
+          "outcome": "timeout"
+        },
+        {
+          "store": "モバイルMIX",
+          "outcome": "success"
+        },
+        {
+          "store": "モバイル一番",
+          "outcome": "no_price"
+        },
+        {
+          "store": "携帯空間",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "買取商店",
+          "outcome": "stopped"
+        }
+      ]
+    },
+    "last_checked_at": "2026-11-03T03:58:44.025Z",
+    "last_success_at": "2026-11-03T03:58:44.025Z",
+    "last_update": "2026/11/3 12:58:44"
   },
   "4549995734256": {
     "stores": [
@@ -1024,34 +2501,85 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:19:21",
-        "observed_at": "2026-11-02T02:17:00.819Z"
-      },
-      {
-        "store": "買取楽園",
-        "price": 294000,
-        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/2 11:19:21",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:57:07",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       },
       {
         "store": "買取一丁目",
-        "price": 294000,
+        "price": 296000,
         "url": "https://www.1-chome.com/keitai",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:19:25",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:57:11",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       }
     ],
     "fetch_status": "ok",
-    "last_checked_at": "2026-11-02T02:20:16.116Z",
-    "last_success_at": "2026-11-02T02:20:16.116Z",
-    "last_update": "2026/11/2 11:20:16"
+    "fetch_summary": {
+      "checked_at": "2026-11-03T03:58:44.025Z",
+      "target_stores": 11,
+      "attempted": 9,
+      "success": 2,
+      "no_price": 2,
+      "failed": 5,
+      "stopped": 2,
+      "failures": {
+        "connection_error": 1,
+        "timeout": 2,
+        "blocked": 0,
+        "extraction_failed": 2
+      },
+      "stores": [
+        {
+          "store": "モバステ",
+          "outcome": "stopped"
+        },
+        {
+          "store": "森森買取",
+          "outcome": "connection_error"
+        },
+        {
+          "store": "買取ルデヤ",
+          "outcome": "success"
+        },
+        {
+          "store": "買取楽園",
+          "outcome": "no_price"
+        },
+        {
+          "store": "買取一丁目",
+          "outcome": "success"
+        },
+        {
+          "store": "iPhone買取価格表",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取wiki",
+          "outcome": "timeout"
+        },
+        {
+          "store": "モバイルMIX",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "モバイル一番",
+          "outcome": "no_price"
+        },
+        {
+          "store": "携帯空間",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "買取商店",
+          "outcome": "stopped"
+        }
+      ]
+    },
+    "last_checked_at": "2026-11-03T03:58:44.025Z",
+    "last_success_at": "2026-11-03T03:58:44.025Z",
+    "last_update": "2026/11/3 12:58:44"
   },
   "4549995734263": {
     "stores": [
@@ -1062,14 +2590,75 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:19:21",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:57:07",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       }
     ],
     "fetch_status": "ok",
-    "last_checked_at": "2026-11-02T02:20:16.116Z",
-    "last_success_at": "2026-11-02T02:20:16.116Z",
-    "last_update": "2026/11/2 11:20:16"
+    "fetch_summary": {
+      "checked_at": "2026-11-03T03:58:44.025Z",
+      "target_stores": 11,
+      "attempted": 9,
+      "success": 1,
+      "no_price": 3,
+      "failed": 5,
+      "stopped": 2,
+      "failures": {
+        "connection_error": 1,
+        "timeout": 2,
+        "blocked": 0,
+        "extraction_failed": 2
+      },
+      "stores": [
+        {
+          "store": "モバステ",
+          "outcome": "stopped"
+        },
+        {
+          "store": "森森買取",
+          "outcome": "connection_error"
+        },
+        {
+          "store": "買取ルデヤ",
+          "outcome": "success"
+        },
+        {
+          "store": "買取楽園",
+          "outcome": "no_price"
+        },
+        {
+          "store": "買取一丁目",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "iPhone買取価格表",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取wiki",
+          "outcome": "timeout"
+        },
+        {
+          "store": "モバイルMIX",
+          "outcome": "no_price"
+        },
+        {
+          "store": "モバイル一番",
+          "outcome": "no_price"
+        },
+        {
+          "store": "携帯空間",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "買取商店",
+          "outcome": "stopped"
+        }
+      ]
+    },
+    "last_checked_at": "2026-11-03T03:58:44.025Z",
+    "last_success_at": "2026-11-03T03:58:44.025Z",
+    "last_update": "2026/11/3 12:58:44"
   },
   "4549995734270": {
     "stores": [
@@ -1080,34 +2669,75 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:19:21",
-        "observed_at": "2026-11-02T02:17:00.819Z"
-      },
-      {
-        "store": "買取一丁目",
-        "price": 370000,
-        "url": "https://www.1-chome.com/keitai",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/2 11:19:25",
-        "observed_at": "2026-11-02T02:17:00.819Z"
-      },
-      {
-        "store": "買取楽園",
-        "price": 365000,
-        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/2 11:19:21",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:57:07",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       }
     ],
     "fetch_status": "ok",
-    "last_checked_at": "2026-11-02T02:20:16.116Z",
-    "last_success_at": "2026-11-02T02:20:16.116Z",
-    "last_update": "2026/11/2 11:20:16"
+    "fetch_summary": {
+      "checked_at": "2026-11-03T03:58:44.025Z",
+      "target_stores": 11,
+      "attempted": 9,
+      "success": 1,
+      "no_price": 4,
+      "failed": 4,
+      "stopped": 2,
+      "failures": {
+        "connection_error": 1,
+        "timeout": 2,
+        "blocked": 0,
+        "extraction_failed": 1
+      },
+      "stores": [
+        {
+          "store": "モバステ",
+          "outcome": "stopped"
+        },
+        {
+          "store": "森森買取",
+          "outcome": "connection_error"
+        },
+        {
+          "store": "買取ルデヤ",
+          "outcome": "success"
+        },
+        {
+          "store": "買取楽園",
+          "outcome": "no_price"
+        },
+        {
+          "store": "買取一丁目",
+          "outcome": "no_price"
+        },
+        {
+          "store": "iPhone買取価格表",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取wiki",
+          "outcome": "timeout"
+        },
+        {
+          "store": "モバイルMIX",
+          "outcome": "no_price"
+        },
+        {
+          "store": "モバイル一番",
+          "outcome": "no_price"
+        },
+        {
+          "store": "携帯空間",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "買取商店",
+          "outcome": "stopped"
+        }
+      ]
+    },
+    "last_checked_at": "2026-11-03T03:58:44.025Z",
+    "last_success_at": "2026-11-03T03:58:44.025Z",
+    "last_update": "2026/11/3 12:58:44"
   },
   "4549995734287": {
     "stores": [
@@ -1118,14 +2748,75 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:19:36",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:57:28",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       }
     ],
     "fetch_status": "ok",
-    "last_checked_at": "2026-11-02T02:20:16.116Z",
-    "last_success_at": "2026-11-02T02:20:16.116Z",
-    "last_update": "2026/11/2 11:20:16"
+    "fetch_summary": {
+      "checked_at": "2026-11-03T03:58:44.025Z",
+      "target_stores": 11,
+      "attempted": 9,
+      "success": 1,
+      "no_price": 3,
+      "failed": 5,
+      "stopped": 2,
+      "failures": {
+        "connection_error": 1,
+        "timeout": 2,
+        "blocked": 0,
+        "extraction_failed": 2
+      },
+      "stores": [
+        {
+          "store": "モバステ",
+          "outcome": "stopped"
+        },
+        {
+          "store": "森森買取",
+          "outcome": "connection_error"
+        },
+        {
+          "store": "買取ルデヤ",
+          "outcome": "success"
+        },
+        {
+          "store": "買取楽園",
+          "outcome": "no_price"
+        },
+        {
+          "store": "買取一丁目",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "iPhone買取価格表",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取wiki",
+          "outcome": "timeout"
+        },
+        {
+          "store": "モバイルMIX",
+          "outcome": "no_price"
+        },
+        {
+          "store": "モバイル一番",
+          "outcome": "no_price"
+        },
+        {
+          "store": "携帯空間",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "買取商店",
+          "outcome": "stopped"
+        }
+      ]
+    },
+    "last_checked_at": "2026-11-03T03:58:44.025Z",
+    "last_success_at": "2026-11-03T03:58:44.025Z",
+    "last_update": "2026/11/3 12:58:44"
   },
   "4549995734294": {
     "stores": [
@@ -1136,24 +2827,75 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:19:36",
-        "observed_at": "2026-11-02T02:17:00.819Z"
-      },
-      {
-        "store": "買取楽園",
-        "price": 365000,
-        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/2 11:19:36",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:57:28",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       }
     ],
     "fetch_status": "ok",
-    "last_checked_at": "2026-11-02T02:20:16.116Z",
-    "last_success_at": "2026-11-02T02:20:16.116Z",
-    "last_update": "2026/11/2 11:20:16"
+    "fetch_summary": {
+      "checked_at": "2026-11-03T03:58:44.025Z",
+      "target_stores": 11,
+      "attempted": 9,
+      "success": 1,
+      "no_price": 4,
+      "failed": 4,
+      "stopped": 2,
+      "failures": {
+        "connection_error": 1,
+        "timeout": 2,
+        "blocked": 0,
+        "extraction_failed": 1
+      },
+      "stores": [
+        {
+          "store": "モバステ",
+          "outcome": "stopped"
+        },
+        {
+          "store": "森森買取",
+          "outcome": "connection_error"
+        },
+        {
+          "store": "買取ルデヤ",
+          "outcome": "success"
+        },
+        {
+          "store": "買取楽園",
+          "outcome": "no_price"
+        },
+        {
+          "store": "買取一丁目",
+          "outcome": "no_price"
+        },
+        {
+          "store": "iPhone買取価格表",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取wiki",
+          "outcome": "timeout"
+        },
+        {
+          "store": "モバイルMIX",
+          "outcome": "no_price"
+        },
+        {
+          "store": "モバイル一番",
+          "outcome": "no_price"
+        },
+        {
+          "store": "携帯空間",
+          "outcome": "extraction_failed"
+        },
+        {
+          "store": "買取商店",
+          "outcome": "stopped"
+        }
+      ]
+    },
+    "last_checked_at": "2026-11-03T03:58:44.025Z",
+    "last_success_at": "2026-11-03T03:58:44.025Z",
+    "last_update": "2026/11/3 12:58:44"
   },
   "4549995649284": {
     "name": "iPhone 17 Pro Max 256GB シルバー",
@@ -2473,23 +4215,23 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/3 12:31:01",
-        "observed_at": "2026-11-03T03:31:01.367Z"
+        "checked_at": "2026/11/3 12:57:28",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-03T03:31:18.440Z",
+      "checked_at": "2026-11-03T03:58:44.025Z",
       "target_stores": 5,
-      "attempted": 5,
+      "attempted": 4,
       "success": 1,
       "no_price": 0,
-      "failed": 4,
-      "stopped": 0,
+      "failed": 3,
+      "stopped": 1,
       "failures": {
         "connection_error": 1,
         "timeout": 2,
-        "blocked": 1,
+        "blocked": 0,
         "extraction_failed": 0
       },
       "stores": [
@@ -2511,49 +4253,123 @@
         },
         {
           "store": "買取商店",
-          "outcome": "blocked"
+          "outcome": "stopped"
         }
       ]
     },
-    "last_checked_at": "2026-11-03T03:31:18.440Z",
-    "last_success_at": "2026-11-03T03:31:18.440Z",
-    "last_update": "2026/11/3 12:31:18"
+    "last_checked_at": "2026-11-03T03:58:44.025Z",
+    "last_success_at": "2026-11-03T03:58:44.025Z",
+    "last_update": "2026/11/3 12:58:44"
   },
   "4549995732696": {
     "stores": [
       {
         "store": "買取ルデヤ",
-        "price": 370500,
+        "price": 370000,
         "url": "https://kaitori-rudeya.com/search/index/4549995732696",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:19:49",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:57:49",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       }
     ],
     "fetch_status": "ok",
-    "last_checked_at": "2026-11-02T02:20:16.116Z",
-    "last_success_at": "2026-11-02T02:20:16.116Z",
-    "last_update": "2026/11/2 11:20:16"
+    "fetch_summary": {
+      "checked_at": "2026-11-03T03:58:44.025Z",
+      "target_stores": 5,
+      "attempted": 4,
+      "success": 1,
+      "no_price": 0,
+      "failed": 3,
+      "stopped": 1,
+      "failures": {
+        "connection_error": 1,
+        "timeout": 2,
+        "blocked": 0,
+        "extraction_failed": 0
+      },
+      "stores": [
+        {
+          "store": "森森買取",
+          "outcome": "connection_error"
+        },
+        {
+          "store": "買取ルデヤ",
+          "outcome": "success"
+        },
+        {
+          "store": "iPhone買取価格表",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取wiki",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取商店",
+          "outcome": "stopped"
+        }
+      ]
+    },
+    "last_checked_at": "2026-11-03T03:58:44.025Z",
+    "last_success_at": "2026-11-03T03:58:44.025Z",
+    "last_update": "2026/11/3 12:58:44"
   },
   "4549995732740": {
     "stores": [
       {
         "store": "買取ルデヤ",
-        "price": 396000,
+        "price": 410500,
         "url": "https://kaitori-rudeya.com/search/index/4549995732740",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:19:49",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:57:49",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       }
     ],
     "fetch_status": "ok",
-    "last_checked_at": "2026-11-02T02:20:16.116Z",
-    "last_success_at": "2026-11-02T02:20:16.116Z",
-    "last_update": "2026/11/2 11:20:16"
+    "fetch_summary": {
+      "checked_at": "2026-11-03T03:58:44.025Z",
+      "target_stores": 5,
+      "attempted": 4,
+      "success": 1,
+      "no_price": 0,
+      "failed": 3,
+      "stopped": 1,
+      "failures": {
+        "connection_error": 1,
+        "timeout": 2,
+        "blocked": 0,
+        "extraction_failed": 0
+      },
+      "stores": [
+        {
+          "store": "森森買取",
+          "outcome": "connection_error"
+        },
+        {
+          "store": "買取ルデヤ",
+          "outcome": "success"
+        },
+        {
+          "store": "iPhone買取価格表",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取wiki",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取商店",
+          "outcome": "stopped"
+        }
+      ]
+    },
+    "last_checked_at": "2026-11-03T03:58:44.025Z",
+    "last_success_at": "2026-11-03T03:58:44.025Z",
+    "last_update": "2026/11/3 12:58:44"
   },
   "4549995732795": {
     "stores": [
@@ -2564,85 +4380,270 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/3 7:48:08",
-        "observed_at": "2026-11-02T22:48:08.071Z"
+        "checked_at": "2026/11/3 12:57:49",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       }
     ],
     "fetch_status": "ok",
-    "last_checked_at": "2026-11-02T22:48:38.721Z",
-    "last_success_at": "2026-11-02T22:48:38.721Z",
-    "last_update": "2026/11/3 7:48:38"
+    "fetch_summary": {
+      "checked_at": "2026-11-03T03:58:44.025Z",
+      "target_stores": 5,
+      "attempted": 4,
+      "success": 1,
+      "no_price": 0,
+      "failed": 3,
+      "stopped": 1,
+      "failures": {
+        "connection_error": 1,
+        "timeout": 2,
+        "blocked": 0,
+        "extraction_failed": 0
+      },
+      "stores": [
+        {
+          "store": "森森買取",
+          "outcome": "connection_error"
+        },
+        {
+          "store": "買取ルデヤ",
+          "outcome": "success"
+        },
+        {
+          "store": "iPhone買取価格表",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取wiki",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取商店",
+          "outcome": "stopped"
+        }
+      ]
+    },
+    "last_checked_at": "2026-11-03T03:58:44.025Z",
+    "last_success_at": "2026-11-03T03:58:44.025Z",
+    "last_update": "2026/11/3 12:58:44"
   },
   "4549995732849": {
     "stores": [
       {
         "store": "買取ルデヤ",
-        "price": 476000,
+        "price": 478500,
         "url": "https://kaitori-rudeya.com/search/index/4549995732849",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:19:56",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:58:06",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       }
     ],
     "fetch_status": "ok",
-    "last_checked_at": "2026-11-02T02:20:16.116Z",
-    "last_success_at": "2026-11-02T02:20:16.116Z",
-    "last_update": "2026/11/2 11:20:16"
+    "fetch_summary": {
+      "checked_at": "2026-11-03T03:58:44.025Z",
+      "target_stores": 5,
+      "attempted": 4,
+      "success": 1,
+      "no_price": 0,
+      "failed": 3,
+      "stopped": 1,
+      "failures": {
+        "connection_error": 1,
+        "timeout": 2,
+        "blocked": 0,
+        "extraction_failed": 0
+      },
+      "stores": [
+        {
+          "store": "森森買取",
+          "outcome": "connection_error"
+        },
+        {
+          "store": "買取ルデヤ",
+          "outcome": "success"
+        },
+        {
+          "store": "iPhone買取価格表",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取wiki",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取商店",
+          "outcome": "stopped"
+        }
+      ]
+    },
+    "last_checked_at": "2026-11-03T03:58:44.025Z",
+    "last_success_at": "2026-11-03T03:58:44.025Z",
+    "last_update": "2026/11/3 12:58:44"
   },
   "4549995732894": {
     "stores": [
       {
         "store": "買取ルデヤ",
-        "price": 481000,
+        "price": 483500,
         "url": "https://kaitori-rudeya.com/search/index/4549995732894",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:19:56",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:58:06",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       }
     ],
     "fetch_status": "ok",
-    "last_checked_at": "2026-11-02T02:20:16.116Z",
-    "last_success_at": "2026-11-02T02:20:16.116Z",
-    "last_update": "2026/11/2 11:20:16"
+    "fetch_summary": {
+      "checked_at": "2026-11-03T03:58:44.025Z",
+      "target_stores": 5,
+      "attempted": 4,
+      "success": 1,
+      "no_price": 0,
+      "failed": 3,
+      "stopped": 1,
+      "failures": {
+        "connection_error": 1,
+        "timeout": 2,
+        "blocked": 0,
+        "extraction_failed": 0
+      },
+      "stores": [
+        {
+          "store": "森森買取",
+          "outcome": "connection_error"
+        },
+        {
+          "store": "買取ルデヤ",
+          "outcome": "success"
+        },
+        {
+          "store": "iPhone買取価格表",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取wiki",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取商店",
+          "outcome": "stopped"
+        }
+      ]
+    },
+    "last_checked_at": "2026-11-03T03:58:44.025Z",
+    "last_success_at": "2026-11-03T03:58:44.025Z",
+    "last_update": "2026/11/3 12:58:44"
   },
   "4549995732948": {
     "stores": [
       {
         "store": "買取ルデヤ",
-        "price": 581000,
+        "price": 580000,
         "url": "https://kaitori-rudeya.com/search/index/4549995732948",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:19:56",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:58:06",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       }
     ],
     "fetch_status": "ok",
-    "last_checked_at": "2026-11-02T02:20:16.116Z",
-    "last_success_at": "2026-11-02T02:20:16.116Z",
-    "last_update": "2026/11/2 11:20:16"
+    "fetch_summary": {
+      "checked_at": "2026-11-03T03:58:44.025Z",
+      "target_stores": 5,
+      "attempted": 4,
+      "success": 1,
+      "no_price": 0,
+      "failed": 3,
+      "stopped": 1,
+      "failures": {
+        "connection_error": 1,
+        "timeout": 2,
+        "blocked": 0,
+        "extraction_failed": 0
+      },
+      "stores": [
+        {
+          "store": "森森買取",
+          "outcome": "connection_error"
+        },
+        {
+          "store": "買取ルデヤ",
+          "outcome": "success"
+        },
+        {
+          "store": "iPhone買取価格表",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取wiki",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取商店",
+          "outcome": "stopped"
+        }
+      ]
+    },
+    "last_checked_at": "2026-11-03T03:58:44.025Z",
+    "last_success_at": "2026-11-03T03:58:44.025Z",
+    "last_update": "2026/11/3 12:58:44"
   },
   "4549995732993": {
     "stores": [
       {
         "store": "買取ルデヤ",
-        "price": 581000,
+        "price": 580000,
         "url": "https://kaitori-rudeya.com/search/index/4549995732993",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/2 11:20:02",
-        "observed_at": "2026-11-02T02:17:00.819Z"
+        "checked_at": "2026/11/3 12:58:22",
+        "observed_at": "2026-11-03T03:53:45.846Z"
       }
     ],
     "fetch_status": "ok",
-    "last_checked_at": "2026-11-02T02:20:16.116Z",
-    "last_success_at": "2026-11-02T02:20:16.116Z",
-    "last_update": "2026/11/2 11:20:16"
+    "fetch_summary": {
+      "checked_at": "2026-11-03T03:58:44.025Z",
+      "target_stores": 5,
+      "attempted": 4,
+      "success": 1,
+      "no_price": 0,
+      "failed": 3,
+      "stopped": 1,
+      "failures": {
+        "connection_error": 1,
+        "timeout": 2,
+        "blocked": 0,
+        "extraction_failed": 0
+      },
+      "stores": [
+        {
+          "store": "森森買取",
+          "outcome": "connection_error"
+        },
+        {
+          "store": "買取ルデヤ",
+          "outcome": "success"
+        },
+        {
+          "store": "iPhone買取価格表",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取wiki",
+          "outcome": "timeout"
+        },
+        {
+          "store": "買取商店",
+          "outcome": "stopped"
+        }
+      ]
+    },
+    "last_checked_at": "2026-11-03T03:58:44.025Z",
+    "last_success_at": "2026-11-03T03:58:44.025Z",
+    "last_update": "2026/11/3 12:58:44"
   }
 }
