@@ -4380,23 +4380,23 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/3 12:57:49",
-        "observed_at": "2026-11-03T03:53:45.846Z"
+        "checked_at": "2026/11/3 16:27:15",
+        "observed_at": "2026-11-03T07:27:15.656Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-03T03:58:44.025Z",
+      "checked_at": "2026-11-03T07:27:32.977Z",
       "target_stores": 5,
-      "attempted": 4,
+      "attempted": 5,
       "success": 1,
       "no_price": 0,
-      "failed": 3,
-      "stopped": 1,
+      "failed": 4,
+      "stopped": 0,
       "failures": {
         "connection_error": 1,
         "timeout": 2,
-        "blocked": 0,
+        "blocked": 1,
         "extraction_failed": 0
       },
       "stores": [
@@ -4418,13 +4418,13 @@
         },
         {
           "store": "買取商店",
-          "outcome": "stopped"
+          "outcome": "blocked"
         }
       ]
     },
-    "last_checked_at": "2026-11-03T03:58:44.025Z",
-    "last_success_at": "2026-11-03T03:58:44.025Z",
-    "last_update": "2026/11/3 12:58:44"
+    "last_checked_at": "2026-11-03T07:27:32.977Z",
+    "last_success_at": "2026-11-03T07:27:32.977Z",
+    "last_update": "2026/11/3 16:27:32"
   },
   "4549995732849": {
     "stores": [
