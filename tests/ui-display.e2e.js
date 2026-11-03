@@ -306,3 +306,136 @@ test("Worker未反映（旧Worker）: Duo の即時更新は分かりやすい�
   assert.deepStrictEqual(errors, []);
   await page.close();
 });
+
+/* ---------- 店舗別の取得状況（fetch_summary） ---------- */
+
+const { buildFetchSummary } = require("../assets/fetch-outcome.js");
+const DUO_512_JAN = "4549995732795"; // iPhone Duo 512GB ナイトスカイ
+
+// 2026/11/3 のオンデマンド結果と同じ内訳（成功1・接続1・タイムアウト2・制限1）
+function nov3Summary(checkedAt, { success = true } = {}) {
+  return buildFetchSummary([
+    { store: "森森買取", outcome: "connection_error" },
+    { store: "買取ルデヤ", outcome: success ? "success" : "blocked" },
+    { store: "iPhone買取価格表", outcome: "timeout" },
+    { store: "買取wiki", outcome: "timeout" },
+    { store: "買取商店", outcome: "blocked" }
+  ], checkedAt);
+}
+
+const rudeyaRow = observedAt => ({ store: "買取ルデヤ", price: 415500, url: "", condition: "unopened", scope: "jan", color_verified: true, checked_at: "x", observed_at: observedAt });
+
+test("取得状況: 最終確認時点の「対象5店舗中1店舗」と失敗内訳・取得できなかった店舗を表示する", async () => {
+  const at = iso(1);
+  const { page, errors } = await openWith(withItem({
+    stores: [rudeyaRow(at)], fetch_status: "ok", last_checked_at: at, last_success_at: at, last_update: "x",
+    fetch_summary: nov3Summary(at)
+  }));
+  assert.strictEqual(await page.isVisible("#fetchSummaryNotice"), true);
+  const text = await page.textContent("#fetchSummaryNotice");
+  assert.match(text, /取得状況（\d{4}\/\d+\/\d+ \d{2}:\d{2} の確認）: 対象5店舗中 1店舗で価格を取得／失敗4（接続エラー1・タイムアウト2・アクセス制限1）/);
+  assert.match(text, /森森買取: 接続エラー/);
+  assert.match(text, /買取商店: アクセス制限/);
+  assert.doesNotMatch(text, /買取ルデヤ:/, "成功した店舗は失敗一覧に出さない");
+  assert.strictEqual(await page.locator("#rankingTableBody tr").count(), 1);
+  assert.deepStrictEqual(errors, []);
+  await page.close();
+});
+
+test("取得状況: 成功0店舗でも件数を表示し、古い価格は出さない（価格未取得）", async () => {
+  const at = iso(1);
+  const { page, errors } = await openWith(withItem({
+    stores: [], fetch_status: "no_price", last_checked_at: at, last_success_at: iso(40), last_update: "2026/10/21 10:26:22",
+    fetch_summary: nov3Summary(at, { success: false })
+  }));
+  assert.match(await page.textContent("#fetchSummaryNotice"), /対象5店舗中 0店舗で価格を取得／失敗5/);
+  assert.match(await page.textContent("#priceFreshnessNotice"), /価格未取得/);
+  assert.doesNotMatch(await page.textContent("#rankingTableBody"), /¥/);
+  assert.strictEqual(await page.textContent("#maxPriceCard"), "--");
+  assert.deepStrictEqual(errors, []);
+  await page.close();
+});
+
+test("取得状況: 旧データ（fetch_summary 無し）・別実行の集計・件数が矛盾する集計は表示しない", async () => {
+  const at = iso(2);
+  const base = { stores: freshStores, fetch_status: "ok", last_checked_at: at, last_success_at: at, last_update: "x" };
+  const broken = nov3Summary(at);
+  broken.success = 3;
+  for (const item of [
+    base,
+    { ...base, fetch_summary: nov3Summary(iso(30)) },
+    { ...base, fetch_summary: broken }
+  ]) {
+    const { page, errors } = await openWith(withItem(item));
+    assert.strictEqual(await page.isVisible("#fetchSummaryNotice"), false);
+    assert.strictEqual(await page.locator("#rankingTableBody tr").count(), freshStores.length, "価格表示は従来どおり");
+    assert.deepStrictEqual(errors, []);
+    await page.close();
+  }
+});
+
+/*
+ * オンデマンド: Worker への POST 成功後、GitHub Pages の prices.json を差し替えて完了表示を確認する。
+ */
+async function runOnDemand(updatedItem) {
+  const { page, errors } = await openWith(BASE_PRICES, {
+    select: ["iPhone Duo", "512GB", "ナイトスカイ"],
+    expectJan: DUO_512_JAN,
+    onRequest(route) {
+      const req = route.request();
+      if (req.url().startsWith("https://iphone-tenbai-refresh.thank-you-8p.workers.dev") && req.method() === "POST") {
+        route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({ ok: true }) });
+        return true;
+      }
+      if (req.url().startsWith("https://yappi7000.github.io/iPhone-Tenbai/data/prices.json")) {
+        route.fulfill({ contentType: "application/json", body: JSON.stringify({ ...BASE_PRICES, [DUO_512_JAN]: updatedItem }) });
+        return true;
+      }
+      return false;
+    }
+  });
+  await page.click("#liveRefreshBtn");
+  await page.waitForFunction(
+    () => /取得完了|価格未取得）/.test(document.getElementById("statusAlert").textContent),
+    null,
+    { timeout: 30000 }
+  );
+  return { page, errors, status: await page.textContent("#statusAlert") };
+}
+
+test("オンデマンド完了: 取得完了と「対象5店舗中1店舗」の内訳を表示する", async () => {
+  const at = new Date().toISOString();
+  const { page, errors, status } = await runOnDemand({
+    stores: [rudeyaRow(at)], fetch_status: "ok", last_checked_at: at, last_success_at: at, last_update: "x",
+    fetch_summary: nov3Summary(at)
+  });
+  assert.match(status, /✅ 取得完了・最新データを読み込みました/);
+  assert.match(status, /対象5店舗中 1店舗で価格を取得／失敗4（接続エラー1・タイムアウト2・アクセス制限1）/);
+  assert.match(await page.textContent("#maxPriceCard"), /415,500/);
+  assert.deepStrictEqual(errors, []);
+  await page.close();
+});
+
+test("オンデマンド完了: 成功0店舗なら「価格未取得」と内訳を表示し、価格を出さない", async () => {
+  const at = new Date().toISOString();
+  const { page, errors, status } = await runOnDemand({
+    stores: [], fetch_status: "no_price", last_checked_at: at, last_success_at: null, last_update: null,
+    fetch_summary: nov3Summary(at, { success: false })
+  });
+  assert.match(status, /有効な買取価格を取得できませんでした（価格未取得）/);
+  assert.match(status, /対象5店舗中 0店舗で価格を取得／失敗5/);
+  assert.strictEqual((await page.textContent("#maxPriceCard")).trim(), "--");
+  assert.deepStrictEqual(errors, []);
+  await page.close();
+});
+
+test("オンデマンド完了: 旧形式（fetch_summary 無し）の応答でも従来どおりの完了表示になる", async () => {
+  const at = new Date().toISOString();
+  const { page, errors, status } = await runOnDemand({
+    stores: [rudeyaRow(at)], fetch_status: "ok", last_checked_at: at, last_success_at: at, last_update: "x"
+  });
+  assert.match(status, /✅ 取得完了・最新データを読み込みました/);
+  assert.doesNotMatch(status, /店舗中/);
+  assert.deepStrictEqual(errors, []);
+  await page.close();
+});

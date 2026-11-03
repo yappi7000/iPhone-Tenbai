@@ -9,6 +9,11 @@ const {
   isPriceInRange,
   isStoreAllowedForModel
 } = require('./price_rules');
+const {
+  classifyFetchOutcome,
+  isAccessBlocked,
+  buildFetchSummary
+} = require('../assets/fetch-outcome.js');
 
 /*
  * ============================================================
@@ -2244,11 +2249,20 @@ function extractMorimoriPrice(html, jan) {
 
 const STATIC_STORE_CACHE = new Map();
 
+/*
+ * 全SKU共通の価格表ページ（URLがSKUに依存しない店舗）。
+ * 1回目に正常取得できた本文を同一実行内で使い回す。
+ *
+ * iPhone買取価格表は「JANコード：<13桁JAN> <価格>円」をJAN完全一致で抽出するため、
+ * 同じ本文から別SKUの価格を取り違えない（tests/store-reliability.test.js で確認）。
+ * モバステ・モバイルMIXは page 操作を伴う抽出のため対象外。
+ */
 const STATIC_CACHE_STORE_IDS = new Set([
   "rakuen",
   "mobileichiban",
   "keitaispace",
-  "kaitorishouten"
+  "kaitorishouten",
+  "iphonekaitori"
 ]);
 
 
@@ -2518,6 +2532,8 @@ if (
     if (cachedStatic) {
       bodyText = cachedStatic.bodyText;
 
+      diagnostic.cache_hit = true;
+
       diagnostic.http.final_url =
         cachedStatic.final_url;
     } else {
@@ -2527,7 +2543,16 @@ if (
           .innerText()
           .catch(() => "");
 
-      if (STATIC_CACHE_STORE_IDS.has(store.id)) {
+      /*
+       * 正常に取得できたページだけキャッシュする。
+       * 403・エラーページを使い回して、他SKUまで同じ失敗にしない。
+       */
+      if (
+        STATIC_CACHE_STORE_IDS.has(store.id) &&
+        response &&
+        response.ok() &&
+        bodyText.length > 0
+      ) {
         STATIC_STORE_CACHE.set(
           store.id,
           {
@@ -3102,9 +3127,273 @@ if (
 
 
 /* ============================================================
+ * 店舗アクセスの制御（対象店舗の絞り込み・アクセス停止・再試行）
+ * ============================================================
+ */
+
+/*
+ * そのSKUで価格を取得する店舗（inspectStore の対象条件と同じ）。
+ * バッチ分割の前に絞り込み、対象外の店舗で並列枠を使わない。
+ */
+function storesForItem(item, stores = STORES) {
+  if (
+    process.env.SMOKE === "1" &&
+    !(
+      item.storage === "256GB" &&
+      item.color === "ブラック"
+    )
+  ) {
+    return [];
+  }
+
+  return stores.filter(store =>
+    !store.deferred &&
+    !store.iphone18Only &&
+    IPHONE_18_COLOR_SAFE_STORE_IDS.has(store.id) &&
+    isStoreAllowedForModel(item.model, store.id)
+  );
+}
+
+/*
+ * 同一実行内の店舗状態
+ *   blocked       : アクセス制限（HTTP 403/429・WAF）を検知した店舗 → 以降アクセスしない
+ *   retryDisabled : 再試行しても接続エラーだった店舗 → 以降は再試行しない
+ */
+function createStoreRunState() {
+  return {
+    blocked: new Map(),
+    retryDisabled: new Set()
+  };
+}
+
+/*
+ * 再試行の方針
+ *   - 接続エラー（socket hang up・接続リセット・HTTP 5xx 等）だけ1回再試行する。
+ *     過去に HTTP 502 の単発失敗があったため（2026/10/6 買取wiki）。
+ *   - タイムアウトは再試行しない（1回15秒の待ちが倍になる。直近のタイムアウトは
+ *     アクセス制限と同時期に起きており、再試行で回復する見込みが低い）。
+ *   - アクセス制限（403/429・WAF）は再試行しない。
+ *   - 再試行しても接続エラーなら、その店舗は同一実行内で再試行しない
+ *     （継続的な障害で40SKU分のアクセスが倍にならないように）。
+ */
+const RETRY_POLICY = {
+  retryableOutcomes: new Set(["connection_error"]),
+  delayMinMs: 2000,
+  delayMaxMs: 4000
+};
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function retryDelayMs(random = Math.random) {
+  return Math.round(
+    RETRY_POLICY.delayMinMs +
+    (RETRY_POLICY.delayMaxMs - RETRY_POLICY.delayMinMs) * random()
+  );
+}
+
+/*
+ * アクセス停止した店舗の診断行（アクセスしていないので失敗ではない）。
+ */
+function makeStoppedDiagnostic(store, item, blockedInfo) {
+  return {
+    store_id: store.id,
+    store: store.name,
+    jan: item.jan || null,
+    product_name: item.name,
+    url: null,
+    checked_at: nowJST(),
+    status: "SKIPPED",
+    outcome: "stopped",
+    attempts: 0,
+    http: {
+      status: null,
+      ok: false,
+      final_url: null
+    },
+    page: {
+      title: null,
+      body_length: 0,
+      body_available: false
+    },
+    product: {
+      jan_found: false,
+      name_found: false
+    },
+    price: null,
+    raw_price: null,
+    price_candidates: [],
+    color_verified: false,
+    skip_reason:
+      `同一実行内でアクセス制限を検知したためアクセス停止（${blockedInfo.reason}・${blockedInfo.jan || "-"}）`,
+    errors: []
+  };
+}
+
+function blockReason(result) {
+  const status = result.http && result.http.status;
+  if (status === 403 || status === 429) return `HTTP ${status}`;
+  return "WAF・遮断ページ";
+}
+
+/*
+ * 1店舗×1SKUを、アクセス停止・再試行の方針に従って調べる。
+ * inspectFn(store, item) は診断行（または対象外なら null）を返す。
+ */
+async function inspectStoreWithPolicy(
+  inspectFn,
+  store,
+  item,
+  state,
+  { wait = sleep, random = Math.random } = {}
+) {
+  const blockedInfo = state.blocked.get(store.id);
+  if (blockedInfo) {
+    return makeStoppedDiagnostic(store, item, blockedInfo);
+  }
+
+  let result = await inspectFn(store, item);
+  if (!result) return null;
+
+  result.outcome = classifyFetchOutcome(result);
+  result.attempts = 1;
+
+  if (
+    RETRY_POLICY.retryableOutcomes.has(result.outcome) &&
+    !state.retryDisabled.has(store.id)
+  ) {
+    const firstErrors = result.errors.slice();
+
+    await wait(retryDelayMs(random));
+
+    // 待機中に別SKUでアクセス制限が判明した場合は再試行しない
+    if (!state.blocked.has(store.id)) {
+      const retried = await inspectFn(store, item);
+
+      if (retried) {
+        retried.outcome = classifyFetchOutcome(retried);
+        retried.attempts = 2;
+        retried.first_attempt_errors = firstErrors;
+
+        if (RETRY_POLICY.retryableOutcomes.has(retried.outcome)) {
+          state.retryDisabled.add(store.id);
+        }
+
+        result = retried;
+      }
+    }
+  }
+
+  if (
+    result.outcome === "blocked" &&
+    isAccessBlocked(result) &&
+    !state.blocked.has(store.id)
+  ) {
+    state.blocked.set(store.id, {
+      store: store.name,
+      jan: item.jan || null,
+      reason: blockReason(result),
+      detected_at: nowJST()
+    });
+  }
+
+  return result;
+}
+
+/*
+ * 1SKUの対象店舗を concurrency 件ずつ並列に調べる。
+ */
+async function inspectStoresForItem(
+  inspectFn,
+  item,
+  state,
+  { stores = storesForItem(item), concurrency = 4, wait, random } = {}
+) {
+  const results = [];
+
+  for (
+    let offset = 0;
+    offset < stores.length;
+    offset += concurrency
+  ) {
+    const batch =
+      stores.slice(offset, offset + concurrency);
+
+    const batchResults =
+      await Promise.all(
+        batch.map(store =>
+          inspectStoreWithPolicy(
+            inspectFn,
+            store,
+            item,
+            state,
+            { wait, random }
+          )
+        )
+      );
+
+    results.push(...batchResults.filter(Boolean));
+  }
+
+  return results;
+}
+
+
+/* ============================================================
  * メイン処理
  * ============================================================
  */
+
+/*
+ * SKU単位の店舗別取得結果（prices.json の fetch_summary）。
+ *
+ * 対象店舗 = このSKUの診断行のうち、価格出力対象かつモデルで許可された店舗。
+ * 成功は「今回 prices.json に保存した店舗」と必ず一致させる
+ * （診断上はOKでも範囲外などで保存しなかった価格は抽出失敗として数える）。
+ */
+function buildSkuFetchSummary(
+  diagnostics,
+  jan,
+  target,
+  freshRows,
+  checkedAt
+) {
+  const latestByStore = new Map();
+
+  for (const row of diagnostics.stores) {
+    if (
+      !row ||
+      String(row.jan || "") !== jan ||
+      !PRICE_OUTPUT_STORE_IDS.includes(row.store_id) ||
+      !isStoreAllowedForModel(target && target.model, row.store_id)
+    ) {
+      continue;
+    }
+
+    latestByStore.set(row.store_id, row);
+  }
+
+  const outcomes =
+    [...latestByStore.values()].map(row => {
+      if (freshRows.has(row.store_id)) {
+        return { store: row.store, outcome: "success" };
+      }
+
+      const outcome =
+        row.outcome || classifyFetchOutcome(row);
+
+      return {
+        store: row.store,
+        outcome:
+          outcome === "success"
+            ? "extraction_failed"
+            : outcome
+      };
+    });
+
+  return buildFetchSummary(outcomes, checkedAt);
+}
 
 function updatePricesJsonSafely(
   diagnostics,
@@ -3367,6 +3656,21 @@ function updatePricesJsonSafely(
         freshRows.size > 0
           ? "ok"
           : "no_price",
+
+      /*
+       * 今回の確認での店舗別取得結果
+       *   target_stores = attempted + stopped
+       *   attempted     = success + no_price + failed
+       * stopped（アクセス停止）は未試行なので失敗に含めない。
+       */
+      fetch_summary:
+        buildSkuFetchSummary(
+          diagnostics,
+          jan,
+          targetByJan.get(jan),
+          freshRows,
+          diagnostics.finished_at_iso
+        ),
 
       // 確認実行日時：取得の成否にかかわらず今回の実行日時
       last_checked_at:
@@ -3950,9 +4254,21 @@ async function run() {
 
       product_name_found: 0,
 
-      price_candidate_found: 0
+      price_candidate_found: 0,
+
+      // アクセス停止（未試行）。ok / error には含めない
+      stopped: 0,
+
+      // 店舗×SKUの取得結果の分類別件数（assets/fetch-outcome.js）
+      by_outcome: {}
     }
   };
+
+  /*
+   * 同一実行内の店舗状態（アクセス制限を検知した店舗・再試行停止）
+   */
+  const storeRunState =
+    createStoreRunState();
 
 
   try {
@@ -3983,112 +4299,124 @@ async function run() {
         `           JAN: ${item.jan}`
       );
 
+      /*
+       * このSKUの対象店舗だけに絞ってからバッチに分ける
+       * （Duo のオンデマンドは対象5店舗が1バッチで終わる）。
+       */
       const storesToInspect =
-        STORES.filter(
-          store => !store.deferred
-        );
+        storesForItem(item);
 
       const storeConcurrency =
         requestedJan ? 6 : 4;
 
-      for (
-        let offset = 0;
-        offset < storesToInspect.length;
-        offset += storeConcurrency
-      ) {
-        const batch =
-          storesToInspect.slice(
-            offset,
-            offset + storeConcurrency
-          );
-
-        const results =
-          await Promise.all(
-            batch.map(
-              store =>
-                inspectStore(
-                  browser,
-                  store,
-                  item
-                )
-            )
-          );
-
-        for (const result of results) {
-
-          if (!result) {
-            continue;
+      const results =
+        await inspectStoresForItem(
+          (store, target) =>
+            inspectStore(
+              browser,
+              store,
+              target
+            ),
+          item,
+          storeRunState,
+          {
+            stores: storesToInspect,
+            concurrency: storeConcurrency
           }
+        );
 
-          diagnostics.stores.push(
-            result
-          );
+      for (const result of results) {
 
-          if (
-            result.status === "OK"
-          ) {
-            diagnostics.summary.ok++;
-          } else {
-            diagnostics.summary.error++;
-          }
+        diagnostics.stores.push(
+          result
+        );
 
-          if (
+        diagnostics.summary.by_outcome[result.outcome] =
+          (diagnostics.summary.by_outcome[result.outcome] || 0) + 1;
+
+        if (
+          result.status === "OK"
+        ) {
+          diagnostics.summary.ok++;
+        } else if (
+          result.outcome === "stopped"
+        ) {
+          // アクセスしていないので失敗には数えない
+          diagnostics.summary.stopped++;
+        } else {
+          diagnostics.summary.error++;
+        }
+
+        if (
+          result.product.jan_found
+        ) {
+          diagnostics.summary.jan_found++;
+        }
+
+        if (
+          result.product.name_found
+        ) {
+          diagnostics.summary.product_name_found++;
+        }
+
+        if (
+          result.price_candidates.length > 0
+        ) {
+          diagnostics.summary.price_candidate_found++;
+        }
+
+        console.log(
+          `      ${item.jan} / ${result.store}`
+        );
+
+        console.log(
+          `      HTTP: ${result.http.status}`
+        );
+
+        console.log(
+          `      JAN: ${
             result.product.jan_found
-          ) {
-            diagnostics.summary.jan_found++;
-          }
+              ? "FOUND"
+              : "NOT FOUND"
+          }`
+        );
 
-          if (
+        console.log(
+          `      NAME: ${
             result.product.name_found
-          ) {
-            diagnostics.summary.product_name_found++;
-          }
+              ? "FOUND"
+              : "NOT FOUND"
+          }`
+        );
 
-          if (
-            result.price_candidates.length > 0
-          ) {
-            diagnostics.summary.price_candidate_found++;
-          }
+        console.log(
+          `      PRICE CANDIDATES: ${
+            result.price_candidates.length
+          }`
+        );
 
+        console.log(
+          `      OUTCOME: ${result.outcome}${
+            result.attempts > 1 ? `（再試行${result.attempts - 1}回）` : ""
+          }${
+            result.cache_hit ? "（同一実行内のキャッシュ）" : ""
+          }`
+        );
+
+        if (result.skip_reason) {
           console.log(
-            `      ${item.jan} / ${result.store}`
+            `      SKIPPED: ${result.skip_reason}`
           );
+        }
 
+        if (
+          result.errors.length > 0
+        ) {
           console.log(
-            `      HTTP: ${result.http.status}`
-          );
-
-          console.log(
-            `      JAN: ${
-              result.product.jan_found
-                ? "FOUND"
-                : "NOT FOUND"
+            `      ERROR: ${
+              result.errors.join(" / ")
             }`
           );
-
-          console.log(
-            `      NAME: ${
-              result.product.name_found
-                ? "FOUND"
-                : "NOT FOUND"
-            }`
-          );
-
-          console.log(
-            `      PRICE CANDIDATES: ${
-              result.price_candidates.length
-            }`
-          );
-
-          if (
-            result.errors.length > 0
-          ) {
-            console.log(
-              `      ERROR: ${
-                result.errors.join(" / ")
-              }`
-            );
-          }
         }
       }
     }
@@ -4326,6 +4654,34 @@ async function run() {
       console.log(
         "\nON-DEMAND MODE: モバステ容量別一括処理をスキップ"
       );
+    } else if (
+      mobasuteStore &&
+      storeRunState.blocked.has(mobasuteStore.id)
+    ) {
+      /*
+       * JAN単位の巡回でモバステのアクセス制限を検知済み。
+       * 同一実行内では価格表へ追加アクセスしない（停止の診断行だけ残す）。
+       */
+      const blockedInfo =
+        storeRunState.blocked.get(mobasuteStore.id);
+
+      console.log(
+        `\nモバステ容量別一括処理: アクセス停止（${blockedInfo.reason}）`
+      );
+
+      for (const item of IPHONE_18_MOBA_TARGETS) {
+        diagnostics.stores.push(
+          makeStoppedDiagnostic(
+            mobasuteStore,
+            { jan: null, name: item.name },
+            blockedInfo
+          )
+        );
+
+        diagnostics.summary.stopped++;
+        diagnostics.summary.by_outcome.stopped =
+          (diagnostics.summary.by_outcome.stopped || 0) + 1;
+      }
     } else {
 
     if (!mobasuteStore) {
@@ -4487,6 +4843,25 @@ async function run() {
 
   diagnostics.finished_at_iso =
     new Date().toISOString();
+
+  /*
+   * 全診断行に取得結果の分類を付ける
+   * （iPhone 18 のアメモバ・モバステ一括処理の行を含む）。
+   */
+  for (const row of diagnostics.stores) {
+    if (row && !row.outcome) {
+      row.outcome =
+        classifyFetchOutcome(row);
+    }
+  }
+
+  // 同一実行内でアクセス停止した店舗（検知したSKU・理由）
+  diagnostics.store_access_stops =
+    [...storeRunState.blocked.entries()]
+      .map(([storeId, info]) => ({
+        store_id: storeId,
+        ...info
+      }));
 
 
   /*
@@ -4739,5 +5114,13 @@ mainRunner().catch(error => {
 
 // テスト用（実行時の動作には影響しない）
 module.exports = {
-  updatePricesJsonSafely
+  updatePricesJsonSafely,
+  storesForItem,
+  createStoreRunState,
+  inspectStoreWithPolicy,
+  inspectStoresForItem,
+  makeStoppedDiagnostic,
+  RETRY_POLICY,
+  STATIC_CACHE_STORE_IDS,
+  extractIphoneKaitoriPrice
 };

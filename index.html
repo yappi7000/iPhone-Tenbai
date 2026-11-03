@@ -48,6 +48,9 @@ select,input{width:100%;padding:12px 13px;border:1px solid #ced8e4;border-radius
 .freshness-notice{margin:0 0 12px;padding:10px 12px;border-radius:10px;font-size:12px;font-weight:800;line-height:1.7}
 .freshness-notice.is-stale,.freshness-notice.is-unknown{background:#fff7ed;color:#9a3412;border:1px solid #fed7aa}
 .freshness-notice.is-no-price{background:#f1f5f9;color:#334155;border:1px solid #cbd5e1}
+.fetch-summary{margin:0 0 12px;padding:8px 12px;border-radius:10px;font-size:12px;font-weight:700;line-height:1.7;background:#f8fafc;color:#334155;border:1px solid #e2e8f0}
+.fetch-summary details{margin-top:4px;font-weight:500}
+.fetch-summary summary{cursor:pointer}
 .data-badge{padding:3px 8px;border-radius:4px;font-size:11px;font-weight:800;white-space:nowrap}
 .data-badge.is-fresh{background:#d1fae5;color:#065f46}
 .data-badge.is-stale{background:#ffedd5;color:#9a3412}
@@ -581,6 +584,8 @@ body{background:#eef3f9}
 
     <div id="priceFreshnessNotice" class="freshness-notice" role="status" style="display:none;"></div>
 
+    <div id="fetchSummaryNotice" class="fetch-summary" style="display:none;"></div>
+
     <div class="table-wrap">
       <table>
         <thead>
@@ -709,6 +714,7 @@ body{background:#eef3f9}
 </div>
 
 <script src="assets/price-freshness.js?v=1"></script>
+<script src="assets/fetch-outcome.js?v=1"></script>
 <script src="assets/apple_inventory.js?v=1"></script>
 <script src="assets/catalog-core.js?v=android-pokemon3" defer></script>
 <script src="assets/catalog.js?v=android-pokemon4" defer></script>
@@ -946,6 +952,46 @@ body{background:#eef3f9}
     return { info, badge, notice: "", noticeClass: "" };
   }
 
+  /*
+   * 店舗別の取得状況（assets/fetch-outcome.js）
+   *   最終確認時点で「対象何店舗中、何店舗で取れたか」と失敗・停止の内訳を出す。
+   *   fetch_summary が無い旧データ・不整合なデータでは何も表示しない。
+   */
+  function describeItemFetchSummary(itemData) {
+    if (!itemData || !window.FetchOutcome) return null;
+    const summary = itemData.fetch_summary;
+    // 最終確認と別の実行の集計は出さない（古い集計を今回の結果に見せない）
+    if (!summary || summary.checked_at !== itemData.last_checked_at) return null;
+    return window.FetchOutcome.describeFetchSummary(summary);
+  }
+
+  function renderFetchSummary(itemData) {
+    const el = document.getElementById("fetchSummaryNotice");
+    if (!el) return;
+    const described = describeItemFetchSummary(itemData);
+    el.textContent = "";
+    if (!described) {
+      el.style.display = "none";
+      return;
+    }
+    const F = window.PriceFreshness;
+    const checkedText = F.formatJst(F.parseTimestamp(itemData.fetch_summary.checked_at));
+    const line = document.createElement("div");
+    line.textContent = `取得状況（${checkedText} の確認）: ${described.headline}`;
+    el.appendChild(line);
+    if (described.details.length) {
+      const details = document.createElement("details");
+      const summary = document.createElement("summary");
+      summary.textContent = "取得できなかった店舗";
+      details.appendChild(summary);
+      const list = document.createElement("div");
+      list.textContent = described.details.join(" ／ ");
+      details.appendChild(list);
+      el.appendChild(details);
+    }
+    el.style.display = "block";
+  }
+
   function storeDataBadge(row, itemData) {
     const F = window.PriceFreshness;
     const s = F.classifyStore(row, Date.now(), itemData);
@@ -988,6 +1034,7 @@ body{background:#eef3f9}
     freshnessNotice.className = `freshness-notice ${freshness.noticeClass}`;
     freshnessNotice.textContent = freshness.notice;
     freshnessNotice.style.display = freshness.notice ? "block" : "none";
+    renderFetchSummary(itemData);
 
     if (!itemData || !itemData.stores || itemData.stores.length === 0) {
       maxPriceCard.textContent = "--";
@@ -1473,10 +1520,12 @@ body{background:#eef3f9}
       }
 
       stopLiveRefreshProgress();
+      const refreshedSummary = describeItemFetchSummary(crawlData?.[jan]);
       setLiveRefreshStatus(
-        (crawlData?.[jan]?.stores || []).length
+        ((crawlData?.[jan]?.stores || []).length
           ? "✅ 取得完了・最新データを読み込みました"
-          : "⚠️ 確認は完了しましたが、有効な買取価格を取得できませんでした（価格未取得）"
+          : "⚠️ 確認は完了しましたが、有効な買取価格を取得できませんでした（価格未取得）") +
+        (refreshedSummary ? `\n${refreshedSummary.headline}` : "")
       );
 
     } catch (error) {

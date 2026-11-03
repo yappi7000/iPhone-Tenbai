@@ -39,6 +39,7 @@ const {
   isPriceInRange
 } = require("./price_rules");
 const { parseTimestamp } = require("../assets/price-freshness.js");
+const { classifyFetchOutcome, checkFetchSummary, OUTCOME_LABELS } = require("../assets/fetch-outcome.js");
 
 // 実行開始〜終了の範囲外の取得日時を許さない（時計ずれ5分だけ許容）
 const CLOCK_TOLERANCE_MS = 5 * 60 * 1000;
@@ -53,25 +54,32 @@ function hasPrices(item) {
 
 /*
  * 診断データから店舗別の取得状況を集計する（対象SKUの行だけ）。
- *   ok: 価格取得成功 / http403: HTTP 403 / timeout: タイムアウト / other: その他の失敗
+ * 分類は assets/fetch-outcome.js と同じ。
+ *   ok: 価格取得成功 / http403: HTTP 403・WAF 等のアクセス制限 / timeout: タイムアウト
+ *   other: その他の失敗（接続エラー・掲載なし・抽出失敗）
+ *   stopped: アクセス停止（同一実行内でアクセス制限を検知したため未試行。失敗に数えない）
  */
 function summarizeStoreHealth(diagnostics, targetJans) {
   const health = {};
   for (const row of (diagnostics && Array.isArray(diagnostics.stores)) ? diagnostics.stores : []) {
     if (!row || !targetJans.has(String(row.jan || ""))) continue;
     const name = String(row.store || row.store_id || "(不明)");
-    const h = health[name] || (health[name] = { ok: 0, http403: 0, timeout: 0, other: 0, reasons: {} });
+    const h = health[name] || (health[name] = { ok: 0, http403: 0, timeout: 0, other: 0, stopped: 0, reasons: {} });
+    const outcome = row.outcome || classifyFetchOutcome(row);
     if (row.status === "OK") {
       h.ok++;
       continue;
     }
-    const errorsText = (Array.isArray(row.errors) ? row.errors : []).join(" ");
+    if (outcome === "stopped") {
+      h.stopped++;
+      continue;
+    }
     const status = row.http && row.http.status;
     let reason;
-    if (status === 403) {
+    if (outcome === "blocked") {
       h.http403++;
-      reason = "HTTP 403";
-    } else if (/timeout|タイムアウト/i.test(errorsText)) {
+      reason = status === 403 || status === 429 ? `HTTP ${status}` : "WAF・遮断ページ";
+    } else if (outcome === "timeout") {
       h.timeout++;
       reason = "タイムアウト";
     } else {
@@ -179,6 +187,20 @@ function verifyPrices({
 
     if (item.last_checked_at !== runFinishedIso) {
       errors.push(`${label}: 今回の実行で確認されていません（last_checked_at=${item.last_checked_at}）`);
+    }
+
+    // 店舗別取得結果の件数（対象 = アクセス + 停止、アクセス = 成功 + 掲載なし + 失敗）
+    const summary = item.fetch_summary;
+    for (const problem of checkFetchSummary(summary)) {
+      errors.push(`${label}: ${problem}`);
+    }
+    if (summary && typeof summary === "object") {
+      if (summary.success !== item.stores.length) {
+        errors.push(`${label}: fetch_summary の成功数（${summary.success}）が保存した価格数（${item.stores.length}）と一致しません`);
+      }
+      if (summary.checked_at !== runFinishedIso) {
+        errors.push(`${label}: fetch_summary が今回の実行のものではありません（checked_at=${summary.checked_at}）`);
+      }
     }
 
     const names = new Set();
@@ -402,16 +424,16 @@ function formatReport({ errors, warnings, report }) {
   }
 
   const health = Object.entries(report.storeHealth || {});
-  const failing = health.filter(([, h]) => h.http403 + h.timeout + h.other > 0);
+  const failing = health.filter(([, h]) => h.http403 + h.timeout + h.other + (h.stopped || 0) > 0);
   if (failing.length) {
     lines.push("");
     lines.push(`### 取得失敗のある店舗（${failing.length}店舗）`);
     lines.push("");
-    lines.push("| 店舗 | 成功 | HTTP 403 | タイムアウト | その他 | 主な理由 |");
-    lines.push("|---|---|---|---|---|---|");
+    lines.push(`| 店舗 | 成功 | アクセス制限（403・WAF） | タイムアウト | その他 | 主な理由 | ${OUTCOME_LABELS.stopped}（未試行） |`);
+    lines.push("|---|---|---|---|---|---|---|");
     for (const [store, h] of failing.sort((a, b) => a[1].ok - b[1].ok)) {
       const top = Object.entries(h.reasons).sort((a, b) => b[1] - a[1])[0];
-      lines.push(`| ${store}${h.ok === 0 ? " ❗全件失敗" : ""} | ${h.ok} | ${h.http403} | ${h.timeout} | ${h.other} | ${top ? `${top[0]}（${top[1]}件）` : "-"} |`);
+      lines.push(`| ${store}${h.ok === 0 ? " ❗全件失敗" : ""} | ${h.ok} | ${h.http403} | ${h.timeout} | ${h.other} | ${top ? `${top[0]}（${top[1]}件）` : "-"} | ${h.stopped || 0} |`);
     }
   }
 
