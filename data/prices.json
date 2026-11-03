@@ -4595,28 +4595,28 @@
     "stores": [
       {
         "store": "買取ルデヤ",
-        "price": 580000,
+        "price": 590000,
         "url": "https://kaitori-rudeya.com/search/index/4549995732993",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/3 12:58:22",
-        "observed_at": "2026-11-03T03:53:45.846Z"
+        "checked_at": "2026/11/3 20:12:15",
+        "observed_at": "2026-11-03T11:12:15.566Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-03T03:58:44.025Z",
+      "checked_at": "2026-11-03T11:12:22.135Z",
       "target_stores": 5,
-      "attempted": 4,
+      "attempted": 5,
       "success": 1,
       "no_price": 0,
-      "failed": 3,
-      "stopped": 1,
+      "failed": 4,
+      "stopped": 0,
       "failures": {
-        "connection_error": 1,
-        "timeout": 2,
-        "blocked": 0,
+        "connection_error": 3,
+        "timeout": 0,
+        "blocked": 1,
         "extraction_failed": 0
       },
       "stores": [
@@ -4630,20 +4630,20 @@
         },
         {
           "store": "iPhone買取価格表",
-          "outcome": "timeout"
+          "outcome": "connection_error"
         },
         {
           "store": "買取wiki",
-          "outcome": "timeout"
+          "outcome": "connection_error"
         },
         {
           "store": "買取商店",
-          "outcome": "stopped"
+          "outcome": "blocked"
         }
       ]
     },
-    "last_checked_at": "2026-11-03T03:58:44.025Z",
-    "last_success_at": "2026-11-03T03:58:44.025Z",
-    "last_update": "2026/11/3 12:58:44"
+    "last_checked_at": "2026-11-03T11:12:22.135Z",
+    "last_success_at": "2026-11-03T11:12:22.135Z",
+    "last_update": "2026/11/3 20:12:22"
   }
 }
