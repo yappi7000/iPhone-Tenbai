@@ -45,8 +45,10 @@
    * 遮断ページと判断できるタイトル（明確なものだけ）。
    * CloudFront の「The request could not be satisfied」は 502/504 でも出るため、
    * タイトルだけでは判定せず HTTP 403 / 429 のときに限って遮断とみなす。
+   * 「One moment, please...」は HTTP 200 で返るアクセス確認ページ
+   * （2026/11/3 買取楽園: 本文51文字・商品なし）。
    */
-  const BLOCK_PAGE_TITLE = /Webサイトファイアウォール|Attention Required! \| Cloudflare|Access Denied|Request Rejected|Just a moment\.\.\./i;
+  const BLOCK_PAGE_TITLE = /Webサイトファイアウォール|Attention Required! \| Cloudflare|Access Denied|Request Rejected|Just a moment\.\.\.|One moment, please\.\.\./i;
 
   const BLOCK_HTTP_STATUS = new Set([403, 429]);
 
