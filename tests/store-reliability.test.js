@@ -25,6 +25,7 @@ const {
   inspectStoresForItem,
   makeStoppedDiagnostic,
   STATIC_CACHE_STORE_IDS,
+  shouldCacheStaticPage,
   extractIphoneKaitoriPrice
 } = require("../scripts/crawler.js");
 
@@ -194,13 +195,18 @@ const plain403 = (s, i) => row(s, i, { http: 403, title: "403 Forbidden", body: 
 const cloudFront403 = (s, i) => row(s, i, { http: 403, title: "ERROR: The request could not be satisfied", body: 513, errors: ["HTTP status 403"] });
 const tooMany = (s, i) => row(s, i, { http: 429, body: 100, errors: ["HTTP status 429"] });
 
+// Duo・iPhone 18 のどちらかの対象店舗（買取楽園は iPhone 18 のみ）
+const findStore = storeId =>
+  storesForItem(DUO_ITEM).find(s => s.id === storeId) ||
+  storesForItem(PRO_ITEM).find(s => s.id === storeId);
+
 /*
  * 1店舗を3SKU順番に調べ、各SKUの分類とアクセス回数を返す
  */
 async function runThreeSkus(storeId, responses) {
   const state = createStoreRunState();
   const inspect = fakeInspect({ [storeId]: responses });
-  const store = storesForItem(DUO_ITEM).find(s => s.id === storeId);
+  const store = findStore(storeId);
   const outcomes = [];
   for (const item of [DUO_ITEM, DUO_ITEM_2, DUO_ITEM_3]) {
     outcomes.push((await inspectStoreWithPolicy(inspect, store, item, state, noWait)).outcome);
@@ -301,7 +307,7 @@ async function runParallelSkus(storeId, plan) {
   const state = createStoreRunState();
   const calls = [];
   const items = [DUO_ITEM, DUO_ITEM_2, DUO_ITEM_3];
-  const store = storesForItem(DUO_ITEM).find(s => s.id === storeId);
+  const store = findStore(storeId);
   const inspect = async (s, item) => {
     calls.push(item.jan);
     // 4SKU目（並列バッチの後）は遮断ページの無い 403 を返す
@@ -456,4 +462,91 @@ test("キャッシュ: page 操作で抽出する店舗（モバステ・モバ�
   for (const id of ["mobasute", "mobilemix", "morimori", "rudeya", "kaitoriwiki"]) {
     assert.strictEqual(STATIC_CACHE_STORE_IDS.has(id), false, id);
   }
+});
+
+/* ---------- HTTP 200 のアクセス確認ページ（2026/11/3 買取楽園） ---------- */
+
+const RAKUEN = { id: "rakuen", name: "買取楽園" };
+const RAKUEN_URL = "https://www.keitairakuen.com/product-category/keitai/iphone/";
+
+/*
+ * 11/3: HTTP 200・タイトル「One moment, please...」・本文51文字（32SKUすべて no_price と誤判定）
+ */
+function rakuenAccessCheck(s, i) {
+  return {
+    ...row(s, i, { http: 200, title: "One moment, please...", body: 51, errors: ["SIM FREE未開封商品が見つかりません"] }),
+    http: { status: 200, ok: true, final_url: RAKUEN_URL }
+  };
+}
+
+/*
+ * 11/2: HTTP 200・通常の商品ページ（本文4190文字）。色別検証済みの価格あり
+ */
+function rakuenNormal(s, i) {
+  return {
+    ...row(s, i, { status: "OK", http: 200, title: "iPhone(アイフォン)の高額買取 – 買取楽園", body: 4190, price: 221500 }),
+    product: { jan_found: false, name_found: true },
+    extraction_color_verified: true
+  };
+}
+
+// 通常の商品ページだが、そのSKUの掲載が無い（正常な HTTP 200 の掲載なし）
+function rakuenNormalNoListing(s, i) {
+  return row(s, i, { http: 200, title: "iPhone(アイフォン)の高額買取 – 買取楽園", body: 4190, errors: ["SIM FREE未開封商品が見つかりません"] });
+}
+
+test("アクセス確認ページ: 11/3 の買取楽園（HTTP 200・One moment, please...）は掲載なしではなくアクセス制限", () => {
+  const r = rakuenAccessCheck(RAKUEN, PRO_ITEM);
+  assert.strictEqual(classifyFetchOutcome(r), "blocked");
+  assert.strictEqual(isAccessBlocked(r), true);
+});
+
+test("アクセス確認ページ: 11/2 の通常ページは従来どおり成功、掲載なしは掲載なしのまま", () => {
+  assert.strictEqual(classifyFetchOutcome(rakuenNormal(RAKUEN, PRO_ITEM)), "success");
+  const noListing = rakuenNormalNoListing(RAKUEN, PRO_ITEM);
+  assert.strictEqual(classifyFetchOutcome(noListing), "no_price");
+  assert.strictEqual(isAccessBlocked(noListing), false);
+});
+
+test("アクセス確認ページ: 1回で同一実行内の後続アクセスを停止する（HTTP 200 でも）", async () => {
+  const { outcomes, calls, state } = await runThreeSkus("rakuen", [rakuenAccessCheck]);
+  assert.deepStrictEqual(outcomes, ["blocked", "stopped", "stopped"]);
+  assert.strictEqual(calls, 1);
+  assert.strictEqual(state.blocked.get("rakuen").reason, "WAF・遮断ページ");
+});
+
+test("アクセス確認ページ: 403 の連続回数を0に戻す正常応答として扱わない", async () => {
+  // 403 の後の確認ページは「正常な HTTP 200」ではなく遮断として即時停止
+  const { outcomes, calls } = await runThreeSkus("rakuen", [plain403, rakuenAccessCheck, rakuenNormal]);
+  assert.deepStrictEqual(outcomes, ["blocked", "blocked", "stopped"]);
+  assert.strictEqual(calls, 2);
+});
+
+test("アクセス確認ページ: 通常ページなら停止せず、正常な掲載なしで 403 の連続回数も0に戻る", async () => {
+  const { outcomes, calls, state } = await runThreeSkus("rakuen", [plain403, rakuenNormalNoListing, rakuenNormal]);
+  assert.deepStrictEqual(outcomes, ["blocked", "no_price", "success"]);
+  assert.strictEqual(calls, 3);
+  assert.strictEqual(state.blocked.size, 0);
+});
+
+test("アクセス確認ページ: 3SKU並列でも確認ページが返った時点で停止し、次のSKUにはアクセスしない", async () => {
+  const { outcomes, next, calls } = await runParallelSkus("rakuen", {
+    [DUO_ITEM.jan]: { delay: 5, response: rakuenAccessCheck },
+    [DUO_ITEM_2.jan]: { delay: 10, response: rakuenAccessCheck },
+    [DUO_ITEM_3.jan]: { delay: 15, response: rakuenAccessCheck }
+  });
+  assert.deepStrictEqual(outcomes, ["blocked", "blocked", "blocked"], "実行中だった3件は確認ページとして記録");
+  assert.strictEqual(next, "stopped");
+  assert.strictEqual(calls, 3);
+});
+
+test("キャッシュ: アクセス確認ページは価格表として使い回さない（11/3 は29SKUで使い回されていた）", () => {
+  const okResponse = { ok: () => true };
+  const page = title => ({ page: { title } });
+  assert.strictEqual(shouldCacheStaticPage(RAKUEN, okResponse, "x".repeat(4190), page("iPhone(アイフォン)の高額買取 – 買取楽園")), true);
+  assert.strictEqual(shouldCacheStaticPage(RAKUEN, okResponse, "x".repeat(51), page("One moment, please...")), false);
+  assert.strictEqual(shouldCacheStaticPage(RAKUEN, okResponse, "x".repeat(230), page("Webサイトファイアウォール")), false);
+  assert.strictEqual(shouldCacheStaticPage(RAKUEN, { ok: () => false }, "x".repeat(500), page("403 Forbidden")), false);
+  assert.strictEqual(shouldCacheStaticPage(RAKUEN, okResponse, "", page("iPhone(アイフォン)の高額買取 – 買取楽園")), false);
+  assert.strictEqual(shouldCacheStaticPage({ id: "rudeya", name: "買取ルデヤ" }, okResponse, "x".repeat(4190), page("検索結果")), false, "キャッシュ対象外の店舗");
 });

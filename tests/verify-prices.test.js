@@ -475,3 +475,27 @@ test("fetch_summary: 件数の矛盾・成功数と価格数の不一致・別�
   assert.ok(result.errors.some(e => e.startsWith(TARGETS[2].jan) && e.includes("今回の実行のものではありません")));
   assert.ok(result.errors.some(e => e.startsWith(TARGETS[3].jan) && e.includes("fetch_summary がありません")));
 });
+
+test("アクセス確認ページ: 買取楽園が全SKUで「One moment, please...」でも、掲載なしではなくアクセス制限として保存・集計する", () => {
+  const accessCheck = row => (row.store_id === "rakuen"
+    ? {
+        ...row, status: "ERROR", price: null, price_candidates: [], color_verified: false,
+        http: { status: 200, ok: true, final_url: "https://www.keitairakuen.com/product-category/keitai/iphone/" },
+        page: { title: "One moment, please...", body_length: 51, body_available: true },
+        product: { jan_found: false, name_found: false },
+        errors: ["SIM FREE未開封商品が見つかりません"]
+      }
+    : row);
+  const { update, prices, result } = runPipeline(makeDiagnostics(accessCheck));
+  assert.strictEqual(update.updated, true, update.reason);
+  assert.deepStrictEqual(result.errors, [], result.errors.join("\n"));
+
+  const proTargets = TARGETS.filter(t => t.model !== "iPhone Duo");
+  for (const t of proTargets) {
+    const s = prices[t.jan].fetch_summary;
+    const rakuen = s.stores.find(r => r.store === "買取楽園");
+    assert.strictEqual(rakuen.outcome, "blocked", t.jan);
+    assert.ok(!prices[t.jan].stores.some(r => r.store === "買取楽園"), "確認ページから価格を保存しない");
+  }
+  assert.match(formatReport(result), /\| 買取楽園 ❗全件失敗 \| 0 \| 32 \| 0 \| 0 \| WAF・遮断ページ（32件） \| 0 \|/);
+});

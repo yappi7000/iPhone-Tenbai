@@ -2266,6 +2266,21 @@ const STATIC_CACHE_STORE_IDS = new Set([
 ]);
 
 
+/*
+ * 全SKU共通の価格表ページとして使い回してよいか。
+ * 正常応答（HTTP 2xx・本文あり）で、遮断・アクセス確認ページではないものだけ。
+ */
+function shouldCacheStaticPage(store, response, bodyText, diagnostic) {
+  return Boolean(
+    STATIC_CACHE_STORE_IDS.has(store.id) &&
+    response &&
+    response.ok() &&
+    String(bodyText || "").length > 0 &&
+    !hasBlockPageSignature(diagnostic)
+  );
+}
+
+
 async function inspectStore(browser, store, item) {
   if (store.iphone18Only) {
     return null;
@@ -2545,13 +2560,16 @@ if (
 
       /*
        * 正常に取得できたページだけキャッシュする。
-       * 403・エラーページを使い回して、他SKUまで同じ失敗にしない。
+       * 403・エラーページ・HTTP 200 のアクセス確認ページを使い回して、
+       * 他SKUまで同じ結果にしない。
        */
       if (
-        STATIC_CACHE_STORE_IDS.has(store.id) &&
-        response &&
-        response.ok() &&
-        bodyText.length > 0
+        shouldCacheStaticPage(
+          store,
+          response,
+          bodyText,
+          diagnostic
+        )
       ) {
         STATIC_STORE_CACHE.set(
           store.id,
@@ -5182,5 +5200,6 @@ module.exports = {
   RETRY_POLICY,
   BLOCK_STOP_POLICY,
   STATIC_CACHE_STORE_IDS,
+  shouldCacheStaticPage,
   extractIphoneKaitoriPrice
 };
