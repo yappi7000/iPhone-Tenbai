@@ -1,7 +1,7 @@
 {
   "version": "safe-diagnostic-2.0",
-  "started_at": "2026/11/3 7:48:08",
-  "started_at_iso": "2026-11-02T22:48:08.071Z",
+  "started_at": "2026/11/3 12:31:01",
+  "started_at_iso": "2026-11-03T03:31:01.367Z",
   "store_support": [
     {
       "model": "iPhone 18 Pro Max",
@@ -22,8 +22,8 @@
       ]
     }
   ],
-  "finished_at": "2026/11/3 7:48:38",
-  "finished_at_iso": "2026-11-02T22:48:38.721Z",
+  "finished_at": "2026/11/3 12:31:18",
+  "finished_at_iso": "2026-11-03T03:31:18.440Z",
   "safety": {
     "prices_json_modified": true,
     "default_price_used": false,
@@ -66,11 +66,11 @@
   "target_count": 1,
   "targets": [
     {
-      "jan": "4549995732795",
-      "name": "iPhone Duo 512GB ナイトスカイ",
+      "jan": "4549995732641",
+      "name": "iPhone Duo 256GB スターホワイト",
       "model": "iPhone Duo",
-      "storage": "512GB",
-      "color": "ナイトスカイ"
+      "storage": "256GB",
+      "color": "スターホワイト"
     }
   ],
   "store_count": 14,
@@ -78,10 +78,10 @@
     {
       "store_id": "morimori",
       "store": "森森買取",
-      "jan": "4549995732795",
-      "product_name": "iPhone Duo 512GB ナイトスカイ",
-      "url": "https://www.morimori-kaitori.jp/search?sk=4549995732795",
-      "checked_at": "2026/11/3 7:48:08",
+      "jan": "4549995732641",
+      "product_name": "iPhone Duo 256GB スターホワイト",
+      "url": "https://www.morimori-kaitori.jp/search?sk=4549995732641",
+      "checked_at": "2026/11/3 12:31:04",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -101,24 +101,29 @@
       "errors": [
         "socket hang up"
       ],
-      "color_verified": false
+      "color_verified": false,
+      "outcome": "connection_error",
+      "attempts": 2,
+      "first_attempt_errors": [
+        "socket hang up"
+      ]
     },
     {
       "store_id": "rudeya",
       "store": "買取ルデヤ",
-      "jan": "4549995732795",
-      "product_name": "iPhone Duo 512GB ナイトスカイ",
-      "url": "https://kaitori-rudeya.com/search/index/4549995732795",
-      "checked_at": "2026/11/3 7:48:08",
+      "jan": "4549995732641",
+      "product_name": "iPhone Duo 256GB スターホワイト",
+      "url": "https://kaitori-rudeya.com/search/index/4549995732641",
+      "checked_at": "2026/11/3 12:31:01",
       "status": "OK",
       "http": {
         "status": 200,
         "ok": true,
-        "final_url": "https://kaitori-rudeya.com/search/index/4549995732795"
+        "final_url": "https://kaitori-rudeya.com/search/index/4549995732641"
       },
       "page": {
-        "title": "買取ルデヤ-東京池袋｜「4549995732795」の検索結果 - 買取",
-        "body_length": 631,
+        "title": "買取ルデヤ-東京池袋｜「4549995732641」の検索結果 - 買取",
+        "body_length": 632,
         "body_available": true
       },
       "product": {
@@ -127,23 +132,25 @@
       },
       "price_candidates": [
         {
-          "raw": "415,500円",
-          "price": 415500
+          "raw": "365,000円",
+          "price": 365000
         }
       ],
       "errors": [],
-      "price": 415500,
-      "raw_price": "415,500円",
+      "price": 365000,
+      "raw_price": "365,000円",
       "caution": "新品・未開封商品の通常買取価格のみ取得。郵送キャンペーン加算なし",
-      "color_verified": true
+      "color_verified": true,
+      "outcome": "success",
+      "attempts": 1
     },
     {
       "store_id": "iphonekaitori",
       "store": "iPhone買取価格表",
-      "jan": "4549995732795",
-      "product_name": "iPhone Duo 512GB ナイトスカイ",
+      "jan": "4549995732641",
+      "product_name": "iPhone Duo 256GB スターホワイト",
       "url": "https://www.iphonekaitori.tokyo/brand/apple/market-price",
-      "checked_at": "2026/11/3 7:48:08",
+      "checked_at": "2026/11/3 12:31:01",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -163,15 +170,17 @@
       "errors": [
         "page.goto: Timeout 15000ms exceeded.\nCall log:\n  - navigating to \"https://www.iphonekaitori.tokyo/brand/apple/market-price\", waiting until \"domcontentloaded\"\n"
       ],
-      "color_verified": false
+      "color_verified": false,
+      "outcome": "timeout",
+      "attempts": 1
     },
     {
       "store_id": "kaitoriwiki",
       "store": "買取wiki",
-      "jan": "4549995732795",
-      "product_name": "iPhone Duo 512GB ナイトスカイ",
-      "url": "https://kaitori.wiki/search?keyword=4549995732795",
-      "checked_at": "2026/11/3 7:48:23",
+      "jan": "4549995732641",
+      "product_name": "iPhone Duo 256GB スターホワイト",
+      "url": "https://kaitori.wiki/search?keyword=4549995732641",
+      "checked_at": "2026/11/3 12:31:01",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -189,17 +198,19 @@
       },
       "price_candidates": [],
       "errors": [
-        "page.goto: Timeout 15000ms exceeded.\nCall log:\n  - navigating to \"https://kaitori.wiki/search?keyword=4549995732795\", waiting until \"domcontentloaded\"\n"
+        "page.goto: Timeout 15000ms exceeded.\nCall log:\n  - navigating to \"https://kaitori.wiki/search?keyword=4549995732641\", waiting until \"domcontentloaded\"\n"
       ],
-      "color_verified": false
+      "color_verified": false,
+      "outcome": "timeout",
+      "attempts": 1
     },
     {
       "store_id": "kaitorishouten",
       "store": "買取商店",
-      "jan": "4549995732795",
-      "product_name": "iPhone Duo 512GB ナイトスカイ",
+      "jan": "4549995732641",
+      "product_name": "iPhone Duo 256GB スターホワイト",
       "url": "https://www.kaitorishouten-co.jp/keitai",
-      "checked_at": "2026/11/3 7:48:23",
+      "checked_at": "2026/11/3 12:31:01",
       "status": "ERROR",
       "http": {
         "status": 403,
@@ -223,7 +234,9 @@
       "price": null,
       "raw_price": null,
       "caution": "JAN完全一致の商品から新品価格を取得",
-      "color_verified": false
+      "color_verified": false,
+      "outcome": "blocked",
+      "attempts": 1
     }
   ],
   "summary": {
@@ -231,8 +244,16 @@
     "error": 4,
     "jan_found": 1,
     "product_name_found": 1,
-    "price_candidate_found": 1
+    "price_candidate_found": 1,
+    "stopped": 0,
+    "by_outcome": {
+      "connection_error": 1,
+      "success": 1,
+      "timeout": 2,
+      "blocked": 1
+    }
   },
+  "store_access_stops": [],
   "prices_update": {
     "updated": true,
     "reason": null,
