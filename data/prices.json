@@ -4215,13 +4215,13 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/3 20:11:28",
-        "observed_at": "2026-11-03T11:11:28.759Z"
+        "checked_at": "2026/11/3 20:40:11",
+        "observed_at": "2026-11-03T11:40:11.577Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-03T11:11:36.183Z",
+      "checked_at": "2026-11-03T11:40:18.514Z",
       "target_stores": 5,
       "attempted": 5,
       "success": 1,
@@ -4257,9 +4257,9 @@
         }
       ]
     },
-    "last_checked_at": "2026-11-03T11:11:36.183Z",
-    "last_success_at": "2026-11-03T11:11:36.183Z",
-    "last_update": "2026/11/3 20:11:36"
+    "last_checked_at": "2026-11-03T11:40:18.514Z",
+    "last_success_at": "2026-11-03T11:40:18.514Z",
+    "last_update": "2026/11/3 20:40:18"
   },
   "4549995732696": {
     "stores": [
