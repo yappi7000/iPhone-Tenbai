@@ -362,3 +362,116 @@ test("オンデマンド: 価格0件でも「価格未取得」として通り�
     if (other !== jan) assert.deepStrictEqual(prices[other], BASE_PRICES[other]);
   }
 });
+
+/* ---------- 店舗別取得結果（fetch_summary）・アクセス停止 ---------- */
+
+const { makeStoppedDiagnostic } = require("../scripts/crawler.js");
+
+const DUO_512_NIGHT = "4549995732795";
+
+/*
+ * 2026/11/3 のオンデマンド診断（森森: socket hang up / ルデヤ: 成功 /
+ * iPhone買取価格表・買取wiki: タイムアウト / 買取商店: HTTP 403）を再現する。
+ */
+function nov3Rows(jan) {
+  const base = { jan, page: { title: null, body_length: 0, body_available: false }, product: { jan_found: false, name_found: false }, price: null, price_candidates: [], color_verified: false, checked_at: "2026/10/25 10:28:19" };
+  return [
+    { ...base, store_id: "morimori", store: "森森買取", status: "ERROR", http: { status: null, ok: false }, errors: ["socket hang up"] },
+    { ...base, store_id: "iphonekaitori", store: "iPhone買取価格表", status: "ERROR", http: { status: null, ok: false }, errors: ["page.goto: Timeout 15000ms exceeded."] },
+    { ...base, store_id: "kaitoriwiki", store: "買取wiki", status: "ERROR", http: { status: null, ok: false }, errors: ["page.goto: Timeout 15000ms exceeded."] },
+    { ...base, store_id: "kaitorishouten", store: "買取商店", status: "ERROR", http: { status: 403, ok: false }, page: { title: "ERROR: The request could not be satisfied", body_length: 513, body_available: true }, errors: ["JAN完全一致の新品価格を取得できません", "HTTP status 403"] }
+  ];
+}
+
+function onDemandDiag(jan, extraRows) {
+  const base = makeDiagnostics();
+  base.target_count = 1;
+  base.targets = base.targets.filter(t => t.jan === jan);
+  base.stores = base.stores.filter(r => String(r.jan || "") === jan).concat(extraRows);
+  return base;
+}
+
+test("fetch_summary: 11/3 の Duo 診断を「対象5・アクセス5・成功1・失敗4（接続1・タイムアウト2・制限1）」として保存する", () => {
+  const { update, prices, result } = runPipeline(onDemandDiag(DUO_512_NIGHT, nov3Rows(DUO_512_NIGHT)), { targetJan: DUO_512_NIGHT });
+  assert.strictEqual(update.updated, true, update.reason);
+  assert.deepStrictEqual(result.errors, [], result.errors.join("\n"));
+  const s = prices[DUO_512_NIGHT].fetch_summary;
+  assert.deepStrictEqual(
+    { t: s.target_stores, a: s.attempted, ok: s.success, n: s.no_price, f: s.failed, st: s.stopped },
+    { t: 5, a: 5, ok: 1, n: 0, f: 4, st: 0 }
+  );
+  assert.deepStrictEqual(s.failures, { connection_error: 1, timeout: 2, blocked: 1, extraction_failed: 0 });
+  assert.strictEqual(s.checked_at, prices[DUO_512_NIGHT].last_checked_at);
+  assert.deepStrictEqual(prices[DUO_512_NIGHT].stores.map(r => r.store), ["買取ルデヤ"]);
+});
+
+test("fetch_summary: アクセス停止したSKUは停止として数え、失敗にもアクセス数にも含めない", () => {
+  const rows = nov3Rows(DUO_512_NIGHT).filter(r => r.store_id !== "kaitorishouten");
+  rows.push(makeStoppedDiagnostic({ id: "kaitorishouten", name: "買取商店" }, { jan: DUO_512_NIGHT, name: "iPhone Duo 512GB ナイトスカイ" }, { reason: "HTTP 403", jan: "4549995732740" }));
+  const { prices, result } = runPipeline(onDemandDiag(DUO_512_NIGHT, rows), { targetJan: DUO_512_NIGHT });
+  assert.deepStrictEqual(result.errors, [], result.errors.join("\n"));
+  const s = prices[DUO_512_NIGHT].fetch_summary;
+  assert.deepStrictEqual(
+    { t: s.target_stores, a: s.attempted, ok: s.success, f: s.failed, st: s.stopped },
+    { t: 5, a: 4, ok: 1, f: 3, st: 1 }
+  );
+  assert.strictEqual(s.failures.blocked, 0);
+  assert.ok(s.stores.some(r => r.store === "買取商店" && r.outcome === "stopped"));
+  // Actions レポートでも停止は失敗列ではなく停止列に出る
+  assert.match(formatReport(result), /\| 買取商店 ❗全件失敗 \| 0 \| 0 \| 0 \| 0 \| - \| 1 \|/);
+});
+
+test("fetch_summary: 全店舗失敗（価格未取得）でも件数を保存し、古い価格は出さない", () => {
+  const rows = nov3Rows(DUO_512_NIGHT);
+  const base = onDemandDiag(DUO_512_NIGHT, rows);
+  base.stores = base.stores.map(r => (r.store_id === "rudeya" ? { ...r, status: "ERROR", price: null, http: { status: 403 }, errors: ["HTTP status 403"] } : r));
+  const { prices, result } = runPipeline(base, { targetJan: DUO_512_NIGHT });
+  assert.deepStrictEqual(result.errors, [], result.errors.join("\n"));
+  const item = prices[DUO_512_NIGHT];
+  assert.strictEqual(item.fetch_status, "no_price");
+  assert.deepStrictEqual(item.stores, []);
+  assert.strictEqual(item.fetch_summary.success, 0);
+  assert.strictEqual(item.fetch_summary.failed, 5);
+});
+
+test("fetch_summary: 定時全件でも全SKUで成功数 = 保存した価格数、対象 = アクセス + 停止", () => {
+  const { prices, result } = runPipeline(makeDiagnostics(failStore("rudeya")));
+  assert.deepStrictEqual(result.errors, [], result.errors.join("\n"));
+  for (const t of TARGETS) {
+    const item = prices[t.jan];
+    const s = item.fetch_summary;
+    assert.strictEqual(s.success, item.stores.length, t.jan);
+    assert.strictEqual(s.target_stores, s.attempted + s.stopped, t.jan);
+    assert.strictEqual(s.attempted, s.success + s.no_price + s.failed, t.jan);
+  }
+  // Duo は許可された店舗だけが対象（楽園などの名前解析系は含めない）
+  assert.ok(prices[DUO_JANS[0]].fetch_summary.stores.every(r => r.store === "買取ルデヤ"));
+});
+
+test("fetch_summary: 診断上はOKでも範囲外で保存しなかった価格は抽出失敗として数える", () => {
+  const diag = makeDiagnostics();
+  diag.stores.push(duoRow("4549995732696", "morimori", "森森買取", 900000));
+  const { prices, result } = runPipeline(diag);
+  assert.deepStrictEqual(result.errors, [], result.errors.join("\n"));
+  const s = prices["4549995732696"].fetch_summary;
+  assert.strictEqual(s.success, 1);
+  assert.ok(s.stores.some(r => r.store === "森森買取" && r.outcome === "extraction_failed"));
+});
+
+test("fetch_summary: 件数の矛盾・成功数と価格数の不一致・別実行の集計は検証で失敗する", () => {
+  const { prices } = runPipeline(makeDiagnostics());
+  const diag = makeDiagnostics();
+  diag.prices_update = { updated: true };
+  prices[TARGETS[0].jan].fetch_summary.failed += 1;
+  prices[TARGETS[1].jan].fetch_summary.stores[0].outcome = "timeout";
+  prices[TARGETS[1].jan].fetch_summary.success -= 1;
+  prices[TARGETS[1].jan].fetch_summary.failed += 1;
+  prices[TARGETS[1].jan].fetch_summary.failures.timeout += 1;
+  prices[TARGETS[2].jan].fetch_summary.checked_at = "2026-10-21T01:00:00.000Z";
+  delete prices[TARGETS[3].jan].fetch_summary;
+  const result = verifyPrices({ prices, diagnostics: diag, indexHtml: INDEX_HTML, previousPrices: BASE_PRICES });
+  assert.ok(result.errors.some(e => e.startsWith(TARGETS[0].jan) && e.includes("fetch_summary.failed")), result.errors.join("\n"));
+  assert.ok(result.errors.some(e => e.startsWith(TARGETS[1].jan) && e.includes("保存した価格数")));
+  assert.ok(result.errors.some(e => e.startsWith(TARGETS[2].jan) && e.includes("今回の実行のものではありません")));
+  assert.ok(result.errors.some(e => e.startsWith(TARGETS[3].jan) && e.includes("fetch_summary がありません")));
+});
