@@ -1522,18 +1522,8 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/3 12:55:41",
-        "observed_at": "2026-11-03T03:53:45.846Z"
-      },
-      {
-        "store": "買取一丁目",
-        "price": 197000,
-        "url": "https://www.1-chome.com/keitai",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/3 12:55:45",
-        "observed_at": "2026-11-03T03:53:45.846Z"
+        "checked_at": "2026/11/3 20:13:17",
+        "observed_at": "2026-11-03T11:13:17.633Z"
       },
       {
         "store": "モバイルMIX",
@@ -1542,29 +1532,29 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/3 12:55:45",
-        "observed_at": "2026-11-03T03:53:45.846Z"
+        "checked_at": "2026/11/3 20:13:26",
+        "observed_at": "2026-11-03T11:13:17.633Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-03T03:58:44.025Z",
+      "checked_at": "2026-11-03T11:13:31.945Z",
       "target_stores": 11,
-      "attempted": 9,
-      "success": 3,
+      "attempted": 11,
+      "success": 2,
       "no_price": 2,
-      "failed": 4,
-      "stopped": 2,
+      "failed": 7,
+      "stopped": 0,
       "failures": {
-        "connection_error": 1,
-        "timeout": 2,
-        "blocked": 0,
-        "extraction_failed": 1
+        "connection_error": 3,
+        "timeout": 0,
+        "blocked": 2,
+        "extraction_failed": 2
       },
       "stores": [
         {
           "store": "モバステ",
-          "outcome": "stopped"
+          "outcome": "blocked"
         },
         {
           "store": "森森買取",
@@ -1576,19 +1566,19 @@
         },
         {
           "store": "買取楽園",
-          "outcome": "no_price"
+          "outcome": "extraction_failed"
         },
         {
           "store": "買取一丁目",
-          "outcome": "success"
+          "outcome": "no_price"
         },
         {
           "store": "iPhone買取価格表",
-          "outcome": "timeout"
+          "outcome": "connection_error"
         },
         {
           "store": "買取wiki",
-          "outcome": "timeout"
+          "outcome": "connection_error"
         },
         {
           "store": "モバイルMIX",
@@ -1604,13 +1594,13 @@
         },
         {
           "store": "買取商店",
-          "outcome": "stopped"
+          "outcome": "blocked"
         }
       ]
     },
-    "last_checked_at": "2026-11-03T03:58:44.025Z",
-    "last_success_at": "2026-11-03T03:58:44.025Z",
-    "last_update": "2026/11/3 12:58:44"
+    "last_checked_at": "2026-11-03T11:13:31.945Z",
+    "last_success_at": "2026-11-03T11:13:31.945Z",
+    "last_update": "2026/11/3 20:13:31"
   },
   "4549995734157": {
     "stores": [
