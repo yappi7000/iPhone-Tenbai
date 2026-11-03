@@ -61,6 +61,22 @@ function getAppleInventoryByJan(jan) {
   };
 }
 
+/*
+ * 取得データ（apple_inventory.json・apple_products.json）を HTML に入れるときのエスケープ
+ */
+function escapeInventoryHtml(value) {
+  return String(value ?? "").replace(/[&<>"']/g, c => (
+    { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]
+  ));
+}
+
+// class 属性に入れる在庫状態は既知の値だけ
+function appleStoreStatusClass(status) {
+  return status === "available" || status === "unavailable"
+    ? status
+    : "unknown";
+}
+
 function appleStoreStatusIcon(status) {
   if (status === "available") {
     return "🟢";
@@ -124,9 +140,9 @@ function renderAppleInventory(jan, container) {
           </div>
 
           <div class="apple-inventory-product">
-            ${product.model}
-            ${product.storage}
-            ${product.color}
+            ${escapeInventoryHtml(product.model)}
+            ${escapeInventoryHtml(product.storage)}
+            ${escapeInventoryHtml(product.color)}
           </div>
         </div>
 
@@ -160,16 +176,16 @@ function renderAppleInventory(jan, container) {
                       ${appleStoreStatusIcon(
                         store.status
                       )}
-                      ${store.store_name}
+                      ${escapeInventoryHtml(store.store_name)}
                     </strong>
 
                     <span>
-                      ${store.state || ""}
+                      ${escapeInventoryHtml(store.state || "")}
                     </span>
                   </div>
 
                   <div class="apple-store-status ${
-                    store.status
+                    appleStoreStatusClass(store.status)
                   }">
                     ${
                       store.status ===

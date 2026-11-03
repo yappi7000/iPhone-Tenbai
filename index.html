@@ -997,6 +997,41 @@ body{background:#eef3f9}
   }
 
   /*
+   * 取得データ（prices.json・product_master.json 等）を HTML に入れるときのエスケープ
+   */
+  function escapeHtml(value) {
+    return String(value ?? "").replace(/[&<>"']/g, c => (
+      { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]
+    ));
+  }
+
+  /*
+   * リンクにしてよい外部URLか。http: / https: の絶対URLだけを許可し、
+   * javascript: / data: ・制御文字や空白を含むもの・認証情報付き・解釈できないものは null。
+   */
+  function safeExternalUrl(value) {
+    const text = String(value ?? "");
+    if (!text || /[\u0000-\u0020\u007f-\u009f]/.test(text)) return null;
+    let url;
+    try {
+      url = new URL(text);
+    } catch {
+      return null;
+    }
+    if (url.protocol !== "https:" && url.protocol !== "http:") return null;
+    if (!url.hostname || url.username || url.password) return null;
+    return url.href;
+  }
+
+  // 店舗の「公式確認」リンク（安全なURLでなければリンクにしない）
+  function officialLinkHtml(value) {
+    const url = safeExternalUrl(value);
+    return url
+      ? `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer" class="visit">公式確認</a>`
+      : "";
+  }
+
+  /*
    * 符号付きの円表示（赤字を「+¥-12,902」のように見せない）
    */
   function formatSignedYen(value) {
@@ -1027,7 +1062,7 @@ body{background:#eef3f9}
         row.color_verified !== true ? "色別の価格根拠が未確認のため順位から除外" :
         null;
       if (reason) excluded.push({ ...row, excludeReason: reason });
-      else ranked.push(row);
+      else ranked.push({ ...row, price });
     }
     ranked.sort((a, b) => Number(b.price) - Number(a.price));
     return { ranked, excluded };
@@ -1106,11 +1141,11 @@ body{background:#eef3f9}
     const excludedRowsHtml = excludedStores.map(s => `
         <tr class="excluded-row">
           <td class="rank" style="color:var(--muted);">—</td>
-          <td style="font-weight:900;">${s.store}</td>
+          <td style="font-weight:900;">${escapeHtml(s.store)}</td>
           <td class="price" style="color:var(--muted);">¥${Number(s.price).toLocaleString()}<div style="font-size:10px;">（参考）</div></td>
           <td class="diff" style="font-size:11px;color:var(--muted);">${s.excludeReason}</td>
           <td>${storeDataBadge(s, itemData)}</td>
-          <td style="text-align:right;">${s.url ? `<a href="${s.url}" target="_blank" rel="noopener noreferrer" class="visit">公式確認</a>` : ""}</td>
+          <td style="text-align:right;">${officialLinkHtml(s.url)}</td>
         </tr>`).join("");
 
     if (sortedStores.length === 0) {
@@ -1181,7 +1216,7 @@ body{background:#eef3f9}
       return `
         <tr class="${idx === 0 ? 'best-row' : ''}">
           <td class="rank" style="color:${idx === 0 ? 'var(--gold)' : 'var(--muted)'};">${idx + 1}位</td>
-          <td style="font-weight:900;">${s.store} ${extraTag}</td>
+          <td style="font-weight:900;">${escapeHtml(s.store)} ${extraTag}</td>
           <td
             class="price"
             style="${
@@ -1197,7 +1232,7 @@ body{background:#eef3f9}
           <td class="diff" style="font-size:12px; ${diff === 0 ? '' : 'color:#e11d48; font-weight:800;'}">${diffStr}</td>
           <td>${storeDataBadge(s, itemData)}</td>
           <td style="text-align:right;">
-            <a href="${s.url}" target="_blank" rel="noopener noreferrer" class="visit">公式確認</a>
+            ${officialLinkHtml(s.url)}
             ${s.store === "森森買取" ? `<span class="coupon-box">紹介コード：InfA00172 <button type="button" class="copy-coupon" data-code="InfA00172">コピー</button></span>` : ""}
           </td>
         </tr>
@@ -1716,9 +1751,9 @@ body{background:#eef3f9}
           `<button
             type="button"
             class="present-candidate"
-            data-jan="${jan}"
+            data-jan="${escapeHtml(jan)}"
             style="display:inline-block;margin:6px 6px 0 0;padding:8px 12px;background:#f3f4f6;border:1px solid #e5e7eb;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;"
-          >${name.replaceAll("_", " ")}</button>`
+          >${escapeHtml(name.replaceAll("_", " "))}</button>`
         ).join("");
       return;
     }
@@ -1731,7 +1766,7 @@ body{background:#eef3f9}
     document.getElementById("presentProductName").innerHTML =
       displayProductParts
         .map(part =>
-          `<span style="display:block;white-space:nowrap;">${part}</span>`
+          `<span style="display:block;white-space:nowrap;">${escapeHtml(part)}</span>`
         )
         .join("");
     document.getElementById("presentJan").textContent = jan;
@@ -1766,7 +1801,7 @@ body{background:#eef3f9}
             ? describeFreshness(itemData).notice
             : "この商品の買取価格データはまだ取得できていません。"
           }<br>
-          <span style="font-size:12px;">JAN: ${jan}</span>
+          <span style="font-size:12px;">JAN: ${escapeHtml(jan)}</span>
         </div>
       `;
 
@@ -1792,10 +1827,10 @@ body{background:#eef3f9}
     const presentRowHtml = (store, rankLabel, note) => `
         <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;padding:10px 0;border-bottom:1px solid #e5e7eb;">
           <span style="min-width:38px;font-weight:900;">${rankLabel}</span>
-          <span style="flex:1 1 7em;min-width:7em;font-weight:800;">${store.store}</span>
+          <span style="flex:1 1 7em;min-width:7em;font-weight:800;">${escapeHtml(store.store)}</span>
           <span style="font-weight:900;${note ? "color:var(--muted);" : ""}">¥${Number(store.price).toLocaleString()}${note ? "（参考）" : ""}</span>
           ${storeDataBadge(store, itemData)}
-          ${store.url ? `<a href="${store.url}" target="_blank" rel="noopener noreferrer" class="visit">公式確認</a>` : ""}
+          ${officialLinkHtml(store.url)}
           ${note ? `<span style="flex-basis:100%;font-size:11px;color:var(--muted);">${note}</span>` : ""}
         </div>`;
 
@@ -1943,7 +1978,7 @@ body{background:#eef3f9}
 
     message.innerHTML = `
       <div style="margin-top:10px;padding:10px 12px;background:#ecfdf5;color:#065f46;border-radius:8px;font-weight:800;">
-        ✅ ${productKey.replaceAll("_", " ")} を選択しました
+        ✅ ${escapeHtml(productKey.replaceAll("_", " "))} を選択しました
       </div>
     `;
 
