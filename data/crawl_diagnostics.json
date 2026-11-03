@@ -1,7 +1,7 @@
 {
   "version": "safe-diagnostic-2.0",
-  "started_at": "2026/11/3 20:40:11",
-  "started_at_iso": "2026-11-03T11:40:11.577Z",
+  "started_at": "2026/11/4 6:05:07",
+  "started_at_iso": "2026-11-03T21:05:07.430Z",
   "store_support": [
     {
       "model": "iPhone 18 Pro Max",
@@ -22,8 +22,8 @@
       ]
     }
   ],
-  "finished_at": "2026/11/3 20:40:18",
-  "finished_at_iso": "2026-11-03T11:40:18.514Z",
+  "finished_at": "2026/11/4 6:05:29",
+  "finished_at_iso": "2026-11-03T21:05:29.478Z",
   "safety": {
     "prices_json_modified": true,
     "default_price_used": false,
@@ -66,22 +66,57 @@
   "target_count": 1,
   "targets": [
     {
-      "jan": "4549995732641",
-      "name": "iPhone Duo 256GB スターホワイト",
-      "model": "iPhone Duo",
+      "jan": "4549995734645",
+      "name": "iPhone 18 Pro Max 256GB バーガンディ",
+      "model": "iPhone 18 Pro Max",
       "storage": "256GB",
-      "color": "スターホワイト"
+      "color": "バーガンディ"
     }
   ],
   "store_count": 14,
   "stores": [
     {
+      "store_id": "mobasute",
+      "store": "モバステ",
+      "jan": "4549995734645",
+      "product_name": "iPhone 18 Pro Max 256GB バーガンディ",
+      "url": "https://pastec.net/iphone",
+      "checked_at": "2026/11/4 6:05:07",
+      "status": "ERROR",
+      "http": {
+        "status": 403,
+        "ok": false,
+        "final_url": "https://pastec.net/iphone"
+      },
+      "page": {
+        "title": "403 Forbidden",
+        "body_length": 13,
+        "body_available": true
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": false
+      },
+      "price_candidates": [],
+      "errors": [
+        "商品名に一致する商品ブロックが見つかりません",
+        "HTTP status 403"
+      ],
+      "price": null,
+      "extraction_color_verified": false,
+      "raw_price": null,
+      "caution": "元店舗の未開封基準価格",
+      "color_verified": false,
+      "outcome": "blocked",
+      "attempts": 1
+    },
+    {
       "store_id": "morimori",
       "store": "森森買取",
-      "jan": "4549995732641",
-      "product_name": "iPhone Duo 256GB スターホワイト",
-      "url": "https://www.morimori-kaitori.jp/search?sk=4549995732641",
-      "checked_at": "2026/11/3 20:40:15",
+      "jan": "4549995734645",
+      "product_name": "iPhone 18 Pro Max 256GB バーガンディ",
+      "url": "https://www.morimori-kaitori.jp/search?sk=4549995734645",
+      "checked_at": "2026/11/4 6:05:12",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -111,19 +146,19 @@
     {
       "store_id": "rudeya",
       "store": "買取ルデヤ",
-      "jan": "4549995732641",
-      "product_name": "iPhone Duo 256GB スターホワイト",
-      "url": "https://kaitori-rudeya.com/search/index/4549995732641",
-      "checked_at": "2026/11/3 20:40:11",
+      "jan": "4549995734645",
+      "product_name": "iPhone 18 Pro Max 256GB バーガンディ",
+      "url": "https://kaitori-rudeya.com/search/index/4549995734645",
+      "checked_at": "2026/11/4 6:05:07",
       "status": "OK",
       "http": {
         "status": 200,
         "ok": true,
-        "final_url": "https://kaitori-rudeya.com/search/index/4549995732641"
+        "final_url": "https://kaitori-rudeya.com/search/index/4549995734645"
       },
       "page": {
-        "title": "買取ルデヤ-東京池袋｜「4549995732641」の検索結果 - 買取",
-        "body_length": 632,
+        "title": "買取ルデヤ-東京池袋｜「4549995734645」の検索結果 - 買取",
+        "body_length": 638,
         "body_available": true
       },
       "product": {
@@ -132,25 +167,93 @@
       },
       "price_candidates": [
         {
-          "raw": "365,000円",
-          "price": 365000
+          "raw": "231,000円",
+          "price": 231000
         }
       ],
       "errors": [],
-      "price": 365000,
-      "raw_price": "365,000円",
+      "price": 231000,
+      "raw_price": "231,000円",
       "caution": "新品・未開封商品の通常買取価格のみ取得。郵送キャンペーン加算なし",
       "color_verified": true,
       "outcome": "success",
       "attempts": 1
     },
     {
+      "store_id": "rakuen",
+      "store": "買取楽園",
+      "jan": "4549995734645",
+      "product_name": "iPhone 18 Pro Max 256GB バーガンディ",
+      "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
+      "checked_at": "2026/11/4 6:05:07",
+      "status": "ERROR",
+      "http": {
+        "status": 200,
+        "ok": true,
+        "final_url": "https://www.keitairakuen.com/product-category/keitai/iphone/"
+      },
+      "page": {
+        "title": "iPhone(アイフォン)の高額買取 – 買取楽園",
+        "body_length": 3703,
+        "body_available": true
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": true
+      },
+      "price_candidates": [],
+      "errors": [
+        "楽園: 対象色の価格根拠なし"
+      ],
+      "price": null,
+      "extraction_color_verified": false,
+      "raw_price": null,
+      "caution": "基準231,000円 / 色表記: 青・黒・銀（バーガンディの価格根拠なし）",
+      "color_verified": false,
+      "outcome": "extraction_failed",
+      "attempts": 1
+    },
+    {
+      "store_id": "ichome",
+      "store": "買取一丁目",
+      "jan": "4549995734645",
+      "product_name": "iPhone 18 Pro Max 256GB バーガンディ",
+      "url": "https://www.1-chome.com/keitai",
+      "checked_at": "2026/11/4 6:05:07",
+      "status": "ERROR",
+      "http": {
+        "status": 200,
+        "ok": true,
+        "final_url": "https://www.1-chome.com/keitai"
+      },
+      "page": {
+        "title": "買取１丁目",
+        "body_length": 2809,
+        "body_available": true
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": true
+      },
+      "price_candidates": [],
+      "errors": [
+        "一丁目: 対象色の明示条件なし"
+      ],
+      "price": null,
+      "extraction_color_verified": false,
+      "raw_price": null,
+      "caution": "基準231,000円 / 色表記: ブラック・グレイシャー・シルバー（バーガンディの価格根拠なし）",
+      "color_verified": false,
+      "outcome": "extraction_failed",
+      "attempts": 1
+    },
+    {
       "store_id": "iphonekaitori",
       "store": "iPhone買取価格表",
-      "jan": "4549995732641",
-      "product_name": "iPhone Duo 256GB スターホワイト",
+      "jan": "4549995734645",
+      "product_name": "iPhone 18 Pro Max 256GB バーガンディ",
       "url": "https://www.iphonekaitori.tokyo/brand/apple/market-price",
-      "checked_at": "2026/11/3 20:40:17",
+      "checked_at": "2026/11/4 6:05:21",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -180,10 +283,10 @@
     {
       "store_id": "kaitoriwiki",
       "store": "買取wiki",
-      "jan": "4549995732641",
-      "product_name": "iPhone Duo 256GB スターホワイト",
-      "url": "https://kaitori.wiki/search?keyword=4549995732641",
-      "checked_at": "2026/11/3 20:40:17",
+      "jan": "4549995734645",
+      "product_name": "iPhone 18 Pro Max 256GB バーガンディ",
+      "url": "https://kaitori.wiki/search?keyword=4549995734645",
+      "checked_at": "2026/11/4 6:05:27",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -201,22 +304,90 @@
       },
       "price_candidates": [],
       "errors": [
-        "page.goto: net::ERR_EMPTY_RESPONSE at https://kaitori.wiki/search?keyword=4549995732641\nCall log:\n  - navigating to \"https://kaitori.wiki/search?keyword=4549995732641\", waiting until \"domcontentloaded\"\n"
+        "page.goto: net::ERR_EMPTY_RESPONSE at https://kaitori.wiki/search?keyword=4549995734645\nCall log:\n  - navigating to \"https://kaitori.wiki/search?keyword=4549995734645\", waiting until \"domcontentloaded\"\n"
       ],
       "color_verified": false,
       "outcome": "connection_error",
       "attempts": 2,
       "first_attempt_errors": [
-        "page.goto: net::ERR_EMPTY_RESPONSE at https://kaitori.wiki/search?keyword=4549995732641\nCall log:\n  - navigating to \"https://kaitori.wiki/search?keyword=4549995732641\", waiting until \"domcontentloaded\"\n"
+        "page.goto: net::ERR_EMPTY_RESPONSE at https://kaitori.wiki/search?keyword=4549995734645\nCall log:\n  - navigating to \"https://kaitori.wiki/search?keyword=4549995734645\", waiting until \"domcontentloaded\"\n"
       ]
+    },
+    {
+      "store_id": "mobilemix",
+      "store": "モバイルMIX",
+      "jan": "4549995734645",
+      "product_name": "iPhone 18 Pro Max 256GB バーガンディ",
+      "url": "https://mobile-mix.jp/?category=7",
+      "checked_at": "2026/11/4 6:05:23",
+      "status": "ERROR",
+      "http": {
+        "status": 200,
+        "ok": true,
+        "final_url": "https://mobile-mix.jp/?category=7"
+      },
+      "page": {
+        "title": "iPhone高額買取のモバイルミックス",
+        "body_length": 2076,
+        "body_available": true
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": true
+      },
+      "price_candidates": [],
+      "errors": [
+        "MIX: 対象色の明示条件なし"
+      ],
+      "price": null,
+      "extraction_color_verified": false,
+      "raw_price": null,
+      "caution": "グレイシャー-7,000円､ブラック-9,000円､シルバー-10,500円",
+      "color_verified": false,
+      "outcome": "extraction_failed",
+      "attempts": 1
+    },
+    {
+      "store_id": "mobileichiban",
+      "store": "モバイル一番",
+      "jan": "4549995734645",
+      "product_name": "iPhone 18 Pro Max 256GB バーガンディ",
+      "url": "https://www.mobile-ichiban.com/Prod/1",
+      "checked_at": "2026/11/4 6:05:23",
+      "status": "ERROR",
+      "http": {
+        "status": 200,
+        "ok": true,
+        "final_url": "https://www.mobile-ichiban.com/Prod/1"
+      },
+      "page": {
+        "title": "モバイル一番｜海峡通信株式会社｜携帯電話,iPhone,ゲーム機,家電製品を高額買取",
+        "body_length": 2341,
+        "body_available": true
+      },
+      "product": {
+        "jan_found": false,
+        "name_found": true
+      },
+      "price_candidates": [],
+      "errors": [
+        "モバイル一番: 対象色の明示条件なし"
+      ],
+      "price": null,
+      "extraction_color_verified": false,
+      "raw_price": null,
+      "caution": "  \nシルバー -11500/ グレイシャー -7000/ ブラック -9000 \n",
+      "color_verified": false,
+      "outcome": "extraction_failed",
+      "attempts": 1
     },
     {
       "store_id": "kaitorishouten",
       "store": "買取商店",
-      "jan": "4549995732641",
-      "product_name": "iPhone Duo 256GB スターホワイト",
+      "jan": "4549995734645",
+      "product_name": "iPhone 18 Pro Max 256GB バーガンディ",
       "url": "https://www.kaitorishouten-co.jp/keitai",
-      "checked_at": "2026/11/3 20:40:11",
+      "checked_at": "2026/11/4 6:05:23",
       "status": "ERROR",
       "http": {
         "status": 403,
@@ -247,15 +418,16 @@
   ],
   "summary": {
     "ok": 1,
-    "error": 4,
+    "error": 9,
     "jan_found": 1,
-    "product_name_found": 1,
+    "product_name_found": 5,
     "price_candidate_found": 1,
     "stopped": 0,
     "by_outcome": {
+      "blocked": 2,
       "connection_error": 3,
       "success": 1,
-      "blocked": 1
+      "extraction_failed": 4
     }
   },
   "store_access_stops": [],
