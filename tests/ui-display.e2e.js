@@ -580,3 +580,253 @@ test("スマホ（375px）: ページの横はみ出しが無く、Present検索
   assert.deepStrictEqual(errors, []);
   await page.close();
 });
+
+/* ---------- セキュリティ: 取得データの HTML 挿入・リンクURLの検証 ---------- */
+
+// 悪意のある店舗名（HTMLタグ・イベント属性・引用符）。実行されたら window.__xss が立つ
+const XSS_NAME = `<img src=x onerror="window.__xss=1">"'><script>window.__xss=2</script>買取`;
+
+const URL_CASES = [
+  // [URL, リンクにしてよいか, 期待する href]
+  ["https://kaitori-rudeya.com/search/index/4549995734546", true, "https://kaitori-rudeya.com/search/index/4549995734546"],
+  ["http://example.com/path?q=1", true, "http://example.com/path?q=1"],
+  ['https://example.com/?q="><script>window.__xss=3</script>', true, null],
+  ["javascript:window.__xss=4", false],
+  ["JavaScript:window.__xss=5", false],
+  [" javascript:window.__xss=6", false],
+  ["java\tscript:window.__xss=7", false],
+  ["data:text/html,<script>window.__xss=8</script>", false],
+  ["https://example.com/\u0000evil", false],
+  ["https://exa mple.com/", false],
+  ["//evil.example.com/", false],
+  ["/relative/path", false],
+  ["https://user:pass@evil.example.com/", false],
+  ["ftp://example.com/", false],
+  ["not a url", false],
+  ["", false]
+];
+
+function freshRowsFor(cases, observedAt) {
+  return cases.map(([url], i) => verifiedRow(`店舗${i}`, 300000 - i * 100, observedAt) && { ...verifiedRow(`店舗${i}`, 300000 - i * 100, observedAt), url });
+}
+
+async function linkByStore(page, scope, storeName, rowSelector) {
+  return page.evaluate(({ scope, storeName, rowSelector }) => {
+    const row = [...document.querySelectorAll(`${scope} ${rowSelector}`)].find(r => r.textContent.includes(storeName + " ") || r.textContent.includes(storeName + "¥") || r.textContent.trim().split(/\s+/).includes(storeName));
+    if (!row) return { found: false };
+    const a = row.querySelector("a.visit");
+    return { found: true, href: a ? a.getAttribute("href") : null, target: a ? a.target : null, rel: a ? a.rel : null };
+  }, { scope, storeName, rowSelector });
+}
+
+test("XSS: メインランキングの悪意ある店舗名は文字として表示し、タグ・スクリプトを実行しない", async () => {
+  const at = iso(1);
+  const { page, errors } = await openWith(withItem({
+    stores: [
+      { ...verifiedRow(XSS_NAME, 230000, at), url: "javascript:window.__xss=9" },
+      verifiedRow("買取ルデヤ", 224500, at)
+    ],
+    fetch_status: "ok", last_checked_at: at, last_success_at: at, last_update: "x"
+  }));
+  const result = await page.evaluate(() => ({
+    xss: window.__xss || 0,
+    imgs: document.querySelectorAll("#rankingTableBody img, #rankingTableBody script").length,
+    text: document.getElementById("rankingTableBody").textContent,
+    links: [...document.querySelectorAll("#rankingTableBody a")].map(a => a.getAttribute("href"))
+  }));
+  assert.strictEqual(result.xss, 0);
+  assert.strictEqual(result.imgs, 0, "店舗名から img / script 要素が作られない");
+  assert.ok(result.text.includes(`<img src=x onerror="window.__xss=1">`), "店舗名はそのままの文字で表示");
+  assert.deepStrictEqual(result.links, ["https://example.invalid/"], "javascript: URL はリンクにしない");
+  assert.strictEqual((await page.textContent("#bestStoreName")).trim(), XSS_NAME, "最高価格の店舗名も文字として表示");
+  assert.deepStrictEqual(errors, []);
+  await page.close();
+});
+
+test("XSS: 参考価格行（順位から除外）の悪意ある店舗名・data: URL も無害化する", async () => {
+  const at = iso(1);
+  const { page, errors } = await openWith(withItem({
+    stores: [
+      verifiedRow("買取ルデヤ", 224500, at),
+      { ...verifiedRow(XSS_NAME, 260000, iso(40)), url: "data:text/html,<script>window.__xss=10</script>" }
+    ],
+    fetch_status: "ok", last_checked_at: at, last_success_at: at, last_update: "x"
+  }));
+  const result = await page.evaluate(() => {
+    const row = document.querySelector("#rankingTableBody tr.excluded-row");
+    return {
+      xss: window.__xss || 0,
+      elements: row.querySelectorAll("img, script").length,
+      text: row.textContent,
+      link: row.querySelector("a") ? row.querySelector("a").getAttribute("href") : null
+    };
+  });
+  assert.strictEqual(result.xss, 0);
+  assert.strictEqual(result.elements, 0);
+  assert.ok(result.text.includes("<script>window.__xss=2</script>"));
+  assert.match(result.text, /価格が古いため順位から除外/);
+  assert.strictEqual(result.link, null, "data: URL はリンクにしない");
+  assert.deepStrictEqual(errors, []);
+  await page.close();
+});
+
+test("URL検証: http/https の絶対URLだけをリンク化し、javascript:・data:・制御文字・空白・相対・認証情報付き・不正URLはリンクにしない", async () => {
+  const at = iso(1);
+  const { page, errors } = await openWith(withItem({
+    stores: freshRowsFor(URL_CASES, at), fetch_status: "ok", last_checked_at: at, last_success_at: at, last_update: "x"
+  }));
+  const rows = await page.evaluate(() => [...document.querySelectorAll("#rankingTableBody tr")].map(tr => {
+    const a = tr.querySelector("a.visit");
+    return { store: tr.children[1].textContent.trim(), href: a ? a.getAttribute("href") : null, target: a && a.target, rel: a && a.rel };
+  }));
+  for (const [i, [url, allowed, expected]] of URL_CASES.entries()) {
+    const row = rows.find(r => r.store === `店舗${i}`);
+    assert.ok(row, `店舗${i} の行がありません`);
+    if (allowed) {
+      assert.ok(row.href, `リンクになるべき: ${JSON.stringify(url)}`);
+      if (expected) assert.strictEqual(row.href, expected);
+      assert.strictEqual(row.target, "_blank");
+      assert.match(row.rel, /noopener/);
+      assert.match(row.rel, /noreferrer/);
+    } else {
+      assert.strictEqual(row.href, null, `リンクにしてはいけない: ${JSON.stringify(url)}`);
+    }
+  }
+  // 引用符・タグを含む https URL はリンクにするが、属性から抜け出さない
+  const quoted = rows.find(r => r.store === "店舗2");
+  assert.ok(quoted.href.startsWith("https://example.com/?q="));
+  assert.strictEqual(await page.evaluate(() => document.querySelectorAll("#rankingTableBody script").length), 0);
+  assert.strictEqual(await page.evaluate(() => window.__xss || 0), 0);
+  assert.deepStrictEqual(errors, []);
+  await page.close();
+});
+
+test("XSS: Present検索のランキング・参考行の店舗名とURLを無害化し、正当な日本語店舗名とhttps URLはそのまま使う", async () => {
+  const at = iso(1);
+  const { page, errors } = await openWith(withItem({
+    stores: [
+      verifiedRow("買取ルデヤ", 224500, at),
+      { ...verifiedRow(XSS_NAME, 223000, at), url: "javascript:window.__xss=11" },
+      { ...verifiedRow(`"'><b>森</b>`, 260000, iso(40)), url: "data:text/html,x" }
+    ],
+    fetch_status: "ok", last_checked_at: at, last_success_at: at, last_update: "x"
+  }));
+  await page.fill("#presentSearchInput", JAN);
+  await page.click("#presentSearchBtn");
+  await page.waitForFunction(() => /1位/.test(document.getElementById("presentRanking").textContent));
+  const result = await page.evaluate(() => {
+    const root = document.getElementById("presentRanking");
+    return {
+      xss: window.__xss || 0,
+      elements: root.querySelectorAll("img, script, b").length,
+      text: root.textContent,
+      links: [...root.querySelectorAll("a.visit")].map(a => a.getAttribute("href"))
+    };
+  });
+  assert.strictEqual(result.xss, 0);
+  assert.strictEqual(result.elements, 0, "店舗名から要素が作られない");
+  assert.ok(result.text.includes(XSS_NAME.slice(0, 20)));
+  assert.ok(result.text.includes(`"'><b>森</b>`));
+  assert.match(result.text, /1位\s*買取ルデヤ/);
+  assert.deepStrictEqual(result.links, ["https://example.invalid/"], "正当な https URL だけリンク化");
+  assert.deepStrictEqual(errors, []);
+  await page.close();
+});
+
+test("XSS: 商品マスター由来の商品名・JAN（Present検索の候補・商品名・選択メッセージ）を無害化する", async () => {
+  // 商品キーは「モデル_容量_色」を "_" で区切って表示するため、ペイロードには "_" を含めない
+  const evilModel = `<img src=x onerror="window.xssMaster=12">悪意`;
+  const master = { [evilModel]: { "256GB": { "ブラック": "4549995734546", "シルバー": `"><img src=x onerror=window.xssMaster=13>` } } };
+  const { page, errors } = await openWith(BASE_PRICES, {
+    onRequest(route) {
+      if (new URL(route.request().url()).pathname.endsWith("/data/product_master.json")) {
+        route.fulfill({ contentType: "application/json", body: JSON.stringify(master) });
+        return true;
+      }
+      return false;
+    }
+  });
+  await page.waitForFunction(() => true);
+  await page.fill("#presentSearchInput", "悪意");
+  await page.click("#presentSearchBtn");
+  await page.waitForSelector("#presentSearchMessage .present-candidate");
+  const candidates = await page.evaluate(() => {
+    const root = document.getElementById("presentSearchMessage");
+    return {
+      elements: root.querySelectorAll("img, script").length,
+      texts: [...root.querySelectorAll(".present-candidate")].map(b => b.textContent.trim()),
+      jans: [...root.querySelectorAll(".present-candidate")].map(b => b.dataset.jan)
+    };
+  });
+  assert.strictEqual(candidates.elements, 0);
+  assert.ok(candidates.texts.every(t => t.includes(evilModel)));
+  assert.ok(candidates.jans.includes(`"><img src=x onerror=window.xssMaster=13>`), "data-jan 属性から抜け出さない");
+  // 正当なJANの候補を選ぶ → 商品名・選択メッセージも文字として表示
+  await page.click('#presentSearchMessage .present-candidate[data-jan="4549995734546"]');
+  await page.waitForFunction(() => /悪意/.test(document.getElementById("presentProductName").textContent));
+  const selected = await page.evaluate(() => ({
+    elements: document.querySelectorAll("#presentProductName img, #presentSearchMessage img, #presentRanking img").length,
+    name: document.getElementById("presentProductName").textContent,
+    xss: window.xssMaster || window.__xss || 0
+  }));
+  assert.strictEqual(selected.elements, 0);
+  assert.ok(selected.name.includes(evilModel));
+  assert.strictEqual(selected.xss, 0);
+  assert.deepStrictEqual(errors, []);
+  await page.close();
+});
+
+test("XSS: Apple Store在庫の店舗名・地域・状態・商品名を無害化する（状態は既知の値だけ class に使う）", async () => {
+  const { page, errors } = await openWith(BASE_PRICES);
+  const result = await page.evaluate(() => {
+    APPLE_PRODUCTS = { products: { X: { part_number: "P1/A", jan: "4549995734546", model: `<img src=x onerror="window.__xss=14">`, storage: "256GB", color: "<b>黒</b>", apple_price: 239800 } } };
+    APPLE_INVENTORY = { products: { "P1/A": { overall_status: "ok", available_store_count: 1, stores: [
+      { store_name: `<script>window.__xss=15</script>銀座`, state: `<img src=x onerror="window.__xss=16">東京都`, status: "available" },
+      { store_name: "渋谷", state: "東京都", status: `x" onclick="window.__xss=17` }
+    ] } } };
+    const box = document.createElement("div");
+    document.body.appendChild(box);
+    window.renderAppleInventory("4549995734546", box);
+    return {
+      elements: box.querySelectorAll("img, script, b").length,
+      text: box.textContent,
+      statusClasses: [...box.querySelectorAll(".apple-store-status")].map(e => e.className),
+      onclick: [...box.querySelectorAll("[onclick]")].length,
+      xss: window.__xss || 0
+    };
+  });
+  assert.strictEqual(result.elements, 0);
+  assert.ok(result.text.includes("<script>window.__xss=15</script>銀座"));
+  assert.ok(result.text.includes("<b>黒</b>"));
+  assert.strictEqual(result.onclick, 0, "状態の値から属性を作らない");
+  assert.ok(result.statusClasses.includes("apple-store-status available"));
+  assert.ok(result.statusClasses.includes("apple-store-status unknown"));
+  assert.strictEqual(result.xss, 0);
+  assert.deepStrictEqual(errors, []);
+  await page.close();
+});
+
+test("既存機能: 森森買取の紹介コード・コピー、通常の日本語店舗名、https の公式リンク、利益計算は従来どおり", async () => {
+  const at = iso(1);
+  const { page, errors } = await openWith(withItem({
+    stores: [
+      { ...verifiedRow("森森買取", 226000, at), url: "https://www.morimori-kaitori.jp/search?sk=4549995734546" },
+      { ...verifiedRow("買取ルデヤ", 224500, at), url: "https://kaitori-rudeya.com/search/index/4549995734546" }
+    ],
+    fetch_status: "ok", last_checked_at: at, last_success_at: at, last_update: "x"
+  }));
+  const rows = await page.evaluate(() => [...document.querySelectorAll("#rankingTableBody tr")].map(tr => ({
+    text: tr.textContent.replace(/\s+/g, " "),
+    href: tr.querySelector("a.visit") && tr.querySelector("a.visit").getAttribute("href"),
+    coupon: tr.querySelector(".copy-coupon") && tr.querySelector(".copy-coupon").dataset.code
+  })));
+  assert.match(rows[0].text, /1位 森森買取 紹介コードあり/);
+  assert.strictEqual(rows[0].href, "https://www.morimori-kaitori.jp/search?sk=4549995734546");
+  assert.strictEqual(rows[0].coupon, "InfA00172");
+  assert.match(rows[1].text, /2位 買取ルデヤ/);
+  assert.strictEqual(rows[1].href, "https://kaitori-rudeya.com/search/index/4549995734546");
+  assert.strictEqual((await page.textContent("#maxPriceCard")).trim(), "¥226,000");
+  assert.match((await page.textContent("#finalProfitCard")).trim(), /^-¥/);
+  assert.deepStrictEqual(errors, []);
+  await page.close();
+});
