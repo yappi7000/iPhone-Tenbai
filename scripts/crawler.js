@@ -374,6 +374,13 @@ const STORES = [
   },
   {
     id: "keitaispace",
+    /*
+     * 保留（2026/11/3）: 価格表がモデル・容量単位で色別の増減も全色共通の明記も無く、
+     * extractKeitaiSpacePrice は色根拠なしとして毎回採用を止めている（過去の全実行で 0件）。
+     * 価格を出せないままアクセスと「抽出失敗」の記録だけが続くため巡回対象から外す。
+     * 店舗の表記が色別になったら deferred を外して再開する。
+     */
+    deferred: true,
     name: "携帯空間",
     priceTableUrl:
       "https://" + "www.keitaispace.co.jp" + "/product/?ca=23"
@@ -436,6 +443,12 @@ async function blockHeavyResources(page) {
 const CONFIG = {
   pageTimeout: 15000,
   waitAfterLoad: 1500,
+
+  /*
+   * JavaScript で価格表を描画する店舗で、表が現れるまで待つ上限（追加アクセスはしない）。
+   * 買取一丁目は同じURLでも本文 909文字（描画前）と 2842文字（描画後）が混在していた（2026/11/2・11/3）。
+   */
+  pageReadyTimeout: 6000,
 
   /*
    * 価格候補として認識する範囲。
@@ -554,6 +567,24 @@ extractPriceCandidates(text) {
 /*
  * ページ本文にJANが存在するか確認。
  */
+/*
+ * 商品ブロック内の色表記（診断用）。価格の判定には使わず、
+ * 「どの色の条件が載っていて、対象色が載っていなかったか」を記録するためだけに使う。
+ */
+const COLOR_LABEL_PATTERN = /全色|ブラック|シルバー|グレイシャー?|バーガンディ|紫以外|黒|銀|青|紫/g;
+
+function colorLabelsIn(text) {
+  return [...new Set(String(text || "").match(COLOR_LABEL_PATTERN) || [])];
+}
+
+function colorEvidenceNote(basePrice, text, color) {
+  const labels = colorLabelsIn(text);
+  return `基準${Number(basePrice).toLocaleString("ja-JP")}円 / 色表記: ${
+    labels.length ? labels.join("・") : "なし"
+  }（${color || "対象色"}の価格根拠なし）`;
+}
+
+
 function containsJan(text, jan) {
 
   return normalizeText(text).includes(String(jan));
@@ -934,6 +965,7 @@ function extractIchomePrice(
   const allColorsExplicit = /全色\s*(?:同額|共通|同一価格|増減なし)/.test(beforeUnopened);
   if (!color || (rule === "色別増減なし" && !allColorsExplicit)) {
     return { found: true, price: null, raw_price: null, color_verified: false,
+      caution: colorEvidenceNote(basePrice, beforeUnopened, color),
       error: "一丁目: 対象色の明示条件なし" };
   }
   const finalPrice =
@@ -1562,11 +1594,24 @@ function extractRakuenPrice(
     }
   }
 
+  /*
+   * 「紫以外-1,000」は、紫（バーガンディ）が基準価格で他色が減額という店舗の明記。
+   * 紫は基準価格のまま採用できる（推測ではなく、紫を名指しした条件）。
+   */
+  const namedBaseMatch =
+    color === "バーガンディ"
+      ? block.match(/紫以外\s*([+-]\s*[0-9,]+)/)
+      : null;
+  if (namedBaseMatch) {
+    rule = `紫（「紫以外${namedBaseMatch[1].replace(/\s/g, "")}」の基準色）`;
+  }
+
   const explicitColorProof = rule !== "基準価格" ||
     (color === "バーガンディ" && /(?:紫|バーガンディ)\s*(?:基準|新品|[¥￥0-9])/.test(block)) ||
     /全色\s*(?:同額|共通|同一価格)/.test(block);
   if (!explicitColorProof) {
     return { found: true, price: null, raw_price: null, color_verified: false,
+      caution: colorEvidenceNote(basePrice, block, color),
       error: "楽園: 対象色の価格根拠なし" };
   }
   if (
@@ -2253,11 +2298,14 @@ const STATIC_STORE_CACHE = new Map();
  * 全SKU共通の価格表ページ（URLがSKUに依存しない店舗）。
  * 1回目に正常取得できた本文を同一実行内で使い回す。
  *
+ * 買取一丁目は「モデル 容量」の商品ブロックと色別増減を本文から抽出するため、
+ * 描画済みの同じ本文を使い回しても SKU ごとの結果は変わらない（PAGE_READY_MARKERS で描画を確認）。
  * iPhone買取価格表は「JANコード：<13桁JAN> <価格>円」をJAN完全一致で抽出するため、
  * 同じ本文から別SKUの価格を取り違えない（tests/store-reliability.test.js で確認）。
  * モバステ・モバイルMIXは page 操作を伴う抽出のため対象外。
  */
 const STATIC_CACHE_STORE_IDS = new Set([
+  "ichome",
   "rakuen",
   "mobileichiban",
   "keitaispace",
@@ -2267,8 +2315,21 @@ const STATIC_CACHE_STORE_IDS = new Set([
 
 
 /*
+ * 価格表の描画が終わったことを示す本文の目印（店舗別）。
+ * 目印が無い本文は「描画前の不完全なページ」として扱い、掲載なしと判定しない。
+ */
+const PAGE_READY_MARKERS = {
+  ichome: /未開封\s*[¥￥]\s*[0-9]/
+};
+
+function isPageReady(storeId, bodyText) {
+  const marker = PAGE_READY_MARKERS[storeId];
+  return !marker || marker.test(String(bodyText || ""));
+}
+
+/*
  * 全SKU共通の価格表ページとして使い回してよいか。
- * 正常応答（HTTP 2xx・本文あり）で、遮断・アクセス確認ページではないものだけ。
+ * 正常応答（HTTP 2xx・本文あり）で、遮断・アクセス確認ページでも描画前のページでもないものだけ。
  */
 function shouldCacheStaticPage(store, response, bodyText, diagnostic) {
   return Boolean(
@@ -2276,7 +2337,8 @@ function shouldCacheStaticPage(store, response, bodyText, diagnostic) {
     response &&
     response.ok() &&
     String(bodyText || "").length > 0 &&
-    !hasBlockPageSignature(diagnostic)
+    !hasBlockPageSignature(diagnostic) &&
+    isPageReady(store.id, bodyText)
   );
 }
 
@@ -2525,6 +2587,17 @@ if (
       await page.waitForTimeout(
         CONFIG.waitAfterLoad
       );
+
+      // 価格表を JavaScript で描画する店舗は、表が現れるまで待つ（上限あり・再読込しない）
+      if (PAGE_READY_MARKERS[store.id]) {
+        await page.waitForFunction(
+          source => new RegExp(source).test(
+            document.body ? document.body.innerText : ""
+          ),
+          PAGE_READY_MARKERS[store.id].source,
+          { timeout: CONFIG.pageReadyTimeout }
+        ).catch(() => {});
+      }
     }
 
 
@@ -2593,6 +2666,14 @@ if (
 
     diagnostic.page.body_available =
       bodyText.length > 0;
+
+    // 描画前の不完全なページ（掲載なしではなく抽出失敗として記録する）
+    if (bodyText.length > 0 && !isPageReady(store.id, bodyText)) {
+      diagnostic.page.incomplete = true;
+      diagnostic.errors.push(
+        `価格表の描画を確認できません（本文${bodyText.length}文字）`
+      );
+    }
 
 
     /*
@@ -5201,5 +5282,10 @@ module.exports = {
   BLOCK_STOP_POLICY,
   STATIC_CACHE_STORE_IDS,
   shouldCacheStaticPage,
+  isPageReady,
+  PAGE_READY_MARKERS,
+  extractRakuenPrice,
+  extractIchomePrice,
+  colorLabelsIn,
   extractIphoneKaitoriPrice
 };

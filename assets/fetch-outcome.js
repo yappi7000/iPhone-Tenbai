@@ -13,6 +13,7 @@
    *   timeout           : タイムアウト
    *   blocked           : HTTP 403 / 429、WAF・CDN の遮断ページ（アクセス制限）
    *   extraction_failed : 商品は見つかったが価格を抽出・検証できなかった
+   *                       （価格表の描画前の不完全なページ＝page.incomplete もここに含める）
    *   stopped           : 同一実行内でアクセス制限を検知したため、この店舗へのアクセスを止めた（未試行）
    *
    * stopped は「アクセスしていない」ので失敗には数えない。
@@ -107,6 +108,9 @@
     // 応答も本文も得られていない（原因不明の通信失敗）
     const page = row.page || {};
     if (status === null && page.body_available !== true) return 'connection_error';
+
+    // 描画前の不完全なページは「掲載なし」と断定できない
+    if (page.incomplete === true) return 'extraction_failed';
 
     const product = row.product || {};
     if (product.jan_found !== true && product.name_found !== true) return 'no_price';

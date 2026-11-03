@@ -11,6 +11,8 @@ on:
 
 permissions:
   contents: write
+  # 継続異常の通知Issue用。リポジトリ変数 CRAWLER_HEALTH_ISSUES=true のときだけ使う
+  issues: write
 
 concurrency:
   group: iphone-price-data
@@ -47,7 +49,7 @@ jobs:
           fi
 
       - name: Test price rules and verification
-        run: node --test tests/verify-prices.test.js tests/price-freshness.test.js
+        run: node --test tests/verify-prices.test.js tests/price-freshness.test.js tests/store-reliability.test.js tests/price-coverage.test.js
 
       - name: Save previous prices for comparison
         run: cp data/prices.json "$RUNNER_TEMP/previous_prices.json"
@@ -68,6 +70,43 @@ jobs:
             --index index.html \
             --previous "$RUNNER_TEMP/previous_prices.json"
 
+      - name: Store health report
+        # 店舗別・原因別の取得状況をサマリーに出し、定時実行の連続0件を data/store_health.json に記録する。
+        # 検証に失敗した回も、原因を一目で確認できるように実行する（価格は扱わない）。
+        if: always() && hashFiles('data/crawl_diagnostics.json') != ''
+        # レポート・通知の失敗で価格の検証・コミットを止めない
+        continue-on-error: true
+        run: |
+          node scripts/store_health.js \
+            --diagnostics data/crawl_diagnostics.json \
+            --health data/store_health.json \
+            --update
+
+      - name: Notify persistent store failures (opt-in)
+        # 同じ原因の価格0件が続く店舗を、重複しないIssueで通知・更新し、回復したらクローズする。
+        # 既定では無効。有効にするには Settings > Variables で CRAWLER_HEALTH_ISSUES=true を設定する。
+        if: always() && vars.CRAWLER_HEALTH_ISSUES == 'true' && hashFiles('data/store_health.json') != ''
+        # レポート・通知の失敗で価格の検証・コミットを止めない
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh label create crawler-health --color B60205 --description "価格取得の継続異常（自動）" 2>/dev/null || true
+          gh issue list --label crawler-health --state open --limit 100 --json number,title,body > "$RUNNER_TEMP/open_issues.json"
+          node scripts/store_health.js \
+            --health data/store_health.json \
+            --issues-in "$RUNNER_TEMP/open_issues.json" \
+            --plan-out "$RUNNER_TEMP/issue_plan.json" \
+            --plan-only
+          jq -c '.[]' "$RUNNER_TEMP/issue_plan.json" | while read -r item; do
+            action=$(jq -r '.action' <<<"$item")
+            case "$action" in
+              create) gh issue create --title "$(jq -r '.title' <<<"$item")" --body "$(jq -r '.body' <<<"$item")" --label crawler-health ;;
+              update) gh issue edit "$(jq -r '.number' <<<"$item")" --title "$(jq -r '.title' <<<"$item")" --body "$(jq -r '.body' <<<"$item")" ;;
+              close)  gh issue close "$(jq -r '.number' <<<"$item")" --comment "$(jq -r '.comment' <<<"$item")" ;;
+            esac
+          done
+
       - name: Keep crawl results (also when verification fails)
         # 検証失敗時は prices.json をコミットしない（公開データは前回のまま）。
         # その回に取得できた価格・診断・検証レポートは成果物として30日保存し、
@@ -79,6 +118,7 @@ jobs:
           path: |
             data/prices.json
             data/crawl_diagnostics.json
+            data/store_health.json
             ${{ runner.temp }}/verify_report.md
           retention-days: 30
           if-no-files-found: warn
@@ -90,6 +130,9 @@ jobs:
 
           git add data/prices.json
           git add data/crawl_diagnostics.json
+          if [ -f data/store_health.json ]; then
+            git add data/store_health.json
+          fi
 
           if git diff --cached --quiet; then
             echo "価格変更なし"
