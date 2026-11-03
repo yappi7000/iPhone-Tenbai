@@ -73,6 +73,16 @@ jobs:
             --previous "$RUNNER_TEMP/previous_prices.json" \
             --target-jan "$TARGET_JAN"
 
+      - name: Store health report
+        # 店舗別・原因別の取得状況をサマリーに出す（オンデマンドは1SKUなので履歴は更新しない）
+        if: always() && hashFiles('data/crawl_diagnostics.json') != ''
+        # レポート・通知の失敗で価格の検証・コミットを止めない
+        continue-on-error: true
+        run: |
+          node scripts/store_health.js \
+            --diagnostics data/crawl_diagnostics.json \
+            --health data/store_health.json
+
       - name: Keep crawl results (also when verification fails)
         # 検証失敗時は prices.json をコミットしない（公開データは前回のまま）。
         # その回に取得できた価格・診断・検証レポートは成果物として30日保存し、
