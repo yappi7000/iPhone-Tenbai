@@ -11,7 +11,7 @@ const {
 } = require('./price_rules');
 const {
   classifyFetchOutcome,
-  isAccessBlocked,
+  hasBlockPageSignature,
   buildFetchSummary
 } = require('../assets/fetch-outcome.js');
 
@@ -3156,14 +3156,52 @@ function storesForItem(item, stores = STORES) {
 
 /*
  * 同一実行内の店舗状態
- *   blocked       : アクセス制限（HTTP 403/429・WAF）を検知した店舗 → 以降アクセスしない
+ *   blocked       : アクセス停止した店舗（停止条件は BLOCK_STOP_POLICY） → 以降アクセスしない
+ *   blockStrikes  : 遮断ページの特徴が無い HTTP 403 の連続回数（成功で0に戻す）
  *   retryDisabled : 再試行しても接続エラーだった店舗 → 以降は再試行しない
  */
 function createStoreRunState() {
   return {
     blocked: new Map(),
+    blockStrikes: new Map(),
     retryDisabled: new Set()
   };
+}
+
+/*
+ * アクセス停止の条件
+ *   - WAF・CDN の遮断ページ（Webサイトファイアウォール 等）: 1回で停止。
+ *   - 遮断ページの特徴が無い HTTP 403: 同じ店舗で2回連続したら停止
+ *     （1SKUだけの一時的な 403 で、ルデヤ等の主要店舗の残りSKUを失わないため）。
+ *     途中で成功すれば連続回数を0に戻す。
+ *   - HTTP 429（レート制限）: 再試行はしないが、停止もしない（一時的なことが多いため）。
+ */
+const BLOCK_STOP_POLICY = {
+  plain403Strikes: 2
+};
+
+/*
+ * この結果で店舗のアクセスを止めるか。止める場合は停止理由、止めない場合は null。
+ */
+function blockStopReason(result, state, storeId) {
+  if (result.outcome !== "blocked") return null;
+
+  if (hasBlockPageSignature(result)) {
+    return "WAF・遮断ページ";
+  }
+
+  const status = result.http && result.http.status;
+
+  if (status !== 403) return null;
+
+  const strikes =
+    (state.blockStrikes.get(storeId) || 0) + 1;
+
+  state.blockStrikes.set(storeId, strikes);
+
+  return strikes >= BLOCK_STOP_POLICY.plain403Strikes
+    ? `HTTP 403（${strikes}回連続）`
+    : null;
 }
 
 /*
@@ -3231,12 +3269,6 @@ function makeStoppedDiagnostic(store, item, blockedInfo) {
   };
 }
 
-function blockReason(result) {
-  const status = result.http && result.http.status;
-  if (status === 403 || status === 429) return `HTTP ${status}`;
-  return "WAF・遮断ページ";
-}
-
 /*
  * 1店舗×1SKUを、アクセス停止・再試行の方針に従って調べる。
  * inspectFn(store, item) は診断行（または対象外なら null）を返す。
@@ -3285,17 +3317,22 @@ async function inspectStoreWithPolicy(
     }
   }
 
-  if (
-    result.outcome === "blocked" &&
-    isAccessBlocked(result) &&
-    !state.blocked.has(store.id)
-  ) {
-    state.blocked.set(store.id, {
-      store: store.name,
-      jan: item.jan || null,
-      reason: blockReason(result),
-      detected_at: nowJST()
-    });
+  if (result.outcome === "success") {
+    state.blockStrikes.delete(store.id);
+  }
+
+  if (!state.blocked.has(store.id)) {
+    const reason =
+      blockStopReason(result, state, store.id);
+
+    if (reason) {
+      state.blocked.set(store.id, {
+        store: store.name,
+        jan: item.jan || null,
+        reason,
+        detected_at: nowJST()
+      });
+    }
   }
 
   return result;
@@ -5121,6 +5158,7 @@ module.exports = {
   inspectStoresForItem,
   makeStoppedDiagnostic,
   RETRY_POLICY,
+  BLOCK_STOP_POLICY,
   STATIC_CACHE_STORE_IDS,
   extractIphoneKaitoriPrice
 };

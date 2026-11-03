@@ -64,13 +64,21 @@
   }
 
   /*
-   * 明確なアクセス制限か（再試行しない・同一実行内で以降のアクセスを止める）
+   * WAF・CDN の遮断ページだと明確に分かるか（タイトルで判定）
+   */
+  function hasBlockPageSignature(row) {
+    const title = row && row.page ? String(row.page.title || '') : '';
+    return BLOCK_PAGE_TITLE.test(title);
+  }
+
+  /*
+   * アクセス制限か（HTTP 403 / 429・遮断ページ）。再試行しない。
+   * 同一実行内でアクセスを止めるかどうかは crawler.js の停止条件で別に判断する。
    */
   function isAccessBlocked(row) {
     const status = httpStatus(row);
     if (status !== null && BLOCK_HTTP_STATUS.has(status)) return true;
-    const title = row && row.page ? String(row.page.title || '') : '';
-    return BLOCK_PAGE_TITLE.test(title);
+    return hasBlockPageSignature(row);
   }
 
   /*
@@ -201,6 +209,7 @@
     OUTCOMES,
     FAILURE_OUTCOMES,
     OUTCOME_LABELS,
+    hasBlockPageSignature,
     isAccessBlocked,
     classifyFetchOutcome,
     buildFetchSummary,

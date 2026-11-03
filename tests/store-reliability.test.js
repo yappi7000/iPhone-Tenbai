@@ -185,8 +185,70 @@ test("アクセス停止: 403/WAF を検知した店舗には同一実行内で�
   assert.strictEqual(stopped.attempts, 0);
   assert.strictEqual(stopped.price, null);
   assert.deepStrictEqual(stopped.errors, [], "未試行を失敗扱いしない");
-  assert.match(stopped.skip_reason, /HTTP 403/);
+  assert.match(stopped.skip_reason, /WAF・遮断ページ/, "WAF ページ付きの 403 は遮断ページとして1回で停止");
   assert.strictEqual(state.blocked.get("morimori").jan, DUO_ITEM.jan);
+});
+
+const DUO_ITEM_3 = { jan: "4549995732849", name: "iPhone Duo 1TB スターホワイト", model: "iPhone Duo", storage: "1TB", color: "スターホワイト" };
+const plain403 = (s, i) => row(s, i, { http: 403, title: "403 Forbidden", body: 300, errors: ["HTTP status 403"] });
+const cloudFront403 = (s, i) => row(s, i, { http: 403, title: "ERROR: The request could not be satisfied", body: 513, errors: ["HTTP status 403"] });
+const tooMany = (s, i) => row(s, i, { http: 429, body: 100, errors: ["HTTP status 429"] });
+
+/*
+ * 1店舗を3SKU順番に調べ、各SKUの分類とアクセス回数を返す
+ */
+async function runThreeSkus(storeId, responses) {
+  const state = createStoreRunState();
+  const inspect = fakeInspect({ [storeId]: responses });
+  const store = storesForItem(DUO_ITEM).find(s => s.id === storeId);
+  const outcomes = [];
+  for (const item of [DUO_ITEM, DUO_ITEM_2, DUO_ITEM_3]) {
+    outcomes.push((await inspectStoreWithPolicy(inspect, store, item, state, noWait)).outcome);
+  }
+  return { outcomes, calls: inspect.calls.length, state };
+}
+
+test("停止条件: 遮断ページの特徴が無い 403 が1回だけなら止めない（ルデヤの一時的な 403 で残りSKUを失わない）", async () => {
+  const { outcomes, calls, state } = await runThreeSkus("rudeya", [plain403, ok]);
+  assert.deepStrictEqual(outcomes, ["blocked", "success", "success"]);
+  assert.strictEqual(calls, 3);
+  assert.strictEqual(state.blocked.size, 0);
+});
+
+test("停止条件: 遮断ページの特徴が無い 403 が2回連続したら、3SKU目からアクセス停止", async () => {
+  const { outcomes, calls, state } = await runThreeSkus("rudeya", [plain403]);
+  assert.deepStrictEqual(outcomes, ["blocked", "blocked", "stopped"]);
+  assert.strictEqual(calls, 2, "停止後はアクセスしない");
+  assert.strictEqual(state.blocked.get("rudeya").reason, "HTTP 403（2回連続）");
+  assert.strictEqual(state.blocked.get("rudeya").jan, DUO_ITEM_2.jan, "停止を決めたSKUを記録する");
+});
+
+test("停止条件: 403 の間に成功があれば連続回数を0に戻す", async () => {
+  const { outcomes, calls, state } = await runThreeSkus("rudeya", [plain403, ok, plain403]);
+  assert.deepStrictEqual(outcomes, ["blocked", "success", "blocked"]);
+  assert.strictEqual(calls, 3);
+  assert.strictEqual(state.blocked.size, 0);
+  assert.strictEqual(state.blockStrikes.get("rudeya"), 1);
+});
+
+test("停止条件: CloudFront の 403（502 等でも出るタイトル）は遮断ページ扱いせず、2回連続で停止", async () => {
+  const { outcomes, calls } = await runThreeSkus("kaitorishouten", [cloudFront403]);
+  assert.deepStrictEqual(outcomes, ["blocked", "blocked", "stopped"]);
+  assert.strictEqual(calls, 2);
+});
+
+test("停止条件: WAF の遮断ページは1回で停止する", async () => {
+  const { outcomes, calls, state } = await runThreeSkus("kaitoriwiki", [forbidden]);
+  assert.deepStrictEqual(outcomes, ["blocked", "stopped", "stopped"]);
+  assert.strictEqual(calls, 1);
+  assert.strictEqual(state.blocked.get("kaitoriwiki").reason, "WAF・遮断ページ");
+});
+
+test("停止条件: HTTP 429 は再試行も停止もしない（アクセス制限として記録だけする）", async () => {
+  const { outcomes, calls, state } = await runThreeSkus("rudeya", [tooMany]);
+  assert.deepStrictEqual(outcomes, ["blocked", "blocked", "blocked"]);
+  assert.strictEqual(calls, 3, "SKUごとに1回だけ（再試行なし）");
+  assert.strictEqual(state.blocked.size, 0);
 });
 
 test("アクセス停止: タイムアウト・接続エラーでは止めない（明確な制限だけ）", async () => {
