@@ -62,8 +62,8 @@ test.after(async () => {
   if (server) server.close();
 });
 
-async function openWith(prices, { select = ["iPhone 18 Pro Max", "256GB", "ブラック"], expectJan = JAN, onRequest = null, catalogPrices = null } = {}) {
-  const page = await browser.newPage();
+async function openWith(prices, { select = ["iPhone 18 Pro Max", "256GB", "ブラック"], expectJan = JAN, onRequest = null, catalogPrices = null, viewport = null } = {}) {
+  const page = await browser.newPage(viewport ? { viewport } : undefined);
   const errors = [];
   page.on("pageerror", e => errors.push(e.message));
   // Turnstile（外部CDN）の代わりに、即座にトークンを返すスタブを置く
@@ -436,6 +436,147 @@ test("オンデマンド完了: 旧形式（fetch_summary 無し）の応答で�
   });
   assert.match(status, /✅ 取得完了・最新データを読み込みました/);
   assert.doesNotMatch(status, /店舗中/);
+  assert.deepStrictEqual(errors, []);
+  await page.close();
+});
+
+/* ---------- 公開品質: 利益の符号・順位と計算に使う価格・参考値の注意・スマホ表示 ---------- */
+
+const APPLE_PRO_MAX_256 = 239800; // index.html の APPLE_PRICES（iPhone 18 Pro Max 256GB）
+const verifiedRow = (store, price, observedAt) => ({ store, price, url: "https://example.invalid/", condition: "unopened", scope: "jan", color_verified: true, checked_at: "x", observed_at: observedAt });
+
+test("利益の符号: 赤字は「-¥」で表示し、「+¥-」と表示しない（KPI・差額・シミュレーション）", async () => {
+  const at = iso(1);
+  const best = 224500; // 2026/11/3 の実データ（定価 239,800円を下回る）
+  const { page, errors } = await openWith(withItem({
+    stores: [verifiedRow("買取ルデヤ", best, at), verifiedRow("買取楽園", 220000, at)],
+    fetch_status: "ok", last_checked_at: at, last_success_at: at, last_update: "x"
+  }));
+  const expected = best - APPLE_PRO_MAX_256 + Math.round(APPLE_PRO_MAX_256 * 0.01);
+  assert.ok(expected < 0);
+  const profit = (await page.textContent("#finalProfitCard")).trim();
+  assert.strictEqual(profit, `-¥${Math.abs(expected).toLocaleString()}`);
+  assert.doesNotMatch(profit, /\+¥-/);
+  assert.strictEqual((await page.textContent("#diffPriceCard")).trim(), `-¥${(APPLE_PRO_MAX_256 - best).toLocaleString()}`);
+  assert.strictEqual((await page.textContent("#simProfit")).trim(), `-¥${Math.abs(expected).toLocaleString()}`);
+  assert.match(await page.getAttribute("#finalProfitCard", "style"), /rgb\(201, 42, 42\)|#c92a2a/i, "赤字は赤色");
+  assert.deepStrictEqual(errors, []);
+  await page.close();
+});
+
+test("利益の符号: 黒字は従来どおり「+¥」で表示する（Duo 2TB）", async () => {
+  const at = iso(1);
+  const { page, errors } = await openWith({ ...BASE_PRICES, ["4549995732993"]: {
+    stores: [verifiedRow("買取ルデヤ", 595000, at)], fetch_status: "ok", last_checked_at: at, last_success_at: at, last_update: "x"
+  } }, { select: ["iPhone Duo", "2TB", "ナイトスカイ"], expectJan: "4549995732993" });
+  assert.match((await page.textContent("#finalProfitCard")).trim(), /^\+¥\d/);
+  assert.deepStrictEqual(errors, []);
+  await page.close();
+});
+
+test("順位と計算: 古い価格だけのSKUは最高価格・利益を出さず、表では「—」と除外理由付きで参考表示する", async () => {
+  const stale = freshStores.map(s => ({ ...s, observed_at: iso(40) }));
+  const { page, errors } = await openWith(withItem({
+    stores: stale, fetch_status: "ok", last_checked_at: iso(40), last_success_at: iso(40)
+  }));
+  assert.strictEqual((await page.textContent("#maxPriceCard")).trim(), "--");
+  assert.strictEqual((await page.textContent("#finalProfitCard")).trim(), "--");
+  assert.match(await page.textContent("#bestStoreName"), /最新の買取価格なし/);
+  assert.strictEqual(await page.inputValue("#simBestPrice"), "", "シミュレーションに古い価格を自動入力しない");
+  const body = await page.textContent("#rankingTableBody");
+  assert.doesNotMatch(body, /1位/);
+  assert.strictEqual((body.match(/価格が古いため順位から除外/g) || []).length, stale.length);
+  assert.strictEqual(await page.locator("#rankingTableBody .data-badge.is-stale").count(), stale.length);
+  assert.deepStrictEqual(errors, []);
+  await page.close();
+});
+
+test("順位と計算: 最新価格と古い価格が混在しても、最高価格・順位は最新の色別検証済み価格だけで決める", async () => {
+  const at = iso(1);
+  const { page, errors } = await openWith(withItem({
+    stores: [
+      verifiedRow("買取ルデヤ", 224500, at),
+      { ...verifiedRow("買取楽園", 260000, iso(40)) },          // 古い（高いが除外）
+      { ...verifiedRow("モバイルMIX", 250000, at), color_verified: false } // 色未検証（除外）
+    ],
+    fetch_status: "ok", last_checked_at: at, last_success_at: at, last_update: "x"
+  }));
+  assert.strictEqual((await page.textContent("#maxPriceCard")).trim(), "¥224,500");
+  assert.strictEqual((await page.textContent("#bestStoreName")).trim(), "買取ルデヤ");
+  assert.strictEqual(await page.inputValue("#simBestPrice"), "224500");
+  const rows = await page.locator("#rankingTableBody tr").allTextContents();
+  assert.strictEqual(rows.length, 3);
+  assert.match(rows[0], /1位[\s\S]*買取ルデヤ/);
+  assert.ok(rows.some(r => /買取楽園[\s\S]*価格が古いため順位から除外/.test(r)));
+  assert.ok(rows.some(r => /モバイルMIX[\s\S]*色別の価格根拠が未確認のため順位から除外/.test(r)));
+  assert.ok(!rows.some(r => /2位|3位/.test(r)));
+  assert.deepStrictEqual(errors, []);
+  await page.close();
+});
+
+test("Present検索: 古い iPhone 17 の価格に順位・利益計算を付けず、前に検索した商品の結果も残さない", async () => {
+  const at = iso(1);
+  const prices = withItem({ stores: [verifiedRow("買取ルデヤ", 224500, at)], fetch_status: "ok", last_checked_at: at, last_success_at: at, last_update: "x" });
+  const { page, errors } = await openWith(prices);
+  // 1件目: 最新価格のある iPhone 18 → 利益計算ボタンが有効
+  await page.fill("#presentSearchInput", JAN);
+  await page.click("#presentSearchBtn");
+  await page.waitForFunction(() => /1位/.test(document.getElementById("presentRanking").textContent));
+  assert.strictEqual(await page.isEnabled("#presentUsePriceBtn"), true);
+  // 2件目: 古い iPhone 17 → 順位なし・ボタン無効
+  await page.fill("#presentSearchInput", IPHONE17_JAN);
+  await page.click("#presentSearchBtn");
+  await page.waitForFunction(() => /順位をつけられる最新の買取価格はありません/.test(document.getElementById("presentRanking").textContent));
+  const text = await page.textContent("#presentRanking");
+  assert.doesNotMatch(text, /\d+位/);
+  assert.match(text, /価格が古いため順位から除外/);
+  assert.match(text, /古い情報/);
+  assert.strictEqual((await page.textContent("#presentBestPrice")).trim(), "--");
+  assert.strictEqual(await page.isEnabled("#presentUsePriceBtn"), false);
+  assert.match(await page.textContent("#presentUsePriceBtn"), /最新の買取価格がないため利益計算できません/);
+  assert.deepStrictEqual(errors, []);
+  await page.close();
+});
+
+test("参考値の注意: iPhoneランキング・Present検索・カテゴリ詳細に「参考値／店舗の公式サイトで確認」を表示する", async () => {
+  const { page, errors } = await openWith(BASE_PRICES);
+  assert.strictEqual(await page.isVisible("#priceDisclaimer"), true);
+  assert.match(await page.textContent("#priceDisclaimer"), /参考値[\s\S]*各店舗の公式サイトで確認/);
+  await page.fill("#presentSearchInput", IPHONE17_JAN);
+  await page.click("#presentSearchBtn");
+  await page.waitForSelector("#presentRanking .price-disclaimer");
+  assert.match(await page.textContent("#presentRanking .price-disclaimer"), /参考値[\s\S]*公式サイトで確認/);
+  assert.match(await page.locator("#catalogDetail .price-disclaimer").textContent(), /参考値[\s\S]*公式サイトで確認/);
+  assert.deepStrictEqual(errors, []);
+  await page.close();
+});
+
+test("スマホ（375px）: ページの横はみ出しが無く、Present検索の店舗名・リンクが画面内に収まる", async () => {
+  const { page, errors } = await openWith(BASE_PRICES, { viewport: { width: 375, height: 812 } });
+  await page.fill("#presentSearchInput", IPHONE17_JAN);
+  await page.click("#presentSearchBtn");
+  await page.waitForSelector("#presentRanking .visit");
+  const layout = await page.evaluate(() => {
+    const width = document.documentElement.clientWidth;
+    const links = [...document.querySelectorAll("#presentRanking a.visit")].map(a => a.getBoundingClientRect());
+    const badges = [...document.querySelectorAll("#presentRanking .data-badge")].map(b => b.getBoundingClientRect());
+    return {
+      width,
+      scrollWidth: document.documentElement.scrollWidth,
+      linksOutside: links.filter(r => r.right > width || r.left < 0).length,
+      badgesOutside: badges.filter(r => r.right > width).length,
+      links: links.length
+    };
+  });
+  assert.strictEqual(layout.scrollWidth, layout.width, "ページ全体が横にはみ出さない");
+  assert.ok(layout.links > 0);
+  assert.strictEqual(layout.linksOutside, 0, "「公式確認」リンクが画面外に切れない");
+  assert.strictEqual(layout.badgesOutside, 0, "取得日時バッジが画面外に切れない");
+  // モデル・容量・カラー選択がスマホ幅でも操作できる
+  await page.selectOption("#modelSelect", "iPhone Duo");
+  await page.selectOption("#storageSelect", "1TB");
+  await page.selectOption("#colorSelect", "スターホワイト");
+  assert.strictEqual((await page.textContent("#currentJan")).trim(), "4549995732849");
   assert.deepStrictEqual(errors, []);
   await page.close();
 });
