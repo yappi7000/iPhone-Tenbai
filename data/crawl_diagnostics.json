@@ -1,7 +1,7 @@
 {
   "version": "safe-diagnostic-2.0",
-  "started_at": "2026/11/3 16:27:15",
-  "started_at_iso": "2026-11-03T07:27:15.656Z",
+  "started_at": "2026/11/3 20:11:28",
+  "started_at_iso": "2026-11-03T11:11:28.759Z",
   "store_support": [
     {
       "model": "iPhone 18 Pro Max",
@@ -22,8 +22,8 @@
       ]
     }
   ],
-  "finished_at": "2026/11/3 16:27:32",
-  "finished_at_iso": "2026-11-03T07:27:32.977Z",
+  "finished_at": "2026/11/3 20:11:36",
+  "finished_at_iso": "2026-11-03T11:11:36.183Z",
   "safety": {
     "prices_json_modified": true,
     "default_price_used": false,
@@ -66,11 +66,11 @@
   "target_count": 1,
   "targets": [
     {
-      "jan": "4549995732795",
-      "name": "iPhone Duo 512GB ナイトスカイ",
+      "jan": "4549995732641",
+      "name": "iPhone Duo 256GB スターホワイト",
       "model": "iPhone Duo",
-      "storage": "512GB",
-      "color": "ナイトスカイ"
+      "storage": "256GB",
+      "color": "スターホワイト"
     }
   ],
   "store_count": 14,
@@ -78,10 +78,10 @@
     {
       "store_id": "morimori",
       "store": "森森買取",
-      "jan": "4549995732795",
-      "product_name": "iPhone Duo 512GB ナイトスカイ",
-      "url": "https://www.morimori-kaitori.jp/search?sk=4549995732795",
-      "checked_at": "2026/11/3 16:27:19",
+      "jan": "4549995732641",
+      "product_name": "iPhone Duo 256GB スターホワイト",
+      "url": "https://www.morimori-kaitori.jp/search?sk=4549995732641",
+      "checked_at": "2026/11/3 20:11:32",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -111,19 +111,19 @@
     {
       "store_id": "rudeya",
       "store": "買取ルデヤ",
-      "jan": "4549995732795",
-      "product_name": "iPhone Duo 512GB ナイトスカイ",
-      "url": "https://kaitori-rudeya.com/search/index/4549995732795",
-      "checked_at": "2026/11/3 16:27:15",
+      "jan": "4549995732641",
+      "product_name": "iPhone Duo 256GB スターホワイト",
+      "url": "https://kaitori-rudeya.com/search/index/4549995732641",
+      "checked_at": "2026/11/3 20:11:28",
       "status": "OK",
       "http": {
         "status": 200,
         "ok": true,
-        "final_url": "https://kaitori-rudeya.com/search/index/4549995732795"
+        "final_url": "https://kaitori-rudeya.com/search/index/4549995732641"
       },
       "page": {
-        "title": "買取ルデヤ-東京池袋｜「4549995732795」の検索結果 - 買取",
-        "body_length": 631,
+        "title": "買取ルデヤ-東京池袋｜「4549995732641」の検索結果 - 買取",
+        "body_length": 632,
         "body_available": true
       },
       "product": {
@@ -132,13 +132,13 @@
       },
       "price_candidates": [
         {
-          "raw": "415,500円",
-          "price": 415500
+          "raw": "365,000円",
+          "price": 365000
         }
       ],
       "errors": [],
-      "price": 415500,
-      "raw_price": "415,500円",
+      "price": 365000,
+      "raw_price": "365,000円",
       "caution": "新品・未開封商品の通常買取価格のみ取得。郵送キャンペーン加算なし",
       "color_verified": true,
       "outcome": "success",
@@ -147,10 +147,10 @@
     {
       "store_id": "iphonekaitori",
       "store": "iPhone買取価格表",
-      "jan": "4549995732795",
-      "product_name": "iPhone Duo 512GB ナイトスカイ",
+      "jan": "4549995732641",
+      "product_name": "iPhone Duo 256GB スターホワイト",
       "url": "https://www.iphonekaitori.tokyo/brand/apple/market-price",
-      "checked_at": "2026/11/3 16:27:15",
+      "checked_at": "2026/11/3 20:11:35",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -168,19 +168,22 @@
       },
       "price_candidates": [],
       "errors": [
-        "page.goto: Timeout 15000ms exceeded.\nCall log:\n  - navigating to \"https://www.iphonekaitori.tokyo/brand/apple/market-price\", waiting until \"domcontentloaded\"\n"
+        "page.goto: net::ERR_EMPTY_RESPONSE at https://www.iphonekaitori.tokyo/brand/apple/market-price\nCall log:\n  - navigating to \"https://www.iphonekaitori.tokyo/brand/apple/market-price\", waiting until \"domcontentloaded\"\n"
       ],
       "color_verified": false,
-      "outcome": "timeout",
-      "attempts": 1
+      "outcome": "connection_error",
+      "attempts": 2,
+      "first_attempt_errors": [
+        "page.goto: net::ERR_EMPTY_RESPONSE at https://www.iphonekaitori.tokyo/brand/apple/market-price\nCall log:\n  - navigating to \"https://www.iphonekaitori.tokyo/brand/apple/market-price\", waiting until \"domcontentloaded\"\n"
+      ]
     },
     {
       "store_id": "kaitoriwiki",
       "store": "買取wiki",
-      "jan": "4549995732795",
-      "product_name": "iPhone Duo 512GB ナイトスカイ",
-      "url": "https://kaitori.wiki/search?keyword=4549995732795",
-      "checked_at": "2026/11/3 16:27:15",
+      "jan": "4549995732641",
+      "product_name": "iPhone Duo 256GB スターホワイト",
+      "url": "https://kaitori.wiki/search?keyword=4549995732641",
+      "checked_at": "2026/11/3 20:11:34",
       "status": "ERROR",
       "http": {
         "status": null,
@@ -198,19 +201,22 @@
       },
       "price_candidates": [],
       "errors": [
-        "page.goto: Timeout 15000ms exceeded.\nCall log:\n  - navigating to \"https://kaitori.wiki/search?keyword=4549995732795\", waiting until \"domcontentloaded\"\n"
+        "page.goto: net::ERR_EMPTY_RESPONSE at https://kaitori.wiki/search?keyword=4549995732641\nCall log:\n  - navigating to \"https://kaitori.wiki/search?keyword=4549995732641\", waiting until \"domcontentloaded\"\n"
       ],
       "color_verified": false,
-      "outcome": "timeout",
-      "attempts": 1
+      "outcome": "connection_error",
+      "attempts": 2,
+      "first_attempt_errors": [
+        "page.goto: net::ERR_EMPTY_RESPONSE at https://kaitori.wiki/search?keyword=4549995732641\nCall log:\n  - navigating to \"https://kaitori.wiki/search?keyword=4549995732641\", waiting until \"domcontentloaded\"\n"
+      ]
     },
     {
       "store_id": "kaitorishouten",
       "store": "買取商店",
-      "jan": "4549995732795",
-      "product_name": "iPhone Duo 512GB ナイトスカイ",
+      "jan": "4549995732641",
+      "product_name": "iPhone Duo 256GB スターホワイト",
       "url": "https://www.kaitorishouten-co.jp/keitai",
-      "checked_at": "2026/11/3 16:27:15",
+      "checked_at": "2026/11/3 20:11:28",
       "status": "ERROR",
       "http": {
         "status": 403,
@@ -247,9 +253,8 @@
     "price_candidate_found": 1,
     "stopped": 0,
     "by_outcome": {
-      "connection_error": 1,
+      "connection_error": 3,
       "success": 1,
-      "timeout": 2,
       "blocked": 1
     }
   },
