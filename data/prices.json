@@ -1364,29 +1364,29 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/3 12:55:19",
-        "observed_at": "2026-11-03T03:53:45.846Z"
+        "checked_at": "2026/11/3 20:23:56",
+        "observed_at": "2026-11-03T11:23:56.180Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-03T03:58:44.025Z",
+      "checked_at": "2026-11-03T11:24:09.978Z",
       "target_stores": 11,
-      "attempted": 9,
+      "attempted": 11,
       "success": 1,
       "no_price": 1,
-      "failed": 7,
-      "stopped": 2,
+      "failed": 9,
+      "stopped": 0,
       "failures": {
-        "connection_error": 1,
-        "timeout": 2,
-        "blocked": 0,
+        "connection_error": 3,
+        "timeout": 0,
+        "blocked": 2,
         "extraction_failed": 4
       },
       "stores": [
         {
           "store": "モバステ",
-          "outcome": "stopped"
+          "outcome": "blocked"
         },
         {
           "store": "森森買取",
@@ -1398,7 +1398,7 @@
         },
         {
           "store": "買取楽園",
-          "outcome": "no_price"
+          "outcome": "extraction_failed"
         },
         {
           "store": "買取一丁目",
@@ -1406,11 +1406,11 @@
         },
         {
           "store": "iPhone買取価格表",
-          "outcome": "timeout"
+          "outcome": "connection_error"
         },
         {
           "store": "買取wiki",
-          "outcome": "timeout"
+          "outcome": "connection_error"
         },
         {
           "store": "モバイルMIX",
@@ -1418,7 +1418,7 @@
         },
         {
           "store": "モバイル一番",
-          "outcome": "extraction_failed"
+          "outcome": "no_price"
         },
         {
           "store": "携帯空間",
@@ -1426,13 +1426,13 @@
         },
         {
           "store": "買取商店",
-          "outcome": "stopped"
+          "outcome": "blocked"
         }
       ]
     },
-    "last_checked_at": "2026-11-03T03:58:44.025Z",
-    "last_success_at": "2026-11-03T03:58:44.025Z",
-    "last_update": "2026/11/3 12:58:44"
+    "last_checked_at": "2026-11-03T11:24:09.978Z",
+    "last_success_at": "2026-11-03T11:24:09.978Z",
+    "last_update": "2026/11/3 20:24:09"
   },
   "4549995735291": {
     "stores": [
