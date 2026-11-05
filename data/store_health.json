@@ -1,16 +1,16 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-04T03:01:00.990Z",
+  "updated_at": "2026-11-05T03:26:16.901Z",
   "alert_streak": 3,
   "stores": {
     "mobasute": {
       "store": "モバステ",
-      "last_run_at": "2026-11-04T03:01:00.990Z",
+      "last_run_at": "2026-11-05T03:26:16.901Z",
       "success": 0,
       "total": 32,
       "cause": "blocked",
       "active": true,
-      "streak": 1,
+      "streak": 2,
       "last_success_at": null,
       "top_reasons": [
         [
@@ -25,12 +25,12 @@
     },
     "morimori": {
       "store": "森森買取",
-      "last_run_at": "2026-11-04T03:01:00.990Z",
+      "last_run_at": "2026-11-05T03:26:16.901Z",
       "success": 0,
       "total": 40,
       "cause": "connection_error",
       "active": true,
-      "streak": 1,
+      "streak": 2,
       "last_success_at": null,
       "top_reasons": [
         [
@@ -41,24 +41,24 @@
     },
     "rudeya": {
       "store": "買取ルデヤ",
-      "last_run_at": "2026-11-04T03:01:00.990Z",
+      "last_run_at": "2026-11-05T03:26:16.901Z",
       "success": 40,
       "total": 40,
       "cause": null,
       "active": true,
       "streak": 0,
-      "last_success_at": "2026-11-04T03:01:00.990Z",
+      "last_success_at": "2026-11-05T03:26:16.901Z",
       "top_reasons": []
     },
     "rakuen": {
       "store": "買取楽園",
-      "last_run_at": "2026-11-04T03:01:00.990Z",
+      "last_run_at": "2026-11-05T03:26:16.901Z",
       "success": 18,
       "total": 32,
       "cause": null,
       "active": true,
       "streak": 0,
-      "last_success_at": "2026-11-04T03:01:00.990Z",
+      "last_success_at": "2026-11-05T03:26:16.901Z",
       "top_reasons": [
         [
           "抽出失敗: 楽園: 対象色の価格根拠なし",
@@ -68,13 +68,13 @@
     },
     "ichome": {
       "store": "買取一丁目",
-      "last_run_at": "2026-11-04T03:01:00.990Z",
+      "last_run_at": "2026-11-05T03:26:16.901Z",
       "success": 23,
       "total": 32,
       "cause": null,
       "active": true,
       "streak": 0,
-      "last_success_at": "2026-11-04T03:01:00.990Z",
+      "last_success_at": "2026-11-05T03:26:16.901Z",
       "top_reasons": [
         [
           "抽出失敗: 一丁目: 対象色の明示条件なし",
@@ -88,88 +88,92 @@
     },
     "iphonekaitori": {
       "store": "iPhone買取価格表",
-      "last_run_at": "2026-11-04T03:01:00.990Z",
-      "success": 0,
-      "total": 40,
-      "cause": "connection_error",
-      "active": true,
-      "streak": 1,
-      "last_success_at": null,
-      "top_reasons": [
-        [
-          "接続エラー: page.goto: net::ERR_EMPTY_RESPONSE",
-          40
-        ]
-      ]
-    },
-    "kaitoriwiki": {
-      "store": "買取wiki",
-      "last_run_at": "2026-11-04T03:01:00.990Z",
-      "success": 0,
-      "total": 40,
-      "cause": "connection_error",
-      "active": true,
-      "streak": 1,
-      "last_success_at": null,
-      "top_reasons": [
-        [
-          "接続エラー: page.goto: net::ERR_EMPTY_RESPONSE",
-          40
-        ]
-      ]
-    },
-    "mobilemix": {
-      "store": "モバイルMIX",
-      "last_run_at": "2026-11-04T03:01:00.990Z",
-      "success": 18,
-      "total": 32,
-      "cause": null,
-      "active": true,
-      "streak": 0,
-      "last_success_at": "2026-11-04T03:01:00.990Z",
-      "top_reasons": [
-        [
-          "抽出失敗: MIX: 対象色の明示条件なし",
-          7
-        ],
-        [
-          "掲載なし: Mobile MIX対象商品ブロックを取得できません",
-          4
-        ],
-        [
-          "抽出失敗: MIX: バーガンディのみ買取対象（シルバーは非対象）",
-          1
-        ]
-      ]
-    },
-    "mobileichiban": {
-      "store": "モバイル一番",
-      "last_run_at": "2026-11-04T03:01:00.990Z",
-      "success": 9,
-      "total": 32,
-      "cause": null,
-      "active": true,
-      "streak": 0,
-      "last_success_at": "2026-11-04T03:01:00.990Z",
-      "top_reasons": [
-        [
-          "掲載なし: simfree未開封の新品価格を取得できません",
-          20
-        ],
-        [
-          "抽出失敗: モバイル一番: 対象色の明示条件なし",
-          3
-        ]
-      ]
-    },
-    "kaitorishouten": {
-      "store": "買取商店",
-      "last_run_at": "2026-11-04T03:01:00.990Z",
+      "last_run_at": "2026-11-05T03:26:16.901Z",
       "success": 0,
       "total": 40,
       "cause": "blocked",
       "active": true,
       "streak": 1,
+      "last_success_at": null,
+      "top_reasons": [
+        [
+          "アクセス停止: 同一実行内でアクセス停止",
+          37
+        ],
+        [
+          "アクセス制限: HTTP 403 / JAN完全一致の商品価格が見つかりません",
+          3
+        ]
+      ]
+    },
+    "kaitoriwiki": {
+      "store": "買取wiki",
+      "last_run_at": "2026-11-05T03:26:16.901Z",
+      "success": 0,
+      "total": 40,
+      "cause": "blocked",
+      "active": true,
+      "streak": 1,
+      "last_success_at": null,
+      "top_reasons": [
+        [
+          "アクセス停止: 同一実行内でアクセス停止",
+          37
+        ],
+        [
+          "アクセス制限: HTTP 403 / 検索結果の商品名が一致しません",
+          3
+        ]
+      ]
+    },
+    "mobilemix": {
+      "store": "モバイルMIX",
+      "last_run_at": "2026-11-05T03:26:16.901Z",
+      "success": 17,
+      "total": 32,
+      "cause": null,
+      "active": true,
+      "streak": 0,
+      "last_success_at": "2026-11-05T03:26:16.901Z",
+      "top_reasons": [
+        [
+          "掲載なし: Mobile MIX対象商品ブロックを取得できません",
+          8
+        ],
+        [
+          "抽出失敗: MIX: 対象色の明示条件なし",
+          7
+        ]
+      ]
+    },
+    "mobileichiban": {
+      "store": "モバイル一番",
+      "last_run_at": "2026-11-05T03:26:16.901Z",
+      "success": 12,
+      "total": 32,
+      "cause": null,
+      "active": true,
+      "streak": 0,
+      "last_success_at": "2026-11-05T03:26:16.901Z",
+      "top_reasons": [
+        [
+          "掲載なし: simfree未開封の新品価格を取得できません",
+          16
+        ],
+        [
+          "抽出失敗: モバイル一番: 対象色の明示条件なし",
+          4
+        ]
+      ]
+    },
+    "kaitorishouten": {
+      "store": "買取商店",
+      "last_run_at": "2026-11-05T03:26:16.901Z",
+      "success": 0,
+      "total": 40,
+      "cause": "blocked",
+      "active": true,
+      "streak": 2,
       "last_success_at": null,
       "top_reasons": [
         [
