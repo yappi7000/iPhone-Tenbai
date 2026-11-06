@@ -2,44 +2,149 @@
   "4549995734546": {
     "stores": [
       {
+        "store": "モバイルMIX",
+        "price": 225000,
+        "url": "https://mobile-mix.jp/?category=7",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/6 12:20:14",
+        "observed_at": "2026-11-06T03:20:03.299Z"
+      },
+      {
+        "store": "買取楽園",
+        "price": 224500,
+        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/6 12:20:03",
+        "observed_at": "2026-11-06T03:20:03.299Z"
+      },
+      {
+        "store": "買取ルデヤ",
+        "price": 223000,
+        "url": "https://kaitori-rudeya.com/search/index/4549995734546",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/6 12:20:03",
+        "observed_at": "2026-11-06T03:20:03.299Z"
+      },
+      {
         "store": "買取一丁目",
         "price": 223000,
         "url": "https://www.1-chome.com/keitai",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:24:26",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:20:14",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       },
       {
-        "store": "モバイルMIX",
+        "store": "モバイル一番",
         "price": 223000,
+        "url": "https://www.mobile-ichiban.com/Prod/1",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/6 12:20:21",
+        "observed_at": "2026-11-06T03:20:03.299Z"
+      }
+    ],
+    "fetch_status": "ok",
+    "fetch_summary": {
+      "checked_at": "2026-11-06T03:22:11.369Z",
+      "target_stores": 10,
+      "attempted": 10,
+      "success": 5,
+      "no_price": 0,
+      "failed": 5,
+      "stopped": 0,
+      "failures": {
+        "connection_error": 1,
+        "timeout": 0,
+        "blocked": 4,
+        "extraction_failed": 0
+      },
+      "stores": [
+        {
+          "store": "モバステ",
+          "outcome": "blocked"
+        },
+        {
+          "store": "森森買取",
+          "outcome": "connection_error"
+        },
+        {
+          "store": "買取ルデヤ",
+          "outcome": "success"
+        },
+        {
+          "store": "買取楽園",
+          "outcome": "success"
+        },
+        {
+          "store": "買取一丁目",
+          "outcome": "success"
+        },
+        {
+          "store": "iPhone買取価格表",
+          "outcome": "blocked"
+        },
+        {
+          "store": "買取wiki",
+          "outcome": "blocked"
+        },
+        {
+          "store": "モバイルMIX",
+          "outcome": "success"
+        },
+        {
+          "store": "モバイル一番",
+          "outcome": "success"
+        },
+        {
+          "store": "買取商店",
+          "outcome": "blocked"
+        }
+      ]
+    },
+    "last_checked_at": "2026-11-06T03:22:11.369Z",
+    "last_success_at": "2026-11-06T03:22:11.369Z",
+    "last_update": "2026/11/6 12:22:11"
+  },
+  "4549995734591": {
+    "stores": [
+      {
+        "store": "モバイルMIX",
+        "price": 224000,
         "url": "https://mobile-mix.jp/?category=7",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:24:26",
-        "observed_at": "2026-11-05T03:24:19.901Z"
-      },
-      {
-        "store": "買取ルデヤ",
-        "price": 222500,
-        "url": "https://kaitori-rudeya.com/search/index/4549995734546",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/5 12:24:19",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:20:14",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       },
       {
         "store": "買取楽園",
-        "price": 222500,
+        "price": 223500,
         "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:24:19",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:20:03",
+        "observed_at": "2026-11-06T03:20:03.299Z"
+      },
+      {
+        "store": "買取一丁目",
+        "price": 222000,
+        "url": "https://www.1-chome.com/keitai",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/6 12:20:14",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       },
       {
         "store": "モバイル一番",
@@ -48,128 +153,23 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:24:32",
-        "observed_at": "2026-11-05T03:24:19.901Z"
-      }
-    ],
-    "fetch_status": "ok",
-    "fetch_summary": {
-      "checked_at": "2026-11-05T03:26:16.901Z",
-      "target_stores": 10,
-      "attempted": 10,
-      "success": 5,
-      "no_price": 0,
-      "failed": 5,
-      "stopped": 0,
-      "failures": {
-        "connection_error": 1,
-        "timeout": 0,
-        "blocked": 4,
-        "extraction_failed": 0
-      },
-      "stores": [
-        {
-          "store": "モバステ",
-          "outcome": "blocked"
-        },
-        {
-          "store": "森森買取",
-          "outcome": "connection_error"
-        },
-        {
-          "store": "買取ルデヤ",
-          "outcome": "success"
-        },
-        {
-          "store": "買取楽園",
-          "outcome": "success"
-        },
-        {
-          "store": "買取一丁目",
-          "outcome": "success"
-        },
-        {
-          "store": "iPhone買取価格表",
-          "outcome": "blocked"
-        },
-        {
-          "store": "買取wiki",
-          "outcome": "blocked"
-        },
-        {
-          "store": "モバイルMIX",
-          "outcome": "success"
-        },
-        {
-          "store": "モバイル一番",
-          "outcome": "success"
-        },
-        {
-          "store": "買取商店",
-          "outcome": "blocked"
-        }
-      ]
-    },
-    "last_checked_at": "2026-11-05T03:26:16.901Z",
-    "last_success_at": "2026-11-05T03:26:16.901Z",
-    "last_update": "2026/11/5 12:26:16"
-  },
-  "4549995734591": {
-    "stores": [
-      {
-        "store": "買取楽園",
-        "price": 221000,
-        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/5 12:24:19",
-        "observed_at": "2026-11-05T03:24:19.901Z"
-      },
-      {
-        "store": "買取一丁目",
-        "price": 221000,
-        "url": "https://www.1-chome.com/keitai",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/5 12:24:26",
-        "observed_at": "2026-11-05T03:24:19.901Z"
-      },
-      {
-        "store": "モバイルMIX",
-        "price": 221000,
-        "url": "https://mobile-mix.jp/?category=7",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/5 12:24:26",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:20:21",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       },
       {
         "store": "買取ルデヤ",
-        "price": 220000,
+        "price": 221000,
         "url": "https://kaitori-rudeya.com/search/index/4549995734591",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:24:19",
-        "observed_at": "2026-11-05T03:24:19.901Z"
-      },
-      {
-        "store": "モバイル一番",
-        "price": 220000,
-        "url": "https://www.mobile-ichiban.com/Prod/1",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/5 12:24:32",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:20:03",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-05T03:26:16.901Z",
+      "checked_at": "2026-11-06T03:22:11.369Z",
       "target_stores": 10,
       "attempted": 10,
       "success": 5,
@@ -225,9 +225,9 @@
         }
       ]
     },
-    "last_checked_at": "2026-11-05T03:26:16.901Z",
-    "last_success_at": "2026-11-05T03:26:16.901Z",
-    "last_update": "2026/11/5 12:26:16"
+    "last_checked_at": "2026-11-06T03:22:11.369Z",
+    "last_success_at": "2026-11-06T03:22:11.369Z",
+    "last_update": "2026/11/6 12:22:11"
   },
   "4549995734645": {
     "stores": [
@@ -238,13 +238,13 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:24:19",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:20:03",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-05T03:26:16.901Z",
+      "checked_at": "2026-11-06T03:22:11.369Z",
       "target_stores": 10,
       "attempted": 10,
       "success": 1,
@@ -300,66 +300,66 @@
         }
       ]
     },
-    "last_checked_at": "2026-11-05T03:26:16.901Z",
-    "last_success_at": "2026-11-05T03:26:16.901Z",
-    "last_update": "2026/11/5 12:26:16"
+    "last_checked_at": "2026-11-06T03:22:11.369Z",
+    "last_success_at": "2026-11-06T03:22:11.369Z",
+    "last_update": "2026/11/6 12:22:11"
   },
   "4549995734690": {
     "stores": [
       {
-        "store": "買取一丁目",
-        "price": 225000,
-        "url": "https://www.1-chome.com/keitai",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/5 12:24:40",
-        "observed_at": "2026-11-05T03:24:19.901Z"
-      },
-      {
         "store": "モバイルMIX",
-        "price": 225000,
+        "price": 228000,
         "url": "https://mobile-mix.jp/?category=7",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:24:40",
-        "observed_at": "2026-11-05T03:24:19.901Z"
-      },
-      {
-        "store": "買取ルデヤ",
-        "price": 224500,
-        "url": "https://kaitori-rudeya.com/search/index/4549995734690",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/5 12:24:36",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:20:28",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       },
       {
         "store": "買取楽園",
-        "price": 224500,
+        "price": 227500,
         "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:24:36",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:20:25",
+        "observed_at": "2026-11-06T03:20:03.299Z"
+      },
+      {
+        "store": "買取一丁目",
+        "price": 226000,
+        "url": "https://www.1-chome.com/keitai",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/6 12:20:28",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       },
       {
         "store": "モバイル一番",
-        "price": 224000,
+        "price": 226000,
         "url": "https://www.mobile-ichiban.com/Prod/1",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:24:45",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:20:33",
+        "observed_at": "2026-11-06T03:20:03.299Z"
+      },
+      {
+        "store": "買取ルデヤ",
+        "price": 225000,
+        "url": "https://kaitori-rudeya.com/search/index/4549995734690",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/6 12:20:25",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-05T03:26:16.901Z",
+      "checked_at": "2026-11-06T03:22:11.369Z",
       "target_stores": 10,
       "attempted": 6,
       "success": 5,
@@ -415,12 +415,52 @@
         }
       ]
     },
-    "last_checked_at": "2026-11-05T03:26:16.901Z",
-    "last_success_at": "2026-11-05T03:26:16.901Z",
-    "last_update": "2026/11/5 12:26:16"
+    "last_checked_at": "2026-11-06T03:22:11.369Z",
+    "last_success_at": "2026-11-06T03:22:11.369Z",
+    "last_update": "2026/11/6 12:22:11"
   },
   "4549995734744": {
     "stores": [
+      {
+        "store": "買取楽園",
+        "price": 258000,
+        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/6 12:20:25",
+        "observed_at": "2026-11-06T03:20:03.299Z"
+      },
+      {
+        "store": "買取一丁目",
+        "price": 258000,
+        "url": "https://www.1-chome.com/keitai",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/6 12:20:29",
+        "observed_at": "2026-11-06T03:20:03.299Z"
+      },
+      {
+        "store": "モバイルMIX",
+        "price": 258000,
+        "url": "https://mobile-mix.jp/?category=7",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/6 12:20:29",
+        "observed_at": "2026-11-06T03:20:03.299Z"
+      },
+      {
+        "store": "モバイル一番",
+        "price": 258000,
+        "url": "https://www.mobile-ichiban.com/Prod/1",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/6 12:20:34",
+        "observed_at": "2026-11-06T03:20:03.299Z"
+      },
       {
         "store": "買取ルデヤ",
         "price": 257500,
@@ -428,53 +468,13 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:24:36",
-        "observed_at": "2026-11-05T03:24:19.901Z"
-      },
-      {
-        "store": "買取楽園",
-        "price": 257000,
-        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/5 12:24:36",
-        "observed_at": "2026-11-05T03:24:19.901Z"
-      },
-      {
-        "store": "買取一丁目",
-        "price": 257000,
-        "url": "https://www.1-chome.com/keitai",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/5 12:24:40",
-        "observed_at": "2026-11-05T03:24:19.901Z"
-      },
-      {
-        "store": "モバイルMIX",
-        "price": 257000,
-        "url": "https://mobile-mix.jp/?category=7",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/5 12:24:40",
-        "observed_at": "2026-11-05T03:24:19.901Z"
-      },
-      {
-        "store": "モバイル一番",
-        "price": 257000,
-        "url": "https://www.mobile-ichiban.com/Prod/1",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/5 12:24:44",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:20:25",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-05T03:26:16.901Z",
+      "checked_at": "2026-11-06T03:22:11.369Z",
       "target_stores": 10,
       "attempted": 6,
       "success": 5,
@@ -530,12 +530,52 @@
         }
       ]
     },
-    "last_checked_at": "2026-11-05T03:26:16.901Z",
-    "last_success_at": "2026-11-05T03:26:16.901Z",
-    "last_update": "2026/11/5 12:26:16"
+    "last_checked_at": "2026-11-06T03:22:11.369Z",
+    "last_success_at": "2026-11-06T03:22:11.369Z",
+    "last_update": "2026/11/6 12:22:11"
   },
   "4549995734799": {
     "stores": [
+      {
+        "store": "買取楽園",
+        "price": 257000,
+        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/6 12:20:25",
+        "observed_at": "2026-11-06T03:20:03.299Z"
+      },
+      {
+        "store": "買取一丁目",
+        "price": 257000,
+        "url": "https://www.1-chome.com/keitai",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/6 12:20:29",
+        "observed_at": "2026-11-06T03:20:03.299Z"
+      },
+      {
+        "store": "モバイルMIX",
+        "price": 257000,
+        "url": "https://mobile-mix.jp/?category=7",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/6 12:20:29",
+        "observed_at": "2026-11-06T03:20:03.299Z"
+      },
+      {
+        "store": "モバイル一番",
+        "price": 257000,
+        "url": "https://www.mobile-ichiban.com/Prod/1",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/6 12:20:33",
+        "observed_at": "2026-11-06T03:20:03.299Z"
+      },
       {
         "store": "買取ルデヤ",
         "price": 256500,
@@ -543,53 +583,13 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:24:36",
-        "observed_at": "2026-11-05T03:24:19.901Z"
-      },
-      {
-        "store": "買取楽園",
-        "price": 256000,
-        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/5 12:24:36",
-        "observed_at": "2026-11-05T03:24:19.901Z"
-      },
-      {
-        "store": "買取一丁目",
-        "price": 256000,
-        "url": "https://www.1-chome.com/keitai",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/5 12:24:40",
-        "observed_at": "2026-11-05T03:24:19.901Z"
-      },
-      {
-        "store": "モバイルMIX",
-        "price": 256000,
-        "url": "https://mobile-mix.jp/?category=7",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/5 12:24:40",
-        "observed_at": "2026-11-05T03:24:19.901Z"
-      },
-      {
-        "store": "モバイル一番",
-        "price": 256000,
-        "url": "https://www.mobile-ichiban.com/Prod/1",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/5 12:24:45",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:20:25",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-05T03:26:16.901Z",
+      "checked_at": "2026-11-06T03:22:11.369Z",
       "target_stores": 10,
       "attempted": 6,
       "success": 5,
@@ -645,26 +645,26 @@
         }
       ]
     },
-    "last_checked_at": "2026-11-05T03:26:16.901Z",
-    "last_success_at": "2026-11-05T03:26:16.901Z",
-    "last_update": "2026/11/5 12:26:16"
+    "last_checked_at": "2026-11-06T03:22:11.369Z",
+    "last_success_at": "2026-11-06T03:22:11.369Z",
+    "last_update": "2026/11/6 12:22:11"
   },
   "4549995734843": {
     "stores": [
       {
         "store": "買取ルデヤ",
-        "price": 262000,
+        "price": 261000,
         "url": "https://kaitori-rudeya.com/search/index/4549995734843",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:24:45",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:20:34",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-05T03:26:16.901Z",
+      "checked_at": "2026-11-06T03:22:11.369Z",
       "target_stores": 10,
       "attempted": 6,
       "success": 1,
@@ -720,66 +720,66 @@
         }
       ]
     },
-    "last_checked_at": "2026-11-05T03:26:16.901Z",
-    "last_success_at": "2026-11-05T03:26:16.901Z",
-    "last_update": "2026/11/5 12:26:16"
+    "last_checked_at": "2026-11-06T03:22:11.369Z",
+    "last_success_at": "2026-11-06T03:22:11.369Z",
+    "last_update": "2026/11/6 12:22:11"
   },
   "4549995734898": {
     "stores": [
       {
-        "store": "買取ルデヤ",
-        "price": 259500,
-        "url": "https://kaitori-rudeya.com/search/index/4549995734898",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/5 12:24:45",
-        "observed_at": "2026-11-05T03:24:19.901Z"
-      },
-      {
-        "store": "モバイルMIX",
-        "price": 259000,
-        "url": "https://mobile-mix.jp/?category=7",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/5 12:24:49",
-        "observed_at": "2026-11-05T03:24:19.901Z"
-      },
-      {
         "store": "買取楽園",
-        "price": 258000,
+        "price": 260000,
         "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:24:45",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:20:34",
+        "observed_at": "2026-11-06T03:20:03.299Z"
+      },
+      {
+        "store": "モバイルMIX",
+        "price": 260000,
+        "url": "https://mobile-mix.jp/?category=7",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/6 12:20:38",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       },
       {
         "store": "買取一丁目",
-        "price": 258000,
+        "price": 259000,
         "url": "https://www.1-chome.com/keitai",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:24:49",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:20:38",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       },
       {
         "store": "モバイル一番",
-        "price": 258000,
+        "price": 259000,
         "url": "https://www.mobile-ichiban.com/Prod/1",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:24:54",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:20:42",
+        "observed_at": "2026-11-06T03:20:03.299Z"
+      },
+      {
+        "store": "買取ルデヤ",
+        "price": 258500,
+        "url": "https://kaitori-rudeya.com/search/index/4549995734898",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/6 12:20:34",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-05T03:26:16.901Z",
+      "checked_at": "2026-11-06T03:22:11.369Z",
       "target_stores": 10,
       "attempted": 6,
       "success": 5,
@@ -835,21 +835,41 @@
         }
       ]
     },
-    "last_checked_at": "2026-11-05T03:26:16.901Z",
-    "last_success_at": "2026-11-05T03:26:16.901Z",
-    "last_update": "2026/11/5 12:26:16"
+    "last_checked_at": "2026-11-06T03:22:11.369Z",
+    "last_success_at": "2026-11-06T03:22:11.369Z",
+    "last_update": "2026/11/6 12:22:11"
   },
   "4549995734942": {
     "stores": [
       {
+        "store": "買取一丁目",
+        "price": 326000,
+        "url": "https://www.1-chome.com/keitai",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/6 12:20:38",
+        "observed_at": "2026-11-06T03:20:03.299Z"
+      },
+      {
         "store": "モバイルMIX",
-        "price": 325000,
+        "price": 326000,
         "url": "https://mobile-mix.jp/?category=7",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:24:49",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:20:38",
+        "observed_at": "2026-11-06T03:20:03.299Z"
+      },
+      {
+        "store": "買取ルデヤ",
+        "price": 325000,
+        "url": "https://kaitori-rudeya.com/search/index/4549995734942",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/6 12:20:34",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       },
       {
         "store": "モバイル一番",
@@ -858,33 +878,13 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:24:54",
-        "observed_at": "2026-11-05T03:24:19.901Z"
-      },
-      {
-        "store": "買取ルデヤ",
-        "price": 323000,
-        "url": "https://kaitori-rudeya.com/search/index/4549995734942",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/5 12:24:45",
-        "observed_at": "2026-11-05T03:24:19.901Z"
-      },
-      {
-        "store": "買取一丁目",
-        "price": 323000,
-        "url": "https://www.1-chome.com/keitai",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/5 12:24:49",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:20:43",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-05T03:26:16.901Z",
+      "checked_at": "2026-11-06T03:22:11.369Z",
       "target_stores": 10,
       "attempted": 6,
       "success": 4,
@@ -940,31 +940,51 @@
         }
       ]
     },
-    "last_checked_at": "2026-11-05T03:26:16.901Z",
-    "last_success_at": "2026-11-05T03:26:16.901Z",
-    "last_update": "2026/11/5 12:26:16"
+    "last_checked_at": "2026-11-06T03:22:11.369Z",
+    "last_success_at": "2026-11-06T03:22:11.369Z",
+    "last_update": "2026/11/6 12:22:11"
   },
   "4549995734997": {
     "stores": [
       {
         "store": "買取楽園",
-        "price": 321000,
+        "price": 322500,
         "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:24:54",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:20:43",
+        "observed_at": "2026-11-06T03:20:03.299Z"
+      },
+      {
+        "store": "買取一丁目",
+        "price": 322000,
+        "url": "https://www.1-chome.com/keitai",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/6 12:20:46",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       },
       {
         "store": "モバイルMIX",
-        "price": 321000,
+        "price": 322000,
         "url": "https://mobile-mix.jp/?category=7",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:24:58",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:20:46",
+        "observed_at": "2026-11-06T03:20:03.299Z"
+      },
+      {
+        "store": "買取ルデヤ",
+        "price": 321000,
+        "url": "https://kaitori-rudeya.com/search/index/4549995734997",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/6 12:20:43",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       },
       {
         "store": "モバイル一番",
@@ -973,33 +993,13 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:03",
-        "observed_at": "2026-11-05T03:24:19.901Z"
-      },
-      {
-        "store": "買取ルデヤ",
-        "price": 319000,
-        "url": "https://kaitori-rudeya.com/search/index/4549995734997",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/5 12:24:54",
-        "observed_at": "2026-11-05T03:24:19.901Z"
-      },
-      {
-        "store": "買取一丁目",
-        "price": 319000,
-        "url": "https://www.1-chome.com/keitai",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/5 12:24:58",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:20:51",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-05T03:26:16.901Z",
+      "checked_at": "2026-11-06T03:22:11.369Z",
       "target_stores": 10,
       "attempted": 6,
       "success": 5,
@@ -1055,26 +1055,26 @@
         }
       ]
     },
-    "last_checked_at": "2026-11-05T03:26:16.901Z",
-    "last_success_at": "2026-11-05T03:26:16.901Z",
-    "last_update": "2026/11/5 12:26:16"
+    "last_checked_at": "2026-11-06T03:22:11.369Z",
+    "last_success_at": "2026-11-06T03:22:11.369Z",
+    "last_update": "2026/11/6 12:22:11"
   },
   "4549995735048": {
     "stores": [
       {
         "store": "買取ルデヤ",
-        "price": 331000,
+        "price": 333000,
         "url": "https://kaitori-rudeya.com/search/index/4549995735048",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:24:54",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:20:43",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-05T03:26:16.901Z",
+      "checked_at": "2026-11-06T03:22:11.369Z",
       "target_stores": 10,
       "attempted": 6,
       "success": 1,
@@ -1130,31 +1130,51 @@
         }
       ]
     },
-    "last_checked_at": "2026-11-05T03:26:16.901Z",
-    "last_success_at": "2026-11-05T03:26:16.901Z",
-    "last_update": "2026/11/5 12:26:16"
+    "last_checked_at": "2026-11-06T03:22:11.369Z",
+    "last_success_at": "2026-11-06T03:22:11.369Z",
+    "last_update": "2026/11/6 12:22:11"
   },
   "4549995735093": {
     "stores": [
       {
         "store": "買取楽園",
-        "price": 325000,
+        "price": 326000,
         "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:24:54",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:20:43",
+        "observed_at": "2026-11-06T03:20:03.299Z"
+      },
+      {
+        "store": "買取一丁目",
+        "price": 326000,
+        "url": "https://www.1-chome.com/keitai",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/6 12:20:47",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       },
       {
         "store": "モバイルMIX",
-        "price": 325000,
+        "price": 326000,
         "url": "https://mobile-mix.jp/?category=7",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:24:58",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:20:47",
+        "observed_at": "2026-11-06T03:20:03.299Z"
+      },
+      {
+        "store": "買取ルデヤ",
+        "price": 325000,
+        "url": "https://kaitori-rudeya.com/search/index/4549995735093",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/6 12:20:43",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       },
       {
         "store": "モバイル一番",
@@ -1163,33 +1183,13 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:02",
-        "observed_at": "2026-11-05T03:24:19.901Z"
-      },
-      {
-        "store": "買取ルデヤ",
-        "price": 323000,
-        "url": "https://kaitori-rudeya.com/search/index/4549995735093",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/5 12:24:54",
-        "observed_at": "2026-11-05T03:24:19.901Z"
-      },
-      {
-        "store": "買取一丁目",
-        "price": 323000,
-        "url": "https://www.1-chome.com/keitai",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/5 12:24:58",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:20:52",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-05T03:26:16.901Z",
+      "checked_at": "2026-11-06T03:22:11.369Z",
       "target_stores": 10,
       "attempted": 6,
       "success": 5,
@@ -1245,9 +1245,9 @@
         }
       ]
     },
-    "last_checked_at": "2026-11-05T03:26:16.901Z",
-    "last_success_at": "2026-11-05T03:26:16.901Z",
-    "last_update": "2026/11/5 12:26:16"
+    "last_checked_at": "2026-11-06T03:22:11.369Z",
+    "last_success_at": "2026-11-06T03:22:11.369Z",
+    "last_update": "2026/11/6 12:22:11"
   },
   "4549995735147": {
     "stores": [
@@ -1258,8 +1258,8 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:06",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:20:56",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       },
       {
         "store": "買取ルデヤ",
@@ -1268,18 +1268,8 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:03",
-        "observed_at": "2026-11-05T03:24:19.901Z"
-      },
-      {
-        "store": "買取一丁目",
-        "price": 385000,
-        "url": "https://www.1-chome.com/keitai",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/5 12:25:06",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:20:52",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       },
       {
         "store": "モバイル一番",
@@ -1288,13 +1278,23 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:11",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:21:01",
+        "observed_at": "2026-11-06T03:20:03.299Z"
+      },
+      {
+        "store": "買取一丁目",
+        "price": 380000,
+        "url": "https://www.1-chome.com/keitai",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/6 12:20:56",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-05T03:26:16.901Z",
+      "checked_at": "2026-11-06T03:22:11.369Z",
       "target_stores": 10,
       "attempted": 6,
       "success": 4,
@@ -1350,9 +1350,9 @@
         }
       ]
     },
-    "last_checked_at": "2026-11-05T03:26:16.901Z",
-    "last_success_at": "2026-11-05T03:26:16.901Z",
-    "last_update": "2026/11/5 12:26:16"
+    "last_checked_at": "2026-11-06T03:22:11.369Z",
+    "last_success_at": "2026-11-06T03:22:11.369Z",
+    "last_update": "2026/11/6 12:22:11"
   },
   "4549995735192": {
     "stores": [
@@ -1363,8 +1363,8 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:07",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:20:56",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       },
       {
         "store": "買取ルデヤ",
@@ -1373,18 +1373,8 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:03",
-        "observed_at": "2026-11-05T03:24:19.901Z"
-      },
-      {
-        "store": "買取一丁目",
-        "price": 385000,
-        "url": "https://www.1-chome.com/keitai",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/5 12:25:07",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:20:52",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       },
       {
         "store": "モバイル一番",
@@ -1393,8 +1383,8 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:11",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:21:01",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       },
       {
         "store": "買取楽園",
@@ -1403,13 +1393,23 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:03",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:20:52",
+        "observed_at": "2026-11-06T03:20:03.299Z"
+      },
+      {
+        "store": "買取一丁目",
+        "price": 380000,
+        "url": "https://www.1-chome.com/keitai",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/6 12:20:56",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-05T03:26:16.901Z",
+      "checked_at": "2026-11-06T03:22:11.369Z",
       "target_stores": 10,
       "attempted": 6,
       "success": 5,
@@ -1465,9 +1465,9 @@
         }
       ]
     },
-    "last_checked_at": "2026-11-05T03:26:16.901Z",
-    "last_success_at": "2026-11-05T03:26:16.901Z",
-    "last_update": "2026/11/5 12:26:16"
+    "last_checked_at": "2026-11-06T03:22:11.369Z",
+    "last_success_at": "2026-11-06T03:22:11.369Z",
+    "last_update": "2026/11/6 12:22:11"
   },
   "4549995735246": {
     "stores": [
@@ -1478,13 +1478,13 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:03",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:20:52",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-05T03:26:16.901Z",
+      "checked_at": "2026-11-06T03:22:11.369Z",
       "target_stores": 10,
       "attempted": 6,
       "success": 1,
@@ -1540,9 +1540,9 @@
         }
       ]
     },
-    "last_checked_at": "2026-11-05T03:26:16.901Z",
-    "last_success_at": "2026-11-05T03:26:16.901Z",
-    "last_update": "2026/11/5 12:26:16"
+    "last_checked_at": "2026-11-06T03:22:11.369Z",
+    "last_success_at": "2026-11-06T03:22:11.369Z",
+    "last_update": "2026/11/6 12:22:11"
   },
   "4549995735291": {
     "stores": [
@@ -1553,18 +1553,8 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:12",
-        "observed_at": "2026-11-05T03:24:19.901Z"
-      },
-      {
-        "store": "買取一丁目",
-        "price": 385000,
-        "url": "https://www.1-chome.com/keitai",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/5 12:25:15",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:21:01",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       },
       {
         "store": "モバイル一番",
@@ -1573,8 +1563,8 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:20",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:21:09",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       },
       {
         "store": "買取楽園",
@@ -1583,13 +1573,23 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:12",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:21:01",
+        "observed_at": "2026-11-06T03:20:03.299Z"
+      },
+      {
+        "store": "買取一丁目",
+        "price": 380000,
+        "url": "https://www.1-chome.com/keitai",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/6 12:21:05",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-05T03:26:16.901Z",
+      "checked_at": "2026-11-06T03:22:11.369Z",
       "target_stores": 10,
       "attempted": 6,
       "success": 4,
@@ -1645,12 +1645,22 @@
         }
       ]
     },
-    "last_checked_at": "2026-11-05T03:26:16.901Z",
-    "last_success_at": "2026-11-05T03:26:16.901Z",
-    "last_update": "2026/11/5 12:26:16"
+    "last_checked_at": "2026-11-06T03:22:11.369Z",
+    "last_success_at": "2026-11-06T03:22:11.369Z",
+    "last_update": "2026/11/6 12:22:11"
   },
   "4549995734140": {
     "stores": [
+      {
+        "store": "買取一丁目",
+        "price": 198000,
+        "url": "https://www.1-chome.com/keitai",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/6 12:21:05",
+        "observed_at": "2026-11-06T03:20:03.299Z"
+      },
       {
         "store": "モバイルMIX",
         "price": 197500,
@@ -1658,8 +1668,8 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:15",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:21:05",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       },
       {
         "store": "買取ルデヤ",
@@ -1668,23 +1678,13 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:12",
-        "observed_at": "2026-11-05T03:24:19.901Z"
-      },
-      {
-        "store": "買取一丁目",
-        "price": 196000,
-        "url": "https://www.1-chome.com/keitai",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/5 12:25:15",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:21:01",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-05T03:26:16.901Z",
+      "checked_at": "2026-11-06T03:22:11.369Z",
       "target_stores": 10,
       "attempted": 6,
       "success": 3,
@@ -1740,12 +1740,42 @@
         }
       ]
     },
-    "last_checked_at": "2026-11-05T03:26:16.901Z",
-    "last_success_at": "2026-11-05T03:26:16.901Z",
-    "last_update": "2026/11/5 12:26:16"
+    "last_checked_at": "2026-11-06T03:22:11.369Z",
+    "last_success_at": "2026-11-06T03:22:11.369Z",
+    "last_update": "2026/11/6 12:22:11"
   },
   "4549995734157": {
     "stores": [
+      {
+        "store": "買取楽園",
+        "price": 193000,
+        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/6 12:21:01",
+        "observed_at": "2026-11-06T03:20:03.299Z"
+      },
+      {
+        "store": "買取一丁目",
+        "price": 193000,
+        "url": "https://www.1-chome.com/keitai",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/6 12:21:05",
+        "observed_at": "2026-11-06T03:20:03.299Z"
+      },
+      {
+        "store": "買取ルデヤ",
+        "price": 192000,
+        "url": "https://kaitori-rudeya.com/search/index/4549995734157",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/6 12:21:01",
+        "observed_at": "2026-11-06T03:20:03.299Z"
+      },
       {
         "store": "モバイルMIX",
         "price": 192000,
@@ -1753,43 +1783,13 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:15",
-        "observed_at": "2026-11-05T03:24:19.901Z"
-      },
-      {
-        "store": "買取ルデヤ",
-        "price": 191500,
-        "url": "https://kaitori-rudeya.com/search/index/4549995734157",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/5 12:25:12",
-        "observed_at": "2026-11-05T03:24:19.901Z"
-      },
-      {
-        "store": "買取楽園",
-        "price": 191500,
-        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/5 12:25:12",
-        "observed_at": "2026-11-05T03:24:19.901Z"
-      },
-      {
-        "store": "買取一丁目",
-        "price": 191000,
-        "url": "https://www.1-chome.com/keitai",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/5 12:25:15",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:21:05",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-05T03:26:16.901Z",
+      "checked_at": "2026-11-06T03:22:11.369Z",
       "target_stores": 10,
       "attempted": 6,
       "success": 4,
@@ -1845,9 +1845,9 @@
         }
       ]
     },
-    "last_checked_at": "2026-11-05T03:26:16.901Z",
-    "last_success_at": "2026-11-05T03:26:16.901Z",
-    "last_update": "2026/11/5 12:26:16"
+    "last_checked_at": "2026-11-06T03:22:11.369Z",
+    "last_success_at": "2026-11-06T03:22:11.369Z",
+    "last_update": "2026/11/6 12:22:11"
   },
   "4549995734164": {
     "stores": [
@@ -1858,13 +1858,13 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:20",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:21:11",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-05T03:26:16.901Z",
+      "checked_at": "2026-11-06T03:22:11.369Z",
       "target_stores": 10,
       "attempted": 6,
       "success": 1,
@@ -1920,12 +1920,32 @@
         }
       ]
     },
-    "last_checked_at": "2026-11-05T03:26:16.901Z",
-    "last_success_at": "2026-11-05T03:26:16.901Z",
-    "last_update": "2026/11/5 12:26:16"
+    "last_checked_at": "2026-11-06T03:22:11.369Z",
+    "last_success_at": "2026-11-06T03:22:11.369Z",
+    "last_update": "2026/11/6 12:22:11"
   },
   "4549995734171": {
     "stores": [
+      {
+        "store": "買取楽園",
+        "price": 198000,
+        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/6 12:21:11",
+        "observed_at": "2026-11-06T03:20:03.299Z"
+      },
+      {
+        "store": "買取一丁目",
+        "price": 198000,
+        "url": "https://www.1-chome.com/keitai",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/6 12:21:15",
+        "observed_at": "2026-11-06T03:20:03.299Z"
+      },
       {
         "store": "モバイルMIX",
         "price": 198000,
@@ -1933,8 +1953,8 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:24",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:21:15",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       },
       {
         "store": "買取ルデヤ",
@@ -1943,33 +1963,13 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:20",
-        "observed_at": "2026-11-05T03:24:19.901Z"
-      },
-      {
-        "store": "買取楽園",
-        "price": 196000,
-        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/5 12:25:20",
-        "observed_at": "2026-11-05T03:24:19.901Z"
-      },
-      {
-        "store": "買取一丁目",
-        "price": 196000,
-        "url": "https://www.1-chome.com/keitai",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/5 12:25:24",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:21:11",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-05T03:26:16.901Z",
+      "checked_at": "2026-11-06T03:22:11.369Z",
       "target_stores": 10,
       "attempted": 6,
       "success": 4,
@@ -2025,12 +2025,22 @@
         }
       ]
     },
-    "last_checked_at": "2026-11-05T03:26:16.901Z",
-    "last_success_at": "2026-11-05T03:26:16.901Z",
-    "last_update": "2026/11/5 12:26:16"
+    "last_checked_at": "2026-11-06T03:22:11.369Z",
+    "last_success_at": "2026-11-06T03:22:11.369Z",
+    "last_update": "2026/11/6 12:22:11"
   },
   "4549995734188": {
     "stores": [
+      {
+        "store": "買取一丁目",
+        "price": 232000,
+        "url": "https://www.1-chome.com/keitai",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/6 12:21:16",
+        "observed_at": "2026-11-06T03:20:03.299Z"
+      },
       {
         "store": "モバイルMIX",
         "price": 232000,
@@ -2038,8 +2048,8 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:24",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:21:16",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       },
       {
         "store": "買取ルデヤ",
@@ -2048,23 +2058,13 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:20",
-        "observed_at": "2026-11-05T03:24:19.901Z"
-      },
-      {
-        "store": "買取一丁目",
-        "price": 231000,
-        "url": "https://www.1-chome.com/keitai",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/5 12:25:24",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:21:11",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-05T03:26:16.901Z",
+      "checked_at": "2026-11-06T03:22:11.369Z",
       "target_stores": 10,
       "attempted": 6,
       "success": 3,
@@ -2120,12 +2120,32 @@
         }
       ]
     },
-    "last_checked_at": "2026-11-05T03:26:16.901Z",
-    "last_success_at": "2026-11-05T03:26:16.901Z",
-    "last_update": "2026/11/5 12:26:16"
+    "last_checked_at": "2026-11-06T03:22:11.369Z",
+    "last_success_at": "2026-11-06T03:22:11.369Z",
+    "last_update": "2026/11/6 12:22:11"
   },
   "4549995734195": {
     "stores": [
+      {
+        "store": "買取楽園",
+        "price": 228000,
+        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/6 12:21:20",
+        "observed_at": "2026-11-06T03:20:03.299Z"
+      },
+      {
+        "store": "買取一丁目",
+        "price": 228000,
+        "url": "https://www.1-chome.com/keitai",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/6 12:21:24",
+        "observed_at": "2026-11-06T03:20:03.299Z"
+      },
       {
         "store": "モバイルMIX",
         "price": 228000,
@@ -2133,8 +2153,8 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:32",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:21:24",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       },
       {
         "store": "買取ルデヤ",
@@ -2143,33 +2163,13 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:29",
-        "observed_at": "2026-11-05T03:24:19.901Z"
-      },
-      {
-        "store": "買取楽園",
-        "price": 227000,
-        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/5 12:25:29",
-        "observed_at": "2026-11-05T03:24:19.901Z"
-      },
-      {
-        "store": "買取一丁目",
-        "price": 227000,
-        "url": "https://www.1-chome.com/keitai",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/5 12:25:32",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:21:20",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-05T03:26:16.901Z",
+      "checked_at": "2026-11-06T03:22:11.369Z",
       "target_stores": 10,
       "attempted": 6,
       "success": 4,
@@ -2225,26 +2225,26 @@
         }
       ]
     },
-    "last_checked_at": "2026-11-05T03:26:16.901Z",
-    "last_success_at": "2026-11-05T03:26:16.901Z",
-    "last_update": "2026/11/5 12:26:16"
+    "last_checked_at": "2026-11-06T03:22:11.369Z",
+    "last_success_at": "2026-11-06T03:22:11.369Z",
+    "last_update": "2026/11/6 12:22:11"
   },
   "4549995734201": {
     "stores": [
       {
         "store": "買取ルデヤ",
-        "price": 236000,
+        "price": 234000,
         "url": "https://kaitori-rudeya.com/search/index/4549995734201",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:29",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:21:20",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-05T03:26:16.901Z",
+      "checked_at": "2026-11-06T03:22:11.369Z",
       "target_stores": 10,
       "attempted": 6,
       "success": 1,
@@ -2300,12 +2300,32 @@
         }
       ]
     },
-    "last_checked_at": "2026-11-05T03:26:16.901Z",
-    "last_success_at": "2026-11-05T03:26:16.901Z",
-    "last_update": "2026/11/5 12:26:16"
+    "last_checked_at": "2026-11-06T03:22:11.369Z",
+    "last_success_at": "2026-11-06T03:22:11.369Z",
+    "last_update": "2026/11/6 12:22:11"
   },
   "4549995734218": {
     "stores": [
+      {
+        "store": "買取楽園",
+        "price": 232000,
+        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/6 12:21:20",
+        "observed_at": "2026-11-06T03:20:03.299Z"
+      },
+      {
+        "store": "買取一丁目",
+        "price": 232000,
+        "url": "https://www.1-chome.com/keitai",
+        "condition": "unopened",
+        "scope": "jan",
+        "color_verified": true,
+        "checked_at": "2026/11/6 12:21:24",
+        "observed_at": "2026-11-06T03:20:03.299Z"
+      },
       {
         "store": "モバイルMIX",
         "price": 232000,
@@ -2313,8 +2333,8 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:33",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:21:24",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       },
       {
         "store": "買取ルデヤ",
@@ -2323,33 +2343,13 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:29",
-        "observed_at": "2026-11-05T03:24:19.901Z"
-      },
-      {
-        "store": "買取一丁目",
-        "price": 231000,
-        "url": "https://www.1-chome.com/keitai",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/5 12:25:33",
-        "observed_at": "2026-11-05T03:24:19.901Z"
-      },
-      {
-        "store": "買取楽園",
-        "price": 230000,
-        "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
-        "condition": "unopened",
-        "scope": "jan",
-        "color_verified": true,
-        "checked_at": "2026/11/5 12:25:29",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:21:20",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-05T03:26:16.901Z",
+      "checked_at": "2026-11-06T03:22:11.369Z",
       "target_stores": 10,
       "attempted": 6,
       "success": 4,
@@ -2405,9 +2405,9 @@
         }
       ]
     },
-    "last_checked_at": "2026-11-05T03:26:16.901Z",
-    "last_success_at": "2026-11-05T03:26:16.901Z",
-    "last_update": "2026/11/5 12:26:16"
+    "last_checked_at": "2026-11-06T03:22:11.369Z",
+    "last_success_at": "2026-11-06T03:22:11.369Z",
+    "last_update": "2026/11/6 12:22:11"
   },
   "4549995734225": {
     "stores": [
@@ -2418,8 +2418,8 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:37",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:21:29",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       },
       {
         "store": "買取一丁目",
@@ -2428,13 +2428,13 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:41",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:21:33",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-05T03:26:16.901Z",
+      "checked_at": "2026-11-06T03:22:11.369Z",
       "target_stores": 10,
       "attempted": 6,
       "success": 2,
@@ -2490,9 +2490,9 @@
         }
       ]
     },
-    "last_checked_at": "2026-11-05T03:26:16.901Z",
-    "last_success_at": "2026-11-05T03:26:16.901Z",
-    "last_update": "2026/11/5 12:26:16"
+    "last_checked_at": "2026-11-06T03:22:11.369Z",
+    "last_success_at": "2026-11-06T03:22:11.369Z",
+    "last_update": "2026/11/6 12:22:11"
   },
   "4549995734232": {
     "stores": [
@@ -2503,8 +2503,8 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:37",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:21:29",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       },
       {
         "store": "買取楽園",
@@ -2513,8 +2513,8 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:37",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:21:29",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       },
       {
         "store": "買取一丁目",
@@ -2523,13 +2523,13 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:41",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:21:33",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-05T03:26:16.901Z",
+      "checked_at": "2026-11-06T03:22:11.369Z",
       "target_stores": 10,
       "attempted": 6,
       "success": 3,
@@ -2585,26 +2585,26 @@
         }
       ]
     },
-    "last_checked_at": "2026-11-05T03:26:16.901Z",
-    "last_success_at": "2026-11-05T03:26:16.901Z",
-    "last_update": "2026/11/5 12:26:16"
+    "last_checked_at": "2026-11-06T03:22:11.369Z",
+    "last_success_at": "2026-11-06T03:22:11.369Z",
+    "last_update": "2026/11/6 12:22:11"
   },
   "4549995734249": {
     "stores": [
       {
         "store": "買取ルデヤ",
-        "price": 306500,
+        "price": 306000,
         "url": "https://kaitori-rudeya.com/search/index/4549995734249",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:37",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:21:29",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-05T03:26:16.901Z",
+      "checked_at": "2026-11-06T03:22:11.369Z",
       "target_stores": 10,
       "attempted": 6,
       "success": 1,
@@ -2660,9 +2660,9 @@
         }
       ]
     },
-    "last_checked_at": "2026-11-05T03:26:16.901Z",
-    "last_success_at": "2026-11-05T03:26:16.901Z",
-    "last_update": "2026/11/5 12:26:16"
+    "last_checked_at": "2026-11-06T03:22:11.369Z",
+    "last_success_at": "2026-11-06T03:22:11.369Z",
+    "last_update": "2026/11/6 12:22:11"
   },
   "4549995734256": {
     "stores": [
@@ -2673,8 +2673,8 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:46",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:21:39",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       },
       {
         "store": "買取楽園",
@@ -2683,8 +2683,8 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:46",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:21:39",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       },
       {
         "store": "買取一丁目",
@@ -2693,13 +2693,13 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:49",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:21:43",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-05T03:26:16.901Z",
+      "checked_at": "2026-11-06T03:22:11.369Z",
       "target_stores": 10,
       "attempted": 6,
       "success": 3,
@@ -2755,9 +2755,9 @@
         }
       ]
     },
-    "last_checked_at": "2026-11-05T03:26:16.901Z",
-    "last_success_at": "2026-11-05T03:26:16.901Z",
-    "last_update": "2026/11/5 12:26:16"
+    "last_checked_at": "2026-11-06T03:22:11.369Z",
+    "last_success_at": "2026-11-06T03:22:11.369Z",
+    "last_update": "2026/11/6 12:22:11"
   },
   "4549995734263": {
     "stores": [
@@ -2768,13 +2768,13 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:46",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:21:39",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-05T03:26:16.901Z",
+      "checked_at": "2026-11-06T03:22:11.369Z",
       "target_stores": 10,
       "attempted": 6,
       "success": 1,
@@ -2830,9 +2830,9 @@
         }
       ]
     },
-    "last_checked_at": "2026-11-05T03:26:16.901Z",
-    "last_success_at": "2026-11-05T03:26:16.901Z",
-    "last_update": "2026/11/5 12:26:16"
+    "last_checked_at": "2026-11-06T03:22:11.369Z",
+    "last_success_at": "2026-11-06T03:22:11.369Z",
+    "last_update": "2026/11/6 12:22:11"
   },
   "4549995734270": {
     "stores": [
@@ -2843,33 +2843,33 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:46",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:21:39",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       },
       {
         "store": "買取一丁目",
-        "price": 368000,
+        "price": 365000,
         "url": "https://www.1-chome.com/keitai",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:50",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:21:43",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       },
       {
         "store": "買取楽園",
-        "price": 365000,
+        "price": 363000,
         "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:46",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:21:39",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-05T03:26:16.901Z",
+      "checked_at": "2026-11-06T03:22:11.369Z",
       "target_stores": 10,
       "attempted": 6,
       "success": 3,
@@ -2925,9 +2925,9 @@
         }
       ]
     },
-    "last_checked_at": "2026-11-05T03:26:16.901Z",
-    "last_success_at": "2026-11-05T03:26:16.901Z",
-    "last_update": "2026/11/5 12:26:16"
+    "last_checked_at": "2026-11-06T03:22:11.369Z",
+    "last_success_at": "2026-11-06T03:22:11.369Z",
+    "last_update": "2026/11/6 12:22:11"
   },
   "4549995734287": {
     "stores": [
@@ -2938,13 +2938,13 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:55",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:21:48",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-05T03:26:16.901Z",
+      "checked_at": "2026-11-06T03:22:11.369Z",
       "target_stores": 10,
       "attempted": 6,
       "success": 1,
@@ -3000,9 +3000,9 @@
         }
       ]
     },
-    "last_checked_at": "2026-11-05T03:26:16.901Z",
-    "last_success_at": "2026-11-05T03:26:16.901Z",
-    "last_update": "2026/11/5 12:26:16"
+    "last_checked_at": "2026-11-06T03:22:11.369Z",
+    "last_success_at": "2026-11-06T03:22:11.369Z",
+    "last_update": "2026/11/6 12:22:11"
   },
   "4549995734294": {
     "stores": [
@@ -3013,33 +3013,33 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:55",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:21:48",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       },
       {
         "store": "買取一丁目",
-        "price": 368000,
+        "price": 365000,
         "url": "https://www.1-chome.com/keitai",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:58",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:21:52",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       },
       {
         "store": "買取楽園",
-        "price": 365000,
+        "price": 363000,
         "url": "https://www.keitairakuen.com/product-category/keitai/iphone/",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:55",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:21:48",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-05T03:26:16.901Z",
+      "checked_at": "2026-11-06T03:22:11.369Z",
       "target_stores": 10,
       "attempted": 6,
       "success": 3,
@@ -3095,9 +3095,9 @@
         }
       ]
     },
-    "last_checked_at": "2026-11-05T03:26:16.901Z",
-    "last_success_at": "2026-11-05T03:26:16.901Z",
-    "last_update": "2026/11/5 12:26:16"
+    "last_checked_at": "2026-11-06T03:22:11.369Z",
+    "last_success_at": "2026-11-06T03:22:11.369Z",
+    "last_update": "2026/11/6 12:22:11"
   },
   "4549995649284": {
     "name": "iPhone 17 Pro Max 256GB シルバー",
@@ -4412,18 +4412,18 @@
     "stores": [
       {
         "store": "買取ルデヤ",
-        "price": 370000,
+        "price": 371000,
         "url": "https://kaitori-rudeya.com/search/index/4549995732641",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:25:55",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:21:48",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-05T03:26:16.901Z",
+      "checked_at": "2026-11-06T03:22:11.369Z",
       "target_stores": 5,
       "attempted": 2,
       "success": 1,
@@ -4459,26 +4459,26 @@
         }
       ]
     },
-    "last_checked_at": "2026-11-05T03:26:16.901Z",
-    "last_success_at": "2026-11-05T03:26:16.901Z",
-    "last_update": "2026/11/5 12:26:16"
+    "last_checked_at": "2026-11-06T03:22:11.369Z",
+    "last_success_at": "2026-11-06T03:22:11.369Z",
+    "last_update": "2026/11/6 12:22:11"
   },
   "4549995732696": {
     "stores": [
       {
         "store": "買取ルデヤ",
-        "price": 375000,
+        "price": 372000,
         "url": "https://kaitori-rudeya.com/search/index/4549995732696",
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:26:02",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:21:56",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-05T03:26:16.901Z",
+      "checked_at": "2026-11-06T03:22:11.369Z",
       "target_stores": 5,
       "attempted": 2,
       "success": 1,
@@ -4514,9 +4514,9 @@
         }
       ]
     },
-    "last_checked_at": "2026-11-05T03:26:16.901Z",
-    "last_success_at": "2026-11-05T03:26:16.901Z",
-    "last_update": "2026/11/5 12:26:16"
+    "last_checked_at": "2026-11-06T03:22:11.369Z",
+    "last_success_at": "2026-11-06T03:22:11.369Z",
+    "last_update": "2026/11/6 12:22:11"
   },
   "4549995732740": {
     "stores": [
@@ -4527,13 +4527,13 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:26:02",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:21:56",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-05T03:26:16.901Z",
+      "checked_at": "2026-11-06T03:22:11.369Z",
       "target_stores": 5,
       "attempted": 2,
       "success": 1,
@@ -4569,9 +4569,9 @@
         }
       ]
     },
-    "last_checked_at": "2026-11-05T03:26:16.901Z",
-    "last_success_at": "2026-11-05T03:26:16.901Z",
-    "last_update": "2026/11/5 12:26:16"
+    "last_checked_at": "2026-11-06T03:22:11.369Z",
+    "last_success_at": "2026-11-06T03:22:11.369Z",
+    "last_update": "2026/11/6 12:22:11"
   },
   "4549995732795": {
     "stores": [
@@ -4582,13 +4582,13 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:26:02",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:21:56",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-05T03:26:16.901Z",
+      "checked_at": "2026-11-06T03:22:11.369Z",
       "target_stores": 5,
       "attempted": 2,
       "success": 1,
@@ -4624,9 +4624,9 @@
         }
       ]
     },
-    "last_checked_at": "2026-11-05T03:26:16.901Z",
-    "last_success_at": "2026-11-05T03:26:16.901Z",
-    "last_update": "2026/11/5 12:26:16"
+    "last_checked_at": "2026-11-06T03:22:11.369Z",
+    "last_success_at": "2026-11-06T03:22:11.369Z",
+    "last_update": "2026/11/6 12:22:11"
   },
   "4549995732849": {
     "stores": [
@@ -4637,13 +4637,13 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:26:05",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:22:00",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-05T03:26:16.901Z",
+      "checked_at": "2026-11-06T03:22:11.369Z",
       "target_stores": 5,
       "attempted": 2,
       "success": 1,
@@ -4679,9 +4679,9 @@
         }
       ]
     },
-    "last_checked_at": "2026-11-05T03:26:16.901Z",
-    "last_success_at": "2026-11-05T03:26:16.901Z",
-    "last_update": "2026/11/5 12:26:16"
+    "last_checked_at": "2026-11-06T03:22:11.369Z",
+    "last_success_at": "2026-11-06T03:22:11.369Z",
+    "last_update": "2026/11/6 12:22:11"
   },
   "4549995732894": {
     "stores": [
@@ -4692,13 +4692,13 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:26:05",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:22:00",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-05T03:26:16.901Z",
+      "checked_at": "2026-11-06T03:22:11.369Z",
       "target_stores": 5,
       "attempted": 2,
       "success": 1,
@@ -4734,9 +4734,9 @@
         }
       ]
     },
-    "last_checked_at": "2026-11-05T03:26:16.901Z",
-    "last_success_at": "2026-11-05T03:26:16.901Z",
-    "last_update": "2026/11/5 12:26:16"
+    "last_checked_at": "2026-11-06T03:22:11.369Z",
+    "last_success_at": "2026-11-06T03:22:11.369Z",
+    "last_update": "2026/11/6 12:22:11"
   },
   "4549995732948": {
     "stores": [
@@ -4747,13 +4747,13 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:26:05",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:22:00",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-05T03:26:16.901Z",
+      "checked_at": "2026-11-06T03:22:11.369Z",
       "target_stores": 5,
       "attempted": 2,
       "success": 1,
@@ -4789,9 +4789,9 @@
         }
       ]
     },
-    "last_checked_at": "2026-11-05T03:26:16.901Z",
-    "last_success_at": "2026-11-05T03:26:16.901Z",
-    "last_update": "2026/11/5 12:26:16"
+    "last_checked_at": "2026-11-06T03:22:11.369Z",
+    "last_success_at": "2026-11-06T03:22:11.369Z",
+    "last_update": "2026/11/6 12:22:11"
   },
   "4549995732993": {
     "stores": [
@@ -4802,13 +4802,13 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/5 12:26:08",
-        "observed_at": "2026-11-05T03:24:19.901Z"
+        "checked_at": "2026/11/6 12:22:03",
+        "observed_at": "2026-11-06T03:20:03.299Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-05T03:26:16.901Z",
+      "checked_at": "2026-11-06T03:22:11.369Z",
       "target_stores": 5,
       "attempted": 2,
       "success": 1,
@@ -4844,8 +4844,8 @@
         }
       ]
     },
-    "last_checked_at": "2026-11-05T03:26:16.901Z",
-    "last_success_at": "2026-11-05T03:26:16.901Z",
-    "last_update": "2026/11/5 12:26:16"
+    "last_checked_at": "2026-11-06T03:22:11.369Z",
+    "last_success_at": "2026-11-06T03:22:11.369Z",
+    "last_update": "2026/11/6 12:22:11"
   }
 }
