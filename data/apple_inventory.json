@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-10T01:59:18.840692+00:00",
+  "generated_at": "2026-11-10T09:38:42.214481+00:00",
   "source": "Apple Japan retail pickup",
   "anchors": {
     "tokyo": "100-0005",
@@ -226,7 +226,7 @@
           "status": "available",
           "pickup_display": "available",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "受け取れる日 明日"
         },
         {
           "store_number": "R710",
@@ -354,7 +354,7 @@
           "status": "available",
           "pickup_display": "available",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "受け取れる日 明日"
         },
         {
           "store_number": "R710",
@@ -482,7 +482,7 @@
           "status": "available",
           "pickup_display": "available",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "受け取れる日 明日"
         },
         {
           "store_number": "R710",
@@ -610,7 +610,7 @@
           "status": "available",
           "pickup_display": "available",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "受け取れる日 明日"
         },
         {
           "store_number": "R710",
@@ -738,7 +738,7 @@
           "status": "available",
           "pickup_display": "available",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "受け取れる日 明日"
         },
         {
           "store_number": "R710",
@@ -866,7 +866,7 @@
           "status": "available",
           "pickup_display": "available",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "受け取れる日 明日"
         },
         {
           "store_number": "R710",
@@ -994,7 +994,7 @@
           "status": "available",
           "pickup_display": "available",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "受け取れる日 明日"
         },
         {
           "store_number": "R710",
@@ -1122,7 +1122,7 @@
           "status": "available",
           "pickup_display": "available",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "受け取れる日 明日"
         },
         {
           "store_number": "R710",
@@ -1250,7 +1250,7 @@
           "status": "available",
           "pickup_display": "available",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "受け取れる日 明日"
         },
         {
           "store_number": "R710",
@@ -1378,7 +1378,7 @@
           "status": "available",
           "pickup_display": "available",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "受け取れる日 明日"
         },
         {
           "store_number": "R710",
@@ -1506,7 +1506,7 @@
           "status": "available",
           "pickup_display": "available",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "受け取れる日 明日"
         },
         {
           "store_number": "R710",
@@ -1634,7 +1634,7 @@
           "status": "available",
           "pickup_display": "available",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "受け取れる日 明日"
         },
         {
           "store_number": "R710",
@@ -1762,7 +1762,7 @@
           "status": "available",
           "pickup_display": "available",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "受け取れる日 明日"
         },
         {
           "store_number": "R710",
@@ -1890,7 +1890,7 @@
           "status": "available",
           "pickup_display": "available",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "受け取れる日 明日"
         },
         {
           "store_number": "R710",
@@ -2018,7 +2018,7 @@
           "status": "available",
           "pickup_display": "available",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "受け取れる日 明日"
         },
         {
           "store_number": "R710",
@@ -2146,7 +2146,7 @@
           "status": "available",
           "pickup_display": "available",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "受け取れる日 明日"
         },
         {
           "store_number": "R710",
@@ -2274,7 +2274,7 @@
           "status": "available",
           "pickup_display": "available",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "受け取れる日 明日"
         },
         {
           "store_number": "R710",
@@ -2402,7 +2402,7 @@
           "status": "available",
           "pickup_display": "available",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "受け取れる日 明日"
         },
         {
           "store_number": "R710",
@@ -2530,7 +2530,7 @@
           "status": "available",
           "pickup_display": "available",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "受け取れる日 明日"
         },
         {
           "store_number": "R710",
@@ -2567,8 +2567,8 @@
       "request_successes": 5,
       "request_errors": [],
       "overall_status": "ok",
-      "available_store_count": 11,
-      "unavailable_store_count": 0,
+      "available_store_count": 10,
+      "unavailable_store_count": 1,
       "stores": [
         {
           "store_number": "R711",
@@ -2658,7 +2658,7 @@
           "status": "available",
           "pickup_display": "available",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "受け取れる日 明日"
         },
         {
           "store_number": "R710",
@@ -2675,10 +2675,10 @@
           "store_name": "福岡",
           "state": "福岡県",
           "city": "福岡市",
-          "status": "available",
-          "pickup_display": "available",
+          "status": "unavailable",
+          "pickup_display": "unavailable",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "選択できません"
         }
       ]
     },
@@ -2695,8 +2695,8 @@
       "request_successes": 5,
       "request_errors": [],
       "overall_status": "ok",
-      "available_store_count": 11,
-      "unavailable_store_count": 0,
+      "available_store_count": 4,
+      "unavailable_store_count": 7,
       "stores": [
         {
           "store_number": "R711",
@@ -2743,70 +2743,70 @@
           "store_name": "銀座",
           "state": "東京都",
           "city": "中央区",
-          "status": "available",
-          "pickup_display": "available",
+          "status": "unavailable",
+          "pickup_display": "unavailable",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "選択できません"
         },
         {
           "store_number": "R718",
           "store_name": "丸の内",
           "state": "東京都",
           "city": "千代田区",
-          "status": "available",
-          "pickup_display": "available",
+          "status": "unavailable",
+          "pickup_display": "unavailable",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "選択できません"
         },
         {
           "store_number": "R128",
           "store_name": "新宿",
           "state": "東京都",
           "city": "新宿区",
-          "status": "available",
-          "pickup_display": "available",
+          "status": "unavailable",
+          "pickup_display": "unavailable",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "選択できません"
         },
         {
           "store_number": "R119",
           "store_name": "渋谷",
           "state": "東京都",
           "city": "渋谷区",
-          "status": "available",
-          "pickup_display": "available",
+          "status": "unavailable",
+          "pickup_display": "unavailable",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "選択できません"
         },
         {
           "store_number": "R224",
           "store_name": "表参道",
           "state": "東京都",
           "city": "渋谷区",
-          "status": "available",
-          "pickup_display": "available",
+          "status": "unavailable",
+          "pickup_display": "unavailable",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "選択できません"
         },
         {
           "store_number": "R710",
           "store_name": "川崎",
           "state": "神奈川県",
           "city": "川崎市",
-          "status": "available",
-          "pickup_display": "available",
+          "status": "unavailable",
+          "pickup_display": "unavailable",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "選択できません"
         },
         {
           "store_number": "R048",
           "store_name": "福岡",
           "state": "福岡県",
           "city": "福岡市",
-          "status": "available",
-          "pickup_display": "available",
+          "status": "unavailable",
+          "pickup_display": "unavailable",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "選択できません"
         }
       ]
     },
@@ -2914,7 +2914,7 @@
           "status": "available",
           "pickup_display": "available",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "受け取れる日 明日"
         },
         {
           "store_number": "R710",
@@ -3042,7 +3042,7 @@
           "status": "available",
           "pickup_display": "available",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "受け取れる日 明日"
         },
         {
           "store_number": "R710",
@@ -3079,8 +3079,8 @@
       "request_successes": 5,
       "request_errors": [],
       "overall_status": "ok",
-      "available_store_count": 10,
-      "unavailable_store_count": 1,
+      "available_store_count": 9,
+      "unavailable_store_count": 2,
       "stores": [
         {
           "store_number": "R711",
@@ -3147,10 +3147,10 @@
           "store_name": "新宿",
           "state": "東京都",
           "city": "新宿区",
-          "status": "available",
-          "pickup_display": "available",
+          "status": "unavailable",
+          "pickup_display": "unavailable",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "選択できません"
         },
         {
           "store_number": "R119",
@@ -3170,7 +3170,7 @@
           "status": "available",
           "pickup_display": "available",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "受け取れる日 明日"
         },
         {
           "store_number": "R710",
@@ -3298,7 +3298,7 @@
           "status": "available",
           "pickup_display": "available",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "受け取れる日 明日"
         },
         {
           "store_number": "R710",
@@ -3426,7 +3426,7 @@
           "status": "available",
           "pickup_display": "available",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "受け取れる日 明日"
         },
         {
           "store_number": "R710",
@@ -3554,7 +3554,7 @@
           "status": "available",
           "pickup_display": "available",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "受け取れる日 明日"
         },
         {
           "store_number": "R710",
@@ -3682,7 +3682,7 @@
           "status": "available",
           "pickup_display": "available",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "受け取れる日 明日"
         },
         {
           "store_number": "R710",
@@ -3810,7 +3810,7 @@
           "status": "available",
           "pickup_display": "available",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "受け取れる日 明日"
         },
         {
           "store_number": "R710",
@@ -3938,7 +3938,7 @@
           "status": "available",
           "pickup_display": "available",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "受け取れる日 明日"
         },
         {
           "store_number": "R710",
@@ -4066,7 +4066,7 @@
           "status": "available",
           "pickup_display": "available",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "受け取れる日 明日"
         },
         {
           "store_number": "R710",
@@ -4194,7 +4194,7 @@
           "status": "available",
           "pickup_display": "available",
           "store_pick_eligible": true,
-          "pickup_search_quote": "受け取れる日 本日"
+          "pickup_search_quote": "受け取れる日 明日"
         },
         {
           "store_number": "R710",
