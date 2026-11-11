@@ -53,6 +53,7 @@ jobs:
         run: cp data/prices.json "$RUNNER_TEMP/previous_prices.json"
 
       - name: Update selected iPhone
+        # 診断は data/crawl_diagnostics_ondemand.json に書く（全件実行の data/crawl_diagnostics.json は上書きしない）
         env:
           TARGET_JAN: ${{ inputs.jan }}
           SKIP_IPHONE17: "1"
@@ -68,19 +69,19 @@ jobs:
           export VERIFY_REPORT_PATH="$RUNNER_TEMP/verify_report.md"
           node scripts/verify_prices.js \
             --prices data/prices.json \
-            --diagnostics data/crawl_diagnostics.json \
+            --diagnostics data/crawl_diagnostics_ondemand.json \
             --index index.html \
             --previous "$RUNNER_TEMP/previous_prices.json" \
             --target-jan "$TARGET_JAN"
 
       - name: Store health report
         # 店舗別・原因別の取得状況をサマリーに出す（オンデマンドは1SKUなので履歴は更新しない）
-        if: always() && hashFiles('data/crawl_diagnostics.json') != ''
+        if: always() && hashFiles('data/crawl_diagnostics_ondemand.json') != ''
         # レポート・通知の失敗で価格の検証・コミットを止めない
         continue-on-error: true
         run: |
           node scripts/store_health.js \
-            --diagnostics data/crawl_diagnostics.json \
+            --diagnostics data/crawl_diagnostics_ondemand.json \
             --health data/store_health.json
 
       - name: Keep crawl results (also when verification fails)
@@ -93,7 +94,7 @@ jobs:
           name: on-demand-results-${{ github.run_number }}-${{ github.run_attempt }}
           path: |
             data/prices.json
-            data/crawl_diagnostics.json
+            data/crawl_diagnostics_ondemand.json
             ${{ runner.temp }}/verify_report.md
           retention-days: 30
           if-no-files-found: warn
@@ -104,7 +105,7 @@ jobs:
           git config user.email 'github-actions[bot]@users.noreply.github.com'
 
           git add data/prices.json
-          git add data/crawl_diagnostics.json
+          git add data/crawl_diagnostics_ondemand.json
 
           if git diff --cached --quiet; then
             echo "No price changes"

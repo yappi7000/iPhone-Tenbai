@@ -352,3 +352,29 @@ test("ルデヤ: JAN一致の価格はモデル・容量別の範囲で判定す
   // 範囲が分からないときは全店共通の範囲（60万円まで）
   assert.strictEqual(extractRudeyaPrice(body, "4549995732948").price, null);
 });
+
+/* ---------- 診断ファイル: 全件更新と1SKU更新の分離 ---------- */
+
+test("診断ファイル: 1SKU更新（TARGET_JAN）は crawl_diagnostics_ondemand.json に書き、全件診断を上書きしない", () => {
+  const path = require("node:path");
+  const { diagnosticsPathFor } = require("../scripts/crawler.js");
+  assert.strictEqual(path.basename(diagnosticsPathFor({})), "crawl_diagnostics.json");
+  assert.strictEqual(path.basename(diagnosticsPathFor({ TARGET_JAN: "   " })), "crawl_diagnostics.json", "空白だけは全件実行");
+  assert.strictEqual(path.basename(diagnosticsPathFor({ TARGET_JAN: "4549995734843" })), "crawl_diagnostics_ondemand.json");
+  assert.strictEqual(path.dirname(diagnosticsPathFor({})), path.dirname(diagnosticsPathFor({ TARGET_JAN: "1" })));
+});
+
+test("診断ファイル: 1SKU更新のワークフローは全件診断を読まず・書かず・コミットしない。定時実行と監視ゲートは全件診断のまま", () => {
+  const fs = require("node:fs"), path = require("node:path");
+  // コメント行は除いて判定する
+  const onDemand = fs.readFileSync(path.join(__dirname, "../.github/workflows/on-demand-price.yml"), "utf8")
+    .split("\n").filter(line => !line.trim().startsWith("#")).join("\n");
+  const scheduled = fs.readFileSync(path.join(__dirname, "../.github/workflows/crawl.yml"), "utf8");
+  assert.ok(!/data\/crawl_diagnostics\.json/.test(onDemand), "1SKU更新は全件診断に触れない");
+  assert.match(onDemand, /--diagnostics data\/crawl_diagnostics_ondemand\.json/);
+  assert.match(onDemand, /git add data\/crawl_diagnostics_ondemand\.json/);
+  assert.match(onDemand, /TARGET_JAN: \$\{\{ inputs\.jan \}\}\n\s+SKIP_IPHONE17/, "クローラーに TARGET_JAN を渡す（保存先の切り替え条件）");
+  assert.ok(!/TARGET_JAN/.test(scheduled.split("Run crawler")[1].split("- name:")[0]), "定時実行は TARGET_JAN を渡さない");
+  assert.match(scheduled, /git add data\/crawl_diagnostics\.json/);
+  assert.match(scheduled, /store_health\.js --diagnostics data\/crawl_diagnostics\.json --gate/, "監視ゲートは全件診断を判定する");
+});
