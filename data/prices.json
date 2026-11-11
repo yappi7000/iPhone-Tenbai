@@ -588,29 +588,29 @@
         "condition": "unopened",
         "scope": "jan",
         "color_verified": true,
-        "checked_at": "2026/11/11 11:40:51",
-        "observed_at": "2026-11-11T02:40:23.427Z"
+        "checked_at": "2026/11/12 7:42:38",
+        "observed_at": "2026-11-11T22:42:38.645Z"
       }
     ],
     "fetch_status": "ok",
     "fetch_summary": {
-      "checked_at": "2026-11-11T02:42:25.870Z",
+      "checked_at": "2026-11-11T22:42:52.266Z",
       "target_stores": 10,
-      "attempted": 6,
+      "attempted": 10,
       "success": 1,
       "no_price": 0,
-      "failed": 5,
-      "stopped": 4,
+      "failed": 9,
+      "stopped": 0,
       "failures": {
         "connection_error": 1,
         "timeout": 0,
-        "blocked": 0,
+        "blocked": 4,
         "extraction_failed": 4
       },
       "stores": [
         {
           "store": "モバステ",
-          "outcome": "stopped"
+          "outcome": "blocked"
         },
         {
           "store": "森森買取",
@@ -630,11 +630,11 @@
         },
         {
           "store": "iPhone買取価格表",
-          "outcome": "stopped"
+          "outcome": "blocked"
         },
         {
           "store": "買取wiki",
-          "outcome": "stopped"
+          "outcome": "blocked"
         },
         {
           "store": "モバイルMIX",
@@ -646,13 +646,13 @@
         },
         {
           "store": "買取商店",
-          "outcome": "stopped"
+          "outcome": "blocked"
         }
       ]
     },
-    "last_checked_at": "2026-11-11T02:42:25.870Z",
-    "last_success_at": "2026-11-11T02:42:25.870Z",
-    "last_update": "2026/11/11 11:42:25"
+    "last_checked_at": "2026-11-11T22:42:52.266Z",
+    "last_success_at": "2026-11-11T22:42:52.266Z",
+    "last_update": "2026/11/12 7:42:52"
   },
   "4549995734898": {
     "stores": [
