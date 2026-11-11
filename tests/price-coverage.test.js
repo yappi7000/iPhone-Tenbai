@@ -282,79 +282,6 @@ test("Issue計画: 継続異常が無ければ何も作らない", () => {
   assert.deepStrictEqual(planIssues([], []), []);
 });
 
-const KNOWN = { mobasute: { registered: "2026-11-11", cause: "HTTP 403", last_success: null } };
-
-test("監視: 既知のアクセス制限は警告、稼働中店舗の取得0件は重大（ワークフロー成功だけで正常としない）", () => {
-  const run = summarizeRun(sampleRun("2026-11-03T03:58:44.025Z"));
-  assert.deepStrictEqual(zeroSuccessStores(run).map(z => z.id).sort(), ["iphonekaitori", "mobasute"]);
-  const gate = evaluateGate(run, KNOWN);
-  assert.deepStrictEqual(gate.known.map(z => z.id), ["mobasute"]);
-  assert.deepStrictEqual(gate.critical.map(z => z.id), ["iphonekaitori"]);
-  assert.strictEqual(gate.failed, true);
-  const text = formatGate(gate);
-  assert.match(text, /重大: 稼働中の店舗で価格0件（新規の取得障害）: 1店舗/);
-  assert.match(text, /既知のアクセス制限で継続して取得できない店舗: 1店舗/, "既知障害も隠さず表示する");
-  const notes = gateAnnotations(gate);
-  assert.ok(notes.includes("::warning::モバステ: 価格0/40件（既知のアクセス制限: HTTP 403）"), notes.join("\n"));
-  assert.ok(notes.some(n => n.startsWith("::error::iPhone買取価格表")));
-});
-
-test("監視: 既知の制限だけなら警告で成功、全店舗0件は既知でも重大、回復した既知店舗は通知する", () => {
-  const knownAll = { ...KNOWN, iphonekaitori: KNOWN.mobasute, rudeya: KNOWN.mobasute };
-  const onlyKnown = evaluateGate(summarizeRun(sampleRun("2026-11-03T03:58:44.025Z")), { ...KNOWN, iphonekaitori: KNOWN.mobasute });
-  assert.strictEqual(onlyKnown.failed, false);
-  assert.strictEqual(onlyKnown.known.length, 2);
-  const allZero = evaluateGate(summarizeRun(sampleRun("2026-11-03T03:58:44.025Z", { rudeya: "blocked" })), knownAll);
-  assert.strictEqual(allZero.allZero, true);
-  assert.strictEqual(allZero.failed, true);
-  assert.match(formatGate(allZero), /重大: 全店舗で価格を1件も取得できませんでした/);
-  const recovered = evaluateGate(summarizeRun(sampleRun("2026-11-03T03:58:44.025Z")), knownAll);
-  assert.deepStrictEqual(recovered.recovered.map(r => r.id), ["rudeya"]);
-  assert.ok(gateAnnotations(recovered).some(n => n.startsWith("::notice::買取ルデヤ")));
-});
-
-test("監視: --gate の終了コード（新規障害=1、既知の制限だけ=0）。履歴は書かない", () => {
-  const { spawnSync } = require("node:child_process");
-  const fs = require("node:fs"), os = require("node:os"), path = require("node:path");
-  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "gate-"));
-  const run = (diagnostics, known) => {
-    fs.writeFileSync(path.join(dir, "diag.json"), JSON.stringify(diagnostics));
-    fs.writeFileSync(path.join(dir, "known.json"), JSON.stringify({ iphone: known }));
-    const env = { ...process.env }; delete env.GITHUB_STEP_SUMMARY;
-    return spawnSync(process.execPath, [path.join(__dirname, "../scripts/store_health.js"), "--diagnostics", path.join(dir, "diag.json"),
-      "--health", path.join(dir, "none.json"), "--known", path.join(dir, "known.json"), "--gate"], { encoding: "utf8", env });
-  };
-  const bad = run(sampleRun("2026-11-03T03:58:44.025Z"), KNOWN);
-  assert.strictEqual(bad.status, 1);
-  assert.match(bad.stdout, /::error::iPhone買取価格表: 価格0\/40件（新規の取得障害/);
-  assert.match(bad.stdout, /::warning::モバステ/);
-  const knownOnly = run(sampleRun("2026-11-03T03:58:44.025Z"), { ...KNOWN, iphonekaitori: KNOWN.mobasute });
-  assert.strictEqual(knownOnly.status, 0, knownOnly.stdout + knownOnly.stderr);
-  assert.ok(!fs.existsSync(path.join(dir, "none.json")), "ゲートは履歴を書かない");
-});
-
-test("監視: 既知の制限の一覧は根拠のある店舗だけ（iPhone・カタログとも、現在稼働中の店舗を含めない）", () => {
-  const known = require("../scripts/known_store_restrictions.json");
-  assert.deepStrictEqual(Object.keys(known.iphone).sort(), ["iphonekaitori", "kaitorishouten", "kaitoriwiki", "mobasute", "morimori"]);
-  assert.deepStrictEqual(Object.keys(known.catalog).sort(), ["kaitorishouten", "kaitoriwiki", "keitaispace", "morimori"]);
-  for (const entry of [...Object.values(known.iphone), ...Object.values(known.catalog)]) {
-    assert.ok(entry.registered && entry.cause && entry.evidence, JSON.stringify(entry));
-  }
-});
-
-test("ルデヤ: JAN一致の価格はモデル・容量別の範囲で判定する（Duo 2TB 605,000円を弾かない）", () => {
-  const body = "新品\niPhone Duo 2TB スターホワイト 未開封 SIMフリー\nJAN: 4549995732948\n買取価格\n605,000円";
-  const duo2tb = priceRangeFor("iPhone Duo", "2TB");
-  assert.deepStrictEqual([extractRudeyaPrice(body, "4549995732948", duo2tb).price, extractRudeyaPrice(body, "4549995732948", duo2tb).error], [605000, null]);
-  // 定価の1.5倍超（桁の読み違い）は引き続き除外
-  assert.strictEqual(extractRudeyaPrice(body.replace("605,000", "905,000"), "4549995732948", duo2tb).price, null);
-  // iPhone 18 の上限（50万円）は従来どおり
-  const pro = body.replace("Duo 2TB スターホワイト", "18 Pro Max 2TB ブラック").replace("605,000", "520,000");
-  assert.strictEqual(extractRudeyaPrice(pro, "4549995732948", priceRangeFor("iPhone 18 Pro Max", "2TB")).error, "買取価格が安全範囲外です");
-  // 範囲が分からないときは全店共通の範囲（60万円まで）
-  assert.strictEqual(extractRudeyaPrice(body, "4549995732948").price, null);
-});
-
 /* ---------- 色別価格: 記載のない色（正式価格は店舗表記がある場合だけ、それ以外は参考価格） ---------- */
 
 test("記載のない色: 店舗の明記があるときだけ正式価格、他色だけの記載は参考価格、対象色・色限定・あいまいな記載は価格なし", () => {
@@ -445,4 +372,77 @@ test("記載のない色: 参考価格は prices.json の reference_stores だ�
     if (saved !== undefined) process.env.TARGET_JAN = saved;
     fs.rmSync(dir, { recursive: true, force: true });
   }
+});
+
+const KNOWN = { mobasute: { registered: "2026-11-11", cause: "HTTP 403", last_success: null } };
+
+test("監視: 既知のアクセス制限は警告、稼働中店舗の取得0件は重大（ワークフロー成功だけで正常としない）", () => {
+  const run = summarizeRun(sampleRun("2026-11-03T03:58:44.025Z"));
+  assert.deepStrictEqual(zeroSuccessStores(run).map(z => z.id).sort(), ["iphonekaitori", "mobasute"]);
+  const gate = evaluateGate(run, KNOWN);
+  assert.deepStrictEqual(gate.known.map(z => z.id), ["mobasute"]);
+  assert.deepStrictEqual(gate.critical.map(z => z.id), ["iphonekaitori"]);
+  assert.strictEqual(gate.failed, true);
+  const text = formatGate(gate);
+  assert.match(text, /重大: 稼働中の店舗で価格0件（新規の取得障害）: 1店舗/);
+  assert.match(text, /既知のアクセス制限で継続して取得できない店舗: 1店舗/, "既知障害も隠さず表示する");
+  const notes = gateAnnotations(gate);
+  assert.ok(notes.includes("::warning::モバステ: 価格0/40件（既知のアクセス制限: HTTP 403）"), notes.join("\n"));
+  assert.ok(notes.some(n => n.startsWith("::error::iPhone買取価格表")));
+});
+
+test("監視: 既知の制限だけなら警告で成功、全店舗0件は既知でも重大、回復した既知店舗は通知する", () => {
+  const knownAll = { ...KNOWN, iphonekaitori: KNOWN.mobasute, rudeya: KNOWN.mobasute };
+  const onlyKnown = evaluateGate(summarizeRun(sampleRun("2026-11-03T03:58:44.025Z")), { ...KNOWN, iphonekaitori: KNOWN.mobasute });
+  assert.strictEqual(onlyKnown.failed, false);
+  assert.strictEqual(onlyKnown.known.length, 2);
+  const allZero = evaluateGate(summarizeRun(sampleRun("2026-11-03T03:58:44.025Z", { rudeya: "blocked" })), knownAll);
+  assert.strictEqual(allZero.allZero, true);
+  assert.strictEqual(allZero.failed, true);
+  assert.match(formatGate(allZero), /重大: 全店舗で価格を1件も取得できませんでした/);
+  const recovered = evaluateGate(summarizeRun(sampleRun("2026-11-03T03:58:44.025Z")), knownAll);
+  assert.deepStrictEqual(recovered.recovered.map(r => r.id), ["rudeya"]);
+  assert.ok(gateAnnotations(recovered).some(n => n.startsWith("::notice::買取ルデヤ")));
+});
+
+test("監視: --gate の終了コード（新規障害=1、既知の制限だけ=0）。履歴は書かない", () => {
+  const { spawnSync } = require("node:child_process");
+  const fs = require("node:fs"), os = require("node:os"), path = require("node:path");
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "gate-"));
+  const run = (diagnostics, known) => {
+    fs.writeFileSync(path.join(dir, "diag.json"), JSON.stringify(diagnostics));
+    fs.writeFileSync(path.join(dir, "known.json"), JSON.stringify({ iphone: known }));
+    const env = { ...process.env }; delete env.GITHUB_STEP_SUMMARY;
+    return spawnSync(process.execPath, [path.join(__dirname, "../scripts/store_health.js"), "--diagnostics", path.join(dir, "diag.json"),
+      "--health", path.join(dir, "none.json"), "--known", path.join(dir, "known.json"), "--gate"], { encoding: "utf8", env });
+  };
+  const bad = run(sampleRun("2026-11-03T03:58:44.025Z"), KNOWN);
+  assert.strictEqual(bad.status, 1);
+  assert.match(bad.stdout, /::error::iPhone買取価格表: 価格0\/40件（新規の取得障害/);
+  assert.match(bad.stdout, /::warning::モバステ/);
+  const knownOnly = run(sampleRun("2026-11-03T03:58:44.025Z"), { ...KNOWN, iphonekaitori: KNOWN.mobasute });
+  assert.strictEqual(knownOnly.status, 0, knownOnly.stdout + knownOnly.stderr);
+  assert.ok(!fs.existsSync(path.join(dir, "none.json")), "ゲートは履歴を書かない");
+});
+
+test("監視: 既知の制限の一覧は根拠のある店舗だけ（iPhone・カタログとも、現在稼働中の店舗を含めない）", () => {
+  const known = require("../scripts/known_store_restrictions.json");
+  assert.deepStrictEqual(Object.keys(known.iphone).sort(), ["iphonekaitori", "kaitorishouten", "kaitoriwiki", "mobasute", "morimori"]);
+  assert.deepStrictEqual(Object.keys(known.catalog).sort(), ["kaitorishouten", "kaitoriwiki", "keitaispace", "morimori"]);
+  for (const entry of [...Object.values(known.iphone), ...Object.values(known.catalog)]) {
+    assert.ok(entry.registered && entry.cause && entry.evidence, JSON.stringify(entry));
+  }
+});
+
+test("ルデヤ: JAN一致の価格はモデル・容量別の範囲で判定する（Duo 2TB 605,000円を弾かない）", () => {
+  const body = "新品\niPhone Duo 2TB スターホワイト 未開封 SIMフリー\nJAN: 4549995732948\n買取価格\n605,000円";
+  const duo2tb = priceRangeFor("iPhone Duo", "2TB");
+  assert.deepStrictEqual([extractRudeyaPrice(body, "4549995732948", duo2tb).price, extractRudeyaPrice(body, "4549995732948", duo2tb).error], [605000, null]);
+  // 定価の1.5倍超（桁の読み違い）は引き続き除外
+  assert.strictEqual(extractRudeyaPrice(body.replace("605,000", "905,000"), "4549995732948", duo2tb).price, null);
+  // iPhone 18 の上限（50万円）は従来どおり
+  const pro = body.replace("Duo 2TB スターホワイト", "18 Pro Max 2TB ブラック").replace("605,000", "520,000");
+  assert.strictEqual(extractRudeyaPrice(pro, "4549995732948", priceRangeFor("iPhone 18 Pro Max", "2TB")).error, "買取価格が安全範囲外です");
+  // 範囲が分からないときは全店共通の範囲（60万円まで）
+  assert.strictEqual(extractRudeyaPrice(body, "4549995732948").price, null);
 });

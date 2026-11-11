@@ -5392,9 +5392,10 @@ module.exports = {
   PAGE_READY_MARKERS,
   extractRakuenPrice,
   extractIchomePrice,
-  extractMobileIchibanPrice,
-  unlistedColorBase,
   extractRudeyaPrice,
   colorLabelsIn,
-  extractIphoneKaitoriPrice
+  extractIphoneKaitoriPrice,
+  // 色別価格（記載のない色）
+  extractMobileIchibanPrice,
+  unlistedColorBase
 };
