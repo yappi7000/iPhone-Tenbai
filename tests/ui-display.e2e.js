@@ -940,6 +940,31 @@ test("カテゴリー再現: 買取一丁目の価格が36時間を超えて古�
   await page.close();
 });
 
+test("カテゴリー再現: ホムラの条件不一致・本日停止は理由付きで順位外に表示し、価格を出さない", async () => {
+  const catalogPrices = shiftedCatalogPrices(1);
+  const ids = ["switch2-jp", "switch2-mario"];
+  const statuses = { "switch2-jp": "condition_mismatch", "switch2-mario": "stopped" };
+  for (const id of ids) {
+    catalogPrices.products[id] = catalogPrices.products[id].map(r => (r.store_id === "homura"
+      ? { ...r, status: statuses[id], price: null, observed_at: null, reason: "除外語「開封済」を含む" }
+      : r));
+  }
+  const { page, errors } = await openWith(BASE_PRICES, { catalogPrices });
+  await page.click('[data-catalog-category="games"]');
+  for (const [id, label] of [["switch2-jp", "条件不一致"], ["switch2-mario", "本日の取得を停止"]]) {
+    await page.click(`#catalogProducts [data-product="${id}"]`);
+    await page.waitForSelector("#catalogDetail:not([hidden])");
+    const shown = await rankedStoresInDetail(page);
+    assert.ok(!shown.some(r => r.store === "買取ホムラ"), id);
+    const row = await page.$$eval("#catalogRanking .catalog-store", rows => rows.filter(r => !r.querySelector(".catalog-rank") && r.textContent.includes("買取ホムラ")).map(r => r.textContent.replace(/\s+/g, " ")));
+    assert.strictEqual(row.length, 1, id);
+    assert.ok(row[0].includes(label) && !/¥/.test(row[0]), row[0]);
+    await page.click("#catalogBack");
+  }
+  assert.deepStrictEqual(errors, []);
+  await page.close();
+});
+
 test("初期表示: ページを開いた直後は iPhone Duo 256GB スターホワイトが選ばれ、データどおりの店舗だけを表示する（報告の「ルデヤだけ」の再現条件）", async () => {
   const at = iso(1);
   const duo = "4549995732641";
