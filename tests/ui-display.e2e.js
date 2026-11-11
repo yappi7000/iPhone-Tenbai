@@ -899,20 +899,25 @@ test("カテゴリー再現: Android（Pixel 10a）で買取一丁目と買取�
   const catalogPrices = shiftedCatalogPrices(1);
   const id = "android-0840353950054"; // Google Pixel 10a 256GB fog
   const expected = catalogCore.ranking(catalogPrices.products[id]);
-  assert.deepStrictEqual(expected.map(q => q.store), ["買取一丁目", "買取ルデヤ"], "実データの前提");
+  assert.ok(expected.length >= 2, "実データの前提: 複数店舗の有効価格がある");
   const { page, errors } = await openWith(BASE_PRICES, { catalogPrices, viewport: { width: 375, height: 812 } });
   await page.click('[data-catalog-category="other"]');
   const card = (await page.textContent(`#catalogProducts [data-product="${id}"]`)).replace(/\s+/g, " ");
-  assert.match(card, /買取一丁目 ／ 比較可能 2店/);
+  assert.ok(card.includes(`${expected[0].store} ／ 比較可能 ${expected.length}店`), card);
   await page.click(`#catalogProducts [data-product="${id}"]`);
   await page.waitForSelector("#catalogDetail:not([hidden])");
   const shown = await rankedStoresInDetail(page);
-  assert.deepStrictEqual(shown.map(r => r.store), ["買取一丁目", "買取ルデヤ"]);
-  assert.match(await page.textContent("#catalogBest"), /最高買取 ¥82,000 ／ 買取一丁目/);
-  // 取得失敗・掲載なしの店舗は順位外として理由付きで表示（価格を出さない）
+  assert.deepStrictEqual(shown.map(r => r.store), expected.map(q => q.store));
+  const best = (await page.textContent("#catalogBest")).replace(/\s+/g, " ");
+  assert.ok(best.includes(`最高買取 ¥${expected[0].price.toLocaleString("ja-JP")} ／ ${expected[0].store}`), best);
+  // 取得失敗・掲載なしの店舗は順位外として、データの状態どおりの理由付きで表示（価格を出さない）
   const excluded = await page.$$eval("#catalogRanking .catalog-store", rows => rows.filter(r => !r.querySelector(".catalog-rank")).map(r => r.textContent.replace(/\s+/g, " ")));
-  assert.ok(excluded.some(t => /買取ホムラ.*対象条件の価格なし/.test(t)));
-  assert.ok(excluded.some(t => /買取商店.*取得失敗/.test(t)));
+  const reasons = { not_found: "対象条件の価格なし", condition_mismatch: "条件不一致", error: "取得失敗", stopped: "本日の取得を停止" };
+  for (const store of ["買取ホムラ", "買取商店"]) {
+    const row = catalogPrices.products[id].find(r => r.store === store);
+    assert.ok(row && reasons[row.status], `実データの前提: ${store}は${Object.keys(reasons).join("/")}`);
+    assert.ok(excluded.some(t => t.includes(store) && t.includes(reasons[row.status])), store);
+  }
   assert.ok(excluded.every(t => !/¥/.test(t)), "順位外の店舗に価格を出さない");
   assert.deepStrictEqual(errors, []);
   await page.close();
@@ -931,6 +936,31 @@ test("カテゴリー再現: 買取一丁目の価格が36時間を超えて古�
   assert.deepStrictEqual((await rankedStoresInDetail(page)).map(r => r.store), ["買取ルデヤ"]);
   const excluded = await page.$$eval("#catalogRanking .catalog-store", rows => rows.filter(r => !r.querySelector(".catalog-rank")).map(r => r.textContent.replace(/\s+/g, " ")));
   assert.ok(excluded.some(t => /買取一丁目.*価格が古いため順位から除外/.test(t)));
+  assert.deepStrictEqual(errors, []);
+  await page.close();
+});
+
+test("カテゴリー再現: ホムラの条件不一致・本日停止は理由付きで順位外に表示し、価格を出さない", async () => {
+  const catalogPrices = shiftedCatalogPrices(1);
+  const ids = ["switch2-jp", "switch2-mario"];
+  const statuses = { "switch2-jp": "condition_mismatch", "switch2-mario": "stopped" };
+  for (const id of ids) {
+    catalogPrices.products[id] = catalogPrices.products[id].map(r => (r.store_id === "homura"
+      ? { ...r, status: statuses[id], price: null, observed_at: null, reason: "除外語「開封済」を含む" }
+      : r));
+  }
+  const { page, errors } = await openWith(BASE_PRICES, { catalogPrices });
+  await page.click('[data-catalog-category="games"]');
+  for (const [id, label] of [["switch2-jp", "条件不一致"], ["switch2-mario", "本日の取得を停止"]]) {
+    await page.click(`#catalogProducts [data-product="${id}"]`);
+    await page.waitForSelector("#catalogDetail:not([hidden])");
+    const shown = await rankedStoresInDetail(page);
+    assert.ok(!shown.some(r => r.store === "買取ホムラ"), id);
+    const row = await page.$$eval("#catalogRanking .catalog-store", rows => rows.filter(r => !r.querySelector(".catalog-rank") && r.textContent.includes("買取ホムラ")).map(r => r.textContent.replace(/\s+/g, " ")));
+    assert.strictEqual(row.length, 1, id);
+    assert.ok(row[0].includes(label) && !/¥/.test(row[0]), row[0]);
+    await page.click("#catalogBack");
+  }
   assert.deepStrictEqual(errors, []);
   await page.close();
 });

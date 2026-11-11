@@ -7,6 +7,7 @@ from pathlib import Path
 import re
 import time
 import unicodedata
+import urllib.error
 import urllib.parse
 import urllib.request
 
@@ -23,7 +24,14 @@ STORES = {
 API_BASES = {
     'kaitorishouten': 'https://www.kaitorishouten-co.jp/api/v1/products?per_page=100&page=1&q=',
     'ichome': 'https://www.1-chome.com/api/index/findByKeyword?page=1&size=100&keyword=',
+    # 公開サイト（Expo）の商品一覧が使うログイン不要の検索API。2026-11-11に keyword=JAN で1件の完全一致を確認。
+    'homura': 'https://api.kaitori-homura.com/api/v1/products?keyword=',
 }
+# 同じ店舗へのリクエスト間隔（秒）。既定は1秒。
+STORE_INTERVALS = {'homura': 5}
+# これらの店舗はアクセス制限・タイムアウト・想定外の応答を検知したら、その日の残りを送らない（再試行しない）。
+HALT_STORES = {'homura'}
+HALT_HTTP_STATUSES = {403, 429, 503}
 BAD_CONDITION = re.compile(r'中古|開封済|ジャンク|訳あり|シュリンク\s*(無し|なし|無)|バラパック|カートン')
 SEALED = re.compile(r'シュリンク\s*(あり|有り|有|付き|付)')
 
@@ -195,8 +203,54 @@ def ichome_android(item, product):
                     'product_url': '/productDetail/' + goods_id + '/' + kb_id, 'note': note})
     return matches
 
+def extract_homura_api(payload, product):
+    """ホムラの検索API。店舗コード（なければJAN）の完全一致で、新品・未開封の条件が明記された掲載だけを使う。"""
+    items, meta = payload.get('data'), payload.get('meta')
+    if not isinstance(items, list) or not isinstance(meta, dict) or not isinstance(meta.get('total_count'), int):
+        raise ValueError('Unexpected homura response')
+    if meta['total_count'] > len(items):
+        return None, 'ambiguous'
+    code = product.get('store_codes', {}).get('homura', product.get('jan'))
+    matches, rejected = [], []
+    for item in items:
+        if not isinstance(item, dict) or str(item.get('jan_code') or '').strip() != code:
+            continue
+        name, notes = str(item.get('name') or ''), str(item.get('notes') or '')
+        text = name + ' ' + notes
+        bad = BAD_CONDITION.search(text)
+        if not name or bad:
+            rejected.append('除外語「' + bad[0] + '」を含む' if bad else '商品名なし')
+            continue
+        if not required_name_terms_match(product, name) or is_bundle_listing_for_single(product, name):
+            rejected.append('商品名の必須語・セット構成が不一致')
+            continue
+        if product['condition'] == 'sealed_box':
+            if not re.search(r'BOX|ボックス', name, re.I) or not (SEALED.search(text) or '未開封' in text):
+                rejected.append('BOX・未開封の明記なし')
+                continue
+        elif product['condition'] == 'sealed_set':
+            if '未開封' not in text:
+                rejected.append('未開封の明記なし')
+                continue
+        elif not re.search(r'新品|未使用', text):
+            rejected.append('新品・未使用の明記なし')
+            continue
+        value, item_id = item.get('price'), item.get('id')
+        if type(value) is not int or not 0 < value <= 10000000 or type(item_id) is not int:
+            rejected.append('価格が正の整数でない')
+            continue
+        note = ' ／ '.join(x for x in ['ホムラ公開買取価格', ' '.join(Tree(notes).root.text().split())] if x)
+        matches.append({'price': value, 'matched_name': name,
+            'product_url': 'https://kaitori-homura.com/products/' + str(item_id), 'note': note})
+    if rejected and not matches:
+        # 掲載はあるが、新品・未開封の明記または価格を確認できない。理由だけを残す（注記全文は保存しない）
+        return {'reason': ' ／ '.join(dict.fromkeys(rejected))}, 'condition_mismatch'
+    return choose(matches)
+
 def extract_api(payload, store, product):
     """Read anonymous public search data; never use retail/campaign maximums."""
+    if store == 'homura':
+        return extract_homura_api(payload, product)
     if store == 'ichome':
         if payload.get('code') != 200 or not isinstance(payload.get('data'), dict):
             raise ValueError('Unexpected ichome response')
@@ -280,6 +334,10 @@ def extract(html, store, product):
     root = Tree(html).root
     candidates = []
     if store == 'homura':
+        # 2026-10-13以降の公開ページはExpoのJavaScript描画で、HTMLには価格も商品カードもない。
+        # これを「掲載なし」と誤分類せず、取得失敗として理由を残す。
+        if 'data-product-price' not in html and re.search(r'<script[^>]+src="/_expo/', html):
+            raise ValueError('JavaScript描画のページでHTMLに価格情報がありません（ページ構造の変更）')
         for button in root.walk():
             if 'data-product-price' not in button.attrs:
                 continue
@@ -445,13 +503,49 @@ def fetch_quote(store, product):
             body = html.decode('utf-8', errors='replace')
             quote, status = extract_api(json.loads(body), store, product) if store in API_BASES else extract(body, store, product)
         row['status'] = status
-        if quote:
+        if quote and status == 'condition_mismatch':
+            row['reason'] = quote['reason']
+        elif quote:
             row.update(quote)
             row['url'] = urllib.parse.urljoin(url, row.pop('product_url')) or url
             row['observed_at'] = checked
     except Exception as e:
         row['error'] = type(e).__name__ + ': ' + str(e)[:180]
+        if store in HALT_STORES and halts_store(e):
+            row['_halt'] = True
     return row
+
+def halts_store(e):
+    """アクセス制限・タイムアウト・想定外の応答か。該当すればその店舗のその日の取得を止める。"""
+    if isinstance(e, urllib.error.HTTPError):
+        return e.code in HALT_HTTP_STATUSES
+    if isinstance(e, urllib.error.URLError):
+        return isinstance(e.reason, TimeoutError)
+    # 非200・JSON不正・スキーマ不一致・サイズ超過（ValueError）、タイムアウト、接続の切断
+    return isinstance(e, (ValueError, TimeoutError, ConnectionError))
+
+def stopped_row(store, product, reason):
+    name, base = STORES[store]
+    query = product.get('store_queries', {}).get(store) or product.get('jan') or product['name']
+    return {'store_id': store, 'store': name, 'url': base + urllib.parse.quote(query),
+        'checked_at': dt.datetime.now(dt.timezone.utc).isoformat(), 'observed_at': None, 'price': None,
+        'status': 'stopped', 'error': '本日の取得は停止済みのためリクエストを送信していません（停止理由: ' + reason + '）'}
+
+def crawl_store(store, products, sleep=time.sleep):
+    """1店舗を逐次取得する（同時リクエストなし）。停止を検知した店舗は残りを送らず、再試行もしない。"""
+    results, halted = [], None
+    for i, p in enumerate(products):
+        if halted:
+            row = stopped_row(store, p, halted)
+        else:
+            if i:
+                sleep(STORE_INTERVALS.get(store, 1))
+            row = fetch_quote(store, p)
+            if row.pop('_halt', False):
+                halted = row.get('error') or 'unknown'
+        results.append((p['id'], row))
+        print(store, p['id'], row['status'], row['price'], flush=True)
+    return results
 
 def validate_catalog(products):
     """カタログ定義の検査。9種セットは単品JANを流用せず、構成リストを持つこと。"""
@@ -503,18 +597,10 @@ def main():
     products = catalog['products']
     assert len({p['id'] for p in products}) == len(products), 'Duplicate product IDs'
     validate_catalog(products)
-    def crawl_store(store):
-        results = []
-        for p in products:
-            row = fetch_quote(store, p)
-            results.append((p['id'], row))
-            print(store, p['id'], row['status'], row['price'], flush=True)
-            time.sleep(1)
-        return results
     grouped = {p['id']: [] for p in products}
     # One serial worker per store; never send concurrent requests to one store.
     with concurrent.futures.ThreadPoolExecutor(max_workers=len(STORES)) as pool:
-        for results in pool.map(crawl_store, STORES):
+        for results in pool.map(lambda store: crawl_store(store, products), STORES):
             for product_id, row in results:
                 grouped[product_id].append(row)
     guard_bundle_prices(products, grouped)
