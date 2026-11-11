@@ -328,12 +328,85 @@ class StoreHaltTests(unittest.TestCase):
         self.assertEqual(calls, 4)
         self.assertEqual([r['status'] for r in rows], ['error', 'ok', 'ok', 'ok'])
 
-    def test_other_stores_are_not_halted(self):
+    def test_every_store_halts_on_access_restriction(self):
         import urllib.error
-        blocked = urllib.error.HTTPError('u', 403, 'x', {}, None)
-        rows, calls, sleeps = self.run_store('rudeya', [blocked, blocked, rudeya(jan=self.PRODUCTS[2]['jan']).encode(), blocked])
-        self.assertEqual((calls, sleeps), (4, [1, 1, 1]))
-        self.assertEqual([r['status'] for r in rows], ['error', 'error', 'ok', 'error'])
+        for code in (403, 429, 503):
+            blocked = urllib.error.HTTPError('u', code, 'x', {}, None)
+            rows, calls, sleeps = self.run_store('rudeya', [rudeya(jan=self.PRODUCTS[0]['jan']).encode(), blocked])
+            self.assertEqual((calls, sleeps), (2, [1]), code)  # 停止後は送らず、待機もしない
+            self.assertEqual([r['status'] for r in rows], ['ok', 'error', 'stopped', 'stopped'], code)
+
+    def test_other_stores_continue_after_timeout_or_unexpected_response(self):
+        import urllib.error
+        rows, calls, _ = self.run_store('rudeya', [TimeoutError('timed out'), urllib.error.HTTPError('u', 404, 'x', {}, None),
+                                                   ConnectionResetError('reset'), rudeya(jan=self.PRODUCTS[3]['jan']).encode()])
+        self.assertEqual(calls, 4)
+        self.assertEqual([r['status'] for r in rows], ['error', 'error', 'error', 'ok'])
+
+
+class CatalogRunTests(unittest.TestCase):
+    """main() の通し: 一部店舗がアクセス制限で停止しても、他店舗の取得と catalog_prices.json の保存は続く。"""
+    IDS = ['switch2-jp', 'switch2-mario', 'nano-eh-na7m-h']
+
+    def test_restricted_stores_stop_and_others_keep_updating(self):
+        import io, shutil, tempfile, urllib.error, urllib.parse
+        from pathlib import Path
+        import scripts.crawl_catalog as cc
+        from scripts.catalog_health import evaluate, summarize
+        real = Path(cc.__file__).resolve().parents[1]
+        catalog = json.loads((real / 'data/catalog.json').read_text())
+        products = [p for p in catalog['products'] if p['id'] in self.IDS]
+        root = Path(tempfile.mkdtemp())
+        self.addCleanup(shutil.rmtree, root)
+        (root / 'data').mkdir()
+        (root / 'data/catalog.json').write_text(json.dumps({**catalog, 'products': products}, ensure_ascii=False))
+        restricted = {'www.1-chome.com': 429, 'www.kaitorishouten-co.jp': 403, 'www.morimori-kaitori.jp': 503,
+                      'www.keitaispace.co.jp': 403, 'kaitori.wiki': 403}
+        calls = {}
+
+        def fake_urlopen(request, timeout):
+            url = urllib.parse.urlsplit(request.full_url)
+            calls[url.hostname] = calls.get(url.hostname, 0) + 1
+            if url.hostname in restricted:
+                raise urllib.error.HTTPError(request.full_url, restricted[url.hostname], 'restricted', {}, None)
+            if url.hostname == 'api.kaitori-homura.com':
+                jan = urllib.parse.parse_qs(url.query)['keyword'][0]
+                body = json.dumps(homura_api(homura_item(jan=jan, price=50000))).encode()
+            else:
+                jan = url.path.rsplit('/', 1)[-1]
+                body = rudeya(jan=jan, price='51,000').encode()
+            response = unittest.mock.MagicMock()
+            response.__enter__.return_value.status = 200
+            response.__enter__.return_value.read.return_value = body
+            return response
+
+        with patch.object(cc, 'ROOT', root), \
+             patch.object(cc.crawl_store, '__defaults__', (lambda seconds: None,)), \
+             patch('scripts.crawl_catalog.urllib.request.urlopen', side_effect=fake_urlopen), \
+             patch('scripts.pokemon_market.crawl'), \
+             patch('sys.stdout', new_callable=io.StringIO):
+            cc.main()
+
+        saved = json.loads((root / 'data/catalog_prices.json').read_text())
+        for pid in self.IDS:
+            by_store = {r['store_id']: r for r in saved['products'][pid]}
+            self.assertEqual(set(by_store), set(cc.STORES), pid)
+            for sid in ('rudeya', 'homura'):
+                self.assertEqual((by_store[sid]['status'], type(by_store[sid]['price'])), ('ok', int), (pid, sid))
+            for sid in ('ichome', 'kaitorishouten', 'morimori', 'keitaispace', 'kaitoriwiki'):
+                self.assertIsNone(by_store[sid]['price'], (pid, sid))
+                self.assertIn(by_store[sid]['status'], ('error', 'stopped'), (pid, sid))
+        # 制限した店舗は1回だけ（再試行なし）、他店舗は全商品
+        self.assertEqual({h: calls[h] for h in restricted}, {h: 1 for h in restricted})
+        self.assertEqual((calls['kaitori-rudeya.com'], calls['api.kaitori-homura.com']), (3, 3))
+        # 監視: 既知の制限は警告、稼働中店舗（一丁目）の停止は重大として検知する
+        known = json.loads((real / 'scripts/known_store_restrictions.json').read_text())['catalog']
+        gate = evaluate(summarize(saved), known)
+        self.assertEqual([sid for sid, _ in gate['critical']], ['ichome'])
+        self.assertEqual(sorted(sid for sid, _ in gate['known']), ['kaitorishouten', 'kaitoriwiki', 'keitaispace', 'morimori'])
+        self.assertTrue(gate['failed'])
+        # 本番の価格ファイルには書いていない
+        self.assertNotEqual(Path(cc.ROOT), root)
 
 
 if __name__ == '__main__': unittest.main()

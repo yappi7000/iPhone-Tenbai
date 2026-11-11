@@ -11,6 +11,8 @@
  *     [--issues-in open_issues.json]  # 既存の通知Issue（gh issue list --json の出力）
  *     [--plan-out issue_plan.json]    # 作成・更新・クローズする Issue の計画
  *     [--plan-only]                   # レポート出力・履歴更新をせず、計画だけを書く
+ *     [--gate]                        # 最終判定。新規の取得0件・全店舗0件なら終了コード1（ワークフローを失敗表示）
+ *     [--known known.json]            # 既知のアクセス制限（既定: scripts/known_store_restrictions.json の iphone）
  *
  * - 毎回: 店舗別・原因別の集計を Markdown で出力する（GITHUB_STEP_SUMMARY にも追記）。
  * - 定時実行: 店舗ごとに「価格0件が同じ原因で何回続いたか」を data/store_health.json に記録する。
@@ -208,6 +210,64 @@ function planIssues(alerts, openIssues) {
   return plan;
 }
 
+/*
+ * 今回の実行で1件も価格を取得できなかった店舗（対象SKUがあった店舗のみ）。
+ * ワークフローが成功しただけで「正常」と判断しないための判定に使う。
+ */
+function zeroSuccessStores(run) {
+  return Object.entries(run.stores)
+    .filter(([, s]) => s.total > 0 && s.success === 0)
+    .map(([id, s]) => ({ id, store: s.store, total: s.total, reason: s.top_reasons[0] ? s.top_reasons[0][0] : "-" }));
+}
+
+/*
+ * 最終判定
+ *   critical : 既知の制限に無い店舗の取得0件（稼働中店舗の異常）、または全店舗の取得0件 → 失敗
+ *   known    : 既知のアクセス制限による継続障害 → 警告（毎回表示する）
+ *   recovered: 既知の制限に載っているが今回は取得できた店舗 → 一覧から外す候補
+ */
+function evaluateGate(run, known = {}) {
+  const zero = zeroSuccessStores(run);
+  const attempted = Object.values(run.stores).filter(s => s.total > 0);
+  const allZero = attempted.length > 0 && attempted.every(s => s.success === 0);
+  return {
+    allZero,
+    critical: zero.filter(z => !known[z.id]),
+    known: zero.filter(z => known[z.id]).map(z => ({ ...z, restriction: known[z.id] })),
+    recovered: Object.entries(run.stores).filter(([id, s]) => known[id] && s.success > 0).map(([id, s]) => ({ id, store: s.store, success: s.success, total: s.total })),
+    failed: allZero || zero.some(z => !known[z.id])
+  };
+}
+
+function formatGate(gate) {
+  const lines = [];
+  if (gate.allZero) lines.push("### ❌ 重大: 全店舗で価格を1件も取得できませんでした");
+  if (gate.critical.length) {
+    lines.push(`### ❌ 重大: 稼働中の店舗で価格0件（新規の取得障害）: ${gate.critical.length}店舗`);
+    lines.push(...gate.critical.map(z => `- ${z.store}: 0/${z.total}（${z.reason}）`));
+  }
+  if (gate.known.length) {
+    lines.push(`### ⚠️ 既知のアクセス制限で継続して取得できない店舗: ${gate.known.length}店舗（回避はしません）`);
+    lines.push(...gate.known.map(z => `- ${z.store}: 0/${z.total}（${z.reason}。登録 ${z.restriction.registered}・最終成功 ${z.restriction.last_success || "記録なし"}）`));
+  }
+  if (gate.recovered.length) {
+    lines.push("### ℹ️ 既知の制限に登録されているが、今回は取得できた店舗（回復の可能性。確認して一覧から外してください）");
+    lines.push(...gate.recovered.map(r => `- ${r.store}: ${r.success}/${r.total}`));
+  }
+  if (!gate.failed && !gate.known.length) lines.push("### ✅ 全店舗で1件以上の価格を取得しました");
+  else if (!gate.failed) lines.push("### ✅ 稼働中の店舗はすべて1件以上の価格を取得しました");
+  return lines.join("\n");
+}
+
+function gateAnnotations(gate) {
+  const out = [];
+  if (gate.allZero) out.push("::error::全店舗で価格0件");
+  for (const z of gate.critical) out.push(`::error::${z.store}: 価格0/${z.total}件（新規の取得障害: ${z.reason}）`);
+  for (const z of gate.known) out.push(`::warning::${z.store}: 価格0/${z.total}件（既知のアクセス制限: ${z.restriction.cause}）`);
+  for (const r of gate.recovered) out.push(`::notice::${r.store}: 既知の制限に登録済みだが ${r.success}件取得（回復の可能性）`);
+  return out;
+}
+
 function pct(n, d) {
   return d ? `${Math.round((n / d) * 100)}%` : "-";
 }
@@ -248,6 +308,7 @@ function parseArgs(argv) {
     const name = key.slice(2);
     if (name === "update") args.update = true;
     else if (name === "plan-only") args.planOnly = true;
+    else if (name === "gate") args.gate = true;
     else args[name] = argv[++i];
   }
   return args;
@@ -284,6 +345,18 @@ function main() {
   }
 
   const run = summarizeRun(diagnostics);
+  if (args.gate) {
+    // 価格の検証・コミットとは独立した最終判定。レポートや履歴は更新しない。
+    const knownPath = path.resolve(root, args.known || "scripts/known_store_restrictions.json");
+    const known = (readJson(knownPath, {}) || {}).iphone || {};
+    const gate = evaluateGate(run, known);
+    const text = formatGate(gate);
+    console.log(text);
+    for (const line of gateAnnotations(gate)) console.log(line);
+    if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, text + "\n");
+    process.exitCode = gate.failed ? 1 : 0;
+    return;
+  }
   // 履歴の更新は定時の全件実行だけ（オンデマンドの1SKUで連続回数を進めない）
   const health = args.update && run.scheduled ? updateHealth(previous, run) : previous;
   const alerts = listAlerts(health);
@@ -316,5 +389,9 @@ module.exports = {
   listAlerts,
   planIssues,
   issueBody,
-  formatReport
+  formatReport,
+  zeroSuccessStores,
+  evaluateGate,
+  formatGate,
+  gateAnnotations
 };

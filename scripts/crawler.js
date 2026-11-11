@@ -7,7 +7,8 @@ const {
   extractTargets,
   validateTargets,
   isPriceInRange,
-  isStoreAllowedForModel
+  isStoreAllowedForModel,
+  priceRangeFor
 } = require('./price_rules');
 const {
   classifyFetchOutcome,
@@ -1305,8 +1306,16 @@ function extractHomuraPrice(bodyText, productName, jan) {
 }
 
 
-function extractRudeyaPrice(bodyText, jan) {
+/*
+ * range: 対象モデル・容量の受付範囲（price_rules.js）。
+ * 全店共通の maxPrice（60万円）は iPhone Duo 2TB（定価574,800円、実勢59〜61万円）の
+ * 正常価格を弾くため、JAN完全一致のルデヤはモデル別範囲で判定する。
+ * 範囲が分からないときは従来の全店共通範囲。
+ */
+function extractRudeyaPrice(bodyText, jan, range = null) {
   const text = String(bodyText || "").replace(/\r/g, "");
+  const min = range ? range.min : CONFIG.minPrice;
+  const max = range ? range.max : CONFIG.maxPrice;
 
   const janText = String(jan || "").trim();
 
@@ -1355,8 +1364,8 @@ function extractRudeyaPrice(bodyText, jan) {
 
   if (
     !Number.isFinite(price) ||
-    price < CONFIG.minPrice ||
-    price > CONFIG.maxPrice
+    price < min ||
+    price > max
   ) {
     return {
       found: true,
@@ -2874,7 +2883,8 @@ if (
       const extracted =
         extractRudeyaPrice(
           bodyText,
-          item.jan
+          item.jan,
+          priceRangeFor(item.model, item.storage)
         );
 
       diagnostic.product.jan_found =
@@ -3256,72 +3266,42 @@ function storesForItem(item, stores = STORES) {
 /*
  * 同一実行内の店舗状態
  *   blocked       : アクセス停止した店舗（停止条件は BLOCK_STOP_POLICY） → 以降アクセスしない
- *   blockStrikes  : 遮断ページの特徴が無い HTTP 403 の連続回数（正常な HTTP 2xx 応答で0に戻す）
  *   retryDisabled : 再試行しても接続エラーだった店舗 → 以降は再試行しない
  */
 function createStoreRunState() {
   return {
     blocked: new Map(),
-    blockStrikes: new Map(),
     retryDisabled: new Set()
   };
 }
 
 /*
- * アクセス停止の条件
- *   - WAF・CDN の遮断ページ（Webサイトファイアウォール 等）: 1回で停止。
- *   - 遮断ページの特徴が無い HTTP 403: 同じ店舗で2回連続したら停止
- *     （1SKUだけの一時的な 403 で、ルデヤ等の主要店舗の残りSKUを失わないため）。
- *     途中で遮断ページではない HTTP 2xx 応答を受け取れば、価格取得の成否
- *     （成功・掲載なし・抽出失敗）にかかわらず連続回数を0に戻す。
- *     タイムアウト・接続エラー・キャッシュの使い回しでは0に戻さない。
- *   - HTTP 429（レート制限）: 再試行はしないが、停止もしない（一時的なことが多いため）。
+ * アクセス停止の条件（1回で停止し、その店舗の残りSKUにはアクセスしない。再試行もしない）
+ *   - WAF・CDN の遮断ページ（Webサイトファイアウォール 等）
+ *   - HTTP 403・429・503（アクセス制限・レート制限・一時的な受付停止）
+ * 一時的な制限でも、その実行ではそれ以上アクセスしない（店舗側の負荷・制限を優先する）。
  */
 const BLOCK_STOP_POLICY = {
-  plain403Strikes: 2
+  stopStatuses: new Set([403, 429, 503])
 };
 
-/*
- * 今回の実行でその店舗から正常な応答（遮断ページではない HTTP 2xx）を受け取ったか。
- * キャッシュの使い回しは新しい応答ではないので含めない。
- */
-const NORMAL_RESPONSE_OUTCOMES =
-  new Set(["success", "no_price", "extraction_failed"]);
-
-function isFreshNormalResponse(result) {
-  const status = result.http && result.http.status;
-
-  return (
-    !result.cache_hit &&
-    Number.isInteger(status) &&
-    status >= 200 &&
-    status < 300 &&
-    NORMAL_RESPONSE_OUTCOMES.has(result.outcome) &&
-    !hasBlockPageSignature(result)
-  );
+function httpStatusOf(result) {
+  const status = result && result.http && result.http.status;
+  return Number.isInteger(status) ? status : null;
 }
 
 /*
  * この結果で店舗のアクセスを止めるか。止める場合は停止理由、止めない場合は null。
  */
-function blockStopReason(result, state, storeId) {
-  if (result.outcome !== "blocked") return null;
-
-  if (hasBlockPageSignature(result)) {
+function blockStopReason(result) {
+  if (result.outcome === "blocked" && hasBlockPageSignature(result)) {
     return "WAF・遮断ページ";
   }
 
-  const status = result.http && result.http.status;
+  const status = httpStatusOf(result);
 
-  if (status !== 403) return null;
-
-  const strikes =
-    (state.blockStrikes.get(storeId) || 0) + 1;
-
-  state.blockStrikes.set(storeId, strikes);
-
-  return strikes >= BLOCK_STOP_POLICY.plain403Strikes
-    ? `HTTP 403（${strikes}回連続）`
+  return BLOCK_STOP_POLICY.stopStatuses.has(status)
+    ? `HTTP ${status}`
     : null;
 }
 
@@ -3331,7 +3311,7 @@ function blockStopReason(result, state, storeId) {
  *     過去に HTTP 502 の単発失敗があったため（2026/10/6 買取wiki）。
  *   - タイムアウトは再試行しない（1回15秒の待ちが倍になる。直近のタイムアウトは
  *     アクセス制限と同時期に起きており、再試行で回復する見込みが低い）。
- *   - アクセス制限（403/429・WAF）は再試行しない。
+ *   - アクセス制限（403/429/503・WAF）は再試行しない（BLOCK_STOP_POLICY で停止する）。
  *   - 再試行しても接続エラーなら、その店舗は同一実行内で再試行しない
  *     （継続的な障害で40SKU分のアクセスが倍にならないように）。
  */
@@ -3414,6 +3394,7 @@ async function inspectStoreWithPolicy(
 
   if (
     RETRY_POLICY.retryableOutcomes.has(result.outcome) &&
+    !BLOCK_STOP_POLICY.stopStatuses.has(httpStatusOf(result)) &&
     !state.retryDisabled.has(store.id)
   ) {
     const firstErrors = result.errors.slice();
@@ -3438,13 +3419,9 @@ async function inspectStoreWithPolicy(
     }
   }
 
-  if (isFreshNormalResponse(result)) {
-    state.blockStrikes.delete(store.id);
-  }
-
   if (!state.blocked.has(store.id)) {
     const reason =
-      blockStopReason(result, state, store.id);
+      blockStopReason(result);
 
     if (reason) {
       state.blocked.set(store.id, {
@@ -5286,6 +5263,7 @@ module.exports = {
   PAGE_READY_MARKERS,
   extractRakuenPrice,
   extractIchomePrice,
+  extractRudeyaPrice,
   colorLabelsIn,
   extractIphoneKaitoriPrice
 };
