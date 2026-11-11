@@ -145,3 +145,10 @@ jobs:
           git rebase "origin/${GITHUB_REF_NAME}"
 
           git push origin "HEAD:${GITHUB_REF_NAME}"
+
+      - name: Store coverage gate
+        # 価格の検証・コミットの後に実行する最終判定（価格の更新は止めない）。
+        # 稼働中の店舗の取得0件（新規の取得障害）と全店舗の取得0件は、このワークフローを「失敗」として表示する。
+        # 既知のアクセス制限（scripts/known_store_restrictions.json）による継続障害は警告として毎回表示する。
+        if: always() && hashFiles('data/crawl_diagnostics.json') != ''
+        run: node scripts/store_health.js --diagnostics data/crawl_diagnostics.json --gate

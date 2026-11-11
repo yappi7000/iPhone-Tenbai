@@ -214,147 +214,74 @@ async function runThreeSkus(storeId, responses) {
   return { outcomes, calls: inspect.calls.length, state };
 }
 
-test("停止条件: 遮断ページの特徴が無い 403 が1回だけなら止めない（ルデヤの一時的な 403 で残りSKUを失わない）", async () => {
-  const { outcomes, calls, state } = await runThreeSkus("rudeya", [plain403, ok]);
-  assert.deepStrictEqual(outcomes, ["blocked", "success", "success"]);
-  assert.strictEqual(calls, 3);
-  assert.strictEqual(state.blocked.size, 0);
-});
-
-test("停止条件: 遮断ページの特徴が無い 403 が2回連続したら、3SKU目からアクセス停止", async () => {
-  const { outcomes, calls, state } = await runThreeSkus("rudeya", [plain403]);
-  assert.deepStrictEqual(outcomes, ["blocked", "blocked", "stopped"]);
-  assert.strictEqual(calls, 2, "停止後はアクセスしない");
-  assert.strictEqual(state.blocked.get("rudeya").reason, "HTTP 403（2回連続）");
-  assert.strictEqual(state.blocked.get("rudeya").jan, DUO_ITEM_2.jan, "停止を決めたSKUを記録する");
-});
-
-test("停止条件: 403 の間に成功があれば連続回数を0に戻す", async () => {
-  const { outcomes, calls, state } = await runThreeSkus("rudeya", [plain403, ok, plain403]);
-  assert.deepStrictEqual(outcomes, ["blocked", "success", "blocked"]);
-  assert.strictEqual(calls, 3);
-  assert.strictEqual(state.blocked.size, 0);
-  assert.strictEqual(state.blockStrikes.get("rudeya"), 1);
-});
-
-test("停止条件: CloudFront の 403（502 等でも出るタイトル）は遮断ページ扱いせず、2回連続で停止", async () => {
-  const { outcomes, calls } = await runThreeSkus("kaitorishouten", [cloudFront403]);
-  assert.deepStrictEqual(outcomes, ["blocked", "blocked", "stopped"]);
-  assert.strictEqual(calls, 2);
-});
-
-test("停止条件: WAF の遮断ページは1回で停止する", async () => {
-  const { outcomes, calls, state } = await runThreeSkus("kaitoriwiki", [forbidden]);
-  assert.deepStrictEqual(outcomes, ["blocked", "stopped", "stopped"]);
-  assert.strictEqual(calls, 1);
-  assert.strictEqual(state.blocked.get("kaitoriwiki").reason, "WAF・遮断ページ");
-});
-
-test("停止条件: HTTP 429 は再試行も停止もしない（アクセス制限として記録だけする）", async () => {
-  const { outcomes, calls, state } = await runThreeSkus("rudeya", [tooMany]);
-  assert.deepStrictEqual(outcomes, ["blocked", "blocked", "blocked"]);
-  assert.strictEqual(calls, 3, "SKUごとに1回だけ（再試行なし）");
-  assert.strictEqual(state.blocked.size, 0);
-});
-
+const unavailable503 = (s, i) => row(s, i, { http: 503, title: "503 Service Unavailable", body: 200, errors: ["HTTP status 503"] });
 const noPrice200 = (s, i) => row(s, i, { http: 200, title: "検索結果", errors: ["JAN完全一致の商品が見つかりません"] });
-const extractFail200 = (s, i) => row(s, i, { http: 200, title: "検索結果", found: true, errors: ["通常買取価格を取得できません"] });
 const waf200 = (s, i) => row(s, i, { http: 200, title: "Webサイトファイアウォール", body: 230 });
-const cachedNoPrice = (s, i) => ({ ...noPrice200(s, i), cache_hit: true });
 
-test("403の連続回数: 403 → 掲載なし（HTTP 200）→ 403 では停止しない", async () => {
-  const { outcomes, calls, state } = await runThreeSkus("rudeya", [plain403, noPrice200, plain403]);
-  assert.deepStrictEqual(outcomes, ["blocked", "no_price", "blocked"]);
-  assert.strictEqual(calls, 3);
-  assert.strictEqual(state.blocked.size, 0);
-  assert.strictEqual(state.blockStrikes.get("rudeya"), 1);
-});
-
-test("403の連続回数: 403 → 抽出失敗（HTTP 200）→ 403 では停止しない", async () => {
-  const { outcomes, calls, state } = await runThreeSkus("rudeya", [plain403, extractFail200, plain403]);
-  assert.deepStrictEqual(outcomes, ["blocked", "extraction_failed", "blocked"]);
-  assert.strictEqual(calls, 3);
-  assert.strictEqual(state.blocked.size, 0);
-});
-
-test("403の連続回数: 403 → 403 では停止する（3SKU目はアクセスしない）", async () => {
-  const { outcomes, calls, state } = await runThreeSkus("rudeya", [plain403, plain403, ok]);
-  assert.deepStrictEqual(outcomes, ["blocked", "blocked", "stopped"]);
-  assert.strictEqual(calls, 2);
-  assert.strictEqual(state.blocked.get("rudeya").reason, "HTTP 403（2回連続）");
-});
-
-test("403の連続回数: タイムアウト・接続エラー・キャッシュの使い回しは正常応答とみなさず、0に戻さない", async () => {
-  // 接続エラーは1回再試行されるので、2SKU目は2回とも接続エラーにする
-  for (const [name, between] of [["timeout", [timeout]], ["connection_error", [hangUp, hangUp]], ["cache_hit", [cachedNoPrice]]]) {
-    const { outcomes, state } = await runThreeSkus("rudeya", [plain403, ...between, plain403]);
-    assert.strictEqual(outcomes[2], "blocked", name);
-    assert.strictEqual(state.blocked.get("rudeya").reason, "HTTP 403（2回連続）", name);
+test("停止条件: HTTP 403・429・503 は1回で停止し、その店舗の残りSKUにはアクセスしない（再試行なし）", async () => {
+  for (const [name, response, reason] of [
+    ["403", plain403, "HTTP 403"],
+    ["403(CloudFront)", cloudFront403, "HTTP 403"],
+    ["429", tooMany, "HTTP 429"],
+    ["503", unavailable503, "HTTP 503"]
+  ]) {
+    const { outcomes, calls, state } = await runThreeSkus("rudeya", [response, ok]);
+    assert.deepStrictEqual(outcomes.slice(1), ["stopped", "stopped"], name);
+    assert.strictEqual(calls, 1, `${name}: 再試行も残りSKUへのアクセスもしない`);
+    assert.strictEqual(state.blocked.get("rudeya").reason, reason, name);
+    assert.strictEqual(state.blocked.get("rudeya").jan, DUO_ITEM.jan, "停止を決めたSKUを記録する");
   }
 });
 
-test("403の連続回数: HTTP 200 でも WAF の遮断ページなら即時停止（0に戻さない）", async () => {
-  const { outcomes, calls, state } = await runThreeSkus("kaitoriwiki", [plain403, waf200, ok]);
-  assert.deepStrictEqual(outcomes, ["blocked", "blocked", "stopped"]);
-  assert.strictEqual(calls, 2);
-  assert.strictEqual(state.blocked.get("kaitoriwiki").reason, "WAF・遮断ページ");
+test("停止条件: WAF の遮断ページは HTTP 200 でも1回で停止する", async () => {
+  for (const response of [forbidden, waf200]) {
+    const { outcomes, calls, state } = await runThreeSkus("kaitoriwiki", [response, ok]);
+    assert.deepStrictEqual(outcomes, ["blocked", "stopped", "stopped"]);
+    assert.strictEqual(calls, 1);
+    assert.strictEqual(state.blocked.get("kaitoriwiki").reason, "WAF・遮断ページ");
+  }
+});
+
+test("停止条件: 掲載なし（HTTP 200）では止めない", async () => {
+  const { outcomes, calls, state } = await runThreeSkus("rudeya", [noPrice200, ok, noPrice200]);
+  assert.deepStrictEqual(outcomes, ["no_price", "success", "no_price"]);
+  assert.strictEqual(calls, 3);
+  assert.strictEqual(state.blocked.size, 0);
+});
+
+test("停止条件: 接続エラーの再試行で 503 が返ったら、その時点で停止する", async () => {
+  const { outcomes, calls, state } = await runThreeSkus("morimori", [hangUp, unavailable503, ok]);
+  assert.deepStrictEqual(outcomes, ["connection_error", "stopped", "stopped"]);
+  assert.strictEqual(calls, 2, "最初の接続エラー + 再試行の1回だけ");
+  assert.strictEqual(state.blocked.get("morimori").reason, "HTTP 503");
 });
 
 /*
- * 定時実行と同じく3SKUを並列に調べる。応答は delays の順（ms）で返る。
+ * 定時実行と同じく3SKUを並列に調べ、続けて4SKU目を調べる。plan は JAN → [応答までのms, 応答]。
  */
 async function runParallelSkus(storeId, plan) {
   const state = createStoreRunState();
   const calls = [];
-  const items = [DUO_ITEM, DUO_ITEM_2, DUO_ITEM_3];
   const store = findStore(storeId);
   const inspect = async (s, item) => {
     calls.push(item.jan);
-    // 4SKU目（並列バッチの後）は遮断ページの無い 403 を返す
-    const { delay, response } = plan[item.jan] || { delay: 1, response: plain403 };
+    const [delay, response] = plan[item.jan] || [1, ok];
     await new Promise(r => setTimeout(r, delay));
     return response(s, item);
   };
-  const batch = await Promise.all(items.map(item => inspectStoresForItem(inspect, item, state, { stores: [store], ...noWait })));
-  // 並列バッチ直後の状態（4SKU目の結果を含めない）
-  const afterBatch = { blocked: state.blocked.size, strikes: state.blockStrikes.get(storeId) || 0 };
+  const batch = await Promise.all([DUO_ITEM, DUO_ITEM_2, DUO_ITEM_3].map(item => inspectStoresForItem(inspect, item, state, { stores: [store], ...noWait })));
   const next = await inspectStoresForItem(inspect, { ...DUO_ITEM, jan: "4549995732894" }, state, { stores: [store], ...noWait });
-  return { outcomes: batch.map(r => r[0].outcome), next: next[0].outcome, calls: calls.length, state, afterBatch };
+  return { outcomes: batch.map(r => r[0].outcome), next: next[0].outcome, calls: calls.length, state };
 }
 
-test("3SKU並列: 応答順が 403 → 掲載なし（200）→ 403 なら停止せず、次のSKUもアクセスする", async () => {
-  const { outcomes, next, calls, afterBatch } = await runParallelSkus("rudeya", {
-    [DUO_ITEM.jan]: { delay: 5, response: plain403 },
-    [DUO_ITEM_2.jan]: { delay: 15, response: noPrice200 },
-    [DUO_ITEM_3.jan]: { delay: 25, response: plain403 }
-  });
-  assert.deepStrictEqual(outcomes, ["blocked", "no_price", "blocked"]);
-  assert.deepStrictEqual(afterBatch, { blocked: 0, strikes: 1 });
-  assert.strictEqual(next, "blocked", "4SKU目もアクセスする（停止していない）");
-  assert.strictEqual(calls, 4);
-});
-
-test("3SKU並列: 403 が2件続けて返れば停止し、実行中の3件目の正常応答では停止を取り消さない", async () => {
+test("3SKU並列: 最初に返った 403 で停止し、実行中の他SKUの正常応答では停止を取り消さない", async () => {
   const { outcomes, next, calls, state } = await runParallelSkus("rudeya", {
-    [DUO_ITEM.jan]: { delay: 5, response: plain403 },
-    [DUO_ITEM_2.jan]: { delay: 10, response: plain403 },
-    [DUO_ITEM_3.jan]: { delay: 25, response: noPrice200 }
+    [DUO_ITEM.jan]: [5, plain403], [DUO_ITEM_2.jan]: [15, noPrice200], [DUO_ITEM_3.jan]: [25, ok]
   });
-  assert.deepStrictEqual(outcomes, ["blocked", "blocked", "no_price"]);
-  assert.strictEqual(state.blocked.get("rudeya").reason, "HTTP 403（2回連続）");
+  assert.deepStrictEqual(outcomes, ["blocked", "no_price", "success"]);
+  assert.strictEqual(state.blocked.get("rudeya").reason, "HTTP 403");
   assert.strictEqual(next, "stopped");
   assert.strictEqual(calls, 3, "停止後の4SKU目にはアクセスしない");
-});
-
-test("3SKU並列: 応答順が 403 → 掲載なし → 403 でも、呼び出し順ではなく応答が返った順で数える", async () => {
-  // 呼び出し順は 403, 403, 掲載なし だが、応答は 403 → 掲載なし → 403 の順に返る
-  const { outcomes, afterBatch } = await runParallelSkus("rudeya", {
-    [DUO_ITEM.jan]: { delay: 5, response: plain403 },
-    [DUO_ITEM_2.jan]: { delay: 25, response: plain403 },
-    [DUO_ITEM_3.jan]: { delay: 15, response: noPrice200 }
-  });
-  assert.deepStrictEqual(outcomes, ["blocked", "blocked", "no_price"]);
-  assert.deepStrictEqual(afterBatch, { blocked: 0, strikes: 1 });
 });
 
 test("アクセス停止: タイムアウト・接続エラーでは止めない（明確な制限だけ）", async () => {
@@ -515,25 +442,16 @@ test("アクセス確認ページ: 1回で同一実行内の後続アクセス�
   assert.strictEqual(state.blocked.get("rakuen").reason, "WAF・遮断ページ");
 });
 
-test("アクセス確認ページ: 403 の連続回数を0に戻す正常応答として扱わない", async () => {
-  // 403 の後の確認ページは「正常な HTTP 200」ではなく遮断として即時停止
-  const { outcomes, calls } = await runThreeSkus("rakuen", [plain403, rakuenAccessCheck, rakuenNormal]);
-  assert.deepStrictEqual(outcomes, ["blocked", "blocked", "stopped"]);
-  assert.strictEqual(calls, 2);
-});
-
-test("アクセス確認ページ: 通常ページなら停止せず、正常な掲載なしで 403 の連続回数も0に戻る", async () => {
-  const { outcomes, calls, state } = await runThreeSkus("rakuen", [plain403, rakuenNormalNoListing, rakuenNormal]);
-  assert.deepStrictEqual(outcomes, ["blocked", "no_price", "success"]);
+test("アクセス確認ページ: 通常ページの掲載なしでは停止しない", async () => {
+  const { outcomes, calls, state } = await runThreeSkus("rakuen", [rakuenNormalNoListing, rakuenNormal]);
+  assert.deepStrictEqual(outcomes, ["no_price", "success", "success"]);
   assert.strictEqual(calls, 3);
   assert.strictEqual(state.blocked.size, 0);
 });
 
 test("アクセス確認ページ: 3SKU並列でも確認ページが返った時点で停止し、次のSKUにはアクセスしない", async () => {
   const { outcomes, next, calls } = await runParallelSkus("rakuen", {
-    [DUO_ITEM.jan]: { delay: 5, response: rakuenAccessCheck },
-    [DUO_ITEM_2.jan]: { delay: 10, response: rakuenAccessCheck },
-    [DUO_ITEM_3.jan]: { delay: 15, response: rakuenAccessCheck }
+    [DUO_ITEM.jan]: [5, rakuenAccessCheck], [DUO_ITEM_2.jan]: [10, rakuenAccessCheck], [DUO_ITEM_3.jan]: [15, rakuenAccessCheck]
   });
   assert.deepStrictEqual(outcomes, ["blocked", "blocked", "blocked"], "実行中だった3件は確認ページとして記録");
   assert.strictEqual(next, "stopped");
@@ -549,4 +467,70 @@ test("キャッシュ: アクセス確認ページは価格表として使い回
   assert.strictEqual(shouldCacheStaticPage(RAKUEN, { ok: () => false }, "x".repeat(500), page("403 Forbidden")), false);
   assert.strictEqual(shouldCacheStaticPage(RAKUEN, okResponse, "", page("iPhone(アイフォン)の高額買取 – 買取楽園")), false);
   assert.strictEqual(shouldCacheStaticPage({ id: "rudeya", name: "買取ルデヤ" }, okResponse, "x".repeat(4190), page("検索結果")), false, "キャッシュ対象外の店舗");
+});
+
+/* ---------- 通し: 一部店舗の停止と価格更新 ---------- */
+
+test("通し: 403・429・503 で停止した店舗があっても、他店舗の取得と prices.json の更新・公開前検証は続く", async () => {
+  const fs = require("fs"), os = require("os"), path = require("path");
+  const { extractTargets } = require("../scripts/price_rules.js");
+  const { updatePricesJsonSafely } = require("../scripts/crawler.js");
+  const { verifyPrices } = require("../scripts/verify_prices.js");
+  const indexHtml = fs.readFileSync(path.join(__dirname, "../index.html"), "utf8");
+  const targets = extractTargets(indexHtml);
+  assert.strictEqual(targets.length, 40, "定時実行と同じ40SKU");
+
+  // 3店舗はそれぞれ最初の応答で 403・429・503。他の店舗は正常に価格を返す
+  const restricted = { ichome: 403, mobilemix: 429, kaitorishouten: 503 };
+  const calls = {};
+  const priceFor = (store, item) => (item.model === "iPhone Duo" ? 410000 : 200000) + (store.id === "rudeya" ? 1000 : 0);
+  const inspect = async (store, item) => {
+    calls[store.id] = (calls[store.id] || 0) + 1;
+    const code = restricted[store.id];
+    const r = code ? row(store, item, { http: code, errors: [`HTTP status ${code}`] }) : ok(store, item, priceFor(store, item));
+    return { ...r, checked_at: "2026/11/11 10:00:00" };
+  };
+  const state = createStoreRunState();
+  const rows = [];
+  for (const item of targets) rows.push(...await inspectStoresForItem(inspect, item, state, noWait));
+
+  // 制限した店舗は1回だけアクセスして停止（再試行なし）、残りSKUは stopped
+  for (const [id, code] of Object.entries(restricted)) {
+    assert.strictEqual(calls[id], 1, `${id}: 1回だけ`);
+    assert.strictEqual(state.blocked.get(id).reason, `HTTP ${code}`);
+    const mine = rows.filter(r => r.store_id === id);
+    assert.ok(mine.length > 1 && mine.slice(1).every(r => r.outcome === "stopped" && r.price === null), id);
+  }
+  // 他の店舗は全SKUで取得を続ける
+  for (const id of ["rudeya", "rakuen", "mobileichiban", "morimori"]) {
+    const mine = rows.filter(r => r.store_id === id);
+    assert.ok(mine.length >= 32 && mine.every(r => r.outcome === "success"), `${id}: ${mine.map(r => r.outcome)}`);
+  }
+
+  const diagnostics = {
+    started_at: "2026/11/11 10:00:00", finished_at: "2026/11/11 10:05:00",
+    started_at_iso: "2026-11-11T01:00:00.000Z", finished_at_iso: "2026-11-11T01:05:00.000Z",
+    targets, target_count: targets.length, stores: rows
+  };
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "prices-"));
+  const file = path.join(dir, "prices.json");
+  fs.writeFileSync(file, "{}");
+  const saved = process.env.TARGET_JAN;
+  delete process.env.TARGET_JAN;
+  try {
+    const update = updatePricesJsonSafely(diagnostics, file);
+    diagnostics.prices_update = update;
+    assert.strictEqual(update.updated, true, JSON.stringify(update));
+    const prices = JSON.parse(fs.readFileSync(file, "utf8"));
+    for (const t of targets) {
+      const stores = prices[t.jan].stores.map(s => s.store);
+      assert.ok(stores.includes("買取ルデヤ"), t.name);
+      assert.ok(!stores.some(s => ["買取一丁目", "モバイルMIX", "買取商店"].includes(s)), `${t.name}: 停止した店舗の価格を出さない`);
+    }
+    const result = verifyPrices({ prices, diagnostics, indexHtml, previousPrices: null });
+    assert.deepStrictEqual(result.errors, [], "公開前検証に通る（価格の更新は止まらない）");
+  } finally {
+    if (saved !== undefined) process.env.TARGET_JAN = saved;
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
 });

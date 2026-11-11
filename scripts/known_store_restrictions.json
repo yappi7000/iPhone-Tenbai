@@ -1,0 +1,16 @@
+{
+  "_comment": "既知のアクセス制限で継続して取得できない店舗。監視では警告として毎回表示し（隠さない）、ワークフローは失敗にしない。ここに無い店舗の取得0件と、全店舗の取得0件は重大障害としてワークフローを失敗にする。回避策は取らない。監視が「回復の可能性」と表示したら、ここから外す。",
+  "iphone": {
+    "mobasute": { "registered": "2026-11-11", "cause": "HTTP 403", "last_success": null, "evidence": "data/store_health.json: 定時実行8回連続で価格0件" },
+    "morimori": { "registered": "2026-11-11", "cause": "接続の切断（socket hang up）", "last_success": null, "evidence": "data/store_health.json: 定時実行8回連続で価格0件" },
+    "iphonekaitori": { "registered": "2026-11-11", "cause": "WAF・遮断ページ", "last_success": null, "evidence": "data/store_health.json: 定時実行7回連続で価格0件" },
+    "kaitoriwiki": { "registered": "2026-11-11", "cause": "WAF・遮断ページ / HTTP 403", "last_success": null, "evidence": "data/store_health.json: 定時実行7回連続で価格0件" },
+    "kaitorishouten": { "registered": "2026-11-11", "cause": "HTTP 403", "last_success": null, "evidence": "data/store_health.json: 定時実行8回連続で価格0件" }
+  },
+  "catalog": {
+    "morimori": { "registered": "2026-11-11", "cause": "接続の切断（RemoteDisconnected）", "last_success": "2026-10-08", "evidence": "data/catalog_prices.json の履歴" },
+    "kaitoriwiki": { "registered": "2026-11-11", "cause": "HTTP 403", "last_success": "2026-10-08", "evidence": "data/catalog_prices.json の履歴" },
+    "kaitorishouten": { "registered": "2026-11-11", "cause": "HTTP 403", "last_success": "2026-10-30", "evidence": "data/catalog_prices.json の履歴" },
+    "keitaispace": { "registered": "2026-11-11", "cause": "HTTP 403", "last_success": "2026-11-01", "evidence": "data/catalog_prices.json の履歴" }
+  }
+}

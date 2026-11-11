@@ -29,9 +29,10 @@ API_BASES = {
 }
 # 同じ店舗へのリクエスト間隔（秒）。既定は1秒。
 STORE_INTERVALS = {'homura': 5}
-# これらの店舗はアクセス制限・タイムアウト・想定外の応答を検知したら、その日の残りを送らない（再試行しない）。
-HALT_STORES = {'homura'}
+# 全店舗: HTTP 403・429・503（アクセス制限等）を受けたら、その日の残りを送らない（再試行しない）。
 HALT_HTTP_STATUSES = {403, 429, 503}
+# これらの店舗はさらに、タイムアウト・接続の切断・想定外の応答でも停止する。
+STRICT_HALT_STORES = {'homura'}
 BAD_CONDITION = re.compile(r'中古|開封済|ジャンク|訳あり|シュリンク\s*(無し|なし|無)|バラパック|カートン')
 SEALED = re.compile(r'シュリンク\s*(あり|有り|有|付き|付)')
 
@@ -511,14 +512,17 @@ def fetch_quote(store, product):
             row['observed_at'] = checked
     except Exception as e:
         row['error'] = type(e).__name__ + ': ' + str(e)[:180]
-        if store in HALT_STORES and halts_store(e):
+        if halts_store(store, e):
             row['_halt'] = True
     return row
 
-def halts_store(e):
-    """アクセス制限・タイムアウト・想定外の応答か。該当すればその店舗のその日の取得を止める。"""
+def halts_store(store, e):
+    """その店舗のその日の取得を止めるか。全店舗はアクセス制限（403・429・503）、
+    STRICT_HALT_STORES はタイムアウト・接続の切断・想定外の応答でも止める。"""
     if isinstance(e, urllib.error.HTTPError):
         return e.code in HALT_HTTP_STATUSES
+    if store not in STRICT_HALT_STORES:
+        return False
     if isinstance(e, urllib.error.URLError):
         return isinstance(e.reason, TimeoutError)
     # 非200・JSON不正・スキーマ不一致・サイズ超過（ValueError）、タイムアウト、接続の切断
