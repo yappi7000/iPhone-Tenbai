@@ -512,6 +512,59 @@ function normalizeText(text) {
 
 
 /*
+ * iPhone Duo の掲載調査（価格には使わない）
+ *
+ * 商品名で抽出する店舗（楽園・一丁目・MIX・モバイル一番）は Duo の掲載形式を検証していないため、
+ * Duo の価格取得対象外（price_rules.js の allowedStoreIds）。iPhone 18 の取得で開いた同じページの
+ * 本文から Duo に関する記載だけを診断（duo_listing_probe）に残し、型番・容量・色・新品条件を
+ * 厳密に照合できるかを後で判断する。追加のアクセスはしない。
+ */
+const DUO_PROBE_STORE_IDS = new Set(["rakuen", "ichome", "mobilemix", "mobileichiban"]);
+const DUO_PROBE_MAX_SNIPPETS = 8;
+const DUO_PROBE_RESULTS = new Map();
+let DUO_PROBE_TARGETS = [];
+
+function probeDuoListing(text, duoTargets) {
+  const body = normalizeText(text);
+  const pattern = /iPhone\s*Duo|アイフォン\s*デュオ|\bDuo\b/gi;
+  const matches = [...body.matchAll(pattern)].slice(0, DUO_PROBE_MAX_SNIPPETS);
+  // 判定に使うのは Duo の記載から次の「iPhone」の手前まで（隣の商品の容量・色を混ぜない）
+  const segments = matches.map(m => {
+    const next = body.slice(m.index + m[0].length).search(/iPhone/i);
+    const end = next < 0 ? m.index + 220 : Math.min(m.index + 220, m.index + m[0].length + next);
+    return body.slice(m.index, end);
+  });
+  // 抜粋は確認用に前後の文脈も残す
+  const snippets = matches.map(m => body.slice(Math.max(0, m.index - 80), m.index + 220));
+  const joined = segments.join(" ");
+  return {
+    mentions: [...body.matchAll(pattern)].length,
+    // JAN は本文全体で完全一致（13桁の前後に数字が続かない）
+    jan_found: duoTargets
+      .map(t => String(t.jan))
+      .filter(jan => new RegExp(`(?<!\\d)${jan}(?!\\d)`).test(body)),
+    storages_found: ["256GB", "512GB", "1TB", "2TB"].filter(x => joined.includes(x)),
+    colors_found: [...new Set(duoTargets.map(t => t.color))].filter(c => joined.includes(c)),
+    new_condition_found: /新品|未開封|未使用/.test(joined),
+    snippets
+  };
+}
+
+function recordDuoProbe(store, diagnostic, bodyText) {
+  if (!DUO_PROBE_STORE_IDS.has(store.id) || DUO_PROBE_RESULTS.has(store.id)) return;
+  const status = diagnostic.http && diagnostic.http.status;
+  // 正常なページだけ（403・遮断ページ・空の本文は記録しない）
+  if (status !== 200 || !bodyText || hasBlockPageSignature(diagnostic)) return;
+  DUO_PROBE_RESULTS.set(store.id, {
+    store: store.name,
+    url: (diagnostic.http && diagnostic.http.final_url) || diagnostic.url || null,
+    checked_at: diagnostic.checked_at || null,
+    ...probeDuoListing(bodyText, DUO_PROBE_TARGETS)
+  });
+}
+
+
+/*
  * ページ本文から「実際に存在する」価格候補を抽出。
  *
  * defaultPriceなどは一切使わない。
@@ -2673,6 +2726,8 @@ if (
     diagnostic.page.body_length =
       bodyText.length;
 
+    recordDuoProbe(store, diagnostic, bodyText);
+
     diagnostic.page.body_available =
       bodyText.length > 0;
 
@@ -4244,6 +4299,9 @@ async function run() {
   const targetErrors =
     validateTargets(activeTargetJans);
 
+  DUO_PROBE_TARGETS =
+    activeTargetJans.filter(item => item.model === "iPhone Duo");
+
   if (targetErrors.length) {
     throw new Error(
       `対象SKU異常: ${targetErrors.join(" / ")}`
@@ -4973,6 +5031,10 @@ async function run() {
    * 完了時刻
    */
 
+  // Duo の掲載調査（価格には使わない。店舗ごとに1回、正常に開けたページのみ）
+  diagnostics.duo_listing_probe =
+    Object.fromEntries(DUO_PROBE_RESULTS);
+
   diagnostics.finished_at =
     nowJST();
 
@@ -5263,6 +5325,9 @@ module.exports = {
   PAGE_READY_MARKERS,
   extractRakuenPrice,
   extractIchomePrice,
+  probeDuoListing,
+  recordDuoProbe,
+  DUO_PROBE_RESULTS,
   extractRudeyaPrice,
   colorLabelsIn,
   extractIphoneKaitoriPrice
