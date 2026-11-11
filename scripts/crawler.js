@@ -578,6 +578,65 @@ function colorLabelsIn(text) {
   return [...new Set(String(text || "").match(COLOR_LABEL_PATTERN) || [])];
 }
 
+/*
+ * 対象色が名指しされていない場合の扱い（楽園・一丁目・MIX・モバイル一番）
+ *   official : 店舗の表記に「記載のない色は基準価格」等の明記がある
+ *              → 基準価格を正式な価格として採用（色別検証済み）
+ *   reference: 他色の条件だけが記載され、対象色の記載がない
+ *              → 基準価格を参考価格として記録するだけ（順位・最高値・利益計算には使わない）
+ * 対象色が（別名を含め）書かれているのに条件を読めない場合、色限定・色により異なる等の記載がある場合は、
+ * どちらにもしない（従来どおり価格なし）。
+ */
+const UNLISTED_COLOR_BASE_RULE =
+  /(?:(?:記載|表記)(?:の)?(?:ない|無い)|(?:上記|記載|表記)以外の|その他の)\s*(?:色|カラー)\s*(?:は|：|:)?\s*(?:基準価格|基本価格|通常価格|上記価格|同額|増減なし)/;
+const AMBIGUOUS_COLOR_TEXT =
+  /(?:色|カラー)\s*(?:により|によって|ごとに)\s*(?:異なる|変動|変わる)|(?:色|カラー).{0,6}(?:要確認|お問い?合わせ|問合せ)|(?:ブラック|シルバー|グレイシャー?|バーガンディ|黒|銀|青|紫)\s*のみ/;
+const COLOR_ALIAS = { "黒": "ブラック", "銀": "シルバー", "青": "グレイシャー", "紫": "バーガンディ", "グレイシャ": "グレイシャー" };
+
+function unlistedColorBase(text, color, basePrice) {
+  const none = { official: false, reference: false };
+  const value = normalizeText(text);
+  if (!color || !Number.isSafeInteger(basePrice) || basePrice <= 0) return none;
+  if (AMBIGUOUS_COLOR_TEXT.test(value)) return none;
+  const labels = colorLabelsIn(value)
+    .filter(label => label !== "全色" && label !== "紫以外")
+    .map(label => COLOR_ALIAS[label] || label);
+  if (labels.includes(color)) return none;
+  if (UNLISTED_COLOR_BASE_RULE.test(value)) {
+    return { official: true, reference: false, rule: "記載のない色は基準価格（店舗表記）" };
+  }
+  const others = [...new Set(labels)];
+  if (others.length) {
+    return {
+      official: false,
+      reference: true,
+      reason: `${color}の記載なし（色別の記載は${others.join("・")}のみ）。基準価格を参考表示`
+    };
+  }
+  return none;
+}
+
+/*
+ * 参考価格（対象色の記載なし）を診断行へ写す。価格（price）・色別検証には使わない。
+ */
+function copyReferenceFields(diagnostic, extracted) {
+  if (
+    extracted &&
+    extracted.price === null &&
+    Number.isSafeInteger(extracted.reference_price) &&
+    extracted.reference_price > 0
+  ) {
+    diagnostic.reference_price = extracted.reference_price;
+    diagnostic.reference_reason = extracted.reference_reason || "";
+  }
+}
+
+function referenceFields(unlisted, basePrice) {
+  return unlisted.reference
+    ? { reference_price: basePrice, reference_reason: unlisted.reason }
+    : {};
+}
+
 function colorEvidenceNote(basePrice, text, color) {
   const labels = colorLabelsIn(text);
   return `基準${Number(basePrice).toLocaleString("ja-JP")}円 / 色表記: ${
@@ -965,9 +1024,15 @@ function extractIchomePrice(
 
   const allColorsExplicit = /全色\s*(?:同額|共通|同一価格|増減なし)/.test(beforeUnopened);
   if (!color || (rule === "色別増減なし" && !allColorsExplicit)) {
-    return { found: true, price: null, raw_price: null, color_verified: false,
-      caution: colorEvidenceNote(basePrice, beforeUnopened, color),
-      error: "一丁目: 対象色の明示条件なし" };
+    const unlisted = unlistedColorBase(beforeUnopened, color, basePrice);
+    if (unlisted.official) {
+      rule = unlisted.rule;
+    } else {
+      return { found: true, price: null, raw_price: null, color_verified: false,
+        caution: colorEvidenceNote(basePrice, beforeUnopened, color),
+        error: "一丁目: 対象色の明示条件なし",
+        ...referenceFields(unlisted, basePrice) };
+    }
   }
   const finalPrice =
     basePrice + adjustment;
@@ -1619,9 +1684,15 @@ function extractRakuenPrice(
     (color === "バーガンディ" && /(?:紫|バーガンディ)\s*(?:基準|新品|[¥￥0-9])/.test(block)) ||
     /全色\s*(?:同額|共通|同一価格)/.test(block);
   if (!explicitColorProof) {
-    return { found: true, price: null, raw_price: null, color_verified: false,
-      caution: colorEvidenceNote(basePrice, block, color),
-      error: "楽園: 対象色の価格根拠なし" };
+    const unlisted = unlistedColorBase(block, color, basePrice);
+    if (unlisted.official && finalPrice === basePrice) {
+      rule = unlisted.rule;
+    } else {
+      return { found: true, price: null, raw_price: null, color_verified: false,
+        caution: colorEvidenceNote(basePrice, block, color),
+        error: "楽園: 対象色の価格根拠なし",
+        ...(finalPrice === basePrice ? referenceFields(unlisted, basePrice) : {}) };
+    }
   }
   if (
     !Number.isFinite(finalPrice) ||
@@ -1848,9 +1919,15 @@ async function extractMobileMixPrice(
   const allColorsExplicit = Boolean(allColorMatch) ||
     /全色\s*(?:同額|共通|同一価格|増減なし)/.test(conditionText);
   if (!color || (!hasTargetColorRule && !allColorsExplicit)) {
-    return { found: true, price: null, raw_price: null,
-      caution: conditionText, color_verified: false,
-      error: "MIX: 対象色の明示条件なし" };
+    const unlisted = unlistedColorBase(conditionText, color, basePrice);
+    if (unlisted.official && adjustment === 0) {
+      rule = unlisted.rule;
+    } else {
+      return { found: true, price: null, raw_price: null,
+        caution: conditionText, color_verified: false,
+        error: "MIX: 対象色の明示条件なし",
+        ...(adjustment === 0 ? referenceFields(unlisted, basePrice) : {}) };
+    }
   }
   const finalPrice =
     basePrice + adjustment;
@@ -2035,9 +2112,15 @@ function extractMobileIchibanPrice(
 
   const sameColorExplicit = /全色\s*(?:同額|共通|同一価格|増減なし)/.test(conditionText);
   if (!color || (rule === "色別増減なし" && !sameColorExplicit)) {
-    return { found: true, price: null, raw_price: null,
-      caution: conditionText, color_verified: false,
-      error: "モバイル一番: 対象色の明示条件なし" };
+    const unlisted = unlistedColorBase(conditionText, color, basePrice);
+    if (unlisted.official) {
+      rule = unlisted.rule;
+    } else {
+      return { found: true, price: null, raw_price: null,
+        caution: conditionText, color_verified: false,
+        error: "モバイル一番: 対象色の明示条件なし",
+        ...referenceFields(unlisted, basePrice) };
+    }
   }
   const finalPrice =
     basePrice + adjustment;
@@ -2772,6 +2855,8 @@ if (
           item.name
         );
 
+      copyReferenceFields(diagnostic, extracted);
+
       diagnostic.product.jan_found = false;
       diagnostic.product.name_found =
         extracted.found;
@@ -2808,6 +2893,8 @@ if (
           page,
           item.name
         );
+
+      copyReferenceFields(diagnostic, extracted);
 
       diagnostic.product.jan_found = false;
 
@@ -2848,6 +2935,8 @@ if (
           bodyText,
           item.name
         );
+
+      copyReferenceFields(diagnostic, extracted);
 
       diagnostic.product.jan_found = false;
 
@@ -3007,6 +3096,8 @@ if (
           bodyText,
           item.name
         );
+
+      copyReferenceFields(diagnostic, extracted);
 
       diagnostic.product.jan_found = false;
       diagnostic.product.name_found =
@@ -3673,6 +3764,39 @@ function updatePricesJsonSafely(
       );
   }
 
+  /*
+   * 参考価格（対象色の記載がなく、店舗の基準価格を参考表示するもの）
+   *   stores とは別の reference_stores に保存し、順位・最高値・利益計算には使わない。
+   *   価格は price ではなく reference_price に入れる。モデル別範囲外・許可外店舗・
+   *   同じ店舗の正式価格がある場合は保存しない。
+   */
+  const referenceByJan = new Map();
+  for (const row of diagnostics.stores) {
+    const jan = String((row && row.jan) || "");
+    const target = targetByJan.get(jan);
+    if (
+      !target ||
+      !uniqueTargetJans.includes(jan) ||
+      !PRICE_OUTPUT_STORE_IDS.includes(row.store_id) ||
+      !isStoreAllowedForModel(target.model, row.store_id) ||
+      row.status === "OK" ||
+      !Number.isSafeInteger(row.reference_price) ||
+      !isPriceInRange(target.model, row.reference_price, undefined, target.storage) ||
+      (rowsByJan.get(jan) && rowsByJan.get(jan).has(row.store_id))
+    ) {
+      continue;
+    }
+    if (!referenceByJan.has(jan)) referenceByJan.set(jan, []);
+    referenceByJan.get(jan).push({
+      store: row.store,
+      reference_price: row.reference_price,
+      reason: row.reference_reason || "対象色の記載なし",
+      url: row.url || "",
+      checked_at: row.checked_at || diagnostics.finished_at || nowJST(),
+      observed_at: diagnostics.started_at_iso
+    });
+  }
+
   let updatedSkuCount = 0;
   let freshPriceCount = 0;
   let preservedPriceCount = 0;
@@ -3780,6 +3904,11 @@ function updatePricesJsonSafely(
         : {}),
 
       stores,
+
+      // 参考価格（順位・最高値・利益計算には使わない）。毎回作り直し、古い参考価格を残さない
+      reference_stores:
+        (referenceByJan.get(jan) || [])
+          .sort((a, b) => b.reference_price - a.reference_price),
 
       /*
        * fetch_status
@@ -5263,6 +5392,8 @@ module.exports = {
   PAGE_READY_MARKERS,
   extractRakuenPrice,
   extractIchomePrice,
+  extractMobileIchibanPrice,
+  unlistedColorBase,
   extractRudeyaPrice,
   colorLabelsIn,
   extractIphoneKaitoriPrice

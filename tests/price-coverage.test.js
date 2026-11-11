@@ -21,6 +21,8 @@ const {
   extractIchomePrice,
   extractRakuenPrice,
   extractRudeyaPrice,
+  extractMobileIchibanPrice,
+  unlistedColorBase,
   colorLabelsIn
 } = require("../scripts/crawler.js");
 const { priceRangeFor } = require("../scripts/price_rules.js");
@@ -351,4 +353,96 @@ test("ルデヤ: JAN一致の価格はモデル・容量別の範囲で判定す
   assert.strictEqual(extractRudeyaPrice(pro, "4549995732948", priceRangeFor("iPhone 18 Pro Max", "2TB")).error, "買取価格が安全範囲外です");
   // 範囲が分からないときは全店共通の範囲（60万円まで）
   assert.strictEqual(extractRudeyaPrice(body, "4549995732948").price, null);
+});
+
+/* ---------- 色別価格: 記載のない色（正式価格は店舗表記がある場合だけ、それ以外は参考価格） ---------- */
+
+test("記載のない色: 店舗の明記があるときだけ正式価格、他色だけの記載は参考価格、対象色・色限定・あいまいな記載は価格なし", () => {
+  assert.deepStrictEqual(unlistedColorBase("シルバー -5,000 記載のない色は基準価格", "バーガンディ", 262000),
+    { official: true, reference: false, rule: "記載のない色は基準価格（店舗表記）" });
+  assert.strictEqual(unlistedColorBase("シルバー -5,000 上記以外のカラーは同額", "ブラック", 262000).official, true);
+  const ref = unlistedColorBase("シルバー -5,000", "バーガンディ", 262000);
+  assert.deepStrictEqual([ref.official, ref.reference], [false, true]);
+  assert.match(ref.reason, /バーガンディの記載なし（色別の記載はシルバーのみ）/);
+  // 対象色が（別名で）書かれているのに読めない場合は推測しない
+  assert.deepStrictEqual(unlistedColorBase("紫 要相談 シルバー -5,000", "バーガンディ", 262000), { official: false, reference: false });
+  assert.deepStrictEqual(unlistedColorBase("黒 -3,000", "ブラック", 262000), { official: false, reference: false });
+  // 色限定・色により異なる等は参考価格にもしない
+  for (const text of ["シルバーのみ買取", "色により異なる シルバー -5,000", "カラーによって変動 黒 -1,000", "色は要確認 シルバー -5,000"]) {
+    assert.deepStrictEqual(unlistedColorBase(text, "バーガンディ", 262000), { official: false, reference: false }, text);
+  }
+  // 色の記載が全く無い・基準価格が不正なら何もしない
+  assert.deepStrictEqual(unlistedColorBase("未開封のみ", "バーガンディ", 262000), { official: false, reference: false });
+  assert.deepStrictEqual(unlistedColorBase("シルバー -5,000", "バーガンディ", null), { official: false, reference: false });
+});
+
+test("記載のない色: 一丁目・モバイル一番・楽園で、明記なしは価格を出さず参考価格だけ、明記ありは正式価格", () => {
+  // 一丁目（実ページと同じ形）: バーガンディは増減一覧に無い → 価格なし・参考価格
+  const ichome = extractIchomePrice(ICHOME_RENDERED, "iPhone 18 Pro Max 256GB バーガンディ");
+  assert.deepStrictEqual([ichome.price, ichome.color_verified, ichome.reference_price], [null, false, 232000]);
+  assert.match(ichome.error, /対象色の明示条件なし/, "正式価格の判定は従来どおり");
+  assert.match(ichome.reference_reason, /ブラック・グレイシャー/);
+  // 店舗が「記載のない色は基準価格」と明記した場合だけ正式価格
+  const officialPage = ICHOME_RENDERED.replace("グレイシャ -7,000\n", "グレイシャ -7,000\n記載のない色は基準価格\n");
+  const ichomeOfficial = extractIchomePrice(officialPage, "iPhone 18 Pro Max 256GB バーガンディ");
+  assert.deepStrictEqual([ichomeOfficial.price, ichomeOfficial.color_verified], [232000, true]);
+  assert.match(ichomeOfficial.caution, /記載のない色は基準価格（店舗表記）/);
+  // 記載のある色の判定は変えない
+  assert.strictEqual(extractIchomePrice(officialPage, "iPhone 18 Pro Max 256GB ブラック").price, 232000 - 9000);
+
+  // モバイル一番（11/11 の診断と同じ「シルバー -5000」だけの記載）
+  const ichibanBody = "iPhone 18 Pro Max 512GB simfree未開封 シルバー -5000 新品 262,000円";
+  const burgundy = extractMobileIchibanPrice(ichibanBody, "iPhone 18 Pro Max 512GB バーガンディ");
+  assert.deepStrictEqual([burgundy.price, burgundy.reference_price], [null, 262000]);
+  const silver = extractMobileIchibanPrice(ichibanBody, "iPhone 18 Pro Max 512GB シルバー");
+  assert.deepStrictEqual([silver.price, silver.color_verified, silver.reference_price], [257000, true, undefined]);
+
+  // 楽園: 黒・青/銀の明示価格だけ → 紫は価格なし・参考価格（基準価格）
+  const rakuen = extractRakuenPrice(rakuenBody("黒 261,000\n青/銀 263,000"), "iPhone 18 Pro Max 512GB バーガンディ");
+  assert.deepStrictEqual([rakuen.price, rakuen.color_verified, rakuen.reference_price], [null, false, 270000]);
+});
+
+test("記載のない色: 参考価格は prices.json の reference_stores だけに入り、stores・成功数・公開前検証に混ざらない", () => {
+  const fs = require("node:fs"), os = require("node:os"), path = require("node:path");
+  const { updatePricesJsonSafely } = require("../scripts/crawler.js");
+  const { verifyPrices } = require("../scripts/verify_prices.js");
+  const { extractTargets } = require("../scripts/price_rules.js");
+  const indexHtml = fs.readFileSync(path.join(__dirname, "../index.html"), "utf8");
+  const targets = extractTargets(indexHtml);
+  const burgundy = targets.find(t => t.name === "iPhone 18 Pro Max 512GB バーガンディ");
+  const row = (t, store_id, store, extra) => ({ store_id, store, jan: t.jan, status: "ERROR", price: null, color_verified: false,
+    outcome: "extraction_failed", http: { status: 200 }, errors: [], checked_at: "2026/11/12 10:00:00", url: `https://example.test/${store_id}`, ...extra });
+  const stores = [];
+  for (const t of targets) {
+    stores.push(row(t, "rudeya", "買取ルデヤ", { status: "OK", price: t.model === "iPhone Duo" ? 410000 : 262000, color_verified: true, outcome: "success" }));
+    if (t === burgundy) {
+      stores.push(row(t, "ichome", "買取一丁目", { reference_price: 262000, reference_reason: "バーガンディの記載なし（色別の記載はシルバーのみ）。基準価格を参考表示" }));
+      stores.push(row(t, "mobileichiban", "モバイル一番", { reference_price: 9999999, reference_reason: "範囲外" }));
+    }
+  }
+  const diagnostics = { started_at: "2026/11/12 10:00:00", finished_at: "2026/11/12 10:05:00",
+    started_at_iso: "2026-11-12T01:00:00.000Z", finished_at_iso: "2026-11-12T01:05:00.000Z", targets, target_count: targets.length, stores };
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "prices-ref-"));
+  const file = path.join(dir, "prices.json");
+  fs.writeFileSync(file, "{}");
+  const saved = process.env.TARGET_JAN;
+  delete process.env.TARGET_JAN;
+  try {
+    const update = updatePricesJsonSafely(diagnostics, file);
+    diagnostics.prices_update = update;
+    assert.strictEqual(update.updated, true, JSON.stringify(update));
+    const prices = JSON.parse(fs.readFileSync(file, "utf8"));
+    const item = prices[burgundy.jan];
+    assert.deepStrictEqual(item.stores.map(s => s.store), ["買取ルデヤ"], "順位用の stores には入れない");
+    assert.deepStrictEqual(item.reference_stores.map(r => [r.store, r.reference_price, "price" in r]), [["買取一丁目", 262000, false]], "範囲外の参考価格は保存しない");
+    assert.strictEqual(item.fetch_summary.success, 1, "成功数に数えない");
+    assert.deepStrictEqual(prices[targets[0].jan].reference_stores, []);
+    assert.deepStrictEqual(verifyPrices({ prices, diagnostics, indexHtml, previousPrices: null }).errors, []);
+    // 参考価格に price を持たせたら検証で止める
+    item.reference_stores[0].price = 262000;
+    assert.ok(verifyPrices({ prices, diagnostics, indexHtml, previousPrices: null }).errors.some(e => /参考価格に price を持たせない/.test(e)));
+  } finally {
+    if (saved !== undefined) process.env.TARGET_JAN = saved;
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
 });
