@@ -899,20 +899,25 @@ test("カテゴリー再現: Android（Pixel 10a）で買取一丁目と買取�
   const catalogPrices = shiftedCatalogPrices(1);
   const id = "android-0840353950054"; // Google Pixel 10a 256GB fog
   const expected = catalogCore.ranking(catalogPrices.products[id]);
-  assert.deepStrictEqual(expected.map(q => q.store), ["買取一丁目", "買取ルデヤ"], "実データの前提");
+  assert.ok(expected.length >= 2, "実データの前提: 複数店舗の有効価格がある");
   const { page, errors } = await openWith(BASE_PRICES, { catalogPrices, viewport: { width: 375, height: 812 } });
   await page.click('[data-catalog-category="other"]');
   const card = (await page.textContent(`#catalogProducts [data-product="${id}"]`)).replace(/\s+/g, " ");
-  assert.match(card, /買取一丁目 ／ 比較可能 2店/);
+  assert.ok(card.includes(`${expected[0].store} ／ 比較可能 ${expected.length}店`), card);
   await page.click(`#catalogProducts [data-product="${id}"]`);
   await page.waitForSelector("#catalogDetail:not([hidden])");
   const shown = await rankedStoresInDetail(page);
-  assert.deepStrictEqual(shown.map(r => r.store), ["買取一丁目", "買取ルデヤ"]);
-  assert.match(await page.textContent("#catalogBest"), /最高買取 ¥82,000 ／ 買取一丁目/);
-  // 取得失敗・掲載なしの店舗は順位外として理由付きで表示（価格を出さない）
+  assert.deepStrictEqual(shown.map(r => r.store), expected.map(q => q.store));
+  const best = (await page.textContent("#catalogBest")).replace(/\s+/g, " ");
+  assert.ok(best.includes(`最高買取 ¥${expected[0].price.toLocaleString("ja-JP")} ／ ${expected[0].store}`), best);
+  // 取得失敗・掲載なしの店舗は順位外として、データの状態どおりの理由付きで表示（価格を出さない）
   const excluded = await page.$$eval("#catalogRanking .catalog-store", rows => rows.filter(r => !r.querySelector(".catalog-rank")).map(r => r.textContent.replace(/\s+/g, " ")));
-  assert.ok(excluded.some(t => /買取ホムラ.*対象条件の価格なし/.test(t)));
-  assert.ok(excluded.some(t => /買取商店.*取得失敗/.test(t)));
+  const reasons = { not_found: "対象条件の価格なし", condition_mismatch: "条件不一致", error: "取得失敗", stopped: "本日の取得を停止" };
+  for (const store of ["買取ホムラ", "買取商店"]) {
+    const row = catalogPrices.products[id].find(r => r.store === store);
+    assert.ok(row && reasons[row.status], `実データの前提: ${store}は${Object.keys(reasons).join("/")}`);
+    assert.ok(excluded.some(t => t.includes(store) && t.includes(reasons[row.status])), store);
+  }
   assert.ok(excluded.every(t => !/¥/.test(t)), "順位外の店舗に価格を出さない");
   assert.deepStrictEqual(errors, []);
   await page.close();
@@ -958,4 +963,37 @@ test("初期表示: ページを開いた直後は iPhone Duo 256GB スターホ
   assert.match(rows[0], /1位[\s\S]*買取ルデヤ/);
   assert.deepStrictEqual(errors, []);
   await page.close();
+});
+
+test("利用者保護: カタログの一覧と詳細に、比較可能店舗数・取得対象店舗数・最高値の取得日時を出す（古い価格は数に含めない）", async () => {
+  const catalogPrices = shiftedCatalogPrices(1);
+  const id = "android-0840353950054"; // Google Pixel 10a 256GB fog
+  const rows = catalogPrices.products[id];
+  const expected = catalogCore.ranking(rows);
+  assert.ok(expected.length >= 2 && rows.length > expected.length, "実データの前提: 複数店舗の有効価格と順位外の店舗がある");
+  const jst = value => new Date(value).toLocaleString("ja-JP", { timeZone: "Asia/Tokyo", month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit" }) + " JST";
+  const { page, errors } = await openWith(BASE_PRICES, { catalogPrices, viewport: { width: 375, height: 812 } });
+  await page.click('[data-catalog-category="other"]');
+  const card = (await page.textContent(`#catalogProducts [data-product="${id}"]`)).replace(/\s+/g, " ");
+  assert.ok(card.includes(`比較可能 ${expected.length}店（対象${rows.length}店）`), card);
+  await page.click(`#catalogProducts [data-product="${id}"]`);
+  await page.waitForSelector("#catalogDetail:not([hidden])");
+  const best = (await page.textContent("#catalogBest")).replace(/\s+/g, " ");
+  assert.ok(best.includes(`（取得 ${jst(expected[0].observed_at)}）`), best);
+  assert.ok(best.includes(`比較可能 ${expected.length}店 ／ 取得対象 ${rows.length}店（順位外 ${rows.length - expected.length}店）`), best);
+  await page.close();
+
+  // 2位の店舗の価格が36時間を超えて古い場合は、比較可能の数から外す
+  const stale = shiftedCatalogPrices(1);
+  stale.products[id] = stale.products[id].map(r => (r.store === expected[1].store ? { ...r, observed_at: new Date(Date.now() - 40 * 3600000).toISOString() } : r));
+  const second = await openWith(BASE_PRICES, { catalogPrices: stale });
+  await second.page.click('[data-catalog-category="other"]');
+  const staleCard = (await second.page.textContent(`#catalogProducts [data-product="${id}"]`)).replace(/\s+/g, " ");
+  assert.ok(staleCard.includes(`比較可能 ${expected.length - 1}店（対象${rows.length}店）`), staleCard);
+  await second.page.click(`#catalogProducts [data-product="${id}"]`);
+  await second.page.waitForSelector("#catalogDetail:not([hidden])");
+  const staleBest = (await second.page.textContent("#catalogBest")).replace(/\s+/g, " ");
+  assert.ok(staleBest.includes(`比較可能 ${expected.length - 1}店 ／ 取得対象 ${rows.length}店`), staleBest);
+  assert.deepStrictEqual([...errors, ...second.errors], []);
+  await second.page.close();
 });

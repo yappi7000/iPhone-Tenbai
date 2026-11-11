@@ -49,7 +49,7 @@
     $('catalogProducts').innerHTML = found.length ? found.map(p => {
       const ranks = core.ranking(quoteRows(p));
       const best = ranks[0];
-      return `<button type="button" class="catalog-product" data-product="${escape(p.id)}"><span class="catalog-tag">${escape(condition(p))}</span><strong>${category === 'cards' && cardView === 'top' ? '🏆 ' + (found.findIndex(x => core.ranking(quoteRows(x))[0]?.price === best?.price) + 1) + '位　' : ''}${escape(p.name)}</strong><span class="catalog-muted">${escape(meta(p))}${p.available_from ? ' ／ 発売予定 ' + escape(p.available_from) : ''}</span><span class="catalog-price">${best ? yen(best.price) : quoteRows(p).some(r => r.status === 'unreleased') ? '発売前・価格対象外' : '価格未取得'}</span><span class="catalog-muted">${best ? escape(best.store) + ' ／ 比較可能 ' + ranks.length + '店' : '商品を開いて取得状況を確認'} →</span></button>`;
+      return `<button type="button" class="catalog-product" data-product="${escape(p.id)}"><span class="catalog-tag">${escape(condition(p))}</span><strong>${category === 'cards' && cardView === 'top' ? '🏆 ' + (found.findIndex(x => core.ranking(quoteRows(x))[0]?.price === best?.price) + 1) + '位　' : ''}${escape(p.name)}</strong><span class="catalog-muted">${escape(meta(p))}${p.available_from ? ' ／ 発売予定 ' + escape(p.available_from) : ''}</span><span class="catalog-price">${best ? yen(best.price) : quoteRows(p).some(r => r.status === 'unreleased') ? '発売前・価格対象外' : '価格未取得'}</span><span class="catalog-muted">${best ? escape(best.store) + ' ／ 比較可能 ' + ranks.length + '店（対象' + quoteRows(p).length + '店）' : '商品を開いて取得状況を確認'} →</span></button>`;
     }).join('') : '<div class="catalog-empty">該当する登録商品がありません。<br>' + ($('catalogQuery').value.trim() ? '機種名だけで検索するか、下の公式検索で確認してください。' : '別のジャンルを選んでください。') + '</div>';
     const links = core.storeSearchLinks($('catalogQuery').value);
     if (category === 'cards' && $('catalogQuery').value.trim()) links.unshift({store:'カードラッシュ（買取）',url:'https://cardrush.media/pokemon/buying_prices?name='+encodeURIComponent($('catalogQuery').value.trim())});
@@ -102,7 +102,10 @@
     const result = best ? core.profit(best.price, costs.cost, costs.shipping, costs.fees) : null;
     $('catalogProfit').textContent = !best ? '比較可能な価格がありません' : result === null ? '仕入れ価格を入力してください' : (result >= 0 ? '+' : '−') + yen(Math.abs(result));
     $('catalogProfit').classList.toggle('catalog-error', result !== null && result < 0);
-    $('catalogBest').textContent = best ? '最高買取 ' + yen(best.price) + ' ／ ' + best.store : '取得できた価格だけを順位に反映します';
+    // 取得日時と、比較できた店舗数・取得対象の店舗数を明示する（取得失敗・古い価格の店舗は数に含めない）
+    const rows = quoteRows(selected);
+    const coverage = '比較可能 ' + ranks.length + '店 ／ 取得対象 ' + rows.length + '店' + (rows.length > ranks.length ? '（順位外 ' + (rows.length - ranks.length) + '店）' : '');
+    $('catalogBest').textContent = best ? '最高買取 ' + yen(best.price) + ' ／ ' + best.store + '（取得 ' + time(best.observed_at) + '） ／ ' + coverage : '取得できた価格だけを順位に反映します ／ ' + coverage;
     let previous = null, rank = 0;
     const rankingHtml = ranks.map((row,i) => {
       if (row.price !== previous) rank = i + 1;
