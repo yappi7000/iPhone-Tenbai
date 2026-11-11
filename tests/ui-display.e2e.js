@@ -514,6 +514,42 @@ test("順位と計算: 最新価格と古い価格が混在しても、最高価
   await page.close();
 });
 
+test("参考価格: 対象色の記載がない店舗の基準価格は参考表示だけで、順位・最高価格・利益計算に使わない（XSS対策・古い参考価格は非表示）", async () => {
+  const at = iso(1);
+  const reference = (store, price, observedAt, reason) => ({ store, reference_price: price, reason, url: "https://example.invalid/ref", checked_at: "x", observed_at: observedAt });
+  const { page, errors } = await openWith(withItem({
+    stores: [verifiedRow("買取ルデヤ", 224500, at)],
+    reference_stores: [
+      reference("買取一丁目", 270000, at, "ブラックの記載なし<img src=x onerror=alert(1)>"),
+      reference("モバイル一番", 280000, iso(40), "古い参考価格")
+    ],
+    fetch_status: "ok", last_checked_at: at, last_success_at: at, last_update: "x"
+  }));
+  assert.strictEqual((await page.textContent("#maxPriceCard")).trim(), "¥224,500", "参考価格（高い）を最高価格にしない");
+  assert.strictEqual((await page.textContent("#bestStoreName")).trim(), "買取ルデヤ");
+  assert.strictEqual(await page.inputValue("#simBestPrice"), "224500", "利益計算は正式価格だけ");
+  const rows = await page.locator("#rankingTableBody tr").allTextContents();
+  assert.strictEqual(rows.length, 2, "36時間超の参考価格は表示しない");
+  assert.match(rows[0], /1位[\s\S]*買取ルデヤ/);
+  assert.match(rows[1], /買取一丁目[\s\S]*¥270,000[\s\S]*参考価格[\s\S]*順位・最高価格・利益計算に含めません/);
+  assert.ok(!/2位/.test(rows.join("")));
+  assert.strictEqual(await page.locator("#rankingTableBody img").count(), 0, "理由の文字列はエスケープする");
+  assert.deepStrictEqual(errors, []);
+  await page.close();
+
+  // 正式価格が無く参考価格だけの場合も、最高価格は出さない
+  const only = await openWith(withItem({
+    stores: [], reference_stores: [reference("買取一丁目", 270000, at, "バーガンディの記載なし")],
+    fetch_status: "no_price", last_checked_at: at, last_success_at: null, last_update: null
+  }));
+  assert.strictEqual((await only.page.textContent("#maxPriceCard")).trim(), "--");
+  const onlyRows = await only.page.locator("#rankingTableBody tr").allTextContents();
+  assert.match(onlyRows[0], /価格未取得/);
+  assert.match(onlyRows[1], /買取一丁目[\s\S]*参考価格/);
+  assert.deepStrictEqual(only.errors, []);
+  await only.page.close();
+});
+
 test("Present検索: 古い iPhone 17 の価格に順位・利益計算を付けず、前に検索した商品の結果も残さない", async () => {
   const at = iso(1);
   const prices = withItem({ stores: [verifiedRow("買取ルデヤ", 224500, at)], fetch_status: "ok", last_checked_at: at, last_success_at: at, last_update: "x" });
