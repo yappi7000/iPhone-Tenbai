@@ -470,8 +470,21 @@ const CONFIG = {
 
 const ROOT_DIR = path.resolve(__dirname, "..");
 
-const DIAGNOSTICS_PATH =
-  path.join(ROOT_DIR, "data", "crawl_diagnostics.json");
+/*
+ * 診断の保存先。1SKU更新（TARGET_JAN 指定）は全件実行の診断（店舗別の成功率・監視ゲートの入力）を
+ * 上書きしないよう、別ファイルに書く。
+ */
+function diagnosticsPathFor(env = process.env) {
+  return path.join(
+    ROOT_DIR,
+    "data",
+    String(env.TARGET_JAN || "").trim()
+      ? "crawl_diagnostics_ondemand.json"
+      : "crawl_diagnostics.json"
+  );
+}
+
+const DIAGNOSTICS_PATH = diagnosticsPathFor();
 
 const PRICES_PATH =
   path.join(ROOT_DIR, "data", "prices.json");
@@ -5249,6 +5262,7 @@ mainRunner().catch(error => {
 
 // テスト用（実行時の動作には影響しない）
 module.exports = {
+  diagnosticsPathFor,
   updatePricesJsonSafely,
   storesForItem,
   createStoreRunState,
