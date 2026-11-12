@@ -7,6 +7,12 @@ compatibility_date = "2026-09-29"
 [triggers]
 crons = ["17 * * * *"]
 
+# Workers Logs（無料プランで利用可・保存3日・1日20万件）。定時起動の CPU 時間・上限超過（Exceeded resources）を
+# ダッシュボードの Logs / Metrics で確認する。監視のログは1回1行（1日24行）。
+[observability]
+enabled = true
+head_sampling_rate = 1
+
 [vars]
 # "dry-run": 判定をログに出すだけ（既定）。"issues": GitHub App の認証情報があるときだけ Issue を作成・更新・クローズする
 MONITOR_MODE = "dry-run"

@@ -30,6 +30,8 @@ export const STALE_HOURS = 36;
 export const BASELINE_RUNS = 14;
 export const MIN_BASELINE_RUNS = 3;
 export const MONITOR_FAILURE_ALERT = 3;
+// 全件実行の終了から公開データ（GitHub Pages）への反映を待つ時間（実績は1〜2分）
+export const PUBLISH_GRACE_MS = 30 * 60000;
 
 // 監視対象（scripts/price_rules.js の MODEL_RULES と同じ。enforce=false は警告まで）
 export const MODELS = {
@@ -194,15 +196,37 @@ export function evaluate(metrics, baseline = { runs: [] }) {
   const out = [];
   const now = metrics.now;
 
-  // 全件実行（GitHub API の最新の全件実行、無ければ全件診断の終了時刻）
+  // 全件実行の経過時間は「公開中の全件診断」の終了時刻で数える（GitHub API の成功だけでは数えない）。
+  // 全件診断が無い場合だけ、GitHub API の最新の成功で代用する（そのときは full-diagnostics も警告する）。
   const run = metrics.run;
-  const lastFullMs = run && run.conclusion === "success" ? parseTime(run.updated_at) : parseTime(metrics.fullFinishedAt);
+  const diagMs = parseTime(metrics.fullFinishedAt);
+  const lastFullMs = diagMs !== null ? diagMs
+    : (run && run.status === "completed" && run.conclusion === "success" ? parseTime(run.updated_at) : null);
   if (lastFullMs === null) {
     out.push(finding("full-run", "warning", "全件実行の完了を確認できません", ["GitHub API と全件診断のどちらからも、最新の全件実行の終了時刻を得られませんでした。"]));
   } else {
     const age = hours(now - lastFullMs);
     const level = age >= T.fullRunAgeHours.critical ? "critical" : age >= T.fullRunAgeHours.warning ? "warning" : age >= T.fullRunAgeHours.notice ? "notice" : "ok";
     if (level !== "ok") out.push(finding("full-run", level, `全件実行が${Math.floor(age)}時間行われていません`, [`最終の全件実行: ${new Date(lastFullMs).toISOString()}`, "GitHub Actions の定時実行の遅延・停止の可能性があります。"]));
+  }
+  // GitHub Actions の実行と公開データの対応: 全件診断の終了時刻は、その全件実行の開始〜終了の間に入る
+  // （2026-10-25〜11-11 の全件実行18回すべてで成立）。最新の成功した全件実行より前なら、公開データが反映されていない。
+  if (run && run.status === "completed" && run.conclusion === "success" && diagMs !== null) {
+    const start = parseTime(run.started_at || run.created_at);
+    const end = parseTime(run.updated_at);
+    if (start !== null && end !== null && diagMs < start - 60000) {
+      const sinceEnd = now - end;
+      const level = sinceEnd < PUBLISH_GRACE_MS ? "notice" : "warning";
+      out.push(finding("full-run-publish", level, "最新の全件実行の結果が公開データに反映されていません", [
+        `全件実行 run ${run.id}: ${run.started_at || run.created_at} 〜 ${run.updated_at}`,
+        `公開中の全件診断の終了時刻: ${metrics.fullFinishedAt}（この実行より前）`,
+        "価格のコミット・GitHub Pages の公開を確認してください。"
+      ]));
+    } else if (start !== null && end !== null && diagMs > end + 60000) {
+      out.push(finding("full-run-publish", "notice", "公開中の全件診断に対応する全件実行を確認できません", [
+        `公開中の全件診断の終了時刻: ${metrics.fullFinishedAt} / 最新の成功した全件実行: ${run.updated_at}`
+      ]));
+    }
   }
   if (run && run.status === "completed" && run.conclusion !== "success") {
     out.push(finding("full-run-result", "warning", `最新の全件実行が ${run.conclusion} で終了しました`, [`run ${run.id}（${run.created_at}）。検証に失敗した場合、価格は保存されていません。`]));
@@ -431,10 +455,14 @@ export function hasAppCredentials(env) {
 
 /* ---------- 実行 ---------- */
 
-async function getJson(fetchImpl, url, init = {}) {
+async function getJson(fetchImpl, url, init = {}, sizes = null) {
   const res = await fetchImpl(url, init);
   if (!res.ok) throw new Error(`HTTP ${res.status}: ${url.replace(/\?.*$/, "")}`);
-  return res.json();
+  const text = await res.text();
+  // Workers ではコード内で CPU 時間を測れない（時刻は I/O の後にしか進まない）ため、
+  // 解析したデータ量を記録し、Workers Logs / Metrics の CPU 時間と突き合わせる
+  if (sizes) sizes[url.replace(/\?.*$/, "").split("/").pop()] = text.length;
+  return JSON.parse(text);
 }
 
 /*
@@ -442,8 +470,10 @@ async function getJson(fetchImpl, url, init = {}) {
  */
 export async function latestFullRun(fetchImpl, token) {
   const base = `${GITHUB_API}/repos/${OWNER}/${REPO}/actions`;
-  const runs = await getJson(fetchImpl, `${base}/workflows/${FULL_WORKFLOW}/runs?branch=main&per_page=5`, { headers: ghHeaders(token) });
-  const run = (runs.workflow_runs || []).find(r => r.event === "schedule" || r.event === "workflow_dispatch");
+  const runs = await getJson(fetchImpl, `${base}/workflows/${FULL_WORKFLOW}/runs?branch=main&per_page=10`, { headers: ghHeaders(token) });
+  const full = (runs.workflow_runs || []).filter(r => r.event === "schedule" || r.event === "workflow_dispatch");
+  // 判定には最新の「完了した」全件実行を使う（実行中の回は結果が出ていない）
+  const run = full.find(r => r.status === "completed");
   if (!run) return null;
   let gate = null;
   if (run.status === "completed") {
@@ -451,7 +481,9 @@ export async function latestFullRun(fetchImpl, token) {
     const step = (jobs.jobs || []).flatMap(j => j.steps || []).find(s => s.name === GATE_STEP);
     gate = step ? step.conclusion : null;
   }
-  return { id: run.id, status: run.status, conclusion: run.conclusion, created_at: run.created_at, updated_at: run.updated_at, gate };
+  return { id: run.id, status: run.status, conclusion: run.conclusion, created_at: run.created_at,
+    started_at: run.run_started_at || run.created_at, updated_at: run.updated_at, gate,
+    in_progress: full.some(r => r.status !== "completed") };
 }
 
 async function kvGet(env, key) {
@@ -476,7 +508,9 @@ export async function runMonitor(env = {}, { fetchImpl = fetch, now = Date.now()
   try {
     if (mode === "issues") token = await installationToken(env, fetchImpl);
     const bust = `?t=${now}`;
-    const page = path => getJson(fetchImpl, PAGES_BASE + path + bust, { cf: { cacheTtl: 0 }, headers: { "Cache-Control": "no-cache" } });
+    const sizes = {};
+    result.parsedBytes = sizes;
+    const page = path => getJson(fetchImpl, PAGES_BASE + path + bust, { cf: { cacheTtl: 0 }, headers: { "Cache-Control": "no-cache" } }, sizes);
     const [prices, diagnostics, master, known] = await Promise.all([
       page("data/prices.json"), page("data/crawl_diagnostics.json"), page("data/product_master.json"), page("scripts/known_store_restrictions.json")
     ]);

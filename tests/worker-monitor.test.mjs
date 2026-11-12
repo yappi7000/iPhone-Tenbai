@@ -66,6 +66,9 @@ test("実データ: 11/11 の全件実行の1時間後は異常なし（38/40 SK
   const m = collectMetrics({ prices: REAL_PRICES, diagnostics: REAL_DIAG, master: MASTER, known: KNOWN, now });
   assert.deepStrictEqual([m.targetCount, m.valid, m.multi18, m.total18, m.notSaved.length, m.fullDiag], [40, 38, 21, 32, 0, true]);
   assert.deepStrictEqual(evaluate(m), []);
+  // GitHub Actions の実際の全件実行（run 42947589776: 02:40:11〜02:42:30）と公開中の全件診断（02:42:25.870）が対応する
+  const realRun = { id: 42947589776, status: "completed", conclusion: "success", started_at: "2026-11-11T02:40:11Z", updated_at: "2026-11-11T02:42:30Z", gate: null };
+  assert.deepStrictEqual(evaluate(collectMetrics({ prices: REAL_PRICES, diagnostics: REAL_DIAG, master: MASTER, known: KNOWN, run: realRun, now })), []);
   // 既知のアクセス制限の店舗（0件）は新規障害にしない
   assert.strictEqual(m.storeRates.mobasute.success, 0);
 });
@@ -123,11 +126,34 @@ test("全件診断が1SKU診断で上書きされている・有効価格の更�
   assert.deepStrictEqual(keys(evaluate(metricsOf({}, failed))), ["critical:store-gate", "warning:full-run-result"]);
 });
 
-test("全件実行の遅れ: 26時間で注意・30時間で警告・34時間で重大（GitHub API の最終成功を優先）", () => {
-  const lastSuccess = h => ({ id: 3, status: "completed", conclusion: "success", created_at: FINISHED, updated_at: new Date(FINISHED_MS + H - h * H).toISOString(), gate: "success" });
-  assert.deepStrictEqual(keys(evaluate(metricsOf({}, lastSuccess(27)))), ["notice:full-run"]);
-  assert.deepStrictEqual(keys(evaluate(metricsOf({}, lastSuccess(31)))), ["warning:full-run"]);
-  assert.deepStrictEqual(keys(evaluate(metricsOf({}, lastSuccess(35)))), ["critical:full-run"]);
+test("全件実行の遅れ: 公開中の全件診断の時刻で数え、26時間で注意・30時間で警告・34時間で重大", () => {
+  const at = h => keys(evaluate(metricsOf({ now: FINISHED_MS + h * H })));
+  assert.deepStrictEqual(at(27), ["notice:full-run"]);
+  assert.deepStrictEqual(at(31), ["warning:full-run"]);
+  assert.deepStrictEqual(at(35), ["critical:full-run"]);
+});
+
+test("実行と公開データの対応: 新しい全件実行が成功しても公開データが古ければ、30分は注意・その後は警告（API の成功だけで正常にしない）", () => {
+  // 前日 FINISHED の全件診断が公開中のまま、翌日の全件実行（+24h 開始・+24h03m 終了）が成功
+  const newRun = { id: 9, status: "completed", conclusion: "success", started_at: new Date(FINISHED_MS + 24 * H).toISOString(),
+    updated_at: new Date(FINISHED_MS + 24 * H + 3 * 60000).toISOString(), gate: "success" };
+  const soon = keys(evaluate(metricsOf({ now: FINISHED_MS + 24 * H + 13 * 60000 }, newRun)));
+  assert.deepStrictEqual(soon, ["notice:full-run-publish"], "Pages の反映待ち");
+  const later = keys(evaluate(metricsOf({ now: FINISHED_MS + 27 * H }, newRun)));
+  assert.deepStrictEqual(later, ["notice:full-run", "warning:full-run-publish"], "経過時間も公開データの時刻で数える");
+  // 対応している場合（全件診断の終了時刻が実行の開始〜終了の間）は何も出さない
+  const same = { ...newRun, started_at: new Date(FINISHED_MS - 3 * 60000).toISOString(), updated_at: new Date(FINISHED_MS + 5000).toISOString() };
+  assert.deepStrictEqual(evaluate(metricsOf({}, same)), []);
+});
+
+test("古い全件診断＋新しい1SKU更新の組み合わせを正常と判定しない（保存の照合は通っても経過時間で検知）", () => {
+  // 全件実行から31時間。その間に1SKU更新で5SKUだけ last_checked_at が進み、価格も新しい
+  const m = metricsOf({ now: FINISHED_MS + 31 * H, laterChecked: 5, observedHoursAgo: 0 });
+  assert.strictEqual(m.notSaved.length, 0, "1SKU更新で進んだSKUは保存済みとして扱う");
+  assert.deepStrictEqual(keys(evaluate(m)), ["warning:full-run"], "全件実行の遅れは検知する");
+  // 価格自体が古ければ鮮度でも検知する
+  const old = metricsOf({ now: FINISHED_MS + 31 * H, laterChecked: 5, observedHoursAgo: 31 });
+  assert.deepStrictEqual(keys(evaluate(old)), ["warning:freshness", "warning:full-run"]);
 });
 
 /* ---------- 有効SKU数・比較可能店舗数・成功率 ---------- */
@@ -229,7 +255,10 @@ function fakeEnvironment({ data = makeData(), pagesStatus = 200, issues = [], ru
       if (u.includes("data/product_master.json")) return json(data.master);
       if (u.includes("known_store_restrictions.json")) return json(data.known);
     }
-    if (u.includes("/actions/workflows/crawl.yml/runs")) return json({ workflow_runs: run ? [{ id: 11, event: "schedule", status: "completed", conclusion: "success", created_at: FINISHED, updated_at: FINISHED, ...run }] : [] });
+    if (u.includes("/actions/workflows/crawl.yml/runs")) {
+      const done = { id: 11, event: "schedule", status: "completed", conclusion: "success", created_at: FINISHED, run_started_at: new Date(FINISHED_MS - 3 * 60000).toISOString(), updated_at: FINISHED, ...run };
+      return json({ workflow_runs: run ? [{ id: 12, event: "schedule", status: "in_progress", conclusion: null, created_at: FINISHED }, { id: 13, event: "workflow_dispatch", status: "completed", conclusion: "success", path: "x" }].slice(0, run.withInProgress ? 1 : 0).concat([done]) : [] });
+    }
     if (u.includes("/actions/runs/11/jobs")) return json({ jobs: [{ steps: [{ name: "Store coverage gate", conclusion: run && run.gate || "success" }] }] });
     if (u.includes("/access_tokens")) return json({ token: "ghs_test" }, 201);
     if (u.includes("/issues?state=open")) return json(issues);
@@ -291,6 +320,16 @@ test("実行: 公開データを読めない回が3回続いたら監視の失�
   const before = kv.writes();
   await runMonitor({ MONITOR_STATE: kv }, { fetchImpl: good.fetchImpl, now: FINISHED_MS + 2 * H, log: () => {} });
   assert.strictEqual(kv.writes(), before, "同じ全件実行・失敗なしなら KV に書かない（1日の書き込み上限 1,000 に対して数回）");
+});
+
+test("実行: 実行中の全件実行は判定に使わず、最新の完了した回と公開データを照合する。解析したデータ量をログに残す", async () => {
+  const { fetchImpl } = fakeEnvironment({ run: { withInProgress: true } });
+  const logs = [];
+  const r = await runMonitor({}, { fetchImpl, now: FINISHED_MS + H, log: l => logs.push(l) });
+  assert.deepStrictEqual(r.findings, []);
+  const line = JSON.parse(logs[0]);
+  assert.deepStrictEqual(Object.keys(line.parsedBytes).sort(), ["crawl_diagnostics.json", "known_store_restrictions.json", "prices.json", "product_master.json"]);
+  assert.ok(Object.values(line.parsedBytes).every(n => n > 0));
 });
 
 test("実行: GitHub API が使えなくても、公開データだけで判定を続ける", async () => {
