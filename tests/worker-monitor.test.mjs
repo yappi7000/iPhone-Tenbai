@@ -1,5 +1,5 @@
 /*
- * 価格鮮度の監視（worker/monitor.js）と、既存 Worker（worker/index.js の fetch）の回帰テスト
+ * 価格鮮度の監視専用 Worker（worker-monitor/）と、既存の今すぐ更新の Worker（worker/index.js の fetch）の回帰テスト
  *
  *   node --test tests/worker-monitor.test.mjs
  *
@@ -13,10 +13,12 @@ import { fileURLToPath } from "node:url";
 import {
   collectMetrics, evaluate, updateBaseline, planIssues, marker, targetsFromMaster, runMonitor,
   appJwt, installationToken, THRESHOLDS, MIN_BASELINE_RUNS
-} from "../worker/monitor.js";
-import worker from "../worker/index.js";
+} from "../worker-monitor/monitor.js";
+import monitorWorker from "../worker-monitor/index.js";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+// 既存の今すぐ更新の Worker は worker/ に ESM 設定を足さず、ソースのまま読み込んで回帰テストする
+const worker = (await import("data:text/javascript;base64," + Buffer.from(fs.readFileSync(path.join(ROOT, "worker/index.js"))).toString("base64"))).default;
 const readJson = p => JSON.parse(fs.readFileSync(path.join(ROOT, p), "utf8"));
 const MASTER = readJson("data/product_master.json");
 const KNOWN = readJson("scripts/known_store_restrictions.json");
@@ -377,9 +379,18 @@ test("既存 Worker の fetch は変わらない: CORS・Origin 制限・Turnsti
   assert.ok(!ok.calls.some(c => /crawl\.yml\/dispatches/.test(c.url)), "今すぐ更新から全件実行は起動しない");
 });
 
-test("既存 Worker: scheduled は監視だけを実行し、fetch 用の秘密情報（GITHUB_TOKEN・TURNSTILE_SECRET）を使わない", async () => {
-  assert.strictEqual(typeof worker.scheduled, "function");
-  const source = fs.readFileSync(path.join(ROOT, "worker/monitor.js"), "utf8");
+test("監視専用 Worker: 既存の Worker と分離し、scheduled だけで動き、HTTP は 404・公開URLなし・既存の秘密情報を使わない", async () => {
+  assert.strictEqual(worker.scheduled, undefined, "既存の Worker には定時起動を追加しない");
+  const toml = fs.readFileSync(path.join(ROOT, "worker-monitor/wrangler.toml"), "utf8");
+  assert.match(toml, /^name = "iphone-tenbai-monitor"$/m);
+  assert.match(toml, /^workers_dev = false$/m);
+  assert.match(toml, /^crons = \["17 \* \* \* \*"\]$/m);
+  assert.match(toml, /^MONITOR_MODE = "dry-run"$/m);
+  assert.ok(!/^\[\[kv_namespaces\]\]/m.test(toml), "KV は承認後に設定する");
+  const existingToml = fs.readFileSync(path.join(ROOT, "worker/wrangler.toml"), "utf8");
+  assert.ok(!/triggers|crons|observability/.test(existingToml), "既存の Worker の設定は変えない");
+  assert.strictEqual((await monitorWorker.fetch(new Request("https://x/"))).status, 404);
+  const source = fs.readFileSync(path.join(ROOT, "worker-monitor/monitor.js"), "utf8");
   assert.ok(!/GITHUB_TOKEN|TURNSTILE_SECRET/.test(source.replace(/\/\*[\s\S]*?\*\//g, "")), "監視のコードは既存の秘密情報を参照しない");
   const waits = [];
   const original = globalThis.fetch;
@@ -387,7 +398,7 @@ test("既存 Worker: scheduled は監視だけを実行し、fetch 用の秘密�
   const originalLog = console.log;
   console.log = () => {};
   try {
-    await worker.scheduled({}, {}, { waitUntil: p => waits.push(p) });
+    await monitorWorker.scheduled({}, {}, { waitUntil: p => waits.push(p) });
     const result = await waits[0];
     assert.strictEqual(result.mode, "dry-run");
   } finally {

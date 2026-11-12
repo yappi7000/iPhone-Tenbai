@@ -1,5 +1,3 @@
-import { runMonitor } from "./monitor.js";
-
 const ALLOWED_ORIGINS = new Set([
   "https://yappi7000.github.io",
   "http://localhost:8000",
@@ -394,13 +392,5 @@ export default {
       202,
       origin
     );
-  },
-
-  /*
-   * 価格鮮度の監視（Cron Trigger）。読み取りと Issue 通知のみで、価格取得・ワークフロー起動はしない。
-   * fetch（今すぐ更新の受付）とは独立しており、GITHUB_TOKEN・TURNSTILE_SECRET は使わない。
-   */
-  async scheduled(controller, env, ctx) {
-    ctx.waitUntil(runMonitor(env));
   }
 };

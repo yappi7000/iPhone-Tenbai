@@ -1,7 +1,7 @@
 /*
  * 価格鮮度の監視（第1段階: 監視のみ）
  *
- * Cloudflare Workers の Cron Trigger から1時間ごとに実行し、公開中のデータと
+ * 監視専用 Worker（worker-monitor/、iphone-tenbai-monitor）の Cron Trigger から1時間ごとに実行し、公開中のデータと
  * GitHub Actions の実行結果を読み取って、全件更新の漏れ・遅れ・価格データの劣化を判定する。
  *
  * - 価格の取得・ワークフローの起動・データの書き換えはしない（読み取りと Issue 通知のみ）。

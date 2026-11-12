@@ -1,27 +1,3 @@
 name = "iphone-tenbai-refresh"
 main = "index.js"
 compatibility_date = "2026-09-29"
-
-# 価格鮮度の監視（第1段階: 監視のみ・7日間）。毎時17分（混雑しやすい0分を避ける）。
-# Workers Free は Cron Trigger がアカウント全体で5個まで・1回の CPU 10ms。
-[triggers]
-crons = ["17 * * * *"]
-
-# Workers Logs（無料プランで利用可・保存3日・1日20万件）。定時起動の CPU 時間・上限超過（Exceeded resources）を
-# ダッシュボードの Logs / Metrics で確認する。監視のログは1回1行（1日24行）。
-[observability]
-enabled = true
-head_sampling_rate = 1
-
-[vars]
-# "dry-run": 判定をログに出すだけ（既定）。"issues": GitHub App の認証情報があるときだけ Issue を作成・更新・クローズする
-MONITOR_MODE = "dry-run"
-
-# 基準値（過去14回の中央値）の保存先。承認後に KV を作成して有効にする（無い間は固定の最低基準だけで判定）。
-# [[kv_namespaces]]
-# binding = "MONITOR_STATE"
-# id = "<作成した KV の ID>"
-
-# シークレット（wrangler secret put で登録。ここには書かない）:
-#   GITHUB_TOKEN, TURNSTILE_SECRET            … 既存（今すぐ更新）
-#   MONITOR_APP_ID, MONITOR_APP_INSTALLATION_ID, MONITOR_APP_PRIVATE_KEY（PKCS#8）… 鮮度監視の GitHub App
