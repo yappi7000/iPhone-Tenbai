@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-13T07:47:48.204194+00:00",
+  "generated_at": "2026-11-13T16:08:26.957303+00:00",
   "source": "Apple Japan retail pickup",
   "anchors": {
     "tokyo": "100-0005",
@@ -2695,8 +2695,8 @@
       "request_successes": 5,
       "request_errors": [],
       "overall_status": "ok",
-      "available_store_count": 9,
-      "unavailable_store_count": 2,
+      "available_store_count": 10,
+      "unavailable_store_count": 1,
       "stores": [
         {
           "store_number": "R711",
@@ -2803,10 +2803,10 @@
           "store_name": "福岡",
           "state": "福岡県",
           "city": "福岡市",
-          "status": "unavailable",
-          "pickup_display": "unavailable",
+          "status": "available",
+          "pickup_display": "available",
           "store_pick_eligible": true,
-          "pickup_search_quote": "選択できません"
+          "pickup_search_quote": "受け取れる日 本日"
         }
       ]
     },
