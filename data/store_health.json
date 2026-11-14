@@ -1,16 +1,16 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-13T03:22:42.126Z",
+  "updated_at": "2026-11-14T03:02:13.268Z",
   "alert_streak": 3,
   "stores": {
     "mobasute": {
       "store": "モバステ",
-      "last_run_at": "2026-11-13T03:22:42.126Z",
+      "last_run_at": "2026-11-14T03:02:13.268Z",
       "success": 0,
       "total": 32,
       "cause": "blocked",
       "active": true,
-      "streak": 10,
+      "streak": 11,
       "last_success_at": null,
       "top_reasons": [
         [
@@ -25,12 +25,12 @@
     },
     "morimori": {
       "store": "森森買取",
-      "last_run_at": "2026-11-13T03:22:42.126Z",
+      "last_run_at": "2026-11-14T03:02:13.268Z",
       "success": 0,
       "total": 40,
       "cause": "connection_error",
       "active": true,
-      "streak": 10,
+      "streak": 11,
       "last_success_at": null,
       "top_reasons": [
         [
@@ -41,44 +41,44 @@
     },
     "rudeya": {
       "store": "買取ルデヤ",
-      "last_run_at": "2026-11-13T03:22:42.126Z",
+      "last_run_at": "2026-11-14T03:02:13.268Z",
       "success": 40,
       "total": 40,
       "cause": null,
       "active": true,
       "streak": 0,
-      "last_success_at": "2026-11-13T03:22:42.126Z",
+      "last_success_at": "2026-11-14T03:02:13.268Z",
       "top_reasons": []
     },
     "rakuen": {
       "store": "買取楽園",
-      "last_run_at": "2026-11-13T03:22:42.126Z",
-      "success": 14,
+      "last_run_at": "2026-11-14T03:02:13.268Z",
+      "success": 13,
       "total": 32,
       "cause": null,
       "active": true,
       "streak": 0,
-      "last_success_at": "2026-11-13T03:22:42.126Z",
+      "last_success_at": "2026-11-14T03:02:13.268Z",
       "top_reasons": [
         [
           "抽出失敗: 楽園: 対象色の価格根拠なし",
-          18
+          19
         ]
       ]
     },
     "ichome": {
       "store": "買取一丁目",
-      "last_run_at": "2026-11-13T03:22:42.126Z",
-      "success": 16,
+      "last_run_at": "2026-11-14T03:02:13.268Z",
+      "success": 18,
       "total": 32,
       "cause": null,
       "active": true,
       "streak": 0,
-      "last_success_at": "2026-11-13T03:22:42.126Z",
+      "last_success_at": "2026-11-14T03:02:13.268Z",
       "top_reasons": [
         [
           "抽出失敗: 一丁目: 対象色の明示条件なし",
-          15
+          13
         ],
         [
           "抽出失敗: 色別増減額を数値化できません",
@@ -88,12 +88,12 @@
     },
     "iphonekaitori": {
       "store": "iPhone買取価格表",
-      "last_run_at": "2026-11-13T03:22:42.126Z",
+      "last_run_at": "2026-11-14T03:02:13.268Z",
       "success": 0,
       "total": 40,
       "cause": "blocked",
       "active": true,
-      "streak": 9,
+      "streak": 10,
       "last_success_at": null,
       "top_reasons": [
         [
@@ -108,12 +108,12 @@
     },
     "kaitoriwiki": {
       "store": "買取wiki",
-      "last_run_at": "2026-11-13T03:22:42.126Z",
+      "last_run_at": "2026-11-14T03:02:13.268Z",
       "success": 0,
       "total": 40,
       "cause": "blocked",
       "active": true,
-      "streak": 9,
+      "streak": 10,
       "last_success_at": null,
       "top_reasons": [
         [
@@ -128,17 +128,17 @@
     },
     "mobilemix": {
       "store": "モバイルMIX",
-      "last_run_at": "2026-11-13T03:22:42.126Z",
-      "success": 13,
+      "last_run_at": "2026-11-14T03:02:13.268Z",
+      "success": 14,
       "total": 32,
       "cause": null,
       "active": true,
       "streak": 0,
-      "last_success_at": "2026-11-13T03:22:42.126Z",
+      "last_success_at": "2026-11-14T03:02:13.268Z",
       "top_reasons": [
         [
           "抽出失敗: MIX: 対象色の明示条件なし",
-          15
+          14
         ],
         [
           "掲載なし: Mobile MIX対象商品ブロックを取得できません",
@@ -148,13 +148,13 @@
     },
     "mobileichiban": {
       "store": "モバイル一番",
-      "last_run_at": "2026-11-13T03:22:42.126Z",
-      "success": 7,
+      "last_run_at": "2026-11-14T03:02:13.268Z",
+      "success": 6,
       "total": 32,
       "cause": null,
       "active": true,
       "streak": 0,
-      "last_success_at": "2026-11-13T03:22:42.126Z",
+      "last_success_at": "2026-11-14T03:02:13.268Z",
       "top_reasons": [
         [
           "掲載なし: simfree未開封の新品価格を取得できません",
@@ -162,18 +162,18 @@
         ],
         [
           "抽出失敗: モバイル一番: 対象色の明示条件なし",
-          9
+          10
         ]
       ]
     },
     "kaitorishouten": {
       "store": "買取商店",
-      "last_run_at": "2026-11-13T03:22:42.126Z",
+      "last_run_at": "2026-11-14T03:02:13.268Z",
       "success": 0,
       "total": 40,
       "cause": "blocked",
       "active": true,
-      "streak": 10,
+      "streak": 11,
       "last_success_at": null,
       "top_reasons": [
         [
