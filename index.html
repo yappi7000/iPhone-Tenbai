@@ -1068,6 +1068,28 @@ body{background:#eef3f9}
     return { ranked, excluded };
   }
 
+  /*
+   * 参考価格（対象色の記載がなく、店舗の基準価格を参考表示するもの）。
+   *   順位・最高買取価格・差額・利益計算には使わない。
+   *   行自身の取得日時が36時間以内のものだけ表示する（SKUの取得日時で代用しない）。
+   */
+  function referenceRowsHtml(itemData) {
+    const F = window.PriceFreshness;
+    const refs = itemData && Array.isArray(itemData.reference_stores) ? itemData.reference_stores : [];
+    return refs
+      .filter(r => r && Number.isSafeInteger(r.reference_price) && r.reference_price > 0 &&
+        F.classifyStore(r, Date.now(), null).state === "fresh")
+      .map(r => `
+        <tr class="excluded-row reference-row">
+          <td class="rank" style="color:var(--muted);">—</td>
+          <td style="font-weight:900;">${escapeHtml(r.store)}</td>
+          <td class="price" style="color:var(--muted);">¥${r.reference_price.toLocaleString()}<div style="font-size:10px;">（参考価格）</div></td>
+          <td class="diff" style="font-size:11px;color:var(--muted);">参考価格：${escapeHtml(r.reason || "対象色の記載なし")}。順位・最高価格・利益計算に含めません</td>
+          <td>${storeDataBadge(r, null)}</td>
+          <td style="text-align:right;">${officialLinkHtml(r.url)}</td>
+        </tr>`).join("");
+  }
+
   const PRICE_DISCLAIMER_HTML =
     '<p class="price-disclaimer">※ 表示している買取価格は取得時点の<strong>参考値</strong>です。実際の買取価格・買取条件は変わるため、売却前に必ず各店舗の公式サイトで確認してください。</p>';
 
@@ -1130,7 +1152,7 @@ body{background:#eef3f9}
               ? "開封済みの買取データは現在未対応です。"
               : (jan ? `JAN: ${jan}` : "JAN未登録のため買取価格は取得していません")}</span>
           </td>
-        </tr>`;
+        </tr>` + referenceRowsHtml(itemData);
       return;
     }
 
@@ -1156,7 +1178,7 @@ body{background:#eef3f9}
       diffPriceCard.style.color = "";
       finalProfitCard.textContent = "--";
       finalProfitCard.style.color = "";
-      tableBody.innerHTML = excludedRowsHtml;
+      tableBody.innerHTML = excludedRowsHtml + referenceRowsHtml(itemData);
       updateSimulation();
       return;
     }
@@ -1237,7 +1259,7 @@ body{background:#eef3f9}
           </td>
         </tr>
       `;
-    }).join("") + excludedRowsHtml;
+    }).join("") + excludedRowsHtml + referenceRowsHtml(itemData);
     updateSimulation();
   }
 

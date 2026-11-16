@@ -236,6 +236,29 @@ function verifyPrices({
       names.add(name);
     }
 
+    // 参考価格（対象色の記載なし）は stores と分けて保存されていること（順位・計算に混ぜない）
+    if (item.reference_stores !== undefined && !Array.isArray(item.reference_stores)) {
+      errors.push(`${label}: reference_stores が配列ではありません`);
+    }
+    for (const ref of Array.isArray(item.reference_stores) ? item.reference_stores : []) {
+      const name = String((ref && ref.store) || "").trim();
+      const value = ref && ref.reference_price;
+      const observedMs = parseTimestamp(ref && ref.observed_at);
+      const problems = [];
+      if (!name) problems.push("店舗名なし");
+      if (ref && "price" in ref) problems.push("参考価格に price を持たせない");
+      if (ref && ref.color_verified === true) problems.push("参考価格を色別検証済みにしない");
+      if (names.has(name)) problems.push("正式価格と同じ店舗");
+      if (!Number.isSafeInteger(value) || !isPriceInRange(t.model, value, rules, t.storage)) problems.push(`参考価格がモデル別範囲外（${value}）`);
+      if (
+        observedMs === null || startedMs === null || finishedMs === null ||
+        observedMs < startedMs - CLOCK_TOLERANCE_MS || observedMs > finishedMs + CLOCK_TOLERANCE_MS
+      ) {
+        problems.push(`今回取得した参考価格ではありません（observed_at=${ref && ref.observed_at}）`);
+      }
+      if (problems.length) errors.push(`${label}: 不正な参考価格 ${name || "(不明)"} - ${problems.join("、")}`);
+    }
+
     const fetched = item.stores.length > 0;
 
     if (fetched) {
