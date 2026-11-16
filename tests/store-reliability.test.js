@@ -534,3 +534,44 @@ test("通し: 403・429・503 で停止した店舗があっても、他店舗�
     fs.rmSync(dir, { recursive: true, force: true });
   }
 });
+
+/* ---------- iPhone Duo の掲載調査（価格には使わない） ---------- */
+
+test("Duo掲載調査: 既に開いたページから Duo の記載・JAN完全一致・容量・色・新品条件を記録する（価格は出さない）", () => {
+  const { probeDuoListing, recordDuoProbe, DUO_PROBE_RESULTS } = require("../scripts/crawler.js");
+  const { isStoreAllowedForModel } = require("../scripts/price_rules.js");
+  const duo = [
+    { jan: "4549995732740", model: "iPhone Duo", storage: "512GB", color: "スターホワイト" },
+    { jan: "4549995732795", model: "iPhone Duo", storage: "512GB", color: "ナイトスカイ" }
+  ];
+  // 隣の商品（iPhone 18 Pro 256GB・ナイトスカイ表記を含む iPhone 17）の容量・色は Duo の判定に混ぜない
+  const page = "iPhone 18 Pro 256GB 未開封 ¥190,000\niPhone Duo 512GB スターホワイト 新品未開封 JAN:4549995732740 ¥420,000\niPhone 17 1TB ナイトスカイ 中古 14549995732795";
+  const probe = probeDuoListing(page, duo);
+  assert.strictEqual(probe.mentions, 1);
+  assert.deepStrictEqual(probe.jan_found, ["4549995732740"], "前後に数字が続くJANは一致としない");
+  assert.deepStrictEqual(probe.storages_found, ["512GB"]);
+  assert.deepStrictEqual(probe.colors_found, ["スターホワイト"]);
+  assert.strictEqual(probe.new_condition_found, true);
+  assert.ok(!("price" in probe), "価格は抽出しない");
+  assert.deepStrictEqual(probeDuoListing("iPhone 18 Pro 256GB ¥190,000", duo),
+    { mentions: 0, jan_found: [], storages_found: [], colors_found: [], new_condition_found: false, snippets: [] });
+  const many = Array.from({ length: 20 }, (_, i) => `iPhone Duo 枠${i}`).join(" ");
+  assert.strictEqual(probeDuoListing(many, duo).snippets.length, 8, "抜粋は最大8件");
+
+  // 正常なページだけ、店舗ごとに1回だけ記録する。対象外の店舗・遮断ページは記録しない
+  DUO_PROBE_RESULTS.clear();
+  const diag = (status, title = "買取価格表") => ({ http: { status, final_url: "https://example.test/list" }, page: { title, body_length: 300 }, checked_at: "2026/11/12 11:00:00" });
+  recordDuoProbe({ id: "rudeya", name: "買取ルデヤ" }, diag(200), page);
+  recordDuoProbe({ id: "ichome", name: "買取一丁目" }, diag(403, "403 Forbidden"), page);
+  recordDuoProbe({ id: "mobilemix", name: "モバイルMIX" }, diag(200, "Webサイトファイアウォール"), page);
+  recordDuoProbe({ id: "rakuen", name: "買取楽園" }, diag(200), page);
+  recordDuoProbe({ id: "rakuen", name: "買取楽園" }, diag(200), "iPhone Duo 2TB");
+  assert.deepStrictEqual([...DUO_PROBE_RESULTS.keys()], ["rakuen"]);
+  assert.strictEqual(DUO_PROBE_RESULTS.get("rakuen").mentions, 1, "最初の正常ページだけ");
+  DUO_PROBE_RESULTS.clear();
+
+  // 調査だけで、Duo の価格取得対象は変えない
+  for (const id of ["rakuen", "ichome", "mobilemix", "mobileichiban"]) {
+    assert.strictEqual(isStoreAllowedForModel("iPhone Duo", id), false, id);
+  }
+});
