@@ -1,0 +1,31 @@
+# 価格鮮度の監視専用 Worker（第1段階: ログのみ・7日間）
+# 既存の今すぐ更新の Worker（worker/wrangler.toml, iphone-tenbai-refresh）とは別。
+name = "iphone-tenbai-monitor"
+main = "index.js"
+compatibility_date = "2026-09-29"
+
+# 公開URL（*.workers.dev）を持たない。HTTP は受け付けない
+workers_dev = false
+
+# 毎時17分（UTC。混雑しやすい0分を避ける）。Workers Free は Cron Trigger がアカウント全体で5個まで・1回の CPU 10ms
+[triggers]
+crons = ["17 * * * *"]
+
+# Workers Logs（無料プランで利用可・保存3日・1日20万件）。この Worker は Cron だけで動くため、
+# 記録されるのは定時実行（1日24件）と監視の console.log（1日24行）だけ。CPU 時間は Metrics・Logs で確認する
+[observability]
+enabled = true
+head_sampling_rate = 1
+
+[vars]
+# "dry-run": 判定をログに出すだけ（第1段階）。"issues" は GitHub App 導入後（承認後）に切り替える
+MONITOR_MODE = "dry-run"
+
+# 基準値（過去14回の中央値）と監視失敗回数の保存先。承認後に KV を作成して有効にする
+# （無い間は固定の最低基準だけで判定し、監視の連続失敗の警告も出ない）
+# [[kv_namespaces]]
+# binding = "MONITOR_STATE"
+# id = "<作成した KV の ID>"
+
+# シークレット（Issue 通知を導入するときに wrangler secret put で登録。ここには書かない）:
+#   MONITOR_APP_ID, MONITOR_APP_INSTALLATION_ID, MONITOR_APP_PRIVATE_KEY（PKCS#8）
