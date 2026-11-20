@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-19T21:23:01.932136+00:00",
+  "generated_at": "2026-11-20T02:59:38.796428+00:00",
   "source": "Apple Japan retail pickup",
   "anchors": {
     "tokyo": "100-0005",
@@ -3207,8 +3207,8 @@
       "request_successes": 5,
       "request_errors": [],
       "overall_status": "ok",
-      "available_store_count": 9,
-      "unavailable_store_count": 2,
+      "available_store_count": 10,
+      "unavailable_store_count": 1,
       "stores": [
         {
           "store_number": "R711",
@@ -3255,10 +3255,10 @@
           "store_name": "銀座",
           "state": "東京都",
           "city": "中央区",
-          "status": "unavailable",
-          "pickup_display": "unavailable",
+          "status": "available",
+          "pickup_display": "available",
           "store_pick_eligible": true,
-          "pickup_search_quote": "選択できません"
+          "pickup_search_quote": "受け取れる日 本日"
         },
         {
           "store_number": "R718",
@@ -3591,8 +3591,8 @@
       "request_successes": 5,
       "request_errors": [],
       "overall_status": "ok",
-      "available_store_count": 8,
-      "unavailable_store_count": 3,
+      "available_store_count": 10,
+      "unavailable_store_count": 1,
       "stores": [
         {
           "store_number": "R711",
@@ -3639,10 +3639,10 @@
           "store_name": "銀座",
           "state": "東京都",
           "city": "中央区",
-          "status": "unavailable",
-          "pickup_display": "unavailable",
+          "status": "available",
+          "pickup_display": "available",
           "store_pick_eligible": true,
-          "pickup_search_quote": "選択できません"
+          "pickup_search_quote": "受け取れる日 本日"
         },
         {
           "store_number": "R718",
@@ -3659,10 +3659,10 @@
           "store_name": "新宿",
           "state": "東京都",
           "city": "新宿区",
-          "status": "unavailable",
-          "pickup_display": "unavailable",
+          "status": "available",
+          "pickup_display": "available",
           "store_pick_eligible": true,
-          "pickup_search_quote": "選択できません"
+          "pickup_search_quote": "受け取れる日 本日"
         },
         {
           "store_number": "R119",
@@ -3719,8 +3719,8 @@
       "request_successes": 5,
       "request_errors": [],
       "overall_status": "ok",
-      "available_store_count": 7,
-      "unavailable_store_count": 4,
+      "available_store_count": 8,
+      "unavailable_store_count": 3,
       "stores": [
         {
           "store_number": "R711",
@@ -3767,10 +3767,10 @@
           "store_name": "銀座",
           "state": "東京都",
           "city": "中央区",
-          "status": "unavailable",
-          "pickup_display": "unavailable",
+          "status": "available",
+          "pickup_display": "available",
           "store_pick_eligible": true,
-          "pickup_search_quote": "選択できません"
+          "pickup_search_quote": "受け取れる日 本日"
         },
         {
           "store_number": "R718",
