@@ -1,16 +1,16 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-27T04:56:15.994Z",
+  "updated_at": "2026-11-28T04:41:07.552Z",
   "alert_streak": 3,
   "stores": {
     "mobasute": {
       "store": "モバステ",
-      "last_run_at": "2026-11-27T04:56:15.994Z",
+      "last_run_at": "2026-11-28T04:41:07.552Z",
       "success": 0,
       "total": 32,
       "cause": "blocked",
       "active": true,
-      "streak": 24,
+      "streak": 25,
       "last_success_at": null,
       "top_reasons": [
         [
@@ -25,12 +25,12 @@
     },
     "morimori": {
       "store": "森森買取",
-      "last_run_at": "2026-11-27T04:56:15.994Z",
+      "last_run_at": "2026-11-28T04:41:07.552Z",
       "success": 0,
       "total": 40,
       "cause": "connection_error",
       "active": true,
-      "streak": 24,
+      "streak": 25,
       "last_success_at": null,
       "top_reasons": [
         [
@@ -41,23 +41,23 @@
     },
     "rudeya": {
       "store": "買取ルデヤ",
-      "last_run_at": "2026-11-27T04:56:15.994Z",
+      "last_run_at": "2026-11-28T04:41:07.552Z",
       "success": 40,
       "total": 40,
       "cause": null,
       "active": true,
       "streak": 0,
-      "last_success_at": "2026-11-27T04:56:15.994Z",
+      "last_success_at": "2026-11-28T04:41:07.552Z",
       "top_reasons": []
     },
     "rakuen": {
       "store": "買取楽園",
-      "last_run_at": "2026-11-27T04:56:15.994Z",
+      "last_run_at": "2026-11-28T04:41:07.552Z",
       "success": 0,
       "total": 32,
       "cause": "blocked",
       "active": true,
-      "streak": 1,
+      "streak": 2,
       "last_success_at": "2026-11-26T04:53:57.634Z",
       "top_reasons": [
         [
@@ -72,13 +72,13 @@
     },
     "ichome": {
       "store": "買取一丁目",
-      "last_run_at": "2026-11-27T04:56:15.994Z",
+      "last_run_at": "2026-11-28T04:41:07.552Z",
       "success": 20,
       "total": 32,
       "cause": null,
       "active": true,
       "streak": 0,
-      "last_success_at": "2026-11-27T04:56:15.994Z",
+      "last_success_at": "2026-11-28T04:41:07.552Z",
       "top_reasons": [
         [
           "抽出失敗: 一丁目: 対象色の明示条件なし",
@@ -92,12 +92,12 @@
     },
     "iphonekaitori": {
       "store": "iPhone買取価格表",
-      "last_run_at": "2026-11-27T04:56:15.994Z",
+      "last_run_at": "2026-11-28T04:41:07.552Z",
       "success": 0,
       "total": 40,
       "cause": "blocked",
       "active": true,
-      "streak": 23,
+      "streak": 24,
       "last_success_at": null,
       "top_reasons": [
         [
@@ -112,12 +112,12 @@
     },
     "kaitoriwiki": {
       "store": "買取wiki",
-      "last_run_at": "2026-11-27T04:56:15.994Z",
+      "last_run_at": "2026-11-28T04:41:07.552Z",
       "success": 0,
       "total": 40,
       "cause": "blocked",
       "active": true,
-      "streak": 23,
+      "streak": 24,
       "last_success_at": null,
       "top_reasons": [
         [
@@ -132,17 +132,17 @@
     },
     "mobilemix": {
       "store": "モバイルMIX",
-      "last_run_at": "2026-11-27T04:56:15.994Z",
-      "success": 20,
+      "last_run_at": "2026-11-28T04:41:07.552Z",
+      "success": 17,
       "total": 32,
       "cause": null,
       "active": true,
       "streak": 0,
-      "last_success_at": "2026-11-27T04:56:15.994Z",
+      "last_success_at": "2026-11-28T04:41:07.552Z",
       "top_reasons": [
         [
           "抽出失敗: MIX: 対象色の明示条件なし",
-          8
+          11
         ],
         [
           "掲載なし: Mobile MIX対象商品ブロックを取得できません",
@@ -152,13 +152,13 @@
     },
     "mobileichiban": {
       "store": "モバイル一番",
-      "last_run_at": "2026-11-27T04:56:15.994Z",
+      "last_run_at": "2026-11-28T04:41:07.552Z",
       "success": 12,
       "total": 32,
       "cause": null,
       "active": true,
       "streak": 0,
-      "last_success_at": "2026-11-27T04:56:15.994Z",
+      "last_success_at": "2026-11-28T04:41:07.552Z",
       "top_reasons": [
         [
           "掲載なし: simfree未開封の新品価格を取得できません",
@@ -172,12 +172,12 @@
     },
     "kaitorishouten": {
       "store": "買取商店",
-      "last_run_at": "2026-11-27T04:56:15.994Z",
+      "last_run_at": "2026-11-28T04:41:07.552Z",
       "success": 0,
       "total": 40,
       "cause": "blocked",
       "active": true,
-      "streak": 24,
+      "streak": 25,
       "last_success_at": null,
       "top_reasons": [
         [
